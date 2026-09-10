@@ -11,6 +11,30 @@ async function load(original,plans){
  return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createReadonlyGiftcardColumns(plans));
 }
 function normalize(value){if(Array.isArray(value))return Array.from(value,normalize);if(typeof value==='function')return '[render]';if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,normalize(v)]));return value;}
+const lookupCases = [
+ {plans:[{id:7,name:'Match'}],id:7},
+ {plans:[{id:7,name:'Strict mismatch'}],id:'7'},
+ {plans:[{id:7,name:'First'},{id:7,name:'Second'}],id:7},
+ {plans:[{id:7}],id:7}, {plans:[],id:7},
+ {plans:null,id:7}, {plans:undefined,id:7},
+ {plans:[null],id:7}, {plans:[{id:7,name:null}],id:7},
+ {plans:[{id:0,name:'Zero'}],id:0},
+];
+for(const [index,{plans,id}] of lookupCases.entries())test(`giftcard plan lookup ${index+1}`,async()=>{
+ const results=[];for(const original of [true,false]){
+  const column=(await load(original,plans)).find(c=>c.key==='plan_id');
+  try{results.push({value:column.render(id)});}catch(e){results.push({error:e.name});}
+ }
+ assert.deepEqual(results[1],results[0]);
+ if(plans===null||plans===undefined||plans[0]===null)assert.equal(results[1].error,'TypeError');
+});
+for(const record of [null,undefined,{}])test(`giftcard empty row ${record===null?'null':record===undefined?'undefined':'missing fields'}`,async()=>{
+ const results=[];for(const original of [true,false]){
+  const columns=await load(original,[]);
+  results.push(normalize(columns.map(c=>{try{return {value:c.render?c.render(record?.[c.dataIndex],record):record?.[c.dataIndex]};}catch(e){return {error:e.name};}})));
+ }
+ assert.deepEqual(results[1],results[0]);
+});
 for(const type of [1,2,3,4,5,99,'1'])for(const value of [0,1.235,null,undefined,'12',-9,NaN])test(`giftcard ${type}/${value}`,async()=>{
  const results=[];for(const original of [true,false]){const columns=await load(original,[{id:7,name:'Plan'}]);const record={id:1,name:'Fixture',type,value,plan_id:'7',limit_use:null,started_at:0,ended_at:undefined};
  results.push(normalize({columns,values:columns.map(c=>{try{return {value:c.render?c.render(record[c.dataIndex],record):record[c.dataIndex]};}catch(e){return {error:e.name};}})}));}assert.deepEqual(results[1],results[0]);

@@ -3,6 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
+## Latest Giftcard edge coverage (local only, after bd22b5cd)
+- Test/doc-only round; no production source or original fixture edits.
+- Added13 differential lookup/null-row cases (strict IDs, first duplicate, missing/null name, invalid plan list/row).
+- Giftcard screenshots6→14, all0 pixels. 824 tests, builds,60 pages,affected Coupon/Plan-price partials,4 notifications,8 checkout traces green.
+- No server connection or redeployment; authorized deployment below remains unchanged.
+- Next: another isolated readonly slice or expand real rendered error-boundary parity; do not disguise preserved null/type exceptions as fixes.
+
 ## Latest authorized test deployment
 - User requested deployment. Built checkpoint 2697d75e and deployed to v2board-legacy-dev:7003 as restored-20260911-065410.
 - Backed up Blade templates; only app.js assets/entry paths and view cache changed. No DB/account/business configuration changes.
