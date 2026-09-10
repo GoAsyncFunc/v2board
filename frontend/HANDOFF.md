@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest server type Tag slice (local only, after 302e3b54)
+## Latest Ticket readonly columns (local only, after b1056e96)
+- ServerManage remainder still interaction-heavy; moved to admin Ticket id/subject/level/created/updated readonly columns. Passed original levels array into helper; status filter/write controls untouched.
+- 35 parity cases; 762 tests/builds/new6 partial screenshots and all prior suites green, new pixels 0. Pagination/scroll harness-only.
+- No controller/action/request/state writes. Next: another readonly list area or clean extracted component readability; full restoration incomplete.
+- No server/deploy/data; reference dirs untracked.
+
+## Previous server type Tag slice (local only, after 302e3b54)
 - Remaining columns mixed with interactions; extracted only pure getTypeTag into ServerTypeTag.jsx, original method delegates, all callers preserved.
 - 39 parity cases, 727 total tests; builds/new6 Tag partial screenshots and all existing regressions green. 8 exact colors and unknown undefined unchanged.
 - Fixed initial screenshot harness import naming error and reran complete suite. No business changes/server/deploy/data access.

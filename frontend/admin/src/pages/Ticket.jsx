@@ -1,3 +1,6 @@
+const {
+  createReadonlyTicketColumns
+} = require('../components/TicketDisplayColumns.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -86,22 +89,7 @@ class b extends d.a.Component {
       r = e.pagination,
       a = e.filter,
       f = ["低", "中", "高"],
-      m = [{
-        title: "#",
-        dataIndex: "id",
-        key: "id"
-      }, {
-        title: "主题",
-        dataIndex: "subject",
-        key: "subject"
-      }, {
-        title: "工单级别",
-        dataIndex: "level",
-        key: "level",
-        render: e => {
-          return f[e];
-        }
-      }, {
+      m = [createReadonlyTicketColumns(f)["id"], createReadonlyTicketColumns(f)["subject"], createReadonlyTicketColumns(f)["level"], {
         title: "工单状态",
         dataIndex: "reply_status",
         key: "reply_status",
@@ -125,21 +113,7 @@ class b extends d.a.Component {
                                 {e ? "已回复" : "待回复"}
                             </span>;
         }
-      }, {
-        title: "创建时间",
-        dataIndex: "created_at",
-        key: "created_at",
-        render: e => {
-          return v()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
-        title: "最后回复",
-        dataIndex: "updated_at",
-        key: "updated_at",
-        render: e => {
-          return v()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
+      }, createReadonlyTicketColumns(f)["created_at"], createReadonlyTicketColumns(f)["updated_at"], {
         title: "操作",
         dataIndex: "action",
         key: "action",
