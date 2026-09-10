@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest admin order query slice (local only, after 7dc529b1)
+## Latest admin readonly columns slice (local only, after eda29af5)
+- Extracted 5 readonly columns to admin/components/OrderDisplayColumns.jsx (type/period/amount/commission/date); column positions/render outputs retained.
+- Status/commission state menus embed writes and remain untouched. Detail modal also not extracted. Next: isolate readonly detail body with mock data, not write handlers.
+- Original columns fixture + 15 diff tests; 533 total tests green. New check-admin-order-display.mjs: real Table/Tag, 6 desktop/mobile rows/empty/loading screenshots at zero pixels, pagination interaction.
+- Existing builds/60 page visuals/4 notifications/8 checkout traces remain green. Partial table test only; no claim of full admin page visual coverage.
+- No server connection, deployment or real data. Reference dirs untracked.
+
+## Previous admin order query slice (local only, after 7dc529b1)
 - Admin order model ~33KB/page ~31KB: chose query effects, no mutation or render changes.
 - Extracted admin/models/orderQueryEffects.js (fetch/filter/addFilter/changeTable); original selected methods/runtime saved in admin-order-query.cjs.
 - 19 differential tests; 518 total green + builds + 60 page visuals + 4 notification visuals + 8 checkout traces.
