@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Plan price readonly slice (local only, after e755de6e)
+## Latest Knowledge readonly slice (local only, after 483beff9)
+- Extracted Knowledge id/title/category/updated_at columns. Original fixture preserved; no drag/switch/write/controller changes.
+- 14 parity cases for null/missing/long text/category/extreme dates. 633 tests/builds/new6 Knowledge table visuals and all existing visual/notification/checkout suites green; new pixels 0, paging/horizontal scroll checked in harness only.
+- Next: inventory remaining readonly admin server/group/route areas; avoid write controls. Complete UI cleanup still not finished.
+- No server/deploy/data access. Reference dirs untracked.
+
+## Previous Plan price readonly slice (local only, after e755de6e)
 - Extracted 8 period price columns to PlanPriceColumns.jsx; shared formatPlanPrice preserves null-only '-' and direct toFixed exceptions/coercion behavior. Original positions unchanged; switches/drag/write/controller untouched.
 - 14 tests cover all 8 columns across normal/zero/null/undefined/string/negative/nonfinite/extreme/missing rows. 619 total green.
 - New check-admin-plan-price.mjs: 6 partial desktop/mobile tables, 0 pixels, pagination/horizontal scrolling. Initial generated harness syntax error fixed; full rerun green.

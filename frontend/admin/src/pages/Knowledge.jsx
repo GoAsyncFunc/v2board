@@ -1,3 +1,7 @@
+const {
+  createReadonlyKnowledgeColumns
+} = require('../components/KnowledgeDisplayColumns.jsx');
+const readonlyColumns = createReadonlyKnowledgeColumns();
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -252,11 +256,7 @@ class R extends f.a.Component {
             }
           }));
         }
-      }, {
-        title: "文章ID",
-        dataIndex: "id",
-        key: "id"
-      }, {
+      }, readonlyColumns["id"], {
         title: "显示",
         dataIndex: "show",
         key: "show",
@@ -267,23 +267,7 @@ class R extends f.a.Component {
             checked: e
           });
         }
-      }, {
-        title: "标题",
-        dataIndex: "title",
-        key: "title"
-      }, {
-        title: "分类",
-        dataIndex: "category",
-        key: "category"
-      }, {
-        title: "更新时间",
-        dataIndex: "updated_at",
-        key: "updated_at",
-        align: "right",
-        render: e => {
-          return m()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
+      }, readonlyColumns["title"], readonlyColumns["category"], readonlyColumns["updated_at"], {
         title: "操作",
         dataIndex: "action",
         key: "action",
