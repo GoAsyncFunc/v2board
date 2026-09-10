@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Ticket readonly columns (local only, after b1056e96)
+## Latest Giftcard readonly slice (local only, after d5f4b571)
+- Extracted 7 display columns into GiftcardDisplayColumns.jsx; plans injected from existing render. Clipboard/code and write controls untouched.
+- 49 differential cases, 811 total tests/builds/new6 screenshot comparisons green (new pixels 0). Existing server-name mobile rows 6 pixels within unchanged10 threshold.
+- Long regression batch hit420s after admin suites; notification/checkout rerun separately and passed. No skip/no server/deploy/data.
+- Next: stronger plan lookup/null row tests or another narrowly isolated readonly area. Full page/vendor restoration remains incomplete; references untracked.
+
+## Previous Ticket readonly columns (local only, after b1056e96)
 - ServerManage remainder still interaction-heavy; moved to admin Ticket id/subject/level/created/updated readonly columns. Passed original levels array into helper; status filter/write controls untouched.
 - 35 parity cases; 762 tests/builds/new6 partial screenshots and all prior suites green, new pixels 0. Pagination/scroll harness-only.
 - No controller/action/request/state writes. Next: another readonly list area or clean extracted component readability; full restoration incomplete.

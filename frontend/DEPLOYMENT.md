@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+礼品卡只读列checkpoint：7列/49差分；811测试、两端build、新6礼品卡截图及既有回归通过。长批次工具超时后通知/checkout完整补跑；既有server-name一例6像素差异仍在未改阈值内。复制/编辑/删除/controller/request未动，无服务器连接、部署或真实数据访问。
+
+以下为前轮记录：
+
 Ticket只读列checkpoint：5列/35差分；762测试、两端build、新6局部截图及全部既有回归通过。状态筛选/操作/controller/request不变，level/time语义保留。未连接服务器、部署或真实数据访问。
 
 以下为前轮记录：
