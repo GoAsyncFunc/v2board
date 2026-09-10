@@ -3,7 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest payment-component split (local only, after 851325cb)
+## Latest summary/status split (local only, after ea48c94f)
+- Extracted OrderPaymentSummary and OrderStatusResult; unchanged layout/calculations/status semantics. Product/order information remains in the controller render.
+- 371 tests, builds, 52 visual comparisons green (identical DOM/zero pixels).
+- Real request wrapper tested with fake responses for validation/server notifications, forbidden redirect, transport/JSON rejection. Notification recording only, not error UI screenshot coverage.
+- Added close-before-complete/complete-before-close polling traces and empty response parity. Empty data still interpreted as complete; network/JSON rejects still unnotified. No inherited risk fixed.
+- Next: product/information extraction, real notification component mocked browser error rendering, stronger async interleaving harness. Lifecycle fixes require separate deliberate semantic-change scope.
+- No server access or deployment. Reference dirs untracked.
+
+## Previous payment-component split (local only, after 851325cb)
 - Extracted checkout/PaymentMethods.jsx and PaymentQrModal.jsx; summary/result remains in page.
 - 363 tests, both builds, 52 desktop/mobile comparisons green (identical DOM/zero pixels). Added QR mask close and disabled checkout interaction checks, empty methods/loading/unknown state visuals.
 - Differential tests explicitly preserve late callback restart after unmount, missing paid method TypeError and free/missing checkout behavior. No lifecycle fix was made; do not claim these risks are resolved.

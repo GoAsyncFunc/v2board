@@ -1,3 +1,7 @@
+import OrderPaymentSummary from "../components/checkout/OrderPaymentSummary.jsx";
+import OrderStatusResult, {
+    orderResultProps,
+} from "../components/checkout/OrderStatusResult.jsx";
 import PaymentMethods from "../components/checkout/PaymentMethods.jsx";
 import PaymentQrModal from "../components/checkout/PaymentQrModal.jsx";
 import React from "react";
@@ -5,7 +9,6 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import { c as connect } from "../vendor/reactRedux.js";
 import { a as Icon } from "../vendor/Icon.js";
 import { a as Modal } from "../vendor/Modal.js";
-import { a as Result } from "../vendor/modules/4d6f5257.js";
 import { a as message } from "../vendor/modules/74737172.js";
 import { a as settings } from "../vendor/localeSettings.js";
 import loadable from "../vendor/modules/5642306f.js";
@@ -119,57 +122,7 @@ export class OrderDetailPage extends React.Component {
         });
     }
     getResultText(e) {
-        switch (e) {
-            case 1:
-                return {
-                    status: "info",
-                    title: formatMessage({
-                        id: "开通中",
-                    }),
-                    subTitle: formatMessage({
-                        id: "订单系统正在进行处理，请稍等1-3分钟。",
-                    }),
-                };
-            case 2:
-                return {
-                    status: "warning",
-                    title: formatMessage({
-                        id: "已取消",
-                    }),
-                    subTitle: formatMessage({
-                        id: "订单由于超时支付已被取消。",
-                    }),
-                };
-            case 3:
-            case 4:
-                return {
-                    status: "success",
-                    title: formatMessage({
-                        id: "已完成",
-                    }),
-                    subTitle: formatMessage({
-                        id: "订单已支付并开通。",
-                    }),
-                    extra: [
-                        <button
-                            type={"button"}
-                            onClick={() => router.push("/knowledge")}
-                            className={
-                                "btn btn-primary btn-sm btn-danger btn-rounded px-3"
-                            }
-                        >
-                            <i
-                                className={
-                                    "nav-main-link-icon si si-book-open mr-1"
-                                }
-                            ></i>
-                            {formatMessage({
-                                id: "查看使用教程",
-                            })}
-                        </button>,
-                    ],
-                };
-        }
+        return orderResultProps(e);
     }
     changePaymentMethod(methodId) {
         var orderState = this.props.order,
@@ -255,17 +208,9 @@ export class OrderDetailPage extends React.Component {
                                                 className={"block-content pt-0"}
                                             >
                                                 {
-                                                    <Result
-                                                        {...Object.assign(
-                                                            {
-                                                                className:
-                                                                    "py-4",
-                                                            },
-                                                            this.getResultText(
-                                                                order.status,
-                                                            ),
-                                                        )}
-                                                    ></Result>
+                                                    <OrderStatusResult
+                                                        status={order.status}
+                                                    />
                                                 }
                                             </div>
                                         </div>
@@ -647,332 +592,14 @@ export class OrderDetailPage extends React.Component {
                                         )}
                                 </div>
                                 {0 === order.status && (
-                                    <div className={"col-md-4 col-sm-12"}>
-                                        <div
-                                            className={
-                                                "block block-link-pop block-rounded  px-3 py-3 text-light"
-                                            }
-                                            style={{
-                                                background: "#35383D",
-                                            }}
-                                        >
-                                            <h5 className={"text-light mb-3"}>
-                                                {formatMessage({
-                                                    id: "订单总额",
-                                                })}
-                                            </h5>
-                                            {order.plan.id == 0 && (
-                                                <div>
-                                                    <div className={"pt-3"}>
-                                                        {formatMessage({
-                                                            id: "充值奖励",
-                                                        })}
-                                                        <div
-                                                            className={
-                                                                "text-right"
-                                                            }
-                                                        >
-                                                            {
-                                                                config.currency_symbol
-                                                            }
-                                                            {(
-                                                                order.bounus /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                            {order.plan.id == 0 && (
-                                                <div>
-                                                    <div className={"pt-3"}>
-                                                        {formatMessage({
-                                                            id: "实际到账",
-                                                        })}
-                                                        <div
-                                                            className={
-                                                                "text-right"
-                                                            }
-                                                        >
-                                                            {
-                                                                config.currency_symbol
-                                                            }
-                                                            {(
-                                                                order.get_amount /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "row no-gutters py-3"
-                                                        }
-                                                        style={{
-                                                            borderBottom:
-                                                                "1px solid #646669",
-                                                        }}
-                                                    ></div>
-                                                </div>
-                                            )}
-                                            {order.plan.id != 0 && (
-                                                <div
-                                                    className={
-                                                        "row no-gutters pb-3"
-                                                    }
-                                                    style={{
-                                                        borderBottom:
-                                                            "1px solid #646669",
-                                                    }}
-                                                >
-                                                    <div className={"col-8"}>
-                                                        {order.plan.name}
-                                                        {" x "}
-                                                        {settings.periodText[
-                                                            order.period
-                                                        ] &&
-                                                            settings.periodText[
-                                                                order.period
-                                                            ]()}
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "col-4 text-right"
-                                                        }
-                                                    >
-                                                        {config.currency_symbol}
-                                                        {(
-                                                            order.plan[
-                                                                order.period
-                                                            ] / 100
-                                                        ).toFixed(2)}
-                                                    </div>
-                                                </div>
-                                            )}
-                                            {order.discount_amount ? (
-                                                <div>
-                                                    <div
-                                                        className={"pt-3"}
-                                                        style={{
-                                                            color: "#646669",
-                                                        }}
-                                                    >
-                                                        {formatMessage({
-                                                            id: "折扣",
-                                                        })}
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "row no-gutters py-3"
-                                                        }
-                                                        style={{
-                                                            borderBottom:
-                                                                "1px solid #646669",
-                                                        }}
-                                                    >
-                                                        <div
-                                                            className={"col-8"}
-                                                        ></div>
-                                                        <div
-                                                            className={
-                                                                "col-4 text-right"
-                                                            }
-                                                        >
-                                                            {
-                                                                config.currency_symbol
-                                                            }
-                                                            {(
-                                                                order.discount_amount /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
-                                            {order.surplus_amount ? (
-                                                <div>
-                                                    <div
-                                                        className={"pt-3"}
-                                                        style={{
-                                                            color: "#646669",
-                                                        }}
-                                                    >
-                                                        {formatMessage({
-                                                            id: "折抵",
-                                                        })}
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "row no-gutters py-3"
-                                                        }
-                                                        style={{
-                                                            borderBottom:
-                                                                "1px solid #646669",
-                                                        }}
-                                                    >
-                                                        <div
-                                                            className={"col-8"}
-                                                        ></div>
-                                                        <div
-                                                            className={
-                                                                "col-4 text-right"
-                                                            }
-                                                        >
-                                                            {
-                                                                config.currency_symbol
-                                                            }
-                                                            {(
-                                                                order.surplus_amount /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
-                                            {order.refund_amount ? (
-                                                <div>
-                                                    <div
-                                                        className={"pt-3"}
-                                                        style={{
-                                                            color: "#646669",
-                                                        }}
-                                                    >
-                                                        {formatMessage({
-                                                            id: "退款",
-                                                        })}
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "row no-gutters py-3"
-                                                        }
-                                                        style={{
-                                                            borderBottom:
-                                                                "1px solid #646669",
-                                                        }}
-                                                    >
-                                                        <div
-                                                            className={"col-8"}
-                                                        ></div>
-                                                        <div
-                                                            className={
-                                                                "col-4 text-right"
-                                                            }
-                                                        >
-                                                            {"- "}
-                                                            {
-                                                                config.currency_symbol
-                                                            }
-                                                            {(
-                                                                order.refund_amount /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
-                                            {order.pre_handling_amount ? (
-                                                <div>
-                                                    <div
-                                                        className={"pt-3"}
-                                                        style={{
-                                                            color: "#646669",
-                                                        }}
-                                                    >
-                                                        {formatMessage({
-                                                            id: "支付手续费",
-                                                        })}
-                                                    </div>
-                                                    <div
-                                                        className={
-                                                            "row no-gutters py-3"
-                                                        }
-                                                        style={{
-                                                            borderBottom:
-                                                                "1px solid #646669",
-                                                        }}
-                                                    >
-                                                        <div
-                                                            className={"col-8"}
-                                                        ></div>
-                                                        <div
-                                                            className={
-                                                                "col-4 text-right"
-                                                            }
-                                                        >
-                                                            {"+ "}
-                                                            {(
-                                                                order.pre_handling_amount /
-                                                                100
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
-                                            <div
-                                                className={"pt-3"}
-                                                style={{
-                                                    color: "#646669",
-                                                }}
-                                            >
-                                                {formatMessage({
-                                                    id: "总计",
-                                                })}
-                                            </div>
-                                            <h1
-                                                className={
-                                                    "text-light mt-3 mb-3"
-                                                }
-                                            >
-                                                {config.currency_symbol}{" "}
-                                                {(
-                                                    (order.total_amount +
-                                                        (order.pre_handling_amount ||
-                                                            0)) /
-                                                    100
-                                                ).toFixed(2)}{" "}
-                                                {config.currency}
-                                            </h1>
-                                            <button
-                                                type={"button"}
-                                                className={
-                                                    "btn btn-block btn-primary"
-                                                }
-                                                disabled={
-                                                    checkoutLoading ||
-                                                    ("StripeCredit" ===
-                                                        selectedPayment.payment &&
-                                                        !stripe.token)
-                                                }
-                                                onClick={() => this.checkout()}
-                                            >
-                                                {checkoutLoading ? (
-                                                    <Icon
-                                                        {...{
-                                                            type: "loading",
-                                                        }}
-                                                    ></Icon>
-                                                ) : (
-                                                    <span>
-                                                        <i
-                                                            className={
-                                                                "far fa-check-circle"
-                                                            }
-                                                        ></i>{" "}
-                                                        {formatMessage({
-                                                            id: "结账",
-                                                        })}
-                                                    </span>
-                                                )}
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <OrderPaymentSummary
+                                        order={order}
+                                        config={config}
+                                        checkoutLoading={checkoutLoading}
+                                        selectedPayment={selectedPayment}
+                                        stripe={stripe}
+                                        onCheckout={() => this.checkout()}
+                                    />
                                 )}
                             </div>
                         )}
