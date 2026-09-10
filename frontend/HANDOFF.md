@@ -3,7 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest payment boundary coverage (local only, after 42c4845c)
+## Latest payment effect migration (local only, after 34eeab26)
+- Migrated save/checkout/checkoutByStripe/cancel into user/models/orderPaymentEffects.js. order.js now state/reducers and explicit query/payment effect wiring.
+- Reused committed verbatim recovered-order-factory.cjs as baseline; 66 new effect differential tests, total 492. Success/422/500/network/empty/null/QR/redirect/type2/token/method/callback cases covered.
+- Preserved cancel fetch→details→complete sequence (including typo), undefined tokens, thrown error loading behavior. No semantic fix.
+- Builds, 60 screenshots, 4 notification regressions, 8 browser checkout traces green. Updated test build redirect interception for new payment effect file; redirects never navigate.
+- Next: reactive mocked integration of page+model+request and key HTTP failure, or low-risk admin page/model cleanup. Keep semantic fixes separate.
+- No server access/deploy/data change; recovered-ui and tools still untracked.
+
+## Previous payment boundary coverage (local only, after 42c4845c)
 - No production code changes. Browser page scenarios now 60, adding absent key, mock token error/malformed token, zero/no-method UI and action checks.
 - New check-checkout-effects.mjs compares verbatim recovered order factory (committed test fixture) and current model in browser. 8 outcomes: 422/500/network/QR/redirect/zero/Stripe/malformed token. Both redirect assignments transformed into recording variable only; no URL navigation.
 - 426 unit tests, both builds, 60 page comparisons, 4 error notifications and 8 checkout traces green. SDK form/key callback mocked, not full Stripe integration. Notification and effect suites are separate, not end-to-end payment proof.

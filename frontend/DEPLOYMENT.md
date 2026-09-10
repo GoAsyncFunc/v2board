@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+支付 mutation 源码迁移（基于 34eeab26）：orderPaymentEffects.js + 简化 order 模型；492 单测、两端构建、60 页面截图、4 通知回归、8 checkout trace 通过。保持原 details action、token/空响应/loading 语义。测试跳转记录不导航，无服务器连接、部署、真实订单创建/取消或支付数据访问。
+
+以下为前轮记录：
+
 支付边界覆盖 checkpoint：生产代码未改。426 单测、两端构建、60 组页面截图、4 组真实通知截图以及 8 项浏览器 checkout effect trace 对照通过。Stripe 表单/key、网络均模拟；支付跳转在测试构建中记录而不导航。无服务器连接、部署或真实数据读写。原风险仅记录，未修复。
 
 以下为前轮记录：

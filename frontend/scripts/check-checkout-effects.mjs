@@ -34,7 +34,7 @@ const js=(await build({absWorkingDir:home,stdin:{contents,resolveDir:home},bundl
  b.onLoad({filter:/.*/,namespace:'mock'},args=>({contents:args.path==='request'?mock:args.path==='message'?`exports.a={info:(...x)=>window.__trace.push(['info',...x]),loading:(...x)=>window.__trace.push(['loading',...x])};`:`module.exports={push:x=>window.__trace.push(['navigate',x])};`,loader:'js'}));
  // Both versions use an explicit sandbox window; redirect assignment is recorded,
  // never applied to the browser's location and never reaches a real payment URL.
- b.onLoad({filter:/(order\.js|recovered-order-factory\.cjs)$/},async args=>({contents:(await fs.readFile(args.path,'utf8')).replaceAll('window.location.href =','window.__redirect ='),loader:'js'}));
+ b.onLoad({filter:/(order\.js|orderPaymentEffects\.js|recovered-order-factory\.cjs)$/},async args=>({contents:(await fs.readFile(args.path,'utf8')).replaceAll('window.location.href =','window.__redirect ='),loader:'js'}));
 }}]})).outputFiles[0].text;
 const browser=await chromium.launch();const report=[];
 try{
