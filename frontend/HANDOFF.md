@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest notice readonly columns (local only, after 966e7b8b)
+## Latest Plan price readonly slice (local only, after e755de6e)
+- Extracted 8 period price columns to PlanPriceColumns.jsx; shared formatPlanPrice preserves null-only '-' and direct toFixed exceptions/coercion behavior. Original positions unchanged; switches/drag/write/controller untouched.
+- 14 tests cover all 8 columns across normal/zero/null/undefined/string/negative/nonfinite/extreme/missing rows. 619 total green.
+- New check-admin-plan-price.mjs: 6 partial desktop/mobile tables, 0 pixels, pagination/horizontal scrolling. Initial generated harness syntax error fixed; full rerun green.
+- Both builds, existing 60 pages/all admin partial suites/4 notifications/8 checkout traces green. No server/deploy/data access. References untracked.
+- Next: inventory another readonly admin area; full controllers/vendor cleanup still substantial. Never present partial column extraction as completed full-page restoration.
+
+## Previous notice readonly columns (local only, after 966e7b8b)
 - Notice ID/title/created_at extracted to NoticeDisplayColumns.jsx; show/edit/delete/controller unchanged. No original type/tag display exists.
 - 12 fixture differential tests cover long title/null/missing/extreme timestamps/irrelevant unknown type. 605 tests, builds and all existing regressions green.
 - New check-admin-notice-display.mjs: 6 partial table screenshots at zero pixels, pagination and 390px horizontal scrolling. Harness supplies pagination/scroll; production table config unchanged.
