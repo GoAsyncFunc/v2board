@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest payment effect migration (local only, after 34eeab26)
+## Latest offline integration (local only, after c45c8c4f)
+- Added order-integration.test.mjs bundling real OrderDetail controller, order/comm models and request wrapper into isolated VM. Minimal generator/put/select/reducer runner; controlled HTTP promises and timers, mocked React/notifications. Not actual Dva/browser integration.
+- 7 cases cover key HTTP500, QR checkout→poll→detail, 422/500 notify, offline loading retention, cancel fetch/details typo and callback, late response after unmount.
+- Unresolved actions recorded, not corrected; no semantic changes. Redirect setter records only. No server/network/data operations.
+- 499 tests, builds, 60 page visuals, 4 notification visuals, 8 checkout traces green.
+- Next: actual Dva+React reactive fixture browser integration or low-risk admin UI restoration. Avoid presenting VM runner as real scheduler equivalence.
+
+## Previous payment effect migration (local only, after 34eeab26)
 - Migrated save/checkout/checkoutByStripe/cancel into user/models/orderPaymentEffects.js. order.js now state/reducers and explicit query/payment effect wiring.
 - Reused committed verbatim recovered-order-factory.cjs as baseline; 66 new effect differential tests, total 492. Success/422/500/network/empty/null/QR/redirect/type2/token/method/callback cases covered.
 - Preserved cancel fetch→details→complete sequence (including typo), undefined tokens, thrown error loading behavior. No semantic fix.

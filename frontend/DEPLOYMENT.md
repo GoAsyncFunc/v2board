@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+离线逻辑集成 checkpoint（基于 c45c8c4f）：7 项真实页面控制器/order+comm effects/request wrapper 集成，mock 网络/通知/React及简化 effect runner。499 测试、两端 build、60 页面截图、4 通知回归、8 checkout trace 通过。保留 details 未解析、网络 loading 和迟到轮询风险。生产源码未改，未连接服务器、部署或访问真实业务数据。
+
+以下为前轮记录：
+
 支付 mutation 源码迁移（基于 34eeab26）：orderPaymentEffects.js + 简化 order 模型；492 单测、两端构建、60 页面截图、4 通知回归、8 checkout trace 通过。保持原 details action、token/空响应/loading 语义。测试跳转记录不导航，无服务器连接、部署、真实订单创建/取消或支付数据访问。
 
 以下为前轮记录：
