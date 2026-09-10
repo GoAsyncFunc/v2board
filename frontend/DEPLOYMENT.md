@@ -2,6 +2,12 @@
 
 ## 最新本地工作（未部署）
 
+- 本轮恢复用户端 Order 页面，提取 OrderColumns，隔离内嵌 MobileList 依赖（该依赖未完全清理）。
+- 本地测试 348 项通过、两端构建通过；模拟截图扩展至 28 组，DOM 相同、0 差异像素，含桌面取消确认与移动端订单导航交互。
+- 未连接服务器、未部署、未调用真实业务 API。`recovered-ui/` 和 `tools/` 继续保持未跟踪参考目录，不纳入提交。
+
+以下为前一轮本地验证记录：
+
 - PlanDetail 已拆分 Pricing、Coupon、OrderSummary 子组件，使用 React.createRef，保留下单/取消确认控制逻辑。
 - Traffic、Node、Plan、PlanDetail 共 22 组模拟 Chromium 桌面/移动端对照：DOM 相同、0 差异像素；另有周期选择、优惠券输入、下单按钮的模拟派发检查通过。
 - `npm test` 345 项通过，两端构建成功。结果文件在 `frontend/test-results/pages/report.json`，测试命令见 README。
