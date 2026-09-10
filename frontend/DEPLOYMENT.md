@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+协议Tag只读checkpoint：纯getTypeTag委托至ServerTypeTag，39差分；727测试、两端build、新6局部截图及全部既有回归通过。测试导入命名错误修复后全量重跑。没有controller/request/事件语义变化，无服务器连接、部署或真实数据访问。
+
+以下为前轮记录：
+
 ServerManage name/status只读列checkpoint：原状态映射以参数注入，18差分；688测试、两端build、新6局部截图与全部既有回归通过。过滤/排序/复制/写入/controller/request不变，无语义风险修复。未连接服务器、部署或访问真实数据。
 
 以下为前轮记录：

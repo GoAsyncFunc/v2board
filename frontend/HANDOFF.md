@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest ServerManage name/status slice (local only, after 275a7ef3)
+## Latest server type Tag slice (local only, after 302e3b54)
+- Remaining columns mixed with interactions; extracted only pure getTypeTag into ServerTypeTag.jsx, original method delegates, all callers preserved.
+- 39 parity cases, 727 total tests; builds/new6 Tag partial screenshots and all existing regressions green. 8 exact colors and unknown undefined unchanged.
+- Fixed initial screenshot harness import naming error and reran complete suite. No business changes/server/deploy/data access.
+- Next: inventory another readonly area; avoid broadening ServerManage filters/actions. Full cleanup still incomplete. References untracked.
+
+## Previous ServerManage name/status slice (local only, after 275a7ef3)
 - Extracted readonly name column to ServerNameColumn.jsx; pass original local D status mapping, leave other uses untouched. Tooltip/Badge/name output unchanged.
 - 18 differential tests cover known/unknown/string/null status, missing fields/name and null record exception. 688 total tests/builds/new6 partial screenshots and all prior suites green; new pixels 0.
 - No filters/sort/copy/write/controller/request changes. Next: inventory another safe readonly field or page; most ServerManage code still legacy. Avoid silently broadening into write controls.
