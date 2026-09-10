@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(home,'test-results/pages');await fs.mkdir(output,{recursive:true});
 const pages={Traffic:'traffic',Node:'node',Plan:'plan',PlanDetail:'plan-detail',Order:'order',OrderDetail:'order-detail'};
-const scenarios=[['Traffic','rows'],['Traffic','loading'],['Node','rows'],['Node','empty'],['Node','renew'],['Plan','cards'],['Plan','empty'],['PlanDetail','checkout'],['PlanDetail','coupon'],['PlanDetail','restricted'],['PlanDetail','loading'],['Order','rows'],['Order','empty'],['Order','loading'],...['pending','processing','cancelled','completed','discounted','loading','stripe','qr','methods-empty','checkout-loading','cancel-loading','unknown'].map(state=>['OrderDetail',state])];
+const scenarios=[['Traffic','rows'],['Traffic','loading'],['Node','rows'],['Node','empty'],['Node','renew'],['Plan','cards'],['Plan','empty'],['PlanDetail','checkout'],['PlanDetail','coupon'],['PlanDetail','restricted'],['PlanDetail','loading'],['Order','rows'],['Order','empty'],['Order','loading'],...['pending','processing','cancelled','completed','discounted','loading','stripe','qr','methods-empty','checkout-loading','cancel-loading','unknown','key-failure','token-error','token-malformed','zero-no-method'].map(state=>['OrderDetail',state])];
 const fixtureSource=`
 const periods={month_price:1000,quarter_price:null,half_year_price:null,year_price:10000,two_year_price:null,three_year_price:null,onetime_price:null,reset_price:null};
 export function fixture(name){
@@ -17,7 +17,9 @@ export function fixture(name){
  if(new URL(location.href).searchParams.get('page')==='Order')props.order={...props.order,fetchLoading:name==='loading',orders:name==='empty'?[]:[0,1,2,3,4].map(status=>({key:status,trade_no:'TEST-ORDER-'+status,status,period:'month_price',total_amount:12345,created_at:1700000000,plan:status===4?null:{name:'Fixture Plan'}}))};
  if(new URL(location.href).searchParams.get('page')==='OrderDetail'){
  props.match.params.trade_no='TEST-ORDER';props.order={order:{trade_no:'TEST-ORDER',plan:{...plan,transfer_enable:100},period:'month_price',status:({processing:1,cancelled:2,completed:3,discounted:4})[name]||0,total_amount:1000,created_at:1700000000},selectMethod:name==='stripe'?2:1,paymentMethod:[{id:1,name:'Fixture Alipay',payment:'Alipay',handling_fee_fixed:0,handling_fee_percent:0},{id:2,name:'Fixture Card',payment:'StripeCredit',handling_fee_fixed:0,handling_fee_percent:0}],qrcodeModalVisible:name==='qr',payUrl:name==='qr'?'fixture-payment-url':'',checkoutLoading:name==='checkout-loading',detailsLoading:name==='loading',cancelLoading:name==='cancel-loading'};
- if(name==='methods-empty')props.order.paymentMethod=[];
+ if(name==='methods-empty'||name==='zero-no-method')props.order.paymentMethod=[];
+ if(name==='zero-no-method')props.order.order.total_amount=0;
+ if(['key-failure','token-error','token-malformed'].includes(name))props.order.selectMethod=2;
  if(name==='unknown')props.order.order.status=99;
  }
  if(name==='restricted')props.plan.plan={...plan,renew:false};return props;
@@ -31,14 +33,14 @@ const stubs={
  helpers:`exports.b=v=>Number(v/1048576).toFixed(2)+' MB';exports.c=v=>{try{return JSON.parse(v)}catch{return v}};exports.f=(u,total)=>u/total;exports.h=()=>false;exports.l=()=>window.innerWidth<768;`,
  settings:`exports.a={orderStatusText:[()=> 'Pending',()=> 'Processing',()=> 'Cancelled',()=> 'Completed',()=> 'Discounted'],periodText:{month_price:()=> '每月',quarter_price:()=> '每季',half_year_price:()=> '半年',year_price:()=> '每年',two_year_price:()=> '两年',three_year_price:()=> '三年',onetime_price:()=> '一次性',reset_price:()=> '重置'}};`,
  request:'module.exports={};',
- stripeLoader:`module.exports=()=>()=>null;`,
+ stripeLoader:`const React=require('react');module.exports=()=>props=>React.createElement('div',{'data-stripe':'fixture'},React.createElement('button',{onClick:()=>props.callback({message:'Mock card declined'},null)},'Mock token error'));`,
  qr:`const React=require('react');module.exports=props=>React.createElement('div',{'data-qr':'fixture'},'Mock QR');`,
  stripe:`exports.default=()=>null;`,
 };
 const bundles={};
 for(const [page,slug]of Object.entries(pages))for(const mode of ['baseline','source']){
  const file=mode==='baseline'?path.join(home,'tests/fixtures/pages',`user-${slug}.jsx`):path.join(home,'user/src/pages',page+'.jsx');
- const result=await build({absWorkingDir:home,stdin:{contents:`import React from 'react';import ReactDOM from 'react-dom';import Page from ${JSON.stringify(file)};${fixtureSource}\nwindow.__actions=[];const props=fixture(new URL(location.href).searchParams.get('scenario'));props.dispatch=action=>window.__actions.push(action);ReactDOM.render(<Page {...props}/>,document.getElementById('root'));window.__ready=true;`,resolveDir:home,loader:'jsx'},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},define:{'process.env.NODE_ENV':'"production"'},plugins:[{name:'isolated-pages',setup(b){
+ const result=await build({absWorkingDir:home,stdin:{contents:`import React from 'react';import ReactDOM from 'react-dom';import Page from ${JSON.stringify(file)};${fixtureSource}\nwindow.__actions=[];const props=fixture(new URL(location.href).searchParams.get('scenario'));props.dispatch=action=>window.__actions.push(action);window.__page=ReactDOM.render(<Page {...props}/>,document.getElementById('root'));const scenario=new URL(location.href).searchParams.get('scenario');if(['token-error','token-malformed'].includes(scenario))window.__page.setState({pk:'pk_fixture'});if(scenario==='token-malformed')window.__page.stripeCallback(null,{});window.__ready=true;`,resolveDir:home,loader:'jsx'},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},define:{'process.env.NODE_ENV':'"production"'},plugins:[{name:'isolated-pages',setup(b){
  b.onResolve({filter:/.*/},args=>{
   if(args.namespace==='mock')return null;
   const id=args.path;
@@ -130,6 +132,23 @@ try{
     await tab.locator('.ant-modal-wrap').click({position:{x:5,y:5}});
     const actions=await tab.evaluate(()=>window.__actions);
     if(!actions.some(a=>a.type==='order/setState'&&a.payload.qrcodeModalVisible===false&&!('payUrl' in JSON.parse(JSON.stringify(a.payload)))))throw Error('QR close action mismatch');
+   }
+   if(page==='OrderDetail'&&scenario==='key-failure'){
+    if(await tab.locator('[data-stripe]').count())throw Error('Failed/missing key must not render form');
+    if(!await tab.locator('button.btn-block').isDisabled())throw Error('Missing key/token must disable checkout');
+   }
+   if(page==='OrderDetail'&&scenario==='token-error'){
+    await tab.getByText('Mock token error',{exact:true}).click();
+    if(!await tab.locator('button.btn-block').isDisabled())throw Error('Error token must disable checkout');
+    if(await tab.evaluate(()=>window.__page.state.stripe.token)!==null)throw Error('Expected null token');
+   }
+   if(page==='OrderDetail'&&scenario==='token-malformed'){
+    await tab.locator('button.btn-block').click();
+    if(!await tab.evaluate(()=>window.__actions.some(a=>a.type==='order/checkoutByStripe'&&a.token===undefined)))throw Error('Inherited malformed token dispatch changed');
+   }
+   if(page==='OrderDetail'&&scenario==='zero-no-method'){
+    await tab.locator('button.btn-block').click();
+    if(!await tab.evaluate(()=>window.__actions.some(a=>a.type==='order/checkout')))throw Error('Inherited zero/no-method checkout changed');
    }
    if(page==='OrderDetail'&&scenario==='checkout-loading'){
     if(!await tab.locator('button.btn-block').isDisabled())throw Error('Loading checkout must stay disabled');

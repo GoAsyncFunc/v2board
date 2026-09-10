@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest order-query slice (local only, after 5efe8238)
+## Latest payment boundary coverage (local only, after 42c4845c)
+- No production code changes. Browser page scenarios now 60, adding absent key, mock token error/malformed token, zero/no-method UI and action checks.
+- New check-checkout-effects.mjs compares verbatim recovered order factory (committed test fixture) and current model in browser. 8 outcomes: 422/500/network/QR/redirect/zero/Stripe/malformed token. Both redirect assignments transformed into recording variable only; no URL navigation.
+- 426 unit tests, both builds, 60 page comparisons, 4 error notifications and 8 checkout traces green. SDK form/key callback mocked, not full Stripe integration. Notification and effect suites are separate, not end-to-end payment proof.
+- Next: integrate reactive order model + request wrapper + page mocks for key HTTP failure and QR->polling transitions, or migrate payment effects themselves. Do not silently fix inherited semantics.
+- No server access/deployment; reference dirs untracked.
+
+## Previous order-query slice (local only, after 5efe8238)
 - Inventory: 11 user and 22 admin models still contain legacy exports. Chose lower-risk order query effects, not payment mutation/form changes.
 - Extracted user/models/orderQueryEffects.js with detail/check/getPaymentMethod/fetch; original selected effects saved in fixtures/models/user-order-query.cjs.
 - Added 52 differential cases: success/422/500, empty/null/numeric data, optional/required callback contracts, network rejection. getPaymentMethod missing complete and loading on network throw remain inherited behavior.

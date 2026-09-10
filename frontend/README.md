@@ -100,6 +100,11 @@ node scripts/check-browser.mjs
 
 ## 最新本地进度
 
+本轮仅扩展支付覆盖，未改生产源码。新增 key 未返回、模拟 Stripe token 错误/畸形 token、零元无支付方式 4 个场景，两种宽度下页面/按钮行为均与原版页面 fixture 一致。模拟 Stripe 表单不是 Stripe SDK，也没有模拟 HTTP 公钥接口完整流程；key failure 表示 key 没有回调成功的 UI 状态。
+
+`node scripts/check-checkout-effects.mjs` 在隔离浏览器执行从 recovered-ui 原样保存的订单 factory 和当前模型，共 8 个 checkout 分支（422/500/网络拒绝/二维码/跳转/零元未选方式/Stripe/token 缺失）trace 对照通过。跳转赋值在两版测试构建中一致重定向为记录变量，绝不导航支付地址。422/500 错误 UI 由独立真实通知回归覆盖，不宣称此 effect harness 是完整端到端支付测试。零元返回 type=2 保持原无额外派发；畸形 token 可派发 undefined、key/token 错误无新增文案等继承风险未修。
+
+
 基于 5efe8238 的本地 inventory：用户端尚有 11 个编译式模型，后台尚有 22 个；本轮选择用户订单查询这一低风险切片。`models/orderQueryEffects.js` 提取 detail/check/getPaymentMethod/fetch，原 order.js 通过普通文件引用接入，save/checkout/Stripe/cancel 尚未改写。52 项对照验证成功、422/500、空数组/null/0/1 数据、回调缺失及网络异常。getPaymentMethod 的 complete 缺失抛错、网络异常不重置 loading 等保持原语义。
 
 本轮 426 项单测、两端构建、52 组页面截图和 4 组真实通知 mocked 回归通过；无服务器访问或部署。剩余支付 form/key failure 浏览器覆盖尚未扩展，不能将查询模型测试当作实际支付表单验收。
@@ -146,9 +151,9 @@ OrderDetail 已从旧模块工厂改为标准 import、具名 OrderDetailPage �
 
 ## 模拟页面浏览器回归
 
-在 frontend 目录执行 `node scripts/check-page-screenshots.mjs`。它独立构建保存的改写前页面和当前源码，以 Chromium 对 Traffic/Node/Plan/PlanDetail/Order/OrderDetail 的 26 个状态分别在 1440px、390px 宽度下比较，共 52 组。OrderDetail 覆盖待支付、处理中、取消、完成、折抵、加载、Stripe 选择和二维码状态。覆盖列表、加载、无节点、续费入口、套餐卡片、空列表、详情优惠券及不可续费状态。
+在 frontend 目录执行 `node scripts/check-page-screenshots.mjs`。它独立构建保存的改写前页面和当前源码，以 Chromium 对 Traffic/Node/Plan/PlanDetail/Order/OrderDetail 的 30 个状态分别在 1440px、390px 宽度下比较，共 60 组。OrderDetail 覆盖待支付、处理中、取消、完成、折抵、加载、Stripe 选择和二维码状态。覆盖列表、加载、无节点、续费入口、套餐卡片、空列表、详情优惠券及不可续费状态。
 
-最近一次完整运行：52 组 DOM 均相同，实际像素差异全部为 0（失败阈值明确设为 10 像素）。输出位于 `test-results/pages/`，包含两版截图、红色差异图及 `report.json`。测试使用 UTC、固定数据、等待字体并禁用动画；不重新录制基准冒充通过。
+最近一次完整运行：60 组 DOM 均相同，实际像素差异全部为 0（失败阈值明确设为 10 像素）。输出位于 `test-results/pages/`，包含两版截图、红色差异图及 `report.json`。测试使用 UTC、固定数据、等待字体并禁用动画；不重新录制基准冒充通过。
 
 布局容器、Redux、国际化、部分辅助函数和路由是模拟依赖，真实表格/Radio/Tag 等组件及 CSS/字体参与渲染。因此这是页面级回归，不代表真实后端数据、完整应用布局或所有主题已验收。所有非本地测试 origin 的请求均被拦截，service worker 禁用。
 
