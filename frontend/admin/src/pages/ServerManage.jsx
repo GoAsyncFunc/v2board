@@ -1,3 +1,6 @@
+const {
+  createServerRateColumn
+} = require('../components/ServerRateColumn.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -2768,24 +2771,7 @@ class q extends y.a.Component {
             type: "user"
           }), " ", e || 0);
         }
-      }, {
-        title: y.a.createElement(u["a"], {
-          placement: "top",
-          title: "使用的流量将乘以倍率进行扣除"
-        }, "倍率 ", y.a.createElement(m["a"], {
-          type: "question-circle"
-        })),
-        dataIndex: "rate",
-        key: "rate",
-        align: "center",
-        render: e => {
-          return y.a.createElement(g["a"], {
-            style: {
-              minWidth: 60
-            }
-          }, e + " x");
-        }
-      }, {
+      }, createServerRateColumn(), {
         title: "权限组",
         dataIndex: "group_id",
         key: "group_id",

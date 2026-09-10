@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest ServerGroup readonly slice (local only, after e27479cf)
+## Latest ServerManage rate slice (local only, after cbc23dba)
+- Skipped ID/filter/controller coupling, address clipboard, online sorter and group filter. Extracted rate column only to ServerRateColumn.jsx; Tooltip/Icon/Tag and concatenation preserved.
+- 12 original fixture parity tests; 670 tests, builds, new6 partial rate screenshots at 0 pixels plus all existing regressions green. Symbol throws and null/undefined text remain unchanged.
+- No controller/action/request/event/write changes. ServerManage largely remains legacy; single-column extraction is not full-page restoration.
+- Next: narrowly scoped readonly status/name renderer or another display area after inventory. References untracked, no server/deploy/data access.
+
+## Previous ServerGroup readonly slice (local only, after e27479cf)
 - Extracted id/name/user_count/server_count; retained Fragment, icon types, space and move cursor styling. Counts passed through unchanged. No event/write/controller/request changes.
 - Original fixture +13 differential cases. 658 tests/builds/new6 group partial screenshots (0 pixels) and all existing regressions green. Paging/scroll only in harness, production pagination:false unchanged.
 - Null/undefined and nonstandard children preserved; object child tests compare element structure, not successful React rendering.
