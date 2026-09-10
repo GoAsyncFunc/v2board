@@ -1,15 +1,4 @@
-const orderQueries = require("./orderQueryEffects.js");
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/70307045.js"),
-  i = interopDefault(r),
-  o = require("../services/request.js");
+const o = api, i = () => Object.assign;
 function a() {
   a = function () {
     return e;
@@ -311,164 +300,161 @@ function a() {
     }
   }, e;
 }
-var s = {
-  orders: [],
-  fetchLoading: !1,
-  assignLoading: !1,
-  pagination: {
-    pageSize: 10,
-    current: 0
+module.exports = {
+  fetch(e, t) {
+    var n = t.put,
+      r = t.select;
+    return a().mark(function e() {
+      var t, s;
+      return a().wrap(function (e) {
+        while (1) switch (e.prev = e.next) {
+          case 0:
+            return e.next = 2, r(e => e.order);
+          case 2:
+            return t = e.sent, e.next = 5, n({
+              type: "setState",
+              payload: {
+                fetchLoading: !0
+              }
+            });
+          case 5:
+            return e.next = 7, Object(o["a"])("/" + window.settings.secure_path + "/order/fetch", i()({
+              filter: t.filter
+            }, t.pagination));
+          case 7:
+            return s = e.sent, e.next = 10, n({
+              type: "setState",
+              payload: {
+                fetchLoading: !1
+              }
+            });
+          case 10:
+            if (200 === s.code) {
+              e.next = 12;
+              break;
+            }
+            return e.abrupt("return");
+          case 12:
+            return e.next = 14, n({
+              type: "setState",
+              payload: {
+                orders: s.data
+              }
+            });
+          case 14:
+            return e.next = 16, n({
+              type: "setState",
+              payload: {
+                pagination: i()({}, t.pagination, {
+                  total: s.total
+                })
+              }
+            });
+          case 16:
+          case "end":
+            return e.stop();
+        }
+      }, e);
+    })();
   },
-  filter: []
-};
-legacyExports["default"] = {
-  name: "order",
-  state: i()({}, s),
-  reducers: {
-    setState(e, t) {
-      var n = t.payload;
-      return i()({}, e, n);
-    },
-    empty(e) {
-      return i()({}, e, s);
-    }
+  filter(e, t) {
+    var n = e.filter,
+      r = t.put,
+      i = t.select;
+    return a().mark(function e() {
+      var t, o;
+      return a().wrap(function (e) {
+        while (1) switch (e.prev = e.next) {
+          case 0:
+            return e.next = 2, i(e => e.order);
+          case 2:
+            return t = e.sent, o = t.pagination, o["current"] = 1, e.next = 7, r({
+              type: "setState",
+              payload: {
+                filter: n
+              }
+            });
+          case 7:
+            return e.next = 9, r({
+              type: "fetch"
+            });
+          case 9:
+          case "end":
+            return e.stop();
+        }
+      }, e);
+    })();
   },
-  effects: {
-    fetch: orderQueries.fetch,
-    filter: orderQueries.filter,
-    addFilter: orderQueries.addFilter,
-    update(e, t) {
-      var n = e.tradeNo,
-        r = e.key,
-        i = e.value,
-        s = t.put;
-      return a().mark(function e() {
-        var t;
-        return a().wrap(function (e) {
-          while (1) switch (e.prev = e.next) {
-            case 0:
-              return e.next = 2, Object(o["b"])("/" + window.settings.secure_path + "/order/update", {
-                trade_no: n,
-                [r]: i
-              });
-            case 2:
-              if (t = e.sent, 200 === t.code) {
-                e.next = 5;
-                break;
+  addFilter(e, t) {
+    var n = e.key,
+      r = e.condition,
+      i = e.value,
+      o = e.clear,
+      s = t.put,
+      l = t.select;
+    return a().mark(function e() {
+      var t, c, u;
+      return a().wrap(function (e) {
+        while (1) switch (e.prev = e.next) {
+          case 0:
+            if (!o) {
+              e.next = 3;
+              break;
+            }
+            return e.next = 3, s({
+              filter: []
+            });
+          case 3:
+            return e.next = 5, l(e => e.order);
+          case 5:
+            return t = e.sent, c = t.filter, u = t.pagination, c.push({
+              key: n,
+              condition: r,
+              value: i
+            }), u["current"] = 1, e.next = 12, s({
+              type: "setState",
+              payload: {
+                filter: c,
+                pagination: u
               }
-              return e.abrupt("return");
-            case 5:
-              return e.next = 7, s({
-                type: "fetch"
-              });
-            case 7:
-            case "end":
-              return e.stop();
-          }
-        }, e);
-      })();
-    },
-    paid(e, t) {
-      var n = e.tradeNo,
-        r = t.put;
-      return a().mark(function e() {
-        var t;
-        return a().wrap(function (e) {
-          while (1) switch (e.prev = e.next) {
-            case 0:
-              return e.next = 2, Object(o["b"])("/" + window.settings.secure_path + "/order/paid", {
-                trade_no: n
-              });
-            case 2:
-              if (t = e.sent, 200 === t.code) {
-                e.next = 5;
-                break;
+            });
+          case 12:
+            return e.next = 14, s({
+              type: "fetch"
+            });
+          case 14:
+          case "end":
+            return e.stop();
+        }
+      }, e);
+    })();
+  },
+  changeTable(e, t) {
+    var n = e.pagination,
+      r = t.select,
+      o = t.put;
+    return a().mark(function e() {
+      var t;
+      return a().wrap(function (e) {
+        while (1) switch (e.prev = e.next) {
+          case 0:
+            return e.next = 2, r(e => e.order);
+          case 2:
+            return t = e.sent, e.next = 5, o({
+              type: "setState",
+              payload: {
+                pagination: i()({}, t.pagination, n)
               }
-              return e.abrupt("return");
-            case 5:
-              return e.next = 7, r({
-                type: "fetch"
-              });
-            case 7:
-            case "end":
-              return e.stop();
-          }
-        }, e);
-      })();
-    },
-    cancel(e, t) {
-      var n = e.tradeNo,
-        r = t.put;
-      return a().mark(function e() {
-        var t;
-        return a().wrap(function (e) {
-          while (1) switch (e.prev = e.next) {
-            case 0:
-              return e.next = 2, Object(o["b"])("/" + window.settings.secure_path + "/order/cancel", {
-                trade_no: n
-              });
-            case 2:
-              if (t = e.sent, 200 === t.code) {
-                e.next = 5;
-                break;
-              }
-              return e.abrupt("return");
-            case 5:
-              return e.next = 7, r({
-                type: "fetch"
-              });
-            case 7:
-            case "end":
-              return e.stop();
-          }
-        }, e);
-      })();
-    },
-    assign(e, t) {
-      var n = e.params,
-        r = e.callback,
-        s = t.put;
-      return a().mark(function e() {
-        var t;
-        return a().wrap(function (e) {
-          while (1) switch (e.prev = e.next) {
-            case 0:
-              return e.next = 2, s({
-                type: "setState",
-                payload: {
-                  assignLoading: !0
-                }
-              });
-            case 2:
-              return e.next = 4, Object(o["b"])("/" + window.settings.secure_path + "/order/assign", i()({}, n, {
-                total_amount: 100 * n.total_amount
-              }));
-            case 4:
-              return t = e.sent, e.next = 7, s({
-                type: "setState",
-                payload: {
-                  assignLoading: !1
-                }
-              });
-            case 7:
-              if (200 === t.code) {
-                e.next = 9;
-                break;
-              }
-              return e.abrupt("return");
-            case 9:
-              return e.next = 11, s({
-                type: "fetch"
-              });
-            case 11:
-              "function" === typeof r && r();
-            case 12:
-            case "end":
-              return e.stop();
-          }
-        }, e);
-      })();
-    },
-    changeTable: orderQueries.changeTable
+            });
+          case 5:
+            return e.next = 7, o({
+              type: "fetch"
+            });
+          case 7:
+          case "end":
+            return e.stop();
+        }
+      }, e);
+    })();
   }
 };

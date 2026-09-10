@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+后台订单查询切片（基于 7dc529b1）：提取 fetch/filter/addFilter/changeTable，19 差分用例。518 测试、两端 build、60 页面截图、4 通知回归、8 checkout trace 全绿。无后台页面渲染变化，保留缺 type action 等继承风险。首次 null 断言定位问题已修复并重跑。未连接服务器、部署或访问任何真实数据。
+
+以下为前轮记录：
+
 离线逻辑集成 checkpoint（基于 c45c8c4f）：7 项真实页面控制器/order+comm effects/request wrapper 集成，mock 网络/通知/React及简化 effect runner。499 测试、两端 build、60 页面截图、4 通知回归、8 checkout trace 通过。保留 details 未解析、网络 loading 和迟到轮询风险。生产源码未改，未连接服务器、部署或访问真实业务数据。
 
 以下为前轮记录：
