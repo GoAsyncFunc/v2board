@@ -74,6 +74,13 @@ try{
    await tab.evaluate(()=>document.fonts.ready);
    await tab.addStyleTag({content:'*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}'});
    await tab.waitForTimeout(200);
+   // Modal portals mount outside #root. Wait for the visible QR modal before
+   // sampling the mask; otherwise mount timing can change the entire screenshot.
+   if(page==='OrderDetail'&&scenario==='qr'){
+    await tab.locator('.ant-modal-wrap:visible').waitFor();
+    await tab.locator('[data-qr="fixture"]').waitFor();
+    await tab.waitForTimeout(350);
+   }
    if(errors.length||blocked.length)throw Error(`${page}/${scenario}/${mode}: errors=${errors}; external attempts=${blocked}`);
    doms.push(await tab.locator('#root').innerHTML());
    shots.push(await tab.screenshot({path:path.join(output,`${page}-${scenario}-${width}-${mode}.png`),fullPage:true,animations:'disabled'}));

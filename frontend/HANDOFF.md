@@ -3,7 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest summary/status split (local only, after ea48c94f)
+## Latest product/order-info split (local only, after 71627913)
+- Extracted ProductInfo/OrderInfo; existing cancellation UI/dispatch unchanged.
+- 374 tests, builds, 52 page visual cases and 4 notification cases green. Notification runner uses real request wrapper + real notification/message components with mocked 422/500 and i18n; tests manual desktop close/mobile expiry. Not original error UI differential.
+- QR modal screenshot timing fixed with explicit portal/QR visibility wait; full rerun passed without tolerance changes (one intermediate tool timeout at 240s; full run succeeded with 420s).
+- Interleaving parity records late completion after unmount, duplicate pending callbacks, multiple timers/latest-only cleanup. No inherited behavior fixed.
+- Next: extend payment form/key failure and error state UI coverage; identify heavy dependencies; proceed to admin pages or order models. Keep semantic improvements separately scoped.
+- No deployment/server access; reference dirs remain untracked.
+
+## Previous summary/status split (local only, after ea48c94f)
 - Extracted OrderPaymentSummary and OrderStatusResult; unchanged layout/calculations/status semantics. Product/order information remains in the controller render.
 - 371 tests, builds, 52 visual comparisons green (identical DOM/zero pixels).
 - Real request wrapper tested with fake responses for validation/server notifications, forbidden redirect, transport/JSON rejection. Notification recording only, not error UI screenshot coverage.

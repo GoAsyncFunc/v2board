@@ -32,7 +32,7 @@ async function setup(original){
  return {page:new module.exports.default(props),trace,timers};
 }
 const clean=x=>JSON.parse(JSON.stringify(x,(k,v)=>typeof v==='function'?'[callback]':v));
-for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing','stripe-token','poll-pending','poll-complete','unmount','status','late-poll','late-detail','missing-free','missing-paid','checkout-missing','close-before-complete','complete-before-close','empty-response'])test(`OrderDetail original/new ${scenario}`,async()=>{
+for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing','stripe-token','poll-pending','poll-complete','unmount','status','late-poll','late-detail','missing-free','missing-paid','checkout-missing','close-before-complete','complete-before-close','empty-response','late-complete','repeat-pending','double-check'])test(`OrderDetail original/new ${scenario}`,async()=>{
  const results=[];for(const original of [true,false]){
   const {page,trace,timers}=await setup(original);
   if(scenario==='mount'){page.componentDidMount();trace.find(x=>x[1]?.type==='order/detail')[1].callback();trace.find(x=>x[1]?.type==='order/getPaymentMethod')[1].complete(page.props.order.paymentMethod);}
@@ -54,6 +54,9 @@ for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing'
    assert.equal(timers.size,0);assert.equal(trace.filter(x=>x[1]?.type==='order/detail').length,1);
   }
   if(scenario==='empty-response'){page.check();timers.values().next().value();trace.find(x=>x[1]?.type==='order/check')[1].callback({});assert.equal(trace.filter(x=>x[1]?.type==='order/detail').length,1,'Inherited undefined data is treated as completed');}
+  if(scenario==='late-complete'){page.check();const fn=timers.values().next().value;timers.clear();fn();const callback=trace.find(x=>x[1]?.type==='order/check')[1].callback;page.componentWillUnmount();callback({data:1});assert.equal(trace.filter(x=>x[1]?.type==='order/detail').length,1,'Inherited late completion still refreshes details');}
+  if(scenario==='repeat-pending'){page.check();const fn=timers.values().next().value;timers.clear();fn();const callback=trace.find(x=>x[1]?.type==='order/check')[1].callback;callback({data:0});callback({data:0});assert.equal(timers.size,2,'Inherited duplicate callback schedules two timers');}
+  if(scenario==='double-check'){page.check();page.check();page.componentWillUnmount();assert.equal(timers.size,1,'Inherited cleanup only clears latest timer');}
   if(scenario==='status')for(const status of [1,2,3,4,99])trace.push(['result',status,page.getResultText(status)]);
   results.push(clean({trace,state:page.state,order:page.props.order,timers:timers.size}));
  }assert.deepEqual(results[1],results[0]);
