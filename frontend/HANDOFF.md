@@ -3,7 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest admin readonly columns slice (local only, after eda29af5)
+## Latest admin detail body slice (local only, after ffdba18f)
+- Extracted OrderDetailBody only; original modal lifecycle/title/controller and write menus untouched. Email filter callback preserved, tests record only.
+- 25 readonly render parity cases: full/missing/null/extreme amounts/time/status. Null objects still throw; absent email still shows spinner; NaN formatting preserved.
+- New check-admin-order-detail.mjs: 6 partial body/title screenshots at 0 pixels, email callback check. Not full modal/network coverage.
+- Fixed fixture JSX transform and missing React injection, reran all: 558 tests, builds, 60 pages, 6 admin columns +6 detail body,4 notification,8 checkout trace green.
+- Next: name locals/split rows more readably in extracted body, or another readonly admin page. No write menu migration without explicit scope.
+- No server access/deploy; references remain untracked.
+
+## Previous admin readonly columns slice (local only, after eda29af5)
 - Extracted 5 readonly columns to admin/components/OrderDisplayColumns.jsx (type/period/amount/commission/date); column positions/render outputs retained.
 - Status/commission state menus embed writes and remain untouched. Detail modal also not extracted. Next: isolate readonly detail body with mock data, not write handlers.
 - Original columns fixture + 15 diff tests; 533 total tests green. New check-admin-order-display.mjs: real Table/Tag, 6 desktop/mobile rows/empty/loading screenshots at zero pixels, pagination interaction.
