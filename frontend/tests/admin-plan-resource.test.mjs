@@ -1,0 +1,32 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import vm from 'node:vm';
+import { transform } from 'esbuild';
+const React = { Fragment: 'Fragment', createElement: (type, props, ...children) => ({ type, props, children }) };
+async function load(original) {
+  const module = { exports: {} };
+  const file = new URL(original ? './fixtures/pages/admin-plan-resource.cjs' : '../admin/src/components/PlanResourceColumns.jsx', import.meta.url);
+  const source = await fs.readFile(file, 'utf8');
+  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
+    if (id === 'react') return React;
+    if (id.includes('Icon')) return { a: 'Icon' };
+    throw Error(id);
+  } });
+  return original ? module.exports({ a: React }, { a: 'Icon' }) : Object.values(module.exports.createReadonlyPlanResourceColumns());
+}
+function normalize(value) {
+  if (Array.isArray(value)) return Array.from(value, normalize);
+  if (typeof value === 'function') return '[render]';
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k,v]) => [k,normalize(v)]));
+  return value;
+}
+const values=[0,1,-1,null,undefined,'12','',NaN,Infinity,Number.MAX_SAFE_INTEGER,false,[],{unexpected:true}];
+for(const [index,value] of values.entries()) test(`plan readonly resource ${index+1}`,async()=>{
+  const results=[];
+  for(const original of [true,false]){
+    const columns=await load(original);
+    results.push(normalize({columns,values:columns.map(c=>c.render?c.render(value):value)}));
+  }
+  assert.deepEqual(results[1],results[0]);
+});

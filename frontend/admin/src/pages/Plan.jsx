@@ -1,4 +1,8 @@
 const {
+  createReadonlyPlanResourceColumns
+} = require('../components/PlanResourceColumns.jsx');
+const resourceColumns = createReadonlyPlanResourceColumns();
+const {
   createReadonlyPlanPriceColumns
 } = require('../components/PlanPriceColumns.jsx');
 const readonlyColumns = createReadonlyPlanPriceColumns();
@@ -492,37 +496,7 @@ class j extends m.a.Component {
             onClick: () => this.update(t.id, "renew", parseInt(e) ? 0 : 1)
           });
         }
-      }, {
-        title: "名称",
-        dataIndex: "name",
-        key: "name"
-      }, {
-        title: "统计",
-        dataIndex: "count",
-        key: "count",
-        render: e => {
-          return m.a.createElement(m.a.Fragment, null, m.a.createElement(h["a"], {
-            type: "user",
-            style: {
-              cursor: "move"
-            }
-          }), " ", e);
-        }
-      }, {
-        title: "流量",
-        dataIndex: "transfer_enable",
-        key: "transfer_enable",
-        render: e => {
-          return m.a.createElement(m.a.Fragment, null, e, " GB");
-        }
-      }, {
-        title: "设备数限制",
-        dataIndex: "device_limit",
-        key: "device_limit",
-        render: e => {
-          return null !== e ? e : "-";
-        }
-      }, readonlyColumns["month_price"], readonlyColumns["quarter_price"], readonlyColumns["half_year_price"], readonlyColumns["year_price"], readonlyColumns["two_year_price"], readonlyColumns["three_year_price"], readonlyColumns["onetime_price"], readonlyColumns["reset_price"], {
+      }, resourceColumns["name"], resourceColumns["count"], resourceColumns["transfer_enable"], resourceColumns["device_limit"], readonlyColumns["month_price"], readonlyColumns["quarter_price"], readonlyColumns["half_year_price"], readonlyColumns["year_price"], readonlyColumns["two_year_price"], readonlyColumns["three_year_price"], readonlyColumns["onetime_price"], readonlyColumns["reset_price"], {
         title: "权限组",
         dataIndex: "group_id",
         key: "group_id",
