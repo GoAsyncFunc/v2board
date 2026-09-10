@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest coupon readonly columns (local only, after af1d7583)
+## Latest notice readonly columns (local only, after 966e7b8b)
+- Notice ID/title/created_at extracted to NoticeDisplayColumns.jsx; show/edit/delete/controller unchanged. No original type/tag display exists.
+- 12 fixture differential tests cover long title/null/missing/extreme timestamps/irrelevant unknown type. 605 tests, builds and all existing regressions green.
+- New check-admin-notice-display.mjs: 6 partial table screenshots at zero pixels, pagination and 390px horizontal scrolling. Harness supplies pagination/scroll; production table config unchanged.
+- Next low-risk slice: Plan pure price display columns (avoid switches/sort/write menus), or name remaining readonly details. Full UI restoration incomplete.
+- No server access/deploy; reference dirs untracked.
+
+## Previous coupon readonly columns (local only, after af1d7583)
 - Inventory compared Plan/Coupon/Notice. Extracted Coupon id/name/type/limit_use/started_at columns only into CouponDisplayColumns.jsx. All write/clipboard/controller paths unchanged.
 - Original columns fixture +24 parity tests; preserves strict numeric type check, null-only unlimited count, missing/extreme dates and null-row errors.
 - 593 tests/builds/new 6 coupon table screenshots + pagination, existing 60 pages/6 order columns/6 detail body/4 notifications/8 checkout traces green.
