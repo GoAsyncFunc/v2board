@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+ServerRoute只读列checkpoint：ID/备注/匹配数量，12差分；645单测、两端build、新6局部截图/分页/横滚、既有全部回归通过。动作/操作/controller/request未变。保留null异常与length隐式类型语义。无服务器连接、部署或真实数据访问。
+
+以下为前轮记录：
+
 Knowledge只读列checkpoint：4列提取、14差分；633单测、两端build、新6知识库局部截图/分页/横滚与既有全部回归通过。拖拽/开关/写入/controller不变。仅本地fixture/mock，无服务器连接、部署或真实数据访问。
 
 以下为前轮记录：

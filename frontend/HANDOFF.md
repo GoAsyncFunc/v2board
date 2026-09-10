@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Knowledge readonly slice (local only, after 483beff9)
+## Latest server-route readonly slice (local only, after 1bf7089a)
+- Inventory inspected ServerGroup/ServerRoute/ServerManage; chose route id/remarks/match count. Extracted ServerRouteDisplayColumns and formatter, original fixture unchanged.
+- 12 parity cases preserve empty/string comma filtering without trimming, arrays, null errors, unusual length coercion. No action/controller/request edits.
+- 645 tests, builds, new6 route partial screenshots/paging/horizontal scroll + all existing regressions green, new pixels 0.
+- Next: group readonly counts or another narrowly isolated admin display; full restoration still incomplete. No server/deploy/data; reference dirs untracked.
+
+## Previous Knowledge readonly slice (local only, after 483beff9)
 - Extracted Knowledge id/title/category/updated_at columns. Original fixture preserved; no drag/switch/write/controller changes.
 - 14 parity cases for null/missing/long text/category/extreme dates. 633 tests/builds/new6 Knowledge table visuals and all existing visual/notification/checkout suites green; new pixels 0, paging/horizontal scroll checked in harness only.
 - Next: inventory remaining readonly admin server/group/route areas; avoid write controls. Complete UI cleanup still not finished.

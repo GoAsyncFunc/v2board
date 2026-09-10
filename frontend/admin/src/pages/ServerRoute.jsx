@@ -1,3 +1,7 @@
+const {
+  createReadonlyServerRouteColumns
+} = require('../components/ServerRouteDisplayColumns.jsx');
+const readonlyColumns = createReadonlyServerRouteColumns();
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -244,23 +248,7 @@ class _ extends f.a.Component {
     var e = this.props.serverRoute,
       t = e.routes,
       n = e.fetchLoading,
-      r = [{
-        title: "ID",
-        dataIndex: "id",
-        key: "id"
-      }, {
-        title: "备注",
-        dataIndex: "remarks",
-        key: "remarks"
-      }, {
-        title: "匹配数量",
-        dataIndex: "match",
-        key: "match",
-        render: e => {
-          var t;
-          return e.length == 0 ? "无规则时默认" : "匹配 ".concat("string" === typeof e ? null === (t = e.split(",").filter(e => !!e)) || void 0 === t ? void 0 : t.length : e.length, " 条规则");
-        }
-      }, {
+      r = [readonlyColumns["id"], readonlyColumns["remarks"], readonlyColumns["match"], {
         title: "动作",
         dataIndex: "action",
         key: "action",
