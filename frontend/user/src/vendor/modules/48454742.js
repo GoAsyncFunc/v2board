@@ -1,0 +1,28 @@
+let legacyModule = module,
+  legacyExports = exports;
+legacyExports["a"] = {
+  today: "\u4eca\u65e5",
+  now: "\u73fe\u5728\u6642\u523b",
+  backToToday: "\u4eca\u65e5\u306b\u623b\u308b",
+  ok: "\u6c7a\u5b9a",
+  timeSelect: "\u6642\u9593\u3092\u9078\u629e",
+  dateSelect: "\u65e5\u6642\u3092\u9078\u629e",
+  clear: "\u30af\u30ea\u30a2",
+  month: "\u6708",
+  year: "\u5e74",
+  previousMonth: "\u524d\u6708 (\u30da\u30fc\u30b8\u30a2\u30c3\u30d7\u30ad\u30fc)",
+  nextMonth: "\u7fcc\u6708 (\u30da\u30fc\u30b8\u30c0\u30a6\u30f3\u30ad\u30fc)",
+  monthSelect: "\u6708\u3092\u9078\u629e",
+  yearSelect: "\u5e74\u3092\u9078\u629e",
+  decadeSelect: "\u5e74\u4ee3\u3092\u9078\u629e",
+  yearFormat: "YYYY\u5e74",
+  dayFormat: "D\u65e5",
+  dateFormat: "YYYY\u5e74M\u6708D\u65e5",
+  dateTimeFormat: "YYYY\u5e74M\u6708D\u65e5 HH\u6642mm\u5206ss\u79d2",
+  previousYear: "\u524d\u5e74 (Control\u3092\u62bc\u3057\u306a\u304c\u3089\u5de6\u30ad\u30fc)",
+  nextYear: "\u7fcc\u5e74 (Control\u3092\u62bc\u3057\u306a\u304c\u3089\u53f3\u30ad\u30fc)",
+  previousDecade: "\u524d\u306e\u5e74\u4ee3",
+  nextDecade: "\u6b21\u306e\u5e74\u4ee3",
+  previousCentury: "\u524d\u306e\u4e16\u7d00",
+  nextCentury: "\u6b21\u306e\u4e16\u7d00"
+};

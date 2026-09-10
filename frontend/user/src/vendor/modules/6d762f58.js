@@ -1,0 +1,12 @@
+let legacyModule = module,
+  legacyExports = exports;
+var r = require("./6c6a684e.js"),
+  i = require("./4d4d6d44.js"),
+  a = require("./774a6737.js"),
+  o = require("./476f7951.js");
+function u(e, t, n) {
+  if (!o(n)) return !1;
+  var u = typeof t;
+  return !!("number" == u ? i(n) && a(t, n.length) : "string" == u && t in n) && r(n[t], e);
+}
+legacyModule.exports = u;

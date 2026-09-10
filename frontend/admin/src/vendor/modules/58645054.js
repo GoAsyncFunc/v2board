@@ -1,0 +1,56 @@
+let legacyModule = module,
+  legacyExports = exports;
+var r = require("./46715048.js"),
+  i = require("./57474e57.js"),
+  o = require("./724b496c.js"),
+  a = require("./56504f45.js"),
+  s = require("./79773465.js"),
+  l = require("./626d4969.js"),
+  c = require("./6c76416f.js"),
+  u = require("./42467438.js"),
+  h = require("./674c374e.js")("iterator"),
+  f = !([].keys && "next" in [].keys()),
+  d = "@@iterator",
+  p = "keys",
+  m = "values",
+  g = function () {
+    return this;
+  };
+legacyModule.exports = function (e, t, n, v, y, b, w) {
+  l(n, t, v);
+  var x,
+    _,
+    E,
+    S = function (e) {
+      if (!f && e in T) return T[e];
+      switch (e) {
+        case p:
+          return function () {
+            return new n(this, e);
+          };
+        case m:
+          return function () {
+            return new n(this, e);
+          };
+      }
+      return function () {
+        return new n(this, e);
+      };
+    },
+    k = t + " Iterator",
+    C = y == m,
+    O = !1,
+    T = e.prototype,
+    L = T[h] || T[d] || y && T[y],
+    A = L || S(y),
+    P = y ? C ? S("entries") : A : void 0,
+    j = "Array" == t && T.entries || L;
+  if (j && (E = u(j.call(new e())), E !== Object.prototype && E.next && (c(E, k, !0), r || "function" == typeof E[h] || a(E, h, g))), C && L && L.name !== m && (O = !0, A = function () {
+    return L.call(this);
+  }), r && !w || !f && !O && T[h] || a(T, h, A), s[t] = A, s[k] = g, y) if (x = {
+    values: C ? A : S(m),
+    keys: b ? A : S(p),
+    entries: P
+  }, w) for (_ in x) _ in T || o(T, _, x[_]);else i(i.P + i.F * (f || O), t, x);
+  return x;
+};

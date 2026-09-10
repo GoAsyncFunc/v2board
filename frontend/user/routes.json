@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/dashboard",
+    "id": "UJb+",
+    "file": "pages/Dashboard.jsx"
+  },
+  {
+    "path": "/forgetpassword",
+    "id": "pcnc",
+    "file": "pages/Forgetpassword.jsx"
+  },
+  {
+    "path": "/",
+    "id": "Dtc0",
+    "file": "pages/Index.jsx"
+  },
+  {
+    "path": "/invite",
+    "id": "py8M",
+    "file": "pages/Invite.jsx"
+  },
+  {
+    "path": "/knowledge",
+    "id": "V4Fw",
+    "file": "pages/Knowledge.jsx"
+  },
+  {
+    "path": "/login",
+    "id": "ahTi",
+    "file": "pages/Login.jsx"
+  },
+  {
+    "path": "/node",
+    "id": "W+MR",
+    "file": "pages/Node.jsx"
+  },
+  {
+    "path": "/order/:trade_no",
+    "id": "GPI8",
+    "file": "pages/OrderDetail.jsx"
+  },
+  {
+    "path": "/order",
+    "id": "yA36",
+    "file": "pages/Order.jsx"
+  },
+  {
+    "path": "/plan/:plan_id",
+    "id": "WSyp",
+    "file": "pages/PlanDetail.jsx"
+  },
+  {
+    "path": "/plan",
+    "id": "FGty",
+    "file": "pages/Plan.jsx"
+  },
+  {
+    "path": "/profile",
+    "id": "DQfm",
+    "file": "pages/Profile.jsx"
+  },
+  {
+    "path": "/register",
+    "id": "ap3T",
+    "file": "pages/Register.jsx"
+  },
+  {
+    "path": "/ticket/:ticket_id",
+    "id": "FPmv",
+    "file": "pages/TicketDetail.jsx"
+  },
+  {
+    "path": "/ticket",
+    "id": "tt7W",
+    "file": "pages/Ticket.jsx"
+  },
+  {
+    "path": "/traffic",
+    "id": "TkWt",
+    "file": "pages/Traffic.jsx"
+  }
+]

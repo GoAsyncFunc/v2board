@@ -1,0 +1,13 @@
+let legacyModule = module,
+  legacyExports = exports;
+var r = require("./4a547a42.js"),
+  i = require("./45784137.js"),
+  o = Object.prototype,
+  a = o.hasOwnProperty,
+  s = o.propertyIsEnumerable,
+  l = r(function () {
+    return arguments;
+  }()) ? r : function (e) {
+    return i(e) && a.call(e, "callee") && !s.call(e, "callee");
+  };
+legacyModule.exports = l;

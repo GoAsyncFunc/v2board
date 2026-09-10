@@ -1,0 +1,34 @@
+let legacyModule = module,
+  legacyExports = exports;
+var r = require("./7432446e.js"),
+  i = require("./35546730.js"),
+  a = require("./79503566.js"),
+  o = require("./51316c34.js"),
+  u = require("./2b69464f.js"),
+  l = require("./3033412b.js"),
+  s = require("./5a30636d.js"),
+  c = require("./334c3636.js"),
+  f = require("./44535245.js"),
+  d = require("./6c534344.js"),
+  h = require("./476f7951.js"),
+  p = require("./594f3356.js"),
+  m = require("./63367747.js"),
+  v = require("./6974736a.js"),
+  g = require("./6a654c6f.js");
+function y(e, t, n, y, b, _, w) {
+  var k = v(e, n),
+    S = v(t, n),
+    x = w.get(S);
+  if (x) r(e, n, x);else {
+    var T = _ ? _(k, S, n + "", e, t, w) : void 0,
+      E = void 0 === T;
+    if (E) {
+      var M = s(S),
+        C = !M && f(S),
+        O = !M && !C && m(S);
+      T = S, M || C || O ? s(k) ? T = k : c(k) ? T = o(k) : C ? (E = !1, T = i(S, !0)) : O ? (E = !1, T = a(S, !0)) : T = [] : p(S) || l(S) ? (T = k, l(k) ? T = g(k) : h(k) && !d(k) || (T = u(S))) : E = !1;
+    }
+    E && (w.set(S, T), b(T, S, y, _, w), w["delete"](S)), r(e, n, T);
+  }
+}
+legacyModule.exports = y;

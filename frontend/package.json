@@ -1,0 +1,26 @@
+{
+  "name": "v2board-restored-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate": "node scripts/migrate.mjs",
+    "build": "node scripts/build.mjs",
+    "dev:user": "node scripts/dev.mjs user",
+    "dev:admin": "node scripts/dev.mjs admin",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@babel/generator": "7.28.3",
+    "@babel/parser": "7.28.4",
+    "@babel/traverse": "7.28.4",
+    "@babel/types": "7.28.4",
+    "esbuild": "0.25.9",
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "pngjs": "7.0.0",
+    "prettier": "3.6.2"
+  }
+}

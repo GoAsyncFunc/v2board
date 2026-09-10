@@ -1,0 +1,42 @@
+let legacyModule = module,
+  legacyExports = exports;
+for (var r = require("./4f45526b.js"), i = require("./49676761.js"), o = require("./724b496c.js"), a = require("./63304f79.js"), s = require("./56504f45.js"), l = require("./79773465.js"), c = require("./674c374e.js"), u = c("iterator"), h = c("toStringTag"), f = l.Array, d = {
+    CSSRuleList: !0,
+    CSSStyleDeclaration: !1,
+    CSSValueList: !1,
+    ClientRectList: !1,
+    DOMRectList: !1,
+    DOMStringList: !1,
+    DOMTokenList: !0,
+    DataTransferItemList: !1,
+    FileList: !1,
+    HTMLAllCollection: !1,
+    HTMLCollection: !1,
+    HTMLFormElement: !1,
+    HTMLSelectElement: !1,
+    MediaList: !0,
+    MimeTypeArray: !1,
+    NamedNodeMap: !1,
+    NodeList: !0,
+    PaintRequestList: !1,
+    Plugin: !1,
+    PluginArray: !1,
+    SVGLengthList: !1,
+    SVGNumberList: !1,
+    SVGPathSegList: !1,
+    SVGPointList: !1,
+    SVGStringList: !1,
+    SVGTransformList: !1,
+    SourceBufferList: !1,
+    StyleSheetList: !0,
+    TextTrackCueList: !1,
+    TextTrackList: !1,
+    TouchList: !1
+  }, p = i(d), m = 0; m < p.length; m++) {
+  var g,
+    v = p[m],
+    y = d[v],
+    b = a[v],
+    w = b && b.prototype;
+  if (w && (w[u] || s(w, u, f), w[h] || s(w, h, v), l[v] = f, y)) for (g in r) w[g] || o(w, g, r[g], !0);
+}

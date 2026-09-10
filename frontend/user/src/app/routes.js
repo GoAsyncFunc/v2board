@@ -1,0 +1,102 @@
+import Dashboard from '../pages/Dashboard.jsx';
+import Forgetpassword from '../pages/Forgetpassword.jsx';
+import Index from '../pages/Index.jsx';
+import Invite from '../pages/Invite.jsx';
+import Knowledge from '../pages/Knowledge.jsx';
+import Login from '../pages/Login.jsx';
+import Node from '../pages/Node.jsx';
+import OrderDetail from '../pages/OrderDetail.jsx';
+import Order from '../pages/Order.jsx';
+import PlanDetail from '../pages/PlanDetail.jsx';
+import Plan from '../pages/Plan.jsx';
+import Profile from '../pages/Profile.jsx';
+import Register from '../pages/Register.jsx';
+import TicketDetail from '../pages/TicketDetail.jsx';
+import Ticket from '../pages/Ticket.jsx';
+import Traffic from '../pages/Traffic.jsx';
+
+// Add or edit routes here. Every component is a source file, not a module ID.
+const routes = [
+    {
+        path: "/dashboard",
+        exact: true,
+        component: Dashboard,
+    },
+    {
+        path: "/forgetpassword",
+        exact: true,
+        component: Forgetpassword,
+    },
+    {
+        path: "/",
+        exact: true,
+        component: Index,
+    },
+    {
+        path: "/invite",
+        exact: true,
+        component: Invite,
+    },
+    {
+        path: "/knowledge",
+        exact: true,
+        component: Knowledge,
+    },
+    {
+        path: "/login",
+        exact: true,
+        component: Login,
+    },
+    {
+        path: "/node",
+        exact: true,
+        component: Node,
+    },
+    {
+        path: "/order/:trade_no",
+        exact: true,
+        component: OrderDetail,
+    },
+    {
+        path: "/order",
+        exact: true,
+        component: Order,
+    },
+    {
+        path: "/plan/:plan_id",
+        exact: true,
+        component: PlanDetail,
+    },
+    {
+        path: "/plan",
+        exact: true,
+        component: Plan,
+    },
+    {
+        path: "/profile",
+        exact: true,
+        component: Profile,
+    },
+    {
+        path: "/register",
+        exact: true,
+        component: Register,
+    },
+    {
+        path: "/ticket/:ticket_id",
+        exact: true,
+        component: TicketDetail,
+    },
+    {
+        path: "/ticket",
+        exact: true,
+        component: Ticket,
+    },
+    {
+        path: "/traffic",
+        exact: true,
+        component: Traffic,
+    },
+];
+
+export default routes;
