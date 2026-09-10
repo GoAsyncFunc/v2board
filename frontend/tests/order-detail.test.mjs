@@ -23,7 +23,7 @@ async function setup(original){
  return {page:new module.exports.default(props),trace,timers};
 }
 const clean=x=>JSON.parse(JSON.stringify(x,(k,v)=>typeof v==='function'?'[callback]':v));
-for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing','stripe-token','poll-pending','poll-complete','unmount','status'])test(`OrderDetail original/new ${scenario}`,async()=>{
+for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing','stripe-token','poll-pending','poll-complete','unmount','status','late-poll','late-detail','missing-free','missing-paid','checkout-missing'])test(`OrderDetail original/new ${scenario}`,async()=>{
  const results=[];for(const original of [true,false]){
   const {page,trace,timers}=await setup(original);
   if(scenario==='mount'){page.componentDidMount();trace.find(x=>x[1]?.type==='order/detail')[1].callback();trace.find(x=>x[1]?.type==='order/getPaymentMethod')[1].complete(page.props.order.paymentMethod);}
@@ -33,6 +33,11 @@ for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing'
   if(scenario==='checkout')page.checkout();
   if(scenario.startsWith('poll-')){page.check();const fn=timers.values().next().value;timers.clear();fn();trace.find(x=>x[1]?.type==='order/check')[1].callback({data:scenario==='poll-pending'?0:1});}
   if(scenario==='unmount'){page.check();page.componentWillUnmount();assert.equal(timers.size,0);}
+  if(scenario==='late-poll'){page.check();const fn=timers.values().next().value;timers.clear();fn();const callback=trace.find(x=>x[1]?.type==='order/check')[1].callback;page.componentWillUnmount();callback({data:0});assert.equal(timers.size,1,'Inherited late callback restarts polling');}
+  if(scenario==='late-detail'){page.fetchData();const callback=trace.find(x=>x[1]?.type==='order/detail')[1].callback;page.componentWillUnmount();callback();assert.equal(timers.size,1,'Inherited detail callback restarts polling');}
+  if(scenario==='missing-free'){page.props.order.paymentMethod=[];page.props.order.order.total_amount=0;page.changePaymentMethod(999);}
+  if(scenario==='missing-paid'){page.props.order.paymentMethod=[];try{page.changePaymentMethod(999);}catch(error){trace.push(['threw',error.name]);}assert.equal(trace.at(-1)[0],'threw','Inherited missing paid method throws');}
+  if(scenario==='checkout-missing'){page.props.order.paymentMethod=[];page.checkout();}
   if(scenario==='status')for(const status of [1,2,3,4,99])trace.push(['result',status,page.getResultText(status)]);
   results.push(clean({trace,state:page.state,order:page.props.order,timers:timers.size}));
  }assert.deepEqual(results[1],results[0]);

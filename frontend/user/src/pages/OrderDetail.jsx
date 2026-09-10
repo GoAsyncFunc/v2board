@@ -1,13 +1,13 @@
+import PaymentMethods from "../components/checkout/PaymentMethods.jsx";
+import PaymentQrModal from "../components/checkout/PaymentQrModal.jsx";
 import React from "react";
 import MainLayout from "../layouts/MainLayout.jsx";
 import { c as connect } from "../vendor/reactRedux.js";
 import { a as Icon } from "../vendor/Icon.js";
-import { a as Radio } from "../vendor/modules/39794836.js";
 import { a as Modal } from "../vendor/Modal.js";
 import { a as Result } from "../vendor/modules/4d6f5257.js";
 import { a as message } from "../vendor/modules/74737172.js";
 import { a as settings } from "../vendor/localeSettings.js";
-import QRCode from "../vendor/modules/44314466.js";
 import loadable from "../vendor/modules/5642306f.js";
 import { formatMessage } from "../vendor/i18n.js";
 import moment from "../vendor/modules/77642f52.js";
@@ -586,66 +586,17 @@ export class OrderDetailPage extends React.Component {
                                                         }
                                                     ></div>
                                                 </div>
-                                                <div
-                                                    className={
-                                                        "block-content p-0"
+                                                <PaymentMethods
+                                                    methods={methods}
+                                                    selectedMethod={
+                                                        selectedMethod
                                                     }
-                                                >
-                                                    {methods.map((e) => {
-                                                        return (
-                                                            <div
-                                                                onClick={() =>
-                                                                    this.changePaymentMethod(
-                                                                        e.id,
-                                                                    )
-                                                                }
-                                                                className={"v2board-select ".concat(
-                                                                    selectedMethod ===
-                                                                        e.id &&
-                                                                        "active border-primary",
-                                                                )}
-                                                            >
-                                                                <div
-                                                                    style={{
-                                                                        flex: 1,
-                                                                        paddingTop: 4,
-                                                                    }}
-                                                                >
-                                                                    {
-                                                                        <Radio
-                                                                            {...{
-                                                                                className:
-                                                                                    "v2board-select-radio",
-                                                                                checked:
-                                                                                    selectedMethod ===
-                                                                                    e.id,
-                                                                            }}
-                                                                        ></Radio>
-                                                                    }
-                                                                    {e.name}
-                                                                </div>
-                                                                {e.icon && (
-                                                                    <div
-                                                                        style={{
-                                                                            flex: 1,
-                                                                            textAlign:
-                                                                                "right",
-                                                                        }}
-                                                                    >
-                                                                        <img
-                                                                            height={
-                                                                                30
-                                                                            }
-                                                                            src={
-                                                                                e.icon
-                                                                            }
-                                                                        ></img>
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
+                                                    onSelect={(id) =>
+                                                        this.changePaymentMethod(
+                                                            id,
+                                                        )
+                                                    }
+                                                />
                                             </div>
                                         </React.Fragment>
                                     )}
@@ -1027,48 +978,24 @@ export class OrderDetailPage extends React.Component {
                         )}
                     </div>
                 </main>
-                <Modal
-                    {...{
-                        className: "v2board-payment-qrcode",
-                        maskClosable: !0,
-                        closable: !1,
-                        centered: !0,
-                        onCancel: () => {
-                            this.props.dispatch({
-                                type: "order/setState",
-                                payload: {
-                                    qrcodeModalVisible: !1,
-                                    payUrl: void 0,
-                                },
-                            });
-                        },
-                        width: 300,
-                        visible: qrVisible,
-                        footer: (
-                            <div
-                                style={{
-                                    textAlign: "center",
-                                }}
-                            >
-                                {formatMessage({
-                                    id: "等待支付中",
-                                })}
-                            </div>
-                        ),
-                    }}
-                >
-                    {payUrl && (
-                        <QRCode
-                            {...{
-                                renderAs: "svg",
-                                size: "250",
-                                value: payUrl,
-                            }}
-                        ></QRCode>
-                    )}
-                </Modal>
+                <PaymentQrModal
+                    visible={qrVisible}
+                    payUrl={payUrl}
+                    onCancel={() =>
+                        this.props.dispatch({
+                            type: "order/setState",
+                            payload: {
+                                qrcodeModalVisible: false,
+                                payUrl: undefined,
+                            },
+                        })
+                    }
+                />
             </MainLayout>
         );
     }
 }
-export default connect(({ order, comm }) => ({ order, comm }))(OrderDetailPage);
+export default connect(({ order, comm }) => ({
+    order,
+    comm,
+}))(OrderDetailPage);

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(home,'test-results/pages');await fs.mkdir(output,{recursive:true});
 const pages={Traffic:'traffic',Node:'node',Plan:'plan',PlanDetail:'plan-detail',Order:'order',OrderDetail:'order-detail'};
-const scenarios=[['Traffic','rows'],['Traffic','loading'],['Node','rows'],['Node','empty'],['Node','renew'],['Plan','cards'],['Plan','empty'],['PlanDetail','checkout'],['PlanDetail','coupon'],['PlanDetail','restricted'],['PlanDetail','loading'],['Order','rows'],['Order','empty'],['Order','loading'],...['pending','processing','cancelled','completed','discounted','loading','stripe','qr'].map(state=>['OrderDetail',state])];
+const scenarios=[['Traffic','rows'],['Traffic','loading'],['Node','rows'],['Node','empty'],['Node','renew'],['Plan','cards'],['Plan','empty'],['PlanDetail','checkout'],['PlanDetail','coupon'],['PlanDetail','restricted'],['PlanDetail','loading'],['Order','rows'],['Order','empty'],['Order','loading'],...['pending','processing','cancelled','completed','discounted','loading','stripe','qr','methods-empty','checkout-loading','cancel-loading','unknown'].map(state=>['OrderDetail',state])];
 const fixtureSource=`
 const periods={month_price:1000,quarter_price:null,half_year_price:null,year_price:10000,two_year_price:null,three_year_price:null,onetime_price:null,reset_price:null};
 export function fixture(name){
@@ -16,7 +16,9 @@ export function fixture(name){
  const props={match:{params:{plan_id:'7'}},location:{pathname:'/plan/7'},stat:{traffics:[{key:1,record_at:1700000000,u:'1048576',d:'2097152',server_rate:1.5}],getTrafficLogLoading:name==='loading'},server:{servers:name==='empty'||name==='renew'?[]:[{key:1,name:'Fixture Node',is_online:1,rate:1.5,tags:['Premium','Asia']}],fetchLoading:false},user:{subscribe:{plan_id:name==='renew'?7:null,u:1,d:2,transfer_enable:100,expired_at:2000000000},userInfo:{plan_id:name==='restricted'?7:null}},plan:{plan,plans:name==='empty'?[]:[plan,{...plan,id:8,name:'Sold Out',capacity_limit:0},{...plan,id:9,name:'Limited',capacity_limit:3}],selectPeriod:'month_price',fetchLoading:name==='loading'},coupon:{coupon:name==='coupon'?{name:'Fixture Discount',code:'TEST',type:2,value:20}:{}},order:{orders:[],saveLoading:false,cancelLoading:false},comm:{config:{currency_symbol:'¥',currency:'CNY'}}};
  if(new URL(location.href).searchParams.get('page')==='Order')props.order={...props.order,fetchLoading:name==='loading',orders:name==='empty'?[]:[0,1,2,3,4].map(status=>({key:status,trade_no:'TEST-ORDER-'+status,status,period:'month_price',total_amount:12345,created_at:1700000000,plan:status===4?null:{name:'Fixture Plan'}}))};
  if(new URL(location.href).searchParams.get('page')==='OrderDetail'){
- props.match.params.trade_no='TEST-ORDER';props.order={order:{trade_no:'TEST-ORDER',plan:{...plan,transfer_enable:100},period:'month_price',status:({processing:1,cancelled:2,completed:3,discounted:4})[name]||0,total_amount:1000,created_at:1700000000},selectMethod:name==='stripe'?2:1,paymentMethod:[{id:1,name:'Fixture Alipay',payment:'Alipay',handling_fee_fixed:0,handling_fee_percent:0},{id:2,name:'Fixture Card',payment:'StripeCredit',handling_fee_fixed:0,handling_fee_percent:0}],qrcodeModalVisible:name==='qr',payUrl:name==='qr'?'fixture-payment-url':'',checkoutLoading:false,detailsLoading:name==='loading',cancelLoading:false};
+ props.match.params.trade_no='TEST-ORDER';props.order={order:{trade_no:'TEST-ORDER',plan:{...plan,transfer_enable:100},period:'month_price',status:({processing:1,cancelled:2,completed:3,discounted:4})[name]||0,total_amount:1000,created_at:1700000000},selectMethod:name==='stripe'?2:1,paymentMethod:[{id:1,name:'Fixture Alipay',payment:'Alipay',handling_fee_fixed:0,handling_fee_percent:0},{id:2,name:'Fixture Card',payment:'StripeCredit',handling_fee_fixed:0,handling_fee_percent:0}],qrcodeModalVisible:name==='qr',payUrl:name==='qr'?'fixture-payment-url':'',checkoutLoading:name==='checkout-loading',detailsLoading:name==='loading',cancelLoading:name==='cancel-loading'};
+ if(name==='methods-empty')props.order.paymentMethod=[];
+ if(name==='unknown')props.order.order.status=99;
  }
  if(name==='restricted')props.plan.plan={...plan,renew:false};return props;
 }`;
@@ -116,6 +118,14 @@ try{
     if(await tab.evaluate(()=>window.__actions.some(a=>a.type==='order/cancel')))throw Error('Cancellation before confirmation');
     await tab.locator('.ant-modal-confirm-btns button').last().click();
     await tab.waitForFunction(()=>window.__actions.some(a=>a.type==='order/cancel'&&a.tradeNo==='TEST-ORDER'));
+   }
+   if(page==='OrderDetail'&&scenario==='qr'){
+    await tab.locator('.ant-modal-wrap').click({position:{x:5,y:5}});
+    const actions=await tab.evaluate(()=>window.__actions);
+    if(!actions.some(a=>a.type==='order/setState'&&a.payload.qrcodeModalVisible===false&&!('payUrl' in JSON.parse(JSON.stringify(a.payload)))))throw Error('QR close action mismatch');
+   }
+   if(page==='OrderDetail'&&scenario==='checkout-loading'){
+    if(!await tab.locator('button.btn-block').isDisabled())throw Error('Loading checkout must stay disabled');
    }
    if(page==='OrderDetail'&&['completed','discounted'].includes(scenario)){
     await tab.locator('button').filter({hasText:'查看使用教程'}).click();

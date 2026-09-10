@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## OrderDetail round (local only, after Order checkpoint 8a64d47f)
+## Latest payment-component split (local only, after 851325cb)
+- Extracted checkout/PaymentMethods.jsx and PaymentQrModal.jsx; summary/result remains in page.
+- 363 tests, both builds, 52 desktop/mobile comparisons green (identical DOM/zero pixels). Added QR mask close and disabled checkout interaction checks, empty methods/loading/unknown state visuals.
+- Differential tests explicitly preserve late callback restart after unmount, missing paid method TypeError and free/missing checkout behavior. No lifecycle fix was made; do not claim these risks are resolved.
+- Next: extract summary/status and add actual network-error/QR callback-race coverage. Any lifecycle fix needs a separate intentional behavior change and regression tests.
+- No server access/deployment; recovered-ui/ and tools/ remain untracked.
+
+## Previous OrderDetail round (local only, after Order checkpoint 8a64d47f)
 - OrderDetail now standard imports/named class/JSX; key render/payment locals renamed. Still a large page with some comma expressions; split payment selector and summary next.
 - Saved original fixture user-order-detail.jsx. 10 controller differential tests: mount/detail callbacks, payment choice/fees, Stripe key/token checks, 3-second fake-timer pending/complete polling, unmount cleanup, status results.
 - 358 unit tests, both builds, 44 screenshot comparisons green; zero pixels and identical DOM. Browser checks selection, cancel confirmation and completed tutorial navigation. Stripe/QR/XMLHttpRequest are mocked; no external server access.
