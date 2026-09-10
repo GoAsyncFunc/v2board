@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest readonly readability slice (local only, after 9c44fda2)
+## Latest coupon readonly columns (local only, after af1d7583)
+- Inventory compared Plan/Coupon/Notice. Extracted Coupon id/name/type/limit_use/started_at columns only into CouponDisplayColumns.jsx. All write/clipboard/controller paths unchanged.
+- Original columns fixture +24 parity tests; preserves strict numeric type check, null-only unlimited count, missing/extreme dates and null-row errors.
+- 593 tests/builds/new 6 coupon table screenshots + pagination, existing 60 pages/6 order columns/6 detail body/4 notifications/8 checkout traces green.
+- Next: small readonly Notice columns or Plan price display; avoid write controls/controller refactors. Full restoration remains incomplete.
+- No server access/deploy; reference dirs untracked.
+
+## Previous readonly readability slice (local only, after 9c44fda2)
 - Rewrote OrderDetailBody with named props/rowStyle, synchronous detailRow helper and amount/time formatters. Original fixture unchanged; no extra DOM/lifecycle wrapper or business action changes.
 - Preserved short-circuit loader, null errors, NaN/coercion, strict plan ID lookup, zero actual commission expression and both filter callbacks.
 - 11 additional edge cases; 36 detail parity cases total. 569 all tests, builds, 60 page visuals +6 admin columns +6 body +4 notifications +8 checkout traces green (body pixels 0).

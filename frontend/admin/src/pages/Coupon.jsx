@@ -1,3 +1,7 @@
+const {
+  createReadonlyCouponColumns
+} = require('../components/CouponDisplayColumns.jsx');
+const readonlyColumns = createReadonlyCouponColumns();
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -89,11 +93,7 @@ class T extends b.a.Component {
       r = e.saveLoading,
       g = e.pagination,
       y = this.props.plan.plans,
-      x = [{
-        title: "#",
-        dataIndex: "id",
-        key: "id"
-      }, {
+      x = [readonlyColumns["id"], {
         title: "启用",
         dataIndex: "show",
         key: "show",
@@ -107,18 +107,7 @@ class T extends b.a.Component {
             checked: e
           });
         }
-      }, {
-        title: "券名称",
-        dataIndex: "name",
-        key: "name"
-      }, {
-        title: "类型",
-        dataIndex: "type",
-        key: "type",
-        render: e => {
-          return 1 === e ? "金额" : "比例";
-        }
-      }, {
+      }, readonlyColumns["name"], readonlyColumns["type"], {
         title: "券码",
         dataIndex: "code",
         key: "code",
@@ -132,22 +121,7 @@ class T extends b.a.Component {
             }
           }, e);
         }
-      }, {
-        title: "剩余次数",
-        dataIndex: "limit_use",
-        key: "limit_use",
-        render: e => {
-          return b.a.createElement(d["a"], null, null !== e ? e : "无限");
-        }
-      }, {
-        title: "有效期",
-        dataIndex: "started_at",
-        key: "started_at",
-        align: "left",
-        render: (e, t) => {
-          return "".concat(_()(1e3 * t.started_at).format("YYYY/MM/DD HH:mm"), " ~ ").concat(_()(1e3 * t.ended_at).format("YYYY/MM/DD HH:mm"));
-        }
-      }, {
+      }, readonlyColumns["limit_use"], readonlyColumns["started_at"], {
         title: "操作",
         dataIndex: "action",
         key: "action",
