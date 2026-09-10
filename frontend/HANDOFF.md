@@ -3,6 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
+## Latest authorized test deployment
+- User requested deployment. Built checkpoint 2697d75e and deployed to v2board-legacy-dev:7003 as restored-20260911-065410.
+- Backed up Blade templates; only app.js assets/entry paths and view cache changed. No DB/account/business configuration changes.
+- Public JS byte matches and Chromium user/admin login rendering passed, no pageerrors. No account login or post-login business actions in this deployment verification.
+- Rollback path documented in DEPLOYMENT.md. Earlier local-only notes below are historical; changes through2697d75e are now deployed.
+
 ## Latest Giftcard readonly slice (local only, after d5f4b571)
 - Extracted 7 display columns into GiftcardDisplayColumns.jsx; plans injected from existing render. Clipboard/code and write controls untouched.
 - 49 differential cases, 811 total tests/builds/new6 screenshot comparisons green (new pixels 0). Existing server-name mobile rows 6 pixels within unchanged10 threshold.
