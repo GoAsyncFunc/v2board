@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+只读详情可读性 checkpoint：命名变量、同步行 helper、金额/时间 formatter；原 fixture 不变。569 单测（详情36差分）、两端build、60页面/6后台列/6详情/4通知/8checkout回归通过。原 null/NaN/loading 和邮箱筛选参数保留，无写入菜单或业务action变化。未连接服务器、部署或读写真实数据。
+
+以下为前轮记录：
+
 admin 订单详情只读内容 checkpoint：OrderDetailBody 提取，modal 控制器/写入菜单未动。558 单测、两端构建、6详情局部截图、6只读列截图、60既有页面/4通知/8checkout trace 全通过。fixture JSX 编译/React 注入错误已定位修正重跑。未连接服务器、部署或读写真实数据。
 
 以下为前轮记录：

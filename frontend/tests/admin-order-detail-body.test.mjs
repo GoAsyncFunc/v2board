@@ -19,4 +19,9 @@ async function render(original,data){
 const base={user:{email:'fixture@example.com'},order:{trade_no:'TEST',period:'month_price',status:3,plan_id:1,total_amount:12345,balance_amount:100,discount_amount:200,refund_amount:0,surplus_amount:30,created_at:1700000000,updated_at:1700000010,invite_user_id:2,commission_balance:100,actual_commission_balance:50,commission_status:2},inviteUser:{email:'invite@example.com'},plans:[{id:1,name:'Fixture Plan'}]};
 const cases=[base,{...base,user:{}},{...base,user:null},{...base,order:{}},{...base,order:null},{...base,plans:[]},{...base,plans:null}];
 for(const status of [0,1,2,3,4,99])for(const value of [null,-999999999,0])cases.push({...base,order:{...base.order,status,total_amount:value,created_at:value,updated_at:undefined,actual_commission_balance:0}});
+for(const amount of [undefined,NaN,Infinity,-Infinity,'0','123.45','invalid'])cases.push({...base,order:{...base.order,total_amount:amount,commission_balance:amount,actual_commission_balance:amount}});
+cases.push({...base,user:{},order:null,plans:null,inviteUser:null});
+cases.push({...base,inviteUser:null});
+cases.push({...base,inviteUser:null,order:{...base.order,status:2}});
+cases.push({...base,plans:[{id:'1',name:'String ID must not match'}]});
 for(const [index,data]of cases.entries())test(`admin detail body parity ${index+1}`,async()=>assert.deepEqual(await render(false,data),await render(true,data)));

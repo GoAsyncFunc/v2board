@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest admin detail body slice (local only, after ffdba18f)
+## Latest readonly readability slice (local only, after 9c44fda2)
+- Rewrote OrderDetailBody with named props/rowStyle, synchronous detailRow helper and amount/time formatters. Original fixture unchanged; no extra DOM/lifecycle wrapper or business action changes.
+- Preserved short-circuit loader, null errors, NaN/coercion, strict plan ID lookup, zero actual commission expression and both filter callbacks.
+- 11 additional edge cases; 36 detail parity cases total. 569 all tests, builds, 60 page visuals +6 admin columns +6 body +4 notifications +8 checkout traces green (body pixels 0).
+- Next: another low-risk admin readonly page/column slice. Detail fetch/controller and write menus still legacy, not in this scope. Full source cleanup remains incomplete.
+- No server access/deployment; recovered-ui and tools still untracked.
+
+## Previous admin detail body slice (local only, after ffdba18f)
 - Extracted OrderDetailBody only; original modal lifecycle/title/controller and write menus untouched. Email filter callback preserved, tests record only.
 - 25 readonly render parity cases: full/missing/null/extreme amounts/time/status. Null objects still throw; absent email still shows spinner; NaN formatting preserved.
 - New check-admin-order-detail.mjs: 6 partial body/title screenshots at 0 pixels, email callback check. Not full modal/network coverage.
