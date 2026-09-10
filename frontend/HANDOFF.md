@@ -3,7 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest product/order-info split (local only, after 71627913)
+## Latest order-query slice (local only, after 5efe8238)
+- Inventory: 11 user and 22 admin models still contain legacy exports. Chose lower-risk order query effects, not payment mutation/form changes.
+- Extracted user/models/orderQueryEffects.js with detail/check/getPaymentMethod/fetch; original selected effects saved in fixtures/models/user-order-query.cjs.
+- Added 52 differential cases: success/422/500, empty/null/numeric data, optional/required callback contracts, network rejection. getPaymentMethod missing complete and loading on network throw remain inherited behavior.
+- 426 tests, both builds, 52 page comparisons and 4 real notification/mock response comparisons green; no server access or deployment.
+- Next: mock browser payment form/key failure coverage OR migrate checkout/save/cancel with explicit original fixtures. Preserve the inherited cancel `details` action spelling unless separately fixing behavior.
+- recovered-ui/ and tools/ remain untracked/reference only.
+
+## Previous product/order-info split (local only, after 71627913)
 - Extracted ProductInfo/OrderInfo; existing cancellation UI/dispatch unchanged.
 - 374 tests, builds, 52 page visual cases and 4 notification cases green. Notification runner uses real request wrapper + real notification/message components with mocked 422/500 and i18n; tests manual desktop close/mobile expiry. Not original error UI differential.
 - QR modal screenshot timing fixed with explicit portal/QR visibility wait; full rerun passed without tolerance changes (one intermediate tool timeout at 240s; full run succeeded with 420s).
