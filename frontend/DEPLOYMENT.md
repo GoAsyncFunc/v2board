@@ -2,6 +2,10 @@
 
 ## 最新本地工作（未部署）
 
+ServerManage name/status只读列checkpoint：原状态映射以参数注入，18差分；688测试、两端build、新6局部截图与全部既有回归通过。过滤/排序/复制/写入/controller/request不变，无语义风险修复。未连接服务器、部署或访问真实数据。
+
+以下为前轮记录：
+
 ServerManage倍率只读列checkpoint：单列提取/12差分；670测试、两端build、新6局部截图和全部既有回归通过。排序/过滤/复制/开关/操作/controller/request不动，保留隐式类型及异常。未连接服务器、部署或访问真实业务数据。
 
 以下为前轮记录：
