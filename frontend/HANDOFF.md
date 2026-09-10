@@ -3,7 +3,14 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest server-route readonly slice (local only, after 1bf7089a)
+## Latest ServerGroup readonly slice (local only, after e27479cf)
+- Extracted id/name/user_count/server_count; retained Fragment, icon types, space and move cursor styling. Counts passed through unchanged. No event/write/controller/request changes.
+- Original fixture +13 differential cases. 658 tests/builds/new6 group partial screenshots (0 pixels) and all existing regressions green. Paging/scroll only in harness, production pagination:false unchanged.
+- Null/undefined and nonstandard children preserved; object child tests compare element structure, not successful React rendering.
+- Next: inventory small server-manage readonly fields or remaining admin display area; avoid mixed controls. Full restoration still incomplete.
+- No server access/deploy; reference dirs untracked.
+
+## Previous server-route readonly slice (local only, after 1bf7089a)
 - Inventory inspected ServerGroup/ServerRoute/ServerManage; chose route id/remarks/match count. Extracted ServerRouteDisplayColumns and formatter, original fixture unchanged.
 - 12 parity cases preserve empty/string comma filtering without trimming, arrays, null errors, unusual length coercion. No action/controller/request edits.
 - 645 tests, builds, new6 route partial screenshots/paging/horizontal scroll + all existing regressions green, new pixels 0.
