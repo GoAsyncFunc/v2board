@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+PlanGroup匹配helper命名checkpoint：新增3求值顺序差分，902测试、两端build、相关局部/页面/通知/checkout通过。原映射/异常/children语义不变，无服务器连接、业务操作或部署。
+
+以下为前轮记录：
+
 Plan资源renderer命名checkpoint：新增3差分边界，899测试、两端build、资源/价格/权限组局部及页面/通知/checkout全部通过。原fixture/children/null语义不变，无controller/action/request改动，未连接服务器或部署。
 
 以下为前轮记录：
