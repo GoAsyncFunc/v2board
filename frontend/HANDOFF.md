@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest readonly formatter naming (local only, after aecc1019)
+## Latest Plan group display (local only, after 531872e3)
+- Extracted pure group_id column to PlanGroupColumn.jsx; injected existing groups. Kept map traversal, repeated parseInt, strict IDs, duplicates and null exceptions.
+- 28 parity cases;880 tests/builds/new6 partial visuals (0 pixels), affected Plan/Group and60 page/4 notification/8 checkout suites green.
+- No events/controller/action/request/server/deployment changes. Next: another isolated readonly area or readable helper cleanup; avoid controls. References untracked.
+
+## Previous readonly formatter naming (local only, after aecc1019)
 - Coupon/Giftcard validity formatting and giftcard plan-name lookup extracted to named local helpers; original fixtures unchanged. Kept independent dependencies, not a shared runtime module.
 - Added2 getter order/throw-short-circuit cases;852 tests/builds/Coupon6+Giftcard14 visual cases (0 pixels)/60 pages/4 notifications/8 checkout green.
 - No semantic/controller/request/action change or server/deployment. Next: narrow readonly inventory; full restoration still incomplete, references untracked.

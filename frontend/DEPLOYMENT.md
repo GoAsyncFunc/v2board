@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+套餐权限组Tag只读checkpoint：28差分/880测试、两端build、新6局部截图及受影响既有回归通过。原匹配/重复/null语义不变，无事件/action/request修改，无服务器连接或部署，7003保持不变。
+
+以下为前轮记录：
+
 只读formatter命名checkpoint：Coupon/Giftcard日期与套餐名称helper，852测试、两端build、受影响20局部截图/既有页面/通知/checkout通过。字段求值和异常语义不变，无业务/服务器操作，7003发布不变。
 
 以下为前轮记录：
