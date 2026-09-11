@@ -22,6 +22,10 @@ export function findGiftcardPlanName(plans, id) {
   return plan ? plan.name : '-';
 }
 
+export function renderGiftcardLimit(limit) {
+  return <Tag>{limit !== null ? limit : '无限'}</Tag>;
+}
+
 export function formatGiftcardValidity(card) {
   const startsAt = moment(1000 * card.started_at).format('YYYY/MM/DD HH:mm');
   const endsAt = moment(1000 * card.ended_at).format('YYYY/MM/DD HH:mm');
@@ -35,7 +39,7 @@ export function createReadonlyGiftcardColumns(plans) {
     type: { title: '类型', dataIndex: 'type', key: 'type', render: giftcardTypeText },
     value: { title: '数值', dataIndex: 'value', key: 'value', render: giftcardValueText },
     plan_id: { title: '套餐', dataIndex: 'plan_id', key: 'plan_id', render: id => findGiftcardPlanName(plans, id) },
-    limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: value => <Tag>{value !== null ? value : '无限'}</Tag> },
+    limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: renderGiftcardLimit },
     started_at: { title: '有效期', dataIndex: 'started_at', key: 'started_at', align: 'left', render: (value, card) => formatGiftcardValidity(card) },
   };
 }

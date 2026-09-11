@@ -42,6 +42,9 @@ for(const failStart of [false,true])test(`giftcard validity access order failSta
  }
  assert.deepEqual(results[1],results[0]);assert.deepEqual(results[1].reads,failStart?['start']:['start','end']);
 });
+for (const limit of [null,undefined,0,-1,'0',{},Symbol('limit')]) test(`giftcard limit renderer ${String(limit)}`, async () => {
+  const results=[]; for (const original of [true,false]) { const column=(await load(original,[])).find(c=>c.key==='limit_use'); let value,error; try { value=column.render(limit); } catch(e) { error=e.name; } results.push(normalize({value,error})); } assert.deepEqual(results[1],results[0]);
+});
 for(const type of [1,2,3,4,5,99,'1'])for(const value of [0,1.235,null,undefined,'12',-9,NaN])test(`giftcard ${type}/${value}`,async()=>{
  const results=[];for(const original of [true,false]){const columns=await load(original,[{id:7,name:'Plan'}]);const record={id:1,name:'Fixture',type,value,plan_id:'7',limit_use:null,started_at:0,ended_at:undefined};
  results.push(normalize({columns,values:columns.map(c=>{try{return {value:c.render?c.render(record[c.dataIndex],record):record[c.dataIndex]};}catch(e){return {error:e.name};}})}));}assert.deepEqual(results[1],results[0]);

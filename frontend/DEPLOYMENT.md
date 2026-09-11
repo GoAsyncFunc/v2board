@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+Giftcard limit renderer命名checkpoint：7新增差分/965测试、两端build、Giftcard14局部截图及既有页面/通知/checkout回归通过。原null/truthiness/Tag语义不变，无controller/action/request/server或部署操作。
+
+以下为前轮记录：
+
 Coupon类型/次数renderer命名checkpoint：14新增差分/958测试、两端build、优惠券6局部截图及既有页面/通知/checkout回归通过。原null/类型/Tag语义不变，无controller/action/request、服务器或部署操作。
 
 以下为前轮记录：

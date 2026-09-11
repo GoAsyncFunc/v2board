@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Coupon renderer naming (local only, after 90a857e8)
+## Latest Giftcard limit renderer naming (local only, after ddd677ab)
+- Named renderGiftcardLimit; keeps null-only unlimited, raw Tag child and original truthiness/exceptions. Fixture unchanged.
+- Added7 edge parity cases;965 tests/builds/giftcard14 visuals(0 pixels)/coupon+60 pages+4 notifications+8 checkout green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous Coupon renderer naming (local only, after 90a857e8)
 - Named CouponDisplayColumns type/limit renderers as formatCouponType/renderCouponLimit; preserves strict type===1, unknown→比例, null-only unlimited, Tag children and exceptions.
 - Added14 edge parity cases;958 tests/builds/coupon6 visuals(0 pixels)/60 pages/4 notifications/8 checkout green.
 - No controller/action/request/server/deployment changes. Next: another narrow readonly cleanup; references untracked.
