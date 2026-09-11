@@ -9,9 +9,14 @@ export function renderServerRate(value) {
   return <Tag style={{ minWidth: 60 }}>{value + ' x'}</Tag>;
 }
 
+// Construct a fresh element on each column creation, just like the original.
+export function renderServerRateTitle() {
+  return <Tooltip placement="top" title="使用的流量将乘以倍率进行扣除">{'倍率 '}<Icon type="question-circle" /></Tooltip>;
+}
+
 export function createServerRateColumn() {
   return {
-    title: <Tooltip placement="top" title="使用的流量将乘以倍率进行扣除">{'倍率 '}<Icon type="question-circle" /></Tooltip>,
+    title: renderServerRateTitle(),
     dataIndex: 'rate', key: 'rate', align: 'center',
     render: renderServerRate,
   };
