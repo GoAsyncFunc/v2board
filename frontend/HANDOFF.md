@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Plan group display (local only, after 531872e3)
+## Latest route action text (local only, after 27a9030e)
+- Extracted ServerRoute action text column, injected original mapping; does not execute routing actions. Operation menus/controller untouched.
+- 14 parity cases;894 tests/builds/new6 visuals (0 pixels), affected route display/60 page/4 notification/8 checkout green.
+- Direct property lookup/no fallback/null mapping errors retained. No server/deployment/data. Next: safe readonly inventory or naming cleanup; references untracked.
+
+## Previous Plan group display (local only, after 531872e3)
 - Extracted pure group_id column to PlanGroupColumn.jsx; injected existing groups. Kept map traversal, repeated parseInt, strict IDs, duplicates and null exceptions.
 - 28 parity cases;880 tests/builds/new6 partial visuals (0 pixels), affected Plan/Group and60 page/4 notification/8 checkout suites green.
 - No events/controller/action/request/server/deployment changes. Next: another isolated readonly area or readable helper cleanup; avoid controls. References untracked.

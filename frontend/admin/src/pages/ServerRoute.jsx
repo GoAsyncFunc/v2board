@@ -1,4 +1,7 @@
 const {
+  createRouteActionColumn
+} = require('../components/RouteActionColumn.jsx');
+const {
   createReadonlyServerRouteColumns
 } = require('../components/ServerRouteDisplayColumns.jsx');
 const readonlyColumns = createReadonlyServerRouteColumns();
@@ -248,14 +251,7 @@ class _ extends f.a.Component {
     var e = this.props.serverRoute,
       t = e.routes,
       n = e.fetchLoading,
-      r = [readonlyColumns["id"], readonlyColumns["remarks"], readonlyColumns["match"], {
-        title: "动作",
-        dataIndex: "action",
-        key: "action",
-        render: e => {
-          return b["a"].routeActionText[e];
-        }
-      }, {
+      r = [readonlyColumns["id"], readonlyColumns["remarks"], readonlyColumns["match"], createRouteActionColumn(b["a"].routeActionText), {
         title: "操作",
         dataIndex: "action2",
         key: "action2",
