@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest readonly order type/period naming (local only, after 90a857e8)
+## Latest Coupon renderer naming (local only, after 90a857e8)
+- Named CouponDisplayColumns type/limit renderers as formatCouponType/renderCouponLimit; preserves strict type===1, unknown→比例, null-only unlimited, Tag children and exceptions.
+- Added14 edge parity cases;958 tests/builds/coupon6 visuals(0 pixels)/60 pages/4 notifications/8 checkout green.
+- No controller/action/request/server/deployment changes. Next: another narrow readonly cleanup; references untracked.
+
+## Previous readonly order type/period naming (local only, after 90a857e8)
 - Named formatOrderType/renderOrderPeriod; fresh ordinary type map, direct inherited/coerced property lookup, period settings-before-record evaluation and raw Tag child preserved. Fixture unchanged.
 - Added17 mapping/coercion/getter/null-record parity tests;944 tests/builds/order6 visuals(0 pixels)/detail+60 pages+4 notifications+8 checkout green.
 - No OrderDetail format unification, controller/action/request/server/deploy changes. Full restoration incomplete; references untracked.

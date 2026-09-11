@@ -10,12 +10,19 @@ export function formatCouponValidity(coupon) {
   return `${startsAt} ~ ${endsAt}`;
 }
 
+export function formatCouponType(type) {
+  return type === 1 ? '金额' : '比例';
+}
+export function renderCouponLimit(limit) {
+  return <Tag>{limit !== null ? limit : '无限'}</Tag>;
+}
+
 export function createReadonlyCouponColumns() {
   return {
     id: { title: '#', dataIndex: 'id', key: 'id' },
     name: { title: '券名称', dataIndex: 'name', key: 'name' },
-    type: { title: '类型', dataIndex: 'type', key: 'type', render: value => value === 1 ? '金额' : '比例' },
-    limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: value => <Tag>{value !== null ? value : '无限'}</Tag> },
+    type: { title: '类型', dataIndex: 'type', key: 'type', render: formatCouponType },
+    limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: renderCouponLimit },
     started_at: {
       title: '有效期', dataIndex: 'started_at', key: 'started_at', align: 'left',
       render: (value, coupon) => formatCouponValidity(coupon),

@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+Coupon类型/次数renderer命名checkpoint：14新增差分/958测试、两端build、优惠券6局部截图及既有页面/通知/checkout回归通过。原null/类型/Tag语义不变，无controller/action/request、服务器或部署操作。
+
+以下为前轮记录：
+
 订单类型/周期renderer命名checkpoint：17新增差分/944测试、两端build、相关局部/页面/通知/checkout通过。原映射/Tag求值和异常语义不变，无业务/服务器或部署操作。
 
 以下为前轮记录：

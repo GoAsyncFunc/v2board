@@ -30,3 +30,9 @@ for (const [index, record] of records.entries()) test(`coupon readonly columns $
   }
   assert.deepEqual(results[1], results[0]);
 });
+for (const type of [1, 0, null, undefined, '1', {}, Symbol('type')]) test(`coupon type renderer ${String(type)}`, async () => {
+  const results=[]; for (const original of [true,false]) { const column=(await load(original)).find(c=>c.key==='type'); let value,error; try { value=column.render(type); } catch(e) { error=e.name; } results.push({value,error}); } assert.deepEqual(results[1],results[0]);
+});
+for (const limit of [null,undefined,0,-1,'0',{},Symbol('limit')]) test(`coupon limit renderer ${String(limit)}`, async () => {
+  const results=[]; for (const original of [true,false]) { const column=(await load(original)).find(c=>c.key==='limit_use'); let value,error; try { value=column.render(limit); } catch(e) { error=e.name; } results.push(normalize({value,error})); } assert.deepEqual(results[1],results[0]);
+});
