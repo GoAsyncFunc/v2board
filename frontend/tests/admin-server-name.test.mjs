@@ -28,6 +28,13 @@ for(const fail of [false,true])test(`server name lookup evaluation order ${fail}
 test('server status mapping remains live after column creation',async()=>{
  for(const original of [true,false]){const mapping={2:'processing'};const column=await load(original,mapping);mapping[2]='warning';assert.equal(column.render('Name',{available_status:2}).children[0].props.status,'warning');}
 });
+test('server status legend retains exact badge/text/break order',async()=>{
+ for(const original of [true,false]){
+  const legend=(await load(original)).title.children[0].props.title;
+  assert.equal(legend.type,'div');
+  assert.deepEqual(Array.from(legend.children,child=>typeof child==='string'?child:child.type==='Badge'?child.props.status:child.type),['error',' 未运行','br','warning',' 无人使用或服务端上报异常','br','processing',' 运行正常','br']);
+ }
+});
 const records=[null,{},... [0,1,2,99,'1',null,undefined].map(available_status=>({available_status}))];
 for(const [index,record]of records.entries())for(const name of ['Fixture 节点',null])test(`server name/status ${index+1}/${name}`,async()=>{
  const results=[];for(const original of [true,false]){const column=await load(original);let tree,error;try{tree=column.render(name,record);}catch(e){error=e.name;}results.push(normalize({column,tree,error}));}assert.deepEqual(results[1],results[0]);

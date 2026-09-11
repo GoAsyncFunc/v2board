@@ -3,12 +3,17 @@ import { a as Tooltip } from '../vendor/modules/3353372b.js';
 import { a as Badge } from '../vendor/modules/4b725473.js';
 import { a as Icon } from '../vendor/Icon.js';
 
+// Synchronous construction keeps the original child order and fresh elements.
+export function renderServerStatusLegend() {
+  return <div>
+    <Badge status="error" />{' 未运行'}<br />
+    <Badge status="warning" />{' 无人使用或服务端上报异常'}<br />
+    <Badge status="processing" />{' 运行正常'}<br />
+  </div>;
+}
+
 export function renderServerNameTitle() {
-  return <span><Tooltip placement="top" title={<div>
-      <Badge status="error" />{' 未运行'}<br />
-      <Badge status="warning" />{' 无人使用或服务端上报异常'}<br />
-      <Badge status="processing" />{' 运行正常'}<br />
-    </div>}>{'节点 '}<Icon type="question-circle" /></Tooltip></span>;
+  return <span><Tooltip placement="top" title={renderServerStatusLegend()}>{'节点 '}<Icon type="question-circle" /></Tooltip></span>;
 }
 
 // Synchronous renderer: preserve raw name children and direct status lookup.

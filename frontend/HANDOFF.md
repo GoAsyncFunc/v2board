@@ -3,7 +3,13 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest server rate title naming (local only, after 4fd567a8)
+## Latest server status legend naming (local only, after 68023048)
+- Named synchronous Tooltip body renderServerStatusLegend, original fixture unchanged; Badge/text/break order preserved.
+- Added1 order test and expanded name visuals6→8 with opened Tooltip. Desktop legend0 pixels,390px legend6 pixels within unchanged10 threshold. Hover at mobile width is not touch-device coverage.
+- 911 tests/builds/name8/rate6+60 pages+4 notifications+8 checkout green. No production event/controller/request/server/deploy changes.
+- Full restoration still incomplete; references untracked.
+
+## Previous server rate title naming (local only, after 4fd567a8)
 - Named synchronous renderServerRateTitle; fresh element per column creation, no cache/wrapper/events. Original fixture unchanged.
 - Added2 exact title/icon props and factory element independence checks;910 tests/builds/rate6 visuals(0 pixels)/name+60 pages+4 notifications+8 checkout green.
 - No controller/action/request/server/deploy. This is a small naming cleanup, not new full-page restoration. References untracked.
