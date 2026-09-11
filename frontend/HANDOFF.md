@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest server name renderer naming (local only, after b461f70e)
+## Latest server rate renderer naming (local only, after 958da742)
+- Named synchronous renderServerRate, original fixture and Tag/title untouched. Retains addition default coercion hint and exceptions.
+- Added3 Symbol.toPrimitive/valueOf/toString/throw trace tests;908 tests/builds/rate6 screenshots(0 pixels)/name+60 pages+4 notifications+8 checkout green.
+- No controller/action/request/server/deployment. Full UI restoration incomplete; references untracked.
+
+## Previous server name renderer naming (local only, after b461f70e)
 - Named synchronous title and status/name helpers in ServerNameColumn, original fixture unchanged. No wrapper/lifecycle additions.
 - Added3 getter-order/error/raw-name/mutable-mapping tests;905 tests/builds/name6 visuals(0 pixels)/rate+60 pages+4 notifications+8 checkout green.
 - No controller/action/request/server/deploy. Full restoration incomplete; references untracked. Next: narrow readonly inventory or another meaningful display cleanup.

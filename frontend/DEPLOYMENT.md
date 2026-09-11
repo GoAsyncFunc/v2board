@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+倍率renderer命名checkpoint：3隐式转换差分/908测试、两端build、受影响局部/页面/通知/checkout全部通过。原加法转换和异常语义保留，未连接服务器、未部署或访问真实数据。
+
+以下为前轮记录：
+
 节点名称renderer命名checkpoint：3新增测试/905单测、两端build、相关局部/页面/通知/checkout回归通过。原映射求值、children及异常不变；无事件/action/request修改，无服务器连接或部署。
 
 以下为前轮记录：
