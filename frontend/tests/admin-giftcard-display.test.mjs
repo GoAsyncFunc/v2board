@@ -35,6 +35,13 @@ for(const record of [null,undefined,{}])test(`giftcard empty row ${record===null
  }
  assert.deepEqual(results[1],results[0]);
 });
+for(const failStart of [false,true])test(`giftcard validity access order failStart=${failStart}`,async()=>{
+ const results=[];for(const original of [true,false]){
+  const reads=[];const card={get started_at(){reads.push('start');if(failStart)throw new TypeError('fixture');return 0;},get ended_at(){reads.push('end');return null;}};
+  const col=(await load(original,[])).find(c=>c.key==='started_at');let value,error;try{value=col.render(undefined,card);}catch(e){error=e.name;}results.push({reads,value,error});
+ }
+ assert.deepEqual(results[1],results[0]);assert.deepEqual(results[1].reads,failStart?['start']:['start','end']);
+});
 for(const type of [1,2,3,4,5,99,'1'])for(const value of [0,1.235,null,undefined,'12',-9,NaN])test(`giftcard ${type}/${value}`,async()=>{
  const results=[];for(const original of [true,false]){const columns=await load(original,[{id:7,name:'Plan'}]);const record={id:1,name:'Fixture',type,value,plan_id:'7',limit_use:null,started_at:0,ended_at:undefined};
  results.push(normalize({columns,values:columns.map(c=>{try{return {value:c.render?c.render(record[c.dataIndex],record):record[c.dataIndex]};}catch(e){return {error:e.name};}})}));}assert.deepEqual(results[1],results[0]);

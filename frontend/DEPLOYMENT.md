@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+只读formatter命名checkpoint：Coupon/Giftcard日期与套餐名称helper，852测试、两端build、受影响20局部截图/既有页面/通知/checkout通过。字段求值和异常语义不变，无业务/服务器操作，7003发布不变。
+
+以下为前轮记录：
+
 支付通知地址列checkpoint：6差分，850测试、两端build、新6局部截图及受影响支付列/既有页面/通知/checkout通过。URL只作fixture文本，未访问，无controller/action/request修改或部署。
 
 以下为前轮记录：

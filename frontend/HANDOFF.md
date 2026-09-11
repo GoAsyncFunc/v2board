@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest payment notify column (local only, after b9ab0ac5)
+## Latest readonly formatter naming (local only, after aecc1019)
+- Coupon/Giftcard validity formatting and giftcard plan-name lookup extracted to named local helpers; original fixtures unchanged. Kept independent dependencies, not a shared runtime module.
+- Added2 getter order/throw-short-circuit cases;852 tests/builds/Coupon6+Giftcard14 visual cases (0 pixels)/60 pages/4 notifications/8 checkout green.
+- No semantic/controller/request/action change or server/deployment. Next: narrow readonly inventory; full restoration still incomplete, references untracked.
+
+## Previous payment notify column (local only, after b9ab0ac5)
 - Extracted notify_url pure display title/Tooltip/Icon, no render/click/copy behavior added. Original fixture retained.
 - 6 parity cases;850 tests/builds/new6 partial visuals (0 pixels) and affected payment display/60 page/4 notification/8 checkout suites green.
 - No server access/deploy/URL navigation; references untracked. Next: inventory another small readonly area or consolidate readable extracted components; full restoration still incomplete.
