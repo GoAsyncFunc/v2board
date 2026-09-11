@@ -1,0 +1,11 @@
+import React from 'react';
+import { a as Tooltip } from '../vendor/modules/3353372b.js';
+import { a as Icon } from '../vendor/Icon.js';
+
+export function createPaymentNotifyColumn() {
+  return {
+    title: <span>{'通知地址 '}<Tooltip placement="top" title="支付网关将会把数据通知到本地址，请通过防火墙放行本地址。"><Icon type="question-circle" /></Tooltip></span>,
+    dataIndex: 'notify_url',
+    key: 'notify_url',
+  };
+}

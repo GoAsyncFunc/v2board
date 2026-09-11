@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest payment readonly fields (local only, after f9df2451)
+## Latest payment notify column (local only, after b9ab0ac5)
+- Extracted notify_url pure display title/Tooltip/Icon, no render/click/copy behavior added. Original fixture retained.
+- 6 parity cases;850 tests/builds/new6 partial visuals (0 pixels) and affected payment display/60 page/4 notification/8 checkout suites green.
+- No server access/deploy/URL navigation; references untracked. Next: inventory another small readonly area or consolidate readable extracted components; full restoration still incomplete.
+
+## Previous payment readonly fields (local only, after f9df2451)
 - Extracted ConfigPayment name/payment columns only. ID drag styling, enable/edit controls and controller/request unchanged.
 - 7 parity cases;844 tests/builds/new6 partial screenshots (0 pixels) plus60 page/4 notification/8 checkout suites green.
 - No server access/deployment. Full admin page restoration remains incomplete. Next: safe readonly inventory or deeper named component cleanup, not uncontrolled write migration.

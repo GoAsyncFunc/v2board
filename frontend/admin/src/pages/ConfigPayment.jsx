@@ -1,4 +1,7 @@
 const {
+  createPaymentNotifyColumn
+} = require('../components/PaymentNotifyColumn.jsx');
+const {
   createReadonlyPaymentColumns
 } = require('../components/PaymentDisplayColumns.jsx');
 const readonlyColumns = createReadonlyPaymentColumns();
@@ -289,19 +292,7 @@ class S extends d.a.Component {
           size: "small",
           onChange: e => this.show(t.id)
         })
-      }, readonlyColumns["name"], readonlyColumns["payment"], {
-        title: <span>
-                            {"通知地址 "}
-                            {d.a.createElement(c["a"], {
-            placement: "top",
-            title: "支付网关将会把数据通知到本地址，请通过防火墙放行本地址。"
-          }, d.a.createElement(h["a"], {
-            type: "question-circle"
-          }))}
-                        </span>,
-        dataIndex: "notify_url",
-        key: "notify_url"
-      }, {
+      }, readonlyColumns["name"], readonlyColumns["payment"], createPaymentNotifyColumn(), {
         title: "操作",
         dataIndex: "action",
         key: "action",
