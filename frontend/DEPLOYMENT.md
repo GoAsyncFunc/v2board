@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+权限组计数helper命名checkpoint：原fixture不变，896测试、两端build、权限组/相关页面/通知/checkout回归通过。仅同步只读元素构造cleanup，参数/列位置/异常不变，无controller/request/server或部署操作。
+
+以下为前轮记录：
+
 路由动作文本列checkpoint：14差分/894测试、两端build、新6局部截图及受影响既有回归通过。只读查表，无路由动作执行或controller/request变化，无服务器连接或部署。
 
 以下为前轮记录：

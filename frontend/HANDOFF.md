@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest route action text (local only, after 27a9030e)
+## Latest group count naming (local only, after 51615f8a)
+- Extracted synchronous renderGroupCount helper within ServerGroupDisplayColumns; same Fragment/icon/space/child identity, no wrapper or events. Original fixture unchanged.
+- Added2 opaque-child identity/noncoercion tests;896 tests/builds/6 group visuals(0 pixels)/related PlanGroup+60 pages+4 notifications+8 checkout green.
+- No controller/action/request/server/deploy changes. Remaining full-page/vendor work substantial; references untracked.
+
+## Previous route action text (local only, after 27a9030e)
 - Extracted ServerRoute action text column, injected original mapping; does not execute routing actions. Operation menus/controller untouched.
 - 14 parity cases;894 tests/builds/new6 visuals (0 pixels), affected route display/60 page/4 notification/8 checkout green.
 - Direct property lookup/no fallback/null mapping errors retained. No server/deployment/data. Next: safe readonly inventory or naming cleanup; references untracked.
