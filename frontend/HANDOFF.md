@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest readonly commission formatter (local only, after 77f0e04b)
+## Latest readonly order scalar naming (local only, after 722ad493)
+- Named payment amount/created-at formatters within OrderDisplayColumns; fixture unchanged, detail format intentionally not unified.
+- Added10 coercion/throw/edge differential cases;927 tests/builds/order6 visuals(0 pixels)/detail+60 pages+4 notifications+8 checkout green.
+- No default/cache/event/controller/action/request/server/deploy changes. Next: other narrow readonly formatting; full restoration incomplete, references untracked.
+
+## Previous readonly commission formatter (local only, after 77f0e04b)
 - Named formatOrderCommission in existing readonly columns; original fixture unchanged. Preserved repeated status reads/short-circuit before amount coercion.
 - Added6 trace/error cases;917 tests/builds/order6 visuals(0 pixels)/detail+60 pages+4 notifications+8 checkout green.
 - Commission state menu/controller/action/request untouched. No server/deployment. Full restoration incomplete; references untracked.

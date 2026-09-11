@@ -22,6 +22,21 @@ for(const statuses of [[0],[1,2],[3,3]])for(const fail of [false,true])test(`com
  assert.deepEqual(results[1],results[0]);
  if(statuses[0]===0||statuses[1]===2)assert.ok(!results[1].trace.some(x=>x[0]==='amount'));
 });
+for(const field of ['total_amount','created_at'])for(const fail of [false,true])test(`order scalar conversion ${field}/${fail}`,async()=>{
+ const results=[];for(const original of [true,false]){
+  const trace=[];const input={[Symbol.toPrimitive](hint){trace.push(hint);if(fail)throw new TypeError('fixture');return 12345;}};
+  const renderer=(await columns(original)).find(c=>c.key===field).render;let value,error;
+  try{value=renderer(input);}catch(e){error=e.name;}
+  results.push({trace,value,error});
+ }
+ assert.deepEqual(results[1],results[0]);assert.deepEqual(results[1].trace,['number']);
+ if(fail)assert.equal(results[1].error,'TypeError');
+ else assert.equal(results[1].value,field==='total_amount'?'123.45':'12345000:YYYY/MM/DD HH:mm');
+});
+for(const input of [undefined,NaN,Infinity,-1,'123',Symbol('fixture')])test(`order scalar edge ${String(input)}`,async()=>{
+ const results=[];for(const original of [true,false])results.push((await columns(original)).filter(c=>['total_amount','created_at'].includes(c.key)).map(c=>{try{return {value:c.render(input)};}catch(e){return {error:e.name};}}));
+ assert.deepEqual(Array.from(results[1]),Array.from(results[0]));
+});
 const normalize=v=>JSON.parse(JSON.stringify(v,(k,v)=>typeof v==='function'?'[renderer]':v));
 for(const status of [0,1,2,3,4])for(const amount of [0,12345,null])test(`admin readonly order columns status=${status} amount=${amount}`,async()=>{
  const record={type:status===4?9:status+1,period:'month_price',status,total_amount:amount,commission_balance:amount,created_at:1700000000};

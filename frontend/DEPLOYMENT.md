@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+订单金额/创建时间formatter命名checkpoint：10新增差分/927测试、两端build、相关局部/页面/通知/checkout通过。原数值转换与格式/异常不变，无controller或服务器操作，未部署。
+
+以下为前轮记录：
+
 佣金金额只读formatter checkpoint：917测试、两端build、订单列/详情局部/页面/通知/checkout通过。原fixture、状态短路及转换异常不变，无佣金状态菜单或业务操作，未连接服务器或部署。
 
 以下为前轮记录：
