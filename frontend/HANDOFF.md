@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest server status legend naming (local only, after 68023048)
+## Latest readonly commission formatter (local only, after 77f0e04b)
+- Named formatOrderCommission in existing readonly columns; original fixture unchanged. Preserved repeated status reads/short-circuit before amount coercion.
+- Added6 trace/error cases;917 tests/builds/order6 visuals(0 pixels)/detail+60 pages+4 notifications+8 checkout green.
+- Commission state menu/controller/action/request untouched. No server/deployment. Full restoration incomplete; references untracked.
+
+## Previous server status legend naming (local only, after 68023048)
 - Named synchronous Tooltip body renderServerStatusLegend, original fixture unchanged; Badge/text/break order preserved.
 - Added1 order test and expanded name visuals6→8 with opened Tooltip. Desktop legend0 pixels,390px legend6 pixels within unchanged10 threshold. Hover at mobile width is not touch-device coverage.
 - 911 tests/builds/name8/rate6+60 pages+4 notifications+8 checkout green. No production event/controller/request/server/deploy changes.
