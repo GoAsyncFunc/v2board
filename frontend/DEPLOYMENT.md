@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+支付配置纯文本列checkpoint：仅name/payment两列，844测试、两端build、新6局部截图/既有页面/通知/checkout通过。无开关/编辑/controller/request变化，无服务器访问或重新部署。
+
+以下为前轮记录：
+
 Plan资源只读列checkpoint：4列/13差分，837测试、两端build、新6局部截图及受影响既有回归通过。没有controller/action/request或写入变化，无服务器连接或重新部署。7003仍为20260911-065410。
 
 以下为前轮记录：

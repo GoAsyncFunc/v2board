@@ -1,3 +1,7 @@
+const {
+  createReadonlyPaymentColumns
+} = require('../components/PaymentDisplayColumns.jsx');
+const readonlyColumns = createReadonlyPaymentColumns();
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -285,15 +289,7 @@ class S extends d.a.Component {
           size: "small",
           onChange: e => this.show(t.id)
         })
-      }, {
-        title: "显示名称",
-        dataIndex: "name",
-        key: "name"
-      }, {
-        title: "支付接口",
-        dataIndex: "payment",
-        key: "payment"
-      }, {
+      }, readonlyColumns["name"], readonlyColumns["payment"], {
         title: <span>
                             {"通知地址 "}
                             {d.a.createElement(c["a"], {

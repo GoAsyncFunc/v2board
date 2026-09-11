@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest Plan resources (local only, after 857bddfd)
+## Latest payment readonly fields (local only, after f9df2451)
+- Extracted ConfigPayment name/payment columns only. ID drag styling, enable/edit controls and controller/request unchanged.
+- 7 parity cases;844 tests/builds/new6 partial screenshots (0 pixels) plus60 page/4 notification/8 checkout suites green.
+- No server access/deployment. Full admin page restoration remains incomplete. Next: safe readonly inventory or deeper named component cleanup, not uncontrolled write migration.
+
+## Previous Plan resources (local only, after 857bddfd)
 - Skipped sortable User fields; extracted Plan name/count/transfer_enable/device_limit readonly columns. Existing resource positions, Fragment/icon/GB suffix/null-only fallback preserved.
 - 13 parity cases;837 tests/builds/new6 resource visuals and affected Plan-price/Giftcard/Group +60 pages/4 notifications/8 checkout green.
 - No production controller/action/request change or server/deployment. 7003 remains prior authorized release.
