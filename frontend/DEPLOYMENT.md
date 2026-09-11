@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+Plan资源renderer命名checkpoint：新增3差分边界，899测试、两端build、资源/价格/权限组局部及页面/通知/checkout全部通过。原fixture/children/null语义不变，无controller/action/request改动，未连接服务器或部署。
+
+以下为前轮记录：
+
 权限组计数helper命名checkpoint：原fixture不变，896测试、两端build、权限组/相关页面/通知/checkout回归通过。仅同步只读元素构造cleanup，参数/列位置/异常不变，无controller/request/server或部署操作。
 
 以下为前轮记录：

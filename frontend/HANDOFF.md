@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest group count naming (local only, after 51615f8a)
+## Latest Plan resource naming (local only, after 2ce08be4)
+- Named count/traffic/device_limit renderers within PlanResourceColumns, no new module boundary or wrapper. Preserved raw children and null-only device fallback; original fixture unchanged.
+- 3 new identity/noncoercion tests;899 tests/builds/resource6 screenshots(0 pixels)/related Plan price+group+60 pages+4 notifications+8 checkout green.
+- No controller/action/request/server/deployment. Next: safe readonly inventory or another existing component cleanup; entire admin pages still not fully restored. References untracked.
+
+## Previous group count naming (local only, after 51615f8a)
 - Extracted synchronous renderGroupCount helper within ServerGroupDisplayColumns; same Fragment/icon/space/child identity, no wrapper or events. Original fixture unchanged.
 - Added2 opaque-child identity/noncoercion tests;896 tests/builds/6 group visuals(0 pixels)/related PlanGroup+60 pages+4 notifications+8 checkout green.
 - No controller/action/request/server/deploy changes. Remaining full-page/vendor work substantial; references untracked.

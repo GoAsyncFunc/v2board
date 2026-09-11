@@ -21,6 +21,23 @@ function normalize(value) {
   if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k,v]) => [k,normalize(v)]));
   return value;
 }
+for (const field of ['count','transfer_enable','device_limit']) test(`plan resource raw identity ${field}`, async () => {
+  const value = { toString() { throw Error('Unexpected coercion'); } };
+  for (const original of [true,false]) {
+    const column = (await load(original)).find(c => c.key === field);
+    const result = column.render(value);
+    if(field === 'device_limit') {
+      assert.equal(result,value);
+      assert.equal(column.render(undefined),undefined);
+      assert.equal(column.render(null),'-');
+    } else {
+      assert.equal(result.type,'Fragment');
+      assert.equal(result.children[field === 'count' ? 2 : 0],value);
+      assert.equal(result.children[1],field === 'count' ? ' ' : ' GB');
+      if(field === 'count')assert.deepEqual(Object.keys(result.children[0].props),['type','style']);
+    }
+  }
+});
 const values=[0,1,-1,null,undefined,'12','',NaN,Infinity,Number.MAX_SAFE_INTEGER,false,[],{unexpected:true}];
 for(const [index,value] of values.entries()) test(`plan readonly resource ${index+1}`,async()=>{
   const results=[];
