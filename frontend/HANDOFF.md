@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest PlanGroup helper naming (local only, after 9b942783)
+## Latest server name renderer naming (local only, after b461f70e)
+- Named synchronous title and status/name helpers in ServerNameColumn, original fixture unchanged. No wrapper/lifecycle additions.
+- Added3 getter-order/error/raw-name/mutable-mapping tests;905 tests/builds/name6 visuals(0 pixels)/rate+60 pages+4 notifications+8 checkout green.
+- No controller/action/request/server/deploy. Full restoration incomplete; references untracked. Next: narrow readonly inventory or another meaningful display cleanup.
+
+## Previous PlanGroup helper naming (local only, after 9b942783)
 - Named synchronous renderPlanGroupTags, original fixture unchanged. Preserved repeated parseInt, id/name getter order, duplicate matches, empty-list noncoercion and mid-iteration throws.
 - 3 new trace parity cases;902 tests/builds/group6 visuals(0 pixels)/related resources+60 pages+4 notifications+8 checkout green.
 - No controller/action/request/server/deployment change. Next: narrow readonly inventory; full UI restoration remains incomplete, references untracked.

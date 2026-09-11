@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+节点名称renderer命名checkpoint：3新增测试/905单测、两端build、相关局部/页面/通知/checkout回归通过。原映射求值、children及异常不变；无事件/action/request修改，无服务器连接或部署。
+
+以下为前轮记录：
+
 PlanGroup匹配helper命名checkpoint：新增3求值顺序差分，902测试、两端build、相关局部/页面/通知/checkout通过。原映射/异常/children语义不变，无服务器连接、业务操作或部署。
 
 以下为前轮记录：
