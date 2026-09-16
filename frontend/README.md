@@ -104,6 +104,10 @@ node scripts/check-browser.mjs
 
 ## 最新本地进度
 
+基于51825ace：用户 checkout 的 Pricing、Coupon、OrderSummary、OrderPaymentSummary、OrderInfo 多处 `(value / 100).toFixed(2)` 统一复用 `user/src/components/MoneyDisplay.jsx` 的 formatPrice，保留每个操作数与总金额/手续费分组。plan-detail VM mock 补充等价 formatPrice stub。无事件/请求。
+
+既有1260项测试、两端build、全站页面截图/DOM 0像素回归通过；本切片未新增独立测试项。无controller/action/request/server或部署变化。
+
 基于502cc546：后台 Dashboard 收入卡片4处 (value/100).toFixed(2) 与实时注册计数提取为 `admin/src/components/MoneyDisplay.jsx` 的 formatIncome/formatLiveCount；后台 TicketDetail 聊天时间戳提取为 `admin/src/components/DateTimeDisplay.jsx` 的 formatDateTime。无事件/请求。
 
 新增64项原/新差分覆盖收入回退、计数与时间戳转换/边界；1260测试、两端build、admin收入/时间戳8组桌面/移动截图0像素差异。无controller/action/request/server或部署变化。

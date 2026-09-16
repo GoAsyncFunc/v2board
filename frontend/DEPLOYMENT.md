@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+用户 checkout 价格复用 checkpoint（基于 51825ace）：Pricing/Coupon/OrderSummary/OrderPaymentSummary/OrderInfo 复用 MoneyDisplay.formatPrice，保留原金额运算与手续费分组（既有1260测试、两端build、全站页面截图/DOM 0差异）。无controller/action/request/server或部署操作。
+
 后台收入/时间戳提取 checkpoint（基于 502cc546）：admin MoneyDisplay/DateTimeDisplay 用于 Dashboard 收入卡片与 TicketDetail 聊天时间戳（64新增差分/1260测试、两端build、admin收入/时间戳8局部截图0差异）。无controller/action/request/server或部署操作。
 
 价格展示复用 checkpoint（基于 29cae551）：formatPrice 用于 Order/OrderColumns/PlanCard（价格差分/1196测试、两端build、局部与全站页面截图0像素差异）。无controller/action/request/server或部署操作。

@@ -2,6 +2,7 @@ import React from "react";
 import { formatMessage } from "../../vendor/i18n.js";
 import { a as settings } from "../../vendor/localeSettings.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
+import { formatPrice } from "../../components/MoneyDisplay.jsx";
 import { a as Modal } from "../../vendor/Modal.js";
 import { a as Spin } from "../../vendor/modules/76333265.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
@@ -79,7 +80,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                                 {"："}
                             </span>
                             <span>
-                                {(order.discount_amount / 100).toFixed(2)}
+                                {formatPrice(order.discount_amount)}
                             </span>
                         </div>
                     ) : (
@@ -94,7 +95,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                                 {"："}
                             </span>
                             <span>
-                                {(order.surplus_amount / 100).toFixed(2)}
+                                {formatPrice(order.surplus_amount)}
                             </span>
                         </div>
                     ) : (
@@ -109,7 +110,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                                 {"："}
                             </span>
                             <span>
-                                {(order.refund_amount / 100).toFixed(2)}
+                                {formatPrice(order.refund_amount)}
                             </span>
                         </div>
                     ) : (
@@ -124,7 +125,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                                 {"："}
                             </span>
                             <span>
-                                {(order.balance_amount / 100).toFixed(2)}
+                                {formatPrice(order.balance_amount)}
                             </span>
                         </div>
                     ) : (
@@ -139,7 +140,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                                 {"："}
                             </span>
                             <span>
-                                {(order.pre_handling_amount / 100).toFixed(2)}
+                                {formatPrice(order.pre_handling_amount)}
                             </span>
                         </div>
                     ) : (

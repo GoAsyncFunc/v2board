@@ -2,6 +2,7 @@ import React from "react";
 import { a as Icon } from "../../vendor/Icon.js";
 import { a as settings } from "../../vendor/localeSettings.js";
 import { formatMessage } from "../../vendor/i18n.js";
+import { formatPrice } from "../MoneyDisplay.jsx";
 export default function OrderPaymentSummary({
     order,
     config,
@@ -33,7 +34,7 @@ export default function OrderPaymentSummary({
                             })}
                             <div className={"text-right"}>
                                 {config.currency_symbol}
-                                {(order.bounus / 100).toFixed(2)}
+                                {formatPrice(order.bounus)}
                             </div>
                         </div>
                     </div>
@@ -46,7 +47,7 @@ export default function OrderPaymentSummary({
                             })}
                             <div className={"text-right"}>
                                 {config.currency_symbol}
-                                {(order.get_amount / 100).toFixed(2)}
+                                {formatPrice(order.get_amount)}
                             </div>
                         </div>
                         <div
@@ -72,7 +73,7 @@ export default function OrderPaymentSummary({
                         </div>
                         <div className={"col-4 text-right"}>
                             {config.currency_symbol}
-                            {(order.plan[order.period] / 100).toFixed(2)}
+                            {formatPrice(order.plan[order.period])}
                         </div>
                     </div>
                 )}
@@ -97,7 +98,7 @@ export default function OrderPaymentSummary({
                             <div className={"col-8"}></div>
                             <div className={"col-4 text-right"}>
                                 {config.currency_symbol}
-                                {(order.discount_amount / 100).toFixed(2)}
+                                {formatPrice(order.discount_amount)}
                             </div>
                         </div>
                     </div>
@@ -125,7 +126,7 @@ export default function OrderPaymentSummary({
                             <div className={"col-8"}></div>
                             <div className={"col-4 text-right"}>
                                 {config.currency_symbol}
-                                {(order.surplus_amount / 100).toFixed(2)}
+                                {formatPrice(order.surplus_amount)}
                             </div>
                         </div>
                     </div>
@@ -154,7 +155,7 @@ export default function OrderPaymentSummary({
                             <div className={"col-4 text-right"}>
                                 {"- "}
                                 {config.currency_symbol}
-                                {(order.refund_amount / 100).toFixed(2)}
+                                {formatPrice(order.refund_amount)}
                             </div>
                         </div>
                     </div>
@@ -182,7 +183,7 @@ export default function OrderPaymentSummary({
                             <div className={"col-8"}></div>
                             <div className={"col-4 text-right"}>
                                 {"+ "}
-                                {(order.pre_handling_amount / 100).toFixed(2)}
+                                {formatPrice(order.pre_handling_amount)}
                             </div>
                         </div>
                     </div>
@@ -201,11 +202,8 @@ export default function OrderPaymentSummary({
                 </div>
                 <h1 className={"text-light mt-3 mb-3"}>
                     {config.currency_symbol}{" "}
-                    {(
-                        (order.total_amount +
-                            (order.pre_handling_amount || 0)) /
-                        100
-                    ).toFixed(2)}{" "}
+                    {formatPrice(order.total_amount +
+                            (order.pre_handling_amount || 0))}{" "}
                     {config.currency}
                 </h1>
                 <button

@@ -18,6 +18,7 @@ async function load(original,trace,expired){
   if(id.includes('/Modal'))return {a:{confirm:options=>{trace.push(['confirm',options]);}}};
   if(id.includes('localeSettings'))return {a:{periodText:{month_price:()=> 'Month',year_price:()=> 'Year',reset_price:()=> 'Reset'}}};
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
+  if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value / 100).toFixed(2)};
   if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
   for(const [key,name]of [['/Icon','Icon'],['39794836','Radio'],['4d6f5257','Result'],['322f5270','Button']])if(id.includes(key))return {a:name};

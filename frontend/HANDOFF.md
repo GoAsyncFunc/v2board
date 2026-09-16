@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest admin income + datetime helpers (local only, after 502cc546)
+## Latest user checkout price reuse (local only, after 51825ace)
+- Reused `user/src/components/MoneyDisplay.jsx` formatPrice across checkout Pricing, Coupon, OrderSummary, OrderPaymentSummary and OrderInfo; preserved every `(value / 100).toFixed(2)` operand and total-fee grouping.
+- Updated plan-detail VM mock for the new local dependency; 1260 tests, both builds, full page screenshots/DOM 0-pixel green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous admin income + datetime helpers (local only, after 502cc546)
 - Added `admin/src/components/MoneyDisplay.jsx` (formatIncome `value ? (value/100).toFixed(2) : '0.00'`, formatLiveCount `value ? value : '0'`) used in Dashboard 4 income cards + 实时注册; added `admin/src/components/DateTimeDisplay.jsx` (formatDateTime) used in TicketDetail both chat branches.
 - Added 64 parity/edge cases; 1260 tests/builds/admin income+datetime 8 visuals (0 pixels) green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
