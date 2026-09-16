@@ -3,6 +3,7 @@ import history from '../vendor/routerHistory.js';
 import { a as settings } from '../vendor/localeSettings.js';
 import { c as parsePlanContent } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
+import { formatPrice } from './MoneyDisplay.jsx';
 const message = id => formatMessage({ id });
 
 export function getUnitPriceTag(plan) {
@@ -35,7 +36,7 @@ export default function PlanCard({ plan, currencySymbol }) {
           {nearlySoldOut && <span className="v2board-sold-out-tag">{message('即将售罄')}</span>}
         </div>
         <div className="block-content bg-gray-light"><div className="py-2">
-          <p className="h1 mb-2">{currencySymbol}{' '}{(price.price / 100).toFixed(2)}</p>
+          <p className="h1 mb-2">{currencySymbol}{' '}{formatPrice(price.price)}</p>
           <p className="h6 text-muted">{price.tag}</p>
         </div></div>
         <div className="block-content py-3">

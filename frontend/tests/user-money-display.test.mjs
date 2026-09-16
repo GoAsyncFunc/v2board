@@ -17,12 +17,25 @@ for (const value of values) test(`money display ${String(value)}`, async () => {
   const results = [];
   for (const original of [true, false]) {
     const money = await load(original);
-    let balance, commission, error;
+    let balance, commission, price, error;
     try { balance = money.formatMoney ? money.formatMoney(value) : money.balance(value); } catch (e) { error = e.name; }
     try { commission = money.formatMoney ? money.formatMoney(value) : money.commission(value); } catch (e) { error = e.name; }
-    results.push({ balance: typeof balance === 'symbol' ? String(balance) : balance, commission: typeof commission === 'symbol' ? String(commission) : commission, error });
+    try { price = money.formatPrice ? money.formatPrice(value) : money.price(value); } catch (e) { error = e.name; }
+    results.push({ balance: typeof balance === 'symbol' ? String(balance) : balance, commission: typeof commission === 'symbol' ? String(commission) : commission, price: typeof price === 'symbol' ? String(price) : price, error });
   }
   assert.deepEqual(results[1], results[0]);
+});
+
+test('money display price matches order/plan expression', async () => {
+  const fixture = await load(true);
+  const current = await load(false);
+  for (const value of [0, 100, 12345, 99, 101, -100, 1.5, '12345', null, undefined, 'abc', '', NaN, Infinity, '1e3']) {
+    let expected, actual, expectedError, actualError;
+    try { expected = fixture.price(value); } catch (e) { expectedError = e.name; }
+    try { actual = current.formatPrice(value); } catch (e) { actualError = e.name; }
+    assert.equal(actual, expected);
+    assert.equal(actualError, expectedError);
+  }
 });
 
 test('money display profile balance matches commission expression', async () => {

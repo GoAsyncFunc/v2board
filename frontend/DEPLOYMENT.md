@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+价格展示复用 checkpoint（基于 29cae551）：formatPrice 用于 Order/OrderColumns/PlanCard（价格差分/1196测试、两端build、局部与全站页面截图0像素差异）。无controller/action/request/server或部署操作。
+
 秒级时间戳与订单时间复用 checkpoint（基于 0ff30935）：formatDateTimeSeconds 用于 Order/OrderInfo，OrderColumns 复用 formatDateTime（11新增差分/1195测试、两端build、时间戳4局部截图0差异）。无controller/action/request/server或部署操作。
 
 共享日期展示提取 checkpoint（基于 abfc8691）：Knowledge/Dashboard 日期与天数计算提取为 DateTimeDisplay.jsx 的 formatDate/formatDateDash/formatDaysRemaining（34新增差分/1184测试、两端build、时间戳4局部截图0差异）。moment().format('X')时钟与格式不变，无controller/action/request/server或部署操作。

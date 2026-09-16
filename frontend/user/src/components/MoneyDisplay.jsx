@@ -2,3 +2,7 @@
 export function formatMoney(value) {
   return void 0 !== value ? (parseInt(value) / 100).toFixed(2) : '--.--';
 }
+
+export function formatPrice(value) {
+  return (value / 100).toFixed(2);
+}

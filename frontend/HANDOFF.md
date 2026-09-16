@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest shared seconds datetime + order reuse (local only, after 0ff30935)
+## Latest shared price display + plan/order reuse (local only, after 29cae551)
+- Added formatPrice ((value/100).toFixed(2), no guard/parseInt) to `MoneyDisplay.jsx`; reused in Order.jsx mobile amount, OrderColumns.jsx 订单金额 and PlanCard.jsx price (plan-page test mock extended with MoneyDisplay stub; page screenshot harness moved to system Chrome).
+- Added 1+21 price parity cases; 1196 tests/builds/money+datetime 8 visuals (0 pixels) + page-screenshots all green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous shared seconds datetime + order reuse (local only, after 0ff30935)
 - Added formatDateTimeSeconds (YYYY-MM-DD HH:mm:ss) to `DateTimeDisplay.jsx`; reused in Order.jsx mobile brief + checkout OrderInfo.jsx created_at; reused formatDateTime in OrderColumns.jsx desktop 创建时间 (moment import removed where now unused).
 - Added 11 parity/edge cases; 1195 tests/builds/user-datetime 4 visuals (0 pixels) green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.

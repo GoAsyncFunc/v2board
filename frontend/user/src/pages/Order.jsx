@@ -7,6 +7,7 @@ import { a as Modal } from '../vendor/Modal.js';
 import { c as connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
 import { formatDateTimeSeconds } from '../components/DateTimeDisplay.jsx';
+import { formatPrice } from '../components/MoneyDisplay.jsx';
 import { a as settings } from '../vendor/localeSettings.js';
 import { l as isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
@@ -33,7 +34,7 @@ export class OrderPage extends React.Component {
         <div className={'block block-rounded  ' + (fetchLoading ? 'block-mode-loading' : '')}><div className="bg-white">
           {isMobile() ? <MobileList>{orders.map(order => (
             <MobileList.Item key={order.trade_no} arrow="horizontal" multipleLine onClick={() => history.push('/order/' + order.trade_no)} extra={<div>
-              <div>{(order.total_amount / 100).toFixed(2)}</div>
+              <div>{formatPrice(order.total_amount)}</div>
               <div><Badge status={orderBadgeStatuses[order.status]} />{settings.orderStatusText[order.status] && settings.orderStatusText[order.status]()}</div>
             </div>}>
               {order.plan?.name}{' '}<MobileList.Item.Brief>{formatDateTimeSeconds(order.created_at)}</MobileList.Item.Brief>

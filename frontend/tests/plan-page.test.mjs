@@ -13,6 +13,7 @@ async function load(original) {
     vm.runInNewContext(compiled[name], { module, exports: module.exports, require(id) {
       if (id === 'react' || id.includes('71317449')) return React;
       if (id.includes('PlanCard')) return evaluate('card');
+      if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
       if (id.includes('reactRedux')) return { c: () => cls => cls };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };

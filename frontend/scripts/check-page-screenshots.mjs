@@ -54,7 +54,7 @@ for(const [page,slug]of Object.entries(pages))for(const mode of ['baseline','sou
  }}],logLevel:'silent'});
  bundles[page+'/'+mode]=result.outputFiles[0].text;
 }
-const browser=await chromium.launch();const report=[];
+const browser=await chromium.launch({channel:'chrome'});const report=[];
 try{
  for(const width of [1440,390])for(const [page,scenario]of scenarios){
   const shots=[],doms=[];
