@@ -4,7 +4,11 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-const moment = value => ({ format: pattern => `${value}:${pattern}` });
+const nowSeconds = 1700000000;
+const moment = (...args) => {
+  const value = args.length ? args[0] : nowSeconds;
+  return { format: pattern => pattern === 'X' ? String(value) : `${value}:${pattern}` };
+};
 
 async function load(original) {
   const module = { exports: {} };
@@ -16,34 +20,49 @@ async function load(original) {
       throw Error(id);
     },
   });
-  return original ? { my: module.exports(moment).my, theirs: module.exports(moment).theirs, format: null } : { format: module.exports.formatDateTime };
+  if (original) {
+    const fixture = module.exports(moment);
+    return { formatDateTime: value => fixture.my({ created_at: value }), theirTimestamp: value => fixture.theirs({ created_at: value }), formatDate: fixture.date, formatDateDash: fixture.dateDash, formatDaysRemaining: fixture.daysRemaining };
+  }
+  return { formatDateTime: module.exports.formatDateTime, theirTimestamp: module.exports.formatDateTime, formatDate: module.exports.formatDate, formatDateDash: module.exports.formatDateDash, formatDaysRemaining: module.exports.formatDaysRemaining };
 }
 
-for (const time of [0, 1, 1700000000, -999999999, 999999999999, null, undefined, '1700000000', 'invalid', NaN, Infinity]) test(`chat timestamp ${String(time)}`, async () => {
+const times = [0, 1, 1700000000, -999999999, 999999999999, null, undefined, '1700000000', 'invalid', NaN, Infinity];
+
+for (const helper of ['formatDateTime', 'formatDate', 'formatDateDash', 'formatDaysRemaining']) for (const time of times) test(`${helper} ${String(time)}`, async () => {
   const results = [];
   for (const original of [true, false]) {
     let value, error;
-    try { value = original ? (await load(true)).my({ created_at: time }) : (await load(false)).format(time); } catch (e) { error = e.name; }
+    try { value = (await load(original))[helper](time); } catch (e) { error = e.name; }
     results.push({ value, error });
   }
   assert.deepEqual(results[1], results[0]);
 });
 
-test('chat timestamp coercion trace matches original', async () => {
+test('timestamp coercion trace matches original', async () => {
   const make = () => { const trace = []; const value = { [Symbol.toPrimitive](hint) { trace.push(hint); return 1700000000; } }; return { trace, value }; };
   const originalInput = make();
-  const original = (await load(true)).my({ created_at: originalInput.value });
+  const original = (await load(true)).formatDateTime(originalInput.value);
   const currentInput = make();
-  const current = (await load(false)).format(currentInput.value);
+  const current = (await load(false)).formatDateTime(currentInput.value);
   assert.equal(current, original);
   assert.deepEqual(currentInput.trace, originalInput.trace);
   assert.deepEqual(originalInput.trace, ['number']);
 });
 
-test('my/theirs branch renders same as formatDateTime', async () => {
-  const original = (await load(true)).my({ created_at: 1700000000 });
-  const theirs = (await load(true)).theirs({ created_at: 1700000000 });
-  const current = (await load(false)).format(1700000000);
-  assert.equal(original, theirs);
-  assert.equal(current, original);
+test('my/theirs branches match formatDateTime', async () => {
+  const fixture = await load(true);
+  const current = await load(false);
+  assert.equal(fixture.theirTimestamp(1700000000), fixture.formatDateTime(1700000000));
+  assert.equal(current.formatDateTime(1700000000), fixture.formatDateTime(1700000000));
+});
+
+test('expiry date and days remaining are consistent', async () => {
+  const fixture = await load(true);
+  const current = await load(false);
+  const expiredAt = 1700000000 + 86400 * 3;
+  assert.equal(current.formatDate(expiredAt), fixture.formatDate(expiredAt));
+  assert.equal(current.formatDaysRemaining(expiredAt), '3');
+  assert.equal(fixture.formatDaysRemaining(expiredAt), '3');
+  assert.equal(current.formatDaysRemaining(nowSeconds), '0');
 });

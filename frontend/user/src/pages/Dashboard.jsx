@@ -6,6 +6,11 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
+const {
+  formatDate,
+  formatDateDash,
+  formatDaysRemaining
+} = require('../components/DateTimeDisplay.jsx');
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
   i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
@@ -78,7 +83,7 @@ class x extends l.a.Component {
                     </div>
                     <p className={"font-size-lg text-white mb-1"}>{e.title}</p>
                     <p className={"font-w600 text-white-75"}>
-                        {v()(1e3 * e.created_at).format("YYYY-MM-DD")}
+                        {formatDateDash(e.created_at)}
                     </p>
                 </div>
             </a>;
@@ -237,8 +242,8 @@ class x extends l.a.Component {
                                                                             {Object(b["formatMessage"])({
                               id: "于 {date} 到期，距离到期还有 {day} 天。"
                             }, {
-                              date: v()(1e3 * d.expired_at).format("YYYY/MM/DD"),
-                              day: ((d.expired_at - v()().format("X")) / 86400).toFixed(0)
+                              date: formatDate(d.expired_at),
+                              day: formatDaysRemaining(d.expired_at)
                             })}
                                                                             {null !== d.reset_day ? 0 !== d.reset_day ? Object(b["formatMessage"])({
                               id: "已用流量将在 {reset_day} 日后重置"

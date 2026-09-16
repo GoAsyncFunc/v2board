@@ -1,3 +1,6 @@
+const {
+  formatDate
+} = require('../components/DateTimeDisplay.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -157,7 +160,7 @@ class O extends s.a.Component {
                                                                     {Object(l["formatMessage"])({
                           id: "最后更新: {date}"
                         }, {
-                          date: p()(1e3 * e.updated_at).format("YYYY/MM/DD")
+                          date: formatDate(e.updated_at)
                         })}
                                                                 </small>
                                                             </a>);

@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest shared user datetime display helper (local only, after 943040ee)
+## Latest shared user datetime date helpers (local only, after abfc8691)
+- Extended `DateTimeDisplay.jsx` with formatDate (YYYY/MM/DD), formatDateDash (YYYY-MM-DD), formatDaysRemaining (moment().format('X') day calc) from Knowledge updated_at + Dashboard created_at/expiry; replaced inline usages (existing formatDateTime reused as-is).
+- Added 34 parity/coercion/edge cases; 1184 tests/builds/user-datetime 4 visuals (0 pixels) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous shared user datetime display helper (local only, after 943040ee)
 - Extracted the identical TicketDetail chat timestamps (both is_me branches) into `DateTimeDisplay.jsx` formatDateTime; preserves 1000*value coercion trace and YYYY/MM/DD HH:mm format.
 - Added 13 parity/coercion/edge cases; 1150 tests/builds/user-datetime 4 visuals (0 pixels) green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
