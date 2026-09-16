@@ -2,6 +2,9 @@ const {
   createInviteCodeDateColumn,
   createReadonlyCommissionColumns
 } = require('../components/InviteDisplayColumns.jsx');
+const {
+  formatMoney
+} = require('../components/MoneyDisplay.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -103,7 +106,7 @@ class E extends d.a.Component {
                     })}
                                         </p>
                                         <p className={"display-4 text-black font-w300 mb-2"}>
-                                            {void 0 !== E.commission_balance ? (parseInt(E.commission_balance) / 100).toFixed(2) : "--.--"}
+                                            {formatMoney(E.commission_balance)}
                                             <span className={"font-size-h5 text-muted ml-4"}>
                                                 {g.currency}
                                             </span>

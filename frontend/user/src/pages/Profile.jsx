@@ -1,3 +1,6 @@
+const {
+  formatMoney
+} = require('../components/MoneyDisplay.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -166,7 +169,7 @@ class v extends l.a.Component {
                     })}
                                         </p>
                                         <p className={"display-4 text-black font-w300 mb-2"}>
-                                            {void 0 !== t.balance ? (parseInt(t.balance) / 100).toFixed(2) : "--.--"}
+                                            {formatMoney(t.balance)}
                                             <span className={"font-size-h5 text-muted ml-4"}>
                                                 {r.currency}
                                             </span>

@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest admin user email readonly column (local only, after d453f38d)
+## Latest shared user money display helper (local only, after 0ba76e31)
+- Extracted the identical Profile balance / Invite commission_balance expressions into `MoneyDisplay.jsx` formatMoney; preserves `void 0 !== value ? (parseInt(value)/100).toFixed(2) : '--.--'` including parseInt coercion and undefined sentinel.
+- Added 20 parity/coercion/edge cases; 1137 tests/builds/user-money 4 visuals (0 pixels) green. Two call sites (Profile, Invite) updated.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous admin user email readonly column (local only, after d453f38d)
 - Extracted the admin User.jsx email/online column into `UserDisplayColumns.jsx` (Tooltip last-online/从未在线 + Badge online status). Named formatUserLastOnline/renderUserOnlineStatus preserving the 1000*value date format, `new Date().getTime()` clock and lastSeen truthiness. Sorter/filter/action columns stay in the page.
 - Added 19 parity/clock/coercion/edge cases; 1117 tests/builds/admin-user 8 visuals (0 pixels incl. tooltip hover) green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
