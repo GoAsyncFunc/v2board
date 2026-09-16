@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest user checkout price reuse (local only, after 51825ace)
+## Latest user subscribe usage helpers (local only, after 715b2a8b)
+- Extracted Dashboard subscribe progress percent, progress-bar color thresholds and device_limit display into `user/src/components/SubscribeUsage.jsx` (percentOf via siteHelpers key f, Infinity fallback kept).
+- Added 43 parity/threshold/edge cases; 1303 tests, both builds, subscribe 4 visuals + page screenshots (60 combos 0 pixels, DOM equal) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous user checkout price reuse (local only, after 51825ace)
 - Reused `user/src/components/MoneyDisplay.jsx` formatPrice across checkout Pricing, Coupon, OrderSummary, OrderPaymentSummary and OrderInfo; preserved every `(value / 100).toFixed(2)` operand and total-fee grouping.
 - Updated plan-detail VM mock for the new local dependency; 1260 tests, both builds, full page screenshots/DOM 0-pixel green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.

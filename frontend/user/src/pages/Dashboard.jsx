@@ -11,6 +11,11 @@ const {
   formatDateDash,
   formatDaysRemaining
 } = require('../components/DateTimeDisplay.jsx');
+const {
+  subscribePercent,
+  progressBarColor,
+  formatDeviceLimit
+} = require('../components/SubscribeUsage.jsx');
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
   i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
@@ -156,7 +161,7 @@ class x extends l.a.Component {
       u = s.stat,
       d = s.subscribe,
       m = this.props.notice.notices,
-      y = Math.round(Object(p["f"])(d.u + d.d, d.transfer_enable) * 100) / 100,
+      y = subscribePercent(d),
       x = [];
     (void 0 !== u[0] && u[0] && x.push(<div className={"alert alert-danger"} role={"alert"}>
                     <p className={"mb-0"}>
@@ -258,7 +263,7 @@ class x extends l.a.Component {
                                                                 <div className={"progress mb-1"} style={{
                             height: 6
                           }}>
-                                                                    <div className={"progress-bar progress-bar-striped progress-bar-animated bg-".concat(y >= 100 ? "danger" : y >= 80 ? "warning" : "success")} role={"progressbar"} style={{
+                                                                    <div className={"progress-bar progress-bar-striped progress-bar-animated bg-".concat(progressBarColor(y))} role={"progressbar"} style={{
                               width: Object(p["f"])(d.u + d.d, d.transfer_enable) + "%"
                             }}></div>
                                                                 </div>
@@ -279,7 +284,7 @@ class x extends l.a.Component {
                                 id: "在线设备 {alive_ip}/{device_limit}"
                               }, {
                                 alive_ip: d.alive_ip,
-                                device_limit: d.device_limit == null ? "∞" : d.device_limit
+                                device_limit: formatDeviceLimit(d.device_limit)
                               })}
                                                                     </span>
                                                                 </p>

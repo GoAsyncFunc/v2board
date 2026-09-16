@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+订阅用量提取 checkpoint（基于 715b2a8b）：SubscribeUsage.jsx 用于 Dashboard 进度百分比/颜色/设备上限（43新增差分/1303测试、两端build、订阅4局部截图与页面截图60组合0差异）。无controller/action/request/server或部署操作。
+
 用户 checkout 价格复用 checkpoint（基于 51825ace）：Pricing/Coupon/OrderSummary/OrderPaymentSummary/OrderInfo 复用 MoneyDisplay.formatPrice，保留原金额运算与手续费分组（既有1260测试、两端build、全站页面截图/DOM 0差异）。无controller/action/request/server或部署操作。
 
 后台收入/时间戳提取 checkpoint（基于 502cc546）：admin MoneyDisplay/DateTimeDisplay 用于 Dashboard 收入卡片与 TicketDetail 聊天时间戳（64新增差分/1260测试、两端build、admin收入/时间戳8局部截图0差异）。无controller/action/request/server或部署操作。
