@@ -1,3 +1,6 @@
+const {
+  createReadonlyUserEmailColumn
+} = require('../components/UserDisplayColumns.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -179,19 +182,7 @@ class M extends g.a.Component {
         dataIndex: "id",
         key: "id",
         sorter: !0
-      }, {
-        title: "邮箱",
-        dataIndex: "email",
-        key: "email",
-        render: (e, t) => {
-          return g.a.createElement(f["a"], {
-            placement: "top",
-            title: t.t ? "最后在线".concat(w()(1e3 * t.t).format("YYYY-MM-DD HH:mm:ss")) : "从未在线"
-          }, g.a.createElement(d["a"], {
-            status: new Date().getTime() / 1e3 - 600 > t.t ? "default" : "success"
-          }), e);
-        }
-      }, {
+      }, createReadonlyUserEmailColumn(), {
         title: "状态",
         dataIndex: "banned",
         key: "banned",

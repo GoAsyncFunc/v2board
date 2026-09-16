@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest user invite readonly columns (local only, after ebb00782)
+## Latest admin user email readonly column (local only, after d453f38d)
+- Extracted the admin User.jsx email/online column into `UserDisplayColumns.jsx` (Tooltip last-online/从未在线 + Badge online status). Named formatUserLastOnline/renderUserOnlineStatus preserving the 1000*value date format, `new Date().getTime()` clock and lastSeen truthiness. Sorter/filter/action columns stay in the page.
+- Added 19 parity/clock/coercion/edge cases; 1117 tests/builds/admin-user 8 visuals (0 pixels incl. tooltip hover) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous user invite readonly columns (local only, after ebb00782)
 - Extracted user-side Invite.jsx tables into `InviteDisplayColumns.jsx`: invite-codes date column (the 邀请码 copy-link onClick column stays in the page) and commission record columns (发放时间/佣金). Named formatInviteCreatedAt/formatCommissionAmount preserving 1000*value coercion and (value/100).toFixed(2).
 - Added 28 parity/coercion/edge cases; 1098 tests/builds/user-invite 6 visuals (0 pixels) green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
