@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest shared user money display helper (local only, after 0ba76e31)
+## Latest shared user datetime display helper (local only, after 943040ee)
+- Extracted the identical TicketDetail chat timestamps (both is_me branches) into `DateTimeDisplay.jsx` formatDateTime; preserves 1000*value coercion trace and YYYY/MM/DD HH:mm format.
+- Added 13 parity/coercion/edge cases; 1150 tests/builds/user-datetime 4 visuals (0 pixels) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous shared user money display helper (local only, after 0ba76e31)
 - Extracted the identical Profile balance / Invite commission_balance expressions into `MoneyDisplay.jsx` formatMoney; preserves `void 0 !== value ? (parseInt(value)/100).toFixed(2) : '--.--'` including parseInt coercion and undefined sentinel.
 - Added 20 parity/coercion/edge cases; 1137 tests/builds/user-money 4 visuals (0 pixels) green. Two call sites (Profile, Invite) updated.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.

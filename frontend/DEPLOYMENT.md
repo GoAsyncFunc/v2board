@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+共享时间戳展示提取 checkpoint（基于 943040ee）：TicketDetail 聊天时间戳提取为 DateTimeDisplay.jsx 的 formatDateTime（13新增差分/1150测试、两端build、时间戳4局部截图0差异）。1000*value转换与格式不变，无controller/action/request/server或部署操作。
+
 共享余额展示提取 checkpoint（基于 0ba76e31）：Profile 余额与 Invite 佣金余额提取为 MoneyDisplay.jsx 的 formatMoney（20新增差分/1137测试、两端build、余额4局部截图0差异）。parseInt转换与undefined哨兵不变，无controller/action/request/server或部署操作。
 
 后台用户邮箱/在线只读列提取 checkpoint（基于 d453f38d）：User.jsx 邮箱列提取为 UserDisplayColumns.jsx（19新增差分/1117测试、两端build、后台用户8局部截图0差异含 Tooltip 悬停）。1000*value日期格式与600秒在线阈值不变，sorter/筛选/操作列保留在页面，无controller/action/request/server或部署操作。

@@ -1,3 +1,6 @@
+const {
+  formatDateTime
+} = require('../components/DateTimeDisplay.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -43,7 +46,7 @@ class h extends s.a.Component {
                     {null === (t = this.props.ticket) || void 0 === t ? void 0 : t.message.map(e => {
           return e.is_me ? <div>
                                       <div className={"font-size-sm text-muted my-2 text-right"}>
-                                          {l()(1e3 * e.created_at).format("YYYY/MM/DD HH:mm")}
+                                          {formatDateTime(e.created_at)}
                                       </div>
                                       <div className={"text-right ml-4"}>
                                           <div className={"d-inline-block bg-gray-lighter px-3 py-2 mb-2 mw-100 rounded text-left"}>
@@ -52,7 +55,7 @@ class h extends s.a.Component {
                                       </div>
                                   </div> : <div>
                                       <div className={"font-size-sm text-muted my-2"}>
-                                          {l()(1e3 * e.created_at).format("YYYY/MM/DD HH:mm")}
+                                          {formatDateTime(e.created_at)}
                                       </div>
                                       <div className={"mr-4"}>
                                           <div className={"d-inline-block bg-success-lighter px-3 py-2 mb-2 mw-100 rounded text-left"}>
