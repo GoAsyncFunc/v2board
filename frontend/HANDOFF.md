@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest user ticket readonly columns (local only, after f00d55af)
+## Latest user invite readonly columns (local only, after ebb00782)
+- Extracted user-side Invite.jsx tables into `InviteDisplayColumns.jsx`: invite-codes date column (the 邀请码 copy-link onClick column stays in the page) and commission record columns (发放时间/佣金). Named formatInviteCreatedAt/formatCommissionAmount preserving 1000*value coercion and (value/100).toFixed(2).
+- Added 28 parity/coercion/edge cases; 1098 tests/builds/user-invite 6 visuals (0 pixels) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous user ticket readonly columns (local only, after f00d55af)
 - Extracted user-side Ticket.jsx list table into `TicketReadonlyColumns.jsx` (id, subject, level label map, reply_status with Badge/已关闭/已答复/待处理, created_at, updated_at); named renderTicketLevel/renderTicketReplyStatus/formatTicketCreatedAt/formatTicketUpdatedAt preserving levels array indexing, parseInt truthiness, 1000*value coercion and date formats. The 查看 action column (navigation/close events) stays in the page.
 - Added 65 parity/coercion/edge cases; 1070 tests/builds/user-ticket 6 visuals (0 pixels) with horizontal scroll green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.

@@ -1,3 +1,7 @@
+const {
+  createInviteCodeDateColumn,
+  createReadonlyCommissionColumns
+} = require('../components/InviteDisplayColumns.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -79,37 +83,8 @@ class E extends d.a.Component {
             })}
                             </a>);
         }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "创建时间"
-        }),
-        dataIndex: "created_at",
-        key: "created_at",
-        align: "right",
-        render: e => {
-          return b()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }],
-      k = [{
-        title: Object(w["formatMessage"])({
-          id: "发放时间"
-        }),
-        dataIndex: "created_at",
-        key: "created_at",
-        render: e => {
-          return b()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "佣金"
-        }),
-        dataIndex: "get_amount",
-        key: "get_amount",
-        align: "right",
-        render: (e, t) => {
-          return (e / 100).toFixed(2);
-        }
-      }];
+      }, createInviteCodeDateColumn()],
+      k = createReadonlyCommissionColumns();
     return d.a.createElement(h["a"], o()({}, this.props, {
       title: Object(w["formatMessage"])({
         id: "我的邀请"

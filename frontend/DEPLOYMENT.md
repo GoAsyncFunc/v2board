@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+用户端邀请只读列提取 checkpoint（基于 ebb00782）：Invite.jsx 两表提取为 InviteDisplayColumns.jsx（邀请码日期列 + 佣金记录列，28新增差分/1098测试、两端build、用户邀请6局部截图0差异）。1000*value日期格式与(value/100).toFixed(2)不变，邀请码复制链接列保留在页面，无controller/action/request/server或部署操作。
+
 用户端工单只读列提取 checkpoint（基于 f00d55af）：Ticket.jsx 工单列表表提取为 TicketReadonlyColumns.jsx（id/主题/级别/状态Badge/创建时间/最后回复，65新增差分/1070测试、两端build、用户工单6局部截图0差异、横向滚动通过）。级别数组索引/parseInt真值/1000*value日期格式不变，查看操作列保留在页面，无controller/action/request/server或部署操作。
 
 队列只读列提取 checkpoint（基于 88e2eeb0）：Queue.jsx 队列详情表提取为 QueueDisplayColumns.jsx（31新增差分/1005测试、两端build、队列6局部截图0差异、分页/横向滚动通过）。未知名称→undefined与 `e+"s"` 转换语义不变，控制器/轮询/dataSource过滤不变，无controller/action/request/server或部署操作。
