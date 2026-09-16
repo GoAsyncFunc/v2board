@@ -9,18 +9,18 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
-var r,
-  o = require("../vendor/modules/70307045.js"),
-  i = interopDefault(o),
-  a = require("../vendor/modules/71317449.js"),
-  s = interopDefault(a),
-  c = require("../vendor/reactRedux.js"),
-  u = require("../vendor/modules/77642f52.js"),
-  l = interopDefault(u),
-  f = require("../vendor/i18n.js"),
-  p = require("../vendor/modules/4e665578.js"),
-  d = interopDefault(p);
-class h extends s.a.Component {
+var refreshTimer,
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule),
+  i18n = require("../vendor/i18n.js"),
+  styleModule = require("../vendor/modules/4e665578.js"),
+  styles = interopDefault(styleModule);
+class TicketDetailBody extends ReactComponent.a.Component {
   constructor() {
     super(...arguments), this.state = {}, this.chatCount = 0;
   }
@@ -28,61 +28,62 @@ class h extends s.a.Component {
     this.chatScroll();
   }
   componentDidUpdate() {
-    var e, t;
-    this.chatCount !== (null === (e = this.props.ticket) || void 0 === e ? void 0 : e.message.length) && (this.chatCount = null === (t = this.props.ticket) || void 0 === t ? void 0 : t.message.length, this.chatScroll());
+    var ticket, updatedTicket;
+    this.chatCount !== (null === (ticket = this.props.ticket) || void 0 === ticket ? void 0 : ticket.message.length) && (this.chatCount = null === (updatedTicket = this.props.ticket) || void 0 === updatedTicket ? void 0 : updatedTicket.message.length, this.chatScroll());
   }
   chatScroll() {
     this.refs.chat && this.refs.chat.scrollTo(0, this.refs.chat.scrollHeight);
   }
   render() {
-    var e, t;
+    var ticketSubject,
+      ticketMessages;
     return <div>
                 <div className={"block-content-full bg-gray-lighter p-3"}>
-                    <span className={d.a.tag}>
-                        {null === (e = this.props.ticket) || void 0 === e ? void 0 : e.subject}
+                    <span className={styles.a.tag}>
+                        {null === (ticketSubject = this.props.ticket) || void 0 === ticketSubject ? void 0 : ticketSubject.subject}
                     </span>
                 </div>
-                <div className={"bg-white js-chat-messages block-content block-content-full text-wrap-break-word overflow-y-auto ".concat(d.a.content)} ref={"chat"}>
-                    {null === (t = this.props.ticket) || void 0 === t ? void 0 : t.message.map(e => {
-          return e.is_me ? <div>
+                <div className={"bg-white js-chat-messages block-content block-content-full text-wrap-break-word overflow-y-auto ".concat(styles.a.content)} ref={"chat"}>
+                    {null === (ticketMessages = this.props.ticket) || void 0 === ticketMessages ? void 0 : ticketMessages.message.map(message => {
+          return message.is_me ? <div>
                                       <div className={"font-size-sm text-muted my-2 text-right"}>
-                                          {formatDateTime(e.created_at)}
+                                          {formatDateTime(message.created_at)}
                                       </div>
                                       <div className={"text-right ml-4"}>
                                           <div className={"d-inline-block bg-gray-lighter px-3 py-2 mb-2 mw-100 rounded text-left"}>
-                                              {e.message}
+                                              {message.message}
                                           </div>
                                       </div>
                                   </div> : <div>
                                       <div className={"font-size-sm text-muted my-2"}>
-                                          {formatDateTime(e.created_at)}
+                                          {formatDateTime(message.created_at)}
                                       </div>
                                       <div className={"mr-4"}>
                                           <div className={"d-inline-block bg-success-lighter px-3 py-2 mb-2 mw-100 rounded text-left"}>
-                                              {e.message}
+                                              {message.message}
                                           </div>
                                       </div>
                                   </div>;
         })}
                 </div>
-                <div className={"js-chat-form block-content p-2 bg-body-dark ".concat(d.a.input)}>
-                    <input onKeyDown={e => this.props.onKeyDown(e, () => {
+                <div className={"js-chat-form block-content p-2 bg-body-dark ".concat(styles.a.input)}>
+                    <input onKeyDown={event => this.props.onKeyDown(event, () => {
           this.refs.message && (this.refs.message.value = "");
-        })} ref={"message"} type={"text"} className={"js-chat-input bg-body-dark border-0 form-control form-control-alt"} placeholder={Object(f["formatMessage"])({
+        })} ref={"message"} type={"text"} className={"js-chat-input bg-body-dark border-0 form-control form-control-alt"} placeholder={Object(i18n["formatMessage"])({
           id: "输入内容回复工单..."
-        })} onChange={e => this.props.onChange(e)}></input>
+        })} onChange={event => this.props.onChange(event)}></input>
                 </div>
             </div>;
   }
 }
-class m extends s.a.Component {
+class TicketDetailPage extends ReactComponent.a.Component {
   componentDidMount() {
-    this.fetchData(), r = () => setTimeout(() => {
-      this.fetchData(), "function" === typeof r && r();
-    }, 5e3), r();
+    this.fetchData(), refreshTimer = () => setTimeout(() => {
+      this.fetchData(), "function" === typeof refreshTimer && refreshTimer();
+    }, 5e3), refreshTimer();
   }
   componentWillUnmount() {
-    r = void 0;
+    refreshTimer = void 0;
   }
   fetchData() {
     this.props.dispatch({
@@ -90,29 +91,29 @@ class m extends s.a.Component {
       id: this.props.match.params.ticket_id
     });
   }
-  reply(e) {
+  reply(clearMessage) {
     this.props.dispatch({
       type: "ticket/reply",
       id: this.props.match.params.ticket_id,
-      complete: () => e()
+      complete: () => clearMessage()
     });
   }
   render() {
-    var e = this.props.ticket,
-      t = e.ticket,
-      n = e.replyData,
-      r = e.replyLoading;
-    return s.a.createElement(h, {
-      ticket: t,
-      onKeyDown: (e, t) => {
-        13 !== e.keyCode || r || this.reply(t);
+    var ticketState = this.props.ticket,
+      ticket = ticketState.ticket,
+      replyData = ticketState.replyData,
+      replyLoading = ticketState.replyLoading;
+    return ReactComponent.a.createElement(TicketDetailBody, {
+      ticket,
+      onKeyDown: (event, clearMessage) => {
+        13 !== event.keyCode || replyLoading || this.reply(clearMessage);
       },
-      onChange: e => {
+      onChange: event => {
         this.props.dispatch({
           type: "ticket/setState",
           payload: {
-            replyData: i()({}, n, {
-              message: e.target.value
+            replyData: objectAssign()({}, replyData, {
+              message: event.target.value
             })
           }
         });
@@ -120,11 +121,11 @@ class m extends s.a.Component {
     });
   }
 }
-legacyExports["default"] = Object(c["c"])(e => {
-  var t = e.header,
-    n = e.ticket;
+legacyExports["default"] = Object(reactRedux["c"])(state => {
+  var header = state.header,
+    ticket = state.ticket;
   return {
-    header: t,
-    ticket: n
+    header,
+    ticket
   };
-})(m);
+})(TicketDetailPage);
