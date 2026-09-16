@@ -3,7 +3,12 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
-## Latest shared price display + plan/order reuse (local only, after 29cae551)
+## Latest admin income + datetime helpers (local only, after 502cc546)
+- Added `admin/src/components/MoneyDisplay.jsx` (formatIncome `value ? (value/100).toFixed(2) : '0.00'`, formatLiveCount `value ? value : '0'`) used in Dashboard 4 income cards + 实时注册; added `admin/src/components/DateTimeDisplay.jsx` (formatDateTime) used in TicketDetail both chat branches.
+- Added 64 parity/edge cases; 1260 tests/builds/admin income+datetime 8 visuals (0 pixels) green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous shared price display + plan/order reuse (local only, after 29cae551)
 - Added formatPrice ((value/100).toFixed(2), no guard/parseInt) to `MoneyDisplay.jsx`; reused in Order.jsx mobile amount, OrderColumns.jsx 订单金额 and PlanCard.jsx price (plan-page test mock extended with MoneyDisplay stub; page screenshot harness moved to system Chrome).
 - Added 1+21 price parity cases; 1196 tests/builds/money+datetime 8 visuals (0 pixels) + page-screenshots all green.
 - No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.

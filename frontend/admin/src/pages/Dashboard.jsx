@@ -6,6 +6,10 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
+const {
+  formatIncome,
+  formatLiveCount
+} = require('../components/MoneyDisplay.jsx');
 var r = require("../vendor/modules/6a65685a.js"),
   i = interopDefault(r),
   o = require("../vendor/modules/316c2f56.js"),
@@ -707,7 +711,7 @@ class O extends l.a.Component {
                                             {"今日收入"}
                                         </p>
                                         <p className={"display-4 text-black font-w300 mb-2"}>
-                                            {t.day_income ? (t.day_income / 100).toFixed(2) : "0.00"}
+                                            {formatIncome(t.day_income)}
                                             <span className={"font-size-h5 font-w600 text-muted"}>
                                                 {n.site.currency}
                                             </span>
@@ -721,7 +725,7 @@ class O extends l.a.Component {
                                             {"实时注册"}
                                         </div>
                                         <div className={"display-4 text-black font-w300 mb-2"}>
-                                            {t.day_register_total ? t.day_register_total : "0"}
+                                            {formatLiveCount(t.day_register_total)}
                                         </div>
                                     </div>
                                 </div>
@@ -734,7 +738,7 @@ class O extends l.a.Component {
                                 <div class={"d-flex align-items-center"}>
                                     <div class={"pr-4 pr-sm-5 pl-0 pl-sm-3"}>
                                         <p class={"fs-3 text-dark mb-0"}>
-                                            {t.month_income ? (t.month_income / 100).toFixed(2) : "0.00"}{" "}
+                                            {formatIncome(t.month_income)}{" "}
                                             {n.site.currency}
                                         </p>
                                         <p class={"text-muted mb-0"}>
@@ -743,7 +747,7 @@ class O extends l.a.Component {
                                     </div>
                                     <div class={"px-4 px-sm-5 border-start"}>
                                         <p class={"fs-3 text-dark mb-0"}>
-                                            {t.last_month_income ? (t.last_month_income / 100).toFixed(2) : "0.00"}{" "}
+                                            {formatIncome(t.last_month_income)}{" "}
                                             {n.site.currency}
                                         </p>
                                         <p class={"text-muted mb-0"}>
@@ -752,7 +756,7 @@ class O extends l.a.Component {
                                     </div>
                                     <div class={"px-4 px-sm-5 border-start"}>
                                         <p class={"fs-3 text-dark mb-0"}>
-                                            {t.commission_last_month_payout ? (t.commission_last_month_payout / 100).toFixed(2) : "0.00"}{" "}
+                                            {formatIncome(t.commission_last_month_payout)}{" "}
                                             {n.site.currency}
                                         </p>
                                         <p class={"text-muted mb-0"}>
