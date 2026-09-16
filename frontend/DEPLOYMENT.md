@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+用户端工单只读列提取 checkpoint（基于 f00d55af）：Ticket.jsx 工单列表表提取为 TicketReadonlyColumns.jsx（id/主题/级别/状态Badge/创建时间/最后回复，65新增差分/1070测试、两端build、用户工单6局部截图0差异、横向滚动通过）。级别数组索引/parseInt真值/1000*value日期格式不变，查看操作列保留在页面，无controller/action/request/server或部署操作。
+
 队列只读列提取 checkpoint（基于 88e2eeb0）：Queue.jsx 队列详情表提取为 QueueDisplayColumns.jsx（31新增差分/1005测试、两端build、队列6局部截图0差异、分页/横向滚动通过）。未知名称→undefined与 `e+"s"` 转换语义不变，控制器/轮询/dataSource过滤不变，无controller/action/request/server或部署操作。
 
 公告/工单 renderer 命名 checkpoint（提交 88e2eeb0）：formatNoticeCreatedAt、renderTicketLevel、formatTicketCreatedAt、formatTicketUpdatedAt（9新增差分/974测试、两端build）。原转换trace/索引/日期格式不变，无controller/action/request/server或部署操作。

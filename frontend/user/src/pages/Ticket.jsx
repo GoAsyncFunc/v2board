@@ -1,3 +1,6 @@
+const {
+  createReadonlyTicketColumns
+} = require('../components/TicketReadonlyColumns.jsx');
 let legacyModule = module,
   legacyExports = exports;
 const {
@@ -14,13 +17,11 @@ var r = require("../vendor/modules/6a65685a.js"),
   c = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
   u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   l = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  f = (require("../vendor/modules/41776870.js"), require("../vendor/modules/4b725473.js")),
   p = require("../vendor/modules/70307045.js"),
   d = interopDefault(p),
   h = require("../vendor/modules/71317449.js"),
   m = interopDefault(h),
   v = require("../layouts/MainLayout.jsx"),
-  y = require("../vendor/reactRedux.js"),
   g = require("../vendor/modules/77642f52.js"),
   b = interopDefault(g),
   w = require("../vendor/i18n.js");
@@ -78,94 +79,7 @@ class x extends m.a.Component {
       }), Object(w["formatMessage"])({
         id: "高"
       })],
-      y = [{
-        title: "#",
-        dataIndex: "id",
-        key: "id"
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "主题"
-        }),
-        dataIndex: "subject",
-        key: "subject"
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "工单级别"
-        }),
-        dataIndex: "level",
-        key: "level",
-        render: e => {
-          return h[e];
-        }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "工单状态"
-        }),
-        dataIndex: "reply_status",
-        key: "reply_status",
-        render: (e, t) => {
-          return 1 === t.status ? <span>
-                                {m.a.createElement(f["a"], {
-              status: "success"
-            })}
-                                {Object(w["formatMessage"])({
-              id: "已关闭"
-            })}
-                            </span> : <span>
-                                {m.a.createElement(f["a"], {
-              status: parseInt(e) ? "processing" : "error"
-            })}
-                                {parseInt(e) ? Object(w["formatMessage"])({
-              id: "已答复"
-            }) : Object(w["formatMessage"])({
-              id: "待处理"
-            })}
-                            </span>;
-        }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "创建时间"
-        }),
-        dataIndex: "created_at",
-        key: "created_at",
-        render: e => {
-          return b()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "最后回复"
-        }),
-        dataIndex: "updated_at",
-        key: "updated_at",
-        render: e => {
-          return b()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
-        title: Object(w["formatMessage"])({
-          id: "操作"
-        }),
-        dataIndex: "action",
-        key: "action",
-        align: "right",
-        fixed: "right",
-        render: (e, t) => {
-          return <div>
-                                <a href={"javascript:void(0);"} onClick={() => this.toChat(t.id)}>
-                                    {Object(w["formatMessage"])({
-                id: "查看"
-              })}
-                                </a>
-                                {m.a.createElement(l["a"], {
-              type: "vertical"
-            })}
-                                <a disabled={t.status} href={"javascript:void(0);"} onClick={() => this.close(t.id)}>
-                                    {Object(w["formatMessage"])({
-                id: "关闭"
-              })}
-                                </a>
-                            </div>;
-        }
-      }];
+      y = createReadonlyTicketColumns(h);
     return m.a.createElement(v["a"], o()({}, this.props, {
       title: Object(w["formatMessage"])({
         id: "我的工单"
