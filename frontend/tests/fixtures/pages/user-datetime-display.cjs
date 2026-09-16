@@ -4,5 +4,6 @@ module.exports = function(moment){return {
   theirs: e => moment(1e3 * e.created_at).format("YYYY/MM/DD HH:mm"),
   date: v => moment(1e3 * v).format("YYYY/MM/DD"),
   dateDash: v => moment(1e3 * v).format("YYYY-MM-DD"),
+  seconds: v => moment(1e3 * v).format("YYYY-MM-DD HH:mm:ss"),
   daysRemaining: v => ((v - moment().format("X")) / 86400).toFixed(0)
 };};

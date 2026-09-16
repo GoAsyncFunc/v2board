@@ -22,14 +22,14 @@ async function load(original) {
   });
   if (original) {
     const fixture = module.exports(moment);
-    return { formatDateTime: value => fixture.my({ created_at: value }), theirTimestamp: value => fixture.theirs({ created_at: value }), formatDate: fixture.date, formatDateDash: fixture.dateDash, formatDaysRemaining: fixture.daysRemaining };
+    return { formatDateTime: value => fixture.my({ created_at: value }), theirTimestamp: value => fixture.theirs({ created_at: value }), formatDate: fixture.date, formatDateDash: fixture.dateDash, formatDateTimeSeconds: fixture.seconds, formatDaysRemaining: fixture.daysRemaining };
   }
-  return { formatDateTime: module.exports.formatDateTime, theirTimestamp: module.exports.formatDateTime, formatDate: module.exports.formatDate, formatDateDash: module.exports.formatDateDash, formatDaysRemaining: module.exports.formatDaysRemaining };
+  return { formatDateTime: module.exports.formatDateTime, theirTimestamp: module.exports.formatDateTime, formatDate: module.exports.formatDate, formatDateDash: module.exports.formatDateDash, formatDateTimeSeconds: module.exports.formatDateTimeSeconds, formatDaysRemaining: module.exports.formatDaysRemaining };
 }
 
 const times = [0, 1, 1700000000, -999999999, 999999999999, null, undefined, '1700000000', 'invalid', NaN, Infinity];
 
-for (const helper of ['formatDateTime', 'formatDate', 'formatDateDash', 'formatDaysRemaining']) for (const time of times) test(`${helper} ${String(time)}`, async () => {
+for (const helper of ['formatDateTime', 'formatDate', 'formatDateDash', 'formatDateTimeSeconds', 'formatDaysRemaining']) for (const time of times) test(`${helper} ${String(time)}`, async () => {
   const results = [];
   for (const original of [true, false]) {
     let value, error;

@@ -5,6 +5,10 @@ export function formatDateTime(value) {
   return moment(1000 * value).format('YYYY/MM/DD HH:mm');
 }
 
+export function formatDateTimeSeconds(value) {
+  return moment(1000 * value).format('YYYY-MM-DD HH:mm:ss');
+}
+
 export function formatDate(value) {
   return moment(1000 * value).format('YYYY/MM/DD');
 }

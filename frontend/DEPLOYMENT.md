@@ -2,6 +2,8 @@
 
 ## 最新本地验证（未部署）
 
+秒级时间戳与订单时间复用 checkpoint（基于 0ff30935）：formatDateTimeSeconds 用于 Order/OrderInfo，OrderColumns 复用 formatDateTime（11新增差分/1195测试、两端build、时间戳4局部截图0差异）。无controller/action/request/server或部署操作。
+
 共享日期展示提取 checkpoint（基于 abfc8691）：Knowledge/Dashboard 日期与天数计算提取为 DateTimeDisplay.jsx 的 formatDate/formatDateDash/formatDaysRemaining（34新增差分/1184测试、两端build、时间戳4局部截图0差异）。moment().format('X')时钟与格式不变，无controller/action/request/server或部署操作。
 
 共享时间戳展示提取 checkpoint（基于 943040ee）：TicketDetail 聊天时间戳提取为 DateTimeDisplay.jsx 的 formatDateTime（13新增差分/1150测试、两端build、时间戳4局部截图0差异）。1000*value转换与格式不变，无controller/action/request/server或部署操作。

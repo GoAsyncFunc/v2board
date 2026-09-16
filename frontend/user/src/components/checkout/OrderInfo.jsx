@@ -1,7 +1,7 @@
 import React from "react";
 import { formatMessage } from "../../vendor/i18n.js";
 import { a as settings } from "../../vendor/localeSettings.js";
-import moment from "../../vendor/modules/77642f52.js";
+import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
 import { a as Modal } from "../../vendor/Modal.js";
 import { a as Spin } from "../../vendor/modules/76333265.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
@@ -153,9 +153,7 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                             {"："}
                         </span>
                         <span>
-                            {moment(1e3 * order.created_at).format(
-                                "YYYY-MM-DD HH:mm:ss",
-                            )}
+                            {formatDateTimeSeconds(order.created_at)}
                         </span>
                     </div>
                 </div>
