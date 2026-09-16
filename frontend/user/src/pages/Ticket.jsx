@@ -9,33 +9,34 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  o = interopDefault(r),
-  i = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  a = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  s = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  c = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  l = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  p = require("../vendor/modules/70307045.js"),
-  d = interopDefault(p),
-  h = require("../vendor/modules/71317449.js"),
-  m = interopDefault(h),
-  v = require("../layouts/MainLayout.jsx"),
-  g = require("../vendor/modules/77642f52.js"),
-  b = interopDefault(g),
-  w = require("../vendor/i18n.js");
-class x extends m.a.Component {
+var mergeProps = require("../vendor/modules/6a65685a.js"),
+  mergedProps = interopDefault(mergeProps),
+  modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  inputControl = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  table = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
+  mergeStateModule = require("../vendor/modules/70307045.js"),
+  mergeState = interopDefault(mergeStateModule),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  mainLayout = require("../layouts/MainLayout.jsx"),
+  reactRedux = require("../vendor/reactRedux.js"),
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule),
+  i18n = require("../vendor/i18n.js");
+class TicketPage extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {};
   }
-  setSaveData(e, t) {
-    var n = this.props.ticket.saveData;
+  setSaveData(key, value) {
+    var saveData = this.props.ticket.saveData;
     this.props.dispatch({
       type: "ticket/setState",
       payload: {
-        saveData: d()({}, n, {
-          [e]: t
+        saveData: mergeState()({}, saveData, {
+          [key]: value
         })
       }
     });
@@ -66,30 +67,30 @@ class x extends m.a.Component {
     -1 === window.navigator.userAgent.toLowerCase().indexOf("mobile") && -1 === window.navigator.userAgent.toLowerCase().indexOf("ipad") ? window.open(t, "newwindow", "height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no") : window.location.href = t;
   }
   render() {
-    var e = this.props.ticket,
-      t = e.tickets,
-      n = e.fetchLoading,
-      r = e.saveData,
-      p = e.newTicketModalVisible,
-      d = e.saveLoading,
-      h = [Object(w["formatMessage"])({
+    var ticketState = this.props.ticket,
+      tickets = ticketState.tickets,
+      fetchLoading = ticketState.fetchLoading,
+      saveData = ticketState.saveData,
+      newTicketModalVisible = ticketState.newTicketModalVisible,
+      saveLoading = ticketState.saveLoading,
+      levels = [Object(i18n["formatMessage"])({
         id: "低"
-      }), Object(w["formatMessage"])({
+      }), Object(i18n["formatMessage"])({
         id: "中"
-      }), Object(w["formatMessage"])({
+      }), Object(i18n["formatMessage"])({
         id: "高"
       })],
-      y = createReadonlyTicketColumns(h);
-    return m.a.createElement(v["a"], o()({}, this.props, {
-      title: Object(w["formatMessage"])({
+      columns = createReadonlyTicketColumns(levels);
+    return ReactComponent.a.createElement(mainLayout["a"], mergedProps()({}, this.props, {
+      title: Object(i18n["formatMessage"])({
         id: "我的工单"
       })
     }), <main id={"main-container"}>
                 <div className={"content content-full"}>
-                    <div className={"block block-rounded js-appear-enabled ".concat(n ? "block-mode-loading" : "")}>
+                    <div className={"block block-rounded js-appear-enabled ".concat(fetchLoading ? "block-mode-loading" : "")}>
                         <div className={"block-header block-header-default"}>
                             <h3 className={"block-title"}>
-                                {Object(w["formatMessage"])({
+                                {Object(i18n["formatMessage"])({
                 id: "工单历史"
               })}
                             </h3>
@@ -100,19 +101,19 @@ class x extends m.a.Component {
                   newTicketModalVisible: !0
                 }
               })}>
-                                    {d ? m.a.createElement(u["a"], {
+                                    {saveLoading ? ReactComponent.a.createElement(icon["a"], {
                   type: "loading"
-                }) : Object(w["formatMessage"])({
+                }) : Object(i18n["formatMessage"])({
                   id: "新的工单"
                 })}
                                 </button>
                             </div>
                         </div>
                         <div className={"block-content p-0"}>
-                            {m.a.createElement(c["a"], {
+                            {ReactComponent.a.createElement(table["a"], {
               tableLayout: "auto",
-              dataSource: t,
-              columns: y,
+              dataSource: tickets,
+              columns: columns,
               pagination: !1,
               scroll: {
                 x: 900
@@ -121,11 +122,11 @@ class x extends m.a.Component {
                         </div>
                     </div>
                 </div>
-            </main>, m.a.createElement(i["a"], {
-      title: Object(w["formatMessage"])({
+            </main>, ReactComponent.a.createElement(modal["a"], {
+      title: Object(i18n["formatMessage"])({
         id: "新的工单"
       }),
-      visible: p,
+      visible: newTicketModalVisible,
       onCancel: () => this.props.dispatch({
         type: "ticket/setState",
         payload: {
@@ -133,73 +134,73 @@ class x extends m.a.Component {
         }
       }),
       maskClosable: !0,
-      onOk: () => d || this.save(),
-      okText: d ? m.a.createElement(u["a"], {
+      onOk: () => saveLoading || this.save(),
+      okText: saveLoading ? ReactComponent.a.createElement(icon["a"], {
         type: "loading"
-      }) : Object(w["formatMessage"])({
+      }) : Object(i18n["formatMessage"])({
         id: "确认"
       }),
-      cancelText: Object(w["formatMessage"])({
+      cancelText: Object(i18n["formatMessage"])({
         id: "取消"
       })
     }, <div>
                     <div className={"form-group"}>
                         <label for={"example-text-input-alt"}>
-                            {Object(w["formatMessage"])({
+                            {Object(i18n["formatMessage"])({
             id: "主题"
           })}
                         </label>
-                        {m.a.createElement(s["a"], {
-          placeholder: Object(w["formatMessage"])({
+                        {ReactComponent.a.createElement(inputControl["a"], {
+          placeholder: Object(i18n["formatMessage"])({
             id: "请输入工单主题"
           }),
-          onChange: e => this.setSaveData("subject", e.target.value),
-          value: r.subject
+          onChange: event => this.setSaveData("subject", event.target.value),
+          value: saveData.subject
         })}
                     </div>
                     <div className={"form-group"}>
                         <label for={"example-text-input-alt"}>
-                            {Object(w["formatMessage"])({
+                            {Object(i18n["formatMessage"])({
             id: "工单等级"
           })}
                         </label>
-                        {m.a.createElement(a["a"], {
-          placeholder: Object(w["formatMessage"])({
+                        {ReactComponent.a.createElement(select["a"], {
+          placeholder: Object(i18n["formatMessage"])({
             id: "请选择工单等级"
           }),
           style: {
             width: "100%"
           },
-          onChange: e => this.setSaveData("level", e),
-          value: r.level
-        }, h.map((e, t) => {
-          return m.a.createElement(a["a"].Option, {
-            key: t,
-            value: t
-          }, e);
+          onChange: value => this.setSaveData("level", value),
+          value: saveData.level
+        }, levels.map((level, index) => {
+          return ReactComponent.a.createElement(select["a"].Option, {
+            key: index,
+            value: index
+          }, level);
         }))}
                     </div>
                     <div className={"form-group"}>
                         <label for={"example-text-input-alt"}>
-                            {Object(w["formatMessage"])({
+                            {Object(i18n["formatMessage"])({
             id: "消息"
           })}
                         </label>
-                        {m.a.createElement(s["a"].TextArea, {
+                        {ReactComponent.a.createElement(inputControl["a"].TextArea, {
           rows: 5,
-          placeholder: Object(w["formatMessage"])({
+          placeholder: Object(i18n["formatMessage"])({
             id: "请描述你遇到的问题"
           }),
-          onChange: e => this.setSaveData("message", e.target.value),
-          value: r.message
+          onChange: event => this.setSaveData("message", event.target.value),
+          value: saveData.message
         })}
                     </div>
                 </div>));
   }
 }
-legacyExports["default"] = Object(y["c"])(e => {
-  var t = e.ticket;
+legacyExports["default"] = Object(reactRedux["c"])(state => {
+  var ticket = state.ticket;
   return {
-    ticket: t
+    ticket
   };
-})(x);
+})(TicketPage);
