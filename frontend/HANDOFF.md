@@ -3,6 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
+## Codex handoff / current checkpoint (local only, after 258c78bd)
+- Latest commits: `c0dcb5bc` semantic names in user TicketDetail; `26b2c94e` semantic bindings in user Ticket plus repair of the dropped `reactRedux` binding; `258c78bd` semantic names in user Knowledge.
+- Added `tests/module-bindings.test.mjs`: Babel AST regression check for undeclared `Object(namespace[...])` helper aliases across user/admin source, plus a fixture proving the historical dropped-redux-binding failure is detected. It currently passes 2/2; full suite passes 1305/1305.
+- User Ticket.jsx now uses semantic names (`TicketPage`, `ReactComponent`, `reactRedux`, `mainLayout`, `mergeProps`, `mergeState`, etc.) while preserving dispatch types, modal/form events, table columns, and lifecycle behavior. User Knowledge.jsx similarly uses `KnowledgePage`, `KnowledgeDetailModal`, `ConnectedKnowledgeDetailModal`, `knowledges`, `fetchLoading`, `queryId`, and existing `formatDate`.
+- Validation: `git diff --check`, `npm test` 1305/1305, user/admin builds green. `scripts/check-user-ticket-display.mjs` reports 0 changed pixels for all four scenarios. `check-admin-knowledge-display.mjs` was not applicable to this user-page change and failed before rendering because its cached Playwright Chromium executable is unavailable; do not treat that as a source failure.
+- Important boundary: Profile.jsx still contains the original `callback: () => { componentDidMount() }` behavior. The reference bundle has the same call; do not change it during semantic-only cleanup because it is request/lifecycle behavior.
+- Reference material for Codex: original reverse-restored bundle modules are under `/Users/infsr/Downloads/pro/projects/v2board/recovered-ui/user/umi/modules/` and `/Users/infsr/Downloads/pro/projects/v2board/recovered-ui/admin/umi/modules/`; original built assets are under `recovered-ui/dist/`. Session exports are under `/Users/infsr/Downloads/pro/projects/v2board/pi-session-任务/--Users-infsr-Downloads-projects-v2board--/`. Read `HANDOFF.md`, `README.md`, and `DEPLOYMENT.md` in this frontend before continuing.
+- Never commit the untracked reference-only directories `recovered-ui/` and `tools/`. No controller/action/request/server/deployment changes. Next safe targets: remaining small compiled user/admin pages, using the recovered module as reference and preserving events/requests.
+
 ## Latest user subscribe usage helpers (local only, after 715b2a8b)
 - Extracted Dashboard subscribe progress percent, progress-bar color thresholds and device_limit display into `user/src/components/SubscribeUsage.jsx` (percentOf via siteHelpers key f, Infinity fallback kept).
 - Added 43 parity/threshold/edge cases; 1303 tests, both builds, subscribe 4 visuals + page screenshots (60 combos 0 pixels, DOM equal) green.
