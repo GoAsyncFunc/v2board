@@ -2,6 +2,10 @@
 
 ## 最新本地验证（未部署）
 
+队列只读列提取 checkpoint（基于 88e2eeb0）：Queue.jsx 队列详情表提取为 QueueDisplayColumns.jsx（31新增差分/1005测试、两端build、队列6局部截图0差异、分页/横向滚动通过）。未知名称→undefined与 `e+"s"` 转换语义不变，控制器/轮询/dataSource过滤不变，无controller/action/request/server或部署操作。
+
+公告/工单 renderer 命名 checkpoint（提交 88e2eeb0）：formatNoticeCreatedAt、renderTicketLevel、formatTicketCreatedAt、formatTicketUpdatedAt（9新增差分/974测试、两端build）。原转换trace/索引/日期格式不变，无controller/action/request/server或部署操作。
+
 Giftcard limit renderer命名checkpoint：7新增差分/965测试、两端build、Giftcard14局部截图及既有页面/通知/checkout回归通过。原null/truthiness/Tag语义不变，无controller/action/request/server或部署操作。
 
 以下为前轮记录：

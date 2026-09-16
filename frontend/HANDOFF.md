@@ -3,6 +3,15 @@
 ## Goal and current boundary
 Deliver independent, maintainable user/admin React source preserving the existing UI. Independent builds work; full source cleanup is NOT complete. Many pages/models and hashed vendor sources still need naming, decomposition and dependency replacement. Do not equate test count with restoration percentage.
 
+## Latest queue workload readonly columns (local only, after 88e2eeb0)
+- Extracted admin Queue.jsx workload table into `QueueDisplayColumns.jsx` (name label map, processes, length, wait); named formatQueueName/formatQueueWait preserving unknown-name → undefined and `e + "s"` default-hint/valueOf/toString coercion. Controller, polling and dataSource filter untouched.
+- Added 31 parity/coercion/edge cases; 1005 tests/builds/queue6 visuals (0 pixels) with pagination + horizontal scroll green.
+- No controller/action/request/server/deployment. Next: another narrow readonly cleanup; full restoration incomplete, references untracked.
+
+## Previous notice/ticket renderer naming (local only, after ddd677ab → committed 88e2eeb0)
+- Named formatNoticeCreatedAt, renderTicketLevel, formatTicketCreatedAt, formatTicketUpdatedAt; preserves 1000*value coercion trace, levels array indexing and date formats. Fixtures unchanged.
+- Added 9 edge parity cases; 974 tests/builds green. No controller/action/request/server/deployment changes.
+
 ## Latest Giftcard limit renderer naming (local only, after ddd677ab)
 - Named renderGiftcardLimit; keeps null-only unlimited, raw Tag child and original truthiness/exceptions. Fixture unchanged.
 - Added7 edge parity cases;965 tests/builds/giftcard14 visuals(0 pixels)/coupon+60 pages+4 notifications+8 checkout green.
