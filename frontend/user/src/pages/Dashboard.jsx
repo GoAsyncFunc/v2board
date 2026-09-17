@@ -34,9 +34,9 @@ var r = require("../vendor/modules/6a65685a.js"),
   g = require("../vendor/modules/2f497261.js"),
   b = require("../vendor/i18n.js"),
   w = require("../vendor/modules/76333265.js");
-class x extends l.a.Component {
-  constructor(e) {
-    super(e), this.state = {
+class DashboardPage extends l.a.Component {
+  constructor(props) {
+    super(props), this.state = {
       user: {
         plan: {}
       },
@@ -65,17 +65,17 @@ class x extends l.a.Component {
       type: "comm/config"
     });
   }
-  modalVisible(e) {
+  modalVisible(notice) {
     this.setState({
       visible: !this.state.visible,
-      notice: e || {}
+      notice: notice || {}
     });
   }
-  renderNotice(e) {
-    return <a className={"block block-rounded bg-image mb-0 v2board-bg-pixels"} style={e.img_url ? {
-      backgroundImage: "url(".concat(e.img_url, ")"),
+  renderNotice(notice) {
+    return <a className={"block block-rounded bg-image mb-0 v2board-bg-pixels"} style={notice.img_url ? {
+      backgroundImage: "url(".concat(notice.img_url, ")"),
       backgroundSize: "cover"
-    } : {}} href={"javascript:void(0)"} onClick={() => this.modalVisible(e)}>
+    } : {}} href={"javascript:void(0)"} onClick={() => this.modalVisible(notice)}>
                 <div className={"block-content bg-black-50"}>
                     <div className={"mb-5 mb-sm-7 d-sm-flex justify-content-sm-between align-items-sm-center"}>
                         <p>
@@ -86,9 +86,9 @@ class x extends l.a.Component {
                             </span>
                         </p>
                     </div>
-                    <p className={"font-size-lg text-white mb-1"}>{e.title}</p>
+                    <p className={"font-size-lg text-white mb-1"}>{notice.title}</p>
                     <p className={"font-w600 text-white-75"}>
-                        {formatDateDash(e.created_at)}
+                        {formatDateDash(notice.created_at)}
                     </p>
                 </div>
             </a>;
@@ -153,17 +153,18 @@ class x extends l.a.Component {
     });
   }
   render() {
-    var e,
-      t,
-      n,
-      r,
-      s = this.props.user,
-      u = s.stat,
-      d = s.subscribe,
-      m = this.props.notice.notices,
-      y = subscribePercent(d),
-      x = [];
-    (void 0 !== u[0] && u[0] && x.push(<div className={"alert alert-danger"} role={"alert"}>
+    var windowRef,
+      settings,
+      stats,
+      plan,
+      subscribePlan = subscribe.plan,
+      userState = this.props.user,
+      stat = userState.stat,
+      subscribe = userState.subscribe,
+      notices = this.props.notice.notices,
+      usagePercent = subscribePercent(subscribe),
+      alerts = [];
+    (void 0 !== stat[0] && stat[0] && alerts.push(<div className={"alert alert-danger"} role={"alert"}>
                     <p className={"mb-0"}>
                         {Object(b["formatMessage"])({
           id: "还有没支付的订单"
@@ -174,9 +175,9 @@ class x extends l.a.Component {
           })}
                         </a>
                     </p>
-                </div>), void 0 !== u[1] && u[1] && x.push(<div className={"alert alert-warning"} role={"alert"}>
+                </div>), void 0 !== stat[1] && stat[1] && alerts.push(<div className={"alert alert-warning"} role={"alert"}>
                     <p className={"mb-0"}>
-                        <strong>{u[1]}</strong>{" "}
+                        <strong>{stat[1]}</strong>{" "}
                         {Object(b["formatMessage"])({
           id: "条工单正在处理中"
         })}{" "}
@@ -186,14 +187,14 @@ class x extends l.a.Component {
           })}
                         </a>
                     </p>
-                </div>), y >= 80 && y < 100 && !Object(p["h"])(d.expired_at)) && x.push(<div className={"alert alert-info"} role={"alert"}>
+                </div>), usagePercent >= 80 && usagePercent < 100 && !Object(p["h"])(subscribe.expired_at)) && alerts.push(<div className={"alert alert-info"} role={"alert"}>
                     <p className={"mb-0"}>
                         {Object(b["formatMessage"])({
           id: "当前已使用流量达{rate}%"
         }, {
-          rate: y
+          rate: usagePercent
         })}{" "}
-                        {(null === (r = d.plan) || void 0 === r ? void 0 : r.reset_price) && <a onClick={() => this.resetPackage()}>
+                        {(null === subscribePlan || void 0 === subscribePlan ? void 0 : subscribePlan.reset_price) && <a onClick={() => this.resetPackage()}>
                                 <strong>{"购买流量重置包"}</strong>
                             </a>}
                     </p>
@@ -204,16 +205,16 @@ class x extends l.a.Component {
       })
     }), <main id={"main-container"}>
                 <div className={"content content-full"}>
-                    {x.map(e => e)}
-                    {m.length > 0 && <div className={"row mb-3 mb-md-0"}>
+                    {alerts.map(alert => alert)}
+                    {notices.length > 0 && <div className={"row mb-3 mb-md-0"}>
                             <div className={"col-12 mb-sm-4"}>
-                                {m.length > 1 ? l.a.createElement(a["a"], {
+                                {notices.length > 1 ? l.a.createElement(a["a"], {
               autoplay: !0
-            }, m.map(e => {
+            }, notices.map(notice => {
               return <div key={Math.random()}>
-                                                      {this.renderNotice(e)}
+                                                      {this.renderNotice(notice)}
                                                   </div>;
-            })) : this.renderNotice(m[0])}
+            })) : this.renderNotice(notices[0])}
                             </div>
                         </div>}
                     <div className={"row mb-3 mb-md-0"}>
@@ -227,19 +228,19 @@ class x extends l.a.Component {
                                     </h3>
                                 </div>
                                 <div className={"block-content"}>
-                                    {d.email ? d.plan_id ? <div>
+                                    {subscribe.email ? subscribe.plan_id ? <div>
                                                 <div>
                                                     <div className={"justify-content-md-between align-items-md-center"}>
                                                         <div>
                                                             <h3 className={"h4 mb-3"}>
-                                                                {d.plan.name}
+                                                                {subscribe.plan.name}
                                                             </h3>
-                                                            {null === d.expired_at ? <p className={"font-size-sm text-muted"}>
+                                                            {null === subscribe.expired_at ? <p className={"font-size-sm text-muted"}>
                                                                     {Object(b["formatMessage"])({
                             id: "该订阅长期有效"
                           })}
                                                                 </p> : <p className={"font-size-sm text-muted"}>
-                                                                    {Object(p["h"])(d.expired_at) ? <a className={"font-w600 text-danger"} href={"javascript:void(0);"}>
+                                                                    {Object(p["h"])(subscribe.expired_at) ? <a className={"font-w600 text-danger"} href={"javascript:void(0);"}>
                                                                             {Object(b["formatMessage"])({
                               id: "已过期"
                             })}
@@ -247,13 +248,13 @@ class x extends l.a.Component {
                                                                             {Object(b["formatMessage"])({
                               id: "于 {date} 到期，距离到期还有 {day} 天。"
                             }, {
-                              date: formatDate(d.expired_at),
-                              day: formatDaysRemaining(d.expired_at)
+                              date: formatDate(subscribe.expired_at),
+                              day: formatDaysRemaining(subscribe.expired_at)
                             })}
-                                                                            {null !== d.reset_day ? 0 !== d.reset_day ? Object(b["formatMessage"])({
+                                                                            {null !== subscribe.reset_day ? 0 !== subscribe.reset_day ? Object(b["formatMessage"])({
                               id: "已用流量将在 {reset_day} 日后重置"
                             }, {
-                              reset_day: d.reset_day
+                              reset_day: subscribe.reset_day
                             }) : Object(b["formatMessage"])({
                               id: "已用流量已在今日重置"
                             }) : ""}
@@ -263,8 +264,8 @@ class x extends l.a.Component {
                                                                 <div className={"progress mb-1"} style={{
                             height: 6
                           }}>
-                                                                    <div className={"progress-bar progress-bar-striped progress-bar-animated bg-".concat(progressBarColor(y))} role={"progressbar"} style={{
-                              width: Object(p["f"])(d.u + d.d, d.transfer_enable) + "%"
+                                                                    <div className={"progress-bar progress-bar-striped progress-bar-animated bg-".concat(progressBarColor(usagePercent))} role={"progressbar"} style={{
+                              width: Object(p["f"])(subscribe.u + subscribe.d, subscribe.transfer_enable) + "%"
                             }}></div>
                                                                 </div>
                                                                 <p className={"font-size-sm font-w600 mb-3"}>
@@ -272,8 +273,8 @@ class x extends l.a.Component {
                                                                         {Object(b["formatMessage"])({
                                 id: "已用 {used} / 总计 {total}"
                               }, {
-                                used: Object(p["b"])(d.u + d.d),
-                                total: Object(p["b"])(d.transfer_enable)
+                                used: Object(p["b"])(subscribe.u + subscribe.d),
+                                total: Object(p["b"])(subscribe.transfer_enable)
                               })}
                                                                     </span>
                                                                     <span className={"font-w700"}>
@@ -283,13 +284,13 @@ class x extends l.a.Component {
                                                                         {Object(b["formatMessage"])({
                                 id: "在线设备 {alive_ip}/{device_limit}"
                               }, {
-                                alive_ip: d.alive_ip,
-                                device_limit: formatDeviceLimit(d.device_limit)
+                                alive_ip: subscribe.alive_ip,
+                                device_limit: formatDeviceLimit(subscribe.device_limit)
                               })}
                                                                     </span>
                                                                 </p>
                                                             </div>
-                                                            {y >= 80 && !Object(p["h"])(d.expired_at) && (null === d || void 0 === d ? void 0 : null === (e = d.plan) || void 0 === e ? void 0 : e.reset_price) && <div className={"mb-4"}>
+                                                            {usagePercent >= 80 && !Object(p["h"])(subscribe.expired_at) && (null === subscribePlan || void 0 === subscribePlan ? void 0 : subscribePlan.reset_price) && <div className={"mb-4"}>
                                                                         {l.a.createElement(i["a"], {
                             type: "primary",
                             onClick: () => this.resetPackage()
@@ -297,7 +298,7 @@ class x extends l.a.Component {
                             id: "购买流量重置包"
                           }))}
                                                                     </div>}
-                                                            {d.allow_new_period && y >= 100 && !Object(p["h"])(d.expired_at) ? <div className={"mb-4"}>
+                                                            {subscribe.allow_new_period && usagePercent >= 100 && !Object(p["h"])(subscribe.expired_at) ? <div className={"mb-4"}>
                                                                     {l.a.createElement(i["a"], {
                             type: "primary",
                             onClick: () => this.newPeriod()
@@ -305,12 +306,12 @@ class x extends l.a.Component {
                             id: "提前开启流量周期"
                           }))}
                                                                 </div> : ""}
-                                                            {Object(p["h"])(d.expired_at) && <div className={"mb-4"}>
+                                                            {Object(p["h"])(subscribe.expired_at) && <div className={"mb-4"}>
                                                                     {l.a.createElement(i["a"], {
                             type: "primary",
-                            onClick: () => h.a.push(Object(p["m"])(d) ? "/plan/" + d.plan_id : "/plan")
+                            onClick: () => h.a.push(Object(p["m"])(subscribe) ? "/plan/" + subscribe.plan_id : "/plan")
                           }, Object(b["formatMessage"])({
-                            id: Object(p["m"])(d) ? "续费订阅" : "购买订阅"
+                            id: Object(p["m"])(subscribe) ? "续费订阅" : "购买订阅"
                           }))}
                                                                 </div>}
                                                         </div>
@@ -367,7 +368,7 @@ class x extends l.a.Component {
                       }} className={"nav-main-link-icon si si-book-open"}></i>
                                             </div>
                                             {l.a.createElement(g["a"], {
-                      subscribeUrl: d.subscribe_url
+                      subscribeUrl: subscribe.subscribe_url
                     }, <div className={"v2board-shortcuts-item"}>
                                                     <div>
                                                         {Object(b["formatMessage"])({
@@ -383,20 +384,20 @@ class x extends l.a.Component {
                         float: "right"
                       }} className={"nav-main-link-icon si si-feed"}></i>
                                                 </div>)}
-                                            <div className={"v2board-shortcuts-item"} onClick={() => h.a.push(Object(p["m"])(d) ? "/plan/" + d.plan_id : "/plan")}>
+                                            <div className={"v2board-shortcuts-item"} onClick={() => h.a.push(Object(p["m"])(subscribe) ? "/plan/" + subscribe.plan_id : "/plan")}>
                                                 <div>
                                                     {Object(b["formatMessage"])({
-                          id: Object(p["m"])(d) ? "续费订阅" : "购买订阅"
+                            id: Object(p["m"])(subscribe) ? "续费订阅" : "购买订阅"
                         })}
                                                 </div>
                                                 <div className={"description"}>
                                                     {Object(b["formatMessage"])({
-                          id: Object(p["m"])(d) ? "对您当前的订阅进行续费" : "对您当前的订阅进行购买"
+                          id: Object(p["m"])(subscribe) ? "对您当前的订阅进行续费" : "对您当前的订阅进行购买"
                         })}
                                                 </div>
                                                 <i style={{
                         float: "right"
-                      }} className={"nav-main-link-icon si si-".concat(Object(p["m"])(d) ? "clock" : "bag")}></i>
+                      }} className={"nav-main-link-icon si si-".concat(Object(p["m"])(subscribe) ? "clock" : "bag")}></i>
                                             </div>
                                             <div className={"v2board-shortcuts-item"} onClick={() => h.a.push("/ticket")}>
                                                 <div>
@@ -421,7 +422,7 @@ class x extends l.a.Component {
                     </div>
                 </div>
             </main>, this.state.notice && l.a.createElement(c["a"], {
-      title: this.state.notice.title,
+      title: this.state.noticnotice.title,
       visible: this.state.visible,
       maskClosable: !0,
       footer: !1,
@@ -431,17 +432,10 @@ class x extends l.a.Component {
     }}></div>));
   }
 }
-legacyExports["default"] = Object(y["c"])(e => {
-  var t = e.notice,
-    n = e.user,
-    r = e.comm,
-    o = e.knowledge,
-    i = e.order;
-  return {
-    notice: t,
-    user: n,
-    comm: r,
-    knowledge: o,
-    order: i
-  };
-})(x);
+legacyExports["default"] = Object(y["c"])(state => ({
+  notice: state.notice,
+  user: state.user,
+  comm: state.comm,
+  knowledge: state.knowledge,
+  order: state.order
+}))(DashboardPage);

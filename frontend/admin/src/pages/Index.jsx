@@ -1,21 +1,9 @@
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  defineExport,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports), defineExport(legacyExports, "default", function () {
-  return s;
-});
-var r = require("../vendor/modules/71317449.js"),
-  i = interopDefault(r),
-  o = require("../vendor/routerHistory.js"),
-  a = interopDefault(o);
-class s extends i.a.Component {
+import React from 'react';
+import history from '../vendor/routerHistory.js';
+
+export default class AdminHomePage extends React.Component {
   componentDidMount() {
-    a.a.push("/login");
+    history.push("/login");
   }
   render() {
     return <div></div>;

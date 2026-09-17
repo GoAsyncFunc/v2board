@@ -1,30 +1,22 @@
-const {
-  createReadonlyServerGroupColumns
-} = require('../components/ServerGroupDisplayColumns.jsx');
+import React from 'react';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Button } from '../vendor/modules/322f5270.js';
+import { a as Divider } from '../vendor/Divider.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { a as GroupEditor } from '../vendor/modules/387a4e6a.js';
+import { a as LoadingContainer } from '../vendor/modules/76333265.js';
+import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.jsx';
+import '../vendor/modules/67395956.js';
+import '../vendor/modules/2b4c3642.js';
+import '../vendor/iconStyles.js';
+
 const readonlyColumns = createReadonlyServerGroupColumns();
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  a = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  s = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  l = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  c = require("../vendor/modules/71317449.js"),
-  u = interopDefault(c),
-  h = require("../layouts/MainLayout.jsx"),
-  f = require("../vendor/reactRedux.js"),
-  d = require("../vendor/modules/387a4e6a.js"),
-  p = require("../vendor/modules/76333265.js");
-class m extends u.a.Component {
-  constructor(e) {
-    super(e), this.state = {
+
+class ServerGroupPage extends React.Component {
+  constructor(props) {
+    super(props), this.state = {
       group: [],
       submit: {},
       visible: !1
@@ -35,10 +27,10 @@ class m extends u.a.Component {
       type: "serverGroup/fetch"
     });
   }
-  drop(e) {
+  drop(groupId) {
     this.props.dispatch({
       type: "serverGroup/drop",
-      id: e
+      id: groupId
     });
   }
   modalVisible() {
@@ -48,59 +40,50 @@ class m extends u.a.Component {
     });
   }
   render() {
-    var e = this.props.serverGroup,
-      t = e.groups,
-      n = e.fetchLoading,
-      r = [readonlyColumns["id"], readonlyColumns["name"], readonlyColumns["user_count"], readonlyColumns["server_count"], {
+    var serverGroup = this.props.serverGroup,
+      groups = serverGroup.groups,
+      fetchLoading = serverGroup.fetchLoading,
+      columns = [readonlyColumns["id"], readonlyColumns["name"], readonlyColumns["user_count"], readonlyColumns["server_count"], {
         title: "操作",
         dataIndex: "action",
         key: "action",
         align: "right",
-        render: (e, t) => {
+        render: (value, record) => {
           return <div>
-                                {u.a.createElement(d["a"], {
-              record: t,
-              key: t.id
-            }, <a href={"javascript:void(0);"}>
+                                <GroupEditor record={record} key={record.id}>
+                                  <a href={"javascript:void(0);"}>
                                         {"编辑"}
-                                    </a>)}
-                                {u.a.createElement(s["a"], {
-              type: "vertical"
-            })}
-                                <a href={"javascript:void(0);"} onClick={() => this.drop(t.id)}>
+                                  </a>
+                                </GroupEditor>
+                                <Divider type="vertical" />
+                                <a href={"javascript:void(0);"} onClick={() => this.drop(record.id)}>
                                     {"删除"}
                                 </a>
                             </div>;
         }
       }];
-    return u.a.createElement(h["a"], i()({}, this.props, {
-      title: "权限组管理"
-    }), <div className={"d-flex justify-content-between align-items-center"}></div>, u.a.createElement(p["a"], {
-      loading: n
-    }, <div className={"block block-rounded"}>
-                    <div className={"bg-white"}>
-                        <div style={{
-          padding: 15
-        }}>
-                            {u.a.createElement(d["a"], null, u.a.createElement(a["a"], {
-            onClick: () => this.modalVisible()
-          }, u.a.createElement(l["a"], {
-            type: "plus"
-          }), " 添加权限组"))}
-                        </div>
-                        {u.a.createElement(o["a"], {
-          tableLayout: "auto",
-          columns: r,
-          dataSource: t,
-          pagination: !1
-        })}
-                    </div>
-                </div>));
+    return <MainLayout {...this.props} title="权限组管理">
+      <div className={"d-flex justify-content-between align-items-center"}></div>
+      <LoadingContainer loading={fetchLoading}>
+        <div className={"block block-rounded"}>
+          <div className={"bg-white"}>
+            <div style={{ padding: 15 }}>
+              <GroupEditor>
+                <Button onClick={() => this.modalVisible()}>
+                  <Icon type="plus" />{" 添加权限组"}
+                </Button>
+              </GroupEditor>
+            </div>
+            <Table
+              tableLayout="auto"
+              columns={columns}
+              dataSource={groups}
+              pagination={false}
+            />
+          </div>
+        </div>
+      </LoadingContainer>
+    </MainLayout>;
   }
 }
-legacyExports["default"] = Object(f["c"])(e => {
-  var t = e.serverGroup;
-  return {
-    serverGroup: t
-  };
-})(m);
+export default connect(state => ({ serverGroup: state.serverGroup }))(ServerGroupPage);

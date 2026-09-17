@@ -1,39 +1,28 @@
-const {
-  createInviteCodeDateColumn,
-  createReadonlyCommissionColumns
-} = require('../components/InviteDisplayColumns.jsx');
-const {
-  formatMoney
-} = require('../components/MoneyDisplay.jsx');
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  o = interopDefault(r),
-  i = require("../vendor/modules/70307045.js"),
-  a = interopDefault(i),
-  s = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  c = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
-  u = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  l = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  f = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
-  p = require("../vendor/modules/71317449.js"),
-  d = interopDefault(p),
-  h = require("../layouts/MainLayout.jsx"),
-  m = require("../vendor/reactRedux.js"),
-  v = require("../vendor/modules/2b515243.js"),
-  y = interopDefault(v),
-  g = (require("../vendor/localeSettings.js"), require("../vendor/modules/77642f52.js")),
-  b = interopDefault(g),
-  w = require("../vendor/i18n.js"),
-  x = (require("../vendor/modules/79786e6e.js"), require("../components/Recovered_45334976.jsx")),
-  O = require("../components/Recovered_54643430.jsx");
-class E extends d.a.Component {
+import React from 'react';
+import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns.jsx';
+import { formatMoney } from '../components/MoneyDisplay.jsx';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Button } from '../vendor/modules/322f5270.js';
+import { a as Tooltip } from '../vendor/modules/3353372b.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { a as message } from '../vendor/modules/74737172.js';
+import copy from '../vendor/modules/2b515243.js';
+import { formatMessage } from '../vendor/i18n.js';
+import { a as TransferModal } from '../components/Recovered_45334976.jsx';
+import WithdrawModal from '../components/Recovered_54643430.jsx';
+import { a as objectSpread } from '../vendor/modules/70307045.js';
+import '../vendor/modules/67395956.js';
+import '../vendor/modules/35446d6f.js';
+import '../vendor/modules/2b4c3642.js';
+import '../vendor/iconStyles.js';
+import '../vendor/modules/6d69595a.js';
+import '../vendor/localeSettings.js';
+import '../vendor/modules/77642f52.js';
+import '../vendor/modules/79786e6e.js';
+
+class InvitePage extends React.Component {
   componentDidMount() {
     this.props.dispatch({
       type: "user/getUserInfo"
@@ -57,78 +46,78 @@ class E extends d.a.Component {
     });
   }
   render() {
-    var e = this.props.invite,
-      t = e.stat,
-      n = e.codes,
-      r = e.invites,
-      i = e.detailsLoading,
-      p = e.fetchLoading,
-      m = e.saveLoading,
-      v = e.detailsPagination,
-      g = this.props.comm.config,
-      E = this.props.user.userInfo,
-      _ = [{
-        title: Object(w["formatMessage"])({
+    var inviteState = this.props.invite,
+      stats = inviteStatinviteState.stat,
+      inviteCodes = inviteStatinviteCodes,
+      commissionRecords = inviteStatcommissionRecords,
+      detailsLoading = inviteState.detailsLoading,
+      fetchLoading = inviteState.fetchLoading,
+      saveLoading = inviteState.saveLoading,
+      detailsPagination = inviteState.detailsPagination,
+      config = this.props.comm.config,
+      userInfo = this.props.user.userInfo,
+      inviteCodeColumns = [{
+        title: formatMessage({
           id: "邀请码"
         }),
         dataIndex: "code",
         key: "code",
         render: e => {
-          return d.a.createElement(d.a.Fragment, null, <span>{e}</span>, <a style={{
+          return React.createElement(React.Fragment, null, <span>{e}</span>, <a style={{
             marginLeft: 5
           }} href={"javascript:void(0);"} onClick={() => {
-            y()(window.location.origin + window.location.pathname + "#/register?code=" + e), f["a"].success(Object(w["formatMessage"])({
+            copy()(window.location.origin + window.location.pathname + "#/register?code=" + e), message.success(formatMessage({
               id: "复制成功"
             }));
           }}>
-                                {Object(w["formatMessage"])({
+                                {formatMessage({
               id: "复制链接"
             })}
                             </a>);
         }
       }, createInviteCodeDateColumn()],
-      k = createReadonlyCommissionColumns();
-    return d.a.createElement(h["a"], o()({}, this.props, {
-      title: Object(w["formatMessage"])({
+      commissionColumns = createReadonlyCommissionColumns();
+    return React.createElement(MainLayout, o()({}, this.props, {
+      title: formatMessage({
         id: "我的邀请"
       })
     }), <main id={"main-container"}>
                 <div className={"content content-full"}>
                     <div className={"row mb-3 mb-md-0"}>
                         <div className={"col-md-12"}>
-                            <div className={"block block-rounded js-appear-enabled ".concat(p ? "block-mode-loading" : "")}>
+                            <div className={"block block-rounded js-appear-enabled ".concat(fetchLoading ? "block-mode-loading" : "")}>
                                 <div className={"block-content pb-3"}>
                                     <i className={"fa fa-user-plus fa-2x text-gray-light float-right"}></i>
                                     <div className={"pb-sm-3"}>
                                         <p className={"text-muted w-75"}>
-                                            {Object(w["formatMessage"])({
+                                            {formatMessage({
                       id: "我的邀请"
                     })}
                                         </p>
                                         <p className={"display-4 text-black font-w300 mb-2"}>
-                                            {formatMoney(E.commission_balance)}
+                                            {formatMoney(userInfo.commission_balance)}
                                             <span className={"font-size-h5 text-muted ml-4"}>
-                                                {g.currency}
+                                                {config.currency}
                                             </span>
                                         </p>
                                         <span className={"text-muted"} style={{
                     cursor: "pointer"
                   }}>
-                                            {Object(w["formatMessage"])({
+                                            {formatMessage({
                       id: "当前剩余佣金"
                     })}
                                         </span>
                                         <div className={"pt-3"}>
-                                            {d.a.createElement(x["a"], null, d.a.createElement(u["a"], {
+                                            {React.createElement(TransferModal, null, React.createElement(Button, {
                       type: "primary mr-2"
-                    }, d.a.createElement(l["a"], {
+                    }, React.createElement(Icon, {
                       type: "transaction"
-                    }), " ", Object(w["formatMessage"])({
+                    }), " ", formatMessage({
                       id: "划转"
                     })))}
-                                            {!g.withdraw_close && d.a.createElement(O["a"], null, d.a.createElement(u["a"], null, d.a.createElement(l["a"], {
+                                            {!config.withdraw_close && React.createElement(WithdrawModal, null, React.createElement(Button, null, React.createElement(Icon, {
                       type: "pay-circle"
-                    }), " ", Object(w["formatMessage"])({
+                    }), " ", formatMessage({
                       id: "推广佣金提现"
                     })))}
                                         </div>
@@ -139,7 +128,7 @@ class E extends d.a.Component {
                     </div>
                     <div className={"row mb-3 mb-md-0"}>
                         <div className={"col-md-12"}>
-                            <div className={"block block-rounded js-appear-enabled ".concat(p ? "block-mode-loading" : "")}>
+                            <div className={"block block-rounded js-appear-enabled ".concat(fetchLoading ? "block-mode-loading" : "")}>
                                 <div className={"block-content pb-3"}>
                                     <div style={{
                   display: "flex",
@@ -148,7 +137,7 @@ class E extends d.a.Component {
                                         <div style={{
                     flex: 1
                   }}>
-                                            {Object(w["formatMessage"])({
+                                            {formatMessage({
                       id: "已注册用户数"
                     })}
                                         </div>
@@ -156,7 +145,7 @@ class E extends d.a.Component {
                     flex: 1,
                     textAlign: "right"
                   }}>
-                                            {void 0 !== t[0] ? t[0] : d.a.createElement(l["a"], {
+                                            {void 0 !== stats[0] ? stats[0] : React.createElement(Icon, {
                       type: "loading"
                     })}
                                             {"人"}
@@ -169,16 +158,16 @@ class E extends d.a.Component {
                                         <div style={{
                     flex: 1
                   }}>
-                                            {g.commission_distribution_enable ? d.a.createElement(d.a.Fragment, null, Object(w["formatMessage"])({
+                                            {config.commission_distribution_enable ? React.createElement(React.Fragment, null, formatMessage({
                       id: "三级分销比例"
-                    }), " ", d.a.createElement(c["a"], {
+                    }), " ", React.createElement(Tooltip, {
                       placement: "top",
-                      title: Object(w["formatMessage"])({
+                      title: formatMessage({
                         id: "您邀请的用户再次邀请用户将按照订单金额乘以分销等级的比例进行分成。"
                       })
-                    }, d.a.createElement(l["a"], {
+                    }, React.createElement(Icon, {
                       type: "question-circle"
-                    }))) : Object(w["formatMessage"])({
+                    }))) : formatMessage({
                       id: "佣金比例"
                     })}
                                         </div>
@@ -186,7 +175,7 @@ class E extends d.a.Component {
                     flex: 1,
                     textAlign: "right"
                   }}>
-                                            {g.commission_distribution_enable ? "".concat(g.commission_distribution_l1 * (t[3] / 100), "%,").concat(g.commission_distribution_l2 * (t[3] / 100), "%,").concat(g.commission_distribution_l3 * (t[3] / 100), "%") : void 0 !== t[3] ? t[3] + "%" : d.a.createElement(l["a"], {
+                                            {config.commission_distribution_enable ? "".concat(config.commission_distribution_l1 * (stats[3] / 100), "%,").concat(config.commission_distribution_l2 * (stats[3] / 100), "%,").concat(config.commission_distribution_l3 * (stats[3] / 100), "%") : void 0 !== stats[3] ? stats[3] + "%" : React.createElement(Icon, {
                       type: "loading"
                     })}
                                         </div>
@@ -198,15 +187,15 @@ class E extends d.a.Component {
                                         <div style={{
                     flex: 1
                   }}>
-                                            {Object(w["formatMessage"])({
+                                            {formatMessage({
                       id: "确认中的佣金"
                     })}{" "}
-                                            {d.a.createElement(c["a"], {
+                                            {React.createElement(Tooltip, {
                       placement: "top",
-                      title: Object(w["formatMessage"])({
+                      title: formatMessage({
                         id: "佣金将会在确认后会到达你的佣金账户。"
                       })
-                    }, d.a.createElement(l["a"], {
+                    }, React.createElement(Icon, {
                       type: "question-circle"
                     }))}
                                         </div>
@@ -214,7 +203,7 @@ class E extends d.a.Component {
                     flex: 1,
                     textAlign: "right"
                   }}>
-                                            {void 0 !== t[2] ? "".concat(g.currency_symbol, " ").concat(t[2] / 100) : d.a.createElement(l["a"], {
+                                            {void 0 !== stats[2] ? "".concat(config.currency_symbol, " ").concat(stats[2] / 100) : React.createElement(Icon, {
                       type: "loading"
                     })}
                                         </div>
@@ -226,7 +215,7 @@ class E extends d.a.Component {
                                         <div style={{
                     flex: 1
                   }}>
-                                            {Object(w["formatMessage"])({
+                                            {formatMessage({
                       id: "累计获得佣金"
                     })}
                                         </div>
@@ -234,7 +223,7 @@ class E extends d.a.Component {
                     flex: 1,
                     textAlign: "right"
                   }}>
-                                            {void 0 !== t[1] ? "".concat(g.currency_symbol, " ").concat(t[1] / 100) : d.a.createElement(l["a"], {
+                                            {void 0 !== stats[1] ? "".concat(config.currency_symbol, " ").concat(stats[1] / 100) : React.createElement(Icon, {
                       type: "loading"
                     })}
                                         </div>
@@ -245,28 +234,28 @@ class E extends d.a.Component {
                     </div>
                     <div className={"row mb-3 mb-md-0"}>
                         <div className={"col-md-12"}>
-                            <div className={"block block-rounded js-appear-enabled ".concat(p ? "block-mode-loading" : "")}>
+                            <div className={"block block-rounded js-appear-enabled ".concat(fetchLoading ? "block-mode-loading" : "")}>
                                 <div className={"block-header block-header-default"}>
                                     <h3 className={"block-title"}>
-                                        {Object(w["formatMessage"])({
+                                        {formatMessage({
                     id: "邀请码管理"
                   })}
                                     </h3>
                                     <div className={"block-options"}>
-                                        <button type={"button"} className={"btn btn-primary btn-sm btn-primary btn-rounded px-3"} onClick={() => m || this.save()}>
-                                            {m ? d.a.createElement(l["a"], {
+                                <button type={"button"} className={"btn btn-primary btn-sm btn-primary btn-rounded px-3"} onClick={() => saveLoading || this.save()}>
+                                            {saveLoading ? React.createElement(Icon, {
                       type: "loading"
-                    }) : Object(w["formatMessage"])({
+                    }) : formatMessage({
                       id: "生成邀请码"
                     })}
                                         </button>
                                     </div>
                                 </div>
                                 <div className={"block-content p-0"}>
-                                    {d.a.createElement(s["a"], {
+                                    {React.createElement(Table, {
                   tableLayout: "auto",
-                  columns: _,
-                  dataSource: n,
+                  columns: inviteCodeColumns,
+                  dataSource: inviteCodes,
                   pagination: !1
                 })}
                                 </div>
@@ -275,22 +264,22 @@ class E extends d.a.Component {
                     </div>
                     <div className={"row mb-3 mb-md-0"}>
                         <div className={"col-md-12"}>
-                            <div className={"block block-rounded js-appear-enabled ".concat(p ? "block-mode-loading" : "")}>
+                            <div className={"block block-rounded js-appear-enabled ".concat(fetchLoading ? "block-mode-loading" : "")}>
                                 <div className={"block-header block-header-default"}>
                                     <h3 className={"block-title"}>
-                                        {Object(w["formatMessage"])({
+                                        {formatMessage({
                     id: "佣金发放记录"
                   })}
                                     </h3>
                                 </div>
                                 <div className={"block-content p-0"}>
-                                    {d.a.createElement(s["a"], {
+                                    {React.createElement(Table, {
                   tableLayout: "auto",
-                  columns: k,
-                  dataSource: r,
-                  loading: i,
-                  pagination: a()({}, v, {
-                    pageSize: v.page_size,
+                  columns: commissionColumns,
+                  dataSource: commissionRecords,
+                  loading: detailsLoading,
+                  pagination: objectSpread({}, detailsPagination, {
+                    pageSize: detailsPagination.page_size,
                     size: "small",
                     showSizeChanger: !0,
                     pageSizeOptions: [10, 50, 100, 150]
@@ -311,13 +300,4 @@ class E extends d.a.Component {
             </main>);
   }
 }
-legacyExports["default"] = Object(m["c"])(e => {
-  var t = e.invite,
-    n = e.comm,
-    r = e.user;
-  return {
-    invite: t,
-    comm: n,
-    user: r
-  };
-})(E);
+export default connect(state => ({ invite: state.invite, comm: state.comm, user: state.user }))(InvitePage);

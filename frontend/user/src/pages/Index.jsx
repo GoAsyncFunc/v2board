@@ -1,25 +1,13 @@
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  defineExport,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports), defineExport(legacyExports, "default", function () {
-  return s;
-});
-var r = require("../vendor/modules/71317449.js"),
-  o = interopDefault(r),
-  i = (require("../layouts/MainLayout.jsx"), require("../vendor/routerHistory.js")),
-  a = interopDefault(i);
-class s extends o.a.Component {
+import React from 'react';
+import history from '../vendor/routerHistory.js';
+
+export default class HomePage extends React.Component {
   componentDidMount() {
-    window.settings.homepage || a.a.push("/login");
+    window.settings.homepage || history.push("/login");
   }
-  decode(e) {
-    var t = window.atob(e);
-    return decodeURI(t);
+  decode(homepage) {
+    const decoded = window.atob(homepage);
+    return decodeURI(decoded);
   }
   render() {
     return window.settings.homepage ? <div dangerouslySetInnerHTML={{

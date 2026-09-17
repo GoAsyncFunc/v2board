@@ -1,37 +1,31 @@
-const {
-  createReadonlyNoticeColumns
-} = require('../components/NoticeDisplayColumns.jsx');
+import React from 'react';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Modal } from '../vendor/Modal.js';
+import { a as Select } from '../vendor/modules/32664d37.js';
+import { a as Input } from '../vendor/modules/35724567.js';
+import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Button } from '../vendor/modules/322f5270.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { a as Divider } from '../vendor/Divider.js';
+import { a as Switch } from '../vendor/modules/53646330.js';
+import { a as LoadingContainer } from '../vendor/modules/76333265.js';
+import { a as mergeProps } from '../vendor/modules/70307045.js';
+import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.jsx';
+import '../vendor/modules/32717463.js';
+import '../vendor/modules/4f614579.js';
+import '../vendor/modules/354e4461.js';
+import '../vendor/modules/67395956.js';
+import '../vendor/modules/2b4c3642.js';
+import '../vendor/iconStyles.js';
+import '../vendor/modules/2f7a7346.js';
+import '../vendor/modules/426f5337.js';
+import '../vendor/modules/77642f52.js';
+
 const readonlyColumns = createReadonlyNoticeColumns();
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  a = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  s = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  l = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  c = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  h = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  f = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
-  d = require("../vendor/modules/70307045.js"),
-  p = interopDefault(d),
-  m = require("../vendor/modules/71317449.js"),
-  g = interopDefault(m),
-  v = require("../layouts/MainLayout.jsx"),
-  y = require("../vendor/modules/77642f52.js"),
-  b = interopDefault(y),
-  w = require("../vendor/reactRedux.js"),
-  x = require("../vendor/modules/76333265.js");
-class _ extends g.a.Component {
-  constructor(e) {
-    super(e), this.state = {
+class NoticePage extends React.Component {
+  constructor(props) {
+    super(props), this.state = {
       visible: !1,
       submit: {},
       notices: []
@@ -54,34 +48,34 @@ class _ extends g.a.Component {
   save() {
     this.props.dispatch({
       type: "notice/save",
-      params: p()({}, this.state.submit),
+      params: mergeProps({}, this.state.submit),
       callback: () => {
         this.modalVisible();
       }
     });
   }
-  drop(e) {
+  drop(notice) {
     this.props.dispatch({
       type: "notice/drop",
-      id: e.id
+      id: notice.id
     });
   }
   render() {
-    var e = this.props.notice,
-      t = e.notices,
-      n = e.fetchLoading,
-      r = [readonlyColumns["id"], {
+    var noticeState = this.props.notice,
+      notices = noticeState.notices,
+      fetchLoading = noticeState.fetchLoading,
+      columns = [readonlyColumns["id"], {
         title: "显示",
         dataIndex: "show",
         key: "show",
-        render: (e, t) => {
-          return g.a.createElement(f["a"], {
+        render: (value, record) => {
+          return React.createElement(Switch, {
             size: "small",
             onChange: () => this.props.dispatch({
               type: "notice/show",
-              id: t.id
+              id: record.id
             }),
-            checked: e
+            checked: value
           });
         }
       }, readonlyColumns["title"], readonlyColumns["created_at"], {
@@ -90,65 +84,65 @@ class _ extends g.a.Component {
         key: "action",
         align: "right",
         fixed: "right",
-        render: (e, n, r) => {
+        render: (value, record, index) => {
           return <div>
                                 <a onClick={() => this.setState({
-              submit: t[r]
+              submit: notices[index]
             }, () => this.modalVisible())} href={"javascript:void(0);"}>
                                     {"编辑"}
                                 </a>
-                                {g.a.createElement(h["a"], {
+                                {React.createElement(Divider, {
               type: "vertical"
             })}
-                                <a onClick={() => this.drop(n)} href={"javascript:void(0);"}>
+                                <a onClick={() => this.drop(record)} href={"javascript:void(0);"}>
                                     {"删除"}
                                 </a>
                             </div>;
         }
       }];
-    return g.a.createElement(v["a"], i()({}, this.props, {
+    return React.createElement(MainLayout, mergeProps({}, this.props, {
       title: "公告管理"
-    }), <div className={"d-flex justify-content-between align-items-center"}></div>, g.a.createElement(x["a"], {
-      loading: n
+    }), <div className={"d-flex justify-content-between align-items-center"}></div>, React.createElement(LoadingContainer, {
+      loading: fetchLoading
     }, <div className={"block block-rounded"}>
                     <div className={"bg-white"}>
                         <div style={{
           padding: 15
         }}>
-                            {g.a.createElement(c["a"], {
+                            {React.createElement(Button, {
             onClick: () => this.modalVisible()
-          }, g.a.createElement(u["a"], {
+          }, React.createElement(Icon, {
             type: "plus"
           }), " 添加公告")}
                         </div>
-                        {g.a.createElement(l["a"], {
+                        {React.createElement(Table, {
           tableLayout: "auto",
-          dataSource: t,
+          dataSource: notices,
           pagination: !1,
-          columns: r,
+          columns,
           scroll: {
             x: 950
           }
         })}
                     </div>
-                </div>), g.a.createElement(o["a"], {
+                </div>), React.createElement(Modal, {
       title: "".concat(this.state.submit.id ? "编辑公告" : "新建公告"),
       visible: this.state.visible,
       onCancel: () => this.modalVisible(),
       onOk: () => this.state.saveLoading || this.save(),
-      okText: this.state.saveLoading ? g.a.createElement(u["a"], {
+      okText: this.state.saveLoading ? React.createElement(Icon, {
         type: "loading"
       }) : "提交",
       cancelText: "取消"
     }, <div>
                     <div className={"form-group"}>
                         <label for={"example-text-input-alt"}>{"标题"}</label>
-                        {g.a.createElement(s["a"], {
+                        {React.createElement(Input, {
           placeholder: "请输入公告标题",
           value: this.state.submit.title,
           onChange: e => {
             this.setState({
-              submit: p()({}, this.state.submit, {
+              submit: mergeProps({}, this.state.submit, {
                 title: e.target.value
               })
             });
@@ -159,13 +153,13 @@ class _ extends g.a.Component {
                         <label for={"example-text-input-alt"}>
                             {"公告内容"}
                         </label>
-                        {g.a.createElement(s["a"].TextArea, {
+                        {React.createElement(Input.TextArea, {
           rows: 12,
           value: this.state.submit.content,
           placeholder: "请输入公告内容",
           onChange: e => {
             this.setState({
-              submit: p()({}, this.state.submit, {
+              submit: mergeProps({}, this.state.submit, {
                 content: e.target.value
               })
             });
@@ -176,7 +170,7 @@ class _ extends g.a.Component {
                         <label htmlFor={"example-text-input-alt"}>
                             {"公告标签"}
                         </label>
-                        {g.a.createElement(a["a"], {
+                        {React.createElement(Select, {
           mode: "tags",
           value: this.state.submit.tags || [],
           style: {
@@ -185,7 +179,7 @@ class _ extends g.a.Component {
           placeholder: "输入后回车添加标签",
           onChange: e => {
             this.setState({
-              submit: p()({}, this.state.submit, {
+              submit: mergeProps({}, this.state.submit, {
                 tags: e.length > 0 ? e : null
               })
             });
@@ -196,12 +190,12 @@ class _ extends g.a.Component {
                         <label for={"example-text-input-alt"}>
                             {"图片URL"}
                         </label>
-                        {g.a.createElement(s["a"], {
+                        {React.createElement(Input, {
           placeholder: "请输入图片URL",
           value: this.state.submit.img_url,
           onChange: e => {
             this.setState({
-              submit: p()({}, this.state.submit, {
+              submit: mergeProps({}, this.state.submit, {
                 img_url: e.target.value
               })
             });
@@ -211,9 +205,4 @@ class _ extends g.a.Component {
                 </div>));
   }
 }
-legacyExports["default"] = Object(w["c"])(e => {
-  var t = e.notice;
-  return {
-    notice: t
-  };
-})(_);
+export default connect(state => ({ notice: state.notice }))(NoticePage);

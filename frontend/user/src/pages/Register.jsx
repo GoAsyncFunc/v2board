@@ -1,26 +1,18 @@
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-require("../vendor/iconStyles.js");
-var r = require("../vendor/Icon.js"),
-  o = require("../vendor/modules/71317449.js"),
-  i = interopDefault(o),
-  a = require("../vendor/routerHistory.js"),
-  s = interopDefault(a),
-  c = require("../vendor/reactRedux.js"),
-  u = require("../vendor/modules/464f4151.js"),
-  l = require("../vendor/i18n.js"),
-  f = require("../components/LanguageSelector.jsx"),
-  p = (require("../services/request.js"), require("../vendor/siteHelpers.js")),
-  d = require("../vendor/localeSettings.js");
-class h extends i.a.Component {
-  constructor(e) {
-    super(e), this.state = {
+import React from 'react';
+import { a as Icon } from '../vendor/Icon.js';
+import history from '../vendor/routerHistory.js';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Recaptcha } from '../vendor/modules/464f4151.js';
+import { formatMessage, getLocale } from '../vendor/i18n.js';
+import { a as LanguageSelector } from '../components/LanguageSelector.jsx';
+import { r as notify } from '../vendor/siteHelpers.js';
+import { a as localeSettings } from '../vendor/localeSettings.js';
+import '../vendor/modules/2f7a7346.js';
+import '../vendor/iconStyles.js';
+
+class RegisterPage extends React.Component {
+  constructor(props) {
+    super(props), this.state = {
       sendEmailVerifyTimeout: 60
     };
   }
@@ -29,13 +21,13 @@ class h extends i.a.Component {
       type: "guest/getCommConfig"
     });
   }
-  sendEmailVerify(e) {
-    var t = this;
-    function n() {
+  sendEmailVerify(recaptchaData) {
+    var page = this;
+    function startCountdown() {
       setTimeout(() => {
-        0 !== t.state.sendEmailVerifyTimeout ? (t.setState({
-          sendEmailVerifyTimeout: t.state.sendEmailVerifyTimeout - 1
-        }), n()) : t.setState({
+        0 !== page.state.sendEmailVerifyTimeout ? (page.setState({
+          sendEmailVerifyTimeout: page.state.sendEmailVerifyTimeout - 1
+        }), startCountdown()) : page.setState({
           sendEmailVerifyTimeout: 60
         });
       }, 1e3);
@@ -44,45 +36,45 @@ class h extends i.a.Component {
       type: "passport/sendEmailVerify",
       email: this.getEmail(),
       isforget: 0,
-      recaptchaData: e,
+      recaptchaData,
       callback: () => {
-        n();
+        startCountdown();
       }
     });
   }
   getEmail() {
-    var e = this.props.guest,
-      t = e.commConfig,
-      n = e.selectEmailSuffix;
-    return t.email_whitelist_suffix ? "".concat(this.refs.email.value, "@").concat(n) : this.refs.email.value;
+    var guest = this.props.guest,
+      commConfig = guest.commConfig,
+      emailSuffix = guest.selectEmailSuffix;
+    return commConfig.email_whitelist_suffix ? "".concat(this.refs.email.value, "@").concat(emailSuffix) : this.refs.email.value;
   }
-  register(e) {
-    var t = this.props.guest.commConfig;
-    !t.tos_url || this.state.tosChecked ? this.refs.password.value === this.refs.repassword.value ? this.props.dispatch({
+  register(recaptchaData) {
+    var commConfig = this.props.guest.commConfig;
+    !commConfig.tos_url || this.state.tosChecked ? this.refs.password.value === this.refs.repassword.value ? this.props.dispatch({
       type: "passport/register",
       email: this.getEmail(),
       password: this.refs.password.value,
       inviteCode: this.refs.invite.value,
       emailCode: this.refs.email_code ? this.refs.email_code.value : "",
-      recaptchaData: e
-    }) : Object(p["r"])("error", Object(l["formatMessage"])({
+      recaptchaData
+    }) : notify("error", formatMessage({
       id: "请求失败"
-    }), Object(l["formatMessage"])({
+    }), formatMessage({
       id: "两次密码输入不同"
-    })) : Object(p["r"])("error", Object(l["formatMessage"])({
+    })) : notify("error", formatMessage({
       id: "请求失败"
-    }), Object(l["formatMessage"])({
+    }), formatMessage({
       id: "请同意服务条款"
     }));
   }
   render() {
-    var e = this.props.passport,
-      t = e.sendEmailVerifyLoading,
-      n = e.registerLoading,
-      o = e.getCommConfigLoading,
-      a = this.props.guest,
-      c = a.commConfig,
-      p = a.selectEmailSuffix;
+    var passport = this.props.passport,
+      sendEmailVerifyLoading = passport.sendEmailVerifyLoading,
+      registerLoading = passport.registerLoading,
+      getCommConfigLoading = passport.getCommConfigLoading,
+      guest = this.props.guest,
+      commConfig = guest.commConfig,
+      emailSuffix = guest.selectEmailSuffix;
     return <div id={"page-container"}>
                 <main id={"main-container"}>
                     <div className={"v2board-background"} style={{
@@ -111,18 +103,18 @@ class h extends i.a.Component {
                                                             {window.settings.description}
                                                         </p>}
                                                 </div>
-                                                {o ? <div className={"content content-full text-center"}>
+                                                {getCommConfigLoading ? <div className={"content content-full text-center"}>
                                                         <div className={"spinner-grow text-primary"} role={"status"}>
                                                             <span className={"sr-only"}>
                                                                 {"Loading..."}
                                                             </span>
                                                         </div>
                                                     </div> : <div>
-                                                        <div className={"form-group ".concat(c.email_whitelist_suffix ? "v2board-email-whitelist-enable" : "")}>
-                                                            <input type={"text"} className={"form-control form-control-alt"} placeholder={Object(l["formatMessage"])({
+                                                        <div className={"form-group ".concat(commConfig.email_whitelist_suffix ? "v2board-email-whitelist-enable" : "")}>
+                                                            <input type={"text"} className={"form-control form-control-alt"} placeholder={formatMessage({
                             id: "邮箱"
                           })} ref={"email"}></input>
-                                                            {c.email_whitelist_suffix ? <select className={"form-control form-control-alt"} value={p} onChange={e => {
+                                                            {commConfig.email_whitelist_suffix ? <select className={"form-control form-control-alt"} value={emailSuffix} onChange={e => {
                             this.props.dispatch({
                               type: "guest/setState",
                               payload: {
@@ -130,7 +122,7 @@ class h extends i.a.Component {
                               }
                             });
                           }}>
-                                                                    {c.email_whitelist_suffix.map(e => {
+                                                                    {commConfig.email_whitelist_suffix.map(e => {
                               return <option key={e} value={e}>
                                                                                     {"@"}
                                                                                     {e}
@@ -138,41 +130,41 @@ class h extends i.a.Component {
                             })}
                                                                 </select> : ""}
                                                         </div>
-                                                        {c.is_email_verify ? <div className={"form-group form-row"}>
+                                                        {commConfig.is_email_verify ? <div className={"form-group form-row"}>
                                                                 <div className={"col-9"}>
-                                                                    <input type={"text"} className={"form-control form-control-alt"} placeholder={Object(l["formatMessage"])({
+                                                                    <input type={"text"} className={"form-control form-control-alt"} placeholder={formatMessage({
                               id: "邮箱验证码"
                             })} ref={"email_code"}></input>
                                                                 </div>
                                                                 <div className={"col-3"}>
-                                                                    {i.a.createElement(u["a"], {
-                              visible: c.is_recaptcha,
+                                                                    {React.createElement(Recaptcha, {
+                              visible: commConfig.is_recaptcha,
                               callback: e => this.sendEmailVerify(e)
-                            }, <button type={"submit"} disabled={60 !== this.state.sendEmailVerifyTimeout || t} className={"btn btn-block btn-primary font-w400"}>
-                                                                            {60 === this.state.sendEmailVerifyTimeout ? t ? i.a.createElement(r["a"], {
+                            }, <button type={"submit"} disabled={60 !== this.state.sendEmailVerifyTimeout || sendEmailVerifyLoading} className={"btn btn-block btn-primary font-w400"}>
+                                                                            {60 === this.state.sendEmailVerifyTimeout ? sendEmailVerifyLoading ? React.createElement(Icon, {
                                 type: "loading"
-                              }) : Object(l["formatMessage"])({
+                              }) : formatMessage({
                                 id: "发送"
                               }) : this.state.sendEmailVerifyTimeout}
                                                                         </button>)}
                                                                 </div>
                                                             </div> : ""}
                                                         <div className={"form-group"}>
-                                                            <input type={"password"} className={"form-control form-control-alt"} placeholder={Object(l["formatMessage"])({
+                                                            <input type={"password"} className={"form-control form-control-alt"} placeholder={formatMessage({
                             id: "密码"
                           })} ref={"password"}></input>
                                                         </div>
                                                         <div className={"form-group"}>
-                                                            <input type={"password"} className={"form-control form-control-alt"} placeholder={Object(l["formatMessage"])({
+                                                            <input type={"password"} className={"form-control form-control-alt"} placeholder={formatMessage({
                             id: "密码"
                           })} ref={"repassword"}></input>
                                                         </div>
                                                         <div className={"form-group"}>
-                                                            <input type={"text"} disabled={this.props.location.query.code} defaultValue={this.props.location.query.code} className={"form-control form-control-alt"} placeholder={Object(l["formatMessage"])({
-                            id: c.is_invite_force ? "邀请码" : "邀请码(选填)"
+                                                            <input type={"text"} disabled={this.props.location.query.code} defaultValue={this.props.location.query.code} className={"form-control form-control-alt"} placeholder={formatMessage({
+                            id: commConfig.is_invite_force ? "邀请码" : "邀请码(选填)"
                           })} ref={"invite"}></input>
                                                         </div>
-                                                        {c.tos_url && <div className={"form-group"}>
+                                                        {commConfig.tos_url && <div className={"form-group"}>
                                                                 <div className={"custom-control custom-checkbox custom-control-primary"}>
                                                                     <input type={"checkbox"} className={"custom-control-input"} checked={this.state.tosChecked} style={{
                               zIndex: 1e3
@@ -181,25 +173,25 @@ class h extends i.a.Component {
                             })}></input>
                                                                     <label className={"custom-control-label"}>
                                                                         <div dangerouslySetInnerHTML={{
-                                __html: Object(l["formatMessage"])({
+                                __html: formatMessage({
                                   id: '我已阅读并同意 <a target="_blank" href="{url}">服务条款</a>'
                                 }, {
-                                  url: c.tos_url
+                                  url: commConfig.tos_url
                                 })
                               }}></div>
                                                                     </label>
                                                                 </div>
                                                             </div>}
                                                         <div className={"form-group mb-0"}>
-                                                            {i.a.createElement(u["a"], {
-                            visible: c.is_recaptcha,
+                                                            {React.createElement(Recaptcha, {
+                            visible: commConfig.is_recaptcha,
                             callback: e => this.register(e)
-                          }, <button disabled={n || c.tos_url && !this.state.tosChecked} type={"submit"} className={"btn btn-block btn-primary font-w400"} onClick={() => this.register()}>
-                                                                    {n ? i.a.createElement(r["a"], {
+                          }, <button disabled={registerLoading || commConfig.tos_url && !this.state.tosChecked} type={"submit"} className={"btn btn-block btn-primary font-w400"} onClick={() => this.register()}>
+                                                                    {registerLoading ? React.createElement(Icon, {
                               type: "loading"
                             }) : <span>
                                                                             <i className={"si si-emoticon-smile mr-1"}></i>
-                                                                            {Object(l["formatMessage"])({
+                                                                            {formatMessage({
                                 id: "注册"
                               })}
                                                                         </span>}
@@ -210,17 +202,17 @@ class h extends i.a.Component {
                                         </div>
                                     </div>
                                     <div className={"text-left bg-gray-lighter p-3 px-4"}>
-                                        <a className={"font-size-sm text-muted"} href={"javascript:void(0);"} onClick={() => s.a.push("/login")}>
-                                            {Object(l["formatMessage"])({
+                                        <a className={"font-size-sm text-muted"} href={"javascript:void(0);"} onClick={() => history.push("/login")}>
+                                            {formatMessage({
                       id: "返回登入"
                     })}
                                         </a>
-                                        {i.a.createElement(f["a"], null, <span className={"v2board-login-i18n-btn"}>
+                                        {React.createElement(LanguageSelector, null, <span className={"v2board-login-i18n-btn"}>
                                                 <i className={"si si-globe pr-1"}></i>
                                                 <span className={"font-size-sm text-muted"} style={{
                       verticalAlign: "text-bottom"
                     }}>
-                                                    {d["a"].i18nText[Object(l["getLocale"])()]}
+                                                    {localeSettings.i18nText[getLocale()]}
                                                 </span>
                                             </span>)}
                                     </div>
@@ -232,11 +224,6 @@ class h extends i.a.Component {
             </div>;
   }
 }
-legacyExports["default"] = Object(c["c"])(e => {
-  var t = e.passport,
-    n = e.guest;
-  return {
-    passport: t,
-    guest: n
-  };
-})(h);
+export default connect(state => {
+  return { passport: state.passport, guest: state.guest };
+})(RegisterPage);

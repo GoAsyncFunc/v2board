@@ -1,31 +1,22 @@
-const {
-  createReadonlyTicketColumns
-} = require('../components/TicketDisplayColumns.jsx');
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  a = require("../vendor/modules/70307045.js"),
-  s = interopDefault(a),
-  l = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  c = (require("../vendor/modules/374b616b.js"), require("../vendor/modules/39794836.js")),
-  u = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  h = (require("../vendor/modules/41776870.js"), require("../vendor/modules/4b725473.js")),
-  f = require("../vendor/modules/71317449.js"),
-  d = interopDefault(f),
-  p = require("../layouts/MainLayout.jsx"),
-  m = require("../vendor/reactRedux.js"),
-  g = require("../vendor/modules/77642f52.js"),
-  v = interopDefault(g),
-  y = require("../vendor/modules/76333265.js");
-class b extends d.a.Component {
+import React from 'react';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Input } from '../vendor/modules/35724567.js';
+import { a as Radio } from '../vendor/modules/39794836.js';
+import { a as Divider } from '../vendor/Divider.js';
+import { a as Badge } from '../vendor/modules/4b725473.js';
+import { a as LoadingContainer } from '../vendor/modules/76333265.js';
+import { a as mergeProps } from '../vendor/modules/6a65685a.js';
+import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.jsx';
+import '../vendor/modules/67395956.js';
+import '../vendor/modules/354e4461.js';
+import '../vendor/modules/374b616b.js';
+import '../vendor/modules/2f7a7346.js';
+import '../vendor/modules/41776870.js';
+import '../vendor/modules/77642f52.js';
+
+class TicketPage extends React.Component {
   constructor(e) {
     super(e), this.state = {
       visible: !1,
@@ -39,24 +30,24 @@ class b extends d.a.Component {
       type: "ticket/fetch"
     });
   }
-  close(e) {
+  close(ticketId) {
     this.props.dispatch({
       type: "ticket/close",
-      id: e
+      id: ticketId
     });
   }
-  tableOnChange(e, t, n) {
+  tableOnChange(pagination, filters) {
     this.props.dispatch({
       type: "ticket/filter",
-      pagination: e,
-      filter: n
+      pagination,
+      filter: filters
     });
   }
-  filter(e, t) {
+  filter(field, value) {
     this.props.dispatch({
       type: "ticket/filter",
       filter: {
-        [e]: t
+        [field]: value
       },
       pagination: {
         pageSize: 10,
@@ -64,16 +55,16 @@ class b extends d.a.Component {
       }
     });
   }
-  toChat(e) {
-    var t = window.location.origin + window.location.pathname + "#/ticket/" + e;
-    -1 === window.navigator.userAgent.toLowerCase().indexOf("mobile") && -1 === window.navigator.userAgent.toLowerCase().indexOf("ipad") ? window.open(t, "_blank", "height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no") : window.location.href = t;
+  toChat(ticketId) {
+    var target = window.location.origin + window.location.pathname + "#/ticket/" + ticketId;
+    -1 === window.navigator.userAgent.toLowerCase().indexOf("mobile") && -1 === window.navigator.userAgent.toLowerCase().indexOf("ipad") ? window.open(target, "_blank", "height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no") : window.location.href = target;
   }
-  onSearch(e, t) {
+  onSearch(field, value) {
     clearTimeout(this.onSearchTimeout), this.onSearchTimeout = setTimeout(() => {
       this.props.dispatch({
         type: "ticket/filter",
         filter: {
-          [e]: t
+          [field]: value
         },
         pagination: {
           pageSize: 10,
@@ -83,17 +74,18 @@ class b extends d.a.Component {
     }, 300);
   }
   render() {
-    var e = this.props.ticket,
-      t = e.tickets,
-      n = e.fetchLoading,
-      r = e.pagination,
-      a = e.filter,
-      f = ["低", "中", "高"],
-      m = [createReadonlyTicketColumns(f)["id"], createReadonlyTicketColumns(f)["subject"], createReadonlyTicketColumns(f)["level"], {
+    var ticketState = this.props.ticket,
+      tickets = ticketState.tickets,
+      fetchLoading = ticketState.fetchLoading,
+      pagination = ticketState.pagination,
+      filterState = ticketState.filter,
+      levels = ["低", "中", "高"],
+      readonly = createReadonlyTicketColumns(levels),
+      columns = [readonly.id, readonly.subject, readonly.level, {
         title: "工单状态",
         dataIndex: "reply_status",
         key: "reply_status",
-        filters: 1 !== a.status && [{
+        filters: 1 !== filterState.status && [{
           text: "已回复",
           value: 1
         }, {
@@ -102,18 +94,18 @@ class b extends d.a.Component {
         }],
         render: (e, t) => {
           return 1 === t.status ? <span>
-                                {d.a.createElement(h["a"], {
+                                {React.createElement(Badge, {
               status: "success"
             })}
                                 {"已关闭"}
                             </span> : <span>
-                                {d.a.createElement(h["a"], {
+                                {React.createElement(Badge, {
               status: e ? "processing" : "error"
             })}
                                 {e ? "已回复" : "待回复"}
                             </span>;
         }
-      }, createReadonlyTicketColumns(f)["created_at"], createReadonlyTicketColumns(f)["updated_at"], {
+      }, readonly.created_at, readonly.updated_at, {
         title: "操作",
         dataIndex: "action",
         key: "action",
@@ -124,7 +116,7 @@ class b extends d.a.Component {
                                 <a href={"javascript:void(0);"} onClick={() => this.toChat(t.id)}>
                                     {"查看"}
                                 </a>
-                                {d.a.createElement(u["a"], {
+                                {React.createElement(Divider, {
               type: "vertical"
             })}
                                 <a disabled={t.status} href={"javascript:void(0);"} onClick={() => this.close(t.id)}>
@@ -133,49 +125,46 @@ class b extends d.a.Component {
                             </div>;
         }
       }];
-    return d.a.createElement(p["a"], i()({}, this.props, {
+    return React.createElement(MainLayout, mergeProps({}, this.props, {
       title: "工单管理"
-    }), d.a.createElement(y["a"], {
-      loading: n
+    }), React.createElement(LoadingContainer, {
+      loading: fetchLoading
     }, <div className={"block border-bottom"}>
                     <div className={"bg-white"}>
                         <div className={"p-3"}>
-                            {d.a.createElement(c["a"].Group, {
-            value: a.status,
+                            {React.createElement(Radio["Group"], {
+            value: filterState.status,
             onChange: e => this.filter("status", e.target.value)
-          }, d.a.createElement(c["a"].Button, {
+          }, React.createElement(Radio["Button"], {
             value: 0
-          }, "已开启"), d.a.createElement(c["a"].Button, {
+          }, "已开启"), React.createElement(Radio["Button"], {
             value: 1
           }, "已关闭"))}
                             <div style={{
             float: "right"
           }}>
-                                {d.a.createElement(l["a"], {
+                                {React.createElement(Input, {
               placeholder: "输入邮箱搜索",
-              onChange: e => this.onSearch("email", e.target.value)
+              onChange: event => this.onSearch("email", event.target.value)
             })}
                             </div>
                         </div>
-                        {d.a.createElement(o["a"], {
+                        {React.createElement(Table, {
           tableLayout: "auto",
-          dataSource: t,
-          pagination: s()({}, r, {
+          dataSource: tickets,
+          pagination: mergeProps({}, pagination, {
             size: "small"
           }),
-          columns: m,
+          columns,
           scroll: {
             x: 900
           },
-          onChange: (e, t, n) => this.tableOnChange(e, n, t)
+          onChange: (pagination, filters) => this.tableOnChange(pagination, filters)
         })}
                     </div>
                 </div>));
   }
 }
-legacyExports["default"] = Object(m["c"])(e => {
-  var t = e.ticket;
-  return {
-    ticket: t
-  };
-})(b);
+export default connect(state => {
+  return { ticket: state.ticket };
+})(TicketPage);
