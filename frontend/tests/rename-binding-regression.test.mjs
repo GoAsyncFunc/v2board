@@ -5,7 +5,12 @@ import {parse} from '@babel/parser';
 import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
 const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined']);
-for (const file of ['admin/src/components/Recovered_48394c55.jsx', 'admin/src/components/Recovered_68566c61.jsx', 'admin/src/pages/ServerRoute.jsx']) {
+for (const file of [
+  'admin/src/components/Recovered_48394c55.jsx',
+  'admin/src/components/Recovered_68566c61.jsx',
+  'admin/src/components/Recovered_796b4332.jsx',
+  'admin/src/pages/ServerRoute.jsx',
+]) {
   test(`${file}: references resolve in their lexical scope`, () => {
     const source = readFileSync(new URL('../' + file, import.meta.url), 'utf8');
     const ast = parse(source, {sourceType: 'module', plugins: ['jsx']});

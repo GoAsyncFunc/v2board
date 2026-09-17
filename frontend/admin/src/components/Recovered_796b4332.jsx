@@ -5,20 +5,20 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/62627350.js");
-var r = require("../vendor/modules/2f774774.js"),
-  i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  o = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
-  a = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  s = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  l = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  c = require("../vendor/modules/70307045.js"),
-  u = interopDefault(c),
-  h = require("../vendor/modules/71317449.js"),
-  f = interopDefault(h),
-  d = require("../vendor/reactRedux.js"),
-  p = (require("../vendor/modules/6c633544.js"), require("../vendor/modules/56655761.js"), require("../vendor/modules/756d4e66.js"), require("../vendor/modules/387a4e6a.js")),
-  q = interopDefault(require("../vendor/modules/6c633544.js"));
-class m extends f.a.Component {
+var drawer = require("../vendor/modules/2f774774.js"),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  permissionGroup = (require("../vendor/modules/6c633544.js"), require("../vendor/modules/56655761.js"), require("../vendor/modules/756d4e66.js"), require("../vendor/modules/387a4e6a.js")),
+  jsonEditor = interopDefault(require("../vendor/modules/6c633544.js"));
+class TrojanEditor extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       server: this.props.record || {
@@ -54,7 +54,7 @@ class m extends f.a.Component {
   }
   showChildDrawer(e, t) {
     this.setState({
-      childDrawer: u()({}, this.state.childDrawer, {
+      childDrawer: objectAssign()({}, this.state.childDrawer, {
         visible: !this.state.childDrawer.visible,
         title: e,
         type: t
@@ -63,7 +63,7 @@ class m extends f.a.Component {
   }
   changeServer(e, t) {
     this.setState({
-      server: u()({}, this.state.server, {
+      server: objectAssign()({}, this.state.server, {
         [e]: t
       })
     });
@@ -73,7 +73,7 @@ class m extends f.a.Component {
       t = e.network_settings;
     switch (this.state.childDrawer.type) {
       case "network_settings":
-        var o = {
+        var presets = {
           tcp: "",
           ws: JSON.stringify({
             path: "/",
@@ -90,14 +90,14 @@ class m extends f.a.Component {
                             <label>
                                 {"协议详细配置"}
                                 <a href={"https://www.v2ray.com/chapter_02/05_transport.html"}>
-                                    {f.a.createElement(a["a"], {
+                                    {ReactComponent.a.createElement(icon["a"], {
                   type: "link"
                 })}
                                     {"参考"}
                                 </a>
                             </label>
-                            {f.a.createElement(q.a, {
-              placeholder: (null === o || void 0 === o ? void 0 : o[this.state.server.network]) || "",
+                            {ReactComponent.a.createElement(jsonEditor.a, {
+              placeholder: (null === presets || void 0 === presets ? void 0 : presets[this.state.server.network]) || "",
               mode: "json",
               theme: "github",
               fontSize: 14,
@@ -121,7 +121,7 @@ class m extends f.a.Component {
   }
   formChange(e, t) {
     this.setState({
-      server: u()({}, this.state.server, {
+      server: objectAssign()({}, this.state.server, {
         [e]: t
       })
     });
@@ -130,11 +130,11 @@ class m extends f.a.Component {
     var e = this.state.server,
       t = this.props.serverTrojan.saveLoading,
       n = this.props.serverManage.servers,
-      c = this.props.serverGroup.groups,
-      u = this.props.serverRoute.routes;
-    return f.a.createElement(f.a.Fragment, null, f.a.cloneElement(this.props.children, {
+      groups = this.props.serverGroup.groups,
+      routes = this.props.serverRoute.routes;
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
       onClick: () => this.onShow()
-    }), f.a.createElement(r["a"], {
+    }), ReactComponent.a.createElement(drawer["a"], {
       id: "server",
       maskClosable: !0,
       title: e.id ? "编辑节点" : "新建节点",
@@ -145,7 +145,7 @@ class m extends f.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-8"}>
                             <label>{"节点名称"}</label>
-                            {f.a.createElement(l["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "请输入节点名称",
             value: e.name,
             onChange: e => this.formChange("name", e.target.value)
@@ -153,7 +153,7 @@ class m extends f.a.Component {
                         </div>
                         <div className={"form-group col-4"}>
                             <label>{"倍率"}</label>
-                            {f.a.createElement(l["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             addonAfter: "x",
             placeholder: "请输入节点倍率",
             value: e.rate,
@@ -163,7 +163,7 @@ class m extends f.a.Component {
                     </div>
                     <div className={"form-group"}>
                         <label>{"节点标签"}</label>
-                        {f.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "tags",
           value: e.tags || [],
           style: {
@@ -176,9 +176,9 @@ class m extends f.a.Component {
                     <div className={"form-group"}>
                         <label>
                             {"权限组 "}
-                            {f.a.createElement(p["a"], null, <a href={"javascript:(0);"}>{"添加权限组"}</a>)}
+                            {ReactComponent.a.createElement(permissionGroup["a"], null, <a href={"javascript:(0);"}>{"添加权限组"}</a>)}
                         </label>
-                        {f.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "multiple",
           value: e.group_id,
           placeholder: "请选择权限组",
@@ -186,8 +186,8 @@ class m extends f.a.Component {
             width: "100%"
           },
           onChange: e => this.formChange("group_id", e)
-        }, c.map(e => {
-          return f.a.createElement(s["a"].Option, {
+        }, groups.map(e => {
+          return ReactComponent.a.createElement(select["a"].Option, {
             key: e.id
           }, e.name);
         }))}
@@ -195,7 +195,7 @@ class m extends f.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-md-12 col-xs-12"}>
                             <label>{"节点地址"}</label>
-                            {f.a.createElement(l["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "地址或IP",
             value: e.host,
             onChange: e => this.formChange("host", e.target.value)
@@ -205,7 +205,7 @@ class m extends f.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-md-4 col-xs-12"}>
                             <label>{"连接端口"}</label>
-                            {f.a.createElement(l["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "用户连接端口",
             value: e.port,
             onChange: e => {
@@ -215,7 +215,7 @@ class m extends f.a.Component {
                         </div>
                         <div className={"form-group col-md-4 col-xs-12"}>
                             <label>{"服务端口"}</label>
-                            {f.a.createElement(l["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "服务端开放端口",
             value: e.server_port,
             onChange: e => {
@@ -225,24 +225,24 @@ class m extends f.a.Component {
                         </div>
                         <div className={"form-group col-md-4 col-xs-12"}>
                             <label>
-                                {f.a.createElement(o["a"], {
+                                {ReactComponent.a.createElement(tooltip["a"], {
               placement: "top",
               title: "使用自签名证书需要允许不安全，用户才可以连接"
-            }, "允许不安全 ", f.a.createElement(a["a"], {
+            }, "允许不安全 ", ReactComponent.a.createElement(icon["a"], {
               type: "question-circle"
             }))}
                             </label>
-                            {f.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(select["a"], {
             value: parseInt(e.allow_insecure) ? 1 : 0,
             placeholder: "允许不安全",
             style: {
               width: "100%"
             },
             onChange: e => this.formChange("allow_insecure", e)
-          }, f.a.createElement(s["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             key: 0,
             value: 0
-          }, "否"), f.a.createElement(s["a"].Option, {
+          }, "否"), ReactComponent.a.createElement(select["a"].Option, {
             key: 1,
             value: 1
           }, "是"))}
@@ -250,7 +250,7 @@ class m extends f.a.Component {
                     </div>
                     <div className={"form-group"}>
                         <label>{"服务器名称指示(sni)"}</label>
-                        {f.a.createElement(l["a"], {
+                        {ReactComponent.a.createElement(input["a"], {
           placeholder: "当节点地址与证书不一致时用于证书验证",
           value: e.server_name,
           onChange: e => this.formChange("server_name", e.target.value)
@@ -264,40 +264,40 @@ class m extends f.a.Component {
                                     {"编辑配置"}
                                 </a>
                             </label>
-                            {f.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(select["a"], {
             value: e.network,
             placeholder: "选择传输协议",
             style: {
               width: "100%"
             },
             onChange: e => this.formChange("network", e)
-          }, f.a.createElement(s["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             value: "tcp"
-          }, "TCP"), f.a.createElement(s["a"].Option, {
+          }, "TCP"), ReactComponent.a.createElement(select["a"].Option, {
             value: "ws"
-          }, "WebSocket"), f.a.createElement(s["a"].Option, {
+          }, "WebSocket"), ReactComponent.a.createElement(select["a"].Option, {
             value: "grpc"
           }, "gRPC"))}
                         </div>
                     </div>
                     <div className={"form-group"}>
                         <label>
-                            {f.a.createElement(o["a"], {
+                            {ReactComponent.a.createElement(tooltip["a"], {
             placement: "top"
           }, "父节点 ", <a target={"_blank"} href={"https://docs.v2board.com/use/node.html#父节点与子节点关系"} rel={"noreferrer"}>
                                     {"更多解答"}
                                 </a>)}
                         </label>
-                        {f.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           value: e.parent_id || "",
           onChange: e => this.formChange("parent_id", e),
           style: {
             width: "100%"
           }
-        }, f.a.createElement(s["a"].Option, {
+        }, ReactComponent.a.createElement(select["a"].Option, {
           value: ""
         }, "无"), n.map(t => {
-          if ("trojan" === t.type && t.id !== e.id) return f.a.createElement(s["a"].Option, {
+          if ("trojan" === t.type && t.id !== e.id) return ReactComponent.a.createElement(select["a"].Option, {
             key: Math.random(),
             value: t.id
           }, t.name);
@@ -305,7 +305,7 @@ class m extends f.a.Component {
                     </div>
                     <div className={"form-group"}>
                         <label>{"路由组"}</label>
-                        {f.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "multiple",
           value: e.route_id || [],
           placeholder: "请选择路由组",
@@ -313,25 +313,25 @@ class m extends f.a.Component {
             width: "100%"
           },
           onChange: e => this.formChange("route_id", e.length > 0 ? e : null)
-        }, u.map(e => {
-          return f.a.createElement(s["a"].Option, {
+        }, routes.map(e => {
+          return ReactComponent.a.createElement(select["a"].Option, {
             key: e.id
           }, e.remarks);
         }))}
                     </div>
                 </div>, <div className={"v2board-drawer-action"}>
-                    {f.a.createElement(i["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         style: {
           marginRight: 8
         },
         onClick: () => this.onShow()
       }, "取消")}
-                    {f.a.createElement(i["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         loading: t,
         onClick: () => this.save(),
         type: "primary"
       }, "提交")}
-                </div>, f.a.createElement(r["a"], {
+                </div>, ReactComponent.a.createElement(drawer["a"], {
       closable: !1,
       id: "server",
       width: "80%",
@@ -341,7 +341,7 @@ class m extends f.a.Component {
     }, this.renderChildDrawer())));
   }
 }
-legacyExports["a"] = Object(d["c"])(e => {
+legacyExports["a"] = Object(reactRedux["c"])(e => {
   var t = e.serverTrojan,
     n = e.serverGroup,
     r = e.serverManage,
@@ -352,4 +352,4 @@ legacyExports["a"] = Object(d["c"])(e => {
     serverManage: r,
     serverRoute: i
   };
-})(m);
+})(TrojanEditor);
