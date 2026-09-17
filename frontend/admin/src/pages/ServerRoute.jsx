@@ -57,7 +57,8 @@ class RouteEditor extends ReactComponent.a.Component {
     });
   }
   render() {
-    var routeLoading = this.props.serverRoute.fetchLoading;
+    var e, t, n,
+      routeLoading = this.props.serverRoute.fetchLoading;
     return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
       onClick: () => this.setState({
         visible: !0

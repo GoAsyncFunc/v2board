@@ -17,13 +17,13 @@ var drawer = require("../vendor/modules/2f774774.js"),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
   icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   notification = (require("../vendor/modules/2f786b65.js"), require("../vendor/notification.js")),
-  momentModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
+  notificationModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
   reactModule = require("../vendor/modules/71317449.js"),
   ReactComponent = interopDefault(reactModule),
-  loadingModule = require("../vendor/modules/77642f52.js"),
-  moment = interopDefault(loadingModule);
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule);
 class FilterDrawer extends ReactComponent.a.Component {
   constructor(props) {
     super(props), this.defaultValue = {
@@ -42,7 +42,7 @@ class FilterDrawer extends ReactComponent.a.Component {
       visible: !0
     });
   }
-  adobjectAssign() {
+  add() {
     var filter = this.state.filter;
     filter.push({
       key: this.props.keys[0].key,
@@ -57,13 +57,13 @@ class FilterDrawer extends ReactComponent.a.Component {
       filter = filterState.filter,
       selected = filterState.select;
     "" !== selected.value ? (filter.push(selected), this.setState({
-      filter: t
+      filter
     }, () => {
       this.setState({
         select: objectAssign()({}, this.defaultValue),
         selectIndex: 0
       });
-    })) : h["a"].error("值不能为空");
+    })) : notificationModule["a"].error("值不能为空");
   }
   onChange(e, t, n, r) {
     var i = this.state.filter;
@@ -196,7 +196,7 @@ class FilterDrawer extends ReactComponent.a.Component {
         width: "100%"
       },
       type: "primary",
-      onClick: () => this.adobjectAssign()
+      onClick: () => this.add()
     }, ReactComponent.a.createElement(icon["a"], {
       type: "plus"
     }), " 添加条件"), <div className={"v2board-drawer-action"}>

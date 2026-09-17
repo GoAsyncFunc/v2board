@@ -38,7 +38,7 @@ class ShadowsocksEditor extends ReactComponent.a.Component {
     var server = this.state.server;
     this.props.dispatch({
       type: "serverShadowsocks/save",
-      params: e,
+      params: server,
       callback: () => {
         this.onShow();
       }
@@ -271,7 +271,7 @@ class ShadowsocksEditor extends ReactComponent.a.Component {
           onChange: e => this.formChange("route_id", e.length > 0 ? e : null)
         }, routes.map(route => {
           return ReactComponent.a.createElement(select["a"].Option, {
-            key: group.id
+            key: route.id
           }, route.remarks);
         }))}
                     </div>
@@ -290,7 +290,7 @@ class ShadowsocksEditor extends ReactComponent.a.Component {
                 </div>));
   }
 }
-legacyExportinput["a"] = Object(reactRedux["c"])(e => {
+legacyExports["a"] = Object(reactRedux["c"])(e => {
   var t = e.serverShadowsocks,
     n = e.serverGroup,
     r = e.serverManage,
