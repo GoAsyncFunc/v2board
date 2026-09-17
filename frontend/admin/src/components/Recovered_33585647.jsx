@@ -5,20 +5,20 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/62627350.js");
-var r = require("../vendor/modules/2f774774.js"),
-  i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  o = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
-  a = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  s = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  l = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  c = require("../vendor/modules/70307045.js"),
-  u = interopDefault(c),
-  h = (require("../vendor/modules/2f786b65.js"), require("../vendor/notification.js")),
-  f = require("../vendor/modules/71317449.js"),
-  d = interopDefault(f),
-  p = require("../vendor/reactRedux.js"),
-  m = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js"));
-class g extends d.a.Component {
+var drawer = require("../vendor/modules/2f774774.js"),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  notification = (require("../vendor/modules/2f786b65.js"), require("../vendor/notification.js")),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js"));
+class DnsSettings extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       settings: this.props.settings || {
@@ -39,7 +39,7 @@ class g extends d.a.Component {
         expectIPs: []
       };
     e.push(t), this.setState({
-      settings: u()({}, this.state.settings, {
+      settings: objectAssign()({}, this.state.settings, {
         servers: e
       })
     }, () => {
@@ -49,7 +49,7 @@ class g extends d.a.Component {
   dropServer(e) {
     var t = this.state.settings.servers;
     t.splice(e, 1), this.setState({
-      settings: u()({}, this.state.settings, {
+      settings: objectAssign()({}, this.state.settings, {
         servers: t
       })
     }, () => {
@@ -59,7 +59,7 @@ class g extends d.a.Component {
   changeServer(e, t, n) {
     var r = this.state.settings.servers;
     "domains" === t ? r[e].domains = n.split("\n") : r[e][t] = n, this.setState({
-      settings: u()({}, this.state.settings, {
+      settings: objectAssign()({}, this.state.settings, {
         servers: r
       })
     }, () => {
@@ -68,15 +68,15 @@ class g extends d.a.Component {
   }
   render() {
     var e = this.state.settings.servers;
-    return d.a.createElement(d.a.Fragment, null, <div className={"form-group"}>
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, <div className={"form-group"}>
                 <label>{"DNS服务器表"}</label>
                 {e.map((e, t) => {
         var n;
         return <div key={t}>
                             <div className={"row"}>
-                                {d.a.createElement(m["a"], {
+                                {ReactComponent.a.createElement(divider["a"], {
               type: "horizontal"
-            }, e.address || "服务器组".concat(t + 1), " ", d.a.createElement(l["a"], {
+            }, e.address || "服务器组".concat(t + 1), " ", ReactComponent.a.createElement(icon["a"], {
               type: "delete",
               style: {
                 color: "#ff4d4f"
@@ -85,7 +85,7 @@ class g extends d.a.Component {
             }))}
                                 <div className={"form-group col-md-9 col-xs-12"}>
                                     <label>{"DNS服务器地址"}</label>
-                                    {d.a.createElement(s["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
                 placeholder: "请输入DNS服务器地址",
                 value: e.address,
                 onChange: e => this.changeServer(t, "address", e.target.value)
@@ -93,7 +93,7 @@ class g extends d.a.Component {
                                 </div>
                                 <div className={"form-group col-md-3 col-xs-12"}>
                                     <label>{"端口"}</label>
-                                    {d.a.createElement(s["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
                 type: "number",
                 placeholder: "端口",
                 value: e.port,
@@ -103,7 +103,7 @@ class g extends d.a.Component {
                             </div>
                             <div className={"form-group"}>
                                 <label>{"域名"}</label>
-                                {d.a.createElement(s["a"].TextArea, {
+                                {ReactComponent.a.createElement(input["a"].TextArea, {
               rows: 5,
               onChange: e => this.changeServer(t, "domains", e.target.value),
               value: null === (n = e.domains) || void 0 === n ? void 0 : n.join("\n"),
@@ -113,7 +113,7 @@ class g extends d.a.Component {
                         </div>;
       })}
                 <div>
-                    {d.a.createElement(i["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
           type: "primary",
           style: {
             width: "100%"
@@ -124,7 +124,7 @@ class g extends d.a.Component {
             </div>);
   }
 }
-class v extends d.a.Component {
+class RuleSettings extends ReactComponent.a.Component {
   constructor(e) {
     super(e);
     var t = this.props.settings;
@@ -145,16 +145,16 @@ class v extends d.a.Component {
     var e = this.state.settings,
       t = e.domain,
       n = e.protocol;
-    return d.a.createElement(d.a.Fragment, null, <div className={"form-group"}>
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, <div className={"form-group"}>
                 <label>{"域名过滤器"}</label>
-                {d.a.createElement(s["a"].TextArea, {
+                {ReactComponent.a.createElement(input["a"].TextArea, {
         value: t && t.join("\n"),
         onChange: e => this.change("domain", e.target.value),
         rows: 5
       })}
             </div>, <div className={"form-group"}>
                 <label>{"协议过滤器"}</label>
-                {d.a.createElement(s["a"].TextArea, {
+                {ReactComponent.a.createElement(input["a"].TextArea, {
         value: n && n.join("\n"),
         onChange: e => this.change("protocol", e.target.value),
         rows: 5
@@ -164,7 +164,7 @@ class v extends d.a.Component {
 }
 require("../vendor/modules/426f5337.js");
 var y = require("../vendor/modules/53646330.js");
-class b extends d.a.Component {
+class TlsSettings extends ReactComponent.a.Component {
   constructor(e) {
     super(e);
     var t = this.props.settings;
@@ -185,10 +185,10 @@ class b extends d.a.Component {
     var e = this.state.settings,
       t = e.serverName,
       n = e.allowInsecure;
-    return d.a.createElement(d.a.Fragment, null, <div>
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, <div>
                 <div className={"form-group"}>
                     <label>{"Server Name"}</label>
-                    {d.a.createElement(s["a"], {
+                    {ReactComponent.a.createElement(input["a"], {
           value: t,
           onChange: e => this.change("serverName", e.target.value),
           placeholder: "不使用请留空"
@@ -197,7 +197,7 @@ class b extends d.a.Component {
                 <div className={"form-group"}>
                     <label>{"Allow Insecure"}</label>
                     <div>
-                        {d.a.createElement(y["a"], {
+                        {ReactComponent.a.createElement(y["a"], {
             checked: parseInt(n),
             onChange: e => this.change("allowInsecure", e ? "1" : "0")
           })}
@@ -209,7 +209,7 @@ class b extends d.a.Component {
 var w = require("../vendor/modules/6c633544.js"),
   x = interopDefault(w),
   _ = (require("../vendor/modules/56655761.js"), require("../vendor/modules/756d4e66.js"), require("../vendor/modules/387a4e6a.js"));
-class E extends d.a.Component {
+class VmessEditor extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       server: this.props.record || {
@@ -245,7 +245,7 @@ class E extends d.a.Component {
         }
       });
     } catch (e) {
-      h["a"].error({
+      notification["a"].error({
         message: "请求失败",
         description: "传输协议配置格式有误"
       });
@@ -253,7 +253,7 @@ class E extends d.a.Component {
   }
   showChildDrawer(e, t) {
     this.setState({
-      childDrawer: u()({}, this.state.childDrawer, {
+      childDrawer: objectAssign()({}, this.state.childDrawer, {
         visible: !this.state.childDrawer.visible,
         title: e,
         type: t
@@ -262,7 +262,7 @@ class E extends d.a.Component {
   }
   changeServer(e, t) {
     this.setState({
-      server: u()({}, this.state.server, {
+      server: objectAssign()({}, this.state.server, {
         [e]: t
       })
     });
@@ -317,13 +317,13 @@ class E extends d.a.Component {
                             <label>
                                 {"协议详细配置"}
                                 <a href={"https://www.v2ray.com/chapter_02/05_transport.html"}>
-                                    {d.a.createElement(l["a"], {
+                                    {ReactComponent.a.createElement(icon["a"], {
                   type: "link"
                 })}
                                     {"参考"}
                                 </a>
                             </label>
-                            {d.a.createElement(x.a, {
+                            {ReactComponent.a.createElement(x.a, {
               placeholder: (null === o || void 0 === o ? void 0 : o[this.state.server.network]) || "",
               mode: "json",
               theme: "github",
@@ -345,17 +345,17 @@ class E extends d.a.Component {
                         </div>
                     </div>;
       case "ruleSettings":
-        return d.a.createElement(v, {
+        return ReactComponent.a.createElement(RuleSettings, {
           settings: n,
           onChange: e => this.changeServer("ruleSettings", e)
         });
       case "tlsSettings":
-        return d.a.createElement(b, {
+        return ReactComponent.a.createElement(TlsSettings, {
           settings: r,
           onChange: e => this.changeServer("tlsSettings", e)
         });
       case "dnsSettings":
-        return d.a.createElement(g, {
+        return ReactComponent.a.createElement(DnsSettings, {
           settings: i,
           onChange: e => this.changeServer("dnsSettings", e)
         });
@@ -374,9 +374,9 @@ class E extends d.a.Component {
       n = this.props.serverManage.servers,
       c = this.props.serverGroup.groups,
       u = this.props.serverRoute.routes;
-    return d.a.createElement(d.a.Fragment, null, d.a.cloneElement(this.props.children, {
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
       onClick: () => this.onShow()
-    }), d.a.createElement(r["a"], {
+    }), ReactComponent.a.createElement(drawer["a"], {
       id: "server",
       maskClosable: !0,
       title: e.id ? "编辑节点" : "新建节点",
@@ -387,7 +387,7 @@ class E extends d.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-8"}>
                             <label>{"节点名称"}</label>
-                            {d.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "请输入节点名称",
             value: e.name,
             onChange: e => this.formChange("name", e.target.value)
@@ -395,7 +395,7 @@ class E extends d.a.Component {
                         </div>
                         <div className={"form-group col-4"}>
                             <label>{"倍率"}</label>
-                            {d.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             addonAfter: "x",
             placeholder: "请输入节点倍率",
             value: e.rate,
@@ -405,7 +405,7 @@ class E extends d.a.Component {
                     </div>
                     <div className={"form-group"}>
                         <label>{"节点标签"}</label>
-                        {d.a.createElement(a["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "tags",
           value: e.tags || [],
           style: {
@@ -418,9 +418,9 @@ class E extends d.a.Component {
                     <div className={"form-group"}>
                         <label>
                             {"权限组 "}
-                            {d.a.createElement(_["a"], null, <a href={"javascript:(0);"}>{"添加权限组"}</a>)}
+                            {ReactComponent.a.createElement(_["a"], null, <a href={"javascript:(0);"}>{"添加权限组"}</a>)}
                         </label>
-                        {d.a.createElement(a["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "multiple",
           value: e.group_id,
           placeholder: "请选择权限组",
@@ -429,7 +429,7 @@ class E extends d.a.Component {
           },
           onChange: e => this.formChange("group_id", e)
         }, c.map(e => {
-          return d.a.createElement(a["a"].Option, {
+          return ReactComponent.a.createElement(select["a"].Option, {
             key: e.id
           }, e.name);
         }))}
@@ -437,7 +437,7 @@ class E extends d.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-md-8 col-xs-12"}>
                             <label>{"节点地址"}</label>
-                            {d.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "请输入连接地址",
             value: e.host,
             onChange: e => this.formChange("host", e.target.value)
@@ -450,17 +450,17 @@ class E extends d.a.Component {
                                     {"编辑配置"}
                                 </a>
                             </label>
-                            {d.a.createElement(a["a"], {
+                            {ReactComponent.a.createElement(select["a"], {
             value: parseInt(e.tls) ? 1 : 0,
             placeholder: "是否支持TLS",
             style: {
               width: "100%"
             },
             onChange: e => this.formChange("tls", e)
-          }, d.a.createElement(a["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             key: 0,
             value: 0
-          }, "不支持"), d.a.createElement(a["a"].Option, {
+          }, "不支持"), ReactComponent.a.createElement(select["a"].Option, {
             key: 1,
             value: 1
           }, "支持"))}
@@ -469,7 +469,7 @@ class E extends d.a.Component {
                     <div className={"row"}>
                         <div className={"form-group col-md-6 col-xs-12"}>
                             <label>{"连接端口"}</label>
-                            {d.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "用户连接端口",
             value: e.port,
             onChange: e => {
@@ -479,7 +479,7 @@ class E extends d.a.Component {
                         </div>
                         <div className={"form-group col-md-6 col-xs-12"}>
                             <label>{"服务端口"}</label>
-                            {d.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
             placeholder: "非NAT同连接端口",
             value: e.server_port,
             onChange: e => this.formChange("server_port", e.target.value)
@@ -494,48 +494,48 @@ class E extends d.a.Component {
                                     {"编辑配置"}
                                 </a>
                             </label>
-                            {d.a.createElement(a["a"], {
+                            {ReactComponent.a.createElement(select["a"], {
             value: e.network,
             placeholder: "选择传输协议",
             style: {
               width: "100%"
             },
             onChange: e => this.formChange("network", e)
-          }, d.a.createElement(a["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             value: "tcp"
-          }, "TCP"), d.a.createElement(a["a"].Option, {
+          }, "TCP"), ReactComponent.a.createElement(select["a"].Option, {
             value: "ws"
-          }, "WebSocket"), d.a.createElement(a["a"].Option, {
+          }, "WebSocket"), ReactComponent.a.createElement(select["a"].Option, {
             value: "grpc"
-          }, "gRPC"), d.a.createElement(a["a"].Option, {
+          }, "gRPC"), ReactComponent.a.createElement(select["a"].Option, {
             value: "kcp"
-          }, "mKCP"), d.a.createElement(a["a"].Option, {
+          }, "mKCP"), ReactComponent.a.createElement(select["a"].Option, {
             value: "httpupgrade"
-          }, "HTTPUpgrade"), d.a.createElement(a["a"].Option, {
+          }, "HTTPUpgrade"), ReactComponent.a.createElement(select["a"].Option, {
             value: "xhttp"
           }, "XHTTP"))}
                         </div>
                     </div>
                     <div className={"form-group"}>
                         <label>
-                            {d.a.createElement(o["a"], {
+                            {ReactComponent.a.createElement(tooltip["a"], {
             placement: "top"
           }, "父节点 ", <a target={"_blank"} href={"https://docs.v2board.com/use/node.html#父节点与子节点关系"} rel={"noreferrer"}>
-                                    {d.a.createElement(l["a"], {
+                                    {ReactComponent.a.createElement(icon["a"], {
               type: "read"
             })}
                                 </a>)}
                         </label>
-                        {d.a.createElement(a["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           value: e.parent_id || "",
           onChange: e => this.formChange("parent_id", e),
           style: {
             width: "100%"
           }
-        }, d.a.createElement(a["a"].Option, {
+        }, ReactComponent.a.createElement(select["a"].Option, {
           value: ""
         }, "无"), n.map(t => {
-          if ("vmess" === t.type && t.id !== e.id) return d.a.createElement(a["a"].Option, {
+          if ("vmess" === t.type && t.id !== e.id) return ReactComponent.a.createElement(select["a"].Option, {
             key: Math.random(),
             value: t.id
           }, t.name);
@@ -543,7 +543,7 @@ class E extends d.a.Component {
                     </div>
                     <div className={"form-group"}>
                         <label>{"路由组"}</label>
-                        {d.a.createElement(a["a"], {
+                        {ReactComponent.a.createElement(select["a"], {
           mode: "multiple",
           value: e.route_id || [],
           placeholder: "请选择路由组",
@@ -552,24 +552,24 @@ class E extends d.a.Component {
           },
           onChange: e => this.formChange("route_id", e.length > 0 ? e : null)
         }, u.map(e => {
-          return d.a.createElement(a["a"].Option, {
+          return ReactComponent.a.createElement(select["a"].Option, {
             key: e.id
           }, e.remarks);
         }))}
                     </div>
                 </div>, <div className={"v2board-drawer-action"}>
-                    {d.a.createElement(i["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         style: {
           marginRight: 8
         },
         onClick: () => this.onShow()
       }, "取消")}
-                    {d.a.createElement(i["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         loading: t,
         onClick: () => this.save(),
         type: "primary"
       }, "提交")}
-                </div>, d.a.createElement(r["a"], {
+                </div>, ReactComponent.a.createElement(drawer["a"], {
       closable: !1,
       id: "server",
       width: "80%",
@@ -579,7 +579,7 @@ class E extends d.a.Component {
     }, this.renderChildDrawer())));
   }
 }
-legacyExports["a"] = Object(p["c"])(e => {
+legacyExports["a"] = Object(reactRedux["c"])(e => {
   var t = e.serverVmess,
     n = e.serverGroup,
     r = e.serverManage,
@@ -590,4 +590,4 @@ legacyExports["a"] = Object(p["c"])(e => {
     serverManage: r,
     serverRoute: i
   };
-})(E);
+})(VmessEditor);
