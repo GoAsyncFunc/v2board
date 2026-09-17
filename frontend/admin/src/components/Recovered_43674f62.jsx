@@ -5,22 +5,22 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/62627350.js");
-var r = require("../vendor/modules/2f774774.js"),
-  i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  o = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
-  a = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
-  s = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  l = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  c = (require("../vendor/modules/69514446.js"), require("../vendor/modules/2b655154.js")),
-  u = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  h = require("../vendor/modules/70307045.js"),
-  f = interopDefault(h),
-  d = require("../vendor/modules/71317449.js"),
-  p = interopDefault(d),
-  m = require("../vendor/reactRedux.js"),
-  g = require("../vendor/modules/77642f52.js"),
-  v = interopDefault(g);
-class y extends p.a.Component {
+var drawer = require("../vendor/modules/2f774774.js"),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  checkbox = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
+  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  datePicker = (require("../vendor/modules/69514446.js"), require("../vendor/modules/2b655154.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule);
+class UserEditor extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       visible: !1
@@ -52,14 +52,14 @@ class y extends p.a.Component {
     this.props.dispatch({
       type: "user/setState",
       payload: {
-        user: f()({}, this.props.user.user, {
+        user: objectAssign()({}, this.props.user.user, {
           [e]: t
         })
       }
     });
   }
   submit() {
-    var e = f()({}, this.props.user.user);
+    var e = objectAssign()({}, this.props.user.user);
     this.props.dispatch({
       type: "user/update",
       params: e,
@@ -74,9 +74,9 @@ class y extends p.a.Component {
       n = e.updateLoading,
       h = this.props.plan.plans,
       f = this.state.visible;
-    return p.a.createElement(p.a.Fragment, null, p.a.cloneElement(this.props.children, {
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
       onClick: () => this.show()
-    }), p.a.createElement(r["a"], {
+    }), ReactComponent.a.createElement(drawer["a"], {
       id: "user",
       width: "80%",
       title: "用户管理",
@@ -89,7 +89,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"邮箱"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             placeholder: "请输入邮箱",
             defaultValue: t.email,
             onChange: e => this.formChange("email", e.target.value)
@@ -99,7 +99,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"邀请人邮箱"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             placeholder: "请输入邀请人邮箱",
             defaultValue: t.invite_user_email,
             onChange: e => this.formChange("invite_user_email", e.target.value)
@@ -109,7 +109,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"密码"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             defaultValue: t.password,
             placeholder: "如需修改密码请输入",
             onChange: e => this.formChange("password", e.target.value)
@@ -118,7 +118,7 @@ class y extends p.a.Component {
                             <div className={"row"}>
                                 <div className={"form-group col-md-6 col-xs-12"}>
                                     <label>{"余额"}</label>
-                                    {p.a.createElement(u["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
               type: "number",
               addonAfter: "¥",
               placeholder: "余额",
@@ -128,7 +128,7 @@ class y extends p.a.Component {
                                 </div>
                                 <div className={"form-group col-md-6 col-xs-12"}>
                                     <label>{"推广佣金"}</label>
-                                    {p.a.createElement(u["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
               type: "number",
               addonAfter: "¥",
               placeholder: "推广佣金",
@@ -140,7 +140,7 @@ class y extends p.a.Component {
                             <div className={"row"}>
                                 <div className={"form-group col-md-6 col-xs-12"}>
                                     <label>{"已用上行"}</label>
-                                    {p.a.createElement(u["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
               type: "number",
               addonAfter: "GB",
               placeholder: "已用上行",
@@ -150,7 +150,7 @@ class y extends p.a.Component {
                                 </div>
                                 <div className={"form-group col-md-6 col-xs-12"}>
                                     <label>{"已用下行"}</label>
-                                    {p.a.createElement(u["a"], {
+                                    {ReactComponent.a.createElement(input["a"], {
               type: "number",
               addonAfter: "GB",
               placeholder: "已用下行",
@@ -163,7 +163,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"流量"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             type: "number",
             addonAfter: "GB",
             defaultValue: t.transfer_enable,
@@ -175,7 +175,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"设备数限制"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             placeholder: "留空则不限制",
             defaultValue: t.device_limit,
             onChange: e => this.formChange("device_limit", e.target.value)
@@ -186,9 +186,9 @@ class y extends p.a.Component {
                                     {"到期时间"}
                                 </label>
                                 <div>
-                                    {p.a.createElement(c["a"], {
+                                    {ReactComponent.a.createElement(datePicker["a"], {
               placeholder: "长期有效",
-              defaultValue: null !== t.expired_at && v()(1e3 * t.expired_at),
+              defaultValue: null !== t.expired_at && moment()(1e3 * t.expired_at),
               style: {
                 width: "100%"
               },
@@ -200,17 +200,17 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"订阅计划"}
                                 </label>
-                                {p.a.createElement(l["a"], {
+                                {ReactComponent.a.createElement(select["a"], {
             placeholder: "请选择用户订阅计划",
             style: {
               width: "100%"
             },
             defaultValue: t.plan_id || null,
             onChange: e => this.formChange("plan_id", e)
-          }, p.a.createElement(l["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             value: null
           }, "无"), h.map(e => {
-            return p.a.createElement(l["a"].Option, {
+            return ReactComponent.a.createElement(select["a"].Option, {
               key: Math.random(),
               value: e.id
             }, e.name);
@@ -220,16 +220,16 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"账户状态"}
                                 </label>
-                                {p.a.createElement(l["a"], {
+                                {ReactComponent.a.createElement(select["a"], {
             style: {
               width: "100%"
             },
             defaultValue: t.banned ? 1 : 0,
             onChange: e => this.formChange("banned", e)
-          }, p.a.createElement(l["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             key: 1,
             value: 1
-          }, "封禁"), p.a.createElement(l["a"].Option, {
+          }, "封禁"), ReactComponent.a.createElement(select["a"].Option, {
             key: 0,
             value: 0
           }, "正常"))}
@@ -238,19 +238,19 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"推荐返利类型"}
                                 </label>
-                                {p.a.createElement(l["a"], {
+                                {ReactComponent.a.createElement(select["a"], {
             style: {
               width: "100%"
             },
             defaultValue: parseInt(t.commission_type),
             onChange: e => this.formChange("commission_type", e)
-          }, p.a.createElement(l["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             key: 0,
             value: 0
-          }, "跟随系统设置"), p.a.createElement(l["a"].Option, {
+          }, "跟随系统设置"), ReactComponent.a.createElement(select["a"].Option, {
             key: 1,
             value: 1
-          }, "循环返利"), p.a.createElement(l["a"].Option, {
+          }, "循环返利"), ReactComponent.a.createElement(select["a"].Option, {
             key: 2,
             value: 2
           }, "首次返利"))}
@@ -259,7 +259,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"推荐返利比例"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             addonAfter: "%",
             defaultValue: t.commission_rate,
             placeholder: "请输入推荐返利比例(为空则跟随站点设置返利比例)",
@@ -269,14 +269,14 @@ class y extends p.a.Component {
                             <div className={"form-group"}>
                                 <label for={"example-text-input-alt"}>
                                     {"专享折扣比例 "}
-                                    {p.a.createElement(a["a"], {
+                                    {ReactComponent.a.createElement(tooltip["a"], {
               placement: "top",
               title: "设置后该用户购买任何订阅将始终享受该折扣"
-            }, p.a.createElement(s["a"], {
+            }, ReactComponent.a.createElement(icon["a"], {
               type: "question-circle"
             }))}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             addonAfter: "%",
             defaultValue: t.discount,
             placeholder: "请输入专享折扣比例",
@@ -287,7 +287,7 @@ class y extends p.a.Component {
                                 <label for={"example-text-input-alt"}>
                                     {"限速"}
                                 </label>
-                                {p.a.createElement(u["a"], {
+                                {ReactComponent.a.createElement(input["a"], {
             addonAfter: "Mbps",
             defaultValue: t.speed_limit,
             placeholder: "留空则不限制",
@@ -299,7 +299,7 @@ class y extends p.a.Component {
                                     {"是否管理员"}
                                 </label>
                                 <div>
-                                    {p.a.createElement(o["a"], {
+                                    {ReactComponent.a.createElement(checkbox["a"], {
               checked: t.is_admin,
               onChange: e => this.formChange("is_admin", e ? 1 : 0)
             })}
@@ -310,7 +310,7 @@ class y extends p.a.Component {
                                     {"是否员工"}
                                 </label>
                                 <div>
-                                    {p.a.createElement(o["a"], {
+                                    {ReactComponent.a.createElement(checkbox["a"], {
               checked: t.is_staff,
               onChange: e => this.formChange("is_staff", e ? 1 : 0)
             })}
@@ -321,7 +321,7 @@ class y extends p.a.Component {
                                     {"备注"}
                                 </label>
                                 <div>
-                                    {p.a.createElement(u["a"].TextArea, {
+                                    {ReactComponent.a.createElement(input["a"].TextArea, {
               rows: 4,
               placeholder: "请在这里记录..",
               defaultValue: t.remarks,
@@ -331,20 +331,20 @@ class y extends p.a.Component {
                             </div>
                         </div>
                         <div className={"v2board-drawer-action"}>
-                            {p.a.createElement(i["a"], {
+                            {ReactComponent.a.createElement(button["a"], {
           style: {
             marginRight: 8
           },
           onClick: () => this.hide()
         }, "取消")}
-                            {p.a.createElement(i["a"], {
+                            {ReactComponent.a.createElement(button["a"], {
           disabled: n,
           loading: n,
           onClick: () => this.submit(),
           type: "primary"
         }, "提交")}
                         </div>
-                    </div> : p.a.createElement(s["a"], {
+                    </div> : ReactComponent.a.createElement(icon["a"], {
       type: "loading",
       style: {
         fontSize: 24,
@@ -353,11 +353,11 @@ class y extends p.a.Component {
     })));
   }
 }
-legacyExports["a"] = Object(m["c"])(e => {
+legacyExports["a"] = Object(reactRedux["c"])(e => {
   var t = e.user,
     n = e.plan;
   return {
     user: t,
     plan: n
   };
-})(y);
+})(UserEditor);
