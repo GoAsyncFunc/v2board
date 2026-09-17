@@ -6,45 +6,45 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 defineExport(legacyExports, "a", function () {
-  return l;
+  return LanguageSelector;
 });
 require("../vendor/modules/71566450.js");
-var r = require("../vendor/modules/6a73432b.js"),
-  o = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/42764b73.js")),
-  i = require("../vendor/modules/71317449.js"),
-  a = interopDefault(i),
-  s = require("../vendor/i18n.js"),
-  c = require("../vendor/siteHelpers.js"),
-  u = require("../vendor/localeSettings.js");
-class l extends a.a.Component {
-  constructor(e) {
-    super(e), this.state = {
+var dropdown = require("../vendor/modules/6a73432b.js"),
+  menu = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/42764b73.js")),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  i18n = require("../vendor/i18n.js"),
+  siteHelpers = require("../vendor/siteHelpers.js"),
+  localeSettings = require("../vendor/localeSettings.js");
+class LanguageSelector extends ReactComponent.a.Component {
+  constructor(props) {
+    super(props), this.state = {
       showLangMenu: !1
     };
   }
-  showDropmenu(e) {
-    var t = this;
+  showDropmenu(menuKey) {
+    var selector = this;
     this.setState({
-      [e]: !this.state[e]
+      [menuKey]: !this.state[menuKey]
     }, () => {
-      document.onclick = function (n) {
-        t.state[e] && t.setState({
-          [e]: !1
+      document.onclick = function (event) {
+        selector.state[menuKey] && selector.setState({
+          [menuKey]: !1
         }), document.onclick = void 0;
       };
     });
   }
-  set(e) {
-    Object(s["setLocale"])(e), Object(c["q"])("i18n", e);
+  set(locale) {
+    Object(i18n["setLocale"])(locale), Object(siteHelpers["q"])("i18n", locale);
   }
   render() {
-    return a.a.createElement(r["a"], {
+    return ReactComponent.a.createElement(dropdown["a"], {
       trigger: "click",
       placement: "topCenter",
-      overlay: a.a.createElement(o["a"], null, window.settings.i18n.sort().map(e => {
-        return a.a.createElement(o["a"].Item, {
-          onClick: () => this.set(e)
-        }, u["a"].i18nText[e]);
+      overlay: ReactComponent.a.createElement(menu["a"], null, window.settings.i18n.sort().map(locale => {
+        return ReactComponent.a.createElement(menu["a"].Item, {
+          onClick: () => this.set(locale)
+        }, localeSettings["a"].i18nText[locale]);
       }))
     }, this.props.children);
   }
