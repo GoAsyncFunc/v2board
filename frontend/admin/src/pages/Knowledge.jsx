@@ -10,30 +10,33 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  a = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  s = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  l = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  c = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  h = require("../vendor/modules/71317449.js"),
-  f = interopDefault(h),
-  d = require("../layouts/MainLayout.jsx"),
-  p = require("../vendor/modules/77642f52.js"),
-  m = interopDefault(p),
-  g = require("../vendor/reactRedux.js"),
-  v = require("../vendor/modules/71716f75.js"),
-  y = (require("../vendor/modules/62627350.js"), require("../vendor/modules/2f774774.js")),
-  b = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  w = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  x = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
-  _ = require("../vendor/modules/5642306f.js"),
-  E = interopDefault(_),
-  S = require("../vendor/modules/314d3348.js"),
-  k = interopDefault(S),
-  C = (require("../vendor/modules/69386f52.js"), require("../vendor/modules/7449346c.js"));
+var loadingModule = require("../vendor/modules/6a65685a.js"),
+  loading = interopDefault(loadingModule),
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  table = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
+  divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
+  checkbox = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  mainLayout = require("../layouts/MainLayout.jsx"),
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  sortable = require("../vendor/modules/71716f75.js"),
+  drawer = (require("../vendor/modules/62627350.js"), require("../vendor/modules/2f774774.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  notification = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
+  markdownModule = require("../vendor/modules/5642306f.js"),
+  markdown = interopDefault(markdownModule),
+  markdownRendererModule = require("../vendor/modules/314d3348.js"),
+  markdownRenderer = interopDefault(markdownRendererModule),
+  locale = (require("../vendor/modules/69386f52.js"), require("../vendor/modules/7449346c.js")),
+  loadingIndicator = require("../vendor/modules/76333265.js");
 function O(e) {
   if ("function" !== typeof WeakMap) return null;
   var t = new WeakMap(),
@@ -57,15 +60,15 @@ function T(e, t) {
   }
   return r.default = e, n && n.set(e, r), r;
 }
-var L = E()({
+var L = markdown()({
     loader: () => Promise.resolve().then(() => T(require("../vendor/modules/5a4d3043.js")))
   }),
-  A = new k.a({
+  A = new markdownRenderer.a({
     html: !0,
     linkify: !0,
     typographer: !0
   });
-class P extends f.a.Component {
+class KnowledgeEditor extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       visible: !1,
@@ -104,7 +107,7 @@ class P extends f.a.Component {
     this.props.dispatch({
       type: "knowledge/save",
       callback: () => {
-        x["a"].success("保存成功");
+        notification["a"].success("保存成功");
       }
     });
   }
@@ -115,22 +118,22 @@ class P extends f.a.Component {
       r = (t.categorys, t.fetchByIdLoading),
       i = t.saveLoading,
       o = this.props.id;
-    return f.a.createElement(f.a.Fragment, null, f.a.cloneElement(this.props.children, {
+    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
       onClick: () => this.show()
-    }), f.a.createElement(y["a"], {
+    }), ReactComponent.a.createElement(drawer["a"], {
       width: "80%",
       visible: e,
       title: o ? "编辑知识" : "新增知识",
       id: "knowledge",
       onClose: () => this.hide()
-    }, r ? f.a.createElement(u["a"], {
+    }, r ? ReactComponent.a.createElement(icon["a"], {
       type: "loading"
     }) : <div>
                         <div className={"form-group"}>
                             <label htmlFor={"example-text-input-alt"}>
                                 {"标题"}
                             </label>
-                            {f.a.createElement(w["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
           placeholder: "请输入知识标题",
           value: n.title,
           onChange: e => this.formChange("title", e.target.value)
@@ -140,7 +143,7 @@ class P extends f.a.Component {
                             <label htmlFor={"example-text-input-alt"}>
                                 {"分类"}
                             </label>
-                            {f.a.createElement(w["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
           placeholder: "请输入分类，分类将会自动归集",
           value: n.category,
           onChange: e => this.formChange("category", e.target.value)
@@ -150,7 +153,7 @@ class P extends f.a.Component {
                             <label htmlFor={"example-text-input-alt"}>
                                 {"语言"}
                             </label>
-                            {f.a.createElement(b["a"], {
+                            {ReactComponent.a.createElement(select["a"], {
           placeholder: "请选择知识语言",
           defaultValue: n.language || 1,
           style: {
@@ -158,10 +161,10 @@ class P extends f.a.Component {
           },
           value: n.language,
           onChange: e => this.formChange("language", e)
-        }, Object.keys(C["a"].i18nText).sort().map(e => {
-          return f.a.createElement(b["a"].Option, {
+        }, Object.keys(locale["a"].i18nText).sort().map(e => {
+          return ReactComponent.a.createElement(select["a"].Option, {
             value: e
-          }, C["a"].i18nText[e]);
+          }, locale["a"].i18nText[e]);
         }))}
                         </div>
                         <div className={"form-group"}>
@@ -180,13 +183,13 @@ class P extends f.a.Component {
         }}></L>
                         </div>
                     </div>, <div className={"v2board-drawer-action"}>
-                    {f.a.createElement(a["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         style: {
           marginRight: 8
         },
         onClick: () => this.hide()
       }, "取消")}
-                    {f.a.createElement(a["a"], {
+                    {ReactComponent.a.createElement(button["a"], {
         loading: i,
         onClick: () => this.save(),
         type: "primary"
@@ -194,14 +197,14 @@ class P extends f.a.Component {
                 </div>));
   }
 }
-var j = Object(g["c"])(e => {
+var j = Object(reactRedux["c"])(e => {
     var t = e.knowledge;
     return {
       knowledge: t
     };
-  })(P),
+  })(KnowledgeEditor),
   M = require("../vendor/modules/76333265.js");
-class R extends f.a.Component {
+class KnowledgePage extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {
       visible: !1,
@@ -249,7 +252,7 @@ class R extends f.a.Component {
         dataIndex: "sort",
         key: "sort",
         render: e => {
-          return f.a.createElement(f.a.Fragment, null, f.a.createElement(u["a"], {
+          return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.createElement(icon["a"], {
             type: "menu",
             style: {
               cursor: "move"
@@ -261,7 +264,7 @@ class R extends f.a.Component {
         dataIndex: "show",
         key: "show",
         render: (e, t) => {
-          return f.a.createElement(c["a"], {
+          return ReactComponent.a.createElement(checkbox["a"], {
             size: "small",
             onChange: () => this.show(t.id),
             checked: e
@@ -274,14 +277,14 @@ class R extends f.a.Component {
         align: "right",
         fixed: "right",
         render: (e, t, n) => {
-          return f.a.createElement(f.a.Fragment, null, f.a.createElement(j, {
+          return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.createElement(j, {
             id: t.id
           }, <a href={"javascript:void(0);"}>
                                         {"编辑"}
-                                    </a>), f.a.createElement(l["a"], {
+                                    </a>), ReactComponent.a.createElement(divider["a"], {
             type: "vertical"
           }), <a href={"javascript:void(0);"} onClick={() => {
-            s["a"].confirm({
+            modal["a"].confirm({
               title: "警告",
               content: "确定要删除该条项目吗？",
               onOk: () => this.drop(t),
@@ -294,20 +297,20 @@ class R extends f.a.Component {
         }
       }]),
       h = this;
-    return f.a.createElement(d["a"], i()({}, this.props, {
+    return ReactComponent.a.createElement(mainLayout["a"], objectAssign()({}, this.props, {
       title: "知识库管理"
-    }), f.a.createElement(M["a"], {
+    }), ReactComponent.a.createElement(loadingIndicator["a"], {
       loading: n
     }, <div className={"block border-bottom"}>
                     <div className={"bg-white"}>
                         <div style={{
           padding: 15
         }}>
-                            {f.a.createElement(j, null, f.a.createElement(a["a"], null, f.a.createElement(u["a"], {
+                            {ReactComponent.a.createElement(j, null, ReactComponent.a.createElement(button["a"], null, ReactComponent.a.createElement(icon["a"], {
             type: "plus"
           }), "新增"))}
                         </div>
-                        {f.a.createElement(v["a"], {
+                        {ReactComponent.a.createElement(sortable["a"], {
           onDragEnd: (e, t) => {
             h.props.dispatch({
               type: "knowledge/sort",
@@ -317,7 +320,7 @@ class R extends f.a.Component {
           },
           nodeSelector: "tr",
           handleSelector: "i"
-        }, f.a.createElement(o["a"], {
+        }, ReactComponent.a.createElement(table["a"], {
           tableLayout: "auto",
           dataSource: t,
           pagination: !1,
@@ -330,9 +333,9 @@ class R extends f.a.Component {
                 </div>));
   }
 }
-legacyExports["default"] = Object(g["c"])(e => {
+legacyExports["default"] = Object(reactRedux["c"])(e => {
   var t = e.knowledge;
   return {
     knowledge: t
   };
-})(R);
+})(KnowledgePage);

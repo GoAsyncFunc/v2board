@@ -13,6 +13,7 @@ for (const file of [
   'admin/src/components/Recovered_33585647.jsx',
   'admin/src/pages/ConfigPayment.jsx',
   'admin/src/pages/Giftcard.jsx',
+  'admin/src/pages/Knowledge.jsx',
   'admin/src/pages/ServerRoute.jsx',
 ]) {
   test(`${file}: references resolve in their lexical scope`, () => {
