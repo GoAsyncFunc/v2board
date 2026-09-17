@@ -9,38 +9,38 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/69514446.js"), require("../vendor/modules/2b655154.js")),
-  a = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  s = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  l = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
-  c = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  h = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  f = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  d = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/6d723332.js")),
-  p = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
-  m = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
-  g = require("../vendor/modules/70307045.js"),
-  v = interopDefault(g),
-  y = require("../vendor/modules/71317449.js"),
-  b = interopDefault(y),
-  w = require("../layouts/MainLayout.jsx"),
-  x = require("../vendor/modules/77642f52.js"),
-  _ = interopDefault(x),
-  E = require("../vendor/modules/2b515243.js"),
-  S = interopDefault(E),
-  k = require("../vendor/reactRedux.js"),
-  C = require("../vendor/modules/7449346c.js"),
-  O = require("../vendor/modules/76333265.js");
-class T extends b.a.Component {
+var loadingModule = require("../vendor/modules/6a65685a.js"),
+  loading = interopDefault(loadingModule),
+  datePicker = (require("../vendor/modules/69514446.js"), require("../vendor/modules/2b655154.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  table = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
+  modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
+  divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
+  clipboard = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/6d723332.js")),
+  notification = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
+  checkbox = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/53646330.js")),
+  objectAssignModule = require("../vendor/modules/70307045.js"),
+  objectAssign = interopDefault(objectAssignModule),
+  reactModule = require("../vendor/modules/71317449.js"),
+  ReactComponent = interopDefault(reactModule),
+  mainLayout = require("../layouts/MainLayout.jsx"),
+  momentModule = require("../vendor/modules/77642f52.js"),
+  moment = interopDefault(momentModule),
+  copyModule = require("../vendor/modules/2b515243.js"),
+  copy = interopDefault(copyModule),
+  reactRedux = require("../vendor/reactRedux.js"),
+  loadingIndicator = require("../vendor/modules/7449346c.js"),
+  tableLoading = require("../vendor/modules/76333265.js");
+class GiftcardPage extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.defaultValue = {
       type: 1
     }, this.state = {
       visible: !1,
-      submit: v()({}, this.defaultValue)
+      submit: objectAssign()({}, this.defaultValue)
     };
   }
   componentDidMount() {
@@ -60,7 +60,7 @@ class T extends b.a.Component {
     });
   }
   generate() {
-    var e = v()({}, this.state.submit);
+    var e = objectAssign()({}, this.state.submit);
     this.props.dispatch({
       type: "giftcard/generate",
       params: e,
@@ -97,12 +97,12 @@ class T extends b.a.Component {
         dataIndex: "code",
         key: "code",
         render: e => {
-          return b.a.createElement(d["a"], {
+          return ReactComponent.a.createElement(clipboard["a"], {
             style: {
               cursor: "pointer"
             },
             onClick: () => {
-              S()(e), p["a"].success("复制成功");
+              copy()(e), notification["a"].success("复制成功");
             }
           }, e);
         }
@@ -123,11 +123,11 @@ class T extends b.a.Component {
             }} href={"javascript:void(0);"}>
                                     {"编辑"}
                                 </a>
-                                {b.a.createElement(f["a"], {
+                                {ReactComponent.a.createElement(divider["a"], {
               type: "vertical"
             })}
                                 <a onClick={() => {
-              h["a"].confirm({
+              modal["a"].confirm({
                 title: "警告",
                 content: "确定要删除该条项目吗？",
                 onOk: () => this.drop(n),
@@ -140,29 +140,29 @@ class T extends b.a.Component {
                             </div>;
         }
       }];
-    return b.a.createElement(w["a"], i()({}, this.props, {
+    return ReactComponent.a.createElement(mainLayout["a"], loading()({}, this.props, {
       title: "礼品卡管理"
-    }), b.a.createElement(O["a"], {
+    }), ReactComponent.a.createElement(tableLoading["a"], {
       loading: n
     }, <div className={"block border-bottom"}>
                     <div className={"bg-white"}>
                         <div style={{
           padding: 15
         }}>
-                            {b.a.createElement(c["a"], {
+                            {ReactComponent.a.createElement(button["a"], {
             onClick: () => this.modalVisible()
-          }, b.a.createElement(u["a"], {
+          }, ReactComponent.a.createElement(icon["a"], {
             type: "plus"
           }), "添加礼品卡")}
                         </div>
-                        {b.a.createElement(l["a"], {
+                        {ReactComponent.a.createElement(table["a"], {
           tableLayout: "auto",
           dataSource: t,
           columns: x,
           scroll: {
             x: 1050
           },
-          pagination: v()({}, g, {
+          pagination: objectAssign()({}, g, {
             size: "small",
             showSizeChanger: !0,
             pageSizeOptions: [10, 50, 100, 150]
@@ -170,7 +170,7 @@ class T extends b.a.Component {
           onChange: (e, t, n) => this.tableOnChange(e, n)
         })}
                     </div>
-                </div>), b.a.createElement(h["a"], {
+                </div>), ReactComponent.a.createElement(modal["a"], {
       title: "".concat(this.state.submit.id ? "编辑礼品卡" : "新建礼品卡"),
       visible: this.state.visible,
       onCancel: () => this.modalVisible(),
@@ -184,12 +184,12 @@ class T extends b.a.Component {
     }, <div>
                     <div className={"form-group"}>
                         <label for={"example-text-input-alt"}>{"名称"}</label>
-                        {b.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(input["a"], {
           placeholder: "请输入礼品卡名称",
           value: this.state.submit.name,
           onChange: e => {
             this.setState({
-              submit: v()({}, this.state.submit, {
+              submit: objectAssign()({}, this.state.submit, {
                 name: e.target.value
               })
             });
@@ -200,12 +200,12 @@ class T extends b.a.Component {
                             <label for={"example-text-input-alt"}>
                                 {"自定义礼品卡卡密"}
                             </label>
-                            {b.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
           placeholder: "自定义礼品卡卡密(留空随机生成)",
           value: this.state.submit.code,
           onChange: e => {
             this.setState({
-              submit: v()({}, this.state.submit, {
+              submit: objectAssign()({}, this.state.submit, {
                 code: e.target.value,
                 generate_count: void 0
               })
@@ -217,29 +217,29 @@ class T extends b.a.Component {
                         <label for={"example-text-input-alt"}>
                             {"礼品卡类型"}
                         </label>
-                        {b.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(input["a"], {
           type: "number",
-          addonBefore: b.a.createElement(a["a"], {
+          addonBefore: ReactComponent.a.createElement(select["a"], {
             style: {
               width: 140
             },
             value: this.state.submit.type,
             onChange: e => {
               this.setState({
-                submit: v()({}, this.state.submit, {
+                submit: objectAssign()({}, this.state.submit, {
                   type: e
                 })
               });
             }
-          }, b.a.createElement(a["a"].Option, {
+          }, ReactComponent.a.createElement(select["a"].Option, {
             value: 1
-          }, "增加账户余额"), b.a.createElement(a["a"].Option, {
+          }, "增加账户余额"), ReactComponent.a.createElement(select["a"].Option, {
             value: 2
-          }, "增加订阅时长"), b.a.createElement(a["a"].Option, {
+          }, "增加订阅时长"), ReactComponent.a.createElement(select["a"].Option, {
             value: 3
-          }, "增加套餐流量"), b.a.createElement(a["a"].Option, {
+          }, "增加套餐流量"), ReactComponent.a.createElement(select["a"].Option, {
             value: 4
-          }, "重置套餐流量"), b.a.createElement(a["a"].Option, {
+          }, "重置套餐流量"), ReactComponent.a.createElement(select["a"].Option, {
             value: 5
           }, "兑换订阅套餐")),
           addonAfter: (() => {
@@ -263,7 +263,7 @@ class T extends b.a.Component {
           value: this.state.submit.type === 4 ? 0 : this.state.submit.value,
           onChange: e => {
             this.setState({
-              submit: v()({}, this.state.submit, {
+              submit: objectAssign()({}, this.state.submit, {
                 value: e.target.value
               })
             });
@@ -275,11 +275,11 @@ class T extends b.a.Component {
                                 {"指定订阅"}
                             </label>
                             <div>
-                                {b.a.createElement(a["a"], {
+                                {ReactComponent.a.createElement(select["a"], {
             value: this.state.submit.plan_id,
             onChange: e => {
               this.setState({
-                submit: v()({}, this.state.submit, {
+                submit: objectAssign()({}, this.state.submit, {
                   plan_id: e.length ? e : null
                 })
               });
@@ -290,7 +290,7 @@ class T extends b.a.Component {
               width: "100%"
             }
           }, y.map(e => {
-            return b.a.createElement(a["a"].Option, {
+            return ReactComponent.a.createElement(select["a"].Option, {
               key: Math.random(),
               value: "".concat(e.id)
             }, e.name);
@@ -301,7 +301,7 @@ class T extends b.a.Component {
                         <label for={"example-text-input-alt"}>
                             {"礼品卡有效期"}
                         </label>
-                        {b.a.createElement(o["a"].RangePicker, {
+                        {ReactComponent.a.createElement(datePicker["a"].RangePicker, {
           style: {
             width: "100%"
           },
@@ -310,15 +310,15 @@ class T extends b.a.Component {
           },
           format: "YYYY-MM-DD HH:mm",
           placeholder: ["Start Time", "End Time"],
-          value: [this.state.submit.started_at ? _()(1e3 * this.state.submit.started_at) : null, this.state.submit.ended_at ? _()(1e3 * this.state.submit.ended_at) : null],
+          value: [this.state.submit.started_at ? moment()(1e3 * this.state.submit.started_at) : null, this.state.submit.ended_at ? moment()(1e3 * this.state.submit.ended_at) : null],
           onChange: e => this.setState({
-            submit: v()({}, this.state.submit, {
+            submit: objectAssign()({}, this.state.submit, {
               started_at: e[0] ? e[0].format("X") : null,
               ended_at: e[1] ? e[1].format("X") : null
             })
           }),
           onOk: e => this.setState({
-            submit: v()({}, this.state.submit, {
+            submit: objectAssign()({}, this.state.submit, {
               started_at: e[0] ? e[0].format("X") : null,
               ended_at: e[1] ? e[1].format("X") : null
             })
@@ -329,12 +329,12 @@ class T extends b.a.Component {
                         <label for={"example-text-input-alt"}>
                             {"最大使用次数"}
                         </label>
-                        {b.a.createElement(s["a"], {
+                        {ReactComponent.a.createElement(input["a"], {
           placeholder: "限制最大使用次数，用完则无法使用(为空则不限制)",
           value: this.state.submit.limit_use,
           onChange: e => {
             this.setState({
-              submit: v()({}, this.state.submit, {
+              submit: objectAssign()({}, this.state.submit, {
                 limit_use: e.target.value
               })
             });
@@ -345,12 +345,12 @@ class T extends b.a.Component {
                             <label htmlFor={"example-text-input-alt"}>
                                 {"生成数量"}
                             </label>
-                            {b.a.createElement(s["a"], {
+                            {ReactComponent.a.createElement(input["a"], {
           placeholder: "输入数量批量生成",
           value: this.state.submit.generate_count,
           onChange: e => {
             this.setState({
-              submit: v()({}, this.state.submit, {
+              submit: objectAssign()({}, this.state.submit, {
                 generate_count: e.target.value,
                 code: void 0
               })
@@ -361,11 +361,11 @@ class T extends b.a.Component {
                 </div>));
   }
 }
-legacyExports["default"] = Object(k["c"])(e => {
+legacyExports["default"] = Object(reactRedux["c"])(e => {
   var t = e.giftcard,
     n = e.plan;
   return {
     giftcard: t,
     plan: n
   };
-})(T);
+})(GiftcardPage);
