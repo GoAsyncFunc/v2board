@@ -3,54 +3,54 @@ let legacyModule = module,
 const { defineExport, interopDefault } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 defineExport(legacyExports, "a", function () {
-    return l;
+    return ContextMenuTable;
 });
 require("../vendor/modules/67395956.js");
-var r = require("../vendor/modules/7743416a.js"),
-    i = require("../vendor/modules/6a65685a.js"),
-    o = interopDefault(i),
-    a = require("../vendor/modules/71317449.js"),
-    s = interopDefault(a);
+var tableModule = require("../vendor/modules/7743416a.js"),
+    objectAssignModule = require("../vendor/modules/6a65685a.js"),
+    objectAssign = interopDefault(objectAssignModule),
+    reactModule = require("../vendor/modules/71317449.js"),
+    ReactComponent = interopDefault(reactModule);
 (require("./Recovered_48394c55.jsx"),
     require("./Recovered_33585647.jsx"),
     require("./Recovered_796b4332.jsx"),
     require("../layouts/MainLayout.jsx"));
-class l extends s.a.Component {
+class ContextMenuTable extends ReactComponent.a.Component {
     render() {
-        return s.a.createElement(
-            s.a.Fragment,
+        return ReactComponent.a.createElement(
+            ReactComponent.a.Fragment,
             null,
-            s.a.createElement(
-                r["a"],
-                o()({}, this.props, {
-                    onRow: (e, t) => {
+            ReactComponent.a.createElement(
+                tableModule["a"],
+                objectAssign()({}, this.props, {
+                    onRow: (record, rowIndex) => {
                         if (!this.props.disableRightClick)
                             return {
-                                onClick: (e) => {
+                                onClick: (event) => {
                                     this.props.onContextMenu &&
                                         (this.props.onContextMenu(void 0),
                                         (document.getElementById(
                                             "v2board-table-dropdown",
                                         ).style = "display:none;"));
                                 },
-                                onDoubleClick: (e) => {},
-                                onContextMenu: (t) => {
+                                onDoubleClick: (event) => {},
+                                onContextMenu: (event) => {
                                     this.props.onContextMenu &&
-                                        (t.preventDefault(),
+                                        (event.preventDefault(),
                                         this.forceUpdate(),
                                         this.props.onContextMenu &&
-                                            this.props.onContextMenu(e),
+                                            this.props.onContextMenu(record),
                                         (document.getElementById(
                                             "v2board-table-dropdown",
                                         ).style = "top: "
-                                            .concat(t.clientY, "px; left: ")
+                                            .concat(event.clientY, "px; left: ")
                                             .concat(
-                                                t.clientX,
+                                                event.clientX,
                                                 "px;display:unset;",
                                             )));
                                 },
-                                onMouseEnter: (e) => {},
-                                onMouseLeave: (e) => {},
+                                onMouseEnter: (event) => {},
+                                onMouseLeave: (event) => {},
                             };
                     },
                 }),
