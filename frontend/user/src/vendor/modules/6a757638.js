@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./4d725064.js"),
-  i = require("./6879706f.js");
+  i = require("./baseAssignValue.js");
 function a(e, t, n, a) {
   var o = !n;
   n || (n = {});

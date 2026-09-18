@@ -62,7 +62,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var p = f(require("./reactRuntime.js")),
   m = d(require("./64706c46.js")),
-  g = d(require("./30723068.js")),
+  g = d(require("./reactChildrenToArray.js")),
   v = d(require("./634f6b43.js")),
   y = require("./73614a2b.js"),
   b = d(require("./6264674b.js")),

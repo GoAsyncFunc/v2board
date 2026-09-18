@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./stack.js"),
-  i = require("./7432446e.js"),
+  i = require("./assignValue.js"),
   o = require("./63712f2b.js"),
   a = require("./54314156.js"),
   s = require("./isObjectValue.js"),

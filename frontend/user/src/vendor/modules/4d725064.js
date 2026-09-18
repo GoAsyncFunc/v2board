@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6879706f.js"),
+var r = require("./baseAssignValue.js"),
   i = require("./sameValueZero.js"),
   a = Object.prototype,
   o = a.hasOwnProperty;

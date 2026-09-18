@@ -172,11 +172,11 @@
     "to": "vendor/modules/47797478.js"
   },
   {
-    "from": "vendor/modules/30723068.js",
+    "from": "vendor/modules/reactChildrenToArray.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/30723068.js",
+    "from": "vendor/modules/reactChildrenToArray.js",
     "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
@@ -6021,7 +6021,7 @@
   },
   {
     "from": "vendor/modules/7432334d.js",
-    "to": "vendor/modules/30723068.js"
+    "to": "vendor/modules/reactChildrenToArray.js"
   },
   {
     "from": "vendor/modules/7432334d.js",
@@ -8461,7 +8461,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/7432446e.js"
+    "to": "vendor/modules/assignValue.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -9601,7 +9601,7 @@
   },
   {
     "from": "vendor/modules/4d725064.js",
-    "to": "vendor/modules/6879706f.js"
+    "to": "vendor/modules/baseAssignValue.js"
   },
   {
     "from": "vendor/modules/4d725064.js",
@@ -9737,7 +9737,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/7432446e.js"
+    "to": "vendor/modules/assignValue.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -10105,7 +10105,7 @@
   },
   {
     "from": "vendor/modules/62383054.js",
-    "to": "vendor/modules/554e692f.js"
+    "to": "vendor/modules/baseTimes.js"
   },
   {
     "from": "vendor/modules/62383054.js",
@@ -10424,7 +10424,7 @@
     "to": "vendor/modules/344e4f34.js"
   },
   {
-    "from": "vendor/modules/6879706f.js",
+    "from": "vendor/modules/baseAssignValue.js",
     "to": "vendor/modules/4f306f53.js"
   },
   {
@@ -10460,15 +10460,15 @@
     "to": "vendor/modules/544f3872.js"
   },
   {
-    "from": "vendor/modules/6a594e59.js",
+    "from": "vendor/modules/isPlainObject.js",
     "to": "vendor/modules/7267492b.js"
   },
   {
-    "from": "vendor/modules/6a594e59.js",
+    "from": "vendor/modules/isPlainObject.js",
     "to": "vendor/modules/getPrototypeOfLegacy.js"
   },
   {
-    "from": "vendor/modules/6a594e59.js",
+    "from": "vendor/modules/isPlainObject.js",
     "to": "vendor/modules/isObjectLike.js"
   },
   {
@@ -10489,7 +10489,7 @@
   },
   {
     "from": "vendor/modules/6a757638.js",
-    "to": "vendor/modules/6879706f.js"
+    "to": "vendor/modules/baseAssignValue.js"
   },
   {
     "from": "vendor/modules/mapCacheDelete.js",
@@ -10844,11 +10844,11 @@
     "to": "vendor/modules/596c3763.js"
   },
   {
-    "from": "vendor/modules/7432446e.js",
-    "to": "vendor/modules/6879706f.js"
+    "from": "vendor/modules/assignValue.js",
+    "to": "vendor/modules/baseAssignValue.js"
   },
   {
-    "from": "vendor/modules/7432446e.js",
+    "from": "vendor/modules/assignValue.js",
     "to": "vendor/modules/sameValueZero.js"
   },
   {
