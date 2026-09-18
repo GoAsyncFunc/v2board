@@ -3,8 +3,8 @@ let legacyModule = module,
 var r = require("./hashClear.js"),
   i = require("./hashDelete.js"),
   a = require("./75384474.js"),
-  o = require("./656b6749.js"),
-  u = require("./4a535155.js");
+  o = require("./hashHas.js"),
+  u = require("./hashSet.js");
 function l(e) {
   var t = -1,
     n = null == e ? 0 : e.length;

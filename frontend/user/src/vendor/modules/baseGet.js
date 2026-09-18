@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./34755477.js"),
+var r = require("./castPath.js"),
   i = require("./toKey.js");
 function a(e, t) {
   t = r(t, e);
