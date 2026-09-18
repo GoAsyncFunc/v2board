@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./htmlBlockTags.js"),
-  o = require("./56776166.js").HTML_OPEN_CLOSE_TAG_RE,
+  o = require("./markdownHtmlRegex.js").HTML_OPEN_CLOSE_TAG_RE,
   i = [[/^<(script|pre|style|textarea)(?=(\s|>|$))/i, /<\/(script|pre|style|textarea)>/i, !0], [/^<!--/, /-->/, !0], [/^<\?/, /\?>/, !0], [/^<![A-Z]/, />/, !0], [/^<!\[CDATA\[/, /\]\]>/, !0], [new RegExp("^</?(" + r.join("|") + ")(?=(\\s|/?>|$))", "i"), /^$/, !0], [new RegExp(o.source + "\\s*$"), /^$/, !1]];
 legacyModule.exports = function (e, t, n, r) {
   var o,

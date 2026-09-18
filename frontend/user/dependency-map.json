@@ -1092,7 +1092,7 @@
     "to": "vendor/modules/objectCreate.js"
   },
   {
-    "from": "vendor/modules/42316a62.js",
+    "from": "vendor/modules/markdownHeadingRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -1165,7 +1165,7 @@
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/71525556.js"
+    "to": "vendor/modules/markdownCoreParser.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
@@ -2509,7 +2509,7 @@
   },
   {
     "from": "vendor/modules/544c5235.js",
-    "to": "vendor/modules/77746a4c.js"
+    "to": "vendor/modules/markdownInlineHtmlRule.js"
   },
   {
     "from": "vendor/modules/544c5235.js",
@@ -3033,7 +3033,7 @@
   },
   {
     "from": "vendor/modules/58373158.js",
-    "to": "vendor/modules/56776166.js"
+    "to": "vendor/modules/markdownHtmlRegex.js"
   },
   {
     "from": "vendor/modules/documentElement.js",
@@ -3417,7 +3417,7 @@
   },
   {
     "from": "vendor/modules/6470616d.js",
-    "to": "vendor/modules/6e424c6b.js"
+    "to": "vendor/modules/markdownCodeBlockRule.js"
   },
   {
     "from": "vendor/modules/6470616d.js",
@@ -3445,7 +3445,7 @@
   },
   {
     "from": "vendor/modules/6470616d.js",
-    "to": "vendor/modules/42316a62.js"
+    "to": "vendor/modules/markdownHeadingRule.js"
   },
   {
     "from": "vendor/modules/6470616d.js",
@@ -4260,35 +4260,35 @@
     "to": "vendor/modules/nonIterableRest.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/53494e64.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/normalizeMarkdownSource.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/parseMarkdownBlock.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/parseMarkdownInline.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/6d534630.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/7530714b.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/727a4447.js"
   },
   {
-    "from": "vendor/modules/71525556.js",
+    "from": "vendor/modules/markdownCoreParser.js",
     "to": "vendor/modules/markdownParserState.js"
   },
   {
@@ -4816,8 +4816,8 @@
     "to": "vendor/modules/toLength.js"
   },
   {
-    "from": "vendor/modules/77746a4c.js",
-    "to": "vendor/modules/56776166.js"
+    "from": "vendor/modules/markdownInlineHtmlRule.js",
+    "to": "vendor/modules/markdownHtmlRegex.js"
   },
   {
     "from": "vendor/modules/78315961.js",
