@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
   r = require("./omitProps.js"),
-  o = require("./3652526e.js"),
+  o = require("./rcTableEntry.js"),
   l = interopDefault(o),
   a = require("./propTypesRuntime.js"),
   i = require("./classNames.js"),

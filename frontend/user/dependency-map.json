@@ -1792,28 +1792,8 @@
     "to": "vendor/modules/uid.js"
   },
   {
-    "from": "vendor/modules/3652526e.js",
-    "to": "vendor/modules/41484a73.js"
-  },
-  {
-    "from": "vendor/modules/3652526e.js",
-    "to": "vendor/modules/77435846.js"
-  },
-  {
-    "from": "vendor/modules/3652526e.js",
-    "to": "vendor/modules/nullFunction.js"
-  },
-  {
-    "from": "vendor/modules/3652526e.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
     "from": "vendor/modules/37697874.js",
     "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/41484a73.js",
-    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -2545,10 +2525,6 @@
   },
   {
     "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/41484a73.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/426a5a73.js"
   },
   {
@@ -2566,6 +2542,10 @@
   {
     "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/59714446.js"
+  },
+  {
+    "from": "vendor/modules/77435846.js",
+    "to": "vendor/modules/TableColumnGroup.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -2682,6 +2662,10 @@
   {
     "from": "vendor/modules/DomEventObject.js",
     "to": "vendor/modules/objectAssignCompat.js"
+  },
+  {
+    "from": "vendor/modules/TableColumnGroup.js",
+    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/addBatchedDomEventListener.js",
@@ -2945,10 +2929,6 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/3652526e.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/48383455.js"
   },
   {
@@ -3014,6 +2994,10 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/rcTableEntry.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -4414,6 +4398,22 @@
   {
     "from": "vendor/modules/propTypesRuntime.js",
     "to": "vendor/modules/propTypesFactory.js"
+  },
+  {
+    "from": "vendor/modules/rcTableEntry.js",
+    "to": "vendor/modules/77435846.js"
+  },
+  {
+    "from": "vendor/modules/rcTableEntry.js",
+    "to": "vendor/modules/TableColumnGroup.js"
+  },
+  {
+    "from": "vendor/modules/rcTableEntry.js",
+    "to": "vendor/modules/nullFunction.js"
+  },
+  {
+    "from": "vendor/modules/rcTableEntry.js",
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/reactIntl/IntlPluralFormat.js",

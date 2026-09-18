@@ -106,7 +106,7 @@ var y = m(require("./reactRuntime.js")),
   P = v(require("./43697435.js")),
   T = v(require("./59714446.js")),
   L = v(require("./nullFunction.js")),
-  N = v(require("./41484a73.js")),
+  N = v(require("./TableColumnGroup.js")),
   M = v(require("./505a4459.js")),
   A = function (e) {
     c(n, e);
