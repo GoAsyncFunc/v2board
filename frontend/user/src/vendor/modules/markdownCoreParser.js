@@ -1,4 +1,4 @@
-var Ruler = require("./53494e64.js");
+var Ruler = require("./markdownRuler.js");
 
 var coreRules = [
   ["normalize", require("./normalizeMarkdownSource.js")],

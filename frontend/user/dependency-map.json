@@ -2469,7 +2469,7 @@
   },
   {
     "from": "vendor/modules/544c5235.js",
-    "to": "vendor/modules/53494e64.js"
+    "to": "vendor/modules/markdownRuler.js"
   },
   {
     "from": "vendor/modules/544c5235.js",
@@ -3409,7 +3409,7 @@
   },
   {
     "from": "vendor/modules/6470616d.js",
-    "to": "vendor/modules/53494e64.js"
+    "to": "vendor/modules/markdownRuler.js"
   },
   {
     "from": "vendor/modules/6470616d.js",
@@ -4261,7 +4261,7 @@
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
-    "to": "vendor/modules/53494e64.js"
+    "to": "vendor/modules/markdownRuler.js"
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
