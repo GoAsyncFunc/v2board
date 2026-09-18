@@ -572,7 +572,7 @@
     "to": "vendor/modules/isObject.js"
   },
   {
-    "from": "vendor/modules/354d726b.js",
+    "from": "vendor/modules/markdownParseLinkDestination.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -2837,15 +2837,15 @@
   },
   {
     "from": "vendor/modules/markdownLinkParsers.js",
-    "to": "vendor/modules/33316257.js"
+    "to": "vendor/modules/markdownParseLinkLabel.js"
   },
   {
     "from": "vendor/modules/markdownLinkParsers.js",
-    "to": "vendor/modules/354d726b.js"
+    "to": "vendor/modules/markdownParseLinkDestination.js"
   },
   {
     "from": "vendor/modules/markdownLinkParsers.js",
-    "to": "vendor/modules/665a464e.js"
+    "to": "vendor/modules/markdownParseLinkTitle.js"
   },
   {
     "from": "vendor/modules/sharedStore.js",
@@ -3596,7 +3596,7 @@
     "to": "vendor/modules/messageFormatParser.js"
   },
   {
-    "from": "vendor/modules/665a464e.js",
+    "from": "vendor/modules/markdownParseLinkTitle.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
