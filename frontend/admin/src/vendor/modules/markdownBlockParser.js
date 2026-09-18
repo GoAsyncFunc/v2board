@@ -4,7 +4,7 @@ var blockRules = [
   ["table", require("./markdownTableRule.js"), ["paragraph", "reference"]],
   ["code", require("./markdownCodeBlockRule.js")],
   ["fence", require("./markdownFenceRule.js"), ["paragraph", "reference", "blockquote", "list"]],
-  ["blockquote", require("./3641354a.js"), ["paragraph", "reference", "blockquote", "list"]],
+  ["blockquote", require("./markdownBlockquoteRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["hr", require("./markdownHorizontalRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["list", require("./537a354c.js"), ["paragraph", "reference", "blockquote"]],
   ["reference", require("./markdownReferenceRule.js")],

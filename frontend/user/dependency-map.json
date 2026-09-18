@@ -660,7 +660,7 @@
     "to": "vendor/modules/assertObject.js"
   },
   {
-    "from": "vendor/modules/3641354a.js",
+    "from": "vendor/modules/markdownBlockquoteRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -3425,7 +3425,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/3641354a.js"
+    "to": "vendor/modules/markdownBlockquoteRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
