@@ -9,15 +9,15 @@ defineExport(legacyExports, "a", function () {
   return FilterDrawer;
 });
 require("../vendor/modules/62627350.js");
-var drawer = require("../vendor/modules/2f774774.js"),
-  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  datePicker = (require("../vendor/modules/69514446.js"), require("../vendor/modules/2b655154.js")),
-  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+var drawer = require("../vendor/modules/antdDrawer.js"),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
+  datePicker = (require("../vendor/modules/69514446.js"), require("../vendor/modules/antdDatePicker.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
   icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   notification = (require("../vendor/modules/2f786b65.js"), require("../vendor/notification.js")),
-  notificationModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js")),
+  notificationModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/antdMessage.js")),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
   reactModule = require("../vendor/modules/71317449.js"),

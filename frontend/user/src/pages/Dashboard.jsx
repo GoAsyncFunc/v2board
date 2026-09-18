@@ -18,8 +18,8 @@ const {
 } = require('../components/SubscribeUsage.jsx');
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
-  i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  a = (require("../vendor/modules/66563532.js"), require("../vendor/modules/33492b50.js")),
+  i = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
+  a = (require("../vendor/modules/66563532.js"), require("../vendor/modules/antdCarousel.js")),
   s = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   c = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
   u = require("../vendor/modules/71317449.js"),

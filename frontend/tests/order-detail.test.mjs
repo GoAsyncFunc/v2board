@@ -22,7 +22,7 @@ async function setup(original){
   if(id.includes('reactRedux'))return {c:()=>cls=>cls};
   if(id.includes('5642306f'))return ()=> 'StripeForm';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
-  if(id.includes('74737172'))return {a:{error:msg=>trace.push(['error',msg])}};
+  if(id.includes('antdMessage'))return {a:{error:msg=>trace.push(['error',msg])}};
   if(id.includes('4172412b'))return {router:{push:url=>trace.push(['navigate',url])}};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};
   return {};

@@ -5,11 +5,11 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/62627350.js");
-var drawer = require("../vendor/modules/2f774774.js"),
-  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
-  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/3353372b.js")),
-  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+var drawer = require("../vendor/modules/antdDrawer.js"),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
+  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/antdTooltip.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
   icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
@@ -163,7 +163,7 @@ class RuleSettings extends ReactComponent.a.Component {
   }
 }
 require("../vendor/modules/426f5337.js");
-var y = require("../vendor/modules/53646330.js");
+var y = require("../vendor/modules/antdSwitch.js");
 class TlsSettings extends ReactComponent.a.Component {
   constructor(e) {
     super(e);

@@ -14,7 +14,7 @@ async function run(original,scenario){
  const message={success:value=>trace.push(['success',value])};
  const file=original?path.join(home,'tests/fixtures/models/admin-user-mutation.cjs'):path.join(home,'admin/src/models/userMutationEffects.js');
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs'})).code;
- const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,api,message,window:{settings:{secure_path:'fixture-admin'}},require:id=>{if(id.includes('request'))return api;if(id.includes('74737172'))return {a:message};throw Error(id);}},{timeout:2000});
+ const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,api,message,window:{settings:{secure_path:'fixture-admin'}},require:id=>{if(id.includes('request'))return api;if(id.includes('antdMessage'))return {a:message};throw Error(id);}},{timeout:2000});
  const iterator=module.exports[scenario.effect](action,{put:value=>{trace.push(['put',structuredClone(value)]);return 'put';},select:fn=>{trace.push(['select']);return {selected:fn({user:state})};}});
  let step=iterator.next(),count=0;
  while(!step.done){if(++count>20)throw Error('Unterminated effect');

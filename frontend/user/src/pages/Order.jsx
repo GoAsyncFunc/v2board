@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import MobileList from '../vendor/MobileList.js';
 import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Badge } from '../vendor/modules/4b725473.js';
+import { a as Badge } from '../vendor/modules/antdBadge.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { c as connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';

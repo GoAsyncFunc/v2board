@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 import moment from '../vendor/modules/77642f52.js';
 
 // Read and format the start before accessing the end, as in the original renderer.

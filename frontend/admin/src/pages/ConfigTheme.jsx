@@ -15,9 +15,9 @@ var r = require("../vendor/modules/6a65685a.js"),
   c = require("../layouts/MainLayout.jsx"),
   u = require("../vendor/reactRedux.js"),
   h = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  f = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  d = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  p = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/74737172.js"));
+  f = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
+  d = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
+  p = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/antdMessage.js"));
 class m extends l.a.Component {
   constructor(e) {
     super(e), this.state = {

@@ -21,8 +21,8 @@ async function load(original) {
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
     module, exports: module.exports, Date: FakeDate, require(id) {
       if (id === 'react') return React;
-      if (id.includes('3353372b')) return { a: Tooltip };
-      if (id.includes('4b725473')) return { a: Badge };
+      if (id.includes('antdTooltip')) return { a: Tooltip };
+      if (id.includes('antdBadge')) return { a: Badge };
       if (id.includes('77642f52')) return moment;
       throw Error(id);
     },

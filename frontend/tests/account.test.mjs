@@ -18,7 +18,7 @@ async function run(original,scenario){
   if(id.includes('71317449')||id.includes('6d69595a'))return {};
   if(id.includes('request'))return {get,post,a:get,b:post};
   if(id.includes('routerHistory'))return {push:value=>trace.push(['navigate',value])};
-  if(id.includes('74737172'))return {a:{success:value=>trace.push(['success',value])}};
+  if(id.includes('antdMessage'))return {a:{success:value=>trace.push(['success',value])}};
   if(id.includes('77642f52'))return value=>({format:format=>{trace.push(['date',value,format]);return 'fixture-date';}});
   if(id.includes('siteHelpers'))return {b:value=>{trace.push(['traffic',value]);return 'bytes:'+value;}};
   throw Error(id);

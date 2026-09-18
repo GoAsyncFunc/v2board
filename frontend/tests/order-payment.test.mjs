@@ -16,7 +16,7 @@ async function run(original, scenario) {
     if (id === 'p0pE') return Object.assign;
     if (id === 't3Un' || id.includes('request')) return { b: post, post };
     if (id === '3a4m' || id.includes('routerHistory')) return history;
-    if (id === 'tsqr' || id.includes('74737172')) return { a: message };
+    if (id === 'tsqr' || id.includes('antdMessage')) return { a: message };
     if (id === 'miYZ') return {};
     throw Error('Unexpected dependency ' + id);
   };

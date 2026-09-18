@@ -1,5 +1,5 @@
 import { post } from '../services/request.js';
-import { a as message } from '../vendor/modules/74737172.js';
+import { a as message } from '../vendor/modules/antdMessage.js';
 import moment from '../vendor/modules/77642f52.js';
 import { downloadCsv } from '../services/download.js';
 const endpoint = action => `/${window.settings.secure_path}/user/${action}`;

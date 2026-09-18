@@ -1,7 +1,7 @@
 import React from 'react';
-import { a as Tooltip } from '../vendor/modules/3353372b.js';
+import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
 import { a as Icon } from '../vendor/Icon.js';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 
 // Preserve addition's default-hint coercion. String(value), interpolation or
 // numeric formatting can invoke a different conversion or suppress exceptions.

@@ -5,7 +5,7 @@ const {
 } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/474e4e74.js");
-var r = require("../vendor/modules/7745492b.js"),
+var r = require("../vendor/modules/antdConfigProvider.js"),
   i = require("../vendor/modules/71317449.js"),
   o = interopDefault(i),
   a = require("../vendor/routerHistory.js"),

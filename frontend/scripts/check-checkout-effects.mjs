@@ -29,7 +29,7 @@ window.runCheckout=(original,scenario)=>{
 const mock=`exports.a=exports.get=()=>{};exports.b=exports.post=(url,params)=>{window.__trace.push(['post',url,params]);return 'request';};`;
 const js=(await build({absWorkingDir:home,stdin:{contents,resolveDir:home},bundle:true,write:false,format:'iife',plugins:[{name:'mocks',setup(b){
  b.onResolve({filter:/services\/request\.js$/},()=>({path:'request',namespace:'mock'}));
- b.onResolve({filter:/74737172\.js$/},()=>({path:'message',namespace:'mock'}));
+ b.onResolve({filter:/antdMessage\.js$/},()=>({path:'message',namespace:'mock'}));
  b.onResolve({filter:/routerHistory\.js$/},()=>({path:'history',namespace:'mock'}));
  b.onLoad({filter:/.*/,namespace:'mock'},args=>({contents:args.path==='request'?mock:args.path==='message'?`exports.a={info:(...x)=>window.__trace.push(['info',...x]),loading:(...x)=>window.__trace.push(['loading',...x])};`:`module.exports={push:x=>window.__trace.push(['navigate',x])};`,loader:'js'}));
  // Both versions use an explicit sandbox window; redirect assignment is recorded,

@@ -20,7 +20,7 @@ async function load(original) {
     module, exports: module.exports, require(id) {
       if (id === 'react') return React;
       if (id.includes('77642f52')) return moment;
-      if (id.includes('4b725473')) return { a: Badge };
+      if (id.includes('antdBadge')) return { a: Badge };
       if (id.includes('i18n')) return { formatMessage };
       throw Error(id);
     },

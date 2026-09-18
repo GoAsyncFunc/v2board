@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 
 export function renderServerTypeTag(type, label) {
   // Strict switch retains unknown/non-string type behavior; no fallback tag.

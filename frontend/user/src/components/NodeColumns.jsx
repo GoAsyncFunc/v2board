@@ -1,7 +1,7 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/6d723332.js';
-import { a as Badge } from '../vendor/modules/4b725473.js';
-import { a as Tooltip } from '../vendor/modules/3353372b.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
+import { a as Badge } from '../vendor/modules/antdBadge.js';
+import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { formatMessage } from '../vendor/i18n.js';
 import '../vendor/modules/2b424a64.js';

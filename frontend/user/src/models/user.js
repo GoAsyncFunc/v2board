@@ -1,6 +1,6 @@
 import { get, post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { a as message } from '../vendor/modules/74737172.js';
+import { a as message } from '../vendor/modules/antdMessage.js';
 import moment from '../vendor/modules/77642f52.js';
 import { b as formatTraffic } from '../vendor/siteHelpers.js';
 import * as sessionEffects from './sessionEffects.js';

@@ -279,6 +279,6 @@ N.__ANT_BUTTON = !0, N.defaultProps = {
   title: r["string"]
 }, Object(l["polyfill"])(N);
 var R = N,
-  _ = require("./79694f36.js");
+  _ = require("./antdButtonGroup.js");
 R.Group = _["a"];
 legacyExports["a"] = R;

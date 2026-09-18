@@ -9,8 +9,8 @@ defineExport(legacyExports, "a", function () {
   return LanguageSelector;
 });
 require("../vendor/modules/71566450.js");
-var dropdown = require("../vendor/modules/6a73432b.js"),
-  menu = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/42764b73.js")),
+var dropdown = require("../vendor/modules/antdDropdown.js"),
+  menu = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/antdMenu.js")),
   reactModule = require("../vendor/modules/71317449.js"),
   ReactComponent = interopDefault(reactModule),
   i18n = require("../vendor/i18n.js"),

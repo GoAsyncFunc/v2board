@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Badge } from '../vendor/modules/4b725473.js';
+import { a as Badge } from '../vendor/modules/antdBadge.js';
 import moment from '../vendor/modules/77642f52.js';
 import { formatMessage } from '../vendor/i18n.js';
 const message = id => formatMessage({ id });

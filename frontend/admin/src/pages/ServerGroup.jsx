@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
 import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Button } from '../vendor/modules/322f5270.js';
+import { a as Button } from '../vendor/modules/antdButton.js';
 import { a as Divider } from '../vendor/Divider.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { a as GroupEditor } from '../vendor/modules/387a4e6a.js';

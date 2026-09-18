@@ -1,5 +1,5 @@
 import { post } from '../services/request.js';
-import { a as message } from '../vendor/modules/74737172.js';
+import { a as message } from '../vendor/modules/antdMessage.js';
 const endpoint = action => `/${window.settings.secure_path}/user/${action}`;
 
 export function* update({ params, callback }, { put }) {

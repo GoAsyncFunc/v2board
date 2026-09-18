@@ -1,5 +1,5 @@
 import React from "react";
-import { a as Radio } from "../../vendor/modules/39794836.js";
+import { a as Radio } from "../../vendor/modules/antdRadio.js";
 import "../../vendor/modules/374b616b.js";
 
 export default function PaymentMethods({ methods, selectedMethod, onSelect }) {

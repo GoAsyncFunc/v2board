@@ -16,7 +16,7 @@ markEsModule(legacyExports);
 var objectAssignModule = require("../vendor/modules/6a65685a.js"),
   objectAssign = interopDefault(objectAssignModule),
   table = (require("../vendor/modules/67395956.js"), require("../vendor/modules/antdTable.js")),
-  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/322f5270.js")),
+  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
   icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
   objectAssignModule2 = require("../vendor/modules/70307045.js"),
@@ -27,8 +27,8 @@ var objectAssignModule = require("../vendor/modules/6a65685a.js"),
   reactRedux = require("../vendor/reactRedux.js"),
   LoadingContainer = (require("../vendor/modules/387a4e6a.js"), require("../vendor/modules/76333265.js")),
   Modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  Select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
-  Input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  Select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
+  Input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
   settings = require("../vendor/modules/7449346c.js");
 class RouteEditor extends ReactComponent.a.Component {
   constructor(e) {

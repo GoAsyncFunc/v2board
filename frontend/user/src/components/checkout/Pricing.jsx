@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Radio } from '../../vendor/modules/39794836.js';
+import { a as Radio } from '../../vendor/modules/antdRadio.js';
 import { a as settings } from '../../vendor/localeSettings.js';
 import { formatMessage } from '../../vendor/i18n.js';
 import { formatPrice } from '../MoneyDisplay.jsx';

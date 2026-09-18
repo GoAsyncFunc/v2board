@@ -21,7 +21,7 @@ async function load(original,trace,expired){
   if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value / 100).toFixed(2)};
   if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
-  for(const [key,name]of [['/Icon','Icon'],['39794836','Radio'],['4d6f5257','Result'],['322f5270','Button']])if(id.includes(key))return {a:name};
+  for(const [key,name]of [['/Icon','Icon'],['antdRadio','Radio'],['4d6f5257','Result'],['antdButton','Button']])if(id.includes(key))return {a:name};
   if(/iconStyles|374b616b|4a2b2f76|2b4c3642|32717463/.test(id))return {};
   if(id.includes('6a65685a'))return Object.assign;
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:obj=>{const f=()=>obj;Object.defineProperty(f,'a',{get:f});return f;}};

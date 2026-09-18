@@ -1,7 +1,7 @@
 import React from 'react';
 import { a as Divider } from '../vendor/Divider.js';
-import { a as Badge } from '../vendor/modules/4b725473.js';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Badge } from '../vendor/modules/antdBadge.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 import history from '../vendor/routerHistory.js';
 import { formatDateTime } from './DateTimeDisplay.jsx';
 import { formatPrice } from './MoneyDisplay.jsx';

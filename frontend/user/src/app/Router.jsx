@@ -133,7 +133,7 @@ class x extends o.a.Component {
       d = u[1],
       v = Number(p) > 3 || Number(p) >= 3 && Number(d) >= 21;
     if (v) try {
-      a = require("../vendor/modules/7745492b.js").default;
+      a = require("../vendor/modules/antdConfigProvider.js").default;
     } catch (e) {}
     return o.a.createElement(a, {
       locale: e.antd ? e.antd.default || e.antd : b

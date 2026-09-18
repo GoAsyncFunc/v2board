@@ -6,7 +6,7 @@ import {transform} from 'esbuild';
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original,groups){
  const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-plan-group.cjs':'../admin/src/components/PlanGroupColumn.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('6d723332'))return {a:'Tag'};throw Error(id);}});
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTag'))return {a:'Tag'};throw Error(id);}});
  return original?module.exports(groups,{a:React},{a:'Tag'}):module.exports.createPlanGroupColumn(groups);
 }
 for (const failSecond of [false,true]) test(`plan group preserves per-entry coercion and order: ${failSecond}`, async () => {

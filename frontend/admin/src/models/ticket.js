@@ -4,7 +4,7 @@ const { markEsModule, interopDefault } = require("../app/moduleInterop.js");
 const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
 require("../vendor/modules/6d69595a.js");
-var r = require("../vendor/modules/74737172.js"),
+var r = require("../vendor/modules/antdMessage.js"),
     i = require("../vendor/modules/70307045.js"),
     o = interopDefault(i),
     a = require("../services/request.js");

@@ -44,7 +44,7 @@ for(const target of ['user','admin']){
    exports=`export default connect(state => ({user: state.user${user?'':', layout: state.layout'}}))(Header);`;
   }else{
    imports+="import ConnectedSidebar from './Sidebar.jsx';\nimport ConnectedHeader from './Header.jsx';\n";
-   imports+=user?"import { a as Icon } from '../vendor/Icon.js';\nimport '../vendor/iconStyles.js';\nimport withLocale from '../vendor/modules/624b656c.js';\n":"import { a as ConfigProvider } from '../vendor/modules/7745492b.js';\nimport { a as chineseLocale } from '../vendor/modules/2b477661.js';\nimport '../vendor/modules/474e4e74.js';\n";
+   imports+=user?"import { a as Icon } from '../vendor/Icon.js';\nimport '../vendor/iconStyles.js';\nimport withLocale from '../vendor/modules/624b656c.js';\n":"import { a as ConfigProvider } from '../vendor/modules/antdConfigProvider.js';\nimport { a as chineseLocale } from '../vendor/modules/2b477661.js';\nimport '../vendor/modules/474e4e74.js';\n";
    imports+='const layoutTheme = window.settings.theme;\n';
    exports=`const ConnectedLayout = ${user?'withLocale(' : ''}connect(state => ({layout: state.layout}))(MainLayout)${user?')':''};\nexport { ConnectedLayout as a };\nexport default ConnectedLayout;`;
   }

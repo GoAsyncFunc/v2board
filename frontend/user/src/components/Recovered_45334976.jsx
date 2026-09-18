@@ -6,7 +6,7 @@ const {
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/32717463.js");
 var modal = require("../vendor/Modal.js"),
-  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
   reactModule = require("../vendor/modules/71317449.js"),
   ReactComponent = interopDefault(reactModule),
   reactRedux = require("../vendor/reactRedux.js"),

@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from '../vendor/modules/77642f52.js';
-import { a as Tooltip } from '../vendor/modules/3353372b.js';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { b as formatTraffic } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';

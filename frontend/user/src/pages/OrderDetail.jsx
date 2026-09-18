@@ -11,7 +11,7 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import { c as connect } from "../vendor/reactRedux.js";
 import { a as Icon } from "../vendor/Icon.js";
 import { a as Modal } from "../vendor/Modal.js";
-import { a as message } from "../vendor/modules/74737172.js";
+import { a as message } from "../vendor/modules/antdMessage.js";
 import { a as settings } from "../vendor/localeSettings.js";
 import loadable from "../vendor/modules/5642306f.js";
 import { formatMessage } from "../vendor/i18n.js";

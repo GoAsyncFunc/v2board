@@ -11,7 +11,7 @@ async function load(original) {
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
-    if (id.includes('6d723332')) return { a: 'Tag' };
+    if (id.includes('antdTag')) return { a: 'Tag' };
     if (id.includes('77642f52')) return moment;
     throw Error(id);
   } });

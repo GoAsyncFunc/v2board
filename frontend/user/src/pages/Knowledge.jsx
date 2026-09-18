@@ -1,12 +1,12 @@
 import React from 'react';
 import { formatDate } from '../components/DateTimeDisplay.jsx';
-import { a as Input } from '../vendor/modules/35724567.js';
+import { a as Input } from '../vendor/modules/antdInput.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
-import { a as Modal } from '../vendor/modules/2f774774.js';
+import { a as Modal } from '../vendor/modules/antdDrawer.js';
 import { a as Icon } from '../vendor/Icon.js';
-import { a as notification } from '../vendor/modules/74737172.js';
+import { a as notification } from '../vendor/modules/antdMessage.js';
 import MarkdownIt from '../vendor/modules/314d3348.js';
 import { a as copyText } from '../vendor/siteHelpers.js';
 import '../vendor/modules/77642f52.js';

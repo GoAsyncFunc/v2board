@@ -286,8 +286,8 @@ P.Item = C, P.defaultProps = {
 };
 require("../vendor/modules/2f7a7346.js");
 var L = require("../vendor/Divider.js"),
-  N = (require("../vendor/modules/41776870.js"), require("../vendor/modules/4b725473.js")),
-  M = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/6d723332.js")),
+  N = (require("../vendor/modules/41776870.js"), require("../vendor/modules/antdBadge.js")),
+  M = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/antdTag.js")),
   A = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
   D = require("../layouts/MainLayout.jsx"),
   I = require("../vendor/reactRedux.js"),

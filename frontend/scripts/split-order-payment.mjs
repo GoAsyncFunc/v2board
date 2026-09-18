@@ -18,6 +18,6 @@ traverse(ast,{JSXElement(p){
  }
 }});
 if(methods!==1||qr!==1)throw Error(`Unexpected extraction: ${methods}/${qr}`);
-ast.program.body=ast.program.body.filter(n=>!(t.isImportDeclaration(n)&&(n.source.value.includes('44314466')||n.source.value.includes('39794836'))));
+ast.program.body=ast.program.body.filter(n=>!(t.isImportDeclaration(n)&&(n.source.value.includes('44314466')||n.source.value.includes('antdRadio'))));
 ast.program.body.unshift(...parse("import PaymentMethods from '../components/checkout/PaymentMethods.jsx';import PaymentQrModal from '../components/checkout/PaymentQrModal.jsx';",{sourceType:'module'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

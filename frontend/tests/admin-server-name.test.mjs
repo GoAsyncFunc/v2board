@@ -8,7 +8,7 @@ const statuses={0:'error',1:'warning',2:'processing'};
 async function load(original, mapping = statuses){
  const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-name.cjs':'../admin/src/components/ServerNameColumn.jsx',import.meta.url);
  const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'jsx'})).code;
- vm.runInNewContext(code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('3353372b'))return {a:'Tooltip'};if(id.includes('4b725473'))return {a:'Badge'};if(id.includes('Icon'))return {a:'Icon'};throw Error(id);}});
+ vm.runInNewContext(code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('antdBadge'))return {a:'Badge'};if(id.includes('Icon'))return {a:'Icon'};throw Error(id);}});
  return original?module.exports({a:React},{a:'Tooltip'},{a:'Badge'},{a:'Icon'},mapping):module.exports.createServerNameColumn(mapping);
 }
 const normalize=x=>JSON.parse(JSON.stringify(x,(k,v)=>typeof v==='function'?'[render]':v));

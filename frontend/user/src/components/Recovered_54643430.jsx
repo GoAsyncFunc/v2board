@@ -6,8 +6,8 @@ const {
 const React = require("../vendor/modules/71317449.js");
 require("../vendor/modules/32717463.js");
 var modal = require("../vendor/Modal.js"),
-  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/35724567.js")),
-  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/32664d37.js")),
+  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
+  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
   reactModule = require("../vendor/modules/71317449.js"),
   ReactComponent = interopDefault(reactModule),
   reactRedux = require("../vendor/reactRedux.js"),

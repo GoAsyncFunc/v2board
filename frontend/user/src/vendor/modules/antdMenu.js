@@ -128,7 +128,7 @@ w.contextTypes = {
   antdMenuTheme: u["string"]
 }, w.isSubMenu = 1;
 var L = w,
-  S = require("./3353372b.js"),
+  S = require("./antdTooltip.js"),
   k = require("./48383455.js");
 function E(e) {
   "@babel/helpers - typeof";

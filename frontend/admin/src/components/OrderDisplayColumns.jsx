@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/6d723332.js';
+import { a as Tag } from '../vendor/modules/antdTag.js';
 import { a as settings } from '../vendor/modules/7449346c.js';
 import moment from '../vendor/modules/77642f52.js';
 

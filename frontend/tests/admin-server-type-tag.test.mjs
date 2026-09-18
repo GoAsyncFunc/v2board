@@ -6,7 +6,7 @@ import {transform} from 'esbuild';
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original){
  const file=new URL(original?'./fixtures/pages/admin-server-type-tag.cjs':'../admin/src/components/ServerTypeTag.jsx',import.meta.url),module={exports:{}};
- const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('6d723332'))return {a:'Tag'};throw Error(id);}});
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTag'))return {a:'Tag'};throw Error(id);}});
  return original?module.exports({a:React},{a:'Tag'}):module.exports.renderServerTypeTag;
 }
 for(const type of ['shadowsocks','vmess','trojan','hysteria','tuic','vless','anytls','v2node','unknown','VMESS',null,undefined,0])for(const label of ['Fixture',0,null])test(`server type tag ${type}/${label}`,async()=>{

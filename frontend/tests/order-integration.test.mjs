@@ -42,7 +42,7 @@ function setup(mode){
   if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args])};
   if(id.includes('routerHistory'))return {push:value=>events.push(['navigate',value])};
   if(id.includes('5642306f'))return ()=>null;
-  if(id.includes('74737172'))return {a:{info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])}};
+  if(id.includes('antdMessage'))return {a:{info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])}};
   return {};
  }});
  vm.runInContext(bundle,context,{timeout:3000});const {OrderDetailPage,order,comm}=context.integration;const models={order,comm};

@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
 import { a as Result } from '../vendor/modules/4d6f5257.js';
-import { a as Button } from '../vendor/modules/322f5270.js';
+import { a as Button } from '../vendor/modules/antdButton.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { h as isExpired, c as parsePlanContent } from '../vendor/siteHelpers.js';
