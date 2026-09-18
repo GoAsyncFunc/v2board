@@ -3,7 +3,7 @@ let legacyModule = module,
 (function (e) {
   var r = require("./48375846.js"),
     i = require("./6b564b2b.js"),
-    o = require("./497a5571.js");
+    o = require("./arrayIsArrayFallback.js");
   function a() {
     try {
       var e = new Uint8Array(1);

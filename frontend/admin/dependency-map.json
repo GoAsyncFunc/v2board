@@ -37,7 +37,7 @@
   },
   {
     "from": "vendor/modules/newPromiseCapability.js",
-    "to": "vendor/modules/77596d38.js"
+    "to": "vendor/modules/requireCallable.js"
   },
   {
     "from": "vendor/modules/2b6f3570.js",
@@ -537,7 +537,7 @@
   },
   {
     "from": "vendor/modules/32475450.js",
-    "to": "vendor/modules/65616f68.js"
+    "to": "vendor/modules/requireCallable.js"
   },
   {
     "from": "vendor/modules/324b5954.js",
@@ -2121,7 +2121,7 @@
   },
   {
     "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/35375441.js"
+    "to": "vendor/modules/copyProperties.js"
   },
   {
     "from": "vendor/modules/4a525065.js",
@@ -3409,7 +3409,7 @@
   },
   {
     "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/2b4c7254.js"
+    "to": "vendor/modules/copyProperties.js"
   },
   {
     "from": "vendor/modules/562f3649.js",
@@ -3525,7 +3525,7 @@
   },
   {
     "from": "vendor/modules/56657959.js",
-    "to": "vendor/modules/77596d38.js"
+    "to": "vendor/modules/requireCallable.js"
   },
   {
     "from": "vendor/modules/56657959.js",
@@ -5773,7 +5773,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/324e7430.js"
+    "to": "vendor/modules/arrayIsArrayFallback.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -6105,7 +6105,7 @@
   },
   {
     "from": "vendor/modules/746a6c41.js",
-    "to": "vendor/modules/497a5571.js"
+    "to": "vendor/modules/arrayIsArrayFallback.js"
   },
   {
     "from": "vendor/modules/746a6c41.js",
@@ -6549,7 +6549,7 @@
   },
   {
     "from": "vendor/modules/77487272.js",
-    "to": "vendor/modules/77596d38.js"
+    "to": "vendor/modules/requireCallable.js"
   },
   {
     "from": "vendor/modules/775a584c.js",

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./77596d38.js");
+var r = require("./requireCallable.js");
 legacyModule.exports = function (e, t, n) {
   if (r(e), void 0 === t) return e;
   switch (n) {

@@ -4,7 +4,7 @@ let legacyModule = module,
   var i = require("./6c6d3052.js");
   legacyModule.exports = _;
   var o,
-    a = require("./324e7430.js");
+    a = require("./arrayIsArrayFallback.js");
   _.ReadableState = x;
   require("./2b714533.js").EventEmitter;
   var s = function (e, t) {

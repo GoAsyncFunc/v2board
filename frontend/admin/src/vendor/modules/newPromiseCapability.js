@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./77596d38.js");
+var r = require("./requireCallable.js");
 function i(e) {
   var t, n;
   this.promise = new e(function (e, r) {

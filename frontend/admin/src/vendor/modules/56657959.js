@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./assertObject.js"),
-  i = require("./77596d38.js"),
+  i = require("./requireCallable.js"),
   o = require("./wellKnownSymbol.js")("species");
 legacyModule.exports = function (e, t) {
   var n,
