@@ -186,7 +186,7 @@ var U = ["defaultSelectedKeys", "selectedKeys", "defaultOpenKeys", "openKeys", "
   },
   G = require("./reactDomRuntime.js"),
   K = interopDefault(G),
-  Z = require("./6264674b.js"),
+  ResizeObserver = require("./ResizeObserver.js"),
   Q = require("./75636958.js"),
   X = require("./definePropertyHelper.js"),
   J = interopDefault(X),
@@ -1079,7 +1079,7 @@ var xt = function (e) {
       if (this.setChildrenWidthAndResize(), 1 === this.props.level && "horizontal" === this.props.mode) {
         var t = G["findDOMNode"](this);
         if (!t) return;
-        this.resizeObserver = new Z["default"](function (t) {
+        this.resizeObserver = new ResizeObserver(function (t) {
           t.forEach(e.setChildrenWidthAndResize);
         }), [].slice.call(t.children).concat(t).forEach(function (t) {
           e.resizeObserver.observe(t);

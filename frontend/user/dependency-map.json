@@ -1633,11 +1633,11 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/6264674b.js"
+    "to": "vendor/modules/75636958.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/75636958.js"
+    "to": "vendor/modules/ResizeObserver.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -1774,14 +1774,6 @@
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/warning.js"
-  },
-  {
-    "from": "vendor/modules/6264674b.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/6264674b.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -2382,6 +2374,46 @@
   {
     "from": "vendor/modules/RcTooltip.js",
     "to": "vendor/modules/tooltipPlacements.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObservation.js",
+    "to": "vendor/modules/resizeObserverGeometry.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserver.js",
+    "to": "vendor/modules/ResizeObserverController.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserver.js",
+    "to": "vendor/modules/ResizeObserverSPI.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserver.js",
+    "to": "vendor/modules/resizeObserverRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverController.js",
+    "to": "vendor/modules/resizeObserverRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverEntry.js",
+    "to": "vendor/modules/resizeObserverGeometry.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverEntry.js",
+    "to": "vendor/modules/resizeObserverRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverSPI.js",
+    "to": "vendor/modules/ResizeObservation.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverSPI.js",
+    "to": "vendor/modules/ResizeObserverEntry.js"
+  },
+  {
+    "from": "vendor/modules/ResizeObserverSPI.js",
+    "to": "vendor/modules/resizeObserverRuntime.js"
   },
   {
     "from": "vendor/modules/TableCell.js",
@@ -4666,6 +4698,14 @@
   {
     "from": "vendor/modules/requestAnimationFrame.js",
     "to": "vendor/modules/animationFrameRuntime.js"
+  },
+  {
+    "from": "vendor/modules/resizeObserverGeometry.js",
+    "to": "vendor/modules/resizeObserverRuntime.js"
+  },
+  {
+    "from": "vendor/modules/resizeObserverRuntime.js",
+    "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
     "from": "vendor/modules/rootObject.js",
