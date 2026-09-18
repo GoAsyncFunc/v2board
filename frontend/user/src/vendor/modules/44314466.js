@@ -106,7 +106,7 @@ function y(e, t, n) {
 }
 var g = require("./reactRuntime.js"),
   b = (require("./propTypesRuntime.js"), require("./48333855.js")),
-  w = require("./61525445.js");
+  w = require("./qrErrorCorrectionLevels.js");
 function x(e) {
   for (var t = "", n = 0; n < e.length; n++) {
     var r = e.charCodeAt(n);

@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var r = require("./73334d6c.js"),
+var r = require("./setPrototypeOfDefault.js"),
   o = u(r),
-  i = require("./41795542.js"),
+  i = require("./objectCreateDefault.js"),
   a = u(i),
   s = require("./454a6979.js"),
   c = u(s);

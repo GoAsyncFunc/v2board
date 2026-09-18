@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var r = require("./50327359.js"),
+var r = require("./objectAssignDefault.js"),
   i = o(r);
 function o(e) {
   return e && e.__esModule ? e : {

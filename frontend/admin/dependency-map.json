@@ -8,7 +8,7 @@
     "to": "vendor/modules/buildLinkifyRegexSources.js"
   },
   {
-    "from": "vendor/modules/2b4a504c.js",
+    "from": "vendor/modules/symbolRuntimeDefault.js",
     "to": "vendor/modules/symbolRuntime.js"
   },
   {
@@ -1496,7 +1496,7 @@
     "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
-    "from": "vendor/modules/41795542.js",
+    "from": "vendor/modules/objectCreateDefault.js",
     "to": "vendor/modules/objectCreate.js"
   },
   {
@@ -1821,11 +1821,11 @@
   },
   {
     "from": "vendor/modules/454a6979.js",
-    "to": "vendor/modules/462b326f.js"
+    "to": "vendor/modules/iteratorDefault.js"
   },
   {
     "from": "vendor/modules/454a6979.js",
-    "to": "vendor/modules/2b4a504c.js"
+    "to": "vendor/modules/symbolRuntimeDefault.js"
   },
   {
     "from": "vendor/modules/45513731.js",
@@ -1864,7 +1864,7 @@
     "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
-    "from": "vendor/modules/462b326f.js",
+    "from": "vendor/modules/iteratorDefault.js",
     "to": "vendor/modules/324e6230.js"
   },
   {
@@ -2880,7 +2880,7 @@
     "to": "vendor/modules/toInteger.js"
   },
   {
-    "from": "vendor/modules/50327359.js",
+    "from": "vendor/modules/objectAssignDefault.js",
     "to": "vendor/modules/objectAssign.js"
   },
   {
@@ -3057,7 +3057,7 @@
   },
   {
     "from": "vendor/modules/51624c5a.js",
-    "to": "vendor/modules/50327359.js"
+    "to": "vendor/modules/objectAssignDefault.js"
   },
   {
     "from": "vendor/modules/51653970.js",
@@ -3200,7 +3200,7 @@
     "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
-    "from": "vendor/modules/53456b77.js",
+    "from": "vendor/modules/objectDefinePropertyDefault.js",
     "to": "vendor/modules/objectDefineProperty.js"
   },
   {
@@ -3437,7 +3437,7 @@
   },
   {
     "from": "vendor/modules/56376f43.js",
-    "to": "vendor/modules/53456b77.js"
+    "to": "vendor/modules/objectDefinePropertyDefault.js"
   },
   {
     "from": "vendor/modules/reactLoadableRuntime.js",
@@ -3805,7 +3805,7 @@
   },
   {
     "from": "vendor/modules/59454956.js",
-    "to": "vendor/modules/53456b77.js"
+    "to": "vendor/modules/objectDefinePropertyDefault.js"
   },
   {
     "from": "vendor/modules/59483231.js",
@@ -5405,11 +5405,11 @@
   },
   {
     "from": "vendor/modules/6d526730.js",
-    "to": "vendor/modules/73334d6c.js"
+    "to": "vendor/modules/setPrototypeOfDefault.js"
   },
   {
     "from": "vendor/modules/6d526730.js",
-    "to": "vendor/modules/41795542.js"
+    "to": "vendor/modules/objectCreateDefault.js"
   },
   {
     "from": "vendor/modules/6d526730.js",
@@ -5860,7 +5860,7 @@
     "to": "vendor/modules/62597459.js"
   },
   {
-    "from": "vendor/modules/73334d6c.js",
+    "from": "vendor/modules/setPrototypeOfDefault.js",
     "to": "vendor/modules/setPrototypeOfRuntime.js"
   },
   {

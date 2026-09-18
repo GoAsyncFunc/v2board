@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./61525445.js");
+var r = require("./qrErrorCorrectionLevels.js");
 function o(e, t) {
   this.totalCount = e, this.dataCount = t;
 }

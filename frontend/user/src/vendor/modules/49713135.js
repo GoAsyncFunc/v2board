@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6e565674.js"),
+var r = require("./qrModeConstants.js"),
   o = require("./64575353.js"),
   i = require("./64516569.js"),
   a = {

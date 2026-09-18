@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6e565674.js");
+var r = require("./qrModeConstants.js");
 function o(e) {
   this.mode = r.MODE_8BIT_BYTE, this.data = e;
 }
