@@ -21,7 +21,7 @@ var r = require("./objectAssignHelper.js"),
   g = require("./containsNode.js"),
   b = require("./addBatchedDomEventListener.js"),
   w = require("./5049416d.js"),
-  x = require("./51432b4d.js"),
+  x = require("./Portal.js"),
   O = require("./classNames.js"),
   E = interopDefault(O);
 function _(e, t, n) {

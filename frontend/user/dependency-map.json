@@ -1792,10 +1792,6 @@
     "to": "vendor/modules/uid.js"
   },
   {
-    "from": "vendor/modules/37697874.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
     "from": "vendor/modules/4155766d.js",
     "to": "vendor/modules/362f3173.js"
   },
@@ -2141,10 +2137,6 @@
   },
   {
     "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/37697874.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
     "to": "vendor/modules/75636958.js"
   },
   {
@@ -2174,6 +2166,10 @@
   {
     "from": "vendor/modules/4f4c4553.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/4f4c4553.js",
+    "to": "vendor/modules/tooltipPlacements.js"
   },
   {
     "from": "vendor/modules/5046577a.js",
@@ -2218,22 +2214,6 @@
   {
     "from": "vendor/modules/505a4459.js",
     "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
-    "from": "vendor/modules/51432b4d.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/51432b4d.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/51432b4d.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/51432b4d.js",
-    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/554e7276.js",
@@ -2421,10 +2401,6 @@
   },
   {
     "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/6f486950.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
     "to": "vendor/modules/cssAnimationEvents.js"
   },
   {
@@ -2436,12 +2412,8 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/6f486950.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/6f486950.js",
-    "to": "vendor/modules/animationFrameRuntime.js"
+    "from": "vendor/modules/67306d53.js",
+    "to": "vendor/modules/requestAnimationFrame.js"
   },
   {
     "from": "vendor/modules/73456643.js",
@@ -2469,7 +2441,7 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/51432b4d.js"
+    "to": "vendor/modules/Portal.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -2664,6 +2636,22 @@
     "to": "vendor/modules/objectAssignCompat.js"
   },
   {
+    "from": "vendor/modules/Portal.js",
+    "to": "app/moduleInterop.js"
+  },
+  {
+    "from": "vendor/modules/Portal.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/Portal.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/Portal.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/TableColumnGroup.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -2805,10 +2793,6 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/6f486950.js"
-  },
-  {
-    "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/antdTooltip.js"
   },
   {
@@ -2838,6 +2822,10 @@
   {
     "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/requestAnimationFrame.js"
   },
   {
     "from": "vendor/modules/antdRadio.js",
@@ -3025,10 +3013,6 @@
   },
   {
     "from": "vendor/modules/antdTooltip.js",
-    "to": "vendor/modules/37697874.js"
-  },
-  {
-    "from": "vendor/modules/antdTooltip.js",
     "to": "vendor/modules/48383455.js"
   },
   {
@@ -3046,6 +3030,10 @@
   {
     "from": "vendor/modules/antdTooltip.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdTooltip.js",
+    "to": "vendor/modules/tooltipPlacements.js"
   },
   {
     "from": "vendor/modules/antdWarning.js",
@@ -4718,6 +4706,14 @@
   {
     "from": "vendor/modules/reactReduxRuntime.js",
     "to": "vendor/modules/reduxStore.js"
+  },
+  {
+    "from": "vendor/modules/requestAnimationFrame.js",
+    "to": "app/moduleInterop.js"
+  },
+  {
+    "from": "vendor/modules/requestAnimationFrame.js",
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/rootObject.js",

@@ -18,7 +18,7 @@ var r = require("./objectAssignHelper.js"),
   m = require("./propTypesRuntime.js"),
   v = interopDefault(m),
   y = require("./75636958.js"),
-  g = require("./37697874.js"),
+  g = require("./tooltipPlacements.js"),
   b = function (e) {
     function t() {
       return c()(this, t), l()(this, e.apply(this, arguments));

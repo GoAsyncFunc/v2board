@@ -10,7 +10,7 @@ var n,
   r = require("./reactRuntime.js"),
   o = require("./reactDomRuntime.js"),
   l = require("./cssAnimationEvents.js"),
-  a = require("./6f486950.js"),
+  a = require("./requestAnimationFrame.js"),
   i = require("./48383455.js");
 function u(e) {
   "@babel/helpers - typeof";

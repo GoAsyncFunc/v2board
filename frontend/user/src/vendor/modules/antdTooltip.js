@@ -8,7 +8,7 @@ var n = require("./reactRuntime.js"),
   o = require("./4f4c4553.js"),
   l = require("./classNames.js"),
   a = interopDefault(l),
-  i = require("./37697874.js");
+  i = require("./tooltipPlacements.js");
 function u() {
   return u = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
