@@ -1,27 +1,27 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./extend.js"),
-  i = require("./61474a44.js"),
-  o = require("./58556569.js"),
+  o = require("./messageFormatObjectUtils.js"),
+  i = require("./messageFormatCompiler.js"),
   a = require("./messageFormatParser.js");
 function s(e, t, n) {
   var r = "string" === typeof e ? s.__parse(e) : e;
   if (!r || "messageFormatPattern" !== r.type) throw new TypeError("A message must be provided as a String or AST.");
-  n = this._mergeFormats(s.formats, n), i.defineProperty(this, "_locale", {
+  n = this._mergeFormats(s.formats, n), o.defineProperty(this, "_locale", {
     value: this._resolveLocale(t)
   });
-  var o = this._findPluralRuleFunction(this._locale),
-    a = this._compilePattern(r, t, n, o),
-    l = this;
+  var i = this._findPluralRuleFunction(this._locale),
+    a = this._compilePattern(r, t, n, i),
+    c = this;
   this.format = function (t) {
     try {
-      return l._format(a, t);
+      return c._format(a, t);
     } catch (t) {
       throw t.variableId ? new Error("The intl string context variable '" + t.variableId + "' was not provided to the string '" + e + "'") : t;
     }
   };
 }
-legacyExports["default"] = s, i.defineProperty(s, "formats", {
+legacyExports["default"] = s, o.defineProperty(s, "formats", {
   enumerable: !0,
   value: {
     number: {
@@ -79,16 +79,16 @@ legacyExports["default"] = s, i.defineProperty(s, "formats", {
       }
     }
   }
-}), i.defineProperty(s, "__localeData__", {
-  value: i.objCreate(null)
-}), i.defineProperty(s, "__addLocaleData", {
+}), o.defineProperty(s, "__localeData__", {
+  value: o.objCreate(null)
+}), o.defineProperty(s, "__addLocaleData", {
   value: function (e) {
     if (!e || !e.locale) throw new Error("Locale data provided to IntlMessageFormat is missing a `locale` property");
     s.__localeData__[e.locale.toLowerCase()] = e;
   }
-}), i.defineProperty(s, "__parse", {
+}), o.defineProperty(s, "__parse", {
   value: a["default"].parse
-}), i.defineProperty(s, "defaultLocale", {
+}), o.defineProperty(s, "defaultLocale", {
   enumerable: !0,
   writable: !0,
   value: void 0
@@ -97,8 +97,8 @@ legacyExports["default"] = s, i.defineProperty(s, "formats", {
     locale: this._locale
   };
 }, s.prototype._compilePattern = function (e, t, n, r) {
-  var i = new o["default"](t, n, r);
-  return i.compile(e);
+  var o = new i["default"](t, n, r);
+  return o.compile(e);
 }, s.prototype._findPluralRuleFunction = function (e) {
   var t = s.__localeData__,
     n = t[e.toLowerCase()];
@@ -109,34 +109,34 @@ legacyExports["default"] = s, i.defineProperty(s, "formats", {
   throw new Error("Locale data added to IntlMessageFormat is missing a `pluralRuleFunction` for :" + e);
 }, s.prototype._format = function (e, t) {
   var n,
-    i,
     o,
+    i,
     a,
     s,
-    l,
-    c = "";
-  for (n = 0, i = e.length; n < i; n += 1) if (o = e[n], "string" !== typeof o) {
-    if (a = o.id, !t || !r.hop.call(t, a)) throw l = new Error("A value must be provided for: " + a), l.variableId = a, l;
-    s = t[a], o.options ? c += this._format(o.getOption(s), t) : c += o.format(s);
-  } else c += o;
-  return c;
+    c,
+    u = "";
+  for (n = 0, o = e.length; n < o; n += 1) if (i = e[n], "string" !== typeof i) {
+    if (a = i.id, !t || !r.hop.call(t, a)) throw c = new Error("A value must be provided for: " + a), c.variableId = a, c;
+    s = t[a], i.options ? u += this._format(i.getOption(s), t) : u += i.format(s);
+  } else u += i;
+  return u;
 }, s.prototype._mergeFormats = function (e, t) {
   var n,
-    o,
+    i,
     a = {};
-  for (n in e) r.hop.call(e, n) && (a[n] = o = i.objCreate(e[n]), t && r.hop.call(t, n) && r.extend(o, t[n]));
+  for (n in e) r.hop.call(e, n) && (a[n] = i = o.objCreate(e[n]), t && r.hop.call(t, n) && r.extend(i, t[n]));
   return a;
 }, s.prototype._resolveLocale = function (e) {
   "string" === typeof e && (e = [e]), e = (e || []).concat(s.defaultLocale);
   var t,
     n,
     r,
-    i,
-    o = s.__localeData__;
+    o,
+    i = s.__localeData__;
   for (t = 0, n = e.length; t < n; t += 1) {
     r = e[t].toLowerCase().split("-");
     while (r.length) {
-      if (i = o[r.join("-")], i) return i.locale;
+      if (o = i[r.join("-")], o) return o.locale;
       r.pop();
     }
   }
