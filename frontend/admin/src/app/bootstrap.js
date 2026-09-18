@@ -6,8 +6,8 @@ const {
     defineExport,
 } = require("./moduleInterop.js");
 markEsModule(legacyExports);
-(require("../vendor/modules/592f6674.js"),
-    require("../vendor/modules/71496771.js"));
+(require("../vendor/modules/objectWithoutPropertiesLoose.js"),
+    require("../vendor/modules/iterableToArray.js"));
 var r = require("../vendor/modules/70307045.js"),
     i = interopDefault(r),
     o = require("../vendor/modules/316c2f56.js"),

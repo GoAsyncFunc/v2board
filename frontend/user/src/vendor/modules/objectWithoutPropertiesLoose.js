@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./774d7069.js");
+var r = require("./objectWithoutProperties.js");
 function o(e, t) {
   if (null == e) return {};
   var n,

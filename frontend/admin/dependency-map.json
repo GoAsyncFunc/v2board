@@ -3401,11 +3401,11 @@
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/592f6674.js"
+    "to": "vendor/modules/objectWithoutPropertiesLoose.js"
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/71496771.js"
+    "to": "vendor/modules/iterableToArray.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -5272,8 +5272,8 @@
     "to": "vendor/modules/4f4a7541.js"
   },
   {
-    "from": "vendor/modules/592f6674.js",
-    "to": "vendor/modules/774d7069.js"
+    "from": "vendor/modules/objectWithoutPropertiesLoose.js",
+    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/592f6e65.js",
@@ -7904,16 +7904,16 @@
     "to": "vendor/modules/57474e57.js"
   },
   {
-    "from": "vendor/modules/71496771.js",
-    "to": "vendor/modules/577a3248.js"
+    "from": "vendor/modules/iterableToArray.js",
+    "to": "vendor/modules/arrayWithHoles.js"
   },
   {
-    "from": "vendor/modules/71496771.js",
-    "to": "vendor/modules/49755354.js"
+    "from": "vendor/modules/iterableToArray.js",
+    "to": "vendor/modules/iterableToArrayLimit.js"
   },
   {
-    "from": "vendor/modules/71496771.js",
-    "to": "vendor/modules/3139384b.js"
+    "from": "vendor/modules/iterableToArray.js",
+    "to": "vendor/modules/nonIterableRest.js"
   },
   {
     "from": "vendor/modules/71664857.js",
