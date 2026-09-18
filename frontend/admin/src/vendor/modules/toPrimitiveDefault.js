@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./63446635.js")["default"];
+var r = require("./typeofHelper.js")["default"];
 function i(e, t) {
   if ("object" !== r(e) || null === e) return e;
   var n = e[Symbol.toPrimitive];

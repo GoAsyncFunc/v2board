@@ -8,7 +8,7 @@ const {
 markEsModule(legacyExports);
 var n = require("./objectAssignHelper.js"),
   r = interopDefault(n),
-  o = require("./504a595a.js"),
+  o = require("./assertThisInitialized.js"),
   a = interopDefault(o),
   l = require("./inherits.js"),
   i = interopDefault(l),

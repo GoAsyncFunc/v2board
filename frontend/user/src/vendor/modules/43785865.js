@@ -35,13 +35,13 @@ defineExport(legacyExports, "a", function () {
 }), defineExport(legacyExports, "o", function () {
   return I;
 });
-var r = require("./6f685056.js"),
+var r = require("./inheritsLoose.js"),
   i = require("./reactRuntime.js"),
   a = interopDefault(i),
   o = require("./historyRuntime.js"),
   u = require("./74456951.js"),
   l = require("./39523934.js"),
-  s = require("./45567149.js"),
+  s = require("./extendsHelper.js"),
   c = require("./62414c77.js"),
   f = interopDefault(c),
   d = (require("./reactIsLegacyEntry.js"), require("./objectWithoutPropertiesExport.js")),

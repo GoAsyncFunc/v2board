@@ -3,7 +3,7 @@ let legacyModule = module,
 const {
   defineExport
 } = require("../../app/moduleInterop.js");
-var r = require("./55387055.js");
+var r = require("./typeofNamedExport.js");
 function i(e, t) {
   if ("object" !== Object(r["a"])(e) || null === e) return e;
   var n = e[Symbol.toPrimitive];

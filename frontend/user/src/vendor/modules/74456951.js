@@ -6,7 +6,7 @@ const {
 (function (e) {
   var r = require("./reactRuntime.js"),
     o = interopDefault(r),
-    i = require("./64493731.js"),
+    i = require("./inheritsNamedExport.js"),
     a = require("./propTypesRuntime.js"),
     s = interopDefault(a),
     c = 1073741823,

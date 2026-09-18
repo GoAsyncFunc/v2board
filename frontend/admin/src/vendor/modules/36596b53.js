@@ -46,11 +46,11 @@ defineExport(legacyExports, "MemoryRouter", function () {
 }), defineExport(legacyExports, "withRouter", function () {
   return r["o"];
 });
-var i = require("./6f685056.js"),
+var i = require("./inheritsLoose.js"),
   o = require("./reactRuntime.js"),
   a = interopDefault(o),
   s = require("./historyRuntime.js"),
-  l = require("./45567149.js"),
+  l = require("./extendsHelper.js"),
   u = require("./objectWithoutPropertiesExport.js"),
   c = require("./39523934.js"),
   f = function (e) {

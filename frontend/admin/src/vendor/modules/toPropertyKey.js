@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./63446635.js")["default"],
+var r = require("./typeofHelper.js")["default"],
   i = require("./toPrimitiveDefault.js");
 function o(e) {
   var t = i(e, "string");
