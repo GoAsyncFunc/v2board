@@ -3820,7 +3820,7 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/59663655.js",
+    "from": "vendor/modules/closest.js",
     "to": "vendor/modules/57354376.js"
   },
   {
@@ -3908,11 +3908,11 @@
     "to": "vendor/modules/extend.js"
   },
   {
-    "from": "vendor/modules/61534531.js",
+    "from": "vendor/modules/definePropertyIfMissing.js",
     "to": "vendor/modules/definePropertyHelper.js"
   },
   {
-    "from": "vendor/modules/61534531.js",
+    "from": "vendor/modules/definePropertyIfMissing.js",
     "to": "vendor/modules/createPropertyDescriptor.js"
   },
   {
@@ -8325,7 +8325,7 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/59663655.js"
+    "to": "vendor/modules/closest.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
