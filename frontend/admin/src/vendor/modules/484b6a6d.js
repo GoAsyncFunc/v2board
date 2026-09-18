@@ -3,7 +3,7 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var r = require("./32554434.js"),
+var r = require("./intlMessageFormatEn.js"),
   i = require("./relativeTimeDifference.js"),
   o = require("./6f624455.js");
 legacyExports.default = l;

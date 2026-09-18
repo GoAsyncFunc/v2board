@@ -608,11 +608,11 @@
     "to": "vendor/modules/bufferPolyfill.js"
   },
   {
-    "from": "vendor/modules/32554434.js",
+    "from": "vendor/modules/intlMessageFormatEn.js",
     "to": "vendor/modules/intlLocaleEnRuntime.js"
   },
   {
-    "from": "vendor/modules/32554434.js",
+    "from": "vendor/modules/intlMessageFormatEn.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -1132,11 +1132,11 @@
     "to": "vendor/modules/7677754c.js"
   },
   {
-    "from": "vendor/modules/37496e62.js",
+    "from": "vendor/modules/intlRelativeFormatEn.js",
     "to": "vendor/modules/5736526b.js"
   },
   {
-    "from": "vendor/modules/37496e62.js",
+    "from": "vendor/modules/intlRelativeFormatEn.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -1973,7 +1973,7 @@
   },
   {
     "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/32554434.js"
+    "to": "vendor/modules/intlMessageFormatEn.js"
   },
   {
     "from": "vendor/modules/484b6a6d.js",
@@ -2105,11 +2105,11 @@
   },
   {
     "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/32554434.js"
+    "to": "vendor/modules/intlMessageFormatEn.js"
   },
   {
     "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/37496e62.js"
+    "to": "vendor/modules/intlRelativeFormatEn.js"
   },
   {
     "from": "vendor/modules/4a525065.js",

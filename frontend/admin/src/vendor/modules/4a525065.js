@@ -8,9 +8,9 @@ const {
 markEsModule(legacyExports);
 var r = require("./emptyModule.js"),
   i = interopDefault(r),
-  o = require("./32554434.js"),
+  o = require("./intlMessageFormatEn.js"),
   a = interopDefault(o),
-  s = require("./37496e62.js"),
+  s = require("./intlRelativeFormatEn.js"),
   l = interopDefault(s),
   c = require("./propTypesRuntime.js"),
   u = interopDefault(c),
