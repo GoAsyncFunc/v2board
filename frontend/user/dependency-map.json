@@ -1361,7 +1361,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Profile.jsx",
@@ -1509,7 +1509,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1569,7 +1569,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2545,7 +2545,7 @@
   },
   {
     "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Traffic.jsx",
@@ -2597,7 +2597,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -2725,7 +2725,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -2865,7 +2865,7 @@
   },
   {
     "from": "pages/Node.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Node.jsx",
@@ -2989,7 +2989,7 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -4189,7 +4189,7 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Invite.jsx",
@@ -4457,7 +4457,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -4993,7 +4993,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/6a65685a.js"
+    "to": "vendor/modules/objectAssignFallback.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -6165,7 +6165,7 @@
   },
   {
     "from": "vendor/modules/2b69464f.js",
-    "to": "vendor/modules/3673565a.js"
+    "to": "vendor/modules/isPrototype.js"
   },
   {
     "from": "vendor/modules/isSymbol.js",
@@ -6493,7 +6493,7 @@
   },
   {
     "from": "vendor/modules/51634f65.js",
-    "to": "vendor/modules/3673565a.js"
+    "to": "vendor/modules/isPrototype.js"
   },
   {
     "from": "vendor/modules/51634f65.js",
@@ -6529,7 +6529,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/51316c34.js"
+    "to": "vendor/modules/copyArray.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -6649,7 +6649,7 @@
   },
   {
     "from": "vendor/modules/62383054.js",
-    "to": "vendor/modules/774a6737.js"
+    "to": "vendor/modules/isIndexWithinLength.js"
   },
   {
     "from": "vendor/modules/62383054.js",
@@ -6845,7 +6845,7 @@
   },
   {
     "from": "vendor/modules/6d762f58.js",
-    "to": "vendor/modules/774a6737.js"
+    "to": "vendor/modules/isIndexWithinLength.js"
   },
   {
     "from": "vendor/modules/6d762f58.js",
@@ -6957,7 +6957,7 @@
   },
   {
     "from": "vendor/modules/7a6f5965.js",
-    "to": "vendor/modules/65556768.js"
+    "to": "vendor/modules/arrayMap.js"
   },
   {
     "from": "vendor/modules/7a6f5965.js",

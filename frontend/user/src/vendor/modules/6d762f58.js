@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./sameValueZero.js"),
   i = require("./isArrayLike.js"),
-  a = require("./774a6737.js"),
+  a = require("./isIndexWithinLength.js"),
   o = require("./isObjectValue.js");
 function u(e, t, n) {
   if (!o(n)) return !1;

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./isObjectValue.js"),
-  i = require("./3673565a.js"),
+  i = require("./isPrototype.js"),
   o = require("./keysIn.js"),
   a = Object.prototype,
   s = a.hasOwnProperty;
