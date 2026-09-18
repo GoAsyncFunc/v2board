@@ -1,13 +1,13 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (e) {
-  var r = require("./rootObject.js"),
-    i = require("./falseValue.js"),
-    a = legacyExports && !legacyExports.nodeType && legacyExports,
-    o = a && "object" == typeof e && e && !e.nodeType && e,
-    u = o && o.exports === a,
-    l = u ? r.Buffer : void 0,
-    s = l ? l.isBuffer : void 0,
-    c = s || i;
-  e.exports = c;
+  var rootObject = require("./rootObject.js"),
+    falseValue = require("./falseValue.js"),
+    exportsObject = legacyExports && !legacyExports.nodeType && legacyExports,
+    moduleObject = exportsObject && "object" == typeof e && e && !e.nodeType && e,
+    hasCommonJsExports = moduleObject && moduleObject.exports === exportsObject,
+    bufferConstructor = hasCommonJsExports ? rootObject.Buffer : void 0,
+    bufferIsBuffer = bufferConstructor ? bufferConstructor.isBuffer : void 0,
+    isBuffer = bufferIsBuffer || falseValue;
+  e.exports = isBuffer;
 }).call(this, require("./59755469.js")(legacyModule));
