@@ -284,7 +284,7 @@
     "to": "vendor/modules/4449634f.js"
   },
   {
-    "from": "vendor/modules/31.js",
+    "from": "vendor/modules/bootstrapEntry.js",
     "to": "app/bootstrap.js"
   },
   {
