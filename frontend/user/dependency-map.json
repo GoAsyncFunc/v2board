@@ -2861,10 +2861,6 @@
   },
   {
     "from": "vendor/modules/antdButton.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/antdButton.js",
     "to": "vendor/Icon.js"
   },
   {
