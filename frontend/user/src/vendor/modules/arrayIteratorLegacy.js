@@ -1,14 +1,14 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./noop.js"),
-  o = require("./iteratorResult.js"),
-  i = require("./emptyExports.js"),
-  a = require("./toArray.js");
-legacyModule.exports = require("./4d504670.js")(Array, "Array", function (e, t) {
-  this._t = a(e), this._i = 0, this._k = t;
+var addToUnscopables = require("./noop.js"),
+  createIteratorResult = require("./iteratorResult.js"),
+  emptyExports = require("./emptyExports.js"),
+  toArray = require("./toArray.js");
+legacyModule.exports = require("./4d504670.js")(Array, "Array", function (iterable, kind) {
+  this._t = toArray(iterable), this._i = 0, this._k = kind;
 }, function () {
-  var e = this._t,
-    t = this._k,
-    n = this._i++;
-  return !e || n >= e.length ? (this._t = void 0, o(1)) : o(0, "keys" == t ? n : "values" == t ? e[n] : [n, e[n]]);
-}, "values"), i.Arguments = i.Array, r("keys"), r("values"), r("entries");
+  var target = this._t,
+    kind = this._k,
+    index = this._i++;
+  return !target || index >= target.length ? (this._t = void 0, createIteratorResult(1)) : createIteratorResult(0, "keys" == kind ? index : "values" == kind ? target[index] : [index, target[index]]);
+}, "values"), emptyExports.Arguments = emptyExports.Array, addToUnscopables("keys"), addToUnscopables("values"), addToUnscopables("entries");

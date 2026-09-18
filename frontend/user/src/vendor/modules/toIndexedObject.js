@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./39574656.js"),
-  o = require("./requireObjectCoercible.js");
-legacyModule.exports = function (e) {
-  return r(o(e));
+var indexedObject = require("./39574656.js"),
+  requireObjectCoercible = require("./requireObjectCoercible.js");
+legacyModule.exports = function toIndexedObject(value) {
+  return indexedObject(requireObjectCoercible(value));
 };

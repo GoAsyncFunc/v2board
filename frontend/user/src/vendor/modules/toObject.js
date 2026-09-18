@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./requireObject.js");
-legacyModule.exports = function (e) {
-  return Object(r(e));
+var requireObject = require("./requireObject.js");
+legacyModule.exports = function toObject(value) {
+  return Object(requireObject(value));
 };

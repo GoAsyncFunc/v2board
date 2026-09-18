@@ -1,11 +1,11 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isObject.js");
-legacyModule.exports = function (e, t) {
-  if (!r(e)) return e;
-  var n, o;
-  if (t && "function" == typeof (n = e.toString) && !r(o = n.call(e))) return o;
-  if ("function" == typeof (n = e.valueOf) && !r(o = n.call(e))) return o;
-  if (!t && "function" == typeof (n = e.toString) && !r(o = n.call(e))) return o;
+var isObject = require("./isObject.js");
+legacyModule.exports = function toPrimitive(value, preferString) {
+  if (!isObject(value)) return value;
+  var method, result;
+  if (preferString && "function" == typeof (method = value.toString) && !isObject(result = method.call(value))) return result;
+  if ("function" == typeof (method = value.valueOf) && !isObject(result = method.call(value))) return result;
+  if (!preferString && "function" == typeof (method = value.toString) && !isObject(result = method.call(value))) return result;
   throw TypeError("Can't convert object to primitive value");
 };

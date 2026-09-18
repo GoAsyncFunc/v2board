@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./sharedStore.js")("wks"),
-  o = require("./uid.js"),
-  i = require("./globalObject.js").Symbol,
-  a = "function" == typeof i,
-  s = legacyModule.exports = function (e) {
-    return r[e] || (r[e] = a && i[e] || (a ? i : o)("Symbol." + e));
+var sharedSymbols = require("./sharedStore.js")("wks"),
+  uid = require("./uid.js"),
+  SymbolConstructor = require("./globalObject.js").Symbol,
+  hasNativeSymbol = "function" == typeof SymbolConstructor,
+  wellKnownSymbol = legacyModule.exports = function (name) {
+    return sharedSymbols[name] || (sharedSymbols[name] = hasNativeSymbol && SymbolConstructor[name] || (hasNativeSymbol ? SymbolConstructor : uid)("Symbol." + name));
   };
-s.store = r;
+wellKnownSymbol.store = sharedSymbols;
