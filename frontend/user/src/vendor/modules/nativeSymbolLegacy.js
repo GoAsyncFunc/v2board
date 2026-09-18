@@ -1,5 +1,5 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./75674f69.js"),
+var r = require("./rootObject.js"),
   i = r.Symbol;
 legacyModule.exports = i;

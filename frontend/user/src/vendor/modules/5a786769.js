@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./35543259.js"),
+var r = require("./globalObject.js"),
   o = require("./coreJsNamespace.js"),
   i = require("./trueValue.js"),
   a = require("./wellKnownSymbolFactory.js"),

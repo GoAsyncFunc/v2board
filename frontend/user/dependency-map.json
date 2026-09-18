@@ -101,7 +101,7 @@
   },
   {
     "from": "vendor/modules/2f4d6664.js",
-    "to": "vendor/modules/57464a79.js"
+    "to": "vendor/modules/objectKeysIn.js"
   },
   {
     "from": "vendor/modules/2f4d6664.js",
@@ -357,7 +357,7 @@
   },
   {
     "from": "vendor/modules/3239732f.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/3239732f.js",
@@ -637,7 +637,7 @@
   },
   {
     "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/59714163.js"
+    "to": "vendor/modules/uid.js"
   },
   {
     "from": "vendor/modules/362f3173.js",
@@ -893,7 +893,7 @@
   },
   {
     "from": "vendor/modules/39484668.js",
-    "to": "vendor/modules/57464a79.js"
+    "to": "vendor/modules/objectKeysIn.js"
   },
   {
     "from": "vendor/modules/39574656.js",
@@ -949,7 +949,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -985,7 +985,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/59714163.js"
+    "to": "vendor/modules/uid.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1673,7 +1673,7 @@
   },
   {
     "from": "vendor/modules/48736e73.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/objectKeys.js",
@@ -1681,7 +1681,7 @@
   },
   {
     "from": "vendor/modules/objectKeys.js",
-    "to": "vendor/modules/57464a79.js"
+    "to": "vendor/modules/objectKeysIn.js"
   },
   {
     "from": "vendor/modules/49713135.js",
@@ -2161,7 +2161,7 @@
   },
   {
     "from": "vendor/modules/documentElementLegacy.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/definePropertyRuntime.js",
@@ -2673,11 +2673,11 @@
   },
   {
     "from": "vendor/modules/55576958.js",
-    "to": "vendor/modules/59714163.js"
+    "to": "vendor/modules/uid.js"
   },
   {
     "from": "vendor/modules/55576958.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/555a762f.js",
@@ -2821,7 +2821,7 @@
   },
   {
     "from": "vendor/modules/56566c78.js",
-    "to": "vendor/modules/59714163.js"
+    "to": "vendor/modules/uid.js"
   },
   {
     "from": "vendor/modules/56657959.js",
@@ -3125,7 +3125,7 @@
   },
   {
     "from": "vendor/modules/59375a43.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/59375a43.js",
@@ -3193,7 +3193,7 @@
   },
   {
     "from": "vendor/modules/5a786769.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/5a786769.js",
@@ -3313,7 +3313,7 @@
   },
   {
     "from": "vendor/modules/62427939.js",
-    "to": "vendor/modules/35543259.js"
+    "to": "vendor/modules/globalObject.js"
   },
   {
     "from": "vendor/modules/62427939.js",
@@ -6693,7 +6693,7 @@
   },
   {
     "from": "vendor/modules/nativeSymbolLegacy.js",
-    "to": "vendor/modules/75674f69.js"
+    "to": "vendor/modules/rootObject.js"
   },
   {
     "from": "vendor/modules/65344e63.js",
@@ -6932,7 +6932,7 @@
     "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
-    "from": "vendor/modules/75674f69.js",
+    "from": "vendor/modules/rootObject.js",
     "to": "vendor/modules/globalObjectFromLegacy.js"
   },
   {
