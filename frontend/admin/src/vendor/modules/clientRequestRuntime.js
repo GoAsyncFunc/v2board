@@ -3,7 +3,7 @@ let legacyModule = module,
 (function (t, r, i) {
   var o = require("./71664857.js"),
     a = require("./nodeInheritsOptional.js"),
-    s = require("./79517457.js"),
+    s = require("./incomingMessageRuntime.js"),
     l = require("./streamRuntime.js"),
     c = require("./bufferToArrayBuffer.js"),
     u = s.IncomingMessage,

@@ -1580,7 +1580,7 @@ function Xt() {
   return t;
 }
 At.__ANT_TABLE_COLUMN_GROUP = !0;
-var Zt = require("./78456b55.js"),
+var Zt = require("./animationFrameRuntime.js"),
   Jt = interopDefault(Zt);
 function $t(e, t) {
   if ("undefined" === typeof window) return 0;

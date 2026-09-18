@@ -329,7 +329,7 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -2037,7 +2037,7 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -3332,7 +3332,7 @@
     "to": "vendor/modules/75745230.js"
   },
   {
-    "from": "vendor/modules/6251674b.js",
+    "from": "vendor/modules/performanceNowRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
@@ -4864,11 +4864,11 @@
     "to": "vendor/modules/reactDomRuntime.js"
   },
   {
-    "from": "vendor/modules/78456b55.js",
-    "to": "vendor/modules/6251674b.js"
+    "from": "vendor/modules/animationFrameRuntime.js",
+    "to": "vendor/modules/performanceNowRuntime.js"
   },
   {
-    "from": "vendor/modules/78456b55.js",
+    "from": "vendor/modules/animationFrameRuntime.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -5953,7 +5953,7 @@
   },
   {
     "from": "vendor/modules/6f486950.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/emptyModule.js",
@@ -6053,7 +6053,7 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/antdTable.js",

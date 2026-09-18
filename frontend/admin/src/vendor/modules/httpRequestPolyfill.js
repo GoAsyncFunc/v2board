@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (e) {
-  var r = require("./6b6c3541.js"),
-    i = require("./79517457.js"),
+  var r = require("./clientRequestRuntime.js"),
+    i = require("./incomingMessageRuntime.js"),
     o = require("./55366a79.js"),
     a = require("./6a415748.js"),
     s = require("./urlRuntime.js"),

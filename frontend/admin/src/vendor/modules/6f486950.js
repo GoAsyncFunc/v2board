@@ -7,7 +7,7 @@ const {
 defineExport(legacyExports, "a", function () {
   return l;
 });
-var n = require("./78456b55.js"),
+var n = require("./animationFrameRuntime.js"),
   r = interopDefault(n),
   o = 0,
   a = {};

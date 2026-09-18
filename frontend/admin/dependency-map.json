@@ -509,7 +509,7 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -2585,7 +2585,7 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -4048,7 +4048,7 @@
     "to": "vendor/modules/55576958.js"
   },
   {
-    "from": "vendor/modules/6251674b.js",
+    "from": "vendor/modules/performanceNowRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
@@ -5205,7 +5205,7 @@
   },
   {
     "from": "vendor/modules/6b33474a.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/6b33474a.js",
@@ -5236,35 +5236,35 @@
     "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/71664857.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
-    "to": "vendor/modules/79517457.js"
+    "from": "vendor/modules/clientRequestRuntime.js",
+    "to": "vendor/modules/incomingMessageRuntime.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/streamRuntime.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/bufferToArrayBuffer.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/746a6c41.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/6b6c3541.js",
+    "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
@@ -6581,7 +6581,7 @@
   },
   {
     "from": "vendor/modules/7767702b.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/776c5064.js",
@@ -6724,11 +6724,11 @@
     "to": "vendor/modules/6e506e68.js"
   },
   {
-    "from": "vendor/modules/78456b55.js",
-    "to": "vendor/modules/6251674b.js"
+    "from": "vendor/modules/animationFrameRuntime.js",
+    "to": "vendor/modules/performanceNowRuntime.js"
   },
   {
-    "from": "vendor/modules/78456b55.js",
+    "from": "vendor/modules/animationFrameRuntime.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -6992,27 +6992,27 @@
     "to": "vendor/modules/setToStringTag.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/71664857.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/streamRuntime.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/746a6c41.js"
   },
   {
-    "from": "vendor/modules/79517457.js",
+    "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -8217,7 +8217,7 @@
   },
   {
     "from": "vendor/modules/6f486950.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/emptyModule.js",
@@ -8345,7 +8345,7 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/78456b55.js"
+    "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
     "from": "vendor/modules/antdTable.js",

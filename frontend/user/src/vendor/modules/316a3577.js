@@ -206,7 +206,7 @@ var U = ["defaultSelectedKeys", "selectedKeys", "defaultOpenKeys", "openKeys", "
 function pe(e) {
   return e instanceof HTMLElement ? e : K.a.findDOMNode(e);
 }
-var de = require("./78456b55.js"),
+var de = require("./animationFrameRuntime.js"),
   he = interopDefault(de),
   me = !("undefined" === typeof window || !window.document || !window.document.createElement);
 function ve(e, t) {

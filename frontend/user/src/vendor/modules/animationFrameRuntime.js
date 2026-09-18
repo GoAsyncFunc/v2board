@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (t) {
-  for (var r = require("./6251674b.js"), o = "undefined" === typeof window ? t : window, i = ["moz", "webkit"], a = "AnimationFrame", s = o["request" + a], c = o["cancel" + a] || o["cancelRequest" + a], u = 0; !s && u < i.length; u++) s = o[i[u] + "Request" + a], c = o[i[u] + "Cancel" + a] || o[i[u] + "CancelRequest" + a];
+  for (var r = require("./performanceNowRuntime.js"), o = "undefined" === typeof window ? t : window, i = ["moz", "webkit"], a = "AnimationFrame", s = o["request" + a], c = o["cancel" + a] || o["cancelRequest" + a], u = 0; !s && u < i.length; u++) s = o[i[u] + "Request" + a], c = o[i[u] + "Cancel" + a] || o[i[u] + "CancelRequest" + a];
   if (!s || !c) {
     var l = 0,
       f = 0,

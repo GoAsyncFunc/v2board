@@ -207,7 +207,7 @@ w(x, "propTypes", {
 var _ = x,
   E = require("./reactDomRuntime.js"),
   S = interopDefault(E),
-  k = require("./78456b55.js"),
+  k = require("./animationFrameRuntime.js"),
   C = interopDefault(k);
 function O(e, t) {
   if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
