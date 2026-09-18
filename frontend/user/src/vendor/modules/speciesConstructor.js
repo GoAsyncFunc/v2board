@@ -1,6 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./arraySpeciesConstructor.js");
-legacyModule.exports = function (e, t) {
-  return new (r(e))(t);
+var assertObject = require("./assertObject.js"),
+  requireCallable = require("./requireCallable.js"),
+  speciesSymbol = require("./wellKnownSymbol.js")("species");
+legacyModule.exports = function speciesConstructor(object, defaultConstructor) {
+  var species,
+    constructor = assertObject(object).constructor;
+  return void 0 === constructor || void 0 == (species = assertObject(constructor)[speciesSymbol]) ? defaultConstructor : requireCallable(species);
 };

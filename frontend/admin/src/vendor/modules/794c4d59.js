@@ -13,7 +13,7 @@ var r = require("./globalObject.js"),
   d = require("./validateTypedArrayLength.js"),
   p = require("./39484668.js").f,
   m = require("./definePropertyHelper.js").f,
-  g = require("./37556b30.js"),
+  arrayFill = require("./arrayFill.js"),
   v = require("./setToStringTag.js"),
   y = "ArrayBuffer",
   b = "DataView",
@@ -136,7 +136,7 @@ if (a.ABV) {
 } else E = function (e) {
   u(this, E, y);
   var t = d(e);
-  this._b = g.call(new Array(t), 0), this[$] = t;
+  this._b = arrayFill.call(new Array(t), 0), this[$] = t;
 }, S = function (e, t, n) {
   u(this, S, b), u(e, E, b);
   var r = e[$],

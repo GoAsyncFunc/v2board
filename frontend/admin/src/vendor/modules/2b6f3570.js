@@ -4,7 +4,7 @@ var r = require("./bindContextLegacy.js"),
   i = require("./indexedObjectLegacy.js"),
   o = require("./toObjectLegacy.js"),
   a = require("./toLength.js"),
-  s = require("./speciesConstructor.js");
+  arraySpeciesCreate = require("./arraySpeciesCreate.js");
 legacyModule.exports = function (e, t) {
   var n = 1 == e,
     l = 2 == e,
@@ -12,7 +12,7 @@ legacyModule.exports = function (e, t) {
     u = 4 == e,
     h = 6 == e,
     f = 5 == e || h,
-    d = t || s;
+    d = t || arraySpeciesCreate;
   return function (t, s, p) {
     for (var m, g, v = o(t), y = i(v), b = r(s, p, 3), w = a(y.length), x = 0, _ = n ? d(t, w) : l ? d(t, 0) : void 0; w > x; x++) if ((f || x in y) && (m = y[x], g = b(m, x, v), e)) if (n) _[x] = g;else if (g) switch (e) {
       case 3:
