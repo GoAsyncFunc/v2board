@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
-  i = require("./56352f31.js"),
-  o = require("./385a2f56.js"),
-  a = require("./674c374e.js")("species");
+  i = require("./definePropertyHelper.js"),
+  o = require("./descriptorsLegacySupport.js"),
+  a = require("./wellKnownSymbol.js")("species");
 legacyModule.exports = function (e) {
   var t = r[e];
   o && t && !t[a] && i.f(t, a, {

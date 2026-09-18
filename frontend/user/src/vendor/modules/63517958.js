@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./674c374e.js")("iterator"),
+var r = require("./wellKnownSymbol.js")("iterator"),
   o = !1;
 try {
   var i = [7][r]();

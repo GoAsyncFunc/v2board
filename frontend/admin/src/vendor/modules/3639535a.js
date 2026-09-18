@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3776594a.js");
+var r = require("./assertObject.js");
 legacyModule.exports = function (e, t, n, i) {
   try {
     return i ? t(r(n)[0], n[1]) : t(n);

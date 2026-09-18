@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./32776532.js"),
-  o = require("./674c374e.js")("toStringTag"),
+  o = require("./wellKnownSymbol.js")("toStringTag"),
   i = "Arguments" == r(function () {
     return arguments;
   }()),

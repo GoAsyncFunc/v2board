@@ -77,7 +77,7 @@
   },
   {
     "from": "vendor/modules/2b793531.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/2b793531.js",
@@ -89,7 +89,7 @@
   },
   {
     "from": "vendor/modules/2f2f336e.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/2f2f336e.js",
@@ -117,7 +117,7 @@
   },
   {
     "from": "vendor/modules/2f4d6664.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/2f4d6664.js",
@@ -141,7 +141,7 @@
   },
   {
     "from": "vendor/modules/2f67596e.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/2f67596e.js",
@@ -173,7 +173,7 @@
   },
   {
     "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/2f6d5762.js",
@@ -197,7 +197,7 @@
   },
   {
     "from": "vendor/modules/2f735777.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/30336e69.js",
@@ -245,11 +245,11 @@
   },
   {
     "from": "vendor/modules/setRuntime.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/setRuntime.js",
-    "to": "vendor/modules/6e574d51.js"
+    "to": "vendor/modules/collectionStrong.js"
   },
   {
     "from": "vendor/modules/reactIsEntry.js",
@@ -373,7 +373,7 @@
   },
   {
     "from": "vendor/modules/31354243.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/propTypesFactory.js",
@@ -709,7 +709,7 @@
   },
   {
     "from": "vendor/modules/324f7332.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/324f7332.js",
@@ -733,7 +733,7 @@
   },
   {
     "from": "vendor/modules/324f7332.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/32546979.js",
@@ -748,28 +748,28 @@
     "to": "vendor/modules/35.js"
   },
   {
-    "from": "vendor/modules/32612f68.js",
+    "from": "vendor/modules/toStringTagType.js",
     "to": "vendor/modules/32776532.js"
   },
   {
-    "from": "vendor/modules/32612f68.js",
-    "to": "vendor/modules/674c374e.js"
+    "from": "vendor/modules/toStringTagType.js",
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/32666145.js",
+    "from": "vendor/modules/definePropertyLegacy.js",
     "to": "vendor/modules/354b375a.js"
   },
   {
-    "from": "vendor/modules/32666145.js",
+    "from": "vendor/modules/definePropertyLegacy.js",
     "to": "vendor/modules/65557446.js"
   },
   {
-    "from": "vendor/modules/32666145.js",
+    "from": "vendor/modules/definePropertyLegacy.js",
     "to": "vendor/modules/47384d6f.js"
   },
   {
-    "from": "vendor/modules/32666145.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "from": "vendor/modules/definePropertyLegacy.js",
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/32667736.js",
@@ -945,7 +945,7 @@
   },
   {
     "from": "vendor/modules/33466845.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/33474a48.js",
@@ -1141,19 +1141,19 @@
   },
   {
     "from": "vendor/modules/objectDefineProperties.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/objectDefineProperties.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/objectDefineProperties.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/objectDefineProperties.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/346d4e37.js",
@@ -1237,7 +1237,7 @@
   },
   {
     "from": "vendor/modules/346f3336.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/346f3336.js",
@@ -1357,7 +1357,7 @@
   },
   {
     "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/362f3173.js",
@@ -1365,7 +1365,7 @@
   },
   {
     "from": "vendor/modules/3639535a.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/36477258.js",
@@ -1489,15 +1489,15 @@
   },
   {
     "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/6e574d51.js"
+    "to": "vendor/modules/collectionStrong.js"
   },
   {
     "from": "vendor/modules/37556b30.js",
@@ -1521,7 +1521,7 @@
   },
   {
     "from": "vendor/modules/37744e78.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/37746c63.js",
@@ -1536,7 +1536,7 @@
     "to": "vendor/modules/51324967.js"
   },
   {
-    "from": "vendor/modules/3776594a.js",
+    "from": "vendor/modules/assertObject.js",
     "to": "vendor/modules/75382b75.js"
   },
   {
@@ -1581,10 +1581,10 @@
   },
   {
     "from": "vendor/modules/38483435.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/385a2f56.js",
+    "from": "vendor/modules/descriptorsLegacySupport.js",
     "to": "vendor/modules/77555779.js"
   },
   {
@@ -1785,7 +1785,7 @@
   },
   {
     "from": "vendor/modules/4137522b.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/4137522b.js",
@@ -1817,7 +1817,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1909,7 +1909,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -2001,15 +2001,15 @@
   },
   {
     "from": "vendor/modules/getIteratorMethod.js",
-    "to": "vendor/modules/32612f68.js"
+    "to": "vendor/modules/toStringTagType.js"
   },
   {
     "from": "vendor/modules/getIteratorMethod.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/getIteratorMethod.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/getIteratorMethod.js",
@@ -2041,11 +2041,11 @@
   },
   {
     "from": "vendor/modules/427a3773.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/427a3773.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/427a3773.js",
@@ -2061,7 +2061,7 @@
   },
   {
     "from": "vendor/modules/43664c33.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/43664c33.js",
@@ -2213,7 +2213,7 @@
   },
   {
     "from": "vendor/modules/43773475.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/43773475.js",
@@ -2249,7 +2249,7 @@
   },
   {
     "from": "vendor/modules/43773475.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/43773475.js",
@@ -2257,7 +2257,7 @@
   },
   {
     "from": "vendor/modules/43773475.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/43785930.js",
@@ -2277,7 +2277,7 @@
   },
   {
     "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/44427430.js",
@@ -2309,7 +2309,7 @@
   },
   {
     "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/4446416f.js",
@@ -2317,7 +2317,7 @@
   },
   {
     "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/4446416f.js",
@@ -2329,7 +2329,7 @@
   },
   {
     "from": "vendor/modules/4449634f.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/4449634f.js",
@@ -2581,7 +2581,7 @@
   },
   {
     "from": "vendor/modules/47374868.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/47374868.js",
@@ -2753,7 +2753,7 @@
   },
   {
     "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/32612f68.js"
+    "to": "vendor/modules/toStringTagType.js"
   },
   {
     "from": "vendor/modules/48585852.js",
@@ -2805,7 +2805,7 @@
   },
   {
     "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/48585852.js",
@@ -2876,16 +2876,16 @@
     "to": "vendor/modules/30385178.js"
   },
   {
-    "from": "vendor/modules/49676761.js",
+    "from": "vendor/modules/objectKeys.js",
     "to": "vendor/modules/784a6965.js"
   },
   {
-    "from": "vendor/modules/49676761.js",
+    "from": "vendor/modules/objectKeys.js",
     "to": "vendor/modules/57464a79.js"
   },
   {
     "from": "vendor/modules/4a35372f.js",
-    "to": "vendor/modules/56797551.js"
+    "to": "vendor/modules/sharedStore.js"
   },
   {
     "from": "vendor/modules/4a35372f.js",
@@ -3089,7 +3089,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3161,7 +3161,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/32612f68.js"
+    "to": "vendor/modules/toStringTagType.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3197,7 +3197,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3217,7 +3217,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3237,7 +3237,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3252,7 +3252,7 @@
     "to": "vendor/modules/5745706b.js"
   },
   {
-    "from": "vendor/modules/4a633770.js",
+    "from": "vendor/modules/collectionReceiver.js",
     "to": "vendor/modules/75382b75.js"
   },
   {
@@ -3921,7 +3921,7 @@
   },
   {
     "from": "vendor/modules/definePropertyRuntime.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/definePropertyRuntime.js",
@@ -3929,7 +3929,7 @@
   },
   {
     "from": "vendor/modules/definePropertyRuntime.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/4e734f2f.js",
@@ -3945,11 +3945,11 @@
   },
   {
     "from": "vendor/modules/mapRuntime.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/mapRuntime.js",
-    "to": "vendor/modules/6e574d51.js"
+    "to": "vendor/modules/collectionStrong.js"
   },
   {
     "from": "models/theme.js",
@@ -3977,7 +3977,7 @@
   },
   {
     "from": "vendor/modules/arrayIterator.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/arrayIterator.js",
@@ -3989,11 +3989,11 @@
   },
   {
     "from": "vendor/modules/4f486770.js",
-    "to": "vendor/modules/32612f68.js"
+    "to": "vendor/modules/toStringTagType.js"
   },
   {
     "from": "vendor/modules/4f486770.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/4f486770.js",
@@ -4317,11 +4317,11 @@
   },
   {
     "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/51432b4d.js",
@@ -4557,7 +4557,7 @@
   },
   {
     "from": "vendor/modules/52664b42.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/52664b42.js",
@@ -4577,11 +4577,11 @@
   },
   {
     "from": "vendor/modules/52716479.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/52716479.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/53456b77.js",
@@ -4657,7 +4657,7 @@
   },
   {
     "from": "vendor/modules/54316e72.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/54316e72.js",
@@ -4701,11 +4701,11 @@
   },
   {
     "from": "vendor/modules/554c4d54.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/554c4d54.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/554e7276.js",
@@ -4828,20 +4828,20 @@
     "to": "vendor/modules/56497257.js"
   },
   {
-    "from": "vendor/modules/56352f31.js",
-    "to": "vendor/modules/3776594a.js"
+    "from": "vendor/modules/definePropertyHelper.js",
+    "to": "vendor/modules/assertObject.js"
   },
   {
-    "from": "vendor/modules/56352f31.js",
+    "from": "vendor/modules/definePropertyHelper.js",
     "to": "vendor/modules/4137522b.js"
   },
   {
-    "from": "vendor/modules/56352f31.js",
+    "from": "vendor/modules/definePropertyHelper.js",
     "to": "vendor/modules/38424d74.js"
   },
   {
-    "from": "vendor/modules/56352f31.js",
-    "to": "vendor/modules/385a2f56.js"
+    "from": "vendor/modules/definePropertyHelper.js",
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/56376f43.js",
@@ -4869,7 +4869,7 @@
   },
   {
     "from": "vendor/modules/56504f45.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/56504f45.js",
@@ -4877,7 +4877,7 @@
   },
   {
     "from": "vendor/modules/56504f45.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/56566c78.js",
@@ -4937,7 +4937,7 @@
   },
   {
     "from": "vendor/modules/56657959.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/56657959.js",
@@ -4945,7 +4945,7 @@
   },
   {
     "from": "vendor/modules/56657959.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/56784b75.js",
@@ -4960,15 +4960,15 @@
     "to": "vendor/modules/4449634f.js"
   },
   {
-    "from": "vendor/modules/56797551.js",
+    "from": "vendor/modules/sharedStore.js",
     "to": "vendor/modules/62563566.js"
   },
   {
-    "from": "vendor/modules/56797551.js",
+    "from": "vendor/modules/sharedStore.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
-    "from": "vendor/modules/56797551.js",
+    "from": "vendor/modules/sharedStore.js",
     "to": "vendor/modules/46715048.js"
   },
   {
@@ -5213,7 +5213,7 @@
   },
   {
     "from": "vendor/modules/58645054.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/58645054.js",
@@ -5229,7 +5229,7 @@
   },
   {
     "from": "vendor/modules/58645054.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/5868716f.js",
@@ -5261,11 +5261,11 @@
   },
   {
     "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/58725256.js",
@@ -5373,7 +5373,7 @@
   },
   {
     "from": "vendor/modules/5a676f65.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/5a676f65.js",
@@ -5409,7 +5409,7 @@
   },
   {
     "from": "vendor/modules/5a786769.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/messageFormatParser.js",
@@ -5421,7 +5421,7 @@
   },
   {
     "from": "vendor/modules/61534531.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/61534531.js",
@@ -5533,7 +5533,7 @@
   },
   {
     "from": "vendor/modules/functionToString.js",
-    "to": "vendor/modules/56797551.js"
+    "to": "vendor/modules/sharedStore.js"
   },
   {
     "from": "vendor/modules/62414c77.js",
@@ -5641,15 +5641,15 @@
   },
   {
     "from": "vendor/modules/626d4969.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/62734472.js",
-    "to": "vendor/modules/32612f68.js"
+    "to": "vendor/modules/toStringTagType.js"
   },
   {
     "from": "vendor/modules/63517958.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/63634537.js",
@@ -6129,7 +6129,7 @@
   },
   {
     "from": "vendor/modules/65557446.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/65557446.js",
@@ -6209,11 +6209,11 @@
   },
   {
     "from": "vendor/modules/66484b51.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/66484b51.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/66484b51.js",
@@ -6229,11 +6229,11 @@
   },
   {
     "from": "vendor/modules/664b6d2b.js",
-    "to": "vendor/modules/4a633770.js"
+    "to": "vendor/modules/collectionReceiver.js"
   },
   {
     "from": "vendor/modules/664b6d2b.js",
-    "to": "vendor/modules/6e574d51.js"
+    "to": "vendor/modules/collectionStrong.js"
   },
   {
     "from": "vendor/modules/664e4a68.js",
@@ -6285,7 +6285,7 @@
   },
   {
     "from": "vendor/modules/objectDefinePropertiesLegacy.js",
-    "to": "vendor/modules/32666145.js"
+    "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
     "from": "vendor/modules/objectDefinePropertiesLegacy.js",
@@ -6297,7 +6297,7 @@
   },
   {
     "from": "vendor/modules/objectDefinePropertiesLegacy.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/66734c38.js",
@@ -6336,15 +6336,15 @@
     "to": "services/request.js"
   },
   {
-    "from": "vendor/modules/674c374e.js",
-    "to": "vendor/modules/56797551.js"
+    "from": "vendor/modules/wellKnownSymbol.js",
+    "to": "vendor/modules/sharedStore.js"
   },
   {
-    "from": "vendor/modules/674c374e.js",
+    "from": "vendor/modules/wellKnownSymbol.js",
     "to": "vendor/modules/6b434b35.js"
   },
   {
-    "from": "vendor/modules/674c374e.js",
+    "from": "vendor/modules/wellKnownSymbol.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
@@ -6353,15 +6353,15 @@
   },
   {
     "from": "vendor/modules/67527169.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/67527169.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/67527169.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/68374769.js",
@@ -6385,7 +6385,7 @@
   },
   {
     "from": "vendor/modules/68374769.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/68374769.js",
@@ -6409,7 +6409,7 @@
   },
   {
     "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/6849556d.js",
@@ -7097,11 +7097,11 @@
   },
   {
     "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/6a4e2f47.js",
@@ -7141,14 +7141,14 @@
   },
   {
     "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/6a6a4d57.js",
     "to": "vendor/modules/setterSupport.js"
   },
   {
-    "from": "vendor/modules/6a6d4448.js",
+    "from": "vendor/modules/descriptorsSupport.js",
     "to": "vendor/modules/4b557850.js"
   },
   {
@@ -7285,7 +7285,7 @@
   },
   {
     "from": "vendor/modules/6b775a31.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/6b775a31.js",
@@ -7337,11 +7337,11 @@
   },
   {
     "from": "vendor/modules/6c465579.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/6c465579.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/6c465579.js",
@@ -7409,7 +7409,7 @@
   },
   {
     "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/6c5a584d.js",
@@ -7433,7 +7433,7 @@
   },
   {
     "from": "vendor/modules/6c76416f.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/6c76416f.js",
@@ -7441,7 +7441,7 @@
   },
   {
     "from": "vendor/modules/6c76416f.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/6d43642f.js",
@@ -7592,51 +7592,51 @@
     "to": "services/request.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/57474e57.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/724b496c.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/7a4e772b.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/2b793531.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/346f3336.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/59455649.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/75382b75.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/77555779.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/63517958.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/6c76416f.js"
   },
   {
-    "from": "vendor/modules/6e574d51.js",
+    "from": "vendor/modules/collectionStrong.js",
     "to": "vendor/modules/51537338.js"
   },
   {
@@ -7649,11 +7649,11 @@
   },
   {
     "from": "vendor/modules/6e774b2f.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/6e774b2f.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/6f306f31.js",
@@ -7693,7 +7693,7 @@
   },
   {
     "from": "vendor/modules/6f463132.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/6f566d6c.js",
@@ -7989,7 +7989,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8009,7 +8009,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/56797551.js"
+    "to": "vendor/modules/sharedStore.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8021,7 +8021,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8041,7 +8041,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8081,11 +8081,11 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8489,7 +8489,7 @@
   },
   {
     "from": "vendor/modules/74476433.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/74476433.js",
@@ -8961,7 +8961,7 @@
   },
   {
     "from": "vendor/modules/7677754c.js",
-    "to": "vendor/modules/6a6d4448.js"
+    "to": "vendor/modules/descriptorsSupport.js"
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
@@ -9509,7 +9509,7 @@
   },
   {
     "from": "vendor/modules/794c4d59.js",
-    "to": "vendor/modules/385a2f56.js"
+    "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
     "from": "vendor/modules/794c4d59.js",
@@ -9553,7 +9553,7 @@
   },
   {
     "from": "vendor/modules/794c4d59.js",
-    "to": "vendor/modules/56352f31.js"
+    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/794c4d59.js",
@@ -9705,7 +9705,7 @@
   },
   {
     "from": "vendor/modules/7a4b6e68.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/7a4c6b47.js",
@@ -9721,7 +9721,7 @@
   },
   {
     "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/49676761.js"
+    "to": "vendor/modules/objectKeys.js"
   },
   {
     "from": "vendor/modules/7a517a41.js",
@@ -9737,11 +9737,11 @@
   },
   {
     "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/79773465.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/674c374e.js"
+    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/7a536442.js",
@@ -9801,7 +9801,7 @@
   },
   {
     "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/3776594a.js"
+    "to": "vendor/modules/assertObject.js"
   },
   {
     "from": "vendor/modules/7a787274.js",

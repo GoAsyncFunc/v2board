@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3776594a.js"),
+var r = require("./assertObject.js"),
   i = require("./77596d38.js"),
-  o = require("./674c374e.js")("species");
+  o = require("./wellKnownSymbol.js")("species");
 legacyModule.exports = function (e, t) {
   var n,
     a = r(e).constructor;

@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./56352f31.js"),
-  i = require("./3776594a.js"),
-  o = require("./49676761.js");
-legacyModule.exports = require("./385a2f56.js") ? Object.defineProperties : function (e, t) {
+var r = require("./definePropertyHelper.js"),
+  i = require("./assertObject.js"),
+  o = require("./objectKeys.js");
+legacyModule.exports = require("./descriptorsLegacySupport.js") ? Object.defineProperties : function (e, t) {
   i(e);
   var n,
     a = o(t),

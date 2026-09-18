@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6a6d4448.js"),
+var r = require("./descriptorsSupport.js"),
   i = require("./7736474f.js"),
   o = require("./6d716c46.js"),
   a = require("./4e56306b.js"),

@@ -7,7 +7,7 @@ var r = require("./4c734157.js"),
   s = require("./6f786f30.js"),
   c = require("./4137522b.js"),
   u = Object.getOwnPropertyDescriptor;
-legacyExports.f = require("./385a2f56.js") ? u : function (e, t) {
+legacyExports.f = require("./descriptorsLegacySupport.js") ? u : function (e, t) {
   if (e = i(e), t = a(t, !0), c) try {
     return u(e, t);
   } catch (e) {}

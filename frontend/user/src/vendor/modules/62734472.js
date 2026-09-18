@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./32612f68.js"),
+var r = require("./toStringTagType.js"),
   o = RegExp.prototype.exec;
 legacyModule.exports = function (e, t) {
   var n = e.exec;

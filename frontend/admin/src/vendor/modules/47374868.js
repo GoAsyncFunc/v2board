@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3776594a.js"),
+var r = require("./assertObject.js"),
   i = require("./41323268.js"),
   o = require("./62734472.js");
 require("./68374769.js")("search", 1, function (e, t, n, a) {

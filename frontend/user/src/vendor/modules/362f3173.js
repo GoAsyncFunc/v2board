@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./59714163.js")("meta"),
   o = require("./39334934.js"),
   i = require("./422b4f54.js"),
-  a = require("./32666145.js").f,
+  a = require("./definePropertyLegacy.js").f,
   s = 0,
   c = Object.isExtensible || function () {
     return !0;

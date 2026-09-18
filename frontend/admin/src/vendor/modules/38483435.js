@@ -4,7 +4,7 @@ var r = require("./45705844.js"),
   i = require("./75382b75.js"),
   o = require("./4f735664.js"),
   a = require("./77487272.js"),
-  s = require("./674c374e.js")("isConcatSpreadable");
+  s = require("./wellKnownSymbol.js")("isConcatSpreadable");
 function l(e, t, n, c, u, h, f, d) {
   var p,
     m,

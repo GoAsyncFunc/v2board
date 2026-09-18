@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./43773475.js"),
-  i = require("./4a633770.js"),
+  i = require("./collectionReceiver.js"),
   o = "Map";
-legacyModule.exports = require("./6e574d51.js")(o, function (e) {
+legacyModule.exports = require("./collectionStrong.js")(o, function (e) {
   return function () {
     return e(this, arguments.length > 0 ? arguments[0] : void 0);
   };

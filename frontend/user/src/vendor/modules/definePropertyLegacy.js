@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3776594a.js"),
-  o = require("./4137522b.js"),
-  i = require("./38424d74.js"),
+var r = require("./354b375a.js"),
+  o = require("./65557446.js"),
+  i = require("./47384d6f.js"),
   a = Object.defineProperty;
-legacyExports.f = require("./385a2f56.js") ? Object.defineProperty : function (e, t, n) {
+legacyExports.f = require("./descriptorsSupport.js") ? Object.defineProperty : function (e, t, n) {
   if (r(e), t = i(t, !0), r(n), o) try {
     return a(e, t, n);
   } catch (e) {}

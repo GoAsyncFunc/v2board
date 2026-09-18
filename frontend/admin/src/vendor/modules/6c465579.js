@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./385a2f56.js"),
-  i = require("./49676761.js"),
+var r = require("./descriptorsLegacySupport.js"),
+  i = require("./objectKeys.js"),
   o = require("./65367737.js"),
   a = require("./4c734157.js"),
   s = require("./696c3471.js"),

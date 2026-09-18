@@ -8,8 +8,8 @@ var r,
   c = require("./6c465579.js"),
   u = require("./324f7332.js"),
   l = require("./75382b75.js"),
-  f = require("./4a633770.js"),
-  p = require("./4a633770.js"),
+  f = require("./collectionReceiver.js"),
+  p = require("./collectionReceiver.js"),
   d = !o.ActiveXObject && "ActiveXObject" in o,
   h = "WeakMap",
   m = s.getWeak,
@@ -31,7 +31,7 @@ var r,
       return u.def(f(this, h), e, t);
     }
   },
-  w = legacyModule.exports = require("./6e574d51.js")(h, g, b, u, !0, !0);
+  w = legacyModule.exports = require("./collectionStrong.js")(h, g, b, u, !0, !0);
 p && d && (r = u.getConstructor(g, h), c(r.prototype, b), s.NEED = !0, i(["delete", "has", "get", "set"], function (e) {
   var t = w.prototype,
     n = t[e];

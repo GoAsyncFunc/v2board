@@ -1,11 +1,11 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./354b375a.js"),
-  o = require("./65557446.js"),
-  i = require("./47384d6f.js"),
+  i = require("./65557446.js"),
+  o = require("./47384d6f.js"),
   a = Object.defineProperty;
-legacyExports.f = require("./6a6d4448.js") ? Object.defineProperty : function (e, t, n) {
-  if (r(e), t = i(t, !0), r(n), o) try {
+legacyExports.f = require("./descriptorsSupport.js") ? Object.defineProperty : function (e, t, n) {
+  if (r(e), t = o(t, !0), r(n), i) try {
     return a(e, t, n);
   } catch (e) {}
   if ("get" in n || "set" in n) throw TypeError("Accessors not supported!");

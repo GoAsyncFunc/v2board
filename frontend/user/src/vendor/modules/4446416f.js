@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 require("./427a3773.js");
-var r = require("./3776594a.js"),
+var r = require("./assertObject.js"),
   o = require("./37744e78.js"),
-  i = require("./385a2f56.js"),
+  i = require("./descriptorsLegacySupport.js"),
   a = "toString",
   s = /./[a],
   c = function (e) {

@@ -7,7 +7,7 @@ var r,
   s = require("./46715048.js"),
   l = require("./globalObject.js"),
   c = require("./77487272.js"),
-  u = require("./32612f68.js"),
+  u = require("./toStringTagType.js"),
   h = require("./57474e57.js"),
   f = require("./75382b75.js"),
   d = require("./77596d38.js"),
@@ -32,7 +32,7 @@ var r,
   j = !!function () {
     try {
       var e = T.resolve(1),
-        t = (e.constructor = {})[require("./674c374e.js")("species")] = function (e) {
+        t = (e.constructor = {})[require("./wellKnownSymbol.js")("species")] = function (e) {
           e(A, A);
         };
       return (L || "function" == typeof PromiseRejectionEvent) && e.then(A) instanceof t && 0 !== O.indexOf("6.6") && -1 === x.indexOf("Chrome/66");

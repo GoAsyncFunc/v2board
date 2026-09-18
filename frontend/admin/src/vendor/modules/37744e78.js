@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3776594a.js");
+var r = require("./assertObject.js");
 legacyModule.exports = function () {
   var e = r(this),
     t = "";

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./56797551.js")("wks"),
+var r = require("./sharedStore.js")("wks"),
   o = require("./6b434b35.js"),
   i = require("./globalObject.js").Symbol,
   a = "function" == typeof i,
