@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var typeofModule = require("./454a6979.js"),
+var typeofModule = require("./typeofHelper.js"),
   typeOf = interopDefault(typeofModule);
 function interopDefault(value) {
   return value && value.__esModule ? value : {

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var nativeSymbol = require("./nativeSymbol.js"),
-  getRawTag = require("./4150327a.js"),
+  getRawTag = require("./getRawTag.js"),
   objectToString = require("./objectToString.js"),
   nullTag = "[object Null]",
   undefinedTag = "[object Undefined]",

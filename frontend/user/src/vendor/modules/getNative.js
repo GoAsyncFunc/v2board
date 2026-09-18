@@ -1,9 +1,9 @@
-let legacyModule = module,
-  legacyExports = exports;
-var r = require("./4e4b7875.js"),
-  i = require("./getProperty.js");
-function a(e, t) {
-  var n = i(e, t);
-  return r(n) ? n : void 0;
+var baseIsNative = require("./baseIsNative.js"),
+  getValue = require("./getProperty.js");
+
+function getNative(object, key) {
+  var value = getValue(object, key);
+  return baseIsNative(value) ? value : void 0;
 }
-legacyModule.exports = a;
+
+module.exports = getNative;

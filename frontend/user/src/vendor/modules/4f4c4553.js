@@ -3,7 +3,7 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./51624c5a.js"),
+var r = require("./objectAssignHelper.js"),
   o = interopDefault(r),
   i = require("./objectWithoutProperties.js"),
   a = interopDefault(i),
@@ -11,7 +11,7 @@ var r = require("./51624c5a.js"),
   c = interopDefault(s),
   u = require("./possibleConstructorReturn.js"),
   l = interopDefault(u),
-  f = require("./6d526730.js"),
+  f = require("./inheritsHelper.js"),
   p = interopDefault(f),
   d = require("./reactRuntime.js"),
   h = interopDefault(d),

@@ -8,11 +8,11 @@ var n = require("./reactRuntime.js"),
   o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./reactLifecyclesCompat.js"),
-  i = require("./4247522b.js"),
+  i = require("./omitProps.js"),
   u = require("../Icon.js"),
   s = require("./48383455.js"),
   h = require("./67306d53.js"),
-  f = require("./43575167.js");
+  f = require("./tuple.js");
 function v() {
   return v = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {

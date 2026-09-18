@@ -10,7 +10,7 @@ var n = require("./reactRuntime.js"),
   a = require("./48383455.js"),
   i = require("./antdWarning.js"),
   u = require("../Icon.js"),
-  s = require("./43575167.js");
+  s = require("./tuple.js");
 function h(e) {
   "@babel/helpers - typeof";
 

@@ -4,14 +4,14 @@ var assignMergeValue = require("./assignMergeValue.js"),
   cloneBuffer = require("./cloneBuffer.js"),
   cloneTypedArray = require("./cloneTypedArray.js"),
   copyArray = require("./copyArray.js"),
-  baseGetPrototype = require("./baseGetPrototype.js"),
+  initCloneObject = require("./baseGetPrototype.js"),
   isArguments = require("./isArgumentsLegacy.js"),
   isArray = require("./isArray.js"),
   isArrayLikeObject = require("./isArrayLikeObject.js"),
   isBuffer = require("./isBufferCompat.js"),
   isFunction = require("./isFunction.js"),
   isObject = require("./isObjectValue.js"),
-  initCloneObject = require("./594f3356.js"),
+  isPlainObject = require("./isPlainObject.js"),
   isTypedArray = require("./isTypedArray.js"),
   getValue = require("./getValue.js"),
   getAllKeys = require("./baseGetAllKeys.js");
@@ -26,7 +26,7 @@ function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, sta
       var isSourceArray = isArray(sourceValue),
         isSourceBuffer = !isSourceArray && isBuffer(sourceValue),
         isSourceTypedArray = !isSourceArray && !isSourceBuffer && isTypedArray(sourceValue);
-      newValue = sourceValue, isSourceArray || isSourceBuffer || isSourceTypedArray ? isArray(objectValue) ? newValue = objectValue : isArrayLikeObject(objectValue) ? newValue = copyArray(objectValue) : isSourceBuffer ? (isCommon = !1, newValue = cloneBuffer(sourceValue, !0)) : isSourceTypedArray ? (isCommon = !1, newValue = cloneTypedArray(sourceValue, !0)) : newValue = [] : initCloneObject(sourceValue) || isArguments(sourceValue) ? (newValue = objectValue, isArguments(objectValue) ? newValue = getAllKeys(objectValue) : isObject(objectValue) && !isFunction(objectValue) || (newValue = baseGetPrototype(sourceValue))) : isCommon = !1;
+      newValue = sourceValue, isSourceArray || isSourceBuffer || isSourceTypedArray ? isArray(objectValue) ? newValue = objectValue : isArrayLikeObject(objectValue) ? newValue = copyArray(objectValue) : isSourceBuffer ? (isCommon = !1, newValue = cloneBuffer(sourceValue, !0)) : isSourceTypedArray ? (isCommon = !1, newValue = cloneTypedArray(sourceValue, !0)) : newValue = [] : isPlainObject(sourceValue) || isArguments(sourceValue) ? (newValue = objectValue, isArguments(objectValue) ? newValue = getAllKeys(objectValue) : isObject(objectValue) && !isFunction(objectValue) || (newValue = initCloneObject(sourceValue))) : isCommon = !1;
     }
     isCommon && (stack.set(sourceValue, newValue), mergeFunc(newValue, sourceValue, srcIndex, customizer, stack), stack["delete"](sourceValue)), assignMergeValue(object, key, newValue);
   }

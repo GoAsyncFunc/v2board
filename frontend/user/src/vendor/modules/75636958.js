@@ -3,13 +3,13 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./51624c5a.js"),
+var r = require("./objectAssignHelper.js"),
   o = interopDefault(r),
   i = require("./classCallCheck.js"),
   a = interopDefault(i),
   s = require("./possibleConstructorReturn.js"),
   c = interopDefault(s),
-  u = require("./6d526730.js"),
+  u = require("./inheritsHelper.js"),
   l = interopDefault(u),
   f = require("./reactRuntime.js"),
   p = interopDefault(f),
@@ -18,7 +18,7 @@ var r = require("./51624c5a.js"),
   m = require("./reactDomRuntime.js"),
   v = interopDefault(m),
   y = require("./reactLifecyclesCompat.js"),
-  g = require("./6c346159.js"),
+  g = require("./containsNode.js"),
   b = require("./7a543168.js"),
   w = require("./5049416d.js"),
   x = require("./51432b4d.js"),
@@ -40,7 +40,7 @@ function C(e, t) {
   this[e] = t;
 }
 var j,
-  P = require("./56376f43.js"),
+  P = require("./createClassHelper.js"),
   T = interopDefault(P);
 function L(e, t) {
   var n = Object.keys(e);
