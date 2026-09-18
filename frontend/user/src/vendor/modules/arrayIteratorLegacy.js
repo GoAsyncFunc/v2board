@@ -4,7 +4,7 @@ var addToUnscopables = require("./noop.js"),
   createIteratorResult = require("./iteratorResult.js"),
   emptyExports = require("./emptyExports.js"),
   toArray = require("./toArray.js");
-legacyModule.exports = require("./4d504670.js")(Array, "Array", function (iterable, kind) {
+legacyModule.exports = require("./defineIterator.js")(Array, "Array", function (iterable, kind) {
   this._t = toArray(iterable), this._i = 0, this._k = kind;
 }, function () {
   var target = this._t,

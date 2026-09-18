@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var stringAt = require("./stringAtLegacy.js")(!0);
-require("./4d504670.js")(String, "String", function StringIterator(value) {
+require("./defineIterator.js")(String, "String", function StringIterator(value) {
   this._t = String(value), this._i = 0;
 }, function next() {
   var character,

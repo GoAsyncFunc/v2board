@@ -1764,150 +1764,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/definePropertyLegacy.js"
-  },
-  {
-    "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/hasOwnLegacy.js"
-  },
-  {
-    "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/tryCatchTestLegacy.js"
-  },
-  {
-    "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/uid.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/362f3173.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/arrayIsArrayRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/assertObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/coreJsExport.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/coreJsSharedStore.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/definePropertyEntry.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/definePropertyLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/definePropertyRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/defineWellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/descriptorsSupport.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/enumerableOwnKeysLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/getOwnPropertyDescriptorLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/getOwnPropertyNamesLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/getOwnPropertyNamesWindowSafe.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/hasOwnLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/objectCreateLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/objectKeysLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/propertyDescriptorFlags.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/setToStringTag.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/toArray.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/toObject.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/toPrimitive.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/trueValue.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/tryCatchTestLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/uid.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/wellKnownSymbolFactory.js"
-  },
-  {
-    "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/wellKnownSymbolLegacy.js"
-  },
-  {
     "from": "vendor/modules/48383455.js",
     "to": "app/moduleInterop.js"
   },
@@ -2038,42 +1894,6 @@
   {
     "from": "vendor/modules/4d466a32.js",
     "to": "vendor/modules/typeofHelper.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/coreJsExport.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/createIteratorConstructorLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/definePropertyEntry.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/definePropertyRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/emptyExports.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/getPrototypeOfLegacyFallback.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/setToStringTag.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/trueValue.js"
-  },
-  {
-    "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/wellKnownSymbolLegacy.js"
   },
   {
     "from": "vendor/modules/4f4c4553.js",
@@ -3021,7 +2841,7 @@
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
-    "to": "vendor/modules/4d504670.js"
+    "to": "vendor/modules/defineIterator.js"
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
@@ -3388,6 +3208,26 @@
     "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
+    "from": "vendor/modules/coreJsMeta.js",
+    "to": "vendor/modules/definePropertyLegacy.js"
+  },
+  {
+    "from": "vendor/modules/coreJsMeta.js",
+    "to": "vendor/modules/hasOwnLegacy.js"
+  },
+  {
+    "from": "vendor/modules/coreJsMeta.js",
+    "to": "vendor/modules/isObject.js"
+  },
+  {
+    "from": "vendor/modules/coreJsMeta.js",
+    "to": "vendor/modules/tryCatchTestLegacy.js"
+  },
+  {
+    "from": "vendor/modules/coreJsMeta.js",
+    "to": "vendor/modules/uid.js"
+  },
+  {
     "from": "vendor/modules/coreJsShared.js",
     "to": "vendor/modules/rootObject.js"
   },
@@ -3486,6 +3326,42 @@
   {
     "from": "vendor/modules/defineAsyncIteratorSymbol.js",
     "to": "vendor/modules/defineWellKnownSymbol.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/coreJsExport.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/createIteratorConstructorLegacy.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/definePropertyEntry.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/definePropertyRuntime.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/emptyExports.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/getPrototypeOfLegacyFallback.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/setToStringTag.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/trueValue.js"
+  },
+  {
+    "from": "vendor/modules/defineIterator.js",
+    "to": "vendor/modules/wellKnownSymbolLegacy.js"
   },
   {
     "from": "vendor/modules/defineObservableSymbol.js",
@@ -4837,7 +4713,7 @@
   },
   {
     "from": "vendor/modules/stringIteratorPolyfill.js",
-    "to": "vendor/modules/4d504670.js"
+    "to": "vendor/modules/defineIterator.js"
   },
   {
     "from": "vendor/modules/stringIteratorPolyfill.js",
@@ -4848,8 +4724,128 @@
     "to": "vendor/modules/memoizeCapped.js"
   },
   {
-    "from": "vendor/modules/symbolRuntime.js",
-    "to": "vendor/modules/4155766d.js"
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/arrayIsArrayRuntime.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/assertObjectLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/coreJsExport.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/coreJsMeta.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/coreJsSharedStore.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/definePropertyEntry.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/definePropertyLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/definePropertyRuntime.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/defineWellKnownSymbol.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/descriptorsSupport.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/enumerableOwnKeysLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/getOwnPropertyDescriptorLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/getOwnPropertyNamesLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/getOwnPropertyNamesWindowSafe.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/globalObject.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/hasOwnLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/isObject.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/objectCreateLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/objectKeysLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/propertyDescriptorFlags.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/setToStringTag.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/toArray.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/toObject.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/toPrimitive.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/trueValue.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/tryCatchTestLegacy.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/uid.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/wellKnownSymbolFactory.js"
+  },
+  {
+    "from": "vendor/modules/symbolPolyfill.js",
+    "to": "vendor/modules/wellKnownSymbolLegacy.js"
   },
   {
     "from": "vendor/modules/symbolRuntime.js",
@@ -4866,6 +4862,10 @@
   {
     "from": "vendor/modules/symbolRuntime.js",
     "to": "vendor/modules/emptyModule.js"
+  },
+  {
+    "from": "vendor/modules/symbolRuntime.js",
+    "to": "vendor/modules/symbolPolyfill.js"
   },
   {
     "from": "vendor/modules/symbolRuntimeDefault.js",
