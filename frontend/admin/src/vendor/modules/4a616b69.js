@@ -16,7 +16,7 @@ if (require("./descriptorsLegacySupport.js")) {
     m = require("./toLength.js"),
     g = require("./6e594c71.js"),
     v = require("./toAbsoluteIndex.js"),
-    y = require("./38424d74.js"),
+    y = require("./toPrimitive.js"),
     b = require("./hasOwn.js"),
     w = require("./toStringTagType.js"),
     x = require("./isObject.js"),

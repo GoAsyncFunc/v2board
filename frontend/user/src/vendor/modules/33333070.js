@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./37744e78.js"),
+var r = require("./regexpFlags.js"),
   o = RegExp.prototype.exec,
   i = String.prototype.replace,
   a = o,

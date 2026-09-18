@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./toLength.js"),
-  o = require("./30336e69.js"),
+  o = require("./repeatString.js"),
   i = require("./requireObjectCoercible.js");
 legacyModule.exports = function (e, t, n, a) {
   var s = String(i(e)),
