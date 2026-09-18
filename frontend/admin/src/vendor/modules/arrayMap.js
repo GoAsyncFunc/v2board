@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e, t) {
-  var n = -1,
-    r = null == e ? 0 : e.length,
-    i = Array(r);
-  while (++n < r) i[n] = t(e[n], n, e);
-  return i;
+function arrayMap(collection, iteratee) {
+  var index = -1,
+    length = null == collection ? 0 : collection.length,
+    result = Array(length);
+  while (++index < length) result[index] = iteratee(collection[index], index, collection);
+  return result;
 }
-legacyModule.exports = n;
+legacyModule.exports = arrayMap;

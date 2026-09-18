@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return e;
+function identity(value) {
+  return value;
 }
-legacyModule.exports = n;
+legacyModule.exports = identity;

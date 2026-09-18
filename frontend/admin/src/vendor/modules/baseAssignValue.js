@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4f306f53.js");
-function i(e, t, n) {
-  "__proto__" == t && r ? r(e, t, {
+var defineProperty = require("./4f306f53.js");
+function baseAssignValue(object, key, value) {
+  "__proto__" == key && defineProperty ? defineProperty(object, key, {
     configurable: !0,
     enumerable: !0,
-    value: n,
+    value: value,
     writable: !0
-  }) : e[t] = n;
+  }) : object[key] = value;
 }
-legacyModule.exports = i;
+legacyModule.exports = baseAssignValue;

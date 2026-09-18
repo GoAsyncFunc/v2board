@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e, t) {
-  if (("constructor" !== t || "function" !== typeof e[t]) && "__proto__" != t) return e[t];
+function getValue(object, key) {
+  if (("constructor" !== key || "function" !== typeof object[key]) && "__proto__" != key) return object[key];
 }
-legacyModule.exports = n;
+legacyModule.exports = getValue;

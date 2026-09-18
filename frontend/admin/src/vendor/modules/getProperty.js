@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e, t) {
-  return null == e ? void 0 : e[t];
+function getProperty(object, key) {
+  return null == object ? void 0 : object[key];
 }
-legacyModule.exports = n;
+legacyModule.exports = getProperty;

@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e, t) {
-  return function (n) {
-    return e(t(n));
+function overArg(iteratee, transform) {
+  return function (value) {
+    return iteratee(transform(value));
   };
 }
-legacyModule.exports = n;
+legacyModule.exports = overArg;

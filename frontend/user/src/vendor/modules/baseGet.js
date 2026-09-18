@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./castPath.js"),
-  i = require("./toKey.js");
-function a(e, t) {
-  t = r(t, e);
-  var n = 0,
-    a = t.length;
-  while (null != e && n < a) e = e[i(t[n++])];
-  return n && n == a ? e : void 0;
+var castPath = require("./castPath.js"),
+  toKey = require("./toKey.js");
+function baseGet(object, path) {
+  path = castPath(path, object);
+  var index = 0,
+    length = path.length;
+  while (null != object && index < length) object = object[toKey(path[index++])];
+  return index && index == length ? object : void 0;
 }
-legacyModule.exports = a;
+legacyModule.exports = baseGet;

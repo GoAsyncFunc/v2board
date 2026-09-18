@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e, t) {
-  return e === t || e !== e && t !== t;
+function sameValueZero(left, right) {
+  return left === right || left !== left && right !== right;
 }
-legacyModule.exports = n;
+legacyModule.exports = sameValueZero;

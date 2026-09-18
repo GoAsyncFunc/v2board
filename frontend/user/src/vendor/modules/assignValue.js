@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./baseAssignValue.js"),
-  i = require("./sameValueZero.js");
-function a(e, t, n) {
-  (void 0 === n || i(e[t], n)) && (void 0 !== n || t in e) || r(e, t, n);
+var baseAssignValue = require("./baseAssignValue.js"),
+  sameValueZero = require("./sameValueZero.js");
+function assignValue(object, key, value) {
+  (void 0 === value || sameValueZero(object[key], value)) && (void 0 !== value || key in object) || baseAssignValue(object, key, value);
 }
-legacyModule.exports = a;
+legacyModule.exports = assignValue;

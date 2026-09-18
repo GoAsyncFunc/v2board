@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n() {
+function falseValue() {
   return !1;
 }
-legacyModule.exports = n;
+legacyModule.exports = falseValue;
