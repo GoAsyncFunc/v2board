@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./isObject.js"),
-  o = require("./2f2f336e.js").set;
+  o = require("./setPrototypeOfFallback.js").set;
 legacyModule.exports = function (e, t, n) {
   var i,
     a = t.constructor;
