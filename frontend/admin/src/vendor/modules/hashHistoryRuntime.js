@@ -1,199 +1,198 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var r = Object.assign || function (e) {
-    for (var t = 1; t < arguments.length; t++) {
-      var n = arguments[t];
-      for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+var assign = Object.assign || function (target) {
+    for (var sourceIndex = 1; sourceIndex < arguments.length; sourceIndex++) {
+      var source = arguments[sourceIndex];
+      for (var propertyName in source) Object.prototype.hasOwnProperty.call(source, propertyName) && (target[propertyName] = source[propertyName]);
     }
-    return e;
+    return target;
   },
-  i = require("./noopLegacy.js"),
-  o = d(i),
-  a = require("./invariant.js"),
-  s = d(a),
-  l = require("./locationRuntime.js"),
-  c = require("./historyPathUtils.js"),
-  u = require("./5236342b.js"),
-  h = d(u),
-  f = require("./historyBrowserSupport.js");
-function d(e) {
-  return e && e.__esModule ? e : {
-    default: e
+  warningModule = require("./noopLegacy.js"),
+  warning = interopDefault(warningModule),
+  invariantModule = require("./invariant.js"),
+  invariant = interopDefault(invariantModule),
+  locationUtils = require("./locationRuntime.js"),
+  pathUtils = require("./historyPathUtils.js"),
+  transitionManagerModule = require("./5236342b.js"),
+  createTransitionManager = interopDefault(transitionManagerModule),
+  browserSupport = require("./historyBrowserSupport.js");
+function interopDefault(moduleValue) {
+  return moduleValue && moduleValue.__esModule ? moduleValue : {
+    default: moduleValue
   };
 }
-var p = "hashchange",
-  m = {
+var hashChangeEvent = "hashchange",
+  hashPathCoders = {
     hashbang: {
-      encodePath: function (e) {
-        return "!" === e.charAt(0) ? e : "!/" + (0, c.stripLeadingSlash)(e);
+      encodePath: function (path) {
+        return "!" === path.charAt(0) ? path : "!/" + (0, pathUtils.stripLeadingSlash)(path);
       },
-      decodePath: function (e) {
-        return "!" === e.charAt(0) ? e.substr(1) : e;
+      decodePath: function (path) {
+        return "!" === path.charAt(0) ? path.substr(1) : path;
       }
     },
     noslash: {
-      encodePath: c.stripLeadingSlash,
-      decodePath: c.addLeadingSlash
+      encodePath: pathUtils.stripLeadingSlash,
+      decodePath: pathUtils.addLeadingSlash
     },
     slash: {
-      encodePath: c.addLeadingSlash,
-      decodePath: c.addLeadingSlash
+      encodePath: pathUtils.addLeadingSlash,
+      decodePath: pathUtils.addLeadingSlash
     }
-  },
-  g = function () {
-    var e = window.location.href,
-      t = e.indexOf("#");
-    return -1 === t ? "" : e.substring(t + 1);
-  },
-  v = function (e) {
-    return window.location.hash = e;
-  },
-  y = function (e) {
-    var t = window.location.href.indexOf("#");
-    window.location.replace(window.location.href.slice(0, t >= 0 ? t : 0) + "#" + e);
-  },
-  b = function () {
-    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-    (0, s.default)(f.canUseDOM, "Hash history needs a DOM");
-    var t = window.history,
-      n = (0, f.supportsGoWithoutReloadUsingHash)(),
-      i = e.getUserConfirmation,
-      a = void 0 === i ? f.getConfirmation : i,
-      u = e.hashType,
-      d = void 0 === u ? "slash" : u,
-      b = e.basename ? (0, c.stripTrailingSlash)((0, c.addLeadingSlash)(e.basename)) : "",
-      w = m[d],
-      x = w.encodePath,
-      _ = w.decodePath,
-      E = function () {
-        var e = _(g());
-        return (0, o.default)(!b || (0, c.hasBasename)(e, b), 'You are attempting to use a basename on a page whose URL path does not begin with the basename. Expected path "' + e + '" to begin with "' + b + '".'), b && (e = (0, c.stripBasename)(e, b)), (0, l.createLocation)(e);
-      },
-      S = (0, h.default)(),
-      k = function (e) {
-        r(G, e), G.length = t.length, S.notifyListeners(G.location, G.action);
-      },
-      C = !1,
-      O = null,
-      T = function () {
-        var e = g(),
-          t = x(e);
-        if (e !== t) y(t);else {
-          var n = E(),
-            r = G.location;
-          if (!C && (0, l.locationsAreEqual)(r, n)) return;
-          if (O === (0, c.createPath)(n)) return;
-          O = null, L(n);
-        }
-      },
-      L = function (e) {
-        if (C) C = !1, k();else {
-          var t = "POP";
-          S.confirmTransitionTo(e, t, a, function (n) {
-            n ? k({
-              action: t,
-              location: e
-            }) : A(e);
-          });
-        }
-      },
-      A = function (e) {
-        var t = G.location,
-          n = R.lastIndexOf((0, c.createPath)(t));
-        -1 === n && (n = 0);
-        var r = R.lastIndexOf((0, c.createPath)(e));
-        -1 === r && (r = 0);
-        var i = n - r;
-        i && (C = !0, $(i));
-      },
-      P = g(),
-      j = x(P);
-    P !== j && y(j);
-    var M = E(),
-      R = [(0, c.createPath)(M)],
-      N = function (e) {
-        return "#" + x(b + (0, c.createPath)(e));
-      },
-      D = function (e, t) {
-        (0, o.default)(void 0 === t, "Hash history cannot push state; it is ignored");
-        var n = "PUSH",
-          r = (0, l.createLocation)(e, void 0, void 0, G.location);
-        S.confirmTransitionTo(r, n, a, function (e) {
-          if (e) {
-            var t = (0, c.createPath)(r),
-              i = x(b + t),
-              a = g() !== i;
-            if (a) {
-              O = t, v(i);
-              var s = R.lastIndexOf((0, c.createPath)(G.location)),
-                l = R.slice(0, -1 === s ? 0 : s + 1);
-              l.push(t), R = l, k({
-                action: n,
-                location: r
-              });
-            } else (0, o.default)(!1, "Hash history cannot PUSH the same path; a new entry will not be added to the history stack"), k();
-          }
-        });
-      },
-      I = function (e, t) {
-        (0, o.default)(void 0 === t, "Hash history cannot replace state; it is ignored");
-        var n = "REPLACE",
-          r = (0, l.createLocation)(e, void 0, void 0, G.location);
-        S.confirmTransitionTo(r, n, a, function (e) {
-          if (e) {
-            var t = (0, c.createPath)(r),
-              i = x(b + t),
-              o = g() !== i;
-            o && (O = t, y(i));
-            var a = R.indexOf((0, c.createPath)(G.location));
-            -1 !== a && (R[a] = t), k({
-              action: n,
-              location: r
-            });
-          }
-        });
-      },
-      $ = function (e) {
-        (0, o.default)(n, "Hash history go(n) causes a full page reload in this browser"), t.go(e);
-      },
-      F = function () {
-        return $(-1);
-      },
-      B = function () {
-        return $(1);
-      },
-      V = 0,
-      W = function (e) {
-        V += e, 1 === V ? window.addEventListener(p, T) : 0 === V && window.removeEventListener(p, T);
-      },
-      H = !1,
-      U = function () {
-        var e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
-          t = S.setPrompt(e);
-        return H || (W(1), H = !0), function () {
-          return H && (H = !1, W(-1)), t();
-        };
-      },
-      z = function (e) {
-        var t = S.appendListener(e);
-        return W(1), function () {
-          W(-1), t();
-        };
-      },
-      G = {
-        length: t.length,
-        action: "POP",
-        location: M,
-        createHref: N,
-        push: D,
-        replace: I,
-        go: $,
-        goBack: F,
-        goForward: B,
-        block: U,
-        listen: z
-      };
-    return G;
   };
-legacyExports.default = b;
+function getHashPath() {
+  var href = window.location.href,
+    hashIndex = href.indexOf("#");
+  return -1 === hashIndex ? "" : href.substring(hashIndex + 1);
+}
+function pushHashPath(path) {
+  return window.location.hash = path;
+}
+function replaceHashPath(path) {
+  var hashIndex = window.location.href.indexOf("#");
+  window.location.replace(window.location.href.slice(0, hashIndex >= 0 ? hashIndex : 0) + "#" + path);
+}
+function createHashHistory(options) {
+  var historyOptions = void 0 === options ? {} : options;
+  (0, invariant.default)(browserSupport.canUseDOM, "Hash history needs a DOM");
+  var globalHistory = window.history,
+    canGoWithoutReload = (0, browserSupport.supportsGoWithoutReloadUsingHash)(),
+    getUserConfirmation = historyOptions.getUserConfirmation,
+    confirm = void 0 === getUserConfirmation ? browserSupport.getConfirmation : getUserConfirmation,
+    hashType = historyOptions.hashType,
+    selectedHashType = void 0 === hashType ? "slash" : hashType,
+    basename = historyOptions.basename ? (0, pathUtils.stripTrailingSlash)((0, pathUtils.addLeadingSlash)(historyOptions.basename)) : "",
+    pathCoder = hashPathCoders[selectedHashType],
+    encodePath = pathCoder.encodePath,
+    decodePath = pathCoder.decodePath;
+  function getDOMLocation() {
+    var path = decodePath(getHashPath());
+    (0, warning.default)(!basename || (0, pathUtils.hasBasename)(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin with the basename. Expected path "' + path + '" to begin with "' + basename + '".'), basename && (path = (0, pathUtils.stripBasename)(path, basename));
+    return (0, locationUtils.createLocation)(path);
+  }
+  var transitionManager = (0, createTransitionManager.default)();
+  function setState(nextState) {
+    assign(history, nextState), history.length = globalHistory.length, transitionManager.notifyListeners(history.location, history.action);
+  }
+  var forceNextPop = !1,
+    ignorePath = null;
+  function handleHashChange() {
+    var path = getHashPath(),
+      encodedPath = encodePath(path);
+    if (path !== encodedPath) replaceHashPath(encodedPath);else {
+      var location = getDOMLocation(),
+        previousLocation = history.location;
+      if (!forceNextPop && (0, locationUtils.locationsAreEqual)(previousLocation, location) || ignorePath === (0, pathUtils.createPath)(location)) return;
+      ignorePath = null, handlePop(location);
+    }
+  }
+  function handlePop(location) {
+    if (forceNextPop) forceNextPop = !1, setState();else {
+      var action = "POP";
+      transitionManager.confirmTransitionTo(location, action, confirm, function (ok) {
+        ok ? setState({
+          action: action,
+          location: location
+        }) : revertPop(location);
+      });
+    }
+  }
+  function revertPop(fromLocation) {
+    var currentPath = history.location,
+      currentIndex = allPaths.lastIndexOf((0, pathUtils.createPath)(currentPath));
+    -1 === currentIndex && (currentIndex = 0);
+    var targetIndex = allPaths.lastIndexOf((0, pathUtils.createPath)(fromLocation));
+    -1 === targetIndex && (targetIndex = 0);
+    var delta = currentIndex - targetIndex;
+    delta && (forceNextPop = !0, go(delta));
+  }
+  var initialHashPath = getHashPath(),
+    encodedInitialHashPath = encodePath(initialHashPath);
+  initialHashPath !== encodedInitialHashPath && replaceHashPath(encodedInitialHashPath);
+  var initialLocation = getDOMLocation(),
+    allPaths = [(0, pathUtils.createPath)(initialLocation)];
+  function createHref(location) {
+    return "#" + encodePath(basename + (0, pathUtils.createPath)(location));
+  }
+  function push(path) {
+    (0, warning.default)(void 0 === arguments[1], "Hash history cannot push state; it is ignored");
+    var action = "PUSH",
+      location = (0, locationUtils.createLocation)(path, void 0, void 0, history.location);
+    transitionManager.confirmTransitionTo(location, action, confirm, function (ok) {
+      if (ok) {
+        var nextPath = (0, pathUtils.createPath)(location),
+          encodedPath = encodePath(basename + nextPath),
+          hashChanged = getHashPath() !== encodedPath;
+        if (hashChanged) {
+          ignorePath = nextPath, pushHashPath(encodedPath);
+          var previousIndex = allPaths.lastIndexOf((0, pathUtils.createPath)(history.location)),
+            nextPaths = allPaths.slice(0, -1 === previousIndex ? 0 : previousIndex + 1);
+          nextPaths.push(nextPath), allPaths = nextPaths, setState({
+            action: action,
+            location: location
+          });
+        } else (0, warning.default)(!1, "Hash history cannot PUSH the same path; a new entry will not be added to the history stack"), setState();
+      }
+    });
+  }
+  function replace(path) {
+    (0, warning.default)(void 0 === arguments[1], "Hash history cannot replace state; it is ignored");
+    var action = "REPLACE",
+      location = (0, locationUtils.createLocation)(path, void 0, void 0, history.location);
+    transitionManager.confirmTransitionTo(location, action, confirm, function (ok) {
+      if (ok) {
+        var nextPath = (0, pathUtils.createPath)(location),
+          encodedPath = encodePath(basename + nextPath),
+          hashChanged = getHashPath() !== encodedPath;
+        hashChanged && (ignorePath = nextPath, replaceHashPath(encodedPath));
+        var previousIndex = allPaths.indexOf((0, pathUtils.createPath)(history.location));
+        -1 !== previousIndex && (allPaths[previousIndex] = nextPath), setState({
+          action: action,
+          location: location
+        });
+      }
+    });
+  }
+  function go(delta) {
+    (0, warning.default)(canGoWithoutReload, "Hash history go(n) causes a full page reload in this browser"), globalHistory.go(delta);
+  }
+  function goBack() {
+    return go(-1);
+  }
+  function goForward() {
+    return go(1);
+  }
+  var listenerCount = 0;
+  function checkDOMListeners(delta) {
+    listenerCount += delta, 1 === listenerCount ? window.addEventListener(hashChangeEvent, handleHashChange) : 0 === listenerCount && window.removeEventListener(hashChangeEvent, handleHashChange);
+  }
+  var isBlocked = !1;
+  function block(prompt) {
+    var unblockPrompt = transitionManager.setPrompt(void 0 === prompt ? !1 : prompt);
+    return isBlocked || (checkDOMListeners(1), isBlocked = !0), function () {
+      return isBlocked && (isBlocked = !1, checkDOMListeners(-1)), unblockPrompt();
+    };
+  }
+  function listen(listener) {
+    var cancelListener = transitionManager.appendListener(listener);
+    return checkDOMListeners(1), function () {
+      checkDOMListeners(-1), cancelListener();
+    };
+  }
+  var history = {
+    length: globalHistory.length,
+    action: "POP",
+    location: initialLocation,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    block: block,
+    listen: listen
+  };
+  return history;
+}
+legacyExports.default = createHashHistory;
