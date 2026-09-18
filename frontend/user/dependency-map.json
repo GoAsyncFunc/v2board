@@ -2244,26 +2244,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/copyProperties.js"
-  },
-  {
-    "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
-    "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/storeShape.js"
-  },
-  {
     "from": "vendor/modules/564d537a.js",
     "to": "vendor/modules/4d696256.js"
   },
@@ -2334,14 +2314,6 @@
   {
     "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5a346578.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5a346578.js",
-    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/5a76705a.js",
@@ -2618,6 +2590,14 @@
   {
     "from": "vendor/modules/DomEventObject.js",
     "to": "vendor/modules/objectAssignCompat.js"
+  },
+  {
+    "from": "vendor/modules/MiniStoreProvider.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MiniStoreProvider.js",
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/Portal.js",
@@ -3354,6 +3334,26 @@
   {
     "from": "vendor/modules/closest.js",
     "to": "vendor/modules/matchesSelector.js"
+  },
+  {
+    "from": "vendor/modules/connectMiniStore.js",
+    "to": "vendor/modules/copyProperties.js"
+  },
+  {
+    "from": "vendor/modules/connectMiniStore.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/connectMiniStore.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/connectMiniStore.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
+  },
+  {
+    "from": "vendor/modules/connectMiniStore.js",
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/containsNode.js",
@@ -4697,11 +4697,11 @@
   },
   {
     "from": "vendor/modules/reactReduxRuntime.js",
-    "to": "vendor/modules/562f3649.js"
+    "to": "vendor/modules/MiniStoreProvider.js"
   },
   {
     "from": "vendor/modules/reactReduxRuntime.js",
-    "to": "vendor/modules/5a346578.js"
+    "to": "vendor/modules/connectMiniStore.js"
   },
   {
     "from": "vendor/modules/reactReduxRuntime.js",
