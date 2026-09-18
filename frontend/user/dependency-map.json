@@ -3069,10 +3069,6 @@
   },
   {
     "from": "vendor/modules/antdSelect.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/antdSelect.js",
     "to": "vendor/Icon.js"
   },
   {
