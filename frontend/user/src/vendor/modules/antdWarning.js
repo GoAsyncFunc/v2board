@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./warningOnce.js");
-legacyExports["a"] = function (e, t, c) {
-  Object(n["a"])(e, "[antd: ".concat(t, "] ").concat(c));
+var warningOnce = require("./warningOnce.js");
+legacyExports["a"] = function (condition, componentName, message) {
+  Object(warningOnce["a"])(condition, "[antd: ".concat(componentName, "] ").concat(message));
 };

@@ -1,21 +1,21 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./antdDateLocaleEn.js"),
-  r = require("./timePickerLocale.js");
-function o() {
-  return o = Object.assign || function (e) {
-    for (var t = 1; t < arguments.length; t++) {
-      var c = arguments[t];
-      for (var n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]);
+var dateLocale = require("./antdDateLocaleEn.js"),
+  timePickerLocale = require("./timePickerLocale.js");
+function mergeLocale() {
+  return mergeLocale = Object.assign || function (target) {
+    for (var index = 1; index < arguments.length; index++) {
+      var source = arguments[index];
+      for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
     }
-    return e;
-  }, o.apply(this, arguments);
+    return target;
+  }, mergeLocale.apply(this, arguments);
 }
-var a = {
-  lang: o({
+var datePickerLocale = {
+  lang: mergeLocale({
     placeholder: "Select date",
     rangePlaceholder: ["Start date", "End date"]
-  }, n["a"]),
-  timePickerLocale: o({}, r["a"])
+  }, dateLocale["a"]),
+  timePickerLocale: mergeLocale({}, timePickerLocale["a"])
 };
-legacyExports["a"] = a;
+legacyExports["a"] = datePickerLocale;
