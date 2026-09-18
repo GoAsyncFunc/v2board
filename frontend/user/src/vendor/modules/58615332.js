@@ -134,8 +134,8 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var x = b(require("./reactRuntime.js")),
   O = w(require("./reactDomRuntime.js")),
-  E = w(require("./634f6b43.js")),
-  _ = require("./7849304a.js"),
+  E = w(require("./warningRuntime.js")),
+  _ = require("./reactReduxRuntime.js"),
   k = require("./reactLifecyclesCompat.js"),
   S = w(require("./classNames.js")),
   C = w(require("./4456666c.js")),

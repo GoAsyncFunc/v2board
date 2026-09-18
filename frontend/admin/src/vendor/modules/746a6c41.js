@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (e) {
-  var r = require("./48375846.js"),
+  var r = require("./base64ByteArray.js"),
     i = require("./6b564b2b.js"),
     o = require("./arrayIsArrayFallback.js");
   function a() {

@@ -114,7 +114,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var b = v(require("./reactRuntime.js")),
   w = v(require("./propTypesRuntime.js")),
-  x = require("./7849304a.js"),
+  x = require("./reactReduxRuntime.js"),
   _ = y(require("./classNames.js")),
   E = y(require("./7a536442.js")),
   S = y(require("./564d537a.js")),

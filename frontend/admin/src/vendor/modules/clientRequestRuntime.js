@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (t, r, i) {
-  var o = require("./71664857.js"),
+  var o = require("./browserTransportFeatures.js"),
     a = require("./nodeInheritsOptional.js"),
     s = require("./incomingMessageRuntime.js"),
     l = require("./streamRuntime.js"),

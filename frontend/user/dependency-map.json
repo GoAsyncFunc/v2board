@@ -265,7 +265,7 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -1465,7 +1465,7 @@
   },
   {
     "from": "vendor/modules/hashHistoryRuntime.js",
-    "to": "vendor/modules/79566c61.js"
+    "to": "vendor/modules/historyBrowserSupport.js"
   },
   {
     "from": "vendor/modules/45524968.js",
@@ -2153,7 +2153,7 @@
   },
   {
     "from": "vendor/modules/4d696256.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/4d696256.js",
@@ -2297,7 +2297,7 @@
   },
   {
     "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/505a4459.js",
@@ -2645,7 +2645,7 @@
   },
   {
     "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/554e7276.js",
@@ -3053,11 +3053,11 @@
   },
   {
     "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/634f6b43.js"
+    "to": "vendor/modules/warningRuntime.js"
   },
   {
     "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/58615332.js",
@@ -4389,7 +4389,7 @@
   },
   {
     "from": "vendor/modules/7432334d.js",
-    "to": "vendor/modules/634f6b43.js"
+    "to": "vendor/modules/warningRuntime.js"
   },
   {
     "from": "vendor/modules/7432334d.js",
@@ -4729,11 +4729,11 @@
   },
   {
     "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/634f6b43.js"
+    "to": "vendor/modules/warningRuntime.js"
   },
   {
     "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -4872,15 +4872,15 @@
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/7849304a.js",
+    "from": "vendor/modules/reactReduxRuntime.js",
     "to": "vendor/modules/5a346578.js"
   },
   {
-    "from": "vendor/modules/7849304a.js",
+    "from": "vendor/modules/reactReduxRuntime.js",
     "to": "vendor/modules/562f3649.js"
   },
   {
-    "from": "vendor/modules/7849304a.js",
+    "from": "vendor/modules/reactReduxRuntime.js",
     "to": "vendor/modules/6c75754e.js"
   },
   {
@@ -5181,7 +5181,7 @@
   },
   {
     "from": "vendor/modules/7a677138.js",
-    "to": "vendor/modules/7849304a.js"
+    "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
     "from": "vendor/modules/7a677138.js",

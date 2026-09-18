@@ -137,7 +137,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var k = E(require("./reactRuntime.js")),
-  S = require("./7849304a.js"),
+  S = require("./reactReduxRuntime.js"),
   C = require("./reactLifecyclesCompat.js"),
   j = _(require("./47797478.js")),
   P = _(require("./58615332.js")),

@@ -16,7 +16,7 @@ var r = Object.assign || function (e) {
   c = require("./historyPathUtils.js"),
   u = require("./5236342b.js"),
   h = d(u),
-  f = require("./79566c61.js");
+  f = require("./historyBrowserSupport.js");
 function d(e) {
   return e && e.__esModule ? e : {
     default: e

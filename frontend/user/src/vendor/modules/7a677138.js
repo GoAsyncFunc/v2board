@@ -84,7 +84,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var v = h(require("./reactRuntime.js")),
-  y = require("./7849304a.js"),
+  y = require("./reactReduxRuntime.js"),
   g = m(require("./30687066.js")),
   b = function (e) {
     s(n, e);
