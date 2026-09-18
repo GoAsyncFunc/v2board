@@ -3384,15 +3384,15 @@
     "to": "vendor/modules/requireObject.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/fixedEncodeURIComponent.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/4d677a57.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/386a5249.js"
   },
   {
@@ -3673,7 +3673,7 @@
   },
   {
     "from": "vendor/modules/historyRuntime.js",
-    "to": "vendor/modules/636b3973.js"
+    "to": "vendor/modules/queryStringRuntime.js"
   },
   {
     "from": "vendor/modules/wellKnownSymbol.js",
@@ -4045,7 +4045,7 @@
   },
   {
     "from": "vendor/modules/locationRuntime.js",
-    "to": "vendor/modules/636b3973.js"
+    "to": "vendor/modules/queryStringRuntime.js"
   },
   {
     "from": "models/tutorial.js",
