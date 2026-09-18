@@ -1,9 +1,5 @@
 [
   {
-    "from": "vendor/modules/2b306976.js",
-    "to": "vendor/modules/71444a38.js"
-  },
-  {
     "from": "vendor/modules/2b383050.js",
     "to": "vendor/modules/73526456.js"
   },
@@ -96,82 +92,6 @@
     "to": "vendor/modules/31354243.js"
   },
   {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/62627350.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/antdDrawer.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/2b4c3642.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/antdButton.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/6d69595a.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/antdMessage.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/clipboardRuntime.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/44314466.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/32746750.js"
-  },
-  {
-    "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/4172412b.js"
-  },
-  {
-    "from": "vendor/modules/2f4d4b6a.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/2f4d4b6a.js",
-    "to": "vendor/modules/326d716c.js"
-  },
-  {
-    "from": "vendor/modules/2f4d4b6a.js",
-    "to": "vendor/modules/reactIsEntry.js"
-  },
-  {
-    "from": "vendor/modules/2f4d4b6a.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
     "from": "vendor/modules/2f4d6664.js",
     "to": "vendor/modules/assertObject.js"
   },
@@ -198,46 +118,6 @@
   {
     "from": "vendor/modules/2f663651.js",
     "to": "vendor/modules/markdownUtils.js"
-  },
-  {
-    "from": "vendor/modules/2f67596e.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/2f67596e.js",
-    "to": "vendor/modules/56504f45.js"
-  },
-  {
-    "from": "vendor/modules/2f67596e.js",
-    "to": "vendor/modules/43664c33.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/38424d74.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/42467438.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/31354243.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/setterSupport.js"
   },
   {
     "from": "vendor/modules/2f735777.js",
@@ -286,54 +166,6 @@
   {
     "from": "vendor/modules/30723068.js",
     "to": "vendor/modules/reactIsLegacyEntry.js"
-  },
-  {
-    "from": "vendor/modules/setRuntime.js",
-    "to": "vendor/modules/43773475.js"
-  },
-  {
-    "from": "vendor/modules/setRuntime.js",
-    "to": "vendor/modules/collectionReceiver.js"
-  },
-  {
-    "from": "vendor/modules/setRuntime.js",
-    "to": "vendor/modules/collectionStrong.js"
-  },
-  {
-    "from": "vendor/modules/reactIsEntry.js",
-    "to": "vendor/modules/reactIsRuntime.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/38483435.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/77596d38.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/speciesConstructor.js"
-  },
-  {
-    "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/4449634f.js"
-  },
-  {
-    "from": "vendor/modules/bootstrapEntry.js",
-    "to": "app/bootstrap.js"
   },
   {
     "from": "vendor/modules/31354243.js",
@@ -664,22 +496,6 @@
     "to": "vendor/modules/coreJsNamespace.js"
   },
   {
-    "from": "vendor/modules/334a724f.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/334a724f.js",
-    "to": "app/store.js"
-  },
-  {
-    "from": "vendor/modules/3361346d.js",
-    "to": "vendor/modules/7573644b.js"
-  },
-  {
-    "from": "vendor/modules/336d2b2f.js",
-    "to": "vendor/modules/2f735777.js"
-  },
-  {
     "from": "models/order.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -698,10 +514,6 @@
   {
     "from": "models/order.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/order.js",
-    "to": "vendor/modules/3361346d.js"
   },
   {
     "from": "models/telegram.js",
@@ -730,66 +542,6 @@
   {
     "from": "vendor/modules/objectDefineProperties.js",
     "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/76705134.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/414e6a48.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/37624f2f.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/514c6150.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/55387055.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/2b306976.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/4b516d34.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/32354245.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/42735744.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/noopLegacyAlt.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/314f7942.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/76754955.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/51544551.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/76676d4f.js"
-  },
-  {
-    "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/6f306f31.js"
   },
   {
     "from": "vendor/modules/346f3336.js",
@@ -960,46 +712,6 @@
     "to": "vendor/modules/34.js"
   },
   {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/2b6f3570.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/redefine.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/objectMeta.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/6c465579.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/324f7332.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/collectionReceiver.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/collectionReceiver.js"
-  },
-  {
-    "from": "vendor/modules/weakMapRuntime.js",
-    "to": "vendor/modules/collectionStrong.js"
-  },
-  {
     "from": "vendor/modules/37556b30.js",
     "to": "vendor/modules/toObjectLegacy.js"
   },
@@ -1038,14 +750,6 @@
   {
     "from": "vendor/modules/assertObject.js",
     "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/377a526a.js",
-    "to": "vendor/modules/32.js"
-  },
-  {
-    "from": "vendor/modules/377a526a.js",
-    "to": "vendor/modules/794c706a.js"
   },
   {
     "from": "vendor/modules/382f2f32.js",
@@ -1204,18 +908,6 @@
     "to": "vendor/modules/794c706a.js"
   },
   {
-    "from": "vendor/modules/396e537a.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/396e537a.js",
-    "to": "vendor/modules/592f6e65.js"
-  },
-  {
-    "from": "vendor/modules/396e537a.js",
-    "to": "vendor/modules/30385178.js"
-  },
-  {
     "from": "vendor/modules/41355867.js",
     "to": "vendor/modules/4e734f2f.js"
   },
@@ -1254,10 +946,6 @@
   {
     "from": "vendor/modules/41484a73.js",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/414e6a48.js",
-    "to": "vendor/modules/72655042.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1452,10 +1140,6 @@
     "to": "vendor/modules/6133574f.js"
   },
   {
-    "from": "vendor/modules/42757333.js",
-    "to": "vendor/modules/4a616b69.js"
-  },
-  {
     "from": "vendor/modules/427a3773.js",
     "to": "vendor/modules/descriptorsLegacySupport.js"
   },
@@ -1576,18 +1260,6 @@
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/43727734.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/43727734.js",
-    "to": "vendor/modules/36596b53.js"
-  },
-  {
-    "from": "vendor/modules/43727734.js",
-    "to": "vendor/modules/50737a47.js"
-  },
-  {
     "from": "vendor/modules/rcSwitchRuntime.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -1676,58 +1348,6 @@
     "to": "vendor/modules/4f6a6764.js"
   },
   {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/41555777.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/45545568.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/62734472.js"
-  },
-  {
-    "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/68374769.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/427a3773.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/37744e78.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/redefine.js"
-  },
-  {
-    "from": "vendor/modules/4446416f.js",
-    "to": "vendor/modules/tryCatchTest.js"
-  },
-  {
     "from": "vendor/modules/4449634f.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
@@ -1765,10 +1385,6 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
     "to": "vendor/modules/6d69595a.js"
   },
   {
@@ -1785,31 +1401,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "components/Recovered_45334976.jsx"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "components/Recovered_54643430.jsx"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/modules/79786e6e.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/modules/76333265.js"
   },
   {
     "from": "vendor/modules/4456666c.js",
@@ -1836,56 +1428,12 @@
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Index.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
     "from": "vendor/modules/45307530.js",
     "to": "vendor/modules/51446c63.js"
   },
   {
     "from": "vendor/modules/45307530.js",
     "to": "vendor/modules/4d677a57.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/354e4461.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/antdInput.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "components/Recovered_45334976.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "vendor/modules/4545516c.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/4545516c.js",
-    "to": "vendor/modules/66484b51.js"
   },
   {
     "from": "vendor/modules/454a6979.js",
@@ -1926,14 +1474,6 @@
   {
     "from": "vendor/modules/45524968.js",
     "to": "vendor/modules/antdMessage.js"
-  },
-  {
-    "from": "vendor/modules/45524968.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "vendor/modules/45524968.js",
-    "to": "vendor/modules/7957676f.js"
   },
   {
     "from": "vendor/modules/45524968.js",
@@ -1980,58 +1520,6 @@
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/6a65685a.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/objectWithoutPropertiesLoose.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/326d716c.js"
-  },
-  {
-    "from": "vendor/modules/464f4151.js",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
     "from": "pages/TicketDetail.jsx",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -2042,22 +1530,6 @@
   {
     "from": "pages/TicketDetail.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/modules/4e665578.js"
   },
   {
     "from": "vendor/modules/46597733.js",
@@ -2072,36 +1544,12 @@
     "to": "vendor/modules/4d504670.js"
   },
   {
-    "from": "vendor/modules/47374868.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/47374868.js",
-    "to": "vendor/modules/41323268.js"
-  },
-  {
-    "from": "vendor/modules/47374868.js",
-    "to": "vendor/modules/62734472.js"
-  },
-  {
-    "from": "vendor/modules/47374868.js",
-    "to": "vendor/modules/68374769.js"
-  },
-  {
     "from": "vendor/modules/47384d6f.js",
     "to": "vendor/modules/39334934.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2117,15 +1565,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
     "to": "vendor/modules/4a2b2f76.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/4d6f5257.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2149,35 +1589,11 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
     "to": "vendor/modules/44314466.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
     "to": "vendor/modules/reactLoadableRuntime.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/79786e6e.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/76333265.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2209,10 +1625,6 @@
   },
   {
     "from": "models/plan.js",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "models/plan.js",
     "to": "vendor/modules/4172412b.js"
   },
   {
@@ -2236,10 +1648,6 @@
     "to": "vendor/modules/64575353.js"
   },
   {
-    "from": "vendor/modules/48434d65.js",
-    "to": "vendor/modules/4a616b69.js"
-  },
-  {
     "from": "vendor/modules/484b6a6d.js",
     "to": "vendor/modules/32554434.js"
   },
@@ -2250,94 +1658,6 @@
   {
     "from": "vendor/modules/484b6a6d.js",
     "to": "vendor/modules/6f624455.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/pureMode.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/77487272.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/toStringTagType.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/77596d38.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/59455649.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/346f3336.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/56657959.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/764d7834.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/72545759.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/2b6d6d6d.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/4e614176.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/30385178.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/74476433.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/7a4e772b.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/setToStringTag.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/67527169.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/coreJsVersion.js"
-  },
-  {
-    "from": "vendor/modules/48585852.js",
-    "to": "vendor/modules/63517958.js"
   },
   {
     "from": "vendor/modules/48666977.js",
@@ -2354,18 +1674,6 @@
   {
     "from": "vendor/modules/48736e73.js",
     "to": "vendor/modules/35543259.js"
-  },
-  {
-    "from": "vendor/modules/49523752.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/49523752.js",
-    "to": "vendor/modules/592f6e65.js"
-  },
-  {
-    "from": "vendor/modules/49523752.js",
-    "to": "vendor/modules/30385178.js"
   },
   {
     "from": "vendor/modules/objectKeys.js",
@@ -2596,10 +1904,6 @@
     "to": "vendor/modules/isObject.js"
   },
   {
-    "from": "vendor/modules/4a693755.js",
-    "to": "vendor/modules/7334416e.js"
-  },
-  {
     "from": "vendor/modules/4b4f6e4c.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -2610,18 +1914,6 @@
   {
     "from": "vendor/modules/4b4f6e4c.js",
     "to": "vendor/modules/78395a61.js"
-  },
-  {
-    "from": "vendor/modules/4b516d34.js",
-    "to": "vendor/modules/6133574f.js"
-  },
-  {
-    "from": "vendor/modules/4b516d34.js",
-    "to": "vendor/modules/32354245.js"
-  },
-  {
-    "from": "vendor/modules/4b516d34.js",
-    "to": "vendor/modules/42735744.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -2641,195 +1933,7 @@
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/30776c71.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6463464a.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/56784b75.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/51734d68.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6b675748.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/2f67596e.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/51366351.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6e774b2f.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/mapRuntime.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/58725256.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6a4e2f47.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/506b5171.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/65723159.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/2f6d5762.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6a6a4d57.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/4f486770.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/4545516c.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/48585852.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6b575235.js"
-  },
-  {
-    "from": "app/bootstrap.js",
     "to": "vendor/modules/427a3773.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6c5a584d.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/44427430.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6849556d.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/47374868.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/4446416f.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/setRuntime.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/72556376.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/336d2b2f.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/396e537a.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/49523752.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/55517431.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/75327735.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/7a787274.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/42757333.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/4f523358.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/6f313735.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/5850312f.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/77387568.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/48434d65.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/51457a63.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/5165486c.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/53504659.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/weakMapRuntime.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/664b6d2b.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/4e347550.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/7a723878.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/7a517a41.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/774f6c30.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -2842,18 +1946,6 @@
   {
     "from": "app/bootstrap.js",
     "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/73613761.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/50737a47.js"
-  },
-  {
-    "from": "app/bootstrap.js",
-    "to": "vendor/modules/334a724f.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -2881,27 +1973,7 @@
   },
   {
     "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/59326651.js"
   },
   {
     "from": "layouts/MainLayout.jsx",
@@ -2913,23 +1985,11 @@
   },
   {
     "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
     "to": "vendor/modules/withLocaleRuntime.js"
   },
   {
     "from": "vendor/modules/4c494178.js",
     "to": "vendor/modules/45307530.js"
-  },
-  {
-    "from": "vendor/modules/4c4c584e.js",
-    "to": "vendor/modules/4a525065.js"
-  },
-  {
-    "from": "vendor/modules/4c4c584e.js",
-    "to": "vendor/modules/75637430.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -2998,10 +2058,6 @@
   {
     "from": "vendor/modules/4c6e6578.js",
     "to": "vendor/modules/53706333.js"
-  },
-  {
-    "from": "vendor/modules/4c705343.js",
-    "to": "vendor/modules/625a4d6d.js"
   },
   {
     "from": "vendor/modules/4d317870.js",
@@ -3108,18 +2164,6 @@
     "to": "vendor/modules/35543259.js"
   },
   {
-    "from": "vendor/modules/4e347550.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/4e347550.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/4e347550.js",
-    "to": "vendor/modules/30385178.js"
-  },
-  {
     "from": "vendor/modules/definePropertyRuntime.js",
     "to": "vendor/modules/definePropertyLegacy.js"
   },
@@ -3140,18 +2184,6 @@
     "to": "vendor/modules/requireObject.js"
   },
   {
-    "from": "vendor/modules/mapRuntime.js",
-    "to": "vendor/modules/43773475.js"
-  },
-  {
-    "from": "vendor/modules/mapRuntime.js",
-    "to": "vendor/modules/collectionReceiver.js"
-  },
-  {
-    "from": "vendor/modules/mapRuntime.js",
-    "to": "vendor/modules/collectionStrong.js"
-  },
-  {
     "from": "vendor/modules/arrayIterator.js",
     "to": "vendor/modules/4449634f.js"
   },
@@ -3170,18 +2202,6 @@
   {
     "from": "vendor/modules/arrayIterator.js",
     "to": "vendor/modules/58645054.js"
-  },
-  {
-    "from": "vendor/modules/4f486770.js",
-    "to": "vendor/modules/toStringTagType.js"
-  },
-  {
-    "from": "vendor/modules/4f486770.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/4f486770.js",
-    "to": "vendor/modules/redefine.js"
   },
   {
     "from": "vendor/modules/setterSupport.js",
@@ -3230,10 +2250,6 @@
   {
     "from": "vendor/modules/4f4c4553.js",
     "to": "vendor/modules/37697874.js"
-  },
-  {
-    "from": "vendor/modules/4f523358.js",
-    "to": "vendor/modules/4a616b69.js"
   },
   {
     "from": "vendor/modules/4f533536.js",
@@ -3300,36 +2316,8 @@
     "to": "vendor/modules/364f6771.js"
   },
   {
-    "from": "vendor/modules/506b5171.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/506b5171.js",
-    "to": "vendor/modules/66484b51.js"
-  },
-  {
-    "from": "vendor/modules/50737a47.js",
-    "to": "vendor/modules/70474e35.js"
-  },
-  {
     "from": "vendor/modules/51324967.js",
     "to": "vendor/modules/33337966.js"
-  },
-  {
-    "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/42467438.js"
-  },
-  {
-    "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/51366351.js",
-    "to": "vendor/modules/definePropertyHelper.js"
   },
   {
     "from": "vendor/modules/51432b4d.js",
@@ -3344,14 +2332,6 @@
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/reactSchedulerEntry.js",
-    "to": "vendor/modules/reactSchedulerRuntime.js"
-  },
-  {
-    "from": "vendor/modules/51457a63.js",
-    "to": "vendor/modules/4a616b69.js"
-  },
-  {
     "from": "vendor/modules/51537338.js",
     "to": "vendor/modules/isObject.js"
   },
@@ -3364,32 +2344,8 @@
     "to": "vendor/modules/50327359.js"
   },
   {
-    "from": "vendor/modules/5165486c.js",
-    "to": "vendor/modules/4a616b69.js"
-  },
-  {
     "from": "vendor/modules/516a5946.js",
     "to": "vendor/modules/markdownUtils.js"
-  },
-  {
-    "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/77596d38.js"
-  },
-  {
-    "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/tryCatchTest.js"
-  },
-  {
-    "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/6c306b7a.js"
   },
   {
     "from": "vendor/modules/522b372b.js",
@@ -3446,10 +2402,6 @@
   {
     "from": "vendor/modules/53456b77.js",
     "to": "vendor/modules/52552f4c.js"
-  },
-  {
-    "from": "vendor/modules/53504659.js",
-    "to": "vendor/modules/4a616b69.js"
   },
   {
     "from": "vendor/modules/53664447.js",
@@ -3514,18 +2466,6 @@
   {
     "from": "components/LanguageSelector.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/544c5235.js",
@@ -3600,46 +2540,6 @@
     "to": "vendor/modules/reactIsLegacyRuntime.js"
   },
   {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/354e4461.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/antdInput.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/4f614579.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/antdSelect.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "components/Recovered_54643430.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
     "from": "pages/Traffic.jsx",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -3665,14 +2565,6 @@
   },
   {
     "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
     "to": "vendor/modules/2b424a64.js"
   },
   {
@@ -3686,22 +2578,6 @@
   {
     "from": "pages/Traffic.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/modules/59326651.js"
   },
   {
     "from": "vendor/modules/552b4b44.js",
@@ -3741,19 +2617,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
     "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/6b4c5856.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -3762,34 +2626,6 @@
   {
     "from": "pages/Dashboard.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/2f497261.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/76333265.js"
   },
   {
     "from": "vendor/modules/554c4d54.js",
@@ -3830,10 +2666,6 @@
   {
     "from": "vendor/modules/554e7276.js",
     "to": "vendor/modules/7a677138.js"
-  },
-  {
-    "from": "vendor/modules/55517431.js",
-    "to": "vendor/modules/5733586b.js"
   },
   {
     "from": "vendor/modules/55576958.js",
@@ -3913,31 +2745,11 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
     "to": "vendor/modules/62627350.js"
   },
   {
     "from": "pages/Knowledge.jsx",
     "to": "vendor/modules/antdDrawer.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -3950,10 +2762,6 @@
   {
     "from": "pages/Knowledge.jsx",
     "to": "vendor/modules/markdownItRuntime.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/7957676f.js"
   },
   {
     "from": "vendor/modules/definePropertyHelper.js",
@@ -4040,18 +2848,6 @@
     "to": "vendor/modules/665a464e.js"
   },
   {
-    "from": "vendor/modules/56784b75.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/56784b75.js",
-    "to": "vendor/modules/4c6e6578.js"
-  },
-  {
-    "from": "vendor/modules/56784b75.js",
-    "to": "vendor/modules/4449634f.js"
-  },
-  {
     "from": "vendor/modules/sharedStore.js",
     "to": "vendor/modules/coreJsVersion.js"
   },
@@ -4105,14 +2901,6 @@
   },
   {
     "from": "pages/Node.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Node.jsx",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -4121,31 +2909,7 @@
   },
   {
     "from": "pages/Node.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Node.jsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/2f497261.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/modules/59326651.js"
   },
   {
     "from": "vendor/modules/57303730.js",
@@ -4229,14 +2993,6 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
     "to": "vendor/modules/374b616b.js"
   },
   {
@@ -4246,10 +3002,6 @@
   {
     "from": "pages/PlanDetail.jsx",
     "to": "vendor/modules/4a2b2f76.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/4d6f5257.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -4265,31 +3017,11 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/7957676f.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -4310,10 +3042,6 @@
   {
     "from": "vendor/modules/rcSwitchEntry.js",
     "to": "vendor/modules/rcSwitchRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5850312f.js",
-    "to": "vendor/modules/4a616b69.js"
   },
   {
     "from": "vendor/modules/58615332.js",
@@ -4380,30 +3108,6 @@
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/77596d38.js"
-  },
-  {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/setterSupport.js"
-  },
-  {
     "from": "vendor/modules/objectWithoutPropertiesLoose.js",
     "to": "vendor/modules/objectWithoutProperties.js"
   },
@@ -4418,14 +3122,6 @@
   {
     "from": "vendor/modules/592f6e65.js",
     "to": "vendor/modules/5a44722f.js"
-  },
-  {
-    "from": "vendor/modules/59326651.js",
-    "to": "vendor/modules/4c4c584e.js"
-  },
-  {
-    "from": "vendor/modules/59326651.js",
-    "to": "vendor/modules/4c4c584e.js"
   },
   {
     "from": "vendor/modules/59375a43.js",
@@ -4553,71 +3249,19 @@
   },
   {
     "from": "pages/Login.jsx",
-    "to": "vendor/modules/50417262.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Login.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/59326651.js"
   },
   {
     "from": "pages/Login.jsx",
     "to": "components/LanguageSelector.jsx"
   },
   {
-    "from": "pages/Login.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
     "from": "pages/Register.jsx",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "pages/Register.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Register.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/464f4151.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/59326651.js"
   },
   {
     "from": "pages/Register.jsx",
@@ -4626,14 +3270,6 @@
   {
     "from": "pages/Register.jsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/61722f70.js",
@@ -4768,42 +3404,6 @@
     "to": "vendor/modules/64516569.js"
   },
   {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/77487272.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/3639535a.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/554c4d54.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/61534531.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/getIteratorMethod.js"
-  },
-  {
-    "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/63517958.js"
-  },
-  {
     "from": "vendor/modules/646c3071.js",
     "to": "vendor/modules/5a786769.js"
   },
@@ -4884,10 +3484,6 @@
     "to": "services/request.js"
   },
   {
-    "from": "models/ticket.js",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
     "from": "vendor/modules/6544496f.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -4910,46 +3506,6 @@
   {
     "from": "vendor/modules/6544496f.js",
     "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/51624c5a.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/69436335.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/46597733.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/6d526730.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/34496c57.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/6c346159.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/4d466a32.js"
-  },
-  {
-    "from": "vendor/modules/65474a35.js",
-    "to": "vendor/modules/31572f39.js"
   },
   {
     "from": "models/coupon.js",
@@ -4992,26 +3548,6 @@
     "to": "services/request.js"
   },
   {
-    "from": "vendor/modules/65723159.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/65723159.js",
-    "to": "vendor/modules/5a676f65.js"
-  },
-  {
-    "from": "vendor/modules/65723159.js",
-    "to": "vendor/modules/4f654f43.js"
-  },
-  {
-    "from": "vendor/modules/65723159.js",
-    "to": "vendor/modules/31354243.js"
-  },
-  {
-    "from": "vendor/modules/65723159.js",
-    "to": "vendor/modules/61534531.js"
-  },
-  {
     "from": "vendor/modules/6634786f.js",
     "to": "vendor/modules/6e565674.js"
   },
@@ -5030,18 +3566,6 @@
   {
     "from": "vendor/modules/66484b51.js",
     "to": "vendor/modules/propertyIsEnumerable.js"
-  },
-  {
-    "from": "vendor/modules/664b6d2b.js",
-    "to": "vendor/modules/324f7332.js"
-  },
-  {
-    "from": "vendor/modules/664b6d2b.js",
-    "to": "vendor/modules/collectionReceiver.js"
-  },
-  {
-    "from": "vendor/modules/664b6d2b.js",
-    "to": "vendor/modules/collectionStrong.js"
   },
   {
     "from": "vendor/modules/664d492b.js",
@@ -5212,42 +3736,6 @@
     "to": "vendor/modules/33333070.js"
   },
   {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/6f463132.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/56657959.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/45545568.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/62734472.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/33333070.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/tryCatchTest.js"
-  },
-  {
-    "from": "vendor/modules/6849556d.js",
-    "to": "vendor/modules/68374769.js"
-  },
-  {
     "from": "models/user.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -5268,24 +3756,8 @@
     "to": "services/request.js"
   },
   {
-    "from": "models/user.js",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "models/user.js",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "models/user.js",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
     "from": "app/Router.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/43727734.js"
   },
   {
     "from": "app/Router.jsx",
@@ -5293,19 +3765,7 @@
   },
   {
     "from": "app/Router.jsx",
-    "to": "vendor/modules/62593767.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/41324646.js"
-  },
-  {
-    "from": "app/Router.jsx",
     "to": "vendor/modules/iterableToArray.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4b73726e.js"
   },
   {
     "from": "app/Router.jsx",
@@ -5317,139 +3777,7 @@
   },
   {
     "from": "app/Router.jsx",
-    "to": "vendor/modules/4c4c584e.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/6a665343.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4235354e.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4976692b.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4b534638.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/58447067.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/6b4f704e.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/46636653.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4b57344c.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/624d456b.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/50547431.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4c466a76.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/34757779.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/43553454.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/46575433.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/46635649.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/76534f6d.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/6e6d6e38.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/7736764a.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4b41676f.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/45507844.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/57734b44.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/6b456479.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/4c323765.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/46636653.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/64564876.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/46457a35.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/34707638.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/64564876.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/64564876.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/50737a47.js"
-  },
-  {
-    "from": "app/Router.jsx",
     "to": "vendor/modules/antdConfigProvider.js"
-  },
-  {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/48673072.js"
   },
   {
     "from": "app/Router.jsx",
@@ -5516,10 +3844,6 @@
     "to": "pages/Traffic.jsx"
   },
   {
-    "from": "app/Router.jsx",
-    "to": "vendor/modules/50737a47.js"
-  },
-  {
     "from": "vendor/modules/toObjectLegacy.js",
     "to": "vendor/modules/5a44722f.js"
   },
@@ -5544,58 +3868,6 @@
     "to": "vendor/modules/55576958.js"
   },
   {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/77596d38.js"
-  },
-  {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/setterSupport.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/38424d74.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/42467438.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/31354243.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/setterSupport.js"
-  },
-  {
     "from": "vendor/modules/descriptorsSupport.js",
     "to": "vendor/modules/tryCatchTestLegacy.js"
   },
@@ -5610,30 +3882,6 @@
   {
     "from": "vendor/modules/definePropertyEntry.js",
     "to": "vendor/modules/definePropertyRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6b575235.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/6b575235.js",
-    "to": "vendor/modules/coreJsVersion.js"
-  },
-  {
-    "from": "vendor/modules/6b575235.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/6b575235.js",
-    "to": "vendor/modules/56657959.js"
-  },
-  {
-    "from": "vendor/modules/6b575235.js",
-    "to": "vendor/modules/74476433.js"
-  },
-  {
-    "from": "vendor/modules/6b675748.js",
-    "to": "vendor/modules/67527169.js"
   },
   {
     "from": "vendor/modules/6b775a31.js",
@@ -5732,26 +3980,6 @@
     "to": "vendor/modules/52356a72.js"
   },
   {
-    "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/45545568.js"
-  },
-  {
-    "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/62734472.js"
-  },
-  {
-    "from": "vendor/modules/6c5a584d.js",
-    "to": "vendor/modules/68374769.js"
-  },
-  {
     "from": "vendor/modules/setToStringTag.js",
     "to": "vendor/modules/definePropertyHelper.js"
   },
@@ -5818,10 +4046,6 @@
   {
     "from": "vendor/modules/6d63447a.js",
     "to": "vendor/modules/636b3973.js"
-  },
-  {
-    "from": "vendor/modules/6d643747.js",
-    "to": "vendor/modules/55387055.js"
   },
   {
     "from": "models/tutorial.js",
@@ -5892,22 +4116,6 @@
     "to": "vendor/modules/4f735664.js"
   },
   {
-    "from": "vendor/modules/6e774b2f.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/6e774b2f.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/6f306f31.js",
-    "to": "vendor/modules/66734c38.js"
-  },
-  {
-    "from": "vendor/modules/6f313735.js",
-    "to": "vendor/modules/4a616b69.js"
-  },
-  {
     "from": "vendor/modules/6f384e48.js",
     "to": "vendor/modules/59375a43.js"
   },
@@ -5956,32 +4164,12 @@
     "to": "vendor/modules/65486e34.js"
   },
   {
-    "from": "vendor/modules/70474e35.js",
-    "to": "vendor/modules/396c5457.js"
-  },
-  {
-    "from": "vendor/modules/70474e35.js",
-    "to": "vendor/modules/6a594e59.js"
-  },
-  {
-    "from": "vendor/modules/70474e35.js",
-    "to": "vendor/modules/6a636532.js"
-  },
-  {
     "from": "vendor/modules/70497364.js",
     "to": "vendor/modules/424a6653.js"
   },
   {
     "from": "pages/Forgetpassword.jsx",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "pages/Forgetpassword.jsx",
@@ -5993,31 +4181,7 @@
   },
   {
     "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/464f4151.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
     "to": "components/LanguageSelector.jsx"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Invite.jsx",
@@ -6057,14 +4221,6 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
     "to": "vendor/modules/6d69595a.js"
   },
   {
@@ -6081,35 +4237,7 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
     "to": "vendor/modules/clipboardRuntime.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/modules/79786e6e.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "components/Recovered_45334976.jsx"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "components/Recovered_54643430.jsx"
   },
   {
     "from": "vendor/modules/71393748.js",
@@ -6204,130 +4332,6 @@
     "to": "vendor/modules/32776532.js"
   },
   {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/hasOwn.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/descriptorsLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/redefine.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/objectMeta.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/tryCatchTest.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/sharedStore.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/setToStringTag.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/uid.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/7a4b6e68.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/2f735777.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/54316e72.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/45705844.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/toObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/4f654f43.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/38424d74.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/7051474a.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/2f4d6664.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/43547364.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/31354243.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/getOwnPropertySymbols.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/objectKeys.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/39484668.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/propertyIsEnumerable.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/pureMode.js"
-  },
-  {
-    "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/56504f45.js"
-  },
-  {
     "from": "vendor/modules/72636e59.js",
     "to": "vendor/modules/61525445.js"
   },
@@ -6372,10 +4376,6 @@
     "to": "vendor/modules/664b4366.js"
   },
   {
-    "from": "vendor/modules/73613761.js",
-    "to": "vendor/modules/36596b53.js"
-  },
-  {
     "from": "vendor/modules/7432334d.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -6416,18 +4416,6 @@
     "to": "vendor/modules/316c2f56.js"
   },
   {
-    "from": "services/request.js",
-    "to": "vendor/modules/48673072.js"
-  },
-  {
-    "from": "services/request.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "services/request.js",
-    "to": "vendor/modules/7957676f.js"
-  },
-  {
     "from": "vendor/modules/7445656a.js",
     "to": "vendor/modules/4f6a6764.js"
   },
@@ -6460,10 +4448,6 @@
     "to": "vendor/modules/2b6d6d6d.js"
   },
   {
-    "from": "vendor/modules/adminSettingsRuntime.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
     "from": "vendor/modules/74526762.js",
     "to": "vendor/modules/41552f77.js"
   },
@@ -6478,10 +4462,6 @@
   {
     "from": "pages/Ticket.jsx",
     "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/6b4c5856.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -6509,19 +4489,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
     "to": "vendor/modules/2f7a7346.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/50417262.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -6542,46 +4510,6 @@
   {
     "from": "pages/Ticket.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "vendor/modules/75327735.js",
-    "to": "vendor/modules/5733586b.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/43785865.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/41552f77.js"
-  },
-  {
-    "from": "vendor/modules/7534746d.js",
-    "to": "vendor/modules/74526762.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -6688,24 +4616,8 @@
     "to": "vendor/modules/6264674b.js"
   },
   {
-    "from": "vendor/modules/7573644b.js",
-    "to": "app/history.js"
-  },
-  {
     "from": "vendor/modules/75745230.js",
     "to": "vendor/modules/36596b53.js"
-  },
-  {
-    "from": "vendor/modules/76333265.js",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "vendor/modules/76333265.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/76333265.js",
-    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/764d7834.js",
@@ -6742,14 +4654,6 @@
   {
     "from": "vendor/modules/htmlEntitiesEntry.js",
     "to": "vendor/modules/htmlEntities.js"
-  },
-  {
-    "from": "vendor/modules/76676d4f.js",
-    "to": "vendor/modules/794c706a.js"
-  },
-  {
-    "from": "vendor/modules/76705134.js",
-    "to": "vendor/modules/72655042.js"
   },
   {
     "from": "vendor/modules/7677754c.js",
@@ -6806,10 +4710,6 @@
   {
     "from": "vendor/modules/7736474f.js",
     "to": "vendor/modules/46704861.js"
-  },
-  {
-    "from": "vendor/modules/77387568.js",
-    "to": "vendor/modules/4a616b69.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -6890,14 +4790,6 @@
   {
     "from": "models/passport.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/passport.js",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "models/passport.js",
-    "to": "vendor/modules/7957676f.js"
   },
   {
     "from": "vendor/modules/77487272.js",
@@ -7021,10 +4913,6 @@
   },
   {
     "from": "app/store.js",
-    "to": "vendor/modules/48673072.js"
-  },
-  {
-    "from": "app/store.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -7034,10 +4922,6 @@
   {
     "from": "app/store.js",
     "to": "app/history.js"
-  },
-  {
-    "from": "app/store.js",
-    "to": "vendor/modules/50737a47.js"
   },
   {
     "from": "app/store.js",
@@ -7169,10 +5053,6 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/50417262.js"
-  },
-  {
-    "from": "pages/Order.jsx",
     "to": "vendor/modules/41776870.js"
   },
   {
@@ -7193,35 +5073,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "pages/Order.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/3361346d.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/adminSettingsRuntime.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/modules/7957676f.js"
   },
   {
     "from": "vendor/modules/794c4d59.js",
@@ -7284,66 +5136,6 @@
     "to": "vendor/modules/setToStringTag.js"
   },
   {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/2f786b65.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/54655277.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/6d69595a.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/antdMessage.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/clipboardRuntime.js"
-  },
-  {
-    "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/32717463.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/6b4c5856.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/50776563.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/clipboardRuntime.js"
-  },
-  {
-    "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/59326651.js"
-  },
-  {
     "from": "vendor/modules/7a4b6e68.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
@@ -7362,34 +5154,6 @@
   {
     "from": "vendor/modules/7a512f57.js",
     "to": "vendor/modules/markdownUtils.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/arrayIterator.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/objectKeys.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/redefine.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/56504f45.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/emptyExports.js"
-  },
-  {
-    "from": "vendor/modules/7a517a41.js",
-    "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/7a536442.js",
@@ -7424,60 +5188,8 @@
     "to": "vendor/modules/30687066.js"
   },
   {
-    "from": "vendor/modules/7a723878.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/7a723878.js",
-    "to": "vendor/modules/764d7834.js"
-  },
-  {
     "from": "vendor/modules/scrollIntoView.js",
     "to": "vendor/modules/6a423543.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/57474e57.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/3838566e.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/794c4d59.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/assertObject.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/53706333.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/4f735664.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/56657959.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/tryCatchTest.js"
-  },
-  {
-    "from": "vendor/modules/7a787274.js",
-    "to": "vendor/modules/67527169.js"
   },
   {
     "from": "vendor/modules/2b424a64.js",
@@ -7518,10 +5230,6 @@
   {
     "from": "vendor/modules/antdDrawer.js",
     "to": "vendor/modules/36436658.js"
-  },
-  {
-    "from": "vendor/modules/antdDrawer.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/antdDrawer.js",
@@ -7573,10 +5281,6 @@
   },
   {
     "from": "vendor/modules/antdButton.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/antdButton.js",
     "to": "vendor/modules/48383455.js"
   },
   {
@@ -7614,10 +5318,6 @@
   {
     "from": "vendor/modules/antdSelect.js",
     "to": "vendor/modules/36436658.js"
-  },
-  {
-    "from": "vendor/modules/antdSelect.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/antdSelect.js",
@@ -7678,22 +5378,6 @@
   {
     "from": "vendor/modules/antdTooltip.js",
     "to": "vendor/modules/48383455.js"
-  },
-  {
-    "from": "vendor/modules/34707638.js",
-    "to": "vendor/modules/4b76746d.js"
-  },
-  {
-    "from": "vendor/modules/34707638.js",
-    "to": "vendor/modules/4b716f38.js"
-  },
-  {
-    "from": "vendor/modules/34757779.js",
-    "to": "vendor/modules/7a6a3171.js"
-  },
-  {
-    "from": "vendor/modules/34757779.js",
-    "to": "vendor/modules/58596168.js"
   },
   {
     "from": "vendor/modules/35446d6f.js",
@@ -7760,10 +5444,6 @@
     "to": "vendor/modules/36436658.js"
   },
   {
-    "from": "vendor/modules/antdInput.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
     "from": "vendor/modules/36436658.js",
     "to": "vendor/modules/4b776266.js"
   },
@@ -7790,10 +5470,6 @@
   {
     "from": "vendor/modules/39393557.js",
     "to": "vendor/modules/6d682f6c.js"
-  },
-  {
-    "from": "vendor/modules/39393557.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/39393557.js",
@@ -7830,10 +5506,6 @@
   {
     "from": "vendor/modules/antdRadio.js",
     "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/41324646.js",
-    "to": "vendor/modules/656b6745.js"
   },
   {
     "from": "vendor/modules/41776870.js",
@@ -7889,83 +5561,11 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/36436658.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/6f486950.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/4f707471.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/59454956.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/51624c5a.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/6a6f3659.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/69436335.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/56376f43.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/46597733.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/6d526730.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/62616333.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/36436658.js"
-  },
-  {
-    "from": "vendor/modules/43745851.js",
-    "to": "vendor/modules/594d6e48.js"
-  },
-  {
-    "from": "vendor/modules/46635649.js",
-    "to": "vendor/modules/32544137.js"
-  },
-  {
-    "from": "vendor/modules/46635649.js",
-    "to": "vendor/modules/48454742.js"
-  },
-  {
-    "from": "vendor/modules/46636653.js",
-    "to": "vendor/modules/4e324b6b.js"
-  },
-  {
-    "from": "vendor/modules/46636653.js",
-    "to": "vendor/modules/4c397072.js"
   },
   {
     "from": "vendor/modules/48383455.js",
@@ -8028,10 +5628,6 @@
     "to": "vendor/modules/30395766.js"
   },
   {
-    "from": "vendor/modules/4b73726e.js",
-    "to": "vendor/modules/39415961.js"
-  },
-  {
     "from": "vendor/modules/4c6c5235.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -8042,10 +5638,6 @@
   {
     "from": "vendor/modules/4c6c5235.js",
     "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/4c6c5235.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/4c6c5235.js",
@@ -8065,31 +5657,11 @@
   },
   {
     "from": "vendor/modules/4d522f38.js",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
-    "from": "vendor/modules/4d522f38.js",
     "to": "vendor/modules/756c3562.js"
   },
   {
     "from": "vendor/modules/4d522f38.js",
     "to": "vendor/modules/36436658.js"
-  },
-  {
-    "from": "vendor/modules/4d6f5257.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4d6f5257.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/4d6f5257.js",
-    "to": "vendor/modules/48383455.js"
-  },
-  {
-    "from": "vendor/modules/4d6f5257.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/4f614579.js",
@@ -8102,26 +5674,6 @@
   {
     "from": "vendor/modules/4f614579.js",
     "to": "vendor/modules/52396f6a.js"
-  },
-  {
-    "from": "vendor/modules/50417262.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/50417262.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/50417262.js",
-    "to": "vendor/modules/48383455.js"
-  },
-  {
-    "from": "vendor/modules/50776563.js",
-    "to": "vendor/modules/63494f48.js"
-  },
-  {
-    "from": "vendor/modules/50776563.js",
-    "to": "vendor/modules/5774534b.js"
   },
   {
     "from": "vendor/modules/52396f6a.js",
@@ -8157,35 +5709,11 @@
   },
   {
     "from": "vendor/modules/antdSwitch.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/antdSwitch.js",
     "to": "vendor/modules/48383455.js"
   },
   {
     "from": "vendor/modules/antdSwitch.js",
     "to": "vendor/modules/36436658.js"
-  },
-  {
-    "from": "vendor/modules/54655277.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/54655277.js",
-    "to": "vendor/modules/3874782b.js"
-  },
-  {
-    "from": "vendor/modules/54655277.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/57734b44.js",
-    "to": "vendor/modules/6b6c4330.js"
-  },
-  {
-    "from": "vendor/modules/57734b44.js",
-    "to": "vendor/modules/7a526348.js"
   },
   {
     "from": "vendor/modules/594d6e48.js",
@@ -8206,38 +5734,6 @@
   {
     "from": "vendor/modules/5a76705a.js",
     "to": "vendor/modules/75375951.js"
-  },
-  {
-    "from": "vendor/modules/624d456b.js",
-    "to": "vendor/modules/5a76705a.js"
-  },
-  {
-    "from": "vendor/modules/62593767.js",
-    "to": "vendor/modules/63494f48.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/51624c5a.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/69436335.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/56376f43.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/48584e39.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/62616333.js",
-    "to": "vendor/modules/51324967.js"
   },
   {
     "from": "vendor/modules/62627350.js",
@@ -8345,63 +5841,11 @@
   },
   {
     "from": "vendor/modules/antdDropdown.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/antdDropdown.js",
     "to": "vendor/modules/43575167.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
     "to": "vendor/modules/antdButton.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/65474a35.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/7a543168.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/756c3562.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/antdButton.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/594d6e48.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/48383455.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6b4c5856.js",
-    "to": "vendor/modules/36436658.js"
   },
   {
     "from": "vendor/modules/6c55544b.js",
@@ -8493,10 +5937,6 @@
   },
   {
     "from": "vendor/modules/antdTag.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
-    "from": "vendor/modules/antdTag.js",
     "to": "vendor/modules/48383455.js"
   },
   {
@@ -8536,10 +5976,6 @@
     "to": "vendor/modules/3874782b.js"
   },
   {
-    "from": "vendor/modules/antdMessage.js",
-    "to": "vendor/modules/43745851.js"
-  },
-  {
     "from": "vendor/modules/75637430.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -8550,14 +5986,6 @@
   {
     "from": "vendor/modules/756c3562.js",
     "to": "vendor/modules/5a76705a.js"
-  },
-  {
-    "from": "vendor/modules/7736764a.js",
-    "to": "vendor/modules/52422f41.js"
-  },
-  {
-    "from": "vendor/modules/7736764a.js",
-    "to": "vendor/modules/4376744f.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -8602,10 +6030,6 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/antdDropdown.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/43745851.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -8884,10 +6308,6 @@
     "to": "vendor/modules/6e6d6e63.js"
   },
   {
-    "from": "vendor/modules/4235354e.js",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
     "from": "vendor/modules/43776335.js",
     "to": "vendor/modules/4e4b7875.js"
   },
@@ -8972,92 +6392,12 @@
     "to": "vendor/modules/516b5645.js"
   },
   {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/76705134.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/55387055.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/4b516d34.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/514c6150.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/67304d50.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/377a526a.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/2f4d4b6a.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/346e6d52.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/43785865.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/7534746d.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/74526762.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/4c705343.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/314f7942.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/76754955.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/6d643747.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/666f5376.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/4a693755.js"
-  },
-  {
-    "from": "vendor/modules/48673072.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
     "from": "vendor/modules/4930314a.js",
     "to": "vendor/modules/34344473.js"
   },
   {
     "from": "vendor/modules/496f616f.js",
     "to": "vendor/modules/68654e57.js"
-  },
-  {
-    "from": "vendor/modules/4976692b.js",
-    "to": "vendor/modules/77642f52.js"
   },
   {
     "from": "vendor/modules/4a485264.js",
@@ -9078,10 +6418,6 @@
   {
     "from": "vendor/modules/4a547a42.js",
     "to": "vendor/modules/isObjectLikeLegacy.js"
-  },
-  {
-    "from": "vendor/modules/4b534638.js",
-    "to": "vendor/modules/77642f52.js"
   },
   {
     "from": "vendor/modules/4b7a3579.js",
@@ -9242,10 +6578,6 @@
   {
     "from": "vendor/modules/57467155.js",
     "to": "vendor/modules/794c706a.js"
-  },
-  {
-    "from": "vendor/modules/58447067.js",
-    "to": "vendor/modules/77642f52.js"
   },
   {
     "from": "vendor/modules/58693765.js",
@@ -9460,10 +6792,6 @@
     "to": "vendor/modules/6d545452.js"
   },
   {
-    "from": "vendor/modules/6a665343.js",
-    "to": "vendor/modules/77642f52.js"
-  },
-  {
     "from": "vendor/modules/6a757638.js",
     "to": "vendor/modules/4d725064.js"
   },
@@ -9474,10 +6802,6 @@
   {
     "from": "vendor/modules/6b2b3172.js",
     "to": "vendor/modules/516b5645.js"
-  },
-  {
-    "from": "vendor/modules/6b4f704e.js",
-    "to": "vendor/modules/77642f52.js"
   },
   {
     "from": "vendor/modules/6b65777a.js",
@@ -9618,10 +6942,6 @@
   {
     "from": "vendor/modules/77636c47.js",
     "to": "vendor/modules/38384775.js"
-  },
-  {
-    "from": "vendor/modules/77642f52.js",
-    "to": "vendor/modules/59755469.js"
   },
   {
     "from": "vendor/modules/79317049.js",
