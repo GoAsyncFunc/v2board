@@ -10161,7 +10161,7 @@
   },
   {
     "from": "vendor/modules/63367747.js",
-    "to": "vendor/modules/6d64504c.js"
+    "to": "vendor/modules/nodeUtilTypes.js"
   },
   {
     "from": "vendor/modules/markdownParserState.js",
@@ -10528,12 +10528,8 @@
     "to": "vendor/modules/isArrayLike.js"
   },
   {
-    "from": "vendor/modules/6d64504c.js",
+    "from": "vendor/modules/nodeUtilTypes.js",
     "to": "vendor/modules/nodeGlobalObject.js"
-  },
-  {
-    "from": "vendor/modules/6d64504c.js",
-    "to": "vendor/modules/59755469.js"
   },
   {
     "from": "vendor/modules/6d762f58.js",
