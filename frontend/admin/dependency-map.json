@@ -109,7 +109,7 @@
   },
   {
     "from": "vendor/modules/2f4d6664.js",
-    "to": "vendor/modules/4a35372f.js"
+    "to": "vendor/modules/sharedKey.js"
   },
   {
     "from": "vendor/modules/2f4d6664.js",
@@ -981,7 +981,7 @@
   },
   {
     "from": "vendor/modules/35764d56.js",
-    "to": "vendor/modules/56566c78.js"
+    "to": "vendor/modules/sharedKeyLegacy.js"
   },
   {
     "from": "vendor/modules/362b6555.js",
@@ -1509,7 +1509,7 @@
   },
   {
     "from": "vendor/modules/42467438.js",
-    "to": "vendor/modules/4a35372f.js"
+    "to": "vendor/modules/sharedKey.js"
   },
   {
     "from": "vendor/modules/4247522b.js",
@@ -2028,11 +2028,11 @@
     "to": "vendor/modules/objectKeysIn.js"
   },
   {
-    "from": "vendor/modules/4a35372f.js",
+    "from": "vendor/modules/sharedKey.js",
     "to": "vendor/modules/sharedStore.js"
   },
   {
-    "from": "vendor/modules/4a35372f.js",
+    "from": "vendor/modules/sharedKey.js",
     "to": "vendor/modules/uid.js"
   },
   {
@@ -3293,7 +3293,7 @@
   },
   {
     "from": "vendor/modules/552b4b44.js",
-    "to": "vendor/modules/56566c78.js"
+    "to": "vendor/modules/sharedKeyLegacy.js"
   },
   {
     "from": "vendor/modules/isArrayIteratorMethod.js",
@@ -3472,11 +3472,11 @@
     "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
-    "from": "vendor/modules/56566c78.js",
+    "from": "vendor/modules/sharedKeyLegacy.js",
     "to": "vendor/modules/3239732f.js"
   },
   {
-    "from": "vendor/modules/56566c78.js",
+    "from": "vendor/modules/sharedKeyLegacy.js",
     "to": "vendor/modules/uid.js"
   },
   {
@@ -5553,7 +5553,7 @@
   },
   {
     "from": "vendor/modules/6f566d6c.js",
-    "to": "vendor/modules/56566c78.js"
+    "to": "vendor/modules/sharedKeyLegacy.js"
   },
   {
     "from": "vendor/modules/6f566d6c.js",
@@ -6757,7 +6757,7 @@
   },
   {
     "from": "vendor/modules/784a6965.js",
-    "to": "vendor/modules/4a35372f.js"
+    "to": "vendor/modules/sharedKey.js"
   },
   {
     "from": "vendor/modules/784b7a39.js",

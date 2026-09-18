@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./hasOwn.js"),
   o = require("./toIndexedObject.js"),
   i = require("./4c6e6578.js")(!1),
-  a = require("./4a35372f.js")("IE_PROTO");
+  a = require("./sharedKey.js")("IE_PROTO");
 legacyModule.exports = function (e, t) {
   var n,
     s = o(e),

@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./hasOwnLegacy.js"),
   o = require("./toArray.js"),
   i = require("./57303730.js")(!1),
-  a = require("./56566c78.js")("IE_PROTO");
+  a = require("./sharedKeyLegacy.js")("IE_PROTO");
 legacyModule.exports = function (e, t) {
   var n,
     s = o(e),
