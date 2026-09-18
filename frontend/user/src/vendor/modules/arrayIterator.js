@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./4449634f.js"),
-  o = require("./34384478.js"),
+  o = require("./iteratorResultLegacy.js"),
   i = require("./emptyExports.js"),
   a = require("./4f654f43.js");
 legacyModule.exports = require("./58645054.js")(Array, "Array", function (e, t) {

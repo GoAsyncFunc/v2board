@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./4f6a6764.js"),
-  i = require("./4a657330.js");
+  i = require("./requireObject.js");
 legacyModule.exports = function (e) {
   return function (t, n) {
     var o,

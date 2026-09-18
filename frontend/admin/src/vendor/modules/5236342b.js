@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var r = require("./47422b74.js"),
+var r = require("./noopLegacy.js"),
   i = o(r);
 function o(e) {
   return e && e.__esModule ? e : {

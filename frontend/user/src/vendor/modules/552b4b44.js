@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./422b4f54.js"),
-  o = require("./4a423638.js"),
+  o = require("./toObject.js"),
   i = require("./56566c78.js")("IE_PROTO"),
   a = Object.prototype;
 legacyModule.exports = Object.getPrototypeOf || function (e) {

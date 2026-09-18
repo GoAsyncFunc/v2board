@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./39484668.js"),
-  i = require("./65367737.js"),
+  i = require("./getOwnPropertySymbols.js"),
   o = require("./assertObject.js"),
   a = require("./globalObject.js").Reflect;
 legacyModule.exports = a && a.ownKeys || function (e) {

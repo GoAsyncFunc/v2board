@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./7a5a3048.js"),
+var r = require("./identity.js"),
   i = require("./496f616f.js"),
   a = require("./77636c47.js");
 function o(e, t) {

@@ -17,14 +17,14 @@ var r = require("./35543259.js"),
   v = require("./6b414d48.js"),
   y = require("./354b375a.js"),
   b = require("./39334934.js"),
-  w = require("./4a423638.js"),
+  w = require("./toObject.js"),
   x = require("./4e734f2f.js"),
   _ = require("./47384d6f.js"),
   E = require("./72723169.js"),
   S = require("./6f566d6c.js"),
   k = require("./41355867.js"),
   C = require("./7677754c.js"),
-  O = require("./6d716c46.js"),
+  O = require("./getOwnPropertySymbolsLegacy.js"),
   T = require("./definePropertyLegacy.js"),
   L = require("./7736474f.js"),
   A = C.f,
@@ -121,7 +121,7 @@ U || (M = function () {
   }), K(e);
 }, s(M[D], "toString", function () {
   return this._k;
-}), C.f = ee, T.f = X, require("./61722f70.js").f = k.f = te, require("./4e56306b.js").f = J, O.f = ne, o && !require("./754f5053.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
+}), C.f = ee, T.f = X, require("./61722f70.js").f = k.f = te, require("./propertyIsEnumerableLegacy.js").f = J, O.f = ne, o && !require("./754f5053.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
   return K(d(e));
 }), a(a.G + a.W + a.F * !U, {
   Symbol: M

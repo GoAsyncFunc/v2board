@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./63764376.js"),
+var r = require("./constantFactory.js"),
   i = require("./4f306f53.js"),
-  a = require("./7a5a3048.js"),
+  a = require("./identity.js"),
   o = i ? function (e, t) {
     return i(e, "toString", {
       configurable: !0,

@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./7267492b.js"),
-  i = require("./6f39756c.js"),
-  o = require("./38776d49.js"),
+  i = require("./getPrototypeOfLegacy.js"),
+  o = require("./isObjectLike.js"),
   a = "[object Object]",
   s = Function.prototype,
   l = Object.prototype,

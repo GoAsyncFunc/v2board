@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./5a30636d.js"),
+var r = require("./isArray.js"),
   i = require("./2f396161.js"),
   o = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
   a = /^\w*$/;

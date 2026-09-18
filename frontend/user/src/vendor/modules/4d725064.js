@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./6879706f.js"),
-  i = require("./6c6a684e.js"),
+  i = require("./sameValueZero.js"),
   a = Object.prototype,
   o = a.hasOwnProperty;
 function u(e, t, n) {

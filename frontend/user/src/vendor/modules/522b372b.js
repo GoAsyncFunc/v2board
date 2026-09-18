@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./7736474f.js"),
-  o = require("./6d716c46.js"),
-  i = require("./4e56306b.js");
+  o = require("./getOwnPropertySymbolsLegacy.js"),
+  i = require("./propertyIsEnumerableLegacy.js");
 legacyModule.exports = function (e) {
   var t = r(e),
     n = o.f;

@@ -4,7 +4,7 @@ const {
   interopDefault,
   defineExport
 } = require("../../app/moduleInterop.js");
-var r = require("./47422b74.js"),
+var r = require("./noopLegacy.js"),
   i = interopDefault(r),
   o = require("./514c6150.js"),
   a = interopDefault(o),

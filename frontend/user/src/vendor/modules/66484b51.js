@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./descriptorsLegacySupport.js"),
   o = require("./objectKeys.js"),
   i = require("./4f654f43.js"),
-  a = require("./4c734157.js").f;
+  a = require("./propertyIsEnumerable.js").f;
 legacyModule.exports = function (e) {
   return function (t) {
     var n,

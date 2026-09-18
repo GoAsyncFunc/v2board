@@ -2,10 +2,10 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./57474e57.js"),
   o = require("./38483435.js"),
-  i = require("./696c3471.js"),
+  i = require("./toObjectLegacy.js"),
   a = require("./4f735664.js"),
   s = require("./77596d38.js"),
-  c = require("./31376a43.js");
+  c = require("./speciesConstructor.js");
 r(r.P, "Array", {
   flatMap: function (e) {
     var t,

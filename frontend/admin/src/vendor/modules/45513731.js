@@ -8,7 +8,7 @@ var r = Object.assign || function (e) {
     }
     return e;
   },
-  i = require("./47422b74.js"),
+  i = require("./noopLegacy.js"),
   o = d(i),
   a = require("./514c6150.js"),
   s = d(a),

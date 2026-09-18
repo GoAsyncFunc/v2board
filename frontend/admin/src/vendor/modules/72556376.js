@@ -17,14 +17,14 @@ var r = require("./globalObject.js"),
   v = require("./45705844.js"),
   y = require("./assertObject.js"),
   b = require("./isObject.js"),
-  w = require("./696c3471.js"),
+  w = require("./toObjectLegacy.js"),
   x = require("./4f654f43.js"),
   _ = require("./38424d74.js"),
   E = require("./7051474a.js"),
   S = require("./2f4d6664.js"),
   k = require("./43547364.js"),
   C = require("./31354243.js"),
-  O = require("./65367737.js"),
+  O = require("./getOwnPropertySymbols.js"),
   T = require("./definePropertyHelper.js"),
   L = require("./objectKeys.js"),
   A = C.f,
@@ -121,7 +121,7 @@ U || (M = function () {
   }), K(e);
 }, s(M[D], "toString", function () {
   return this._k;
-}), C.f = ee, T.f = X, require("./39484668.js").f = k.f = te, require("./4c734157.js").f = J, O.f = ne, o && !require("./pureMode.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
+}), C.f = ee, T.f = X, require("./39484668.js").f = k.f = te, require("./propertyIsEnumerable.js").f = J, O.f = ne, o && !require("./pureMode.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
   return K(d(e));
 }), a(a.G + a.W + a.F * !U, {
   Symbol: M

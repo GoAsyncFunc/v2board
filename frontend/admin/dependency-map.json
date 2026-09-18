@@ -53,7 +53,7 @@
   },
   {
     "from": "vendor/modules/2b6f3570.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/2b6f3570.js",
@@ -61,7 +61,7 @@
   },
   {
     "from": "vendor/modules/2b6f3570.js",
-    "to": "vendor/modules/31376a43.js"
+    "to": "vendor/modules/speciesConstructor.js"
   },
   {
     "from": "vendor/modules/objectMeta.js",
@@ -157,7 +157,7 @@
   },
   {
     "from": "vendor/modules/2f6d5762.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/2f6d5762.js",
@@ -265,7 +265,7 @@
   },
   {
     "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/30776c71.js",
@@ -277,7 +277,7 @@
   },
   {
     "from": "vendor/modules/30776c71.js",
-    "to": "vendor/modules/31376a43.js"
+    "to": "vendor/modules/speciesConstructor.js"
   },
   {
     "from": "vendor/modules/30776c71.js",
@@ -349,7 +349,7 @@
   },
   {
     "from": "vendor/modules/31354243.js",
-    "to": "vendor/modules/4c734157.js"
+    "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
     "from": "vendor/modules/31354243.js",
@@ -380,7 +380,7 @@
     "to": "vendor/modules/57624247.js"
   },
   {
-    "from": "vendor/modules/31376a43.js",
+    "from": "vendor/modules/speciesConstructor.js",
     "to": "vendor/modules/33466845.js"
   },
   {
@@ -1201,7 +1201,7 @@
   },
   {
     "from": "vendor/modules/346e6d52.js",
-    "to": "vendor/modules/6d796e32.js"
+    "to": "vendor/modules/noopLegacyAlt.js"
   },
   {
     "from": "vendor/modules/346e6d52.js",
@@ -1501,7 +1501,7 @@
   },
   {
     "from": "vendor/modules/37556b30.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/37556b30.js",
@@ -1877,7 +1877,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/4a423638.js"
+    "to": "vendor/modules/toObject.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1905,7 +1905,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/6d716c46.js"
+    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1921,7 +1921,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/4e56306b.js"
+    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1941,7 +1941,7 @@
   },
   {
     "from": "vendor/modules/42467438.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/42467438.js",
@@ -2241,7 +2241,7 @@
   },
   {
     "from": "vendor/modules/43773475.js",
-    "to": "vendor/modules/34384478.js"
+    "to": "vendor/modules/iteratorResultLegacy.js"
   },
   {
     "from": "vendor/modules/43773475.js",
@@ -2281,7 +2281,7 @@
   },
   {
     "from": "vendor/modules/44427430.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/44427430.js",
@@ -2441,7 +2441,7 @@
   },
   {
     "from": "vendor/modules/45513731.js",
-    "to": "vendor/modules/47422b74.js"
+    "to": "vendor/modules/noopLegacy.js"
   },
   {
     "from": "vendor/modules/45513731.js",
@@ -2904,8 +2904,8 @@
     "to": "vendor/modules/5037584d.js"
   },
   {
-    "from": "vendor/modules/4a423638.js",
-    "to": "vendor/modules/4a657330.js"
+    "from": "vendor/modules/toObject.js",
+    "to": "vendor/modules/requireObject.js"
   },
   {
     "from": "vendor/modules/4a447a4c.js",
@@ -3169,7 +3169,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -3937,7 +3937,7 @@
   },
   {
     "from": "vendor/modules/4e734f2f.js",
-    "to": "vendor/modules/4a657330.js"
+    "to": "vendor/modules/requireObject.js"
   },
   {
     "from": "vendor/modules/mapRuntime.js",
@@ -3973,7 +3973,7 @@
   },
   {
     "from": "vendor/modules/arrayIterator.js",
-    "to": "vendor/modules/34384478.js"
+    "to": "vendor/modules/iteratorResultLegacy.js"
   },
   {
     "from": "vendor/modules/arrayIterator.js",
@@ -4425,7 +4425,7 @@
   },
   {
     "from": "vendor/modules/51734d68.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/51734d68.js",
@@ -4441,15 +4441,15 @@
   },
   {
     "from": "vendor/modules/522b372b.js",
-    "to": "vendor/modules/6d716c46.js"
+    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
   },
   {
     "from": "vendor/modules/522b372b.js",
-    "to": "vendor/modules/4e56306b.js"
+    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
     "from": "vendor/modules/5236342b.js",
-    "to": "vendor/modules/47422b74.js"
+    "to": "vendor/modules/noopLegacy.js"
   },
   {
     "from": "app/history.js",
@@ -4661,11 +4661,11 @@
   },
   {
     "from": "vendor/modules/54316e72.js",
-    "to": "vendor/modules/65367737.js"
+    "to": "vendor/modules/getOwnPropertySymbols.js"
   },
   {
     "from": "vendor/modules/54316e72.js",
-    "to": "vendor/modules/4c734157.js"
+    "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
     "from": "models/stat.js",
@@ -4693,7 +4693,7 @@
   },
   {
     "from": "vendor/modules/552b4b44.js",
-    "to": "vendor/modules/4a423638.js"
+    "to": "vendor/modules/toObject.js"
   },
   {
     "from": "vendor/modules/552b4b44.js",
@@ -5253,7 +5253,7 @@
   },
   {
     "from": "vendor/modules/58725256.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/58725256.js",
@@ -5369,7 +5369,7 @@
   },
   {
     "from": "vendor/modules/5a676f65.js",
-    "to": "vendor/modules/65367737.js"
+    "to": "vendor/modules/getOwnPropertySymbols.js"
   },
   {
     "from": "vendor/modules/5a676f65.js",
@@ -5657,7 +5657,7 @@
   },
   {
     "from": "vendor/modules/63634537.js",
-    "to": "vendor/modules/4a657330.js"
+    "to": "vendor/modules/requireObject.js"
   },
   {
     "from": "vendor/modules/636b3973.js",
@@ -5837,7 +5837,7 @@
   },
   {
     "from": "vendor/modules/6463464a.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/6463464a.js",
@@ -6221,7 +6221,7 @@
   },
   {
     "from": "vendor/modules/66484b51.js",
-    "to": "vendor/modules/4c734157.js"
+    "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
     "from": "vendor/modules/664b6d2b.js",
@@ -6305,7 +6305,7 @@
   },
   {
     "from": "vendor/modules/67304d50.js",
-    "to": "vendor/modules/47422b74.js"
+    "to": "vendor/modules/noopLegacy.js"
   },
   {
     "from": "vendor/modules/67304d50.js",
@@ -6892,7 +6892,7 @@
     "to": "vendor/modules/76333265.js"
   },
   {
-    "from": "vendor/modules/696c3471.js",
+    "from": "vendor/modules/toObjectLegacy.js",
     "to": "vendor/modules/5a44722f.js"
   },
   {
@@ -7089,7 +7089,7 @@
   },
   {
     "from": "vendor/modules/6a4e2f47.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/6a4e2f47.js",
@@ -7125,7 +7125,7 @@
   },
   {
     "from": "vendor/modules/6a6a4d57.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/6a6a4d57.js",
@@ -7293,15 +7293,15 @@
   },
   {
     "from": "vendor/modules/6b775a31.js",
-    "to": "vendor/modules/6d716c46.js"
+    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
   },
   {
     "from": "vendor/modules/6b775a31.js",
-    "to": "vendor/modules/4e56306b.js"
+    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
     "from": "vendor/modules/6b775a31.js",
-    "to": "vendor/modules/4a423638.js"
+    "to": "vendor/modules/toObject.js"
   },
   {
     "from": "vendor/modules/6b775a31.js",
@@ -7345,15 +7345,15 @@
   },
   {
     "from": "vendor/modules/6c465579.js",
-    "to": "vendor/modules/65367737.js"
+    "to": "vendor/modules/getOwnPropertySymbols.js"
   },
   {
     "from": "vendor/modules/6c465579.js",
-    "to": "vendor/modules/4c734157.js"
+    "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
     "from": "vendor/modules/6c465579.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/6c465579.js",
@@ -8049,7 +8049,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8077,7 +8077,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/65367737.js"
+    "to": "vendor/modules/getOwnPropertySymbols.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8093,7 +8093,7 @@
   },
   {
     "from": "vendor/modules/72556376.js",
-    "to": "vendor/modules/4c734157.js"
+    "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
     "from": "vendor/modules/72556376.js",
@@ -8937,7 +8937,7 @@
   },
   {
     "from": "vendor/modules/7677754c.js",
-    "to": "vendor/modules/4e56306b.js"
+    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
     "from": "vendor/modules/7677754c.js",
@@ -8965,11 +8965,11 @@
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
-    "to": "vendor/modules/6844616d.js"
+    "to": "vendor/modules/noop.js"
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
-    "to": "vendor/modules/554f3339.js"
+    "to": "vendor/modules/iteratorResult.js"
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
@@ -9125,7 +9125,7 @@
   },
   {
     "from": "vendor/modules/776c5064.js",
-    "to": "vendor/modules/696c3471.js"
+    "to": "vendor/modules/toObjectLegacy.js"
   },
   {
     "from": "vendor/modules/776c5064.js",
@@ -11533,7 +11533,7 @@
   },
   {
     "from": "vendor/modules/2b69464f.js",
-    "to": "vendor/modules/4c637357.js"
+    "to": "vendor/modules/getPrototypeOf.js"
   },
   {
     "from": "vendor/modules/2b69464f.js",
@@ -11605,7 +11605,7 @@
   },
   {
     "from": "vendor/modules/2f396161.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/2f643561.js",
@@ -11733,7 +11733,7 @@
   },
   {
     "from": "vendor/modules/3033412b.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/30437a38.js",
@@ -11781,7 +11781,7 @@
   },
   {
     "from": "vendor/modules/334c3636.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/33736f46.js",
@@ -11837,7 +11837,7 @@
   },
   {
     "from": "vendor/modules/34755477.js",
-    "to": "vendor/modules/5a30636d.js"
+    "to": "vendor/modules/isArray.js"
   },
   {
     "from": "vendor/modules/34755477.js",
@@ -11993,7 +11993,7 @@
   },
   {
     "from": "vendor/modules/39676747.js",
-    "to": "vendor/modules/5a30636d.js"
+    "to": "vendor/modules/isArray.js"
   },
   {
     "from": "vendor/modules/39676747.js",
@@ -12137,7 +12137,7 @@
   },
   {
     "from": "vendor/modules/43776335.js",
-    "to": "vendor/modules/4e706a6c.js"
+    "to": "vendor/modules/getProperty.js"
   },
   {
     "from": "vendor/modules/43785865.js",
@@ -12197,7 +12197,7 @@
   },
   {
     "from": "vendor/modules/44535245.js",
-    "to": "vendor/modules/42386475.js"
+    "to": "vendor/modules/falseValue.js"
   },
   {
     "from": "vendor/modules/44535245.js",
@@ -12209,7 +12209,7 @@
   },
   {
     "from": "vendor/modules/4541376d.js",
-    "to": "vendor/modules/7a5a3048.js"
+    "to": "vendor/modules/identity.js"
   },
   {
     "from": "vendor/modules/4541376d.js",
@@ -12733,7 +12733,7 @@
   },
   {
     "from": "vendor/modules/4a547a42.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/4b43735a.js",
@@ -12868,7 +12868,7 @@
     "to": "vendor/modules/694c4e76.js"
   },
   {
-    "from": "vendor/modules/4c637357.js",
+    "from": "vendor/modules/getPrototypeOf.js",
     "to": "vendor/modules/6b656b46.js"
   },
   {
@@ -13005,7 +13005,7 @@
   },
   {
     "from": "vendor/modules/4d725064.js",
-    "to": "vendor/modules/6c6a684e.js"
+    "to": "vendor/modules/sameValueZero.js"
   },
   {
     "from": "vendor/modules/4e35564d.js",
@@ -13397,7 +13397,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/5a30636d.js"
+    "to": "vendor/modules/isArray.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -13757,11 +13757,11 @@
   },
   {
     "from": "vendor/modules/594f3356.js",
-    "to": "vendor/modules/4c637357.js"
+    "to": "vendor/modules/getPrototypeOf.js"
   },
   {
     "from": "vendor/modules/594f3356.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/596c3763.js",
@@ -13857,7 +13857,7 @@
   },
   {
     "from": "vendor/modules/62383054.js",
-    "to": "vendor/modules/5a30636d.js"
+    "to": "vendor/modules/isArray.js"
   },
   {
     "from": "vendor/modules/62383054.js",
@@ -13933,7 +13933,7 @@
   },
   {
     "from": "vendor/modules/64443946.js",
-    "to": "vendor/modules/45784137.js"
+    "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
     "from": "vendor/modules/6454416c.js",
@@ -14225,11 +14225,11 @@
   },
   {
     "from": "vendor/modules/6a594e59.js",
-    "to": "vendor/modules/6f39756c.js"
+    "to": "vendor/modules/getPrototypeOfLegacy.js"
   },
   {
     "from": "vendor/modules/6a594e59.js",
-    "to": "vendor/modules/38776d49.js"
+    "to": "vendor/modules/isObjectLike.js"
   },
   {
     "from": "vendor/modules/6a654c6f.js",
@@ -14361,7 +14361,7 @@
   },
   {
     "from": "vendor/modules/6d762f58.js",
-    "to": "vendor/modules/6c6a684e.js"
+    "to": "vendor/modules/sameValueZero.js"
   },
   {
     "from": "vendor/modules/6d762f58.js",
@@ -14408,7 +14408,7 @@
     "to": "vendor/modules/4b7a3579.js"
   },
   {
-    "from": "vendor/modules/6f39756c.js",
+    "from": "vendor/modules/getPrototypeOfLegacy.js",
     "to": "vendor/modules/71787241.js"
   },
   {
@@ -14449,7 +14449,7 @@
   },
   {
     "from": "vendor/modules/70465248.js",
-    "to": "vendor/modules/63764376.js"
+    "to": "vendor/modules/constantFactory.js"
   },
   {
     "from": "vendor/modules/70465248.js",
@@ -14457,7 +14457,7 @@
   },
   {
     "from": "vendor/modules/70465248.js",
-    "to": "vendor/modules/7a5a3048.js"
+    "to": "vendor/modules/identity.js"
   },
   {
     "from": "vendor/modules/70535259.js",
@@ -14665,7 +14665,7 @@
   },
   {
     "from": "vendor/modules/7432446e.js",
-    "to": "vendor/modules/6c6a684e.js"
+    "to": "vendor/modules/sameValueZero.js"
   },
   {
     "from": "vendor/modules/74396d68.js",
@@ -14777,7 +14777,7 @@
   },
   {
     "from": "vendor/modules/79317049.js",
-    "to": "vendor/modules/6c6a684e.js"
+    "to": "vendor/modules/sameValueZero.js"
   },
   {
     "from": "vendor/modules/79503566.js",
@@ -14813,7 +14813,7 @@
   },
   {
     "from": "vendor/modules/7a6f5965.js",
-    "to": "vendor/modules/5a30636d.js"
+    "to": "vendor/modules/isArray.js"
   },
   {
     "from": "vendor/modules/7a6f5965.js",

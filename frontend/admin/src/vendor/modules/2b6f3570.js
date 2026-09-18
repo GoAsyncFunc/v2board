@@ -2,9 +2,9 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./77487272.js"),
   i = require("./39574656.js"),
-  o = require("./696c3471.js"),
+  o = require("./toObjectLegacy.js"),
   a = require("./4f735664.js"),
-  s = require("./31376a43.js");
+  s = require("./speciesConstructor.js");
 legacyModule.exports = function (e, t) {
   var n = 1 == e,
     l = 2 == e,
