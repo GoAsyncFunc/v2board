@@ -172,7 +172,9 @@ var k = {
   P = require("./domClassList.js"),
   T = interopDefault(P),
   RcAnimate = require("./RcAnimate.js"),
-  N = require("./316a3577.js"),
+  RcMenu = require("./RcMenu.js").default,
+  RcMenuItem = require("./MenuItem.js").default,
+  RcMenuItemGroup = require("./MenuItemGroup.js").default,
   M = require("./reactIsLegacyEntry.js");
 function A(e) {
   var t = [];
@@ -411,7 +413,7 @@ var Ee = function (e) {
           });
         } else n.firstActiveItem = null;
         var O = m && m[m.length - 1];
-        return u === n.lastInputValue || O && O === l || (y.activeKey = ""), r["createElement"](N["e"], he({
+        return u === n.lastInputValue || O && O === l || (y.activeKey = ""), r["createElement"](RcMenu, he({
           ref: n.saveMenuRef,
           style: n.props.dropdownMenuStyle,
           defaultActiveFirst: g,
@@ -1143,7 +1145,7 @@ var Xe = function (e) {
           return e.length - t.length;
         }), f.forEach(function (e) {
           var t = e,
-            n = r["createElement"](N["b"], {
+            n = r["createElement"](RcMenuItem, {
               style: ie,
               role: "option",
               attribute: ae,
@@ -1153,7 +1155,7 @@ var Xe = function (e) {
           l.push(n), s.push(n);
         }), e && s.every(function (t) {
           return Y(t) !== e;
-        }) && l.unshift(r["createElement"](N["b"], {
+        }) && l.unshift(r["createElement"](RcMenuItem, {
           style: ie,
           role: "option",
           attribute: ae,
@@ -1161,7 +1163,7 @@ var Xe = function (e) {
           key: e
         }, e));
       }
-      return !l.length && a && (u = !0, l = [r["createElement"](N["b"], {
+      return !l.length && a && (u = !0, l = [r["createElement"](RcMenuItem, {
         style: ie,
         attribute: ae,
         disabled: !0,
@@ -1186,18 +1188,18 @@ var Xe = function (e) {
             if (l || "string" !== typeof u ? !u && l && (u = l) : l = u, s && n.filterOption(s, e)) {
               var f = A(e.props.children).map(function (e) {
                 var t = Y(e) || e.key;
-                return r["createElement"](N["b"], Fe({
+                return r["createElement"](RcMenuItem, Fe({
                   key: t,
                   value: t
                 }, e.props));
               });
-              i.push(r["createElement"](N["c"], {
+              i.push(r["createElement"](RcMenuItemGroup, {
                 key: l,
                 title: u
               }, f));
             } else {
               var p = n.renderFilterOptionsFromChildren(e.props.children, t, o);
-              p.length && i.push(r["createElement"](N["c"], {
+              p.length && i.push(r["createElement"](RcMenuItemGroup, {
                 key: l,
                 title: u
               }, p));
@@ -1206,7 +1208,7 @@ var Xe = function (e) {
             V()(a.isSelectOption, "the children of `Select` should be `Select.Option` or `Select.OptGroup`, " + "instead of `".concat(a.name || a.displayName || e.type, "`."));
             var d = Y(e);
             if (fe(d, n.props), n.filterOption(s, e)) {
-              var h = r["createElement"](N["b"], Fe({
+              var h = r["createElement"](RcMenuItem, Fe({
                 style: ie,
                 attribute: ae,
                 value: d,

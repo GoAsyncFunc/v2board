@@ -14,7 +14,9 @@ var n = require("./reactRuntime.js"),
   h = interopDefault(s),
   f = require("./reactLifecyclesCompat.js"),
   v = require("./reactDomRuntime.js"),
-  p = require("./316a3577.js"),
+  RcMenu = require("./RcMenu.js").default,
+  RcSubMenu = require("./SubMenu.js").default,
+  RcMenuItem = require("./MenuItem.js").default,
   m = require("./closest.js"),
   d = interopDefault(m),
   z = require("./antdDropdown.js"),
@@ -767,7 +769,7 @@ var Te = function (e) {
               return c[t].indexOf(e.value) >= 0;
             }),
             a = u()("".concat(o, "-dropdown-submenu"), He({}, "".concat(r, "-submenu-contain-selected"), l));
-          return n["createElement"](p["d"], {
+          return n["createElement"](RcSubMenu, {
             title: e.text,
             popupClassName: a,
             key: e.value.toString()
@@ -790,7 +792,7 @@ var Te = function (e) {
         }) : n["createElement"](le["a"], {
           checked: o.indexOf(e.value.toString()) >= 0
         });
-      return n["createElement"](p["b"], {
+      return n["createElement"](RcMenuItem, {
         key: e.value
       }, l, n["createElement"]("span", null, e.text));
     }
@@ -825,7 +827,7 @@ var Te = function (e) {
         className: "".concat(l, "-dropdown")
       }, f) : n["createElement"](ie, {
         className: "".concat(l, "-dropdown")
-      }, n["createElement"](p["e"], {
+      }, n["createElement"](RcMenu, {
         multiple: s,
         onClick: this.handleMenuItemClick,
         prefixCls: "".concat(a, "-menu"),

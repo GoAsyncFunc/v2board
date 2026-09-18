@@ -1628,108 +1628,28 @@
     "to": "vendor/modules/objectAssignHelper.js"
   },
   {
-    "from": "vendor/modules/316a3577.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/75636958.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/ResizeObserver.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/animationFrameRuntime.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/classCallCheck.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/createClassHelper.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/inheritsHelper.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/invokeAll.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/keyCodes.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/mutationObserverShim.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/possibleConstructorReturn.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/scrollIntoViewEntry.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/warningOnce.js"
-  },
-  {
     "from": "vendor/modules/4c64484d.js",
     "to": "app/moduleInterop.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/316a3577.js"
+    "to": "vendor/modules/75636958.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/75636958.js"
+    "to": "vendor/modules/MenuItem.js"
+  },
+  {
+    "from": "vendor/modules/4c64484d.js",
+    "to": "vendor/modules/MenuItemGroup.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/RcAnimate.js"
+  },
+  {
+    "from": "vendor/modules/4c64484d.js",
+    "to": "vendor/modules/RcMenu.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -1928,6 +1848,58 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/animationFrameRuntime.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/createClassHelper.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/definePropertyHelper.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/findDomNode.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/motionSupport.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/objectAssignHelper.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/CSSMotion.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/ColGroup.js",
     "to": "vendor/modules/propTypesRuntime.js"
   },
@@ -2069,6 +2041,70 @@
   },
   {
     "from": "vendor/modules/LocaleReceiver.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/ResizeObserver.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/SubMenu.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/mutationObserverShim.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuDOMWrap.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuDivider.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/keyCodes.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/MenuItem.js",
+    "to": "vendor/modules/scrollIntoViewEntry.js"
+  },
+  {
+    "from": "vendor/modules/MenuItemGroup.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/MenuItemGroup.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2229,6 +2265,26 @@
   },
   {
     "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcMenu.js",
+    "to": "vendor/modules/SubPopupMenu.js"
+  },
+  {
+    "from": "vendor/modules/RcMenu.js",
+    "to": "vendor/modules/menuLegacyUtil.js"
+  },
+  {
+    "from": "vendor/modules/RcMenu.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/RcMenu.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcMenu.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2414,6 +2470,78 @@
   {
     "from": "vendor/modules/ResizeObserverSPI.js",
     "to": "vendor/modules/resizeObserverRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/75636958.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/CSSMotion.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/SubPopupMenu.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/keyCodes.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/menuPlacements.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubMenu.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/MenuDOMWrap.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/createChainedFunction.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/keyCodes.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/menuUtils.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/SubPopupMenu.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/TableCell.js",
@@ -2653,11 +2781,27 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/316a3577.js"
+    "to": "vendor/modules/ConfigContext.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/ConfigContext.js"
+    "to": "vendor/modules/MenuDivider.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/MenuItem.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/MenuItemGroup.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/RcMenu.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/SubMenu.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
@@ -2777,10 +2921,6 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/316a3577.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/ConfigContext.js"
   },
   {
@@ -2789,11 +2929,23 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/MenuItem.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/RcCheckbox.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/RcMenu.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/RcPagination.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/SubMenu.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -3588,6 +3740,10 @@
     "to": "app/moduleInterop.js"
   },
   {
+    "from": "vendor/modules/findDomNode.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
     "from": "vendor/modules/getAllKeys.js",
     "to": "vendor/modules/arrayLikeKeys.js"
   },
@@ -3810,10 +3966,6 @@
   {
     "from": "vendor/modules/intlRuntime.js",
     "to": "vendor/modules/reactIntl/index.js"
-  },
-  {
-    "from": "vendor/modules/invokeAll.js",
-    "to": "app/moduleInterop.js"
   },
   {
     "from": "vendor/modules/isArguments.js",
@@ -4078,6 +4230,18 @@
   {
     "from": "vendor/modules/memoizeCapped.js",
     "to": "vendor/modules/memoize.js"
+  },
+  {
+    "from": "vendor/modules/menuLegacyUtil.js",
+    "to": "vendor/modules/warning.js"
+  },
+  {
+    "from": "vendor/modules/menuUtils.js",
+    "to": "vendor/modules/isMobileDevice.js"
+  },
+  {
+    "from": "vendor/modules/menuUtils.js",
+    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/merge.js",

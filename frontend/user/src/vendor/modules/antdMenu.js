@@ -5,7 +5,11 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./316a3577.js"),
+  RcMenu = require("./RcMenu.js").default,
+  RcSubMenu = require("./SubMenu.js").default,
+  RcMenuItem = require("./MenuItem.js").default,
+  RcMenuItemGroup = require("./MenuItemGroup.js").default,
+  RcMenuDivider = require("./MenuDivider.js").default,
   o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./omitProps.js"),
@@ -116,7 +120,7 @@ var w = function (e) {
         o = t.popupClassName;
       return n["createElement"](v.Consumer, null, function (t) {
         var a = t.antdMenuTheme;
-        return n["createElement"](r["d"], m({}, e.props, {
+        return n["createElement"](RcSubMenu, m({}, e.props, {
           ref: e.saveSubMenu,
           popupClassName: l()("".concat(c, "-").concat(a), o)
         }));
@@ -751,7 +755,7 @@ var _e = function (e, t) {
           return c || o || (u.title = null, u.visible = !1), n["createElement"](S["a"], Le({}, u, {
             placement: "right",
             overlayClassName: "".concat(i, "-inline-collapsed-tooltip")
-          }), n["createElement"](r["b"], Le({}, h, {
+          }), n["createElement"](RcMenuItem, Le({}, h, {
             title: s,
             ref: e.saveMenuItem
           })));
@@ -929,7 +933,7 @@ var lt = function (e) {
         }, m);
       "inline" !== p && (y.onClick = o.handleClick);
       var b = o.getInlineCollapsed() && (0 === f || "0" === f || "0px" === f);
-      return b && (y.openKeys = []), n["createElement"](r["e"], Qe({
+      return b && (y.openKeys = []), n["createElement"](RcMenu, Qe({
         getPopupContainer: t
       }, v, y, {
         prefixCls: d,
@@ -1044,4 +1048,4 @@ var at = function (e) {
     }
   }]), c;
 }(n["Component"]);
-at.Divider = r["a"], at.Item = Ne, at.SubMenu = L, at.ItemGroup = r["c"];
+at.Divider = RcMenuDivider, at.Item = Ne, at.SubMenu = L, at.ItemGroup = RcMenuItemGroup;
