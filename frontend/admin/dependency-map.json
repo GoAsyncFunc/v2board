@@ -8481,7 +8481,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/6974736a.js"
+    "to": "vendor/modules/getValue.js"
   },
   {
     "from": "vendor/modules/2b54542f.js",
@@ -9789,7 +9789,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/6974736a.js"
+    "to": "vendor/modules/getValue.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -10457,7 +10457,7 @@
   },
   {
     "from": "vendor/modules/trimStart.js",
-    "to": "vendor/modules/544f3872.js"
+    "to": "vendor/modules/trimEndIndex.js"
   },
   {
     "from": "vendor/modules/isPlainObject.js",

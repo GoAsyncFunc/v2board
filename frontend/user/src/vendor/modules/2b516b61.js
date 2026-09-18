@@ -6,7 +6,7 @@ var r = require("./stack.js"),
   o = require("./54314156.js"),
   u = require("./isObjectValue.js"),
   l = require("./6d545452.js"),
-  s = require("./6974736a.js");
+  s = require("./getValue.js");
 function c(e, t, n, f, d) {
   e !== t && a(t, function (a, l) {
     if (d || (d = new r()), u(a)) o(e, t, l, n, c, f, d);else {

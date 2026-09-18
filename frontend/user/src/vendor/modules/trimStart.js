@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./544f3872.js"),
+var r = require("./trimEndIndex.js"),
   i = /^\s+/;
 function a(e) {
   return e ? e.slice(0, r(e) + 1).replace(i, "") : e;
