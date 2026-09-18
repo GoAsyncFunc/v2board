@@ -38,16 +38,16 @@ function p(e) {
     style: e.style
   }, e.children);
 }
-var v = require("./75684241.js"),
-  m = function (e) {
-    function t() {
-      for (var t, c = arguments.length, n = new Array(c), r = 0; r < c; r++) n[r] = arguments[r];
-      return t = e.call.apply(e, [this].concat(n)) || this, t.EVENT_CHANGE = "a1", t.EVENT_FULL_SCREEN = "a2", t.EVENT_VIEW_CHANGE = "a3", t.EVENT_KEY_DOWN = "a4", t.EVENT_EDITOR_KEY_DOWN = "a5", t.EVENT_FOCUS = "a5", t.EVENT_BLUR = "a6", t.EVENT_SCROLL = "a7", t.EVENT_LANG_CHANGE = "b1", t;
+var EventEmitter3 = require("./eventEmitter3.js"),
+  MarkdownEditorEmitter = function (EventEmitterBase) {
+    function EditorEventEmitter() {
+      for (var emitter, argumentCount = arguments.length, constructorArguments = new Array(argumentCount), argumentIndex = 0; argumentIndex < argumentCount; argumentIndex++) constructorArguments[argumentIndex] = arguments[argumentIndex];
+      return emitter = EventEmitterBase.call.apply(EventEmitterBase, [this].concat(constructorArguments)) || this, emitter.EVENT_CHANGE = "a1", emitter.EVENT_FULL_SCREEN = "a2", emitter.EVENT_VIEW_CHANGE = "a3", emitter.EVENT_KEY_DOWN = "a4", emitter.EVENT_EDITOR_KEY_DOWN = "a5", emitter.EVENT_FOCUS = "a5", emitter.EVENT_BLUR = "a6", emitter.EVENT_SCROLL = "a7", emitter.EVENT_LANG_CHANGE = "b1", emitter;
     }
-    return i()(t, e), t;
-  }(v["EventEmitter"]),
-  d = new m(),
-  y = m,
+    return i()(EditorEventEmitter, EventEmitterBase), EditorEventEmitter;
+  }(EventEmitter3.EventEmitter),
+  localeEventBus = new MarkdownEditorEmitter(),
+  EditorEventEmitterClass = MarkdownEditorEmitter,
   b = {
     clearTip: "Are you sure you want to clear all contents?",
     btnHeader: "Header",
@@ -123,7 +123,7 @@ var v = require("./75684241.js"),
           var c = navigator.browserLanguage.split("-");
           e = c[0], c[1] && (e += c[1].toUpperCase());
         }
-        this.current !== e && this.isAvailable(e) && (this.current = e, d.emit(d.EVENT_LANG_CHANGE, this, e, this.langs[e]));
+        this.current !== e && this.isAvailable(e) && (this.current = e, localeEventBus.emit(localeEventBus.EVENT_LANG_CHANGE, this, e, this.langs[e]));
       }
     }, t.isAvailable = function (e) {
       return "undefined" !== typeof this.langs[e];
@@ -131,7 +131,7 @@ var v = require("./75684241.js"),
       this.langs[e] = t;
     }, t.setCurrent = function (e) {
       if (!this.isAvailable(e)) throw new Error("Language " + e + " is not exists");
-      this.current !== e && (this.current = e, d.emit(d.EVENT_LANG_CHANGE, this, e, this.langs[e]));
+      this.current !== e && (this.current = e, localeEventBus.emit(localeEventBus.EVENT_LANG_CHANGE, this, e, this.langs[e]));
     }, t.get = function (e, t) {
       var c = this.langs[this.current][e] || "";
       return t && Object.keys(t).forEach(function (e) {
@@ -482,7 +482,7 @@ function J(e, t) {
 var $ = function (e) {
   function t(t) {
     var c;
-    return c = e.call(this, t) || this, c.nodeMdText = u["createRef"](), c.nodeMdPreview = u["createRef"](), c.nodeMdPreviewWrapper = u["createRef"](), c.hasContentChanged = !0, c.composing = !1, c.pluginApis = new Map(), c.scrollScale = 1, c.isSyncingScroll = !1, c.shouldSyncScroll = "md", c.keyboardListeners = [], c.emitter = new y(), c.config = U(G, c.props.config, c.props), c.state = {
+    return c = e.call(this, t) || this, c.nodeMdText = u["createRef"](), c.nodeMdPreview = u["createRef"](), c.nodeMdPreviewWrapper = u["createRef"](), c.hasContentChanged = !0, c.composing = !1, c.pluginApis = new Map(), c.scrollScale = 1, c.isSyncingScroll = !1, c.shouldSyncScroll = "md", c.keyboardListeners = [], c.emitter = new EditorEventEmitterClass(), c.config = U(G, c.props.config, c.props), c.state = {
       text: (c.props.value || c.props.defaultValue || "").replace(/\u21b5/g, "\n"),
       html: "",
       view: c.config.view || G.view,
@@ -508,9 +508,9 @@ var $ = function (e) {
   var c = t.prototype;
   return c.componentDidMount = function () {
     var e = this.state.text;
-    this.renderHTML(e), d.on(d.EVENT_LANG_CHANGE, this.handleLocaleUpdate), C.setUp();
+    this.renderHTML(e), localeEventBus.on(localeEventBus.EVENT_LANG_CHANGE, this.handleLocaleUpdate), C.setUp();
   }, c.componentWillUnmount = function () {
-    d.off(d.EVENT_LANG_CHANGE, this.handleLocaleUpdate);
+    localeEventBus.off(localeEventBus.EVENT_LANG_CHANGE, this.handleLocaleUpdate);
   }, c.componentDidUpdate = function (e) {
     if ("undefined" !== typeof this.props.value && this.props.value !== this.state.text) {
       var t = this.props.value;

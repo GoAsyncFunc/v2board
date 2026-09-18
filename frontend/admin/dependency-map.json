@@ -2341,10 +2341,6 @@
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/75684241.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/assertThisInitialized.js"
   },
   {
@@ -2354,6 +2350,10 @@
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/createClassHelper.js"
+  },
+  {
+    "from": "vendor/modules/markdownEditorRuntime.js",
+    "to": "vendor/modules/eventEmitter3.js"
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
