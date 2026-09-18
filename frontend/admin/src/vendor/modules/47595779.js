@@ -152,4 +152,4 @@ let legacyModule = module,
       return s;
     }.call(legacyExports, undefined, legacyExports, e), void 0 === i || (e.exports = i);
   })();
-}).call(this, require("./59755469.js")(legacyModule), require("./globalObjectLegacy.js"));
+}).call(this, require("./moduleObjectPolyfill.js")(legacyModule), require("./globalObjectLegacy.js"));

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6c6d3052.js"),
+var r = require("./processNextTick.js"),
   i = Object.keys || function (e) {
     var t = [];
     for (var n in e) t.push(n);

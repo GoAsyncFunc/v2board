@@ -10,4 +10,4 @@ let legacyModule = module,
     bufferIsBuffer = bufferConstructor ? bufferConstructor.isBuffer : void 0,
     isBuffer = bufferIsBuffer || falseValue;
   e.exports = isBuffer;
-}).call(this, require("./59755469.js")(legacyModule));
+}).call(this, require("./moduleObjectPolyfill.js")(legacyModule));

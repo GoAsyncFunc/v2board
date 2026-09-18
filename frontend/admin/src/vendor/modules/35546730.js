@@ -14,4 +14,4 @@ let legacyModule = module,
     return e.copy(r), r;
   }
   e.exports = u;
-}).call(this, require("./59755469.js")(legacyModule));
+}).call(this, require("./moduleObjectPolyfill.js")(legacyModule));

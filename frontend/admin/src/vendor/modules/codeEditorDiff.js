@@ -23,7 +23,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 var i = require("./propTypesRuntime.js"),
   o = require("./reactRuntime.js"),
   a = require("./codeEditorSplit.js"),
-  s = require("./5a427753.js"),
+  s = require("./diffMatchPatch.js"),
   l = function (e) {
     function t(t) {
       var n = e.call(this, t) || this;

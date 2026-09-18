@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (t, r) {
-  var i = require("./6c6d3052.js");
+  var i = require("./processNextTick.js");
   function o(e) {
     var t = this;
     this.next = null, this.entry = null, this.finish = function () {
@@ -15,7 +15,7 @@ let legacyModule = module,
   var l = Object.create(require("./nodeTypePredicates.js"));
   l.inherits = require("./nodeInheritsOptional.js");
   var c = {
-      deprecate: require("./74394645.js")
+      deprecate: require("./deprecate.js")
     },
     u = require("./eventEmitter.js"),
     h = require("./bufferRuntime.js").Buffer,
@@ -27,10 +27,10 @@ let legacyModule = module,
     return h.isBuffer(e) || e instanceof f;
   }
   var m,
-    g = require("./526f4670.js");
+    g = require("./streamDestroy.js");
   function v() {}
   function y(e, t) {
-    a = a || require("./735a726f.js"), e = e || {};
+    a = a || require("./duplexStream.js"), e = e || {};
     var r = t instanceof a;
     this.objectMode = !!e.objectMode, r && (this.objectMode = this.objectMode || !!e.writableObjectMode);
     var i = e.highWaterMark,
@@ -43,7 +43,7 @@ let legacyModule = module,
     }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = !1, this.errorEmitted = !1, this.bufferedRequestCount = 0, this.corkedRequestsFree = new o(this);
   }
   function b(e) {
-    if (a = a || require("./735a726f.js"), !m.call(b, this) && !(this instanceof a)) return new b(e);
+    if (a = a || require("./duplexStream.js"), !m.call(b, this) && !(this instanceof a)) return new b(e);
     this._writableState = new y(e, this), this.writable = !0, e && ("function" === typeof e.write && (this._write = e.write), "function" === typeof e.writev && (this._writev = e.writev), "function" === typeof e.destroy && (this._destroy = e.destroy), "function" === typeof e.final && (this._final = e.final)), u.call(this);
   }
   function w(e, t) {

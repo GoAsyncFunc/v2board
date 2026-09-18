@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (t, r) {
-  var i = require("./6c6d3052.js");
+  var i = require("./processNextTick.js");
   legacyModule.exports = _;
   var o,
     a = require("./arrayIsArrayFallback.js");
   _.ReadableState = x;
-  require("./2b714533.js").EventEmitter;
+  require("./eventEmitterRuntime.js").EventEmitter;
   var s = function (e, t) {
       return e.listeners(t).length;
     },
@@ -25,8 +25,8 @@ let legacyModule = module,
     m = void 0;
   m = p && p.debuglog ? p.debuglog("stream") : function () {};
   var g,
-    v = require("./5868716f.js"),
-    y = require("./526f4670.js");
+    v = require("./bufferList.js"),
+    y = require("./streamDestroy.js");
   d.inherits(_, l);
   var b = ["error", "close", "destroy", "pause", "resume"];
   function w(e, t, n) {
@@ -34,7 +34,7 @@ let legacyModule = module,
     e._events && e._events[t] ? a(e._events[t]) ? e._events[t].unshift(n) : e._events[t] = [n, e._events[t]] : e.on(t, n);
   }
   function x(e, t) {
-    o = o || require("./735a726f.js"), e = e || {};
+    o = o || require("./duplexStream.js"), e = e || {};
     var r = t instanceof o;
     this.objectMode = !!e.objectMode, r && (this.objectMode = this.objectMode || !!e.readableObjectMode);
     var i = e.highWaterMark,
@@ -43,7 +43,7 @@ let legacyModule = module,
     this.highWaterMark = i || 0 === i ? i : r && (a || 0 === a) ? a : s, this.highWaterMark = Math.floor(this.highWaterMark), this.buffer = new v(), this.length = 0, this.pipes = null, this.pipesCount = 0, this.flowing = null, this.ended = !1, this.endEmitted = !1, this.reading = !1, this.sync = !0, this.needReadable = !1, this.emittedReadable = !1, this.readableListening = !1, this.resumeScheduled = !1, this.destroyed = !1, this.defaultEncoding = e.defaultEncoding || "utf8", this.awaitDrain = 0, this.readingMore = !1, this.decoder = null, this.encoding = null, e.encoding && (g || (g = require("./stringDecoder.js").StringDecoder), this.decoder = new g(e.encoding), this.encoding = e.encoding);
   }
   function _(e) {
-    if (o = o || require("./735a726f.js"), !(this instanceof _)) return new _(e);
+    if (o = o || require("./duplexStream.js"), !(this instanceof _)) return new _(e);
     this._readableState = new x(e, this), this.readable = !0, e && ("function" === typeof e.read && (this._read = e.read), "function" === typeof e.destroy && (this._destroy = e.destroy)), l.call(this);
   }
   function E(e, t, n, r, i) {

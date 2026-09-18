@@ -11280,4 +11280,4 @@ let legacyModule = module,
       window.ace["default"] = window.ace, e && (e.exports = window.ace);
     });
   }();
-}).call(this, require("./59755469.js")(legacyModule));
+}).call(this, require("./moduleObjectPolyfill.js")(legacyModule));

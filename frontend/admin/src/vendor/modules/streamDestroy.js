@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6c6d3052.js");
+var r = require("./processNextTick.js");
 function i(e, t) {
   var n = this,
     i = this._readableState && this._readableState.destroyed,

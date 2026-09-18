@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = a;
-var r = require("./735a726f.js"),
+var r = require("./duplexStream.js"),
   i = Object.create(require("./nodeTypePredicates.js"));
 function o(e, t) {
   var n = this._transformState;
