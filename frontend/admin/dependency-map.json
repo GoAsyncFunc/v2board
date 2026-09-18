@@ -2036,14 +2036,6 @@
     "to": "vendor/modules/warning.js"
   },
   {
-    "from": "vendor/modules/base64Runtime.js",
-    "to": "vendor/modules/344a6c44.js"
-  },
-  {
-    "from": "vendor/modules/base64Runtime.js",
-    "to": "vendor/modules/6b643245.js"
-  },
-  {
     "from": "vendor/modules/browserTransportFeatures.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
@@ -2388,6 +2380,14 @@
     "to": "vendor/modules/messageFormatParserRuntime.js"
   },
   {
+    "from": "vendor/modules/nodeQueryStringLegacy.js",
+    "to": "vendor/modules/queryStringDecodeLegacy.js"
+  },
+  {
+    "from": "vendor/modules/nodeQueryStringLegacy.js",
+    "to": "vendor/modules/queryStringEncodeLegacy.js"
+  },
+  {
     "from": "vendor/modules/nodeTypePredicates.js",
     "to": "vendor/modules/bufferPolyfill.js"
   },
@@ -2473,7 +2473,7 @@
   },
   {
     "from": "vendor/modules/urlRuntime.js",
-    "to": "vendor/modules/base64Runtime.js"
+    "to": "vendor/modules/nodeQueryStringLegacy.js"
   },
   {
     "from": "vendor/modules/urlRuntime.js",
