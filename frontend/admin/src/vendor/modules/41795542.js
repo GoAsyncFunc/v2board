@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = {
-  default: require("./33474a48.js"),
+  default: require("./objectCreate.js"),
   __esModule: !0
 };

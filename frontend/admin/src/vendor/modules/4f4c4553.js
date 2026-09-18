@@ -5,9 +5,9 @@ const {
 } = require("../../app/moduleInterop.js");
 var r = require("./51624c5a.js"),
   i = interopDefault(r),
-  o = require("./6a6f3659.js"),
+  o = require("./objectWithoutProperties.js"),
   a = interopDefault(o),
-  s = require("./69436335.js"),
+  s = require("./classCallCheck.js"),
   l = interopDefault(s),
   c = require("./46597733.js"),
   u = interopDefault(c),

@@ -3,11 +3,11 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./6a6f3659.js"),
+var r = require("./objectWithoutProperties.js"),
   o = interopDefault(r),
   i = require("./51624c5a.js"),
   a = interopDefault(i),
-  s = require("./69436335.js"),
+  s = require("./classCallCheck.js"),
   c = interopDefault(s),
   u = require("./46597733.js"),
   l = interopDefault(u),

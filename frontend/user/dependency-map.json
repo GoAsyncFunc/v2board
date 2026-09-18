@@ -305,7 +305,7 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -488,11 +488,11 @@
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/33474a48.js",
+    "from": "vendor/modules/objectCreate.js",
     "to": "vendor/modules/6c436338.js"
   },
   {
-    "from": "vendor/modules/33474a48.js",
+    "from": "vendor/modules/objectCreate.js",
     "to": "vendor/modules/coreJsNamespace.js"
   },
   {
@@ -601,7 +601,7 @@
   },
   {
     "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/362b6555.js",
@@ -773,7 +773,7 @@
   },
   {
     "from": "vendor/modules/382f2f32.js",
-    "to": "vendor/modules/6a705862.js"
+    "to": "vendor/modules/mediaQueryRegistryInstance.js"
   },
   {
     "from": "vendor/modules/3838566e.js",
@@ -829,7 +829,7 @@
   },
   {
     "from": "vendor/modules/3874782b.js",
-    "to": "vendor/modules/6a6f3659.js"
+    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/3874782b.js",
@@ -841,7 +841,7 @@
   },
   {
     "from": "vendor/modules/3874782b.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/3874782b.js",
@@ -1089,7 +1089,7 @@
   },
   {
     "from": "vendor/modules/41795542.js",
-    "to": "vendor/modules/33474a48.js"
+    "to": "vendor/modules/objectCreate.js"
   },
   {
     "from": "vendor/modules/42316a62.js",
@@ -2073,7 +2073,7 @@
   },
   {
     "from": "vendor/modules/4d466a32.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/4d466a32.js",
@@ -2221,11 +2221,11 @@
   },
   {
     "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/6a6f3659.js"
+    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/4f4c4553.js",
@@ -2368,11 +2368,11 @@
     "to": "vendor/modules/45513731.js"
   },
   {
-    "from": "vendor/modules/52552f4c.js",
+    "from": "vendor/modules/objectDefineProperty.js",
     "to": "vendor/modules/52716479.js"
   },
   {
-    "from": "vendor/modules/52552f4c.js",
+    "from": "vendor/modules/objectDefineProperty.js",
     "to": "vendor/modules/coreJsNamespace.js"
   },
   {
@@ -2401,7 +2401,7 @@
   },
   {
     "from": "vendor/modules/53456b77.js",
-    "to": "vendor/modules/52552f4c.js"
+    "to": "vendor/modules/objectDefineProperty.js"
   },
   {
     "from": "vendor/modules/53664447.js",
@@ -2953,7 +2953,7 @@
   },
   {
     "from": "vendor/modules/5733586b.js",
-    "to": "vendor/modules/4773725a.js"
+    "to": "vendor/modules/whitespaceCharacters.js"
   },
   {
     "from": "vendor/modules/5736526b.js",
@@ -3872,8 +3872,8 @@
     "to": "vendor/modules/tryCatchTestLegacy.js"
   },
   {
-    "from": "vendor/modules/6a705862.js",
-    "to": "vendor/modules/775a584c.js"
+    "from": "vendor/modules/mediaQueryRegistryInstance.js",
+    "to": "vendor/modules/mediaQueryRegistry.js"
   },
   {
     "from": "vendor/modules/arrayIsArrayRuntime.js",
@@ -4517,7 +4517,7 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -4573,7 +4573,7 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/6a6f3659.js"
+    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/75654e45.js",
@@ -4796,11 +4796,11 @@
     "to": "vendor/modules/requireCallable.js"
   },
   {
-    "from": "vendor/modules/775a584c.js",
+    "from": "vendor/modules/mediaQueryRegistry.js",
     "to": "vendor/modules/7650642f.js"
   },
   {
-    "from": "vendor/modules/775a584c.js",
+    "from": "vendor/modules/mediaQueryRegistry.js",
     "to": "vendor/modules/49583356.js"
   },
   {
@@ -4821,7 +4821,7 @@
   },
   {
     "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/6a6f3659.js"
+    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/78315961.js",
@@ -4829,7 +4829,7 @@
   },
   {
     "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "vendor/modules/78315961.js",
@@ -5021,7 +5021,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/69436335.js"
+    "to": "vendor/modules/classCallCheck.js"
   },
   {
     "from": "pages/Order.jsx",

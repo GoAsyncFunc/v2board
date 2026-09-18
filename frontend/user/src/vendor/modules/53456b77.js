@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = {
-  default: require("./52552f4c.js"),
+  default: require("./objectDefineProperty.js"),
   __esModule: !0
 };

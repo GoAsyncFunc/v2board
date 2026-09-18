@@ -97,7 +97,7 @@ function x(e, t, n) {
     writable: !0
   }) : e[t] = n, e;
 }
-var O = (0, s.canUseDOM)() && require("./6a705862.js"),
+var O = (0, s.canUseDOM)() && require("./mediaQueryRegistryInstance.js"),
   E = function (e) {
     function t(e) {
       var n;

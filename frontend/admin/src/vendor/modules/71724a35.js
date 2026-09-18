@@ -38,7 +38,7 @@ if ("undefined" !== typeof window) {
       removeListener: function () {}
     };
   };
-  window.matchMedia || (window.matchMedia = p), n = require("./6a705862.js");
+  window.matchMedia || (window.matchMedia = p), n = require("./mediaQueryRegistryInstance.js");
 }
 var v = ["xxl", "xl", "lg", "md", "sm", "xs"],
   m = {
