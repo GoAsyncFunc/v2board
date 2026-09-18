@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./424a6653.js"),
+var r = require("./hyphenate.js"),
   o = function (e) {
     var t = /[height|width]$/;
     return t.test(e);

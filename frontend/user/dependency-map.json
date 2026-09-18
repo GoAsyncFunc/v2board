@@ -4165,7 +4165,7 @@
   },
   {
     "from": "vendor/modules/70497364.js",
-    "to": "vendor/modules/424a6653.js"
+    "to": "vendor/modules/hyphenate.js"
   },
   {
     "from": "pages/Forgetpassword.jsx",
