@@ -11,7 +11,7 @@ var n = require("./reactRuntime.js"),
   i = require("./omitProps.js"),
   u = require("../Icon.js"),
   s = require("./48383455.js"),
-  h = require("./67306d53.js"),
+  h = require("./Wave.js"),
   f = require("./tuple.js");
 function v() {
   return v = Object.assign || function (e) {

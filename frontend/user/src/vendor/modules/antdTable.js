@@ -19,7 +19,7 @@ var n = require("./reactRuntime.js"),
   d = interopDefault(m),
   z = require("./antdDropdown.js"),
   y = require("../Icon.js"),
-  b = require("./78315961.js"),
+  b = require("./RcCheckbox.js"),
   M = require("./48383455.js"),
   g = require("./antdWarning.js");
 function H(e) {

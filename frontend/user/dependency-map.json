@@ -1896,46 +1896,6 @@
     "to": "vendor/modules/typeofHelper.js"
   },
   {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/75636958.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/classCallCheck.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/inheritsHelper.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/objectWithoutProperties.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/possibleConstructorReturn.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4f4c4553.js",
-    "to": "vendor/modules/tooltipPlacements.js"
-  },
-  {
     "from": "vendor/modules/5049416d.js",
     "to": "app/moduleInterop.js"
   },
@@ -1958,58 +1918,6 @@
   {
     "from": "vendor/modules/6264674b.js",
     "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/75636958.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/6544496f.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/48383455.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/cssAnimationEvents.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/requestAnimationFrame.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -2077,46 +1985,6 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/classCallCheck.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/inheritsHelper.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/objectWithoutProperties.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/possibleConstructorReturn.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/78315961.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2296,6 +2164,50 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/RcCheckbox.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/RcCheckbox.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcCheckbox.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/RcCheckbox.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/75636958.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/dropdownPlacements.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/RcTable.js",
     "to": "vendor/modules/BodyTable.js"
   },
@@ -2362,6 +2274,26 @@
   {
     "from": "vendor/modules/RcTable.js",
     "to": "vendor/modules/warningRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTooltip.js",
+    "to": "vendor/modules/75636958.js"
+  },
+  {
+    "from": "vendor/modules/RcTooltip.js",
+    "to": "vendor/modules/TooltipContent.js"
+  },
+  {
+    "from": "vendor/modules/RcTooltip.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTooltip.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTooltip.js",
+    "to": "vendor/modules/tooltipPlacements.js"
   },
   {
     "from": "vendor/modules/TableCell.js",
@@ -2432,6 +2364,34 @@
     "to": "vendor/modules/warningRuntime.js"
   },
   {
+    "from": "vendor/modules/TooltipContent.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TooltipContent.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/Wave.js",
+    "to": "vendor/modules/48383455.js"
+  },
+  {
+    "from": "vendor/modules/Wave.js",
+    "to": "vendor/modules/cssAnimationEvents.js"
+  },
+  {
+    "from": "vendor/modules/Wave.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/Wave.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/Wave.js",
+    "to": "vendor/modules/requestAnimationFrame.js"
+  },
+  {
     "from": "vendor/modules/addBatchedDomEventListener.js",
     "to": "vendor/modules/addDomEventListener.js"
   },
@@ -2465,7 +2425,7 @@
   },
   {
     "from": "vendor/modules/antdButton.js",
-    "to": "vendor/modules/67306d53.js"
+    "to": "vendor/modules/Wave.js"
   },
   {
     "from": "vendor/modules/antdButton.js",
@@ -2529,7 +2489,7 @@
   },
   {
     "from": "vendor/modules/antdDropdown.js",
-    "to": "vendor/modules/6544496f.js"
+    "to": "vendor/modules/RcDropdown.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
@@ -2621,7 +2581,7 @@
   },
   {
     "from": "vendor/modules/antdRadio.js",
-    "to": "vendor/modules/78315961.js"
+    "to": "vendor/modules/RcCheckbox.js"
   },
   {
     "from": "vendor/modules/antdRadio.js",
@@ -2705,11 +2665,11 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/78315961.js"
+    "to": "vendor/modules/LocaleReceiver.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/LocaleReceiver.js"
+    "to": "vendor/modules/RcCheckbox.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -2801,7 +2761,7 @@
   },
   {
     "from": "vendor/modules/antdTooltip.js",
-    "to": "vendor/modules/4f4c4553.js"
+    "to": "vendor/modules/RcTooltip.js"
   },
   {
     "from": "vendor/modules/antdTooltip.js",

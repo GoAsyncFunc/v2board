@@ -4,7 +4,7 @@ const {
   interopDefault
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./6544496f.js"),
+  r = require("./RcDropdown.js"),
   o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./48383455.js"),

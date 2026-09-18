@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
   r = require("./propTypesRuntime.js"),
-  o = require("./78315961.js"),
+  o = require("./RcCheckbox.js"),
   l = require("./classNames.js"),
   a = interopDefault(l),
   i = require("./shallowEqualWithComparator.js"),

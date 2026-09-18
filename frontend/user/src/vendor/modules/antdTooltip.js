@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
   r = require("./reactLifecyclesCompat.js"),
-  o = require("./4f4c4553.js"),
+  o = require("./RcTooltip.js"),
   l = require("./classNames.js"),
   a = interopDefault(l),
   i = require("./tooltipPlacements.js");
