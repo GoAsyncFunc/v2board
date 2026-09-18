@@ -7,7 +7,7 @@ if (require("./descriptorsLegacySupport.js")) {
     a = require("./57474e57.js"),
     s = require("./3838566e.js"),
     c = require("./794c4d59.js"),
-    u = require("./77487272.js"),
+    u = require("./bindContextLegacy.js"),
     l = require("./ensureInstance.js"),
     f = require("./createPropertyDescriptor.js"),
     p = require("./definePropertyValue.js"),

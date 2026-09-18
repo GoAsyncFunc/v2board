@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var defineProperty = require("./4f306f53.js");
+var defineProperty = require("./nativeDefineProperty.js");
 function baseAssignValue(object, key, value) {
   "__proto__" == key && defineProperty ? defineProperty(object, key, {
     configurable: !0,

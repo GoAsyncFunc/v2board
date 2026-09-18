@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6f566d6c.js"),
+var r = require("./objectCreateLegacy.js"),
   i = require("./propertyDescriptorFlags.js"),
-  o = require("./52664b42.js"),
+  o = require("./setToStringTag.js"),
   a = {};
-require("./definePropertyRuntime.js")(a, require("./55576958.js")("iterator"), function () {
+require("./definePropertyRuntime.js")(a, require("./wellKnownSymbolLegacy.js")("iterator"), function () {
   return this;
 }), legacyModule.exports = function (e, t, n) {
   e.prototype = r(a, {

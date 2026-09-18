@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./arrayIsArrayLegacyRuntime.js"),
   i = require("./isObject.js"),
   o = require("./toLength.js"),
-  a = require("./77487272.js"),
+  a = require("./bindContextLegacy.js"),
   s = require("./wellKnownSymbol.js")("isConcatSpreadable");
 function l(e, t, n, c, u, h, f, d) {
   var p,

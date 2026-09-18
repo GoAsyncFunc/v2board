@@ -4,7 +4,7 @@ var r = require("./globalObject.js"),
   o = require("./coreJsVersion.js"),
   i = require("./definePropertyValue.js"),
   a = require("./redefine.js"),
-  s = require("./77487272.js"),
+  s = require("./bindContextLegacy.js"),
   c = "prototype",
   u = function (e, t, n) {
     var l,

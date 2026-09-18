@@ -1,11 +1,11 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./definePropertyHelper.js").f,
-  o = require("./hasOwn.js"),
-  i = require("./wellKnownSymbol.js")("toStringTag");
-legacyModule.exports = function (e, t, n) {
-  e && !o(e = n ? e : e.prototype, i) && r(e, i, {
+var defineProperty = require("./definePropertyLegacy.js").f,
+  hasOwn = require("./hasOwnLegacy.js"),
+  toStringTag = require("./wellKnownSymbolLegacy.js")("toStringTag");
+legacyModule.exports = function setToStringTag(target, tag, stat) {
+  target && !hasOwn(target = stat ? target : target.prototype, toStringTag) && defineProperty(target, toStringTag, {
     configurable: !0,
-    value: t
+    value: tag
   });
 };

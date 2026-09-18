@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./77487272.js"),
+var r = require("./bindContextLegacy.js"),
   o = require("./iteratorClose.js"),
   i = require("./isArrayIteratorMethod.js"),
   a = require("./assertObject.js"),
