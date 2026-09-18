@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./6f566d6c.js"),
-  i = require("./72723169.js"),
+  i = require("./propertyDescriptorFlags.js"),
   o = require("./52664b42.js"),
   a = {};
 require("./definePropertyRuntime.js")(a, require("./55576958.js")("iterator"), function () {

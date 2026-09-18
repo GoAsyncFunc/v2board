@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./59714163.js")("meta"),
-  o = require("./39334934.js"),
+  o = require("./isObjectLegacy.js"),
   i = require("./hasOwnLegacy.js"),
   a = require("./definePropertyLegacy.js").f,
   s = 0,

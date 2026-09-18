@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./354b375a.js"),
+var r = require("./assertObjectLegacy.js"),
   o = require("./objectDefinePropertiesLegacy.js"),
-  i = require("./46704861.js"),
+  i = require("./objectKeysIn.js"),
   a = require("./56566c78.js")("IE_PROTO"),
   s = function () {},
   c = "prototype",

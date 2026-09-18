@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./476f7951.js"),
+var r = require("./isObjectValue.js"),
   i = require("./dateNow.js"),
   a = require("./744c4233.js"),
   o = "Expected a function",

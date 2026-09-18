@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./isArray.js"),
-  i = require("./2f396161.js"),
+  i = require("./isSymbol.js"),
   a = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
   o = /^\w*$/;
 function u(e, t) {

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./4e796b4b.js"),
-  i = require("./73686a42.js"),
+  i = require("./isIndex.js"),
   o = require("./isObjectLikeLegacy.js"),
   a = "[object Arguments]",
   s = "[object Array]",

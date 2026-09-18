@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./sameValueZero.js"),
-  i = require("./4d4d6d44.js"),
+  i = require("./isArrayLike.js"),
   o = require("./774a6737.js"),
-  a = require("./476f7951.js");
+  a = require("./isObjectValue.js");
 function s(e, t, n) {
   if (!a(n)) return !1;
   var s = typeof t;

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./34755477.js"),
-  i = require("./394e6170.js");
+  i = require("./toKey.js");
 function a(e, t) {
   t = r(t, e);
   var n = 0,

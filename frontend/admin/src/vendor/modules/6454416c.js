@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./476f7951.js"),
+var r = require("./isObjectValue.js"),
   i = Object.create,
   o = function () {
     function e() {}

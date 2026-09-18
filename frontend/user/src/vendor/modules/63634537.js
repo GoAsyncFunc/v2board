@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4f6a6764.js"),
+var r = require("./toInteger.js"),
   o = require("./requireObject.js");
 legacyModule.exports = function (e) {
   return function (t, n) {

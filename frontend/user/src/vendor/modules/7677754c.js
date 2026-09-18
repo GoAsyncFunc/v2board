@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./propertyIsEnumerableLegacy.js"),
-  o = require("./72723169.js"),
-  i = require("./4e734f2f.js"),
+  o = require("./propertyDescriptorFlags.js"),
+  i = require("./toArray.js"),
   a = require("./47384d6f.js"),
   s = require("./hasOwnLegacy.js"),
   c = require("./65557446.js"),

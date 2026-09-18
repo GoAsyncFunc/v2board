@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./definePropertyLegacy.js"),
-  i = require("./354b375a.js"),
+  i = require("./assertObjectLegacy.js"),
   o = require("./7736474f.js");
 legacyModule.exports = require("./descriptorsSupport.js") ? Object.defineProperties : function (e, t) {
   i(e);

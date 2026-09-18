@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./2f396161.js"),
+var r = require("./isSymbol.js"),
   i = 1 / 0;
 function o(e) {
   if ("string" == typeof e || r(e)) return e;

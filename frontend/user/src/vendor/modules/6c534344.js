@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./4e796b4b.js"),
-  i = require("./476f7951.js"),
+  i = require("./isObjectValue.js"),
   a = "[object AsyncFunction]",
   o = "[object Function]",
   u = "[object GeneratorFunction]",

@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./noop.js"),
   i = require("./iteratorResult.js"),
   o = require("./53427545.js"),
-  a = require("./4e734f2f.js");
+  a = require("./toArray.js");
 legacyModule.exports = require("./4d504670.js")(Array, "Array", function (e, t) {
   this._t = a(e), this._i = 0, this._k = t;
 }, function () {

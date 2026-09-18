@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./6a585148.js"),
-  i = require("./476f7951.js"),
-  o = require("./2f396161.js"),
+  i = require("./isObjectValue.js"),
+  o = require("./isSymbol.js"),
   a = NaN,
   s = /^[-+]0x[0-9a-f]+$/i,
   l = /^0b[01]+$/i,

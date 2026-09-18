@@ -645,7 +645,7 @@ let legacyModule = module,
     }();
     function a(t) {
       if (o && o.document) {
-        i.set("packaged", t || e.packaged || r.packaged || o.define && require("./42395971.js").packaged);
+        i.set("packaged", t || e.packaged || r.packaged || o.define && require("./defineIndirect.js").packaged);
         for (var a = {}, l = "", c = document.currentScript || document._currentScript, u = c && c.ownerDocument || document, h = u.getElementsByTagName("script"), f = 0; f < h.length; f++) {
           var d = h[f],
             p = d.src || d.getAttribute("src");
@@ -667,7 +667,7 @@ let legacyModule = module,
       });
     }
     r.exports = function (t) {
-      i.init = a, t.require = e, t.define = require("./42395971.js");
+      i.init = a, t.require = e, t.define = require("./defineIndirect.js");
     }, a(!0);
   }), ace.define("ace/lib/keys", ["require", "exports", "module", "ace/lib/oop"], function (e, t, n) {
     "use strict";

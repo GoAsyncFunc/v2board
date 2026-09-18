@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./57624247.js");
+var r = require("./propTypesSecretLegacy.js");
 function i() {}
 function o() {}
 o.resetWarningCache = i, legacyModule.exports = function () {

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./496c5338.js");
+var r = require("./propTypesSecret.js");
 function o() {}
 legacyModule.exports = function () {
   function e(e, t, n, o, i, a) {

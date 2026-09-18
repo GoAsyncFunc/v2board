@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./hasOwnLegacy.js"),
-  o = require("./4e734f2f.js"),
+  o = require("./toArray.js"),
   i = require("./57303730.js")(!1),
   a = require("./56566c78.js")("IE_PROTO");
 legacyModule.exports = function (e, t) {
