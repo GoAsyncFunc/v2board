@@ -6,7 +6,7 @@ var blockRules = [
   ["fence", require("./markdownFenceRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["blockquote", require("./markdownBlockquoteRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["hr", require("./markdownHorizontalRule.js"), ["paragraph", "reference", "blockquote", "list"]],
-  ["list", require("./537a354c.js"), ["paragraph", "reference", "blockquote"]],
+  ["list", require("./markdownListRule.js"), ["paragraph", "reference", "blockquote"]],
   ["reference", require("./markdownReferenceRule.js")],
   ["html_block", require("./markdownHtmlBlockRule.js"), ["paragraph", "reference", "blockquote"]],
   ["heading", require("./markdownHeadingRule.js"), ["paragraph", "reference", "blockquote"]],

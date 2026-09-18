@@ -2416,7 +2416,7 @@
     "to": "vendor/modules/toInteger.js"
   },
   {
-    "from": "vendor/modules/537a354c.js",
+    "from": "vendor/modules/markdownListRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -3433,7 +3433,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/537a354c.js"
+    "to": "vendor/modules/markdownListRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
