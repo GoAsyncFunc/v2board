@@ -5,8 +5,8 @@ var inlineRules = [
   ["newline", require("./markdownNewlineRule.js")],
   ["escape", require("./markdownEscapeRule.js")],
   ["backticks", require("./markdownBackticksRule.js")],
-  ["strikethrough", require("./6b697952.js").tokenize],
-  ["emphasis", require("./794b6e76.js").tokenize],
+  ["strikethrough", require("./markdownStrikethroughRule.js").tokenize],
+  ["emphasis", require("./markdownEmphasisRule.js").tokenize],
   ["link", require("./7a512f57.js")],
   ["image", require("./6b79306a.js")],
   ["autolink", require("./markdownAutolinkRule.js")],
@@ -15,9 +15,9 @@ var inlineRules = [
 ];
 
 var postProcessingRules = [
-  ["balance_pairs", require("./6734304a.js")],
-  ["strikethrough", require("./6b697952.js").postProcess],
-  ["emphasis", require("./794b6e76.js").postProcess],
+  ["balance_pairs", require("./markdownBalancePairsRule.js")],
+  ["strikethrough", require("./markdownStrikethroughRule.js").postProcess],
+  ["emphasis", require("./markdownEmphasisRule.js").postProcess],
   ["text_collapse", require("./normalizeTokenLevels.js")]
 ];
 

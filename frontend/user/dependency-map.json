@@ -2489,11 +2489,11 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/6b697952.js"
+    "to": "vendor/modules/markdownStrikethroughRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/794b6e76.js"
+    "to": "vendor/modules/markdownEmphasisRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
@@ -2517,15 +2517,15 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/6734304a.js"
+    "to": "vendor/modules/markdownBalancePairsRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/6b697952.js"
+    "to": "vendor/modules/markdownStrikethroughRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/794b6e76.js"
+    "to": "vendor/modules/markdownEmphasisRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
