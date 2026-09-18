@@ -8,7 +8,7 @@ var r = require("./assertObject.js"),
   l = "prototype",
   c = function () {
     var e,
-      t = require("./53664447.js")("iframe"),
+      t = require("./createElement.js")("iframe"),
       r = o.length,
       i = "<",
       a = ">";

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4f654f43.js"),
+var r = require("./toIndexedObject.js"),
   o = require("./toLength.js"),
   i = require("./toAbsoluteIndex.js");
 legacyModule.exports = function (e) {

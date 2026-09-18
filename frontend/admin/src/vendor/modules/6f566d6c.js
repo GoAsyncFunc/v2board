@@ -8,7 +8,7 @@ var r = require("./assertObjectLegacy.js"),
   l = "prototype",
   c = function () {
     var e,
-      t = require("./48736e73.js")("iframe"),
+      t = require("./createElement.js")("iframe"),
       r = o.length,
       i = "<",
       a = ">";

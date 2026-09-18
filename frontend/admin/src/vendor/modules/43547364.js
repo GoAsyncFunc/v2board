@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4f654f43.js"),
+var r = require("./toIndexedObject.js"),
   i = require("./39484668.js").f,
   o = {}.toString,
   a = "object" == typeof window && window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [],

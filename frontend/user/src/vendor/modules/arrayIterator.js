@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./addToUnscopables.js"),
   o = require("./iteratorResultLegacy.js"),
   i = require("./emptyExports.js"),
-  a = require("./4f654f43.js");
+  a = require("./toIndexedObject.js");
 legacyModule.exports = require("./58645054.js")(Array, "Array", function (e, t) {
   this._t = a(e), this._i = 0, this._k = t;
 }, function () {
