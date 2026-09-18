@@ -9589,7 +9589,7 @@
   },
   {
     "from": "vendor/modules/isArrayLike.js",
-    "to": "vendor/modules/isIndex.js"
+    "to": "vendor/modules/isLength.js"
   },
   {
     "from": "vendor/modules/assignValue.js",
@@ -10153,7 +10153,7 @@
   },
   {
     "from": "vendor/modules/63367747.js",
-    "to": "vendor/modules/64443946.js"
+    "to": "vendor/modules/baseIsTypedArray.js"
   },
   {
     "from": "vendor/modules/63367747.js",
@@ -10172,15 +10172,15 @@
     "to": "vendor/modules/createBaseEach.js"
   },
   {
-    "from": "vendor/modules/64443946.js",
+    "from": "vendor/modules/baseIsTypedArray.js",
     "to": "vendor/modules/4e796b4b.js"
   },
   {
-    "from": "vendor/modules/64443946.js",
-    "to": "vendor/modules/isIndex.js"
+    "from": "vendor/modules/baseIsTypedArray.js",
+    "to": "vendor/modules/isLength.js"
   },
   {
-    "from": "vendor/modules/64443946.js",
+    "from": "vendor/modules/baseIsTypedArray.js",
     "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {

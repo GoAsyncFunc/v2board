@@ -1,8 +1,27 @@
-let legacyModule = module,
-  legacyExports = exports;
-var r = require("./64443946.js"),
-  i = require("./baseUnary.js"),
-  o = require("./nodeUtilTypes.js"),
-  a = o && o.isTypedArray,
-  s = a ? i(a) : r;
-legacyModule.exports = s;
+var baseIsTypedArray = require('./baseIsTypedArray.js'),
+    baseUnary = require('./baseUnary.js'),
+    nodeUtil = require('./nodeUtilTypes.js');
+
+/* Node.js helper references. */
+var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+
+/**
+ * Checks if `value` is classified as a typed array.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * @example
+ *
+ * _.isTypedArray(new Uint8Array);
+ * // => true
+ *
+ * _.isTypedArray([]);
+ * // => false
+ */
+var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+
+module.exports = isTypedArray;
