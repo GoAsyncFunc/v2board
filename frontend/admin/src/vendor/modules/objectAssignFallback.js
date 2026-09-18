@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
-function n() {
-  return legacyModule.exports = n = Object.assign || function (e) {
-    for (var t = 1; t < arguments.length; t++) {
-      var n = arguments[t];
-      for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+function assignProperties() {
+  return legacyModule.exports = assignProperties = Object.assign || function assignPropertiesFallback(target) {
+    for (var sourceIndex = 1; sourceIndex < arguments.length; sourceIndex++) {
+      var source = arguments[sourceIndex];
+      for (var propertyName in source) Object.prototype.hasOwnProperty.call(source, propertyName) && (target[propertyName] = source[propertyName]);
     }
-    return e;
-  }, n.apply(this, arguments);
+    return target;
+  }, assignProperties.apply(this, arguments);
 }
-legacyModule.exports = n;
+legacyModule.exports = assignProperties;
