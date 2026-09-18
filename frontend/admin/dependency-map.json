@@ -9084,15 +9084,15 @@
     "to": "vendor/modules/422f3347.js"
   },
   {
-    "from": "vendor/modules/44535245.js",
+    "from": "vendor/modules/isBufferCompat.js",
     "to": "vendor/modules/rootObject.js"
   },
   {
-    "from": "vendor/modules/44535245.js",
+    "from": "vendor/modules/isBufferCompat.js",
     "to": "vendor/modules/falseValue.js"
   },
   {
-    "from": "vendor/modules/44535245.js",
+    "from": "vendor/modules/isBufferCompat.js",
     "to": "vendor/modules/59755469.js"
   },
   {
@@ -9769,7 +9769,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/44535245.js"
+    "to": "vendor/modules/isBufferCompat.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -10117,7 +10117,7 @@
   },
   {
     "from": "vendor/modules/62383054.js",
-    "to": "vendor/modules/44535245.js"
+    "to": "vendor/modules/isBufferCompat.js"
   },
   {
     "from": "vendor/modules/62383054.js",
