@@ -1628,14 +1628,6 @@
     "to": "vendor/modules/objectAssignHelper.js"
   },
   {
-    "from": "vendor/modules/30687066.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/30687066.js",
-    "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
     "from": "vendor/modules/316a3577.js",
     "to": "app/moduleInterop.js"
   },
@@ -1916,42 +1908,6 @@
     "to": "vendor/modules/wellKnownSymbolLegacy.js"
   },
   {
-    "from": "vendor/modules/426a5a73.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/554e7276.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4456666c.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/4456666c.js",
-    "to": "vendor/modules/getValueOrDefault.js"
-  },
-  {
-    "from": "vendor/modules/4456666c.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/48383455.js",
     "to": "app/moduleInterop.js"
   },
@@ -2120,18 +2076,6 @@
     "to": "vendor/modules/wellKnownSymbolLegacy.js"
   },
   {
-    "from": "vendor/modules/4d696256.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/4d696256.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4d696256.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/4f4c4553.js",
     "to": "app/moduleInterop.js"
   },
@@ -2185,118 +2129,6 @@
   },
   {
     "from": "vendor/modules/5049416d.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/58615332.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/564d537a.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/58615332.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/7a536442.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/7a677138.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/554e7276.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/564d537a.js",
-    "to": "vendor/modules/4d696256.js"
-  },
-  {
-    "from": "vendor/modules/564d537a.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/564d537a.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/4456666c.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/58615332.js",
-    "to": "vendor/modules/warningRuntime.js"
-  },
-  {
-    "from": "vendor/modules/59714446.js",
-    "to": "vendor/modules/554e7276.js"
-  },
-  {
-    "from": "vendor/modules/59714446.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/59714446.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
-    "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2428,74 +2260,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/426a5a73.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/43697435.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/505a4459.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/59714446.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/TableColumnGroup.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/addBatchedDomEventListener.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/domClassList.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/merge.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/nullFunction.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/reactReduxRuntime.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/shallowEqualWithComparator.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/warningRuntime.js"
-  },
-  {
     "from": "vendor/modules/78315961.js",
     "to": "app/moduleInterop.js"
   },
@@ -2536,27 +2300,67 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/7a536442.js",
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/ColGroup.js"
+  },
+  {
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/ExpandableRow.js"
+  },
+  {
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/TableHeader.js"
+  },
+  {
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/TableRow.js"
+  },
+  {
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/BaseTable.js",
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/7a536442.js",
-    "to": "vendor/modules/rcTableUtils.js"
-  },
-  {
-    "from": "vendor/modules/7a536442.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/7a677138.js",
-    "to": "vendor/modules/30687066.js"
-  },
-  {
-    "from": "vendor/modules/7a677138.js",
+    "from": "vendor/modules/BaseTable.js",
     "to": "vendor/modules/reactReduxRuntime.js"
   },
   {
-    "from": "vendor/modules/7a677138.js",
+    "from": "vendor/modules/BaseTable.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/BodyTable.js",
+    "to": "vendor/modules/BaseTable.js"
+  },
+  {
+    "from": "vendor/modules/BodyTable.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/BodyTable.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/BodyTable.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ColGroup.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ColGroup.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/ColGroup.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ColumnManager.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2566,6 +2370,70 @@
   {
     "from": "vendor/modules/DomEventObject.js",
     "to": "vendor/modules/objectAssignCompat.js"
+  },
+  {
+    "from": "vendor/modules/ExpandIcon.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ExpandIcon.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableRow.js",
+    "to": "vendor/modules/ExpandIcon.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableRow.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableRow.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/TableRow.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ExpandableTable.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
+  },
+  {
+    "from": "vendor/modules/HeadTable.js",
+    "to": "vendor/modules/BaseTable.js"
+  },
+  {
+    "from": "vendor/modules/HeadTable.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/HeadTable.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/HeadTable.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/HeadTable.js",
+    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/LocaleReceiver.js",
@@ -2608,8 +2476,140 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/BodyTable.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/ColumnManager.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/ExpandableTable.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/HeadTable.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/TableColumnGroup.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/addBatchedDomEventListener.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/domClassList.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/merge.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/nullFunction.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
+  },
+  {
+    "from": "vendor/modules/RcTable.js",
+    "to": "vendor/modules/warningRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableCell.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/TableCell.js",
+    "to": "vendor/modules/getValueOrDefault.js"
+  },
+  {
+    "from": "vendor/modules/TableCell.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/TableColumnGroup.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableHeader.js",
+    "to": "vendor/modules/TableHeaderRow.js"
+  },
+  {
+    "from": "vendor/modules/TableHeader.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableHeader.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableHeaderRow.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/TableHeaderRow.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableHeaderRow.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/TableCell.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/reactReduxRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TableRow.js",
+    "to": "vendor/modules/warningRuntime.js"
   },
   {
     "from": "vendor/modules/addBatchedDomEventListener.js",
@@ -4389,7 +4389,7 @@
   },
   {
     "from": "vendor/modules/rcTableEntry.js",
-    "to": "vendor/modules/77435846.js"
+    "to": "vendor/modules/RcTable.js"
   },
   {
     "from": "vendor/modules/rcTableEntry.js",

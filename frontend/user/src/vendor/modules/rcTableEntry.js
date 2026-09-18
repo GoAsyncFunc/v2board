@@ -2,7 +2,7 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var tableModule = interopDefault(require("./77435846.js")),
+var tableModule = interopDefault(require("./RcTable.js")),
   columnModule = interopDefault(require("./nullFunction.js")),
   columnGroupModule = interopDefault(require("./TableColumnGroup.js")),
   tableUtils = require("./rcTableUtils.js");
