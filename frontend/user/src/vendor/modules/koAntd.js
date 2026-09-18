@@ -4,7 +4,7 @@ const {
   markEsModule
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var n = require("./52422f41.js"),
+var n = require("./paginationLocaleKo.js"),
   r = require("./4376744f.js"),
   o = {
     placeholder: "\ub0a0\uc9dc \uc120\ud0dd"

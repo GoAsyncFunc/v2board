@@ -1615,7 +1615,7 @@ function tc(e) {
   Jt()(s);
 }
 var cc = require("./362b6555.js"),
-  nc = require("./48346667.js"),
+  nc = require("./paginationLocaleEn.js"),
   rc = require("./antdSelect.js");
 function oc(e) {
   "@babel/helpers - typeof";

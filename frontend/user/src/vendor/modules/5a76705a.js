@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./48346667.js"),
+var n = require("./paginationLocaleEn.js"),
   r = require("./75375951.js"),
   o = {
     placeholder: "Select time"

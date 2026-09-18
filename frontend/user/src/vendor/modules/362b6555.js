@@ -184,7 +184,7 @@ _.propTypes = {
   pageSizeOptions: ["10", "20", "30", "40"]
 };
 var k = _,
-  S = require("./4e324b6b.js"),
+  S = require("./paginationLocaleZhHans.js"),
   C = require("./reactLifecyclesCompat.js");
 function j() {}
 function P(e) {
