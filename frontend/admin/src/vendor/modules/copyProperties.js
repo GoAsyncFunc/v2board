@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = {
+var reactStaticPropertyNames = {
     childContextTypes: !0,
     contextTypes: !0,
     defaultProps: !0,
@@ -11,7 +11,7 @@ var r = {
     propTypes: !0,
     type: !0
   },
-  i = {
+  functionPropertyNames = {
     name: !0,
     length: !0,
     prototype: !0,
@@ -20,26 +20,26 @@ var r = {
     arguments: !0,
     arity: !0
   },
-  o = Object.defineProperty,
-  a = Object.getOwnPropertyNames,
-  s = Object.getOwnPropertySymbols,
-  l = Object.getOwnPropertyDescriptor,
-  c = Object.getPrototypeOf,
-  u = c && c(Object);
-function h(e, t, n) {
-  if ("string" !== typeof t) {
-    if (u) {
-      var f = c(t);
-      f && f !== u && h(e, f, n);
+  defineProperty = Object.defineProperty,
+  getOwnPropertyNames = Object.getOwnPropertyNames,
+  getOwnPropertySymbols = Object.getOwnPropertySymbols,
+  getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor,
+  getPrototypeOf = Object.getPrototypeOf,
+  objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+function copyProperties(target, source, excludedProperties) {
+  if ("string" !== typeof source) {
+    if (objectPrototype) {
+      var parentPrototype = getPrototypeOf(source);
+      parentPrototype && parentPrototype !== objectPrototype && copyProperties(target, parentPrototype, excludedProperties);
     }
-    var d = a(t);
-    s && (d = d.concat(s(t)));
-    for (var p = 0; p < d.length; ++p) {
-      var m = d[p];
-      if (!r[m] && !i[m] && (!n || !n[m])) {
-        var g = l(t, m);
+    var propertyNames = getOwnPropertyNames(source);
+    getOwnPropertySymbols && (propertyNames = propertyNames.concat(getOwnPropertySymbols(source)));
+    for (var index = 0; index < propertyNames.length; ++index) {
+      var propertyName = propertyNames[index];
+      if (!reactStaticPropertyNames[propertyName] && !functionPropertyNames[propertyName] && (!excludedProperties || !excludedProperties[propertyName])) {
+        var descriptor = getOwnPropertyDescriptor(source, propertyName);
         try {
-          o(e, m, g);
+          defineProperty(target, propertyName, descriptor);
         } catch (e) {}
       }
     }
@@ -47,4 +47,4 @@ function h(e, t, n) {
   }
   return e;
 }
-legacyModule.exports = h;
+legacyModule.exports = copyProperties;

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = {
+var reactStaticPropertyNames = {
     childContextTypes: !0,
     contextTypes: !0,
     defaultProps: !0,
@@ -11,7 +11,7 @@ var r = {
     propTypes: !0,
     type: !0
   },
-  o = {
+  functionPropertyNames = {
     name: !0,
     length: !0,
     prototype: !0,
@@ -20,26 +20,26 @@ var r = {
     arguments: !0,
     arity: !0
   },
-  i = Object.defineProperty,
-  a = Object.getOwnPropertyNames,
-  s = Object.getOwnPropertySymbols,
-  c = Object.getOwnPropertyDescriptor,
-  u = Object.getPrototypeOf,
-  l = u && u(Object);
-function f(e, t, n) {
-  if ("string" !== typeof t) {
-    if (l) {
-      var p = u(t);
-      p && p !== l && f(e, p, n);
+  defineProperty = Object.defineProperty,
+  getOwnPropertyNames = Object.getOwnPropertyNames,
+  getOwnPropertySymbols = Object.getOwnPropertySymbols,
+  getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor,
+  getPrototypeOf = Object.getPrototypeOf,
+  objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+function copyProperties(target, source, excludedProperties) {
+  if ("string" !== typeof source) {
+    if (objectPrototype) {
+      var parentPrototype = getPrototypeOf(source);
+      parentPrototype && parentPrototype !== objectPrototype && copyProperties(target, parentPrototype, excludedProperties);
     }
-    var d = a(t);
-    s && (d = d.concat(s(t)));
-    for (var h = 0; h < d.length; ++h) {
-      var m = d[h];
-      if (!r[m] && !o[m] && (!n || !n[m])) {
-        var v = c(t, m);
+    var propertyNames = getOwnPropertyNames(source);
+    getOwnPropertySymbols && (propertyNames = propertyNames.concat(getOwnPropertySymbols(source)));
+    for (var index = 0; index < propertyNames.length; ++index) {
+      var propertyName = propertyNames[index];
+      if (!reactStaticPropertyNames[propertyName] && !functionPropertyNames[propertyName] && (!excludedProperties || !excludedProperties[propertyName])) {
+        var descriptor = getOwnPropertyDescriptor(source, propertyName);
         try {
-          i(e, m, v);
+          defineProperty(target, propertyName, descriptor);
         } catch (e) {}
       }
     }
