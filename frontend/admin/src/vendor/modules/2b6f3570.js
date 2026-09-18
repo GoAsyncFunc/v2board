@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./bindContextLegacy.js"),
-  i = require("./39574656.js"),
+  i = require("./indexedObjectLegacy.js"),
   o = require("./toObjectLegacy.js"),
   a = require("./toLength.js"),
   s = require("./speciesConstructor.js");

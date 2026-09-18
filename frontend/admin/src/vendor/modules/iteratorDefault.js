@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = {
-  default: require("./324e6230.js"),
+  default: require("./iteratorSymbolRuntime.js"),
   __esModule: !0
 };
