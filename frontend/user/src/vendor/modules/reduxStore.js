@@ -3,33 +3,33 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var r = Object.assign || function (e) {
-  for (var t = 1; t < arguments.length; t++) {
-    var n = arguments[t];
-    for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+var assignState = Object.assign || function (target) {
+  for (var index = 1; index < arguments.length; index++) {
+    var source = arguments[index];
+    for (var key in source) Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
   }
-  return e;
+  return target;
 };
-function o(e) {
-  var t = e,
-    n = [];
-  function o(e) {
-    t = r({}, t, e);
-    for (var o = 0; o < n.length; o++) n[o]();
+function createStore(initialState) {
+  var state = initialState,
+    listeners = [];
+  function setState(nextState) {
+    state = assignState({}, state, nextState);
+    for (var index = 0; index < listeners.length; index++) listeners[index]();
   }
-  function i() {
-    return t;
+  function getState() {
+    return state;
   }
-  function a(e) {
-    return n.push(e), function () {
-      var t = n.indexOf(e);
-      n.splice(t, 1);
+  function subscribe(listener) {
+    return listeners.push(listener), function unsubscribe() {
+      var index = listeners.indexOf(listener);
+      listeners.splice(index, 1);
     };
   }
   return {
-    setState: o,
-    getState: i,
-    subscribe: a
+    setState: setState,
+    getState: getState,
+    subscribe: subscribe
   };
 }
-legacyExports.default = o;
+legacyExports.default = createStore;
