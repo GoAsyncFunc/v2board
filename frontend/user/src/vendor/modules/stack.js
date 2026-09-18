@@ -1,13 +1,13 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./listCache.js"),
-  i = require("./stackClear.js"),
-  a = require("./stackDelete.js"),
-  o = require("./listCacheGet.js"),
-  u = require("./listCacheHas.js"),
-  l = require("./stackSet.js");
-function s(e) {
-  var t = this.__data__ = new r(e);
-  this.size = t.size;
+var ListCache = require("./listCache.js"),
+  clear = require("./stackClear.js"),
+  deleteKey = require("./stackDelete.js"),
+  get = require("./listCacheGet.js"),
+  has = require("./listCacheHas.js"),
+  set = require("./stackSet.js");
+function Stack(entries) {
+  var data = this.__data__ = new ListCache(entries);
+  this.size = data.size;
 }
-s.prototype.clear = i, s.prototype["delete"] = a, s.prototype.get = o, s.prototype.has = u, s.prototype.set = l, legacyModule.exports = s;
+Stack.prototype.clear = clear, Stack.prototype["delete"] = deleteKey, Stack.prototype.get = get, Stack.prototype.has = has, Stack.prototype.set = set, legacyModule.exports = Stack;

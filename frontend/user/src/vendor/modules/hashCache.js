@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var clear = require("./hashClear.js"),
   deleteKey = require("./hashDelete.js"),
-  get = require("./75384474.js"),
+  get = require("./hashGet.js"),
   has = require("./hashHas.js"),
   set = require("./hashSet.js");
 function HashCache(entries) {
