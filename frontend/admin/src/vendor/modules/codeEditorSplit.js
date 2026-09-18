@@ -28,12 +28,12 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var o = require("./aceEditorOptions.js"),
   a = o.getAceInstance(),
-  s = require("./62552f73.js"),
-  l = require("./2b2b6e56.js"),
+  s = require("./aceCoreRuntime.js"),
+  l = require("./aceSplitRuntime.js"),
   u = require("./propTypesRuntime.js"),
   c = require("./reactRuntime.js"),
-  f = require("./58614753.js"),
-  d = require("./79444a33.js"),
+  isEqual = require("./isEqual.js"),
+  getPathValue = require("./getPathValue.js"),
   h = function (e) {
     function t(t) {
       var n = e.call(this, t) || this;
@@ -71,11 +71,11 @@ var o = require("./aceEditorOptions.js"),
       var C = this.splitEditor.$options;
       this.props.debounceChangePeriod && (this.onChange = this.debounce(this.onChange, this.props.debounceChangePeriod)), M.forEach(function (t, n) {
         for (var r = 0; r < j.length; r++) t[j[r]] = e.props.editorProps[j[r]];
-        var s = d(h, n),
-          l = d(f, n, "");
+        var s = getPathValue(h, n),
+          l = getPathValue(f, n, "");
         t.session.setUndoManager(new a.UndoManager()), t.setTheme("ace/theme/" + u), t.renderer.setScrollMargin(b[0], b[1], b[2], b[3]), t.getSession().setMode("ace/mode/" + i), t.setFontSize(c), t.renderer.setShowGutter(g), t.getSession().setUseWrapMode(m), t.setShowPrintMargin(v), t.on("focus", e.onFocus), t.on("blur", e.onBlur), t.on("input", e.onInput), t.on("copy", e.onCopy), t.on("paste", e.onPaste), t.on("change", e.onChange), t.getSession().selection.on("changeSelection", e.onSelectionChange), t.getSession().selection.on("changeCursor", e.onCursorChange), t.session.on("changeScrollTop", e.onScroll), t.setValue(void 0 === s ? l : s, p);
-        var y = d(O, n, []),
-          _ = d(S, n, []);
+        var y = getPathValue(O, n, []),
+          _ = getPathValue(S, n, []);
         t.getSession().setAnnotations(y), _ && _.length > 0 && e.handleMarkers(_, t);
         for (r = 0; r < o.editorOptions.length; r++) {
           var k = o.editorOptions[r];
@@ -98,19 +98,19 @@ var o = require("./aceEditorOptions.js"),
           var s = o.editorOptions[a];
           r[s] !== n[s] && e.setOption(s, r[s]);
         }
-        f(r.setOptions, n.setOptions) || t.handleOptions(r, e);
-        var l = d(r.value, i, "");
+        isEqual(r.setOptions, n.setOptions) || t.handleOptions(r, e);
+        var l = getPathValue(r.value, i, "");
         if (e.getValue() !== l) {
           t.silent = !0;
           var u = e.session.selection.toJSON();
           e.setValue(l, r.cursorStart), e.session.selection.fromJSON(u), t.silent = !1;
         }
-        var c = d(r.annotations, i, []),
-          h = d(n.annotations, i, []);
-        f(c, h) || e.getSession().setAnnotations(c);
-        var p = d(r.markers, i, []),
-          g = d(n.markers, i, []);
-        !f(p, g) && Array.isArray(p) && t.handleMarkers(p, e);
+        var c = getPathValue(r.annotations, i, []),
+          h = getPathValue(n.annotations, i, []);
+        isEqual(c, h) || e.getSession().setAnnotations(c);
+        var p = getPathValue(r.markers, i, []),
+          g = getPathValue(n.markers, i, []);
+        !isEqual(p, g) && Array.isArray(p) && t.handleMarkers(p, e);
       }), r.className !== n.className) {
         var a = this.refEditor.className,
           s = a.trim().split(" "),

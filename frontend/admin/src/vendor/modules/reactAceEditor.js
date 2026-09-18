@@ -28,7 +28,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var o = require("./propTypesRuntime.js"),
   a = require("./reactRuntime.js"),
-  s = require("./58614753.js"),
+  isEqual = require("./isEqual.js"),
   l = require("./aceEditorOptions.js"),
   u = l.getAceInstance(),
   c = u.require("ace/range").Range,
@@ -94,7 +94,7 @@ var o = require("./propTypesRuntime.js"),
         var c = this.editor.session.selection.toJSON();
         this.editor.setValue(n.value, n.cursorStart), this.editor.session.selection.fromJSON(c), this.silent = !1;
       }
-      n.placeholder !== t.placeholder && this.updatePlaceholder(), n.mode !== t.mode && this.editor.getSession().setMode("ace/mode/" + n.mode), n.theme !== t.theme && this.editor.setTheme("ace/theme/" + n.theme), n.keyboardHandler !== t.keyboardHandler && (n.keyboardHandler ? this.editor.setKeyboardHandler("ace/keyboard/" + n.keyboardHandler) : this.editor.setKeyboardHandler(null)), n.fontSize !== t.fontSize && this.editor.setFontSize(n.fontSize), n.wrapEnabled !== t.wrapEnabled && this.editor.getSession().setUseWrapMode(n.wrapEnabled), n.showPrintMargin !== t.showPrintMargin && this.editor.setShowPrintMargin(n.showPrintMargin), n.showGutter !== t.showGutter && this.editor.renderer.setShowGutter(n.showGutter), s(n.setOptions, t.setOptions) || this.handleOptions(n), s(n.annotations, t.annotations) || this.editor.getSession().setAnnotations(n.annotations || []), !s(n.markers, t.markers) && Array.isArray(n.markers) && this.handleMarkers(n.markers), s(n.scrollMargin, t.scrollMargin) || this.handleScrollMargins(n.scrollMargin), e.height === this.props.height && e.width === this.props.width || this.editor.resize(), this.props.focus && !e.focus && this.editor.focus();
+      n.placeholder !== t.placeholder && this.updatePlaceholder(), n.mode !== t.mode && this.editor.getSession().setMode("ace/mode/" + n.mode), n.theme !== t.theme && this.editor.setTheme("ace/theme/" + n.theme), n.keyboardHandler !== t.keyboardHandler && (n.keyboardHandler ? this.editor.setKeyboardHandler("ace/keyboard/" + n.keyboardHandler) : this.editor.setKeyboardHandler(null)), n.fontSize !== t.fontSize && this.editor.setFontSize(n.fontSize), n.wrapEnabled !== t.wrapEnabled && this.editor.getSession().setUseWrapMode(n.wrapEnabled), n.showPrintMargin !== t.showPrintMargin && this.editor.setShowPrintMargin(n.showPrintMargin), n.showGutter !== t.showGutter && this.editor.renderer.setShowGutter(n.showGutter), isEqual(n.setOptions, t.setOptions) || this.handleOptions(n), isEqual(n.annotations, t.annotations) || this.editor.getSession().setAnnotations(n.annotations || []), !isEqual(n.markers, t.markers) && Array.isArray(n.markers) && this.handleMarkers(n.markers), isEqual(n.scrollMargin, t.scrollMargin) || this.handleScrollMargins(n.scrollMargin), e.height === this.props.height && e.width === this.props.width || this.editor.resize(), this.props.focus && !e.focus && this.editor.focus();
     }, t.prototype.handleScrollMargins = function (e) {
       void 0 === e && (e = [0, 0, 0, 0]), this.editor.renderer.setScrollMargins(e[0], e[1], e[2], e[3]);
     }, t.prototype.componentWillUnmount = function () {

@@ -9,7 +9,7 @@ var i = ["onChange", "onFocus", "onInput", "onBlur", "onCopy", "onPaste", "onSel
 legacyExports.editorEvents = i;
 var o = function () {
   var e;
-  return window.ace ? (e = window.ace, e.acequire = window.ace.require || window.ace.acequire) : e = require("./62552f73.js"), e;
+  return window.ace ? (e = window.ace, e.acequire = window.ace.require || window.ace.acequire) : e = require("./aceCoreRuntime.js"), e;
 };
 legacyExports.getAceInstance = o;
 var a = function (e, t) {
