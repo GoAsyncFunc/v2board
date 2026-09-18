@@ -23,4 +23,4 @@ let legacyModule = module,
     return null != n && "true" === String(n).toLowerCase();
   }
   legacyModule.exports = n;
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

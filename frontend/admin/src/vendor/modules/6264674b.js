@@ -299,4 +299,4 @@ markEsModule(legacyExports), function (e) {
     return "undefined" !== typeof i.ResizeObserver ? i.ResizeObserver : L;
   }();
   legacyExports["default"] = A;
-}.call(this, require("./794c706a.js"));
+}.call(this, require("./globalObjectLegacy.js"));

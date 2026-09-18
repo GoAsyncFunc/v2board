@@ -208,4 +208,4 @@ let legacyModule = module,
   }), b.prototype.destroy = g.destroy, b.prototype._undestroy = g.undestroy, b.prototype._destroy = function (e, t) {
     this.end(), t(e);
   };
-}).call(this, require("./51324967.js"), require("./794c706a.js"));
+}).call(this, require("./51324967.js"), require("./globalObjectLegacy.js"));

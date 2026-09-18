@@ -166,4 +166,4 @@ let legacyModule = module,
     for (var n in e) a.call(e, n) && t.push(n);
     return t;
   };
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

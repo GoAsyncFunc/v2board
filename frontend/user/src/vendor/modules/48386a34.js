@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./516b5645.js");
+var r = require("./getMapData.js");
 function i(e, t) {
   var n = r(this, e),
     i = n.size;

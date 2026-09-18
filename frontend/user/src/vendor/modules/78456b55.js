@@ -39,4 +39,4 @@ let legacyModule = module,
   }, legacyModule.exports.polyfill = function (e) {
     e || (e = o), e.requestAnimationFrame = s, e.cancelAnimationFrame = c;
   };
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

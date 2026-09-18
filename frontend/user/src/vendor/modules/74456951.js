@@ -104,4 +104,4 @@ const {
   }
   var m = o.a.createContext || h;
   legacyExports["a"] = m;
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

@@ -32,4 +32,4 @@ let legacyModule = module,
     return "function" === typeof e;
   }
   legacyExports.arraybuffer = legacyExports.fetch || o && i("arraybuffer"), legacyExports.msstream = !legacyExports.fetch && a && i("ms-stream"), legacyExports.mozchunkedarraybuffer = !legacyExports.fetch && o && i("moz-chunked-arraybuffer"), legacyExports.overrideMimeType = legacyExports.fetch || !!r() && s(r().overrideMimeType), legacyExports.vbArray = s(e.VBArray), n = null;
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

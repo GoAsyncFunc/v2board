@@ -1,6 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return this.__data__.get(e);
+var r = require("./assocIndexOf.js");
+function i(e) {
+  var t = this.__data__,
+    n = r(t, e);
+  return n < 0 ? void 0 : t[n][1];
 }
-legacyModule.exports = n;
+legacyModule.exports = i;

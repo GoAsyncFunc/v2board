@@ -568,4 +568,4 @@ let legacyModule = module,
     return !1;
   }
   n.exports = Wt;
-}).call(this, require("./794c706a.js"), require("./59755469.js")(legacyModule));
+}).call(this, require("./globalObjectLegacy.js"), require("./59755469.js")(legacyModule));

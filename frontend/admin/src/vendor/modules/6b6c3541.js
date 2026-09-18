@@ -138,4 +138,4 @@ let legacyModule = module,
     "function" === typeof e && (n = e, e = void 0), l.Writable.prototype.end.call(r, e, t, n);
   }, d.prototype.flushHeaders = function () {}, d.prototype.setTimeout = function () {}, d.prototype.setNoDelay = function () {}, d.prototype.setSocketKeepAlive = function () {};
   var m = ["accept-charset", "accept-encoding", "access-control-request-headers", "access-control-request-method", "connection", "content-length", "cookie", "cookie2", "date", "dnt", "expect", "host", "keep-alive", "origin", "referer", "te", "trailer", "transfer-encoding", "upgrade", "via"];
-}).call(this, require("./746a6c41.js").Buffer, require("./794c706a.js"), require("./51324967.js"));
+}).call(this, require("./746a6c41.js").Buffer, require("./globalObjectLegacy.js"), require("./51324967.js"));

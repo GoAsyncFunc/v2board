@@ -98,4 +98,4 @@ let legacyModule = module,
     return n || c.test(e) ? u(e.slice(2), n ? 2 : 8) : a.test(e) ? r : +e;
   }
   legacyModule.exports = g;
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

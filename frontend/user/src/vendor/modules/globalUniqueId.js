@@ -5,4 +5,4 @@ let legacyModule = module,
   legacyModule.exports = function () {
     return t[n] = (t[n] || 0) + 1;
   };
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

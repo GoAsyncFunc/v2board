@@ -306,4 +306,4 @@ let legacyModule = module,
       return this._readableState.highWaterMark;
     }
   }), _._fromList = B;
-}).call(this, require("./794c706a.js"), require("./51324967.js"));
+}).call(this, require("./globalObjectLegacy.js"), require("./51324967.js"));

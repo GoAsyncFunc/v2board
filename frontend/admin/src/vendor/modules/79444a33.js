@@ -245,4 +245,4 @@ let legacyModule = module,
     return void 0 === r ? n : r;
   }
   legacyModule.exports = we;
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

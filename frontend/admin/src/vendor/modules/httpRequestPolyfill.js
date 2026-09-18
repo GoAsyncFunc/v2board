@@ -21,4 +21,4 @@ let legacyModule = module,
     var n = l.request(e, t);
     return n.end(), n;
   }, l.ClientRequest = r, l.IncomingMessage = i.IncomingMessage, l.Agent = function () {}, l.Agent.defaultMaxSockets = 4, l.globalAgent = new l.Agent(), l.STATUS_CODES = a, l.METHODS = ["CHECKOUT", "CONNECT", "COPY", "DELETE", "GET", "HEAD", "LOCK", "M-SEARCH", "MERGE", "MKACTIVITY", "MKCOL", "MOVE", "NOTIFY", "OPTIONS", "PATCH", "POST", "PROPFIND", "PROPPATCH", "PURGE", "PUT", "REPORT", "SEARCH", "SUBSCRIBE", "TRACE", "UNLOCK", "UNSUBSCRIBE"];
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));

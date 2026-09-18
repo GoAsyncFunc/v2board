@@ -679,4 +679,4 @@ let legacyModule = module,
   function te(e) {
     return e !== e;
   }
-}).call(this, require("./794c706a.js"));
+}).call(this, require("./globalObjectLegacy.js"));
