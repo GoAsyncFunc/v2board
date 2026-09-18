@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  var t = typeof e;
-  return null != e && ("object" == t || "function" == t);
+function isObjectValue(value) {
+  var valueType = typeof value;
+  return null != value && ("object" == valueType || "function" == valueType);
 }
-legacyModule.exports = n;
+legacyModule.exports = isObjectValue;

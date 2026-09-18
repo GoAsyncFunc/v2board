@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isObject.js");
-legacyModule.exports = function (e) {
-  if (!r(e)) throw TypeError(e + " is not an object!");
-  return e;
+var isObject = require("./isObject.js");
+legacyModule.exports = function assertObject(value) {
+  if (!isObject(value)) throw TypeError(value + " is not an object!");
+  return value;
 };
