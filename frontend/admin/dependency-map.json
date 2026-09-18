@@ -605,7 +605,7 @@
   },
   {
     "from": "vendor/modules/bufferToArrayBuffer.js",
-    "to": "vendor/modules/746a6c41.js"
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "vendor/modules/32554434.js",
@@ -717,7 +717,7 @@
   },
   {
     "from": "vendor/modules/33425273.js",
-    "to": "vendor/modules/68776456.js"
+    "to": "vendor/modules/bufferRuntime.js"
   },
   {
     "from": "vendor/modules/33425273.js",
@@ -2873,7 +2873,7 @@
   },
   {
     "from": "vendor/modules/4f6e7a30.js",
-    "to": "vendor/modules/746a6c41.js"
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "vendor/modules/toLength.js",
@@ -3417,7 +3417,7 @@
   },
   {
     "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/56497257.js"
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/definePropertyHelper.js",
@@ -3444,7 +3444,7 @@
     "to": "vendor/modules/784b7a39.js"
   },
   {
-    "from": "vendor/modules/56497257.js",
+    "from": "vendor/modules/storeShape.js",
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
@@ -3753,7 +3753,7 @@
   },
   {
     "from": "vendor/modules/5868716f.js",
-    "to": "vendor/modules/68776456.js"
+    "to": "vendor/modules/bufferRuntime.js"
   },
   {
     "from": "vendor/modules/5868716f.js",
@@ -3845,7 +3845,7 @@
   },
   {
     "from": "vendor/modules/5a346578.js",
-    "to": "vendor/modules/56497257.js"
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/5a653132.js",
@@ -4477,7 +4477,7 @@
   },
   {
     "from": "vendor/modules/65696e52.js",
-    "to": "vendor/modules/746a6c41.js"
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "vendor/modules/66446371.js",
@@ -4541,7 +4541,7 @@
   },
   {
     "from": "vendor/modules/66584b70.js",
-    "to": "vendor/modules/68776456.js"
+    "to": "vendor/modules/bufferRuntime.js"
   },
   {
     "from": "vendor/modules/globalUniqueId.js",
@@ -4776,8 +4776,8 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/68776456.js",
-    "to": "vendor/modules/746a6c41.js"
+    "from": "vendor/modules/bufferRuntime.js",
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "app/Router.jsx",
@@ -5257,7 +5257,7 @@
   },
   {
     "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/746a6c41.js"
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "vendor/modules/clientRequestRuntime.js",
@@ -5785,7 +5785,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/68776456.js"
+    "to": "vendor/modules/bufferRuntime.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -6096,19 +6096,19 @@
     "to": "vendor/modules/41552f77.js"
   },
   {
-    "from": "vendor/modules/746a6c41.js",
+    "from": "vendor/modules/bufferPolyfill.js",
     "to": "vendor/modules/base64ByteArray.js"
   },
   {
-    "from": "vendor/modules/746a6c41.js",
-    "to": "vendor/modules/6b564b2b.js"
+    "from": "vendor/modules/bufferPolyfill.js",
+    "to": "vendor/modules/ieee754.js"
   },
   {
-    "from": "vendor/modules/746a6c41.js",
+    "from": "vendor/modules/bufferPolyfill.js",
     "to": "vendor/modules/arrayIsArrayFallback.js"
   },
   {
-    "from": "vendor/modules/746a6c41.js",
+    "from": "vendor/modules/bufferPolyfill.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -7009,7 +7009,7 @@
   },
   {
     "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/746a6c41.js"
+    "to": "vendor/modules/bufferPolyfill.js"
   },
   {
     "from": "vendor/modules/incomingMessageRuntime.js",
@@ -7696,7 +7696,7 @@
     "to": "vendor/modules/594d6e48.js"
   },
   {
-    "from": "vendor/modules/48584e39.js",
+    "from": "vendor/modules/antdColorPalette.js",
     "to": "vendor/modules/64306278.js"
   },
   {
@@ -10864,7 +10864,7 @@
     "to": "vendor/modules/37613470.js"
   },
   {
-    "from": "vendor/modules/74474578.js",
+    "from": "vendor/modules/aceEditorOptions.js",
     "to": "vendor/modules/62552f73.js"
   },
   {

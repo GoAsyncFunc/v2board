@@ -2717,7 +2717,7 @@
   },
   {
     "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/56497257.js"
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -2788,7 +2788,7 @@
     "to": "vendor/modules/784b7a39.js"
   },
   {
-    "from": "vendor/modules/56497257.js",
+    "from": "vendor/modules/storeShape.js",
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
@@ -3173,7 +3173,7 @@
   },
   {
     "from": "vendor/modules/5a346578.js",
-    "to": "vendor/modules/56497257.js"
+    "to": "vendor/modules/storeShape.js"
   },
   {
     "from": "vendor/modules/5a676f65.js",
@@ -5584,7 +5584,7 @@
     "to": "vendor/modules/594d6e48.js"
   },
   {
-    "from": "vendor/modules/48584e39.js",
+    "from": "vendor/modules/antdColorPalette.js",
     "to": "vendor/modules/64306278.js"
   },
   {

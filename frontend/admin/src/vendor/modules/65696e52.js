@@ -132,4 +132,4 @@ const {
       return null;
     };
   }();
-}).call(this, require("./746a6c41.js").Buffer);
+}).call(this, require("./bufferPolyfill.js").Buffer);

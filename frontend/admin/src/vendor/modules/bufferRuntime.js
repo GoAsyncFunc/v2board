@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./746a6c41.js"),
+var r = require("./bufferPolyfill.js"),
   i = r.Buffer;
 function o(e, t) {
   for (var n in e) t[n] = e[n];

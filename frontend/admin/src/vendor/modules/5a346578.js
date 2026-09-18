@@ -15,7 +15,7 @@ var r = function () {
     };
   }(),
   i = require("./reactRuntime.js"),
-  o = (a(i), require("./56497257.js"));
+  o = (a(i), require("./storeShape.js"));
 function a(e) {
   return e && e.__esModule ? e : {
     default: e

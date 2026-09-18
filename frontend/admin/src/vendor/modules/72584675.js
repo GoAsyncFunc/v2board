@@ -11,7 +11,7 @@ let legacyModule = module,
       return e.listeners(t).length;
     },
     l = require("./eventEmitter.js"),
-    c = require("./68776456.js").Buffer,
+    c = require("./bufferRuntime.js").Buffer,
     u = t.Uint8Array || function () {};
   function h(e) {
     return c.from(e);

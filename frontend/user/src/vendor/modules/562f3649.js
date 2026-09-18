@@ -29,7 +29,7 @@ var i = require("./reactRuntime.js"),
   u = require("./copyProperties.js"),
   l = d(u),
   f = require("./reactLifecyclesCompat.js"),
-  p = require("./56497257.js");
+  p = require("./storeShape.js");
 function d(e) {
   return e && e.__esModule ? e : {
     default: e

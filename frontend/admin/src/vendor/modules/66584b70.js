@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./68776456.js").Buffer,
+var r = require("./bufferRuntime.js").Buffer,
   i = r.isEncoding || function (e) {
     switch (e = "" + e, e && e.toLowerCase()) {
       case "hex":

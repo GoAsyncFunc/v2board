@@ -45,4 +45,4 @@ function g(e) {
 function v(e) {
   return Object.prototype.toString.call(e);
 }
-legacyExports.isArray = r, legacyExports.isBoolean = i, legacyExports.isNull = o, legacyExports.isNullOrUndefined = a, legacyExports.isNumber = s, legacyExports.isString = l, legacyExports.isSymbol = c, legacyExports.isUndefined = u, legacyExports.isRegExp = h, legacyExports.isObject = f, legacyExports.isDate = d, legacyExports.isError = p, legacyExports.isFunction = m, legacyExports.isPrimitive = g, legacyExports.isBuffer = require("./746a6c41.js").Buffer.isBuffer;
+legacyExports.isArray = r, legacyExports.isBoolean = i, legacyExports.isNull = o, legacyExports.isNullOrUndefined = a, legacyExports.isNumber = s, legacyExports.isString = l, legacyExports.isSymbol = c, legacyExports.isUndefined = u, legacyExports.isRegExp = h, legacyExports.isObject = f, legacyExports.isDate = d, legacyExports.isError = p, legacyExports.isFunction = m, legacyExports.isPrimitive = g, legacyExports.isBuffer = require("./bufferPolyfill.js").Buffer.isBuffer;

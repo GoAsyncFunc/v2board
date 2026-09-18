@@ -26,7 +26,7 @@ var r = this && this.__extends || function () {
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var o = require("./74474578.js"),
+var o = require("./aceEditorOptions.js"),
   a = o.getAceInstance(),
   s = require("./62552f73.js"),
   l = require("./2b2b6e56.js"),

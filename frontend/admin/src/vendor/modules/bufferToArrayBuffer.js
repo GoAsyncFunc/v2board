@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./746a6c41.js").Buffer;
+var r = require("./bufferPolyfill.js").Buffer;
 legacyModule.exports = function (e) {
   if (e instanceof Uint8Array) {
     if (0 === e.byteOffset && e.byteLength === e.buffer.byteLength) return e.buffer;
