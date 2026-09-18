@@ -5,7 +5,7 @@ let legacyModule = module,
     a = require("./nodeInheritsOptional.js"),
     s = require("./79517457.js"),
     l = require("./streamRuntime.js"),
-    c = require("./32546979.js"),
+    c = require("./bufferToArrayBuffer.js"),
     u = s.IncomingMessage,
     h = s.readyStates;
   function f(e, t) {

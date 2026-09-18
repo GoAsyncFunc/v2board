@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./77487272.js"),
-  i = require("./3639535a.js"),
+  i = require("./iteratorClose.js"),
   o = require("./isArrayIteratorMethod.js"),
   a = require("./assertObject.js"),
   s = require("./toLength.js"),

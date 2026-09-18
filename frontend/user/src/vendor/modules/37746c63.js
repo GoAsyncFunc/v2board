@@ -218,7 +218,7 @@ let legacyModule = module,
     string: "green",
     date: "magenta",
     regexp: "red"
-  }, legacyExports.isArray = y, legacyExports.isBoolean = g, legacyExports.isNull = b, legacyExports.isNullOrUndefined = w, legacyExports.isNumber = x, legacyExports.isString = O, legacyExports.isSymbol = E, legacyExports.isUndefined = _, legacyExports.isRegExp = k, legacyExports.isObject = S, legacyExports.isDate = C, legacyExports.isError = j, legacyExports.isFunction = P, legacyExports.isPrimitive = T, legacyExports.isBuffer = require("./6a2f315a.js");
+  }, legacyExports.isArray = y, legacyExports.isBoolean = g, legacyExports.isNull = b, legacyExports.isNullOrUndefined = w, legacyExports.isNumber = x, legacyExports.isString = O, legacyExports.isSymbol = E, legacyExports.isUndefined = _, legacyExports.isRegExp = k, legacyExports.isObject = S, legacyExports.isDate = C, legacyExports.isError = j, legacyExports.isFunction = P, legacyExports.isPrimitive = T, legacyExports.isBuffer = require("./isBuffer.js");
   var M = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function A() {
     var e = new Date(),

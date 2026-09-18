@@ -604,7 +604,7 @@
     "to": "vendor/modules/collectionReceiver.js"
   },
   {
-    "from": "vendor/modules/32546979.js",
+    "from": "vendor/modules/bufferToArrayBuffer.js",
     "to": "vendor/modules/746a6c41.js"
   },
   {
@@ -917,7 +917,7 @@
   },
   {
     "from": "vendor/modules/346f3336.js",
-    "to": "vendor/modules/3639535a.js"
+    "to": "vendor/modules/iteratorClose.js"
   },
   {
     "from": "vendor/modules/346f3336.js",
@@ -1048,7 +1048,7 @@
     "to": "vendor/modules/tryCatchTestLegacy.js"
   },
   {
-    "from": "vendor/modules/3639535a.js",
+    "from": "vendor/modules/iteratorClose.js",
     "to": "vendor/modules/assertObject.js"
   },
   {
@@ -1165,7 +1165,7 @@
   },
   {
     "from": "vendor/modules/37746c63.js",
-    "to": "vendor/modules/6a2f315a.js"
+    "to": "vendor/modules/isBuffer.js"
   },
   {
     "from": "vendor/modules/37746c63.js",
@@ -5253,7 +5253,7 @@
   },
   {
     "from": "vendor/modules/6b6c3541.js",
-    "to": "vendor/modules/32546979.js"
+    "to": "vendor/modules/bufferToArrayBuffer.js"
   },
   {
     "from": "vendor/modules/6b6c3541.js",
