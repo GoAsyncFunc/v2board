@@ -736,15 +736,15 @@
     "to": "vendor/modules/assertObject.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/isBuffer.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/nodeInherits.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
@@ -901,7 +901,7 @@
   },
   {
     "from": "vendor/modules/396c5457.js",
-    "to": "vendor/modules/37746c63.js"
+    "to": "vendor/modules/nodeUtilRuntime.js"
   },
   {
     "from": "vendor/modules/396c5457.js",

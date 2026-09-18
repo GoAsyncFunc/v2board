@@ -40,7 +40,7 @@ let legacyModule = module,
     var i = e.highWaterMark,
       a = e.readableHighWaterMark,
       s = this.objectMode ? 16 : 16384;
-    this.highWaterMark = i || 0 === i ? i : r && (a || 0 === a) ? a : s, this.highWaterMark = Math.floor(this.highWaterMark), this.buffer = new v(), this.length = 0, this.pipes = null, this.pipesCount = 0, this.flowing = null, this.ended = !1, this.endEmitted = !1, this.reading = !1, this.sync = !0, this.needReadable = !1, this.emittedReadable = !1, this.readableListening = !1, this.resumeScheduled = !1, this.destroyed = !1, this.defaultEncoding = e.defaultEncoding || "utf8", this.awaitDrain = 0, this.readingMore = !1, this.decoder = null, this.encoding = null, e.encoding && (g || (g = require("./66584b70.js").StringDecoder), this.decoder = new g(e.encoding), this.encoding = e.encoding);
+    this.highWaterMark = i || 0 === i ? i : r && (a || 0 === a) ? a : s, this.highWaterMark = Math.floor(this.highWaterMark), this.buffer = new v(), this.length = 0, this.pipes = null, this.pipesCount = 0, this.flowing = null, this.ended = !1, this.endEmitted = !1, this.reading = !1, this.sync = !0, this.needReadable = !1, this.emittedReadable = !1, this.readableListening = !1, this.resumeScheduled = !1, this.destroyed = !1, this.defaultEncoding = e.defaultEncoding || "utf8", this.awaitDrain = 0, this.readingMore = !1, this.decoder = null, this.encoding = null, e.encoding && (g || (g = require("./stringDecoder.js").StringDecoder), this.decoder = new g(e.encoding), this.encoding = e.encoding);
   }
   function _(e) {
     if (o = o || require("./735a726f.js"), !(this instanceof _)) return new _(e);
@@ -80,7 +80,7 @@ let legacyModule = module,
   }, _.prototype.isPaused = function () {
     return !1 === this._readableState.flowing;
   }, _.prototype.setEncoding = function (e) {
-    return g || (g = require("./66584b70.js").StringDecoder), this._readableState.decoder = new g(e), this._readableState.encoding = e, this;
+    return g || (g = require("./stringDecoder.js").StringDecoder), this._readableState.decoder = new g(e), this._readableState.encoding = e, this;
   };
   var O = 8388608;
   function T(e) {

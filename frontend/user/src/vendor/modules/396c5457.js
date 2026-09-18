@@ -12,7 +12,7 @@ let legacyModule = module,
   function o(e) {
     return t.Buffer && "function" === typeof t.Buffer.isBuffer ? t.Buffer.isBuffer(e) : !(null == e || !e._isBuffer);
   }
-  var i = require("./37746c63.js"),
+  var i = require("./nodeUtilRuntime.js"),
     a = Object.prototype.hasOwnProperty,
     s = Array.prototype.slice,
     c = function () {

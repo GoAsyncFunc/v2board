@@ -1164,15 +1164,15 @@
     "to": "vendor/modules/assertObject.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/isBuffer.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/nodeInherits.js"
   },
   {
-    "from": "vendor/modules/37746c63.js",
+    "from": "vendor/modules/nodeUtilRuntime.js",
     "to": "vendor/modules/processRuntime.js"
   },
   {
@@ -1341,7 +1341,7 @@
   },
   {
     "from": "vendor/modules/396c5457.js",
-    "to": "vendor/modules/37746c63.js"
+    "to": "vendor/modules/nodeUtilRuntime.js"
   },
   {
     "from": "vendor/modules/396c5457.js",
@@ -4540,7 +4540,7 @@
     "to": "vendor/modules/messageFormatParser.js"
   },
   {
-    "from": "vendor/modules/66584b70.js",
+    "from": "vendor/modules/stringDecoder.js",
     "to": "vendor/modules/bufferRuntime.js"
   },
   {
@@ -5813,7 +5813,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/66584b70.js"
+    "to": "vendor/modules/stringDecoder.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -5821,7 +5821,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/66584b70.js"
+    "to": "vendor/modules/stringDecoder.js"
   },
   {
     "from": "vendor/modules/72584675.js",
