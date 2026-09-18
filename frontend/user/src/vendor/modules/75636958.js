@@ -19,7 +19,7 @@ var r = require("./objectAssignHelper.js"),
   v = interopDefault(m),
   y = require("./reactLifecyclesCompat.js"),
   g = require("./containsNode.js"),
-  b = require("./7a543168.js"),
+  b = require("./addBatchedDomEventListener.js"),
   w = require("./5049416d.js"),
   x = require("./51432b4d.js"),
   O = require("./classNames.js"),
@@ -727,7 +727,7 @@ var it = function (e) {
   }, {
     key: "startMonitorWindowResize",
     value: function () {
-      this.resizeHandler || (this.bufferMonitor = Je(this.forceAlign, this.props.monitorBufferTime), this.resizeHandler = Object(b["a"])(window, "resize", this.bufferMonitor));
+      this.resizeHandler || (this.bufferMonitor = Je(this.forceAlign, this.props.monitorBufferTime), this.resizeHandler = b.default(window, "resize", this.bufferMonitor));
     }
   }, {
     key: "stopMonitorWindowResize",
@@ -1065,7 +1065,7 @@ var xt = ["onClick", "onMouseDown", "onTouchStart", "onMouseEnter", "onMouseLeav
         };
       if (Ot || this.renderComponent(null, o), r.popupVisible) {
         var i = void 0;
-        return this.clickOutsideHandler || !this.isClickToHide() && !this.isContextMenuToShow() || (i = n.getDocument(), this.clickOutsideHandler = Object(b["a"])(i, "mousedown", this.onDocumentClick)), this.touchOutsideHandler || (i = i || n.getDocument(), this.touchOutsideHandler = Object(b["a"])(i, "touchstart", this.onDocumentClick)), !this.contextMenuOutsideHandler1 && this.isContextMenuToShow() && (i = i || n.getDocument(), this.contextMenuOutsideHandler1 = Object(b["a"])(i, "scroll", this.onContextMenuClose)), void (!this.contextMenuOutsideHandler2 && this.isContextMenuToShow() && (this.contextMenuOutsideHandler2 = Object(b["a"])(window, "blur", this.onContextMenuClose)));
+        return this.clickOutsideHandler || !this.isClickToHide() && !this.isContextMenuToShow() || (i = n.getDocument(), this.clickOutsideHandler = b.default(i, "mousedown", this.onDocumentClick)), this.touchOutsideHandler || (i = i || n.getDocument(), this.touchOutsideHandler = b.default(i, "touchstart", this.onDocumentClick)), !this.contextMenuOutsideHandler1 && this.isContextMenuToShow() && (i = i || n.getDocument(), this.contextMenuOutsideHandler1 = b.default(i, "scroll", this.onContextMenuClose)), void (!this.contextMenuOutsideHandler2 && this.isContextMenuToShow() && (this.contextMenuOutsideHandler2 = b.default(window, "blur", this.onContextMenuClose)));
       }
       this.clearOutsideHandler();
     }, t.prototype.componentWillUnmount = function () {

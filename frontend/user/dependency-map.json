@@ -1976,14 +1976,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/45307530.js",
-    "to": "vendor/modules/EventBaseObject.js"
-  },
-  {
-    "from": "vendor/modules/45307530.js",
-    "to": "vendor/modules/objectAssignCompat.js"
-  },
-  {
     "from": "vendor/modules/48383455.js",
     "to": "app/moduleInterop.js"
   },
@@ -2002,10 +1994,6 @@
   {
     "from": "vendor/modules/48383455.js",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4c494178.js",
-    "to": "vendor/modules/45307530.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -2476,14 +2464,6 @@
     "to": "vendor/modules/animationFrameRuntime.js"
   },
   {
-    "from": "vendor/modules/7273474d.js",
-    "to": "vendor/modules/4c494178.js"
-  },
-  {
-    "from": "vendor/modules/7273474d.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
     "from": "vendor/modules/73456643.js",
     "to": "vendor/modules/dateNow.js"
   },
@@ -2513,7 +2493,7 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/7a543168.js"
+    "to": "vendor/modules/addBatchedDomEventListener.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -2589,7 +2569,7 @@
   },
   {
     "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/7273474d.js"
+    "to": "vendor/modules/addBatchedDomEventListener.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -2684,18 +2664,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/7a543168.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/7a543168.js",
-    "to": "vendor/modules/4c494178.js"
-  },
-  {
-    "from": "vendor/modules/7a543168.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
     "from": "vendor/modules/7a677138.js",
     "to": "vendor/modules/30687066.js"
   },
@@ -2706,6 +2674,26 @@
   {
     "from": "vendor/modules/7a677138.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/DomEventObject.js",
+    "to": "vendor/modules/EventBaseObject.js"
+  },
+  {
+    "from": "vendor/modules/DomEventObject.js",
+    "to": "vendor/modules/objectAssignCompat.js"
+  },
+  {
+    "from": "vendor/modules/addBatchedDomEventListener.js",
+    "to": "vendor/modules/addDomEventListener.js"
+  },
+  {
+    "from": "vendor/modules/addBatchedDomEventListener.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/addDomEventListener.js",
+    "to": "vendor/modules/DomEventObject.js"
   },
   {
     "from": "vendor/modules/animationFrameRuntime.js",

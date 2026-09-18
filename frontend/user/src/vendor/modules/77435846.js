@@ -94,7 +94,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 var y = m(require("./reactRuntime.js")),
   g = m(require("./propTypesRuntime.js")),
   b = v(require("./shallowEqualWithComparator.js")),
-  w = v(require("./7273474d.js")),
+  w = v(require("./addBatchedDomEventListener.js")),
   x = v(require("./warningRuntime.js")),
   O = require("./reactReduxRuntime.js"),
   E = v(require("./merge.js")),
