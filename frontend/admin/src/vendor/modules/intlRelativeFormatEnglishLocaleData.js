@@ -1,16 +1,26 @@
-let legacyModule = module,
-  legacyExports = exports;
-Object.defineProperty(legacyExports, "__esModule", {
-  value: !0
-}), legacyExports.default = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = {
   locale: "en",
-  pluralRuleFunction: function (e, t) {
-    var n = String(e).split("."),
-      r = !n[1],
-      o = Number(n[0]) == e,
-      i = o && n[0].slice(-1),
-      a = o && n[0].slice(-2);
-    return t ? 1 == i && 11 != a ? "one" : 2 == i && 12 != a ? "two" : 3 == i && 13 != a ? "few" : "other" : 1 == e && r ? "one" : "other";
+  pluralRuleFunction: function pluralRuleFunction(number, ordinal) {
+    var numberParts = String(number).split("."),
+      isInteger = !numberParts[1],
+      integerMatchesNumber = Number(numberParts[0]) == number,
+      lastDigit = integerMatchesNumber && numberParts[0].slice(-1),
+      lastTwoDigits = integerMatchesNumber && numberParts[0].slice(-2);
+
+    if (ordinal) {
+      if (lastDigit == 1 && lastTwoDigits != 11) return "one";
+      if (lastDigit == 2 && lastTwoDigits != 12) return "two";
+      if (lastDigit == 3 && lastTwoDigits != 13) return "few";
+      return "other";
+    }
+
+    return number == 1 && isInteger ? "one" : "other";
   },
   fields: {
     year: {

@@ -3889,11 +3889,11 @@
   },
   {
     "from": "vendor/modules/intlLocaleEnLegacyRuntime.js",
-    "to": "vendor/modules/487a6c4a.js"
+    "to": "vendor/modules/intlRelativeFormatCore.js"
   },
   {
     "from": "vendor/modules/intlLocaleEnLegacyRuntime.js",
-    "to": "vendor/modules/intlRelativeFormatCore.js"
+    "to": "vendor/modules/intlRelativeFormatEnglishLocaleData.js"
   },
   {
     "from": "vendor/modules/intlLocaleEnRuntime.js",
