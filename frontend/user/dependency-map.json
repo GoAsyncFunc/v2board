@@ -1,6 +1,6 @@
 [
   {
-    "from": "vendor/modules/2b383050.js",
+    "from": "vendor/modules/linkifyIt.js",
     "to": "vendor/modules/buildLinkifyRegexSources.js"
   },
   {
@@ -1177,7 +1177,7 @@
   },
   {
     "from": "vendor/modules/markdownIt.js",
-    "to": "vendor/modules/2b383050.js"
+    "to": "vendor/modules/linkifyIt.js"
   },
   {
     "from": "vendor/modules/markdownIt.js",

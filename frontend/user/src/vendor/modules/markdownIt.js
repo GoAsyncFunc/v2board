@@ -4,7 +4,7 @@ var MarkdownRenderer = require("./markdownRenderer.js");
 var MarkdownCoreParser = require("./markdownCoreParser.js");
 var MarkdownBlockParser = require("./markdownBlockParser.js");
 var MarkdownInlineParser = require("./markdownInlineParser.js");
-var Linkify = require("./2b383050.js");
+var Linkify = require("./linkifyIt.js");
 var markdownUrl = require("./markdownUrl.js");
 var punycode = require("./punycode.js");
 
