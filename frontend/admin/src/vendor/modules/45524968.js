@@ -10,9 +10,9 @@ markEsModule(legacyExports), defineExport(legacyExports, "dva", function () {
 });
 var r = require("../siteHelpers.js"),
   i = require("./6e444349.js"),
-  o = require("./77642f52.js"),
+  o = require("./momentRuntime.js"),
   a = interopDefault(o),
-  s = (require("./58447067.js"), window.settings),
+  s = (require("./moment-zh-cn.js"), window.settings),
   l = s.theme,
   c = s.host,
   u = document.createElement("link");

@@ -23,7 +23,7 @@ defineExport(legacyExports, "e", function () {
 });
 var r = require("./51624c5a.js"),
   i = interopDefault(r),
-  o = require("./77642f52.js"),
+  o = require("./momentRuntime.js"),
   a = interopDefault(o),
   s = {
     disabledHours: function () {
