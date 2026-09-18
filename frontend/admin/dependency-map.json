@@ -1021,7 +1021,7 @@
   },
   {
     "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/4e324b6b.js"
+    "to": "vendor/modules/paginationLocaleZhHans.js"
   },
   {
     "from": "vendor/modules/362b6555.js",
@@ -7205,7 +7205,7 @@
   },
   {
     "from": "vendor/modules/antdZhCnLocale.js",
-    "to": "vendor/modules/4e324b6b.js"
+    "to": "vendor/modules/paginationLocaleZhHans.js"
   },
   {
     "from": "vendor/modules/antdZhCnLocale.js",
@@ -7765,7 +7765,7 @@
   },
   {
     "from": "vendor/modules/4e554263.js",
-    "to": "vendor/modules/48346667.js"
+    "to": "vendor/modules/paginationLocaleEn.js"
   },
   {
     "from": "vendor/modules/4e554263.js",
@@ -7965,7 +7965,7 @@
   },
   {
     "from": "vendor/modules/5a76705a.js",
-    "to": "vendor/modules/48346667.js"
+    "to": "vendor/modules/paginationLocaleEn.js"
   },
   {
     "from": "vendor/modules/5a76705a.js",
