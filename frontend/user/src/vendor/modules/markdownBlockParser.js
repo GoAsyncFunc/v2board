@@ -1,7 +1,7 @@
 var MarkdownRuler = require("./markdownRuler.js");
 
 var blockRules = [
-  ["table", require("./674e5045.js"), ["paragraph", "reference"]],
+  ["table", require("./markdownTableRule.js"), ["paragraph", "reference"]],
   ["code", require("./markdownCodeBlockRule.js")],
   ["fence", require("./markdownFenceRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["blockquote", require("./3641354a.js"), ["paragraph", "reference", "blockquote", "list"]],

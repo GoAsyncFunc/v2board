@@ -10201,7 +10201,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/674e5045.js"
+    "to": "vendor/modules/markdownTableRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
@@ -10416,7 +10416,7 @@
     "to": "vendor/modules/37472b63.js"
   },
   {
-    "from": "vendor/modules/674e5045.js",
+    "from": "vendor/modules/markdownTableRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
