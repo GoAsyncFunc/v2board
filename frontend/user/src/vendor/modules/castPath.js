@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isArray.js"),
-  i = require("./39676747.js"),
-  a = require("./474e694d.js"),
-  o = require("./toString.js");
-function u(e, t) {
-  return r(e) ? e : i(e, t) ? [e] : a(o(e));
+var isArray = require("./isArray.js"),
+  isKey = require("./39676747.js"),
+  stringToPath = require("./474e694d.js"),
+  toString = require("./toString.js");
+function castPath(value, object) {
+  return isArray(value) ? value : isKey(value, object) ? [value] : stringToPath(toString(value));
 }
-legacyModule.exports = u;
+legacyModule.exports = castPath;

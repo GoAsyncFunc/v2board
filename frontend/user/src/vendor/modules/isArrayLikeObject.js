@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isArrayLike.js"),
-  i = require("./isObjectLikeLegacy.js");
-function a(e) {
-  return i(e) && r(e);
+var isArrayLike = require("./isArrayLike.js"),
+  isObjectLike = require("./isObjectLikeLegacy.js");
+function isArrayLikeObject(value) {
+  return isObjectLike(value) && isArrayLike(value);
 }
-legacyModule.exports = a;
+legacyModule.exports = isArrayLikeObject;

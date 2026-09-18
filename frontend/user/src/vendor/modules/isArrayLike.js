@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6c534344.js"),
-  i = require("./isIndex.js");
-function a(e) {
-  return null != e && i(e.length) && !r(e);
+var isFunction = require("./6c534344.js"),
+  isIndex = require("./isIndex.js");
+function isArrayLike(value) {
+  return null != value && isIndex(value.length) && !isFunction(value);
 }
-legacyModule.exports = a;
+legacyModule.exports = isArrayLike;

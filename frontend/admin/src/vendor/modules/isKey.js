@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  var t = typeof e;
-  return "string" == t || "number" == t || "symbol" == t || "boolean" == t ? "__proto__" !== e : null === e;
+function isKey(value) {
+  var valueType = typeof value;
+  return "string" == valueType || "number" == valueType || "symbol" == valueType || "boolean" == valueType ? "__proto__" !== value : null === value;
 }
-legacyModule.exports = n;
+legacyModule.exports = isKey;

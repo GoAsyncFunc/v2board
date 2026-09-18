@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return null != e && "object" == typeof e;
+function isObjectLike(value) {
+  return null != value && "object" == typeof value;
 }
-legacyModule.exports = n;
+legacyModule.exports = isObjectLike;

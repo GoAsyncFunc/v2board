@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = 9007199254740991;
-function r(e) {
-  return "number" == typeof e && e > -1 && e % 1 == 0 && e <= n;
+var maxSafeInteger = 9007199254740991;
+function isIndex(value) {
+  return "number" == typeof value && value > -1 && value % 1 == 0 && value <= maxSafeInteger;
 }
-legacyModule.exports = r;
+legacyModule.exports = isIndex;

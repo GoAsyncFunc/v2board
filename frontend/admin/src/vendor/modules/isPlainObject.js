@@ -1,19 +1,19 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./7267492b.js"),
-  i = require("./getPrototypeOfLegacy.js"),
-  o = require("./isObjectLike.js"),
-  a = "[object Object]",
-  s = Function.prototype,
-  l = Object.prototype,
-  u = s.toString,
-  c = l.hasOwnProperty,
-  f = u.call(Object);
-function d(e) {
-  if (!o(e) || r(e) != a) return !1;
-  var t = i(e);
-  if (null === t) return !0;
-  var n = c.call(t, "constructor") && t.constructor;
-  return "function" == typeof n && n instanceof n && u.call(n) == f;
+var getTag = require("./7267492b.js"),
+  getPrototypeOf = require("./getPrototypeOfLegacy.js"),
+  isObjectLike = require("./isObjectLike.js"),
+  objectTag = "[object Object]",
+  functionPrototype = Function.prototype,
+  objectPrototype = Object.prototype,
+  functionToString = functionPrototype.toString,
+  hasOwnProperty = objectPrototype.hasOwnProperty,
+  objectConstructorString = functionToString.call(Object);
+function isPlainObject(value) {
+  if (!isObjectLike(value) || getTag(value) != objectTag) return !1;
+  var prototype = getPrototypeOf(value);
+  if (null === prototype) return !0;
+  var constructor = hasOwnProperty.call(prototype, "constructor") && prototype.constructor;
+  return "function" == typeof constructor && constructor instanceof constructor && functionToString.call(constructor) == objectConstructorString;
 }
-legacyModule.exports = d;
+legacyModule.exports = isPlainObject;
