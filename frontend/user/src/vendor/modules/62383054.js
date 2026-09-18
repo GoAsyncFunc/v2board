@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./baseTimes.js"),
-  i = require("./3033412b.js"),
+  i = require("./isArgumentsLegacy.js"),
   a = require("./isArray.js"),
   o = require("./isBufferCompat.js"),
   u = require("./isIndexWithinLength.js"),

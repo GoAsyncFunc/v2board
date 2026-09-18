@@ -6,7 +6,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var n = require("./70566e4c.js"),
+var n = require("./objectAssignHelper.js"),
   r = interopDefault(n),
   o = require("./504a595a.js"),
   a = interopDefault(o),

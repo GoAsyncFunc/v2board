@@ -16,7 +16,7 @@ var r = require("./classCallCheck.js"),
   d = require("./propTypesRuntime.js"),
   p = interopDefault(d),
   m = require("./reactLifecyclesCompat.js"),
-  g = require("./32475336.js"),
+  g = require("./invokeAll.js"),
   v = require("./34496c57.js"),
   y = {
     adjustX: 1,

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./63446635.js")["default"],
-  i = require("./35513056.js");
+  i = require("./toPrimitiveDefault.js");
 function o(e) {
   var t = i(e, "string");
   return "symbol" === r(t) ? t : String(t);
