@@ -171,7 +171,7 @@ var k = {
   j = interopDefault(C),
   P = require("./domClassList.js"),
   T = interopDefault(P),
-  L = require("./4d466a32.js"),
+  RcAnimate = require("./RcAnimate.js"),
   N = require("./316a3577.js"),
   M = require("./reactIsLegacyEntry.js");
 function A(e) {
@@ -1309,7 +1309,7 @@ var Xe = function (e) {
         })), E && _.push(E), _.push(r["createElement"]("li", {
           className: "".concat(c, "-search ").concat(c, "-search--inline"),
           key: "__input"
-        }, n.getInputElement())), m = Q(a) && s ? r["createElement"](L["a"], {
+        }, n.getInputElement())), m = Q(a) && s ? r["createElement"](RcAnimate, {
           onLeave: n.onChoiceAnimationLeave,
           component: "ul",
           transitionName: s

@@ -777,7 +777,7 @@ it.propTypes = {
 };
 var at = it,
   st = at,
-  ct = require("./4d466a32.js"),
+  RcAnimate = require("./RcAnimate.js"),
   ut = require("./objectWithoutProperties.js"),
   lt = interopDefault(ut),
   ft = function (e) {
@@ -897,7 +897,7 @@ var ht = dt,
           onTouchStart: w,
           style: _
         };
-      return h ? p.a.createElement(ct["a"], {
+      return h ? p.a.createElement(RcAnimate, {
         component: "",
         exclusive: !0,
         transitionAppear: !0,
@@ -911,7 +911,7 @@ var ht = dt,
         onAlign: this.onAlign
       }, p.a.createElement(ht, o()({
         visible: !0
-      }, k), v)) : null) : p.a.createElement(ct["a"], {
+      }, k), v)) : null) : p.a.createElement(RcAnimate, {
         component: "",
         exclusive: !0,
         transitionAppear: !0,
@@ -947,7 +947,7 @@ var ht = dt,
           className: e.prefixCls + "-mask",
           hiddenClassName: e.prefixCls + "-mask-hidden",
           visible: e.visible
-        }), n && (t = p.a.createElement(ct["a"], {
+        }), n && (t = p.a.createElement(RcAnimate, {
           key: "mask",
           showProp: "visible",
           transitionAppear: !0,
