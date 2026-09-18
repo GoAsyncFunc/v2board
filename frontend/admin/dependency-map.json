@@ -8656,11 +8656,11 @@
     "to": "vendor/modules/markdownIt.js"
   },
   {
-    "from": "vendor/modules/316e424f.js",
+    "from": "vendor/modules/markdownReferenceRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/316e424f.js",
+    "from": "vendor/modules/markdownReferenceRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -9976,11 +9976,11 @@
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/58373158.js",
+    "from": "vendor/modules/markdownHtmlBlockRule.js",
     "to": "vendor/modules/htmlBlockTags.js"
   },
   {
-    "from": "vendor/modules/58373158.js",
+    "from": "vendor/modules/markdownHtmlBlockRule.js",
     "to": "vendor/modules/markdownHtmlRegex.js"
   },
   {
@@ -10225,11 +10225,11 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/316e424f.js"
+    "to": "vendor/modules/markdownReferenceRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/58373158.js"
+    "to": "vendor/modules/markdownHtmlBlockRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",

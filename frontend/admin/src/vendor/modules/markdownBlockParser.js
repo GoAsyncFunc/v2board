@@ -7,8 +7,8 @@ var blockRules = [
   ["blockquote", require("./3641354a.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["hr", require("./markdownHorizontalRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["list", require("./537a354c.js"), ["paragraph", "reference", "blockquote"]],
-  ["reference", require("./316e424f.js")],
-  ["html_block", require("./58373158.js"), ["paragraph", "reference", "blockquote"]],
+  ["reference", require("./markdownReferenceRule.js")],
+  ["html_block", require("./markdownHtmlBlockRule.js"), ["paragraph", "reference", "blockquote"]],
   ["heading", require("./markdownHeadingRule.js"), ["paragraph", "reference", "blockquote"]],
   ["lheading", require("./markdownSetextHeadingRule.js")],
   ["paragraph", require("./markdownParagraphRule.js")]
