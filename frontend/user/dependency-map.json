@@ -6413,7 +6413,7 @@
   },
   {
     "from": "vendor/modules/rootObject.js",
-    "to": "vendor/modules/globalObjectFromLegacy.js"
+    "to": "vendor/modules/nodeGlobalObject.js"
   },
   {
     "from": "vendor/modules/getPrototypeOf.js",
@@ -6568,7 +6568,7 @@
     "to": "vendor/modules/baseGetAllKeys.js"
   },
   {
-    "from": "vendor/modules/globalObjectFromLegacy.js",
+    "from": "vendor/modules/nodeGlobalObject.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -6796,7 +6796,7 @@
     "to": "vendor/modules/getMapData.js"
   },
   {
-    "from": "vendor/modules/globalObjectFromLegacy.js",
+    "from": "vendor/modules/nodeGlobalObject.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
@@ -6821,7 +6821,7 @@
   },
   {
     "from": "vendor/modules/6d64504c.js",
-    "to": "vendor/modules/globalObjectFromLegacy.js"
+    "to": "vendor/modules/nodeGlobalObject.js"
   },
   {
     "from": "vendor/modules/6d64504c.js",
@@ -6925,7 +6925,7 @@
   },
   {
     "from": "vendor/modules/rootObject.js",
-    "to": "vendor/modules/globalObjectFromLegacy.js"
+    "to": "vendor/modules/nodeGlobalObject.js"
   },
   {
     "from": "vendor/modules/77636c47.js",

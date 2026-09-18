@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (e) {
-  var r = require("./globalObjectFromLegacy.js"),
+  var r = require("./nodeGlobalObject.js"),
     i = legacyExports && !legacyExports.nodeType && legacyExports,
     a = i && "object" == typeof e && e && !e.nodeType && e,
     o = a && a.exports === i,
