@@ -6425,7 +6425,7 @@
   },
   {
     "from": "vendor/modules/getPrototypeOf.js",
-    "to": "vendor/modules/6b656b46.js"
+    "to": "vendor/modules/overArg.js"
   },
   {
     "from": "vendor/modules/4c734851.js",
@@ -6477,7 +6477,7 @@
   },
   {
     "from": "vendor/modules/4e796b4b.js",
-    "to": "vendor/modules/4b664e4d.js"
+    "to": "vendor/modules/objectToString.js"
   },
   {
     "from": "vendor/modules/4f306f53.js",
@@ -6661,7 +6661,7 @@
   },
   {
     "from": "vendor/modules/63367747.js",
-    "to": "vendor/modules/73456638.js"
+    "to": "vendor/modules/baseUnary.js"
   },
   {
     "from": "vendor/modules/63367747.js",
@@ -6861,7 +6861,7 @@
   },
   {
     "from": "vendor/modules/getPrototypeOfLegacy.js",
-    "to": "vendor/modules/71787241.js"
+    "to": "vendor/modules/overArg.js"
   },
   {
     "from": "vendor/modules/70465248.js",
@@ -6889,7 +6889,7 @@
   },
   {
     "from": "vendor/modules/7267492b.js",
-    "to": "vendor/modules/336d3065.js"
+    "to": "vendor/modules/objectToString.js"
   },
   {
     "from": "vendor/modules/73456643.js",
