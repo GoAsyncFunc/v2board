@@ -3229,15 +3229,15 @@
   },
   {
     "from": "vendor/modules/antdTooltip.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/antdTooltip.js",
     "to": "vendor/modules/ConfigContext.js"
   },
   {
     "from": "vendor/modules/antdTooltip.js",
     "to": "vendor/modules/RcTooltip.js"
+  },
+  {
+    "from": "vendor/modules/antdTooltip.js",
+    "to": "vendor/modules/antdTooltipPlacements.js"
   },
   {
     "from": "vendor/modules/antdTooltip.js",
@@ -3252,7 +3252,7 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/antdTooltip.js",
+    "from": "vendor/modules/antdTooltipPlacements.js",
     "to": "vendor/modules/tooltipPlacements.js"
   },
   {
