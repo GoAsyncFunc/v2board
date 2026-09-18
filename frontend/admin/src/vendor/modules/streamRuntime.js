@@ -1,3 +1,7 @@
-let legacyModule = module,
-  legacyExports = exports;
-legacyExports = legacyModule.exports = require("./72584675.js"), legacyExports.Stream = legacyExports, legacyExports.Readable = legacyExports, legacyExports.Writable = require("./33425273.js"), legacyExports.Duplex = require("./duplexStream.js"), legacyExports.Transform = require("./4a373869.js"), legacyExports.PassThrough = require("./65412f59.js");
+exports = module.exports = require('./readableStream.js');
+exports.Stream = exports;
+exports.Readable = exports;
+exports.Writable = require('./writableStream.js');
+exports.Duplex = require('./duplexStream.js');
+exports.Transform = require('./transformStream.js');
+exports.PassThrough = require('./passThroughStream.js');
