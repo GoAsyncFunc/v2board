@@ -1185,7 +1185,7 @@
   },
   {
     "from": "vendor/modules/markdownIt.js",
-    "to": "vendor/modules/47595779.js"
+    "to": "vendor/modules/punycode.js"
   },
   {
     "from": "vendor/modules/markdownIt.js",
@@ -1604,11 +1604,11 @@
     "to": "vendor/modules/6d623341.js"
   },
   {
-    "from": "vendor/modules/47595779.js",
+    "from": "vendor/modules/punycode.js",
     "to": "vendor/modules/59755469.js"
   },
   {
-    "from": "vendor/modules/47595779.js",
+    "from": "vendor/modules/punycode.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {

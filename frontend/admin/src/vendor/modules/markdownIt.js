@@ -6,7 +6,7 @@ var MarkdownBlockParser = require("./markdownBlockParser.js");
 var MarkdownInlineParser = require("./markdownInlineParser.js");
 var Linkify = require("./2b383050.js");
 var markdownUrl = require("./markdownUrl.js");
-var punycode = require("./47595779.js");
+var punycode = require("./punycode.js");
 
 var presets = {
   default: require("./markdownEmptyConfig.js"),
