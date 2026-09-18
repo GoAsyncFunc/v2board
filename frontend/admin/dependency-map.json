@@ -4260,7 +4260,7 @@
     "to": "vendor/modules/5a786769.js"
   },
   {
-    "from": "vendor/modules/64706c46.js",
+    "from": "vendor/modules/findDOMNodeCompat.js",
     "to": "vendor/modules/reactDomRuntime.js"
   },
   {
@@ -6017,7 +6017,7 @@
   },
   {
     "from": "vendor/modules/7432334d.js",
-    "to": "vendor/modules/64706c46.js"
+    "to": "vendor/modules/findDOMNodeCompat.js"
   },
   {
     "from": "vendor/modules/7432334d.js",
@@ -6741,7 +6741,7 @@
   },
   {
     "from": "vendor/modules/reactReduxRuntime.js",
-    "to": "vendor/modules/6c75754e.js"
+    "to": "vendor/modules/reduxStore.js"
   },
   {
     "from": "vendor/modules/784a6965.js",

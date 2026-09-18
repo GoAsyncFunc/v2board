@@ -7,7 +7,7 @@ var r = require("./5a346578.js"),
   i = c(r),
   o = require("./562f3649.js"),
   a = c(o),
-  s = require("./6c75754e.js"),
+  s = require("./reduxStore.js"),
   l = c(s);
 function c(e) {
   return e && e.__esModule ? e : {
