@@ -125,4 +125,4 @@ let legacyModule = module,
     }
     e._xhr.readyState === l.DONE && "ms-stream" !== e._mode && e.push(null);
   };
-}).call(this, require("./51324967.js"), require("./746a6c41.js").Buffer, require("./globalObjectLegacy.js"));
+}).call(this, require("./processRuntime.js"), require("./746a6c41.js").Buffer, require("./globalObjectLegacy.js"));

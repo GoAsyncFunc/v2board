@@ -37,7 +37,7 @@ var a = /^([a-z0-9.+-]+:)/i,
     "gopher:": !0,
     "file:": !0
   },
-  w = require("./73344e52.js");
+  w = require("./base64Runtime.js");
 function x(e, t, n) {
   if (e && i.isObject(e) && e instanceof o) return e;
   var r = new o();

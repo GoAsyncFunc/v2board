@@ -16,4 +16,4 @@ let legacyModule = module,
       return new Date().getTime() - i;
     }, i = new Date().getTime());
   }).call(this);
-}).call(this, require("./51324967.js"));
+}).call(this, require("./processRuntime.js"));

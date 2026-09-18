@@ -472,8 +472,8 @@
     "to": "vendor/modules/regexpFlags.js"
   },
   {
-    "from": "vendor/modules/33337966.js",
-    "to": "vendor/modules/51324967.js"
+    "from": "vendor/modules/pathRuntime.js",
+    "to": "vendor/modules/processRuntime.js"
   },
   {
     "from": "vendor/modules/arraySpeciesConstructor.js",
@@ -745,7 +745,7 @@
   },
   {
     "from": "vendor/modules/37746c63.js",
-    "to": "vendor/modules/51324967.js"
+    "to": "vendor/modules/processRuntime.js"
   },
   {
     "from": "vendor/modules/assertObject.js",
@@ -1453,7 +1453,7 @@
   },
   {
     "from": "vendor/modules/45513731.js",
-    "to": "vendor/modules/6d63447a.js"
+    "to": "vendor/modules/locationRuntime.js"
   },
   {
     "from": "vendor/modules/45513731.js",
@@ -2316,8 +2316,8 @@
     "to": "vendor/modules/364f6771.js"
   },
   {
-    "from": "vendor/modules/51324967.js",
-    "to": "vendor/modules/33337966.js"
+    "from": "vendor/modules/processRuntime.js",
+    "to": "vendor/modules/pathRuntime.js"
   },
   {
     "from": "vendor/modules/51432b4d.js",
@@ -3333,7 +3333,7 @@
   },
   {
     "from": "vendor/modules/6251674b.js",
-    "to": "vendor/modules/51324967.js"
+    "to": "vendor/modules/processRuntime.js"
   },
   {
     "from": "vendor/modules/6264674b.js",
@@ -3656,23 +3656,23 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/67304d50.js",
+    "from": "vendor/modules/historyRuntime.js",
     "to": "vendor/modules/noopLegacy.js"
   },
   {
-    "from": "vendor/modules/67304d50.js",
+    "from": "vendor/modules/historyRuntime.js",
     "to": "vendor/modules/514c6150.js"
   },
   {
-    "from": "vendor/modules/67304d50.js",
+    "from": "vendor/modules/historyRuntime.js",
     "to": "vendor/modules/2f516879.js"
   },
   {
-    "from": "vendor/modules/67304d50.js",
+    "from": "vendor/modules/historyRuntime.js",
     "to": "vendor/modules/62726455.js"
   },
   {
-    "from": "vendor/modules/67304d50.js",
+    "from": "vendor/modules/historyRuntime.js",
     "to": "vendor/modules/636b3973.js"
   },
   {
@@ -4032,19 +4032,19 @@
     "to": "vendor/modules/316c2f56.js"
   },
   {
-    "from": "vendor/modules/6d63447a.js",
+    "from": "vendor/modules/locationRuntime.js",
     "to": "vendor/modules/2f516879.js"
   },
   {
-    "from": "vendor/modules/6d63447a.js",
+    "from": "vendor/modules/locationRuntime.js",
     "to": "vendor/modules/62726455.js"
   },
   {
-    "from": "vendor/modules/6d63447a.js",
+    "from": "vendor/modules/locationRuntime.js",
     "to": "vendor/modules/4677725a.js"
   },
   {
-    "from": "vendor/modules/6d63447a.js",
+    "from": "vendor/modules/locationRuntime.js",
     "to": "vendor/modules/636b3973.js"
   },
   {
@@ -6273,7 +6273,7 @@
   },
   {
     "from": "vendor/modules/36596b53.js",
-    "to": "vendor/modules/67304d50.js"
+    "to": "vendor/modules/historyRuntime.js"
   },
   {
     "from": "vendor/modules/36596b53.js",
@@ -6325,7 +6325,7 @@
   },
   {
     "from": "vendor/modules/43785865.js",
-    "to": "vendor/modules/67304d50.js"
+    "to": "vendor/modules/historyRuntime.js"
   },
   {
     "from": "vendor/modules/43785865.js",

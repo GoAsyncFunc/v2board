@@ -45,7 +45,7 @@ var r = require("./noopLegacy.js"),
       i = t || "/";
     return n && "?" !== n && (i += "?" === n.charAt(0) ? n : "?" + n), r && "#" !== r && (i += "#" === r.charAt(0) ? r : "#" + r), i;
   },
-  g = require("./636b3973.js"),
+  g = require("./queryStringRuntime.js"),
   v = interopDefault(g),
   y = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {

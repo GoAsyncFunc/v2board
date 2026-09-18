@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
   r = require("./362b6555.js"),
-  o = require("./48346667.js"),
+  o = require("./paginationLocaleEn.js"),
   a = require("./classNames.js"),
   l = interopDefault(a),
   i = require("./antdSelect.js");

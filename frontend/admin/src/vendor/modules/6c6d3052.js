@@ -33,4 +33,4 @@ let legacyModule = module,
   "undefined" === typeof t || !t.version || 0 === t.version.indexOf("v0.") || 0 === t.version.indexOf("v1.") && 0 !== t.version.indexOf("v1.8.") ? legacyModule.exports = {
     nextTick: n
   } : legacyModule.exports = t;
-}).call(this, require("./51324967.js"));
+}).call(this, require("./processRuntime.js"));

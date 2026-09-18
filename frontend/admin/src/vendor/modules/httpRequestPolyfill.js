@@ -5,7 +5,7 @@ let legacyModule = module,
     i = require("./79517457.js"),
     o = require("./55366a79.js"),
     a = require("./6a415748.js"),
-    s = require("./43785930.js"),
+    s = require("./urlRuntime.js"),
     l = legacyExports;
   l.request = function (t, n) {
     t = "string" === typeof t ? s.parse(t) : o(t);

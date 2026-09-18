@@ -13,6 +13,6 @@ legacyExports.nextTick = function (e) {
   legacyExports.cwd = function () {
     return r;
   }, legacyExports.chdir = function (t) {
-    e || (e = require("./33337966.js")), r = e.resolve(t, r);
+    e || (e = require("./pathRuntime.js")), r = e.resolve(t, r);
   };
 }(), legacyExports.exit = legacyExports.kill = legacyExports.umask = legacyExports.dlopen = legacyExports.uptime = legacyExports.memoryUsage = legacyExports.uvCounters = function () {}, legacyExports.features = {};
