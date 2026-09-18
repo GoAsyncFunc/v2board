@@ -4,7 +4,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports.InnerSlider = void 0;
 var r = d(require("./reactRuntime.js")),
-  o = d(require("./69386934.js")),
+  o = d(require("./reactDomRuntime.js")),
   i = d(require("./7278616c.js")),
   a = d(require("./392f352f.js")),
   s = d(require("./classNames.js")),

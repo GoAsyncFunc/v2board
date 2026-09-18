@@ -41,7 +41,7 @@ function setup(mode){
   if(id.includes('i18n'))return {formatMessage:({id})=>id,getLocale:()=> 'zh-CN'};
   if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args])};
   if(id.includes('routerHistory'))return {push:value=>events.push(['navigate',value])};
-  if(id.includes('5642306f'))return ()=>null;
+  if(id.includes('reactLoadableRuntime'))return ()=>null;
   if(id.includes('antdMessage'))return {a:{info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])}};
   return {};
  }});

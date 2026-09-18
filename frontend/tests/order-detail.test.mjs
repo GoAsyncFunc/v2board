@@ -20,7 +20,7 @@ async function setup(original){
   if(id.includes('OrderStatusResult'))return statusModule.exports;
   if(id==='react'||id.includes('reactRuntime'))return React;
   if(id.includes('reactRedux'))return {c:()=>cls=>cls};
-  if(id.includes('5642306f'))return ()=> 'StripeForm';
+  if(id.includes('reactLoadableRuntime'))return ()=> 'StripeForm';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
   if(id.includes('antdMessage'))return {a:{error:msg=>trace.push(['error',msg])}};
   if(id.includes('4172412b'))return {router:{push:url=>trace.push(['navigate',url])}};

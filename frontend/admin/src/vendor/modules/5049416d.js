@@ -9,7 +9,7 @@ defineExport(legacyExports, "a", function () {
 });
 var r = require("./reactRuntime.js"),
   i = interopDefault(r),
-  o = require("./69386934.js"),
+  o = require("./reactDomRuntime.js"),
   a = interopDefault(o),
   s = require("./propTypesRuntime.js"),
   l = interopDefault(s);

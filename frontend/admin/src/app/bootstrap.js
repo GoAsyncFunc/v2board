@@ -64,7 +64,7 @@ var r = require("../vendor/modules/70307045.js"),
         require("./history.js"),
         require("../vendor/modules/reactRuntime.js")),
     l = interopDefault(s),
-    c = require("../vendor/modules/69386934.js"),
+    c = require("../vendor/modules/reactDomRuntime.js"),
     u = interopDefault(c),
     h = require("../vendor/modules/73613761.js"),
     f = interopDefault(h);

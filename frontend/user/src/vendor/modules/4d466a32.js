@@ -63,7 +63,7 @@ function k(e, t) {
     e && Object.prototype.hasOwnProperty.call(r, e.key) && (n = n.concat(r[e.key])), n.push(e);
   }), n = n.concat(o), n;
 }
-var S = require("./69386934.js"),
+var S = require("./reactDomRuntime.js"),
   C = interopDefault(S),
   j = require("./454a6979.js"),
   P = interopDefault(j),

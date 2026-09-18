@@ -5,7 +5,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./69386934.js"),
+  r = require("./reactDomRuntime.js"),
   o = require("./6b33474a.js"),
   a = require("./62546968.js"),
   l = require("./classNames.js"),

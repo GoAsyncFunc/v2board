@@ -46,7 +46,7 @@ for(const [page,slug]of Object.entries(pages))for(const mode of ['baseline','sou
   const id=args.path;
   let key;
   if(id.includes('reactRedux'))key='redux';else if(id.includes('MainLayout'))key='layout';else if(id.endsWith('/i18n.js'))key='i18n';else if(id.includes('routerHistory'))key='history';else if(id.includes('4172412b'))key='router';else if(id.includes('siteHelpers'))key='helpers';else if(id.includes('localeSettings'))key='settings';else if(id.includes('services/request'))key='request';
-  if(id.includes('5642306f'))key='stripeLoader';if(id.includes('6d623341'))key='stripe';if(id.includes('44314466'))key='qr';
+  if(id.includes('reactLoadableRuntime'))key='stripeLoader';if(id.includes('6d623341'))key='stripe';if(id.includes('44314466'))key='qr';
   if(key)return {path:key,namespace:'mock'};
   if(args.importer===file&&mode==='baseline'&&id.startsWith('.'))return {path:path.resolve(home,'user/src/pages',id)};
  });

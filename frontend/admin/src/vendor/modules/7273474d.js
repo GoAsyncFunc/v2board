@@ -4,7 +4,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports.default = a;
 var r = o(require("./4c494178.js")),
-  i = o(require("./69386934.js"));
+  i = o(require("./reactDomRuntime.js"));
 function o(e) {
   return e && e.__esModule ? e : {
     default: e

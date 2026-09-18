@@ -34,7 +34,7 @@ import { a as Result } from '../vendor/modules/4d6f5257.js';
 import { a as message } from '../vendor/modules/antdMessage.js';
 import { a as settings } from '../vendor/localeSettings.js';
 import QRCode from '../vendor/modules/44314466.js';
-import loadable from '../vendor/modules/5642306f.js';
+import loadable from '../vendor/modules/reactLoadableRuntime.js';
 import { formatMessage } from '../vendor/i18n.js';
 import moment from '../vendor/modules/77642f52.js';
 import { a as Spin } from '../vendor/modules/76333265.js';

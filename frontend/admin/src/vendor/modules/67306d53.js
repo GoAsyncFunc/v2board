@@ -8,7 +8,7 @@ defineExport(legacyExports, "a", function () {
 });
 var n,
   r = require("./reactRuntime.js"),
-  o = require("./69386934.js"),
+  o = require("./reactDomRuntime.js"),
   a = require("./2f644463.js"),
   l = require("./6f486950.js"),
   i = require("./48383455.js");

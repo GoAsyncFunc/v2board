@@ -181,7 +181,7 @@ function A(e) {
   }), t;
 }
 var D = require("./34496c57.js"),
-  I = require("./69386934.js"),
+  I = require("./reactDomRuntime.js"),
   R = require("./reactLifecyclesCompat.js"),
   F = require("./3257367a.js"),
   V = interopDefault(F),

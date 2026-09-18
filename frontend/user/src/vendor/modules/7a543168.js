@@ -9,7 +9,7 @@ defineExport(legacyExports, "a", function () {
 });
 var r = require("./4c494178.js"),
   o = interopDefault(r),
-  i = require("./69386934.js"),
+  i = require("./reactDomRuntime.js"),
   a = interopDefault(i);
 function s(e, t, n, r) {
   var i = a.a.unstable_batchedUpdates ? function (e) {
