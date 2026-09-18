@@ -2497,11 +2497,11 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/7a512f57.js"
+    "to": "vendor/modules/markdownLinkRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/6b79306a.js"
+    "to": "vendor/modules/markdownImageRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
@@ -3912,11 +3912,11 @@
     "to": "vendor/modules/tryCatchTestLegacy.js"
   },
   {
-    "from": "vendor/modules/6b79306a.js",
+    "from": "vendor/modules/markdownImageRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/6b79306a.js",
+    "from": "vendor/modules/markdownImageRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -5148,11 +5148,11 @@
     "to": "vendor/modules/redefine.js"
   },
   {
-    "from": "vendor/modules/7a512f57.js",
+    "from": "vendor/modules/markdownLinkRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/7a512f57.js",
+    "from": "vendor/modules/markdownLinkRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {

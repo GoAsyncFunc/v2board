@@ -7,8 +7,8 @@ var inlineRules = [
   ["backticks", require("./markdownBackticksRule.js")],
   ["strikethrough", require("./markdownStrikethroughRule.js").tokenize],
   ["emphasis", require("./markdownEmphasisRule.js").tokenize],
-  ["link", require("./7a512f57.js")],
-  ["image", require("./6b79306a.js")],
+  ["link", require("./markdownLinkRule.js")],
+  ["image", require("./markdownImageRule.js")],
   ["autolink", require("./markdownAutolinkRule.js")],
   ["html_inline", require("./markdownInlineHtmlRule.js")],
   ["entity", require("./markdownEntityRule.js")]
