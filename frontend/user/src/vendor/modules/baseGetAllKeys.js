@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./6a757638.js"),
-  i = require("./6d545452.js");
-function o(e) {
+  i = require("./getAllKeys.js");
+function a(e) {
   return r(e, i(e));
 }
-legacyModule.exports = o;
+legacyModule.exports = a;

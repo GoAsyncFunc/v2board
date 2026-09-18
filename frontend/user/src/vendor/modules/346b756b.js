@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./5366524d.js"),
+var r = require("./hashClear.js"),
   i = require("./hashDelete.js"),
   a = require("./75384474.js"),
   o = require("./656b6749.js"),

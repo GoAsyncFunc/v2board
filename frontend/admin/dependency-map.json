@@ -8477,7 +8477,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/6d545452.js"
+    "to": "vendor/modules/getAllKeys.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -8709,7 +8709,7 @@
   },
   {
     "from": "vendor/modules/346b756b.js",
-    "to": "vendor/modules/5366524d.js"
+    "to": "vendor/modules/hashClear.js"
   },
   {
     "from": "vendor/modules/346b756b.js",
@@ -8741,7 +8741,7 @@
   },
   {
     "from": "vendor/modules/34755477.js",
-    "to": "vendor/modules/6474307a.js"
+    "to": "vendor/modules/toString.js"
   },
   {
     "from": "vendor/modules/354d726b.js",
@@ -9024,11 +9024,11 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/43776335.js",
+    "from": "vendor/modules/getNative.js",
     "to": "vendor/modules/4e4b7875.js"
   },
   {
-    "from": "vendor/modules/43776335.js",
+    "from": "vendor/modules/getNative.js",
     "to": "vendor/modules/getProperty.js"
   },
   {
@@ -9637,7 +9637,7 @@
   },
   {
     "from": "vendor/modules/4f306f53.js",
-    "to": "vendor/modules/43776335.js"
+    "to": "vendor/modules/getNative.js"
   },
   {
     "from": "vendor/modules/4f454c42.js",
@@ -9728,7 +9728,7 @@
     "to": "vendor/modules/62597459.js"
   },
   {
-    "from": "vendor/modules/5366524d.js",
+    "from": "vendor/modules/hashClear.js",
     "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
@@ -9793,7 +9793,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/6a654c6f.js"
+    "to": "vendor/modules/baseGetAllKeys.js"
   },
   {
     "from": "vendor/modules/54345547.js",
@@ -10005,7 +10005,7 @@
   },
   {
     "from": "vendor/modules/nativeObjectCreate.js",
-    "to": "vendor/modules/43776335.js"
+    "to": "vendor/modules/getNative.js"
   },
   {
     "from": "vendor/modules/594f3356.js",
@@ -10248,8 +10248,8 @@
     "to": "vendor/modules/67302b76.js"
   },
   {
-    "from": "vendor/modules/6474307a.js",
-    "to": "vendor/modules/7a6f5965.js"
+    "from": "vendor/modules/toString.js",
+    "to": "vendor/modules/baseToString.js"
   },
   {
     "from": "vendor/modules/nativeSymbolLegacy.js",
@@ -10309,7 +10309,7 @@
   },
   {
     "from": "vendor/modules/nativeMap.js",
-    "to": "vendor/modules/43776335.js"
+    "to": "vendor/modules/getNative.js"
   },
   {
     "from": "vendor/modules/nativeMap.js",
@@ -10472,12 +10472,12 @@
     "to": "vendor/modules/isObjectLike.js"
   },
   {
-    "from": "vendor/modules/6a654c6f.js",
+    "from": "vendor/modules/baseGetAllKeys.js",
     "to": "vendor/modules/6a757638.js"
   },
   {
-    "from": "vendor/modules/6a654c6f.js",
-    "to": "vendor/modules/6d545452.js"
+    "from": "vendor/modules/baseGetAllKeys.js",
+    "to": "vendor/modules/getAllKeys.js"
   },
   {
     "from": "vendor/modules/6a6b5041.js",
@@ -10524,15 +10524,15 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/6d545452.js",
+    "from": "vendor/modules/getAllKeys.js",
     "to": "vendor/modules/62383054.js"
   },
   {
-    "from": "vendor/modules/6d545452.js",
+    "from": "vendor/modules/getAllKeys.js",
     "to": "vendor/modules/51634f65.js"
   },
   {
-    "from": "vendor/modules/6d545452.js",
+    "from": "vendor/modules/getAllKeys.js",
     "to": "vendor/modules/isArrayLike.js"
   },
   {
@@ -10944,19 +10944,19 @@
     "to": "vendor/modules/62597459.js"
   },
   {
-    "from": "vendor/modules/7a6f5965.js",
+    "from": "vendor/modules/baseToString.js",
     "to": "vendor/modules/nativeSymbol.js"
   },
   {
-    "from": "vendor/modules/7a6f5965.js",
+    "from": "vendor/modules/baseToString.js",
     "to": "vendor/modules/arrayMap.js"
   },
   {
-    "from": "vendor/modules/7a6f5965.js",
+    "from": "vendor/modules/baseToString.js",
     "to": "vendor/modules/isArray.js"
   },
   {
-    "from": "vendor/modules/7a6f5965.js",
+    "from": "vendor/modules/baseToString.js",
     "to": "vendor/modules/isSymbol.js"
   }
 ]
