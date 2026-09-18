@@ -2036,18 +2036,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/intlMessageFormatEn.js"
-  },
-  {
-    "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/intlRelativeFormatObjectUtils.js"
-  },
-  {
-    "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/relativeTimeDifference.js"
-  },
-  {
     "from": "vendor/modules/4a525065.js",
     "to": "app/moduleInterop.js"
   },
@@ -3901,11 +3889,11 @@
   },
   {
     "from": "vendor/modules/intlLocaleEnLegacyRuntime.js",
-    "to": "vendor/modules/484b6a6d.js"
+    "to": "vendor/modules/487a6c4a.js"
   },
   {
     "from": "vendor/modules/intlLocaleEnLegacyRuntime.js",
-    "to": "vendor/modules/487a6c4a.js"
+    "to": "vendor/modules/intlRelativeFormatCore.js"
   },
   {
     "from": "vendor/modules/intlLocaleEnRuntime.js",
@@ -3938,6 +3926,18 @@
   {
     "from": "vendor/modules/intlMessageFormatRuntime.js",
     "to": "vendor/modules/messageFormatParser.js"
+  },
+  {
+    "from": "vendor/modules/intlRelativeFormatCore.js",
+    "to": "vendor/modules/intlMessageFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/intlRelativeFormatCore.js",
+    "to": "vendor/modules/intlRelativeFormatObjectUtils.js"
+  },
+  {
+    "from": "vendor/modules/intlRelativeFormatCore.js",
+    "to": "vendor/modules/relativeTimeDifference.js"
   },
   {
     "from": "vendor/modules/intlRelativeFormatEn.js",
