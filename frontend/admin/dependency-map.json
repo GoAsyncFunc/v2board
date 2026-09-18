@@ -692,7 +692,7 @@
     "to": "vendor/modules/regexpFlags.js"
   },
   {
-    "from": "vendor/modules/33337966.js",
+    "from": "vendor/modules/pathRuntime.js",
     "to": "vendor/modules/51324967.js"
   },
   {
@@ -1717,7 +1717,7 @@
   },
   {
     "from": "vendor/modules/43785930.js",
-    "to": "vendor/modules/73344e52.js"
+    "to": "vendor/modules/base64Runtime.js"
   },
   {
     "from": "vendor/modules/toAbsoluteIndex.js",
@@ -2929,7 +2929,7 @@
   },
   {
     "from": "vendor/modules/51324967.js",
-    "to": "vendor/modules/33337966.js"
+    "to": "vendor/modules/pathRuntime.js"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -4148,15 +4148,15 @@
     "to": "vendor/modules/requireObject.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/fixedEncodeURIComponent.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/4d677a57.js"
   },
   {
-    "from": "vendor/modules/636b3973.js",
+    "from": "vendor/modules/queryStringRuntime.js",
     "to": "vendor/modules/386a5249.js"
   },
   {
@@ -4609,7 +4609,7 @@
   },
   {
     "from": "vendor/modules/67304d50.js",
-    "to": "vendor/modules/636b3973.js"
+    "to": "vendor/modules/queryStringRuntime.js"
   },
   {
     "from": "models/system.js",
@@ -5429,7 +5429,7 @@
   },
   {
     "from": "vendor/modules/6d63447a.js",
-    "to": "vendor/modules/636b3973.js"
+    "to": "vendor/modules/queryStringRuntime.js"
   },
   {
     "from": "vendor/modules/6d776b4d.js",
@@ -5864,11 +5864,11 @@
     "to": "vendor/modules/setPrototypeOfRuntime.js"
   },
   {
-    "from": "vendor/modules/73344e52.js",
+    "from": "vendor/modules/base64Runtime.js",
     "to": "vendor/modules/6b643245.js"
   },
   {
-    "from": "vendor/modules/73344e52.js",
+    "from": "vendor/modules/base64Runtime.js",
     "to": "vendor/modules/344a6c44.js"
   },
   {
