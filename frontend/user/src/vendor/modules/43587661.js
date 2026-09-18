@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./43577356.js"),
-  o = require("./4147676d.js").isWhiteSpace,
-  i = require("./4147676d.js").isPunctChar,
-  a = require("./4147676d.js").isMdAsciiPunct;
+  o = require("./markdownUtils.js").isWhiteSpace,
+  i = require("./markdownUtils.js").isPunctChar,
+  a = require("./markdownUtils.js").isMdAsciiPunct;
 function s(e, t, n, r) {
   this.src = e, this.env = n, this.md = t, this.tokens = r, this.tokens_meta = Array(r.length), this.pos = 0, this.posMax = this.src.length, this.level = 0, this.pending = "", this.pendingLevel = 0, this.cache = {}, this.delimiters = [], this._prev_delimiters = [], this.backticks = {}, this.backticksScanned = !1;
 }

@@ -113,7 +113,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var b = y(require("./reactRuntime.js")),
-  w = y(require("./31377839.js")),
+  w = y(require("./propTypesRuntime.js")),
   x = require("./7849304a.js"),
   O = g(require("./classNames.js")),
   E = g(require("./7a536442.js")),

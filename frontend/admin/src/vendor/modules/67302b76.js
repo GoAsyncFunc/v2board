@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./43577356.js"),
-  i = require("./4147676d.js").isSpace;
+  i = require("./markdownUtils.js").isSpace;
 function o(e, t, n, r) {
   var o, a, s, l, u, c, f, d;
   for (this.src = e, this.md = t, this.env = n, this.tokens = r, this.bMarks = [], this.eMarks = [], this.tShift = [], this.sCount = [], this.bsCount = [], this.blkIndent = 0, this.line = 0, this.lineMax = 0, this.tight = !1, this.ddIndent = -1, this.listIndent = -1, this.parentType = "root", this.level = 0, this.result = "", a = this.src, d = !1, s = l = c = f = 0, u = a.length; l < u; l++) {

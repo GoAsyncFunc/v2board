@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").unescapeAll;
+var r = require("./markdownUtils.js").unescapeAll;
 legacyModule.exports = function (e, t, n) {
   var o,
     i,

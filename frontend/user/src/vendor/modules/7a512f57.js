@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").normalizeReference,
-  o = require("./4147676d.js").isSpace;
+var r = require("./markdownUtils.js").normalizeReference,
+  o = require("./markdownUtils.js").isSpace;
 legacyModule.exports = function (e, t) {
   var n,
     i,

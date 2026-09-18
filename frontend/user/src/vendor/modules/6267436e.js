@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-for (var r = require("./4147676d.js").isSpace, o = [], i = 0; i < 256; i++) o.push(0);
+for (var r = require("./markdownUtils.js").isSpace, o = [], i = 0; i < 256; i++) o.push(0);
 "\\!\"#$%&'()*+,./:;<=>?@[]^_`{|}~-".split("").forEach(function (e) {
   o[e.charCodeAt(0)] = 1;
 }), legacyModule.exports = function (e, t) {

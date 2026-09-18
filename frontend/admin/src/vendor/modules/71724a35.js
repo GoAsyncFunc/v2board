@@ -8,7 +8,7 @@ var n,
   r = require("./reactRuntime.js"),
   o = require("./classNames.js"),
   a = interopDefault(o),
-  l = require("./31377839.js"),
+  l = require("./propTypesRuntime.js"),
   i = require("./48383455.js"),
   u = require("./6f2f322b.js"),
   s = require("./43575167.js");

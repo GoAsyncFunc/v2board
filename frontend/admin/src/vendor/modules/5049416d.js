@@ -11,7 +11,7 @@ var r = require("./reactRuntime.js"),
   i = interopDefault(r),
   o = require("./69386934.js"),
   a = interopDefault(o),
-  s = require("./31377839.js"),
+  s = require("./propTypesRuntime.js"),
   l = interopDefault(s);
 function c(e) {
   "@babel/helpers - typeof";

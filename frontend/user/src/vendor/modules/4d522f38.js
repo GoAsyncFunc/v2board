@@ -4,7 +4,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./31377839.js"),
+  r = require("./propTypesRuntime.js"),
   o = require("./momentRuntime.js");
 function l(e) {
   return e["default"] || e;

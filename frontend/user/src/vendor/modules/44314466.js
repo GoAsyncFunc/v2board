@@ -105,7 +105,7 @@ function y(e, t, n) {
   }) : e[t] = n, e;
 }
 var g = require("./reactRuntime.js"),
-  b = (require("./31377839.js"), require("./48333855.js")),
+  b = (require("./propTypesRuntime.js"), require("./48333855.js")),
   w = require("./61525445.js");
 function x(e) {
   for (var t = "", n = 0; n < e.length; n++) {

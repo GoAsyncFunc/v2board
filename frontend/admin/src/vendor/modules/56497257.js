@@ -3,7 +3,7 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports.storeShape = void 0;
-var r = require("./31377839.js"),
+var r = require("./propTypesRuntime.js"),
   i = o(r);
 function o(e) {
   return e && e.__esModule ? e : {

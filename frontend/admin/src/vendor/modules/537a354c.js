@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").isSpace;
+var r = require("./markdownUtils.js").isSpace;
 function i(e, t) {
   var n, i, o, a;
   return i = e.bMarks[t] + e.tShift[t], o = e.eMarks[t], n = e.src.charCodeAt(i++), 42 !== n && 45 !== n && 43 !== n ? -1 : i < o && (a = e.src.charCodeAt(i), !r(a)) ? -1 : i;

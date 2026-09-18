@@ -7,7 +7,7 @@ const {
 markEsModule(legacyExports);
 var r = require("./reactRuntime.js"),
   i = interopDefault(r),
-  o = require("./31377839.js"),
+  o = require("./propTypesRuntime.js"),
   a = interopDefault(o),
   s = require("./reactLifecyclesCompat.js");
 function l() {

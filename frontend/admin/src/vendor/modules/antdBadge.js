@@ -5,7 +5,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./31377839.js"),
+  r = require("./propTypesRuntime.js"),
   o = require("./4d466a32.js"),
   a = require("./4247522b.js"),
   l = require("./classNames.js"),

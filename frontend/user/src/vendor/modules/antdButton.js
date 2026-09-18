@@ -4,7 +4,7 @@ const {
   interopDefault
 } = require("../../app/moduleInterop.js");
 var n = require("./reactRuntime.js"),
-  r = require("./31377839.js"),
+  r = require("./propTypesRuntime.js"),
   o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./reactLifecyclesCompat.js"),

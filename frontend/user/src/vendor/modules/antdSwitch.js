@@ -8,7 +8,7 @@ defineExport(legacyExports, "a", function () {
   return L;
 });
 var n = require("./reactRuntime.js"),
-  r = require("./31377839.js"),
+  r = require("./propTypesRuntime.js"),
   o = require("./58496443.js"),
   l = interopDefault(o),
   a = require("./classNames.js"),

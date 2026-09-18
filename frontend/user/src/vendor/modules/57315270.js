@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./76576746.js"),
-  o = require("./4147676d.js").has,
-  i = require("./4147676d.js").isValidEntityCode,
-  a = require("./4147676d.js").fromCodePoint,
+  o = require("./markdownUtils.js").has,
+  i = require("./markdownUtils.js").isValidEntityCode,
+  a = require("./markdownUtils.js").fromCodePoint,
   s = /^&#((?:x[a-f0-9]{1,6}|[0-9]{1,7}));/i,
   c = /^&([a-z][a-z0-9]{1,31});/i;
 legacyModule.exports = function (e, t) {

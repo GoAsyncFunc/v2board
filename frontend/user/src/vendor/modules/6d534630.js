@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").arrayReplaceAt;
+var r = require("./markdownUtils.js").arrayReplaceAt;
 function o(e) {
   return /^<a[>\s]/i.test(e);
 }

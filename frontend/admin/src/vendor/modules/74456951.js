@@ -7,7 +7,7 @@ const {
   var r = require("./reactRuntime.js"),
     i = interopDefault(r),
     o = require("./64493731.js"),
-    a = require("./31377839.js"),
+    a = require("./propTypesRuntime.js"),
     s = interopDefault(a),
     l = 1073741823,
     c = "undefined" !== typeof globalThis ? globalThis : "undefined" !== typeof window ? window : "undefined" !== typeof e ? e : {};

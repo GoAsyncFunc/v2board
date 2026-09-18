@@ -20,7 +20,7 @@ var r = this && this.__extends || function () {
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var i = require("./31377839.js"),
+var i = require("./propTypesRuntime.js"),
   o = require("./reactRuntime.js"),
   a = require("./codeEditorSplit.js"),
   s = require("./5a427753.js"),

@@ -12,7 +12,7 @@ defineExport(legacyExports, "b", function () {
   return k;
 });
 var n = require("./reactRuntime.js"),
-  r = require("./31377839.js"),
+  r = require("./propTypesRuntime.js"),
   o = require("./reactLifecyclesCompat.js"),
   l = require("./classNames.js"),
   a = interopDefault(l),

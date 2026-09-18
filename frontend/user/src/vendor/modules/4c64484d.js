@@ -43,7 +43,7 @@ var f = function (e) {
   return u(t, e), t;
 }(r["Component"]);
 f.isSelectOptGroup = !0;
-var p = require("./31377839.js");
+var p = require("./propTypesRuntime.js");
 function d(e, t) {
   if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
 }

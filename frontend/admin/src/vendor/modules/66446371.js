@@ -48,7 +48,7 @@ var r = require("./69436335.js"),
     }, t;
   }(u.a.Component),
   m = p,
-  g = require("./31377839.js"),
+  g = require("./propTypesRuntime.js"),
   v = interopDefault(g),
   y = require("./classNames.js"),
   b = interopDefault(y),

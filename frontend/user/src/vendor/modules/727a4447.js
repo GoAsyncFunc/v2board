@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").isWhiteSpace,
-  o = require("./4147676d.js").isPunctChar,
-  i = require("./4147676d.js").isMdAsciiPunct,
+var r = require("./markdownUtils.js").isWhiteSpace,
+  o = require("./markdownUtils.js").isPunctChar,
+  i = require("./markdownUtils.js").isMdAsciiPunct,
   a = /['"]/,
   s = /['"]/g,
   c = "\u2019";

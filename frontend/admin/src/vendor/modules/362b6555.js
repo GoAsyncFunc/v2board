@@ -20,7 +20,7 @@ var r = require("./59454956.js"),
   g = interopDefault(m),
   v = require("./classNames.js"),
   y = interopDefault(v),
-  b = require("./31377839.js"),
+  b = require("./propTypesRuntime.js"),
   w = interopDefault(b),
   x = function (e) {
     var t,

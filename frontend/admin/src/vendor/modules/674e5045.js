@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").isSpace;
+var r = require("./markdownUtils.js").isSpace;
 function i(e, t) {
   var n = e.bMarks[t] + e.tShift[t],
     r = e.eMarks[t];

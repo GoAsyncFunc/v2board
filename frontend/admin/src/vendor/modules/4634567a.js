@@ -17,7 +17,7 @@ var r = require("./69436335.js"),
   a = interopDefault(o),
   s = require("./6d526730.js"),
   l = interopDefault(s),
-  c = require("./31377839.js"),
+  c = require("./propTypesRuntime.js"),
   u = interopDefault(c),
   h = require("./75375951.js");
 function f() {}

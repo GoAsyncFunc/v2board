@@ -24,7 +24,7 @@ function a(e, t) {
   }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
 }
 var s = require("./reactRuntime.js"),
-  c = require("./31377839.js"),
+  c = require("./propTypesRuntime.js"),
   u = [],
   l = [];
 function f(e) {

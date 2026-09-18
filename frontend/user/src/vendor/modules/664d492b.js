@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4147676d.js").assign,
-  o = require("./4147676d.js").unescapeAll,
-  i = require("./4147676d.js").escapeHtml,
+var r = require("./markdownUtils.js").assign,
+  o = require("./markdownUtils.js").unescapeAll,
+  i = require("./markdownUtils.js").escapeHtml,
   a = {};
 function s() {
   this.rules = r({}, a);
