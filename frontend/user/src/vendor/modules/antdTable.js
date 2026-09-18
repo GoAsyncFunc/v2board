@@ -1614,7 +1614,7 @@ function tc(e) {
     };
   Jt()(s);
 }
-var cc = require("./362b6555.js"),
+var RcPagination = require("./RcPagination.js"),
   nc = require("./paginationLocaleEn.js"),
   rc = require("./antdSelect.js");
 function oc(e) {
@@ -1857,7 +1857,7 @@ var xc = function (e, t) {
           var c = t.getPrefixCls,
             a = c("pagination", r),
             i = c("select", o);
-          return n["createElement"](cc["a"], Mc({}, s, {
+          return n["createElement"](RcPagination, Mc({}, s, {
             prefixCls: a,
             selectPrefixCls: i
           }, e.getIconsProps(a), {

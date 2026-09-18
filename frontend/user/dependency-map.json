@@ -1716,54 +1716,6 @@
     "to": "vendor/modules/warningOnce.js"
   },
   {
-    "from": "vendor/modules/362b6555.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/classCallCheck.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/createClassHelper.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/definePropertyHelper.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/inheritsHelper.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/paginationLocaleZhHans.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/possibleConstructorReturn.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/362b6555.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/4c64484d.js",
     "to": "app/moduleInterop.js"
   },
@@ -2156,6 +2108,50 @@
     "to": "vendor/modules/storeShape.js"
   },
   {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/createClassHelper.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/paginationKeyCodes.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/PaginationOptions.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/PaginationPager.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/PaginationPager.js",
+    "to": "vendor/modules/definePropertyHelper.js"
+  },
+  {
+    "from": "vendor/modules/PaginationPager.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/PaginationPager.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/Portal.js",
     "to": "app/moduleInterop.js"
   },
@@ -2213,6 +2209,62 @@
   },
   {
     "from": "vendor/modules/RcDropdown.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/PaginationOptions.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/PaginationPager.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/createClassHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/definePropertyHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/objectAssignHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/paginationKeyCodes.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/paginationLocaleZhHans.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/RcPagination.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
@@ -2665,10 +2717,6 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/362b6555.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/ConfigContext.js"
   },
   {
@@ -2678,6 +2726,10 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/RcCheckbox.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/RcPagination.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
