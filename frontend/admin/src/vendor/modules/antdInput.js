@@ -220,7 +220,7 @@ var V = function (e) {
 Object(o["polyfill"])(V);
 var w = V,
   S = require("./48383455.js"),
-  L = require("./36436658.js");
+  L = require("./antdWarning.js");
 function k(e) {
   "@babel/helpers - typeof";
 

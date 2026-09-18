@@ -21,7 +21,7 @@ var n = require("./reactRuntime.js"),
   y = require("../Icon.js"),
   b = require("./78315961.js"),
   M = require("./48383455.js"),
-  g = require("./36436658.js");
+  g = require("./antdWarning.js");
 function H(e) {
   "@babel/helpers - typeof";
 

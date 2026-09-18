@@ -14,7 +14,7 @@ var n = require("./reactRuntime.js"),
   a = interopDefault(l),
   i = require("./4247522b.js"),
   u = require("./48383455.js"),
-  s = require("./36436658.js"),
+  s = require("./antdWarning.js"),
   h = require("../Icon.js"),
   f = require("./43575167.js");
 function v(e) {

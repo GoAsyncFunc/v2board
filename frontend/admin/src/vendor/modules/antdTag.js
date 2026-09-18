@@ -140,7 +140,7 @@ var H = function (e, t) {
     }]), c;
   }(n["Component"]),
   V = require("./30395766.js"),
-  w = require("./36436658.js"),
+  w = require("./antdWarning.js"),
   S = require("./67306d53.js");
 function L(e) {
   "@babel/helpers - typeof";

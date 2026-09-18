@@ -156,7 +156,7 @@ V.defaultProps = {
   type: "line"
 };
 var w = require("./48383455.js"),
-  S = require("./36436658.js"),
+  S = require("./antdWarning.js"),
   L = function (e) {
     if ("undefined" !== typeof window && window.document && window.document.documentElement) {
       var t = Array.isArray(e) ? e : [e],

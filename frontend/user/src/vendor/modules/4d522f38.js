@@ -10,7 +10,7 @@ function l(e) {
   return e["default"] || e;
 }
 var a = require("./756c3562.js"),
-  i = require("./36436658.js");
+  i = require("./antdWarning.js");
 function u(e) {
   "@babel/helpers - typeof";
 

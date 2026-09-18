@@ -8,7 +8,7 @@ var n = require("./reactRuntime.js"),
   o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./48383455.js"),
-  i = require("./36436658.js"),
+  i = require("./antdWarning.js"),
   u = require("../Icon.js"),
   s = require("./43575167.js");
 function h(e) {

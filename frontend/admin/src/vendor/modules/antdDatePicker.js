@@ -14,7 +14,7 @@ var n = require("./57485058.js"),
   h = require("./4247522b.js"),
   f = require("../Icon.js"),
   p = require("./48383455.js"),
-  v = require("./36436658.js"),
+  v = require("./antdWarning.js"),
   m = require("./interopDefault.js");
 function d(e) {
   return Object.keys(e).reduce(function (t, c) {

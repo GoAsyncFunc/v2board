@@ -13,7 +13,7 @@ var r = Object.assign || function (e) {
   a = require("./shallowEqual.js"),
   s = f(a),
   c = require("./historyPathUtils.js"),
-  u = require("./636b3973.js"),
+  u = require("./queryStringRuntime.js"),
   l = f(u);
 function f(e) {
   return e && e.__esModule ? e : {

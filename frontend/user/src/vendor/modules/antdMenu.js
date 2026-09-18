@@ -766,7 +766,7 @@ var _e = function (e, t) {
     }]), c;
   }(n["Component"]);
 Ne.isMenuItem = !0;
-var De = require("./36436658.js"),
+var De = require("./antdWarning.js"),
   Ie = require("./6f486950.js"),
   Be = function () {
     return {
