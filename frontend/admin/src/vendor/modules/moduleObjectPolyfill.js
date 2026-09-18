@@ -1,15 +1,25 @@
-let legacyModule = module,
-  legacyExports = exports;
-legacyModule.exports = function (e) {
-  return e.webpackPolyfill || (e.deprecate = function () {}, e.paths = [], e.children || (e.children = []), Object.defineProperty(e, "loaded", {
-    enumerable: !0,
+"use strict";
+
+module.exports = function applyWebpackModulePolyfill(moduleObject) {
+  if (moduleObject.webpackPolyfill) return moduleObject;
+
+  moduleObject.deprecate = function () {};
+  moduleObject.paths = [];
+  if (!moduleObject.children) moduleObject.children = [];
+
+  Object.defineProperty(moduleObject, "loaded", {
+    enumerable: true,
     get: function () {
-      return e.l;
+      return moduleObject.l;
     }
-  }), Object.defineProperty(e, "id", {
-    enumerable: !0,
+  });
+  Object.defineProperty(moduleObject, "id", {
+    enumerable: true,
     get: function () {
-      return e.i;
+      return moduleObject.i;
     }
-  }), e.webpackPolyfill = 1), e;
+  });
+
+  moduleObject.webpackPolyfill = 1;
+  return moduleObject;
 };

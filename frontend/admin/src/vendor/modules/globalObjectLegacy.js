@@ -1,12 +1,11 @@
-let legacyModule = module,
-  legacyExports = exports;
-var n;
-n = function () {
+var globalObject = function () {
   return this;
 }();
+
 try {
-  n = n || new Function("return this")();
-} catch (e) {
-  "object" === typeof window && (n = window);
+  globalObject = globalObject || new Function("return this")();
+} catch (error) {
+  if (typeof window === "object") globalObject = window;
 }
-legacyModule.exports = n;
+
+module.exports = globalObject;
