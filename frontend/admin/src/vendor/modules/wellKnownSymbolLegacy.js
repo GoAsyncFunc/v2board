@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var sharedSymbols = require("./3239732f.js")("wks"),
+var sharedSymbols = require("./coreJsSharedStore.js")("wks"),
   uid = require("./uid.js"),
   SymbolConstructor = require("./globalObject.js").Symbol,
   hasNativeSymbol = "function" == typeof SymbolConstructor,

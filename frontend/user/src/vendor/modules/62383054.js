@@ -5,7 +5,7 @@ var r = require("./baseTimes.js"),
   a = require("./isArray.js"),
   o = require("./isBufferCompat.js"),
   u = require("./isIndexWithinLength.js"),
-  l = require("./63367747.js"),
+  l = require("./isTypedArray.js"),
   s = Object.prototype,
   c = s.hasOwnProperty;
 function f(e, t) {

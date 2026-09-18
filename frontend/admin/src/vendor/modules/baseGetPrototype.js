@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6454416c.js"),
+var r = require("./baseGetPrototypeFallback.js"),
   i = require("./getPrototypeOf.js"),
   o = require("./isPrototype.js");
 function a(e) {
