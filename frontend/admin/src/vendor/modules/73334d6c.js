@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = {
-  default: require("./4a62424d.js"),
+  default: require("./setPrototypeOfRuntime.js"),
   __esModule: !0
 };

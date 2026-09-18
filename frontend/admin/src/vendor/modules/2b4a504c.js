@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = {
-  default: require("./2b53464b.js"),
+  default: require("./symbolRuntime.js"),
   __esModule: !0
 };

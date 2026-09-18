@@ -7,7 +7,7 @@ var r = require("./77487272.js"),
   s = require("./554c4d54.js"),
   c = require("./4f735664.js"),
   u = require("./61534531.js"),
-  l = require("./426e515a.js");
+  l = require("./getIteratorMethod.js");
 o(o.S + o.F * !require("./63517958.js")(function (e) {
   Array.from(e);
 }), "Array", {

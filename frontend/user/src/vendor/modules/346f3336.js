@@ -5,7 +5,7 @@ var r = require("./77487272.js"),
   i = require("./554c4d54.js"),
   a = require("./3776594a.js"),
   s = require("./4f735664.js"),
-  c = require("./426e515a.js"),
+  c = require("./getIteratorMethod.js"),
   u = {},
   l = {};
 legacyExports = legacyModule.exports = function (e, t, n, f, p) {

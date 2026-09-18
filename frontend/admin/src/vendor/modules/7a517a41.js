@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-for (var r = require("./4f45526b.js"), i = require("./49676761.js"), o = require("./724b496c.js"), a = require("./globalObject.js"), s = require("./56504f45.js"), l = require("./79773465.js"), c = require("./674c374e.js"), u = c("iterator"), h = c("toStringTag"), f = l.Array, d = {
+for (var r = require("./arrayIterator.js"), i = require("./49676761.js"), o = require("./724b496c.js"), a = require("./globalObject.js"), s = require("./56504f45.js"), l = require("./79773465.js"), c = require("./674c374e.js"), u = c("iterator"), h = c("toStringTag"), f = l.Array, d = {
     CSSRuleList: !0,
     CSSStyleDeclaration: !1,
     CSSValueList: !1,

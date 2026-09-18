@@ -5,7 +5,7 @@ var r = require("./57474e57.js"),
   o = require("./38424d74.js"),
   a = require("./42467438.js"),
   s = require("./31354243.js").f;
-require("./385a2f56.js") && r(r.P + require("./4f4a7541.js"), "Object", {
+require("./385a2f56.js") && r(r.P + require("./setterSupport.js"), "Object", {
   __lookupGetter__: function (e) {
     var t,
       n = i(this),

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./3776594a.js"),
-  o = require("./34676351.js"),
+  o = require("./objectDefineProperties.js"),
   i = require("./57464a79.js"),
   a = require("./4a35372f.js")("IE_PROTO"),
   s = function () {},
