@@ -7,7 +7,7 @@ var r = require("./markdownUtils.js"),
   s = require("./6470616d.js"),
   l = require("./544c5235.js"),
   u = require("./2b383050.js"),
-  c = require("./324b5954.js"),
+  c = require("./markdownUrl.js"),
   f = require("./47595779.js"),
   d = {
     default: require("./markdownEmptyConfig.js"),

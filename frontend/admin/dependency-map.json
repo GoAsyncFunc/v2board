@@ -368,23 +368,23 @@
     "to": "services/request.js"
   },
   {
-    "from": "vendor/modules/31644758.js",
+    "from": "vendor/modules/unicodeCategoryRegexes.js",
     "to": "vendor/modules/unicodeTextRegex.js"
   },
   {
-    "from": "vendor/modules/31644758.js",
+    "from": "vendor/modules/unicodeCategoryRegexes.js",
     "to": "vendor/modules/controlCharactersRegex.js"
   },
   {
-    "from": "vendor/modules/31644758.js",
+    "from": "vendor/modules/unicodeCategoryRegexes.js",
     "to": "vendor/modules/formatControlCharactersRegex.js"
   },
   {
-    "from": "vendor/modules/31644758.js",
+    "from": "vendor/modules/unicodeCategoryRegexes.js",
     "to": "vendor/modules/punctuationRegex.js"
   },
   {
-    "from": "vendor/modules/31644758.js",
+    "from": "vendor/modules/unicodeCategoryRegexes.js",
     "to": "vendor/modules/whitespaceRegex.js"
   },
   {
@@ -540,20 +540,20 @@
     "to": "vendor/modules/requireCallable.js"
   },
   {
-    "from": "vendor/modules/324b5954.js",
+    "from": "vendor/modules/markdownUrl.js",
     "to": "vendor/modules/78475136.js"
   },
   {
-    "from": "vendor/modules/324b5954.js",
+    "from": "vendor/modules/markdownUrl.js",
     "to": "vendor/modules/6a7a6435.js"
   },
   {
-    "from": "vendor/modules/324b5954.js",
+    "from": "vendor/modules/markdownUrl.js",
     "to": "vendor/modules/urlFormat.js"
   },
   {
-    "from": "vendor/modules/324b5954.js",
-    "to": "vendor/modules/326c2b43.js"
+    "from": "vendor/modules/markdownUrl.js",
+    "to": "vendor/modules/parseUrl.js"
   },
   {
     "from": "vendor/modules/324e6230.js",
@@ -8905,11 +8905,11 @@
   },
   {
     "from": "vendor/modules/markdownUtils.js",
-    "to": "vendor/modules/324b5954.js"
+    "to": "vendor/modules/markdownUrl.js"
   },
   {
     "from": "vendor/modules/markdownUtils.js",
-    "to": "vendor/modules/31644758.js"
+    "to": "vendor/modules/unicodeCategoryRegexes.js"
   },
   {
     "from": "vendor/modules/4150327a.js",
@@ -8989,7 +8989,7 @@
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/324b5954.js"
+    "to": "vendor/modules/markdownUrl.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
