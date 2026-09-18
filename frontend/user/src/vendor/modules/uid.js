@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = 0,
-  r = Math.random();
-legacyModule.exports = function (e) {
-  return "Symbol(".concat(void 0 === e ? "" : e, ")_", (++n + r).toString(36));
+var uidCounter = 0,
+  randomSeed = Math.random();
+legacyModule.exports = function createUid(description) {
+  return "Symbol(".concat(void 0 === description ? "" : description, ")_", (++uidCounter + randomSeed).toString(36));
 };

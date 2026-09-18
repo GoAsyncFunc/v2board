@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-legacyModule.exports = function (e) {
+legacyModule.exports = function tryCatchTest(test) {
   try {
-    return !!e();
+    return !!test();
   } catch (e) {
     return !0;
   }

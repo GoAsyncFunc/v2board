@@ -1,13 +1,13 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./assertObject.js"),
-  o = require("./4137522b.js"),
-  i = require("./toPrimitive.js"),
-  a = Object.defineProperty;
-legacyExports.f = require("./descriptorsLegacySupport.js") ? Object.defineProperty : function (e, t, n) {
-  if (r(e), t = i(t, !0), r(n), o) try {
-    return a(e, t, n);
+var assertObject = require("./assertObject.js"),
+  supportsDescriptors = require("./4137522b.js"),
+  toPrimitive = require("./toPrimitive.js"),
+  defineProperty = Object.defineProperty;
+legacyExports.f = require("./descriptorsLegacySupport.js") ? Object.defineProperty : function (object, propertyKey, descriptor) {
+  if (assertObject(object), propertyKey = toPrimitive(propertyKey, !0), assertObject(descriptor), supportsDescriptors) try {
+    return defineProperty(object, propertyKey, descriptor);
   } catch (e) {}
-  if ("get" in n || "set" in n) throw TypeError("Accessors not supported!");
-  return "value" in n && (e[t] = n.value), e;
+  if ("get" in descriptor || "set" in descriptor) throw TypeError("Accessors not supported!");
+  return "value" in descriptor && (object[propertyKey] = descriptor.value), object;
 };

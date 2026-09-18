@@ -1,16 +1,16 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return function (t, n, r) {
-    var i = -1,
-      a = Object(t),
-      o = r(t),
-      u = o.length;
-    while (u--) {
-      var l = o[e ? u : ++i];
-      if (!1 === n(a[l], l, a)) break;
+function createBaseEach(fromRight) {
+  return function (collection, iteratee, getKeys) {
+    var index = -1,
+      object = Object(collection),
+      keys = getKeys(collection),
+      length = keys.length;
+    while (length--) {
+      var key = keys[fromRight ? length : ++index];
+      if (!1 === iteratee(object[key], key, object)) break;
     }
-    return t;
+    return collection;
   };
 }
-legacyModule.exports = n;
+legacyModule.exports = createBaseEach;
