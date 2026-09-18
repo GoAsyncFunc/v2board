@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4449634f.js"),
+var r = require("./addToUnscopables.js"),
   o = require("./iteratorResultLegacy.js"),
   i = require("./emptyExports.js"),
   a = require("./4f654f43.js");

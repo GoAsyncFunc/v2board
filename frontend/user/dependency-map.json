@@ -201,7 +201,7 @@
   },
   {
     "from": "vendor/modules/speciesConstructor.js",
-    "to": "vendor/modules/33466845.js"
+    "to": "vendor/modules/arraySpeciesConstructor.js"
   },
   {
     "from": "vendor/modules/propTypesRuntime.js",
@@ -377,7 +377,7 @@
   },
   {
     "from": "vendor/modules/324b5954.js",
-    "to": "vendor/modules/512b4346.js"
+    "to": "vendor/modules/urlFormat.js"
   },
   {
     "from": "vendor/modules/324b5954.js",
@@ -413,7 +413,7 @@
   },
   {
     "from": "vendor/modules/324f7332.js",
-    "to": "vendor/modules/59455649.js"
+    "to": "vendor/modules/ensureInstance.js"
   },
   {
     "from": "vendor/modules/324f7332.js",
@@ -476,15 +476,15 @@
     "to": "vendor/modules/51324967.js"
   },
   {
-    "from": "vendor/modules/33466845.js",
+    "from": "vendor/modules/arraySpeciesConstructor.js",
     "to": "vendor/modules/isObject.js"
   },
   {
-    "from": "vendor/modules/33466845.js",
+    "from": "vendor/modules/arraySpeciesConstructor.js",
     "to": "vendor/modules/arrayIsArrayLegacyRuntime.js"
   },
   {
-    "from": "vendor/modules/33466845.js",
+    "from": "vendor/modules/arraySpeciesConstructor.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
@@ -553,7 +553,7 @@
   },
   {
     "from": "vendor/modules/346f3336.js",
-    "to": "vendor/modules/554c4d54.js"
+    "to": "vendor/modules/isArrayIteratorMethod.js"
   },
   {
     "from": "vendor/modules/346f3336.js",
@@ -1297,7 +1297,7 @@
   },
   {
     "from": "vendor/modules/43773475.js",
-    "to": "vendor/modules/59455649.js"
+    "to": "vendor/modules/ensureInstance.js"
   },
   {
     "from": "vendor/modules/43773475.js",
@@ -1348,11 +1348,11 @@
     "to": "vendor/modules/toInteger.js"
   },
   {
-    "from": "vendor/modules/4449634f.js",
+    "from": "vendor/modules/addToUnscopables.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/4449634f.js",
+    "from": "vendor/modules/addToUnscopables.js",
     "to": "vendor/modules/56504f45.js"
   },
   {
@@ -1480,7 +1480,7 @@
     "to": "vendor/modules/6e444349.js"
   },
   {
-    "from": "vendor/modules/45545568.js",
+    "from": "vendor/modules/advanceStringIndex.js",
     "to": "vendor/modules/36526e50.js"
   },
   {
@@ -1769,7 +1769,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/59455649.js"
+    "to": "vendor/modules/ensureInstance.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -1821,7 +1821,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/554c4d54.js"
+    "to": "vendor/modules/isArrayIteratorMethod.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -2185,7 +2185,7 @@
   },
   {
     "from": "vendor/modules/arrayIterator.js",
-    "to": "vendor/modules/4449634f.js"
+    "to": "vendor/modules/addToUnscopables.js"
   },
   {
     "from": "vendor/modules/arrayIterator.js",
@@ -2628,11 +2628,11 @@
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "vendor/modules/554c4d54.js",
+    "from": "vendor/modules/isArrayIteratorMethod.js",
     "to": "vendor/modules/emptyExports.js"
   },
   {
-    "from": "vendor/modules/554c4d54.js",
+    "from": "vendor/modules/isArrayIteratorMethod.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
@@ -4085,7 +4085,7 @@
   },
   {
     "from": "vendor/modules/collectionStrong.js",
-    "to": "vendor/modules/59455649.js"
+    "to": "vendor/modules/ensureInstance.js"
   },
   {
     "from": "vendor/modules/collectionStrong.js",
@@ -4265,7 +4265,7 @@
   },
   {
     "from": "vendor/modules/71525556.js",
-    "to": "vendor/modules/5443594e.js"
+    "to": "vendor/modules/normalizeMarkdownSource.js"
   },
   {
     "from": "vendor/modules/71525556.js",
@@ -5105,7 +5105,7 @@
   },
   {
     "from": "vendor/modules/794c4d59.js",
-    "to": "vendor/modules/59455649.js"
+    "to": "vendor/modules/ensureInstance.js"
   },
   {
     "from": "vendor/modules/794c4d59.js",
