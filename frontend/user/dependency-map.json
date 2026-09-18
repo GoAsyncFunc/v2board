@@ -2129,7 +2129,7 @@
   },
   {
     "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/53427545.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/4d504670.js",
@@ -3321,7 +3321,7 @@
   },
   {
     "from": "vendor/modules/62427939.js",
-    "to": "vendor/modules/53427545.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/62427939.js",
@@ -4693,7 +4693,7 @@
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
-    "to": "vendor/modules/53427545.js"
+    "to": "vendor/modules/emptyExports.js"
   },
   {
     "from": "vendor/modules/arrayIteratorLegacy.js",
@@ -6137,7 +6137,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/63712f2b.js"
+    "to": "vendor/modules/baseEach.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -6668,7 +6668,7 @@
     "to": "vendor/modules/6d64504c.js"
   },
   {
-    "from": "vendor/modules/63712f2b.js",
+    "from": "vendor/modules/baseEach.js",
     "to": "vendor/modules/createBaseEach.js"
   },
   {
