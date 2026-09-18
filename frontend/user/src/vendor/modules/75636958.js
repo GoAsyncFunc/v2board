@@ -20,7 +20,7 @@ var r = require("./objectAssignHelper.js"),
   y = require("./reactLifecyclesCompat.js"),
   g = require("./containsNode.js"),
   b = require("./addBatchedDomEventListener.js"),
-  w = require("./5049416d.js"),
+  ContainerRender = require("./ContainerRender.js"),
   x = require("./Portal.js"),
   O = require("./classNames.js"),
   E = interopDefault(O);
@@ -1169,7 +1169,7 @@ var xt = ["onClick", "onMouseDown", "onTouchStart", "onMouseEnter", "onMouseLeav
       var u = E()(s && s.props && s.props.className, a);
       u && (c.className = u);
       var l = p.a.cloneElement(s, c);
-      if (!Ot) return p.a.createElement(w["a"], {
+      if (!Ot) return p.a.createElement(ContainerRender, {
         parent: this,
         visible: t,
         autoMount: !1,

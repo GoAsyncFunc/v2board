@@ -1776,22 +1776,6 @@
     "to": "vendor/modules/warning.js"
   },
   {
-    "from": "vendor/modules/5049416d.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/5049416d.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5049416d.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5049416d.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/6264674b.js",
     "to": "app/moduleInterop.js"
   },
@@ -1805,7 +1789,7 @@
   },
   {
     "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/5049416d.js"
+    "to": "vendor/modules/ContainerRender.js"
   },
   {
     "from": "vendor/modules/75636958.js",
@@ -1978,6 +1962,18 @@
   {
     "from": "vendor/modules/ConfigContext.js",
     "to": "vendor/modules/renderEmpty.js"
+  },
+  {
+    "from": "vendor/modules/ContainerRender.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ContainerRender.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/ContainerRender.js",
+    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/DomEventObject.js",
