@@ -1,4 +1,3 @@
-import './modules/67395956.js';
 import './modules/antdTable.js';
 import './modules/emptyModule.js';
 import './modules/emptyModule.js';
