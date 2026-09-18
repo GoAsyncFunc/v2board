@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4e796b4b.js"),
+var r = require("./getTag.js"),
   i = require("./isIndex.js"),
   o = require("./isObjectLikeLegacy.js"),
   a = "[object Arguments]",

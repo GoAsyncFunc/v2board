@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var getTag = require("./4e796b4b.js"),
+var getTag = require("./getTag.js"),
   isObjectLike = require("./isObjectLikeLegacy.js"),
   symbolTag = "[object Symbol]";
 function isSymbol(value) {

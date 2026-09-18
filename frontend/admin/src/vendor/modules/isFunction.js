@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var getTag = require("./4e796b4b.js"),
+var getTag = require("./getTag.js"),
   isObject = require("./isObjectValue.js"),
   asyncFunctionTag = "[object AsyncFunction]",
   functionTag = "[object Function]",
