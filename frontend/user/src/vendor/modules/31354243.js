@@ -5,7 +5,7 @@ var r = require("./propertyIsEnumerable.js"),
   i = require("./toIndexedObject.js"),
   a = require("./toPrimitive.js"),
   s = require("./hasOwn.js"),
-  c = require("./4137522b.js"),
+  c = require("./domDefinePropertySupport.js"),
   u = Object.getOwnPropertyDescriptor;
 legacyExports.f = require("./descriptorsLegacySupport.js") ? u : function (e, t) {
   if (e = i(e), t = a(t, !0), c) try {

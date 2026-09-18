@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var assertObject = require("./assertObjectLegacy.js"),
-  supportsDescriptors = require("./65557446.js"),
+  supportsDescriptors = require("./domDefinePropertyLegacySupport.js"),
   toPrimitive = require("./toPrimitive.js"),
   nativeDefineProperty = Object.defineProperty;
 legacyExports.f = require("./descriptorsSupport.js") ? Object.defineProperty : function defineProperty(target, propertyKey, descriptor) {
