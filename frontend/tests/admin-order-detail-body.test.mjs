@@ -9,7 +9,7 @@ const moment=value=>({format:format=>`${value}:${format}`});
 async function render(original,data){
  const trace=[],module={exports:{}};
  const file=new URL(original?'./fixtures/pages/admin-order-detail-body.cjs':'../admin/src/components/OrderDetailBody.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext((await transform(text,{loader:'jsx',format:'cjs'})).code,{React,module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('7449346c'))return {a:settings};if(id.includes('77642f52'))return moment;for(const [key,label]of [['antdRow','Row'],['antdCol','Col'],['Divider','Divider'],['antdTooltip','Tooltip'],['Icon','Icon']])if(id.includes(key))return {a:label};throw Error(id);}});
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext((await transform(text,{loader:'jsx',format:'cjs'})).code,{React,module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('adminSettingsRuntime'))return {a:settings};if(id.includes('77642f52'))return moment;for(const [key,label]of [['antdRow','Row'],['antdCol','Col'],['Divider','Divider'],['antdTooltip','Tooltip'],['Icon','Icon']])if(id.includes(key))return {a:label};throw Error(id);}});
  const onUserFilter=(...args)=>trace.push(args);
  let tree,error;
  try{tree=original?module.exports.call({state:{order:data.order,user:data.user,invite_user:data.inviteUser},props:{plan:{plans:data.plans}},jumpUserFilter:onUserFilter},{a:React},{a:'Row'},{a:'Col'},{a:settings},()=>moment,{a:'Divider'},{a:'Tooltip'},{a:'Icon'}):module.exports.default({...data,onUserFilter});}catch(e){error=e.name;}

@@ -19,7 +19,7 @@ async function run(original, scenario) {
     module, exports: module.exports, window: { settings: { secure_path: 'fixture-admin' } },
     require(id) {
       if (id.includes('request')) return { a: get, b: post, get, post };
-      if (id.includes('7449346c')) return { a: { periodText: { month_price: 'Month', year_price: 'Year', onetime_price: 'Once' } } };
+      if (id.includes('adminSettingsRuntime')) return { a: { periodText: { month_price: 'Month', year_price: 'Year', onetime_price: 'Once' } } };
       if (id.includes('70307045')) return Object.assign;
       if (id.includes('reactRuntime')) return {};
       if (id.includes('moduleInterop')) return {

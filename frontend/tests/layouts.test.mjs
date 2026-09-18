@@ -30,10 +30,10 @@ async function load(target,original){
    if(id.includes('LanguageSelector'))return {a:'LanguageSelector'};
    if(id.includes('siteHelpers'))return {e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken'])};
    if(id.includes('6e444349'))return {enable:options=>trace.push(['dark',options]),disable:()=>trace.push(['light'])};
-   if(id.includes('624b656c'))return cls=>cls;
+   if(id.includes('withLocaleRuntime'))return cls=>cls;
    if(id.includes('/Icon'))return {a:'Icon'};
    if(id.includes('antdConfigProvider'))return {a:'ConfigProvider'};
-   if(id.includes('2b477661'))return {a:'zh-CN'};
+   if(id.includes('antdZhCnLocale'))return {a:'zh-CN'};
    if(id==='./Sidebar.jsx'||id==='./Header.jsx')return evaluate(path.join(home,target,'src/layouts',id.slice(2)));
    if(id==='../config/navigation.jsx')return evaluate(path.join(home,target,'src/config/navigation.jsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};

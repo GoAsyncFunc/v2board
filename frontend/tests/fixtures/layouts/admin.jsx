@@ -302,7 +302,7 @@ var m = Object(l["c"])(e => {
     user: n
   };
 })(p);
-var g = require("../vendor/modules/2b477661.js"),
+var g = require("../vendor/modules/antdZhCnLocale.js"),
   v = window.settings.theme;
 class y extends o.a.Component {
   componentDidMount() {

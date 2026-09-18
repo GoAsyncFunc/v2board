@@ -8,7 +8,7 @@ import { a as Button } from '../vendor/modules/antdButton.js';
 import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { a as message } from '../vendor/modules/antdMessage.js';
-import copy from '../vendor/modules/2b515243.js';
+import copy from '../vendor/modules/clipboardRuntime.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { a as TransferModal } from '../components/Recovered_45334976.jsx';
 import WithdrawModal from '../components/Recovered_54643430.jsx';

@@ -29,10 +29,10 @@ var loadingModule = require("../vendor/modules/6a65685a.js"),
   mainLayout = require("../layouts/MainLayout.jsx"),
   momentModule = require("../vendor/modules/77642f52.js"),
   moment = interopDefault(momentModule),
-  copyModule = require("../vendor/modules/2b515243.js"),
+  copyModule = require("../vendor/modules/clipboardRuntime.js"),
   copy = interopDefault(copyModule),
   reactRedux = require("../vendor/reactRedux.js"),
-  loadingIndicator = require("../vendor/modules/7449346c.js"),
+  loadingIndicator = require("../vendor/modules/adminSettingsRuntime.js"),
   tableLoading = require("../vendor/modules/76333265.js");
 class GiftcardPage extends ReactComponent.a.Component {
   constructor(e) {

@@ -10,7 +10,7 @@ const common={'2f4d4b6a':'reactRedux','48673072':'dva','59326651':'i18n','336134
 async function files(dir){const out=[];for(const e of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())out.push(...await files(p));else if(/\.(js|jsx)$/.test(p))out.push(p);}return out;}
 for(const target of ['user','admin']){
  const base=path.join(home,target,'src');
- const names={...common,'7957676f':'siteHelpers',...(target==='user'?{'7449346c':'localeSettings'}:{'32306e55':'siteSettings'})};
+ const names={...common,'7957676f':'siteHelpers',...(target==='user'?{'adminSettingsRuntime':'localeSettings'}:{'32306e55':'siteSettings'})};
  const moves=new Map(Object.entries(names).map(([id,name])=>[path.join(base,'vendor/modules',id+'.js'),path.join(base,'vendor',name+'.js')]));
  const paths=await files(base);
  for(const oldFile of paths){

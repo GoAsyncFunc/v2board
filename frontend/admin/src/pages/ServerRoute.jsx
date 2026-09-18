@@ -29,7 +29,7 @@ var objectAssignModule = require("../vendor/modules/6a65685a.js"),
   Modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
   Select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
   Input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
-  settings = require("../vendor/modules/7449346c.js");
+  settings = require("../vendor/modules/adminSettingsRuntime.js");
 class RouteEditor extends ReactComponent.a.Component {
   constructor(e) {
     super(e), this.state = {

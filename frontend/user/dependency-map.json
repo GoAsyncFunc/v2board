@@ -12,7 +12,7 @@
     "to": "vendor/modules/2b53464b.js"
   },
   {
-    "from": "vendor/modules/2b515243.js",
+    "from": "vendor/modules/clipboardRuntime.js",
     "to": "vendor/modules/45396e77.js"
   },
   {
@@ -137,7 +137,7 @@
   },
   {
     "from": "vendor/modules/2f497261.js",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "vendor/modules/2f497261.js",
@@ -1989,7 +1989,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Plan.jsx",
@@ -2153,7 +2153,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2209,7 +2209,7 @@
   },
   {
     "from": "models/plan.js",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "models/plan.js",
@@ -2917,7 +2917,7 @@
   },
   {
     "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/624b656c.js"
+    "to": "vendor/modules/withLocaleRuntime.js"
   },
   {
     "from": "vendor/modules/4c494178.js",
@@ -3525,7 +3525,7 @@
   },
   {
     "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/544c5235.js",
@@ -4281,7 +4281,7 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -4585,7 +4585,7 @@
   },
   {
     "from": "pages/Login.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Register.jsx",
@@ -4633,7 +4633,7 @@
   },
   {
     "from": "pages/Register.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/61722f70.js",
@@ -4692,7 +4692,7 @@
     "to": "vendor/modules/55576958.js"
   },
   {
-    "from": "vendor/modules/624b656c.js",
+    "from": "vendor/modules/withLocaleRuntime.js",
     "to": "vendor/modules/75745230.js"
   },
   {
@@ -6017,7 +6017,7 @@
   },
   {
     "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Invite.jsx",
@@ -6085,11 +6085,11 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Invite.jsx",
@@ -6460,7 +6460,7 @@
     "to": "vendor/modules/2b6d6d6d.js"
   },
   {
-    "from": "vendor/modules/7449346c.js",
+    "from": "vendor/modules/adminSettingsRuntime.js",
     "to": "vendor/modules/59326651.js"
   },
   {
@@ -7217,7 +7217,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -7305,7 +7305,7 @@
   },
   {
     "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "vendor/modules/7957676f.js",
@@ -7337,7 +7337,7 @@
   },
   {
     "from": "vendor/modules/79786e6e.js",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "vendor/modules/79786e6e.js",

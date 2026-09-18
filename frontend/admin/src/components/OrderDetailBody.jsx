@@ -1,7 +1,7 @@
 import React from 'react';
 import { a as Row } from '../vendor/modules/antdRow.js';
 import { a as Col } from '../vendor/modules/antdCol.js';
-import { a as settings } from '../vendor/modules/7449346c.js';
+import { a as settings } from '../vendor/modules/adminSettingsRuntime.js';
 import moment from '../vendor/modules/77642f52.js';
 import { a as Divider } from '../vendor/Divider.js';
 import { a as Tooltip } from '../vendor/modules/antdTooltip.js';

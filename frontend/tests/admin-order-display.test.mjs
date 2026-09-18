@@ -8,7 +8,7 @@ const settings={a:{periodText:{month_price:'月付'}}},Tag={a:'Tag'},moment=valu
 async function columns(original, suppliedSettings=settings){
  const file=new URL(original?'./fixtures/pages/admin-order-display.cjs':'../admin/src/components/OrderDisplayColumns.jsx',import.meta.url);
  const source=await fs.readFile(file,'utf8');const module={exports:{}};
- vm.runInNewContext(original?source:(await transform(source,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTag'))return Tag;if(id.includes('7449346c'))return suppliedSettings;if(id.includes('77642f52'))return moment;throw Error(id);}});
+ vm.runInNewContext(original?source:(await transform(source,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTag'))return Tag;if(id.includes('adminSettingsRuntime'))return suppliedSettings;if(id.includes('77642f52'))return moment;throw Error(id);}});
  return original?module.exports({a:React},Tag,suppliedSettings,()=>moment):Object.values(module.exports.createReadonlyOrderColumns());
 }
 for(const statuses of [[0],[1,2],[3,3]])for(const fail of [false,true])test(`commission short-circuit ${statuses}/${fail}`,async()=>{

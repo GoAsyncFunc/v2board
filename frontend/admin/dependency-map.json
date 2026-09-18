@@ -16,7 +16,7 @@
     "to": "vendor/modules/2b53464b.js"
   },
   {
-    "from": "vendor/modules/2b515243.js",
+    "from": "vendor/modules/clipboardRuntime.js",
     "to": "vendor/modules/45396e77.js"
   },
   {
@@ -1997,7 +1997,7 @@
   },
   {
     "from": "layouts/MainLayout.jsx",
-    "to": "vendor/modules/2b477661.js"
+    "to": "vendor/modules/antdZhCnLocale.js"
   },
   {
     "from": "vendor/modules/426e515a.js",
@@ -2641,7 +2641,7 @@
   },
   {
     "from": "models/plan.js",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/47727448.js",
@@ -3897,7 +3897,7 @@
   },
   {
     "from": "models/payment.js",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/4e433138.js",
@@ -3965,7 +3965,7 @@
   },
   {
     "from": "models/theme.js",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/4f45526b.js",
@@ -4293,7 +4293,7 @@
   },
   {
     "from": "pages/Coupon.jsx",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -4301,7 +4301,7 @@
   },
   {
     "from": "pages/Coupon.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -6805,7 +6805,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Plan.jsx",
@@ -7073,7 +7073,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -7489,7 +7489,7 @@
   },
   {
     "from": "vendor/modules/6d43642f.js",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/6d464469.js",
@@ -7821,7 +7821,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -8749,7 +8749,7 @@
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "pages/ServerManage.jsx",
@@ -9237,7 +9237,7 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "vendor/modules/78315961.js",
@@ -9601,7 +9601,7 @@
   },
   {
     "from": "vendor/modules/7957676f.js",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "components/Recovered_796b4332.jsx",
@@ -9945,7 +9945,7 @@
   },
   {
     "from": "pages/Giftcard.jsx",
-    "to": "vendor/modules/2b515243.js"
+    "to": "vendor/modules/clipboardRuntime.js"
   },
   {
     "from": "pages/Giftcard.jsx",
@@ -9953,7 +9953,7 @@
   },
   {
     "from": "pages/Giftcard.jsx",
-    "to": "vendor/modules/7449346c.js"
+    "to": "vendor/modules/adminSettingsRuntime.js"
   },
   {
     "from": "pages/Giftcard.jsx",
@@ -9984,11 +9984,11 @@
     "to": "vendor/modules/364d7245.js"
   },
   {
-    "from": "vendor/modules/2b477661.js",
+    "from": "vendor/modules/antdZhCnLocale.js",
     "to": "vendor/modules/4e324b6b.js"
   },
   {
-    "from": "vendor/modules/2b477661.js",
+    "from": "vendor/modules/antdZhCnLocale.js",
     "to": "vendor/modules/4c397072.js"
   },
   {

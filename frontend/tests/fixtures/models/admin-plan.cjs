@@ -6,7 +6,7 @@ markEsModule(legacyExports);
 var r = require("../vendor/modules/70307045.js"),
     i = interopDefault(r),
     o = require("../services/request.js"),
-    a = require("../vendor/modules/7449346c.js");
+    a = require("../vendor/modules/adminSettingsRuntime.js");
 function s() {
     s = function () {
         return e;

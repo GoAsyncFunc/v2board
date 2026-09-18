@@ -4,7 +4,7 @@ import ConnectedSidebar from "./Sidebar.jsx";
 import ConnectedHeader from "./Header.jsx";
 import { a as Icon } from "../vendor/Icon.js";
 import "../vendor/iconStyles.js";
-import withLocale from "../vendor/modules/624b656c.js";
+import withLocale from "../vendor/modules/withLocaleRuntime.js";
 const layoutTheme = window.settings.theme;
 
 export class MainLayout extends React.Component {

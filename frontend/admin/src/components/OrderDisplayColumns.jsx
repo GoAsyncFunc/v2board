@@ -1,6 +1,6 @@
 import React from 'react';
 import { a as Tag } from '../vendor/modules/antdTag.js';
-import { a as settings } from '../vendor/modules/7449346c.js';
+import { a as settings } from '../vendor/modules/adminSettingsRuntime.js';
 import moment from '../vendor/modules/77642f52.js';
 
 // Preserve status short-circuiting and value truthiness. Do not destructure status

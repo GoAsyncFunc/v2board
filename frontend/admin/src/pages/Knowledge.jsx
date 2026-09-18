@@ -35,7 +35,7 @@ var loadingModule = require("../vendor/modules/6a65685a.js"),
   markdown = interopDefault(markdownModule),
   markdownRendererModule = require("../vendor/modules/markdownItRuntime.js"),
   markdownRenderer = interopDefault(markdownRendererModule),
-  locale = (require("../vendor/modules/69386f52.js"), require("../vendor/modules/7449346c.js")),
+  locale = (require("../vendor/modules/69386f52.js"), require("../vendor/modules/adminSettingsRuntime.js")),
   loadingIndicator = require("../vendor/modules/76333265.js");
 function O(e) {
   if ("function" !== typeof WeakMap) return null;

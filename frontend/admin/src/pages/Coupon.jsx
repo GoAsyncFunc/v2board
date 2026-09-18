@@ -30,10 +30,10 @@ var r = require("../vendor/modules/6a65685a.js"),
   w = require("../layouts/MainLayout.jsx"),
   x = require("../vendor/modules/77642f52.js"),
   _ = interopDefault(x),
-  E = require("../vendor/modules/2b515243.js"),
+  E = require("../vendor/modules/clipboardRuntime.js"),
   S = interopDefault(E),
   k = require("../vendor/reactRedux.js"),
-  C = require("../vendor/modules/7449346c.js"),
+  C = require("../vendor/modules/adminSettingsRuntime.js"),
   O = require("../vendor/modules/76333265.js");
 class T extends b.a.Component {
   constructor(e) {

@@ -295,7 +295,7 @@ var y = Object(c["c"])(e => {
     user: t
   };
 })(v);
-var g = require("../vendor/modules/624b656c.js"),
+var g = require("../vendor/modules/withLocaleRuntime.js"),
   b = interopDefault(g),
   w = window.settings.theme;
 class x extends i.a.Component {
