@@ -29,7 +29,7 @@ if (require("./descriptorsLegacySupport.js")) {
     j = require("./uid.js"),
     P = require("./wellKnownSymbol.js"),
     T = require("./2b6f3570.js"),
-    L = require("./4c6e6578.js"),
+    L = require("./arrayIndexOfFactory.js"),
     N = require("./56657959.js"),
     M = require("./arrayIterator.js"),
     A = require("./emptyExports.js"),
