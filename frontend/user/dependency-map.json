@@ -3544,6 +3544,10 @@
     "to": "vendor/modules/tryCatchTestLegacy.js"
   },
   {
+    "from": "vendor/modules/domScrollUtils.js",
+    "to": "vendor/modules/objectAssignHelper.js"
+  },
+  {
     "from": "vendor/modules/enAntd.js",
     "to": "app/moduleInterop.js"
   },
@@ -4713,7 +4717,7 @@
   },
   {
     "from": "vendor/modules/scrollIntoView.js",
-    "to": "vendor/modules/6a423543.js"
+    "to": "vendor/modules/domScrollUtils.js"
   },
   {
     "from": "vendor/modules/scrollIntoViewEntry.js",
