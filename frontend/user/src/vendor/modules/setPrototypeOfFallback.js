@@ -8,7 +8,7 @@ var isObject = require("./isObject.js"),
 legacyModule.exports = {
   set: Object.setPrototypeOf || ("__proto__" in {} ? function (e, t, r) {
     try {
-      r = require("./bindContextLegacy.js")(Function.call, require("./31354243.js").f(Object.prototype, "__proto__").set, 2), r(e, []), t = !(e instanceof Array);
+      r = require("./bindContextLegacy.js")(Function.call, require("./getOwnPropertyDescriptor.js").f(Object.prototype, "__proto__").set, 2), r(e, []), t = !(e instanceof Array);
     } catch (e) {
       t = !0;
     }

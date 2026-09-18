@@ -93,7 +93,7 @@
   },
   {
     "from": "vendor/modules/2f2f336e.js",
-    "to": "vendor/modules/31354243.js"
+    "to": "vendor/modules/getOwnPropertyDescriptor.js"
   },
   {
     "from": "vendor/modules/2f4d6664.js",
@@ -220,31 +220,31 @@
     "to": "vendor/modules/76333265.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/propertyIsEnumerable.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/createPropertyDescriptor.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/toIndexedObject.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/toPrimitive.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/hasOwn.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/4137522b.js"
   },
   {
-    "from": "vendor/modules/31354243.js",
+    "from": "vendor/modules/getOwnPropertyDescriptor.js",
     "to": "vendor/modules/descriptorsLegacySupport.js"
   },
   {
@@ -557,7 +557,7 @@
   },
   {
     "from": "vendor/modules/324e6230.js",
-    "to": "vendor/modules/466c5166.js"
+    "to": "vendor/modules/stringIteratorPolyfill.js"
   },
   {
     "from": "vendor/modules/324e6230.js",
@@ -1080,11 +1080,11 @@
     "to": "vendor/modules/364f6771.js"
   },
   {
-    "from": "vendor/modules/36526e50.js",
+    "from": "vendor/modules/stringAt.js",
     "to": "vendor/modules/toInteger.js"
   },
   {
-    "from": "vendor/modules/36526e50.js",
+    "from": "vendor/modules/stringAt.js",
     "to": "vendor/modules/requireObjectCoercible.js"
   },
   {
@@ -1129,7 +1129,7 @@
   },
   {
     "from": "vendor/modules/36745968.js",
-    "to": "vendor/modules/7677754c.js"
+    "to": "vendor/modules/getOwnPropertyDescriptorLegacy.js"
   },
   {
     "from": "vendor/modules/intlRelativeFormatEn.js",
@@ -1465,7 +1465,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/7677754c.js"
+    "to": "vendor/modules/getOwnPropertyDescriptorLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1857,7 +1857,7 @@
   },
   {
     "from": "vendor/modules/advanceStringIndex.js",
-    "to": "vendor/modules/36526e50.js"
+    "to": "vendor/modules/stringAt.js"
   },
   {
     "from": "vendor/modules/arrayIsArrayLegacyRuntime.js",
@@ -1912,11 +1912,11 @@
     "to": "vendor/modules/454a6979.js"
   },
   {
-    "from": "vendor/modules/466c5166.js",
-    "to": "vendor/modules/63634537.js"
+    "from": "vendor/modules/stringIteratorPolyfill.js",
+    "to": "vendor/modules/stringAtLegacy.js"
   },
   {
-    "from": "vendor/modules/466c5166.js",
+    "from": "vendor/modules/stringIteratorPolyfill.js",
     "to": "vendor/modules/4d504670.js"
   },
   {
@@ -2361,7 +2361,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/31354243.js"
+    "to": "vendor/modules/getOwnPropertyDescriptor.js"
   },
   {
     "from": "vendor/modules/setPrototypeOfRuntime.js",
@@ -4140,11 +4140,11 @@
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
-    "from": "vendor/modules/63634537.js",
+    "from": "vendor/modules/stringAtLegacy.js",
     "to": "vendor/modules/toInteger.js"
   },
   {
-    "from": "vendor/modules/63634537.js",
+    "from": "vendor/modules/stringAtLegacy.js",
     "to": "vendor/modules/requireObject.js"
   },
   {
@@ -6412,31 +6412,31 @@
     "to": "vendor/modules/49583356.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/propertyDescriptorFlags.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/toArray.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/toPrimitive.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/65557446.js"
   },
   {
-    "from": "vendor/modules/7677754c.js",
+    "from": "vendor/modules/getOwnPropertyDescriptorLegacy.js",
     "to": "vendor/modules/descriptorsSupport.js"
   },
   {
