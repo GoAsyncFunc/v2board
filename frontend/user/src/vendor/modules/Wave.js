@@ -2,7 +2,7 @@ var React = require("./reactRuntime.js");
 var ReactDOM = require("./reactDomRuntime.js");
 var animationEvents = require("./cssAnimationEvents.js");
 var requestAnimationFrame = require("./requestAnimationFrame.js")["a"];
-var ConfigConsumer = require("./48383455.js")["a"];
+var ConfigConsumer = require("./ConfigContext.js").ConfigConsumer;
 
 var waveStyleElement;
 

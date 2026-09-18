@@ -10,7 +10,7 @@ var n = require("./reactRuntime.js"),
   a = require("./reactLifecyclesCompat.js"),
   i = require("./omitProps.js"),
   u = require("../Icon.js"),
-  s = require("./48383455.js"),
+  s = require("./ConfigContext.js"),
   h = require("./Wave.js"),
   f = require("./tuple.js");
 function v() {

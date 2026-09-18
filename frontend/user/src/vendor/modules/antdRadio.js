@@ -10,7 +10,7 @@ var n = require("./reactRuntime.js"),
   a = interopDefault(l),
   i = require("./shallowEqualWithComparator.js"),
   u = interopDefault(i),
-  s = require("./48383455.js");
+  s = require("./ConfigContext.js");
 function h(e) {
   "@babel/helpers - typeof";
 
