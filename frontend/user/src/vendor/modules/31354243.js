@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./propertyIsEnumerable.js"),
-  o = require("./7051474a.js"),
+  o = require("./createPropertyDescriptor.js"),
   i = require("./4f654f43.js"),
   a = require("./38424d74.js"),
   s = require("./hasOwn.js"),

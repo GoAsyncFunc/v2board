@@ -9,7 +9,7 @@ if (require("./descriptorsLegacySupport.js")) {
     c = require("./794c4d59.js"),
     u = require("./77487272.js"),
     l = require("./59455649.js"),
-    f = require("./7051474a.js"),
+    f = require("./createPropertyDescriptor.js"),
     p = require("./56504f45.js"),
     d = require("./7a4e772b.js"),
     h = require("./toInteger.js"),

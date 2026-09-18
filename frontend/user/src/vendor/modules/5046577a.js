@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 try {
-  var r = require("./7a733133.js");
+  var r = require("./arrayIndexOf.js");
 } catch (e) {
-  r = require("./7a733133.js");
+  r = require("./arrayIndexOf.js");
 }
 var o = /\s+/,
   i = Object.prototype.toString;
