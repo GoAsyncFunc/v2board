@@ -30,7 +30,7 @@ function defineEnumerableProperty(target, key, value) {
   }) : target[key] = value, target;
 }
 var intlObject,
-  intlExports = require("./4a525065.js"),
+  intlExports = require("./reactIntl/index.js"),
   createLocaleContext = require("./antdCreateReactContext.js");
 function setLocale(locale) {
   var reload = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],

@@ -1832,38 +1832,6 @@
     "to": "vendor/modules/markdownEditorRuntime.js"
   },
   {
-    "from": "vendor/modules/4a525065.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/copyProperties.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/intlMessageFormatEn.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/intlRelativeFormatEn.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/invariant.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/aceCoreRuntime.js",
     "to": "vendor/modules/defineIndirect.js"
   },
@@ -2177,11 +2145,11 @@
   },
   {
     "from": "vendor/modules/intlRuntime.js",
-    "to": "vendor/modules/4a525065.js"
+    "to": "vendor/modules/antdCreateReactContext.js"
   },
   {
     "from": "vendor/modules/intlRuntime.js",
-    "to": "vendor/modules/antdCreateReactContext.js"
+    "to": "vendor/modules/reactIntl/index.js"
   },
   {
     "from": "vendor/modules/isEqual.js",
@@ -2322,6 +2290,290 @@
   {
     "from": "vendor/modules/reactAceEditor.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/IntlPluralFormat.js",
+    "to": "vendor/modules/intlMessageFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedDate.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedDate.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedDate.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedDate.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedHTMLMessage.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedHTMLMessage.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedHTMLMessage.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedHTMLMessage.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/intlMessageFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/reactIntl/format.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/reactIntl/memoizeIntlConstructor.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedMessage.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedNumber.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedNumber.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedNumber.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedNumber.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedPlural.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedPlural.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedPlural.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedPlural.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedRelative.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedRelative.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedRelative.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedRelative.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedTime.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedTime.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedTime.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/FormattedTime.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/intlMessageFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/intlRelativeFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/invariant.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/IntlPluralFormat.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/format.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/localeDataRegistry.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/memoizeIntlConstructor.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/components/IntlProvider.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/format.js",
+    "to": "vendor/modules/intlRelativeFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/format.js",
+    "to": "vendor/modules/invariant.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/format.js",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/format.js",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/format.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedDate.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedHTMLMessage.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedMessage.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedNumber.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedPlural.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedRelative.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/FormattedTime.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/components/IntlProvider.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/defineMessages.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/englishLocaleData.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/injectIntl.jsx"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/localeDataRegistry.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/index.js",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/injectIntl.jsx",
+    "to": "vendor/modules/copyProperties.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/injectIntl.jsx",
+    "to": "vendor/modules/invariant.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/injectIntl.jsx",
+    "to": "vendor/modules/reactIntl/types.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/injectIntl.jsx",
+    "to": "vendor/modules/reactIntl/utils.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/injectIntl.jsx",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/localeDataRegistry.js",
+    "to": "vendor/modules/intlMessageFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/localeDataRegistry.js",
+    "to": "vendor/modules/intlRelativeFormatEn.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/types.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/utils.js",
+    "to": "vendor/modules/invariant.js"
+  },
+  {
+    "from": "vendor/modules/reactIntl/utils.js",
+    "to": "vendor/modules/reactIntl/types.js"
   },
   {
     "from": "vendor/modules/readableStream.js",

@@ -43,8 +43,8 @@ function copyProperties(target, source, excludedProperties) {
         } catch (e) {}
       }
     }
-    return e;
+    return target;
   }
-  return e;
+  return target;
 }
 legacyModule.exports = copyProperties;
