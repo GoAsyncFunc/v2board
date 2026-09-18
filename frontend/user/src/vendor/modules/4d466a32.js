@@ -67,10 +67,10 @@ var S = require("./reactDomRuntime.js"),
   C = interopDefault(S),
   j = require("./454a6979.js"),
   P = interopDefault(j),
-  T = require("./2f644463.js"),
+  T = require("./cssAnimationEvents.js"),
   L = require("./5046577a.js"),
   N = interopDefault(L),
-  M = 0 !== T["a"].endEvents.length,
+  M = 0 !== T.endEvents.length,
   A = ["Webkit", "Moz", "O", "ms"],
   D = ["-webkit-", "-moz-", "-o-", "ms-", ""];
 function I(e, t) {
@@ -101,8 +101,8 @@ var V = function (e, t, n) {
     c = void 0,
     u = N()(e);
   return n && "[object Object]" === Object.prototype.toString.call(n) && (a = n.end, s = n.start, c = n.active), e.rcEndListener && e.rcEndListener(), e.rcEndListener = function (t) {
-    t && t.target !== e || (e.rcAnimTimeout && (clearTimeout(e.rcAnimTimeout), e.rcAnimTimeout = null), F(e), u.remove(o), u.remove(i), T["a"].removeEndEventListener(e, e.rcEndListener), e.rcEndListener = null, a && a());
-  }, T["a"].addEndEventListener(e, e.rcEndListener), s && s(), u.add(o), e.rcAnimTimeout = setTimeout(function () {
+    t && t.target !== e || (e.rcAnimTimeout && (clearTimeout(e.rcAnimTimeout), e.rcAnimTimeout = null), F(e), u.remove(o), u.remove(i), T.removeEndEventListener(e, e.rcEndListener), e.rcEndListener = null, a && a());
+  }, T.addEndEventListener(e, e.rcEndListener), s && s(), u.add(o), e.rcAnimTimeout = setTimeout(function () {
     e.rcAnimTimeout = null, u.add(i), c && setTimeout(c, 0), R(e);
   }, 30), {
     stop: function () {
@@ -112,8 +112,8 @@ var V = function (e, t, n) {
 };
 V.style = function (e, t, n) {
   e.rcEndListener && e.rcEndListener(), e.rcEndListener = function (t) {
-    t && t.target !== e || (e.rcAnimTimeout && (clearTimeout(e.rcAnimTimeout), e.rcAnimTimeout = null), F(e), T["a"].removeEndEventListener(e, e.rcEndListener), e.rcEndListener = null, n && n());
-  }, T["a"].addEndEventListener(e, e.rcEndListener), e.rcAnimTimeout = setTimeout(function () {
+    t && t.target !== e || (e.rcAnimTimeout && (clearTimeout(e.rcAnimTimeout), e.rcAnimTimeout = null), F(e), T.removeEndEventListener(e, e.rcEndListener), e.rcEndListener = null, n && n());
+  }, T.addEndEventListener(e, e.rcEndListener), e.rcAnimTimeout = setTimeout(function () {
     for (var n in t) t.hasOwnProperty(n) && (e.style[n] = t[n]);
     e.rcAnimTimeout = null, R(e);
   }, 0);

@@ -13,5 +13,5 @@ var o = r(require("./77435846.js")),
 legacyExports.Column = i.default;
 var a = r(require("./41484a73.js"));
 legacyExports.ColumnGroup = a.default;
-var s = require("./364f6771.js");
+var s = require("./rcTableUtils.js");
 legacyExports.INTERNAL_COL_DEFINE = s.INTERNAL_COL_DEFINE, legacyExports.default = o.default;

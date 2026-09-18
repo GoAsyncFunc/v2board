@@ -1629,27 +1629,15 @@
   },
   {
     "from": "vendor/modules/30687066.js",
-    "to": "vendor/modules/47797478.js"
+    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/30687066.js",
-    "to": "vendor/modules/reactRuntime.js"
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
     "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/34496c57.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/444e3261.js"
-  },
-  {
-    "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/47797478.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -1693,6 +1681,14 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
+    "to": "vendor/modules/keyCodes.js"
+  },
+  {
+    "from": "vendor/modules/316a3577.js",
+    "to": "vendor/modules/mutationObserverShim.js"
+  },
+  {
+    "from": "vendor/modules/316a3577.js",
     "to": "vendor/modules/possibleConstructorReturn.js"
   },
   {
@@ -1718,6 +1714,10 @@
   {
     "from": "vendor/modules/316a3577.js",
     "to": "vendor/modules/scrollIntoViewEntry.js"
+  },
+  {
+    "from": "vendor/modules/316a3577.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/316a3577.js",
@@ -1793,10 +1793,6 @@
   },
   {
     "from": "vendor/modules/3652526e.js",
-    "to": "vendor/modules/364f6771.js"
-  },
-  {
-    "from": "vendor/modules/3652526e.js",
     "to": "vendor/modules/41484a73.js"
   },
   {
@@ -1806,6 +1802,10 @@
   {
     "from": "vendor/modules/3652526e.js",
     "to": "vendor/modules/nullFunction.js"
+  },
+  {
+    "from": "vendor/modules/3652526e.js",
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/37697874.js",
@@ -1961,10 +1961,6 @@
   },
   {
     "from": "vendor/modules/43697435.js",
-    "to": "vendor/modules/364f6771.js"
-  },
-  {
-    "from": "vendor/modules/43697435.js",
     "to": "vendor/modules/554e7276.js"
   },
   {
@@ -1974,6 +1970,10 @@
   {
     "from": "vendor/modules/43697435.js",
     "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/43697435.js",
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/43697435.js",
@@ -1993,11 +1993,11 @@
   },
   {
     "from": "vendor/modules/45307530.js",
-    "to": "vendor/modules/4d677a57.js"
+    "to": "vendor/modules/EventBaseObject.js"
   },
   {
     "from": "vendor/modules/45307530.js",
-    "to": "vendor/modules/51446c63.js"
+    "to": "vendor/modules/objectAssignCompat.js"
   },
   {
     "from": "vendor/modules/454a6979.js",
@@ -2041,10 +2041,6 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/34496c57.js"
-  },
-  {
-    "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/4d466a32.js"
   },
   {
@@ -2062,6 +2058,10 @@
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/4c64484d.js",
+    "to": "vendor/modules/keyCodes.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -2097,10 +2097,6 @@
   },
   {
     "from": "vendor/modules/4d466a32.js",
-    "to": "vendor/modules/2f644463.js"
-  },
-  {
-    "from": "vendor/modules/4d466a32.js",
     "to": "vendor/modules/454a6979.js"
   },
   {
@@ -2126,6 +2122,10 @@
   {
     "from": "vendor/modules/4d466a32.js",
     "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/4d466a32.js",
+    "to": "vendor/modules/cssAnimationEvents.js"
   },
   {
     "from": "vendor/modules/4d466a32.js",
@@ -2269,15 +2269,11 @@
   },
   {
     "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/364f6771.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
-    "to": "vendor/modules/47797478.js"
-  },
-  {
-    "from": "vendor/modules/505a4459.js",
     "to": "vendor/modules/58615332.js"
+  },
+  {
+    "from": "vendor/modules/505a4459.js",
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/505a4459.js",
@@ -2290,6 +2286,10 @@
   {
     "from": "vendor/modules/505a4459.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/505a4459.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/51432b4d.js",
@@ -2345,10 +2345,6 @@
   },
   {
     "from": "vendor/modules/562f3649.js",
-    "to": "vendor/modules/47797478.js"
-  },
-  {
-    "from": "vendor/modules/562f3649.js",
     "to": "vendor/modules/copyProperties.js"
   },
   {
@@ -2358,6 +2354,10 @@
   {
     "from": "vendor/modules/562f3649.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/562f3649.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/562f3649.js",
@@ -2441,15 +2441,15 @@
   },
   {
     "from": "vendor/modules/59714446.js",
-    "to": "vendor/modules/364f6771.js"
-  },
-  {
-    "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/554e7276.js"
   },
   {
     "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/59714446.js",
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/59714446.js",
@@ -2537,15 +2537,15 @@
   },
   {
     "from": "vendor/modules/67306d53.js",
-    "to": "vendor/modules/2f644463.js"
-  },
-  {
-    "from": "vendor/modules/67306d53.js",
     "to": "vendor/modules/48383455.js"
   },
   {
     "from": "vendor/modules/67306d53.js",
     "to": "vendor/modules/6f486950.js"
+  },
+  {
+    "from": "vendor/modules/67306d53.js",
+    "to": "vendor/modules/cssAnimationEvents.js"
   },
   {
     "from": "vendor/modules/67306d53.js",
@@ -2669,10 +2669,6 @@
   },
   {
     "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/364f6771.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/41484a73.js"
   },
   {
@@ -2682,10 +2678,6 @@
   {
     "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/43697435.js"
-  },
-  {
-    "from": "vendor/modules/77435846.js",
-    "to": "vendor/modules/47797478.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -2721,6 +2713,10 @@
   },
   {
     "from": "vendor/modules/77435846.js",
+    "to": "vendor/modules/rcTableUtils.js"
+  },
+  {
+    "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/reactLifecyclesCompat.js"
   },
   {
@@ -2730,6 +2726,10 @@
   {
     "from": "vendor/modules/77435846.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/77435846.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/77435846.js",
@@ -2777,11 +2777,11 @@
   },
   {
     "from": "vendor/modules/7a536442.js",
-    "to": "vendor/modules/364f6771.js"
+    "to": "vendor/modules/propTypesRuntime.js"
   },
   {
     "from": "vendor/modules/7a536442.js",
-    "to": "vendor/modules/propTypesRuntime.js"
+    "to": "vendor/modules/rcTableUtils.js"
   },
   {
     "from": "vendor/modules/7a536442.js",
@@ -2977,10 +2977,6 @@
   },
   {
     "from": "vendor/modules/antdRadio.js",
-    "to": "vendor/modules/47797478.js"
-  },
-  {
-    "from": "vendor/modules/antdRadio.js",
     "to": "vendor/modules/48383455.js"
   },
   {
@@ -3002,6 +2998,10 @@
   {
     "from": "vendor/modules/antdRadio.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdRadio.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/antdSelect.js",
@@ -3057,10 +3057,6 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/34496c57.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/362b6555.js"
   },
   {
@@ -3074,10 +3070,6 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/43575167.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/47797478.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -3133,6 +3125,10 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/keyCodes.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/paginationLocaleEn.js"
   },
   {
@@ -3150,6 +3146,10 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
   },
   {
     "from": "vendor/modules/antdTooltip.js",
@@ -3473,7 +3473,7 @@
   },
   {
     "from": "vendor/modules/closest.js",
-    "to": "vendor/modules/57354376.js"
+    "to": "vendor/modules/matchesSelector.js"
   },
   {
     "from": "vendor/modules/copyObject.js",

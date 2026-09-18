@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var strictEncode = require("./fixedEncodeURIComponent.js"),
-  mergeOptions = require("./4d677a57.js"),
+  mergeOptions = require("./objectAssignCompat.js"),
   decodeComponent = require("./decodeUriComponentFallback.js");
 function createStringifyPair(options) {
   switch (options.arrayFormat) {

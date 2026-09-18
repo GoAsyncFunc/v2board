@@ -7,9 +7,9 @@ const {
 var r = require("./reactRuntime.js"),
   o = interopDefault(r),
   i = require("./reactReduxRuntime.js"),
-  a = require("./34496c57.js"),
+  a = require("./keyCodes.js"),
   s = require("./invokeAll.js"),
-  c = require("./47797478.js"),
+  c = require("./shallowEqualWithComparator.js"),
   u = interopDefault(c),
   l = require("./classNames.js"),
   f = interopDefault(l);
@@ -568,14 +568,14 @@ var Ke = 0,
           o = n.props,
           i = o.isOpen,
           s = o.store;
-        if (t === a["a"].ENTER) return n.onTitleClick(e), Qe(s, n.props.eventKey, !0), !0;
-        if (t === a["a"].RIGHT) return i ? r.onKeyDown(e) : (n.triggerOpenChange(!0), Qe(s, n.props.eventKey, !0)), !0;
-        if (t === a["a"].LEFT) {
+        if (t === a.ENTER) return n.onTitleClick(e), Qe(s, n.props.eventKey, !0), !0;
+        if (t === a.RIGHT) return i ? r.onKeyDown(e) : (n.triggerOpenChange(!0), Qe(s, n.props.eventKey, !0)), !0;
+        if (t === a.LEFT) {
           var c;
           if (!i) return;
           return c = r.onKeyDown(e), c || (n.triggerOpenChange(!1), c = !0), c;
         }
-        return !i || t !== a["a"].UP && t !== a["a"].DOWN ? void 0 : r.onKeyDown(e);
+        return !i || t !== a.UP && t !== a.DOWN ? void 0 : r.onKeyDown(e);
       }, n.onOpenChange = function (e) {
         n.props.onOpenChange(e);
       }, n.onPopupVisibleChange = function (e) {
@@ -984,7 +984,7 @@ function yt(e, t) {
 var gt = !("undefined" === typeof window || !window.document || !window.document.createElement),
   bt = "menuitem-overflowed",
   wt = .5;
-gt && require("./444e3261.js");
+gt && require("./mutationObserverShim.js");
 var xt = function (e) {
   function t() {
     var e;
@@ -1269,7 +1269,7 @@ var Bt = function (e) {
         t && t.props.active && t.onKeyDown && (r = t.onKeyDown(e));
       }), r) return 1;
       var i = null;
-      return o !== a["a"].UP && o !== a["a"].DOWN || (i = n.step(o === a["a"].UP ? -1 : 1)), i ? (e.preventDefault(), Rt(n.props.store, Ft(n.props), i.props.eventKey), "function" === typeof t && t(i), 1) : void 0;
+      return o !== a.UP && o !== a.DOWN || (i = n.step(o === a.UP ? -1 : 1)), i ? (e.preventDefault(), Rt(n.props.store, Ft(n.props), i.props.eventKey), "function" === typeof t && t(i), 1) : void 0;
     }, n.onItemHover = function (e) {
       var t = e.key,
         r = e.hover;
@@ -1727,7 +1727,7 @@ var On = function (e) {
     var e;
     return hn(this, t), e = yn(this, gn(t).apply(this, arguments)), e.onKeyDown = function (t) {
       var n = t.keyCode;
-      if (n === a["a"].ENTER) return e.onClick(t), !0;
+      if (n === a.ENTER) return e.onClick(t), !0;
     }, e.onMouseLeave = function (t) {
       var n = e.props,
         r = n.eventKey,

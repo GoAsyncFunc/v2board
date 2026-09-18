@@ -1,9 +1,12 @@
-let legacyModule = module,
-  legacyExports = exports;
-var r = require("./57354376.js");
-legacyModule.exports = function (e, t, n) {
-  n = n || document, e = {
-    parentNode: e
+const matchesSelector = require("./matchesSelector.js");
+
+module.exports = function closest(element, selector, boundary) {
+  boundary = boundary || document;
+  element = {
+    parentNode: element
   };
-  while ((e = e.parentNode) && e !== n) if (r(e, t)) return e;
+
+  while ((element = element.parentNode) && element !== boundary) {
+    if (matchesSelector(element, selector)) return element;
+  }
 };

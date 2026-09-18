@@ -8,7 +8,7 @@ var n = require("./reactRuntime.js"),
   o = require("./78315961.js"),
   l = require("./classNames.js"),
   a = interopDefault(l),
-  i = require("./47797478.js"),
+  i = require("./shallowEqualWithComparator.js"),
   u = interopDefault(i),
   s = require("./48383455.js");
 function h(e) {

@@ -45,7 +45,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var c = a(require("./reactRuntime.js")),
   u = a(require("./propTypesRuntime.js")),
-  l = require("./364f6771.js"),
+  l = require("./rcTableUtils.js"),
   f = s(require("./554e7276.js"));
 function p(e, t) {
   var n = t.table,

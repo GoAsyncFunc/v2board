@@ -9,7 +9,7 @@ defineExport(legacyExports, "a", function () {
 var n,
   r = require("./reactRuntime.js"),
   o = require("./reactDomRuntime.js"),
-  l = require("./2f644463.js"),
+  l = require("./cssAnimationEvents.js"),
   a = require("./6f486950.js"),
   i = require("./48383455.js");
 function u(e) {
@@ -102,7 +102,7 @@ var H = function (e) {
           a = o.extraNode;
         a.className = "ant-click-animating-node";
         var i = e.getAttributeName();
-        t.setAttribute(i, "true"), n = n || document.createElement("style"), c && "#ffffff" !== c && "rgb(255, 255, 255)" !== c && g(c) && !/rgba\(\d*, \d*, \d*, 0\)/.test(c) && "transparent" !== c && (e.csp && e.csp.nonce && (n.nonce = e.csp.nonce), a.style.borderColor = c, n.innerHTML = "\n      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {\n        --antd-wave-shadow-color: ".concat(c, ";\n      }"), document.body.contains(n) || document.body.appendChild(n)), r && t.appendChild(a), l["a"].addStartEventListener(t, e.onTransitionStart), l["a"].addEndEventListener(t, e.onTransitionEnd);
+        t.setAttribute(i, "true"), n = n || document.createElement("style"), c && "#ffffff" !== c && "rgb(255, 255, 255)" !== c && g(c) && !/rgba\(\d*, \d*, \d*, 0\)/.test(c) && "transparent" !== c && (e.csp && e.csp.nonce && (n.nonce = e.csp.nonce), a.style.borderColor = c, n.innerHTML = "\n      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {\n        --antd-wave-shadow-color: ".concat(c, ";\n      }"), document.body.contains(n) || document.body.appendChild(n)), r && t.appendChild(a), l.addStartEventListener(t, e.onTransitionStart), l.addEndEventListener(t, e.onTransitionEnd);
       }
     }, e.onTransitionStart = function (t) {
       if (!e.destroy) {
@@ -159,7 +159,7 @@ var H = function (e) {
       if (e && e !== this.extraNode && e instanceof Element) {
         var t = this.props.insertExtraNode,
           c = this.getAttributeName();
-        e.setAttribute(c, "false"), n && (n.innerHTML = ""), t && this.extraNode && e.contains(this.extraNode) && e.removeChild(this.extraNode), l["a"].removeStartEventListener(e, this.onTransitionStart), l["a"].removeEndEventListener(e, this.onTransitionEnd);
+        e.setAttribute(c, "false"), n && (n.innerHTML = ""), t && this.extraNode && e.contains(this.extraNode) && e.removeChild(this.extraNode), l.removeStartEventListener(e, this.onTransitionStart), l.removeEndEventListener(e, this.onTransitionEnd);
       }
     }
   }, {

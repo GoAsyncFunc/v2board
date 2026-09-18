@@ -180,7 +180,7 @@ function A(e) {
     void 0 !== e && null !== e && (Array.isArray(e) ? t = t.concat(A(e)) : Object(M["isFragment"])(e) && e.props ? t = t.concat(A(e.props.children)) : t.push(e));
   }), t;
 }
-var D = require("./34496c57.js"),
+var D = require("./keyCodes.js"),
   I = require("./reactDomRuntime.js"),
   R = require("./reactLifecyclesCompat.js"),
   F = require("./warning.js"),
@@ -794,7 +794,7 @@ var Xe = function (e) {
         r = n.props.disabled;
       if (!r) {
         var o = e.keyCode;
-        t && !n.getInputDOMNode() ? n.onInputKeyDown(e) : o === D["a"].ENTER || o === D["a"].DOWN ? (t || n.setOpenState(!0), e.preventDefault()) : o === D["a"].SPACE && (t || (n.setOpenState(!0), e.preventDefault()));
+        t && !n.getInputDOMNode() ? n.onInputKeyDown(e) : o === D.ENTER || o === D.DOWN ? (t || n.setOpenState(!0), e.preventDefault()) : o === D.SPACE && (t || (n.setOpenState(!0), e.preventDefault()));
       }
     }, n.onInputKeyDown = function (e) {
       var t = n.props,
@@ -805,12 +805,12 @@ var Xe = function (e) {
         var a = n.state,
           s = n.getRealOpenState(a),
           c = e.keyCode;
-        if (!Q(n.props) || e.target.value || c !== D["a"].BACKSPACE) {
-          if (c === D["a"].DOWN) {
+        if (!Q(n.props) || e.target.value || c !== D.BACKSPACE) {
+          if (c === D.DOWN) {
             if (!a.open) return n.openIfHasChildren(), e.preventDefault(), void e.stopPropagation();
-          } else if (c === D["a"].ENTER && a.open) !s && o || e.preventDefault(), s && o && !1 === i && (n.comboboxTimer = setTimeout(function () {
+          } else if (c === D.ENTER && a.open) !s && o || e.preventDefault(), s && o && !1 === i && (n.comboboxTimer = setTimeout(function () {
             n.setOpenState(!1);
-          }));else if (c === D["a"].ESC) return void (a.open && (n.setOpenState(!1), e.preventDefault(), e.stopPropagation()));
+          }));else if (c === D.ESC) return void (a.open && (n.setOpenState(!1), e.preventDefault(), e.stopPropagation()));
           if (s && n.selectTriggerRef) {
             var u = n.selectTriggerRef.getInnerMenu();
             u && u.onKeyDown(e, n.handleBackfill) && (e.preventDefault(), e.stopPropagation());
@@ -843,7 +843,7 @@ var Xe = function (e) {
     }, n.onMenuDeselect = function (e) {
       var t = e.item,
         r = e.domEvent;
-      if ("keydown" !== r.type || r.keyCode !== D["a"].ENTER) {
+      if ("keydown" !== r.type || r.keyCode !== D.ENTER) {
         "click" === r.type && n.removeSelected(Y(t));
         var o = n.props;
         o.autoClearSearchValue && n.setInputValue("");

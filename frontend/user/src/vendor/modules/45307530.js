@@ -8,9 +8,9 @@ function r(e) {
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var o = require("./51446c63.js"),
+var o = require("./EventBaseObject.js"),
   i = r(o),
-  a = require("./4d677a57.js"),
+  a = require("./objectAssignCompat.js"),
   s = r(a),
   c = !0,
   u = !1,

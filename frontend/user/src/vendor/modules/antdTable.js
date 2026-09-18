@@ -10,7 +10,7 @@ var n = require("./reactRuntime.js"),
   a = require("./propTypesRuntime.js"),
   i = require("./classNames.js"),
   u = interopDefault(i),
-  s = require("./47797478.js"),
+  s = require("./shallowEqualWithComparator.js"),
   h = interopDefault(s),
   f = require("./reactLifecyclesCompat.js"),
   v = require("./reactDomRuntime.js"),
@@ -2111,7 +2111,7 @@ tn.defaultProps = {
   indicator: a["element"]
 };
 var cn = tn,
-  nn = require("./34496c57.js");
+  nn = require("./keyCodes.js");
 function rn(e) {
   "@babel/helpers - typeof";
 
@@ -2214,11 +2214,11 @@ var zn = function (e, t) {
       var e;
       return ln(this, c), e = t.apply(this, arguments), e.onKeyDown = function (e) {
         var t = e.keyCode;
-        t === nn["a"].ENTER && e.preventDefault();
+        t === nn.ENTER && e.preventDefault();
       }, e.onKeyUp = function (t) {
         var c = t.keyCode,
           n = e.props.onClick;
-        c === nn["a"].ENTER && n && n();
+        c === nn.ENTER && n && n();
       }, e.setRef = function (t) {
         e.div = t;
       }, e;

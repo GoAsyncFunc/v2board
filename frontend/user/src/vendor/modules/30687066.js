@@ -84,7 +84,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var v = h(require("./reactRuntime.js")),
-  y = m(require("./47797478.js")),
+  y = m(require("./shallowEqualWithComparator.js")),
   g = function (e) {
     s(n, e);
     var t = u(n);

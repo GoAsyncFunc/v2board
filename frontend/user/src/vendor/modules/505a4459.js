@@ -139,9 +139,9 @@ Object.defineProperty(legacyExports, "__esModule", {
 var k = E(require("./reactRuntime.js")),
   S = require("./reactReduxRuntime.js"),
   C = require("./reactLifecyclesCompat.js"),
-  j = _(require("./47797478.js")),
+  j = _(require("./shallowEqualWithComparator.js")),
   P = _(require("./58615332.js")),
-  T = require("./364f6771.js"),
+  T = require("./rcTableUtils.js"),
   L = function (e) {
     v(n, e);
     var t = g(n);
