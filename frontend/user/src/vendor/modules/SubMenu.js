@@ -9,7 +9,7 @@ var React = _interopRequireWildcard(require("./reactRuntime.js"));
 
 var ReactDOM = _interopRequireWildcard(require("./reactDomRuntime.js"));
 
-var _rcTrigger = { default: require("./75636958.js")["a"] };
+var _rcTrigger = _interopRequireDefault(require("./RcTrigger.js"));
 
 var _KeyCode = _interopRequireDefault(require("./keyCodes.js"));
 

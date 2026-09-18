@@ -1,6 +1,6 @@
 var React = require("./reactRuntime.js");
 var PropTypes = require("./propTypesRuntime.js");
-var RcTrigger = require("./75636958.js")["a"];
+var RcTrigger = require("./RcTrigger.js");
 var placements = require("./tooltipPlacements.js")["a"];
 var TooltipContent = require("./TooltipContent.js");
 

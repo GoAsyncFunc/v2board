@@ -189,7 +189,7 @@ var D = require("./keyCodes.js"),
   V = interopDefault(F),
   z = require("./animationFrameRuntime.js"),
   B = interopDefault(z),
-  W = require("./75636958.js"),
+  RcTrigger = require("./RcTrigger.js"),
   U = require("./scrollIntoViewEntry.js"),
   q = interopDefault(U);
 function H(e) {
@@ -549,7 +549,7 @@ var Ae = function (e, t) {
   }
   return n;
 };
-W["a"].displayName = "Trigger";
+RcTrigger.displayName = "Trigger";
 var De = {
     bottomLeft: {
       points: ["tl", "bl"],
@@ -660,7 +660,7 @@ var De = {
         t = f ? [] : J(a) && !p ? ["click"] : ["blur"];
         var b = ke({}, h),
           w = m ? "width" : "minWidth";
-        return this.state.dropdownWidth && (b[w] = "".concat(this.state.dropdownWidth, "px")), r["createElement"](W["a"], ke({}, a, {
+        return this.state.dropdownWidth && (b[w] = "".concat(this.state.dropdownWidth, "px")), r["createElement"](RcTrigger, ke({}, a, {
           showAction: f ? [] : this.props.showAction,
           hideAction: t,
           ref: this.saveTriggerRef,

@@ -3,7 +3,7 @@ var ReactDOM = require("./reactDomRuntime.js");
 var PropTypes = require("./propTypesRuntime.js");
 var classNames = require("./classNames.js");
 var lifecycleCompat = require("./reactLifecyclesCompat.js");
-var RcTrigger = require("./75636958.js")["a"];
+var RcTrigger = require("./RcTrigger.js");
 var placements = require("./dropdownPlacements.js");
 
 class RcDropdown extends React.Component {

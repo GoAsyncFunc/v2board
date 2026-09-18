@@ -1633,10 +1633,6 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/75636958.js"
-  },
-  {
-    "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/MenuItem.js"
   },
   {
@@ -1650,6 +1646,10 @@
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/RcMenu.js"
+  },
+  {
+    "from": "vendor/modules/4c64484d.js",
+    "to": "vendor/modules/RcTrigger.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -1694,74 +1694,6 @@
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/warning.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/ContainerRender.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/Portal.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/RcAnimate.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/addBatchedDomEventListener.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/classCallCheck.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/containsNode.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/createClassHelper.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/inheritsHelper.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/objectWithoutProperties.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/possibleConstructorReturn.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/reactDomRuntime.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
-  },
-  {
-    "from": "vendor/modules/75636958.js",
-    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/AnimateChild.js",
@@ -2028,6 +1960,30 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/objectWithoutProperties.js"
+  },
+  {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/LazyRenderBox.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/LocaleReceiver.js",
     "to": "app/moduleInterop.js"
   },
@@ -2176,6 +2132,46 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/addDomEventListener.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/alignUtils.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/createClassHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/domAlignRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcAlign.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/RcAnimate.js",
     "to": "vendor/modules/AnimateChild.js"
   },
@@ -2241,7 +2237,7 @@
   },
   {
     "from": "vendor/modules/RcDropdown.js",
-    "to": "vendor/modules/75636958.js"
+    "to": "vendor/modules/RcTrigger.js"
   },
   {
     "from": "vendor/modules/RcDropdown.js",
@@ -2413,7 +2409,7 @@
   },
   {
     "from": "vendor/modules/RcTooltip.js",
-    "to": "vendor/modules/75636958.js"
+    "to": "vendor/modules/RcTrigger.js"
   },
   {
     "from": "vendor/modules/RcTooltip.js",
@@ -2430,6 +2426,66 @@
   {
     "from": "vendor/modules/RcTooltip.js",
     "to": "vendor/modules/tooltipPlacements.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/ContainerRender.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/Portal.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/TriggerPopup.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/addDomEventListener.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/containsNode.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/objectAssignHelper.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/RcTrigger.js",
+    "to": "vendor/modules/triggerUtils.js"
   },
   {
     "from": "vendor/modules/ResizeObservation.js",
@@ -2473,11 +2529,11 @@
   },
   {
     "from": "vendor/modules/SubMenu.js",
-    "to": "vendor/modules/75636958.js"
+    "to": "vendor/modules/CSSMotion.js"
   },
   {
     "from": "vendor/modules/SubMenu.js",
-    "to": "vendor/modules/CSSMotion.js"
+    "to": "vendor/modules/RcTrigger.js"
   },
   {
     "from": "vendor/modules/SubMenu.js",
@@ -2620,6 +2676,78 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/LazyRenderBox.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/RcAlign.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/RcAnimate.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/TriggerPopupInner.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/objectAssignHelper.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/reactDomRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopup.js",
+    "to": "vendor/modules/triggerUtils.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/LazyRenderBox.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/classCallCheck.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/inheritsHelper.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/possibleConstructorReturn.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/TriggerPopupInner.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/Wave.js",
     "to": "vendor/modules/ConfigContext.js"
   },
@@ -2650,6 +2778,10 @@
   {
     "from": "vendor/modules/addDomEventListener.js",
     "to": "vendor/modules/DomEventObject.js"
+  },
+  {
+    "from": "vendor/modules/alignUtils.js",
+    "to": "vendor/modules/containsNode.js"
   },
   {
     "from": "vendor/modules/animateChildren.js",
@@ -5222,6 +5354,10 @@
   {
     "from": "vendor/modules/toString.js",
     "to": "vendor/modules/baseToString.js"
+  },
+  {
+    "from": "vendor/modules/triggerUtils.js",
+    "to": "vendor/modules/objectAssignHelper.js"
   },
   {
     "from": "vendor/modules/trimStart.js",
