@@ -17,7 +17,7 @@ let legacyModule = module,
   var c = {
       deprecate: require("./74394645.js")
     },
-    u = require("./51707558.js"),
+    u = require("./eventEmitter.js"),
     h = require("./68776456.js").Buffer,
     f = r.Uint8Array || function () {};
   function d(e) {

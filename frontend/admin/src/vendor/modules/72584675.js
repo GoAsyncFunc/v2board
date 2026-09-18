@@ -10,7 +10,7 @@ let legacyModule = module,
   var s = function (e, t) {
       return e.listeners(t).length;
     },
-    l = require("./51707558.js"),
+    l = require("./eventEmitter.js"),
     c = require("./68776456.js").Buffer,
     u = t.Uint8Array || function () {};
   function h(e) {

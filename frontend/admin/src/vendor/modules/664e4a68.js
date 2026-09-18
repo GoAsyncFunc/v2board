@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./4a625758.js"),
   i = require("./61474a44.js"),
   o = require("./58556569.js"),
-  a = require("./5a793533.js");
+  a = require("./messageFormatParser.js");
 function s(e, t, n) {
   var r = "string" === typeof e ? s.__parse(e) : e;
   if (!r || "messageFormatPattern" !== r.type) throw new TypeError("A message must be provided as a String or AST.");

@@ -240,15 +240,15 @@
     "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/43773475.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/4a633770.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/6e574d51.js"
   },
   {
@@ -845,7 +845,7 @@
   },
   {
     "from": "vendor/modules/33425273.js",
-    "to": "vendor/modules/51707558.js"
+    "to": "vendor/modules/eventEmitter.js"
   },
   {
     "from": "vendor/modules/33425273.js",
@@ -1120,23 +1120,23 @@
     "to": "services/request.js"
   },
   {
-    "from": "vendor/modules/34334b49.js",
+    "from": "vendor/modules/streamRuntime.js",
     "to": "vendor/modules/72584675.js"
   },
   {
-    "from": "vendor/modules/34334b49.js",
+    "from": "vendor/modules/streamRuntime.js",
     "to": "vendor/modules/33425273.js"
   },
   {
-    "from": "vendor/modules/34334b49.js",
+    "from": "vendor/modules/streamRuntime.js",
     "to": "vendor/modules/735a726f.js"
   },
   {
-    "from": "vendor/modules/34334b49.js",
+    "from": "vendor/modules/streamRuntime.js",
     "to": "vendor/modules/4a373869.js"
   },
   {
-    "from": "vendor/modules/34334b49.js",
+    "from": "vendor/modules/streamRuntime.js",
     "to": "vendor/modules/65412f59.js"
   },
   {
@@ -3517,7 +3517,7 @@
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/30737841.js"
+    "to": "vendor/modules/setRuntime.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -4117,7 +4117,7 @@
   },
   {
     "from": "vendor/modules/50327359.js",
-    "to": "vendor/modules/55626245.js"
+    "to": "vendor/modules/objectAssign.js"
   },
   {
     "from": "vendor/modules/5046577a.js",
@@ -4412,7 +4412,7 @@
     "to": "vendor/modules/77642f52.js"
   },
   {
-    "from": "vendor/modules/51707558.js",
+    "from": "vendor/modules/eventEmitter.js",
     "to": "vendor/modules/2b714533.js"
   },
   {
@@ -4756,11 +4756,11 @@
     "to": "vendor/modules/35543259.js"
   },
   {
-    "from": "vendor/modules/55626245.js",
+    "from": "vendor/modules/objectAssign.js",
     "to": "vendor/modules/6f384e48.js"
   },
   {
-    "from": "vendor/modules/55626245.js",
+    "from": "vendor/modules/objectAssign.js",
     "to": "vendor/modules/5745706b.js"
   },
   {
@@ -5412,7 +5412,7 @@
     "to": "vendor/modules/32666145.js"
   },
   {
-    "from": "vendor/modules/5a793533.js",
+    "from": "vendor/modules/messageFormatParser.js",
     "to": "vendor/modules/6f4f7376.js"
   },
   {
@@ -6249,7 +6249,7 @@
   },
   {
     "from": "vendor/modules/664e4a68.js",
-    "to": "vendor/modules/5a793533.js"
+    "to": "vendor/modules/messageFormatParser.js"
   },
   {
     "from": "vendor/modules/66584b70.js",
@@ -7265,7 +7265,7 @@
   },
   {
     "from": "vendor/modules/6b6c3541.js",
-    "to": "vendor/modules/34334b49.js"
+    "to": "vendor/modules/streamRuntime.js"
   },
   {
     "from": "vendor/modules/6b6c3541.js",
@@ -8117,7 +8117,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/51707558.js"
+    "to": "vendor/modules/eventEmitter.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -9573,7 +9573,7 @@
   },
   {
     "from": "vendor/modules/79517457.js",
-    "to": "vendor/modules/34334b49.js"
+    "to": "vendor/modules/streamRuntime.js"
   },
   {
     "from": "vendor/modules/79517457.js",

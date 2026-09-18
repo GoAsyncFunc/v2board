@@ -3,7 +3,7 @@ let legacyModule = module,
 (function (e, r, i) {
   var o = require("./71664857.js"),
     a = require("./5037584d.js"),
-    s = require("./34334b49.js"),
+    s = require("./streamRuntime.js"),
     l = legacyExports.readyStates = {
       UNSENT: 0,
       OPENED: 1,

@@ -288,15 +288,15 @@
     "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/43773475.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/4a633770.js"
   },
   {
-    "from": "vendor/modules/30737841.js",
+    "from": "vendor/modules/setRuntime.js",
     "to": "vendor/modules/6e574d51.js"
   },
   {
@@ -2741,7 +2741,7 @@
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/30737841.js"
+    "to": "vendor/modules/setRuntime.js"
   },
   {
     "from": "app/bootstrap.js",
@@ -3253,7 +3253,7 @@
   },
   {
     "from": "vendor/modules/50327359.js",
-    "to": "vendor/modules/55626245.js"
+    "to": "vendor/modules/objectAssign.js"
   },
   {
     "from": "vendor/modules/5046577a.js",
@@ -3860,11 +3860,11 @@
     "to": "vendor/modules/78395a61.js"
   },
   {
-    "from": "vendor/modules/55626245.js",
+    "from": "vendor/modules/objectAssign.js",
     "to": "vendor/modules/6f384e48.js"
   },
   {
-    "from": "vendor/modules/55626245.js",
+    "from": "vendor/modules/objectAssign.js",
     "to": "vendor/modules/5745706b.js"
   },
   {
@@ -4516,7 +4516,7 @@
     "to": "vendor/modules/32666145.js"
   },
   {
-    "from": "vendor/modules/5a793533.js",
+    "from": "vendor/modules/messageFormatParser.js",
     "to": "vendor/modules/6f4f7376.js"
   },
   {
@@ -5069,7 +5069,7 @@
   },
   {
     "from": "vendor/modules/664e4a68.js",
-    "to": "vendor/modules/5a793533.js"
+    "to": "vendor/modules/messageFormatParser.js"
   },
   {
     "from": "vendor/modules/665a464e.js",
