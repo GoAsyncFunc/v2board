@@ -6124,7 +6124,7 @@
     "to": "vendor/modules/assocIndexOf.js"
   },
   {
-    "from": "vendor/modules/cloneBuffer.js",
+    "from": "vendor/modules/cloneArrayBuffer.js",
     "to": "vendor/modules/nativeUint8Array.js"
   },
   {
@@ -6133,7 +6133,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/assignValue.js"
+    "to": "vendor/modules/assignMergeValue.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -6208,7 +6208,7 @@
     "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
-    "from": "vendor/modules/34344473.js",
+    "from": "vendor/modules/memoize.js",
     "to": "vendor/modules/65344e63.js"
   },
   {
@@ -6245,18 +6245,18 @@
   },
   {
     "from": "vendor/modules/castPath.js",
-    "to": "vendor/modules/474e694d.js"
+    "to": "vendor/modules/stringToPath.js"
   },
   {
     "from": "vendor/modules/castPath.js",
     "to": "vendor/modules/toString.js"
   },
   {
-    "from": "vendor/modules/35546730.js",
+    "from": "vendor/modules/cloneBuffer.js",
     "to": "vendor/modules/rootObject.js"
   },
   {
-    "from": "vendor/modules/35546730.js",
+    "from": "vendor/modules/cloneBuffer.js",
     "to": "vendor/modules/59755469.js"
   },
   {
@@ -6384,7 +6384,7 @@
     "to": "vendor/modules/77636c47.js"
   },
   {
-    "from": "vendor/modules/474e694d.js",
+    "from": "vendor/modules/stringToPath.js",
     "to": "vendor/modules/memoizeCapped.js"
   },
   {
@@ -6393,7 +6393,7 @@
   },
   {
     "from": "vendor/modules/memoizeCapped.js",
-    "to": "vendor/modules/34344473.js"
+    "to": "vendor/modules/memoize.js"
   },
   {
     "from": "vendor/modules/496f616f.js",
@@ -6444,11 +6444,11 @@
     "to": "vendor/modules/isIndex.js"
   },
   {
-    "from": "vendor/modules/4d725064.js",
+    "from": "vendor/modules/assignValue.js",
     "to": "vendor/modules/baseAssignValue.js"
   },
   {
-    "from": "vendor/modules/4d725064.js",
+    "from": "vendor/modules/assignValue.js",
     "to": "vendor/modules/sameValueZero.js"
   },
   {
@@ -6488,15 +6488,15 @@
     "to": "vendor/modules/rootObject.js"
   },
   {
-    "from": "vendor/modules/51634f65.js",
+    "from": "vendor/modules/baseKeys.js",
     "to": "vendor/modules/isObjectValue.js"
   },
   {
-    "from": "vendor/modules/51634f65.js",
+    "from": "vendor/modules/baseKeys.js",
     "to": "vendor/modules/isPrototype.js"
   },
   {
-    "from": "vendor/modules/51634f65.js",
+    "from": "vendor/modules/baseKeys.js",
     "to": "vendor/modules/keysIn.js"
   },
   {
@@ -6517,11 +6517,11 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/assignValue.js"
+    "to": "vendor/modules/assignMergeValue.js"
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/35546730.js"
+    "to": "vendor/modules/cloneBuffer.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -6793,7 +6793,7 @@
   },
   {
     "from": "vendor/modules/6a757638.js",
-    "to": "vendor/modules/4d725064.js"
+    "to": "vendor/modules/assignValue.js"
   },
   {
     "from": "vendor/modules/6a757638.js",
@@ -6821,7 +6821,7 @@
   },
   {
     "from": "vendor/modules/getAllKeys.js",
-    "to": "vendor/modules/51634f65.js"
+    "to": "vendor/modules/baseKeys.js"
   },
   {
     "from": "vendor/modules/getAllKeys.js",
@@ -6904,11 +6904,11 @@
     "to": "vendor/modules/744c4233.js"
   },
   {
-    "from": "vendor/modules/assignValue.js",
+    "from": "vendor/modules/assignMergeValue.js",
     "to": "vendor/modules/baseAssignValue.js"
   },
   {
-    "from": "vendor/modules/assignValue.js",
+    "from": "vendor/modules/assignMergeValue.js",
     "to": "vendor/modules/sameValueZero.js"
   },
   {
@@ -6949,7 +6949,7 @@
   },
   {
     "from": "vendor/modules/cloneTypedArray.js",
-    "to": "vendor/modules/cloneBuffer.js"
+    "to": "vendor/modules/cloneArrayBuffer.js"
   },
   {
     "from": "vendor/modules/baseToString.js",

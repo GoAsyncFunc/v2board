@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var assignValue = require("./4d725064.js"),
+var assignValue = require("./assignValue.js"),
   baseAssignValue = require("./baseAssignValue.js");
 function copyObject(source, props, object, customizer) {
   var isNew = !object;

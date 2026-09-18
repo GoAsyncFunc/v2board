@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var isArray = require("./isArray.js"),
   isKey = require("./isKeyPath.js"),
-  stringToPath = require("./474e694d.js"),
+  stringToPath = require("./stringToPath.js"),
   toString = require("./toString.js");
 function castPath(value, object) {
   return isArray(value) ? value : isKey(value, object) ? [value] : stringToPath(toString(value));

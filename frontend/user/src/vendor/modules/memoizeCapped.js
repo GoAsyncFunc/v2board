@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./34344473.js"),
-  i = 500;
-function a(e) {
-  var t = r(e, function (e) {
-      return n.size === i && n.clear(), e;
+var memoize = require("./memoize.js"),
+  maxMemoizeSize = 500;
+function memoizeCapped(func) {
+  var result = memoize(func, function (key) {
+      return cache.size === maxMemoizeSize && cache.clear(), key;
     }),
-    n = t.cache;
-  return t;
+    cache = result.cache;
+  return result;
 }
-legacyModule.exports = a;
+legacyModule.exports = memoizeCapped;

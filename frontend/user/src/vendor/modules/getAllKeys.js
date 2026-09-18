@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./62383054.js"),
-  i = require("./51634f65.js"),
-  a = require("./isArrayLike.js");
-function o(e) {
-  return a(e) ? r(e, !0) : i(e);
+var arrayLikeKeys = require("./62383054.js"),
+  baseKeys = require("./baseKeys.js"),
+  isArrayLike = require("./isArrayLike.js");
+function getAllKeys(object) {
+  return isArrayLike(object) ? arrayLikeKeys(object, !0) : baseKeys(object);
 }
-legacyModule.exports = o;
+legacyModule.exports = getAllKeys;

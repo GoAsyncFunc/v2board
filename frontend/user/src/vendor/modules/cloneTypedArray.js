@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./cloneBuffer.js");
-function i(e, t) {
-  var n = t ? r(e.buffer) : e.buffer;
-  return new e.constructor(n, e.byteOffset, e.length);
+var cloneArrayBuffer = require("./cloneArrayBuffer.js");
+function cloneTypedArray(typedArray, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
+  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
 }
-legacyModule.exports = i;
+legacyModule.exports = cloneTypedArray;

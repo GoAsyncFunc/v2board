@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var assignValue = require("./assignValue.js"),
-  cloneBuffer = require("./35546730.js"),
+var assignMergeValue = require("./assignMergeValue.js"),
+  cloneBuffer = require("./cloneBuffer.js"),
   cloneTypedArray = require("./cloneTypedArray.js"),
   copyArray = require("./copyArray.js"),
   baseGetPrototype = require("./baseGetPrototype.js"),
@@ -19,7 +19,7 @@ function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, sta
   var objectValue = getValue(object, key),
     sourceValue = getValue(source, key),
     stackedValue = stack.get(sourceValue);
-  if (stackedValue) assignValue(object, key, stackedValue);else {
+  if (stackedValue) assignMergeValue(object, key, stackedValue);else {
     var newValue = customizer ? customizer(objectValue, sourceValue, key + "", object, source, stack) : void 0,
       isCommon = void 0 === newValue;
     if (isCommon) {
@@ -28,7 +28,7 @@ function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, sta
         isSourceTypedArray = !isSourceArray && !isSourceBuffer && isTypedArray(sourceValue);
       newValue = sourceValue, isSourceArray || isSourceBuffer || isSourceTypedArray ? isArray(objectValue) ? newValue = objectValue : isArrayLikeObject(objectValue) ? newValue = copyArray(objectValue) : isSourceBuffer ? (isCommon = !1, newValue = cloneBuffer(sourceValue, !0)) : isSourceTypedArray ? (isCommon = !1, newValue = cloneTypedArray(sourceValue, !0)) : newValue = [] : initCloneObject(sourceValue) || isArguments(sourceValue) ? (newValue = objectValue, isArguments(objectValue) ? newValue = getAllKeys(objectValue) : isObject(objectValue) && !isFunction(objectValue) || (newValue = baseGetPrototype(sourceValue))) : isCommon = !1;
     }
-    isCommon && (stack.set(sourceValue, newValue), mergeFunc(newValue, sourceValue, srcIndex, customizer, stack), stack["delete"](sourceValue)), assignValue(object, key, newValue);
+    isCommon && (stack.set(sourceValue, newValue), mergeFunc(newValue, sourceValue, srcIndex, customizer, stack), stack["delete"](sourceValue)), assignMergeValue(object, key, newValue);
   }
 }
 legacyModule.exports = baseMergeDeep;
