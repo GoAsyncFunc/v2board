@@ -18,7 +18,7 @@ var r = require("./emptyModule.js"),
   f = interopDefault(h),
   d = require("./copyProperties.js"),
   p = interopDefault(d),
-  m = require("./514c6150.js"),
+  m = require("./invariant.js"),
   g = interopDefault(m);
 function v(e) {
   return JSON.stringify(e.map(function (e) {

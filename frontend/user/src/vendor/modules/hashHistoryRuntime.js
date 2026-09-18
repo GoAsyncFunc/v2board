@@ -10,10 +10,10 @@ var r = Object.assign || function (e) {
   },
   o = require("./noopLegacy.js"),
   i = d(o),
-  a = require("./514c6150.js"),
+  a = require("./invariant.js"),
   s = d(a),
   c = require("./locationRuntime.js"),
-  u = require("./4677725a.js"),
+  u = require("./historyPathUtils.js"),
   l = require("./5236342b.js"),
   f = d(l),
   p = require("./79566c61.js");

@@ -6,10 +6,10 @@ const {
 } = require("../../app/moduleInterop.js");
 var r = require("./noopLegacy.js"),
   o = interopDefault(r),
-  i = require("./514c6150.js"),
+  i = require("./invariant.js"),
   a = interopDefault(i),
-  s = require("./2f516879.js"),
-  c = require("./62726455.js"),
+  s = require("./resolvePathRuntime.js"),
+  c = require("./shallowEqual.js"),
   u = function (e) {
     return "/" === e.charAt(0) ? e : "/" + e;
   },
