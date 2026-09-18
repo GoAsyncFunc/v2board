@@ -1381,7 +1381,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Profile.jsx",
@@ -1561,7 +1561,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -2449,7 +2449,7 @@
   },
   {
     "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/71566450.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "components/LanguageSelector.jsx",
@@ -2457,7 +2457,7 @@
   },
   {
     "from": "components/LanguageSelector.jsx",
-    "to": "vendor/modules/6c55544b.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "components/LanguageSelector.jsx",
@@ -2617,7 +2617,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -2729,7 +2729,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/354e4461.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -3013,7 +3013,7 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -4461,11 +4461,11 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/4f614579.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -4473,7 +4473,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/354e4461.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -5069,7 +5069,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/32717463.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -5324,15 +5324,15 @@
     "to": "vendor/modules/43575167.js"
   },
   {
-    "from": "vendor/modules/32717463.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/32717463.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/32717463.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -5388,15 +5388,15 @@
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/354e4461.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/354e4461.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/354e4461.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -5664,15 +5664,15 @@
     "to": "vendor/modules/36436658.js"
   },
   {
-    "from": "vendor/modules/4f614579.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/4f614579.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/4f614579.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -5805,10 +5805,6 @@
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/71566450.js"
-  },
-  {
-    "from": "vendor/modules/67395956.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -5817,7 +5813,11 @@
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/4f614579.js"
+    "to": "vendor/modules/emptyModule.js"
+  },
+  {
+    "from": "vendor/modules/67395956.js",
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
@@ -5848,15 +5848,15 @@
     "to": "vendor/modules/antdButton.js"
   },
   {
-    "from": "vendor/modules/6c55544b.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/6c55544b.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/6c55544b.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
@@ -5956,15 +5956,15 @@
     "to": "vendor/modules/78456b55.js"
   },
   {
-    "from": "vendor/modules/71566450.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/71566450.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
-    "from": "vendor/modules/71566450.js",
+    "from": "vendor/modules/emptyModule.js",
     "to": "vendor/modules/emptyModule.js"
   },
   {
