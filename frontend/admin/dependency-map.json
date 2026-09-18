@@ -2341,10 +2341,6 @@
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/37436276.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/75684241.js"
   },
   {
@@ -2370,6 +2366,10 @@
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/markdownEditorRuntime.js",
+    "to": "vendor/modules/uuidV4.js"
   },
   {
     "from": "vendor/modules/messageFormatObjectUtils.js",

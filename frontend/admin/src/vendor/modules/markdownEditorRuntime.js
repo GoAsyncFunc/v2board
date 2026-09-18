@@ -13,7 +13,7 @@ var n = require("./objectAssignHelper.js"),
   l = require("./inherits.js"),
   i = interopDefault(l),
   u = require("./reactRuntime.js"),
-  s = require("./37436276.js");
+  uuidV4 = require("./uuidV4.js").uuidV4;
 function h(e) {
   return u["createElement"]("i", {
     className: "rmel-iconfont rmel-icon-" + e.type
@@ -362,7 +362,7 @@ var U = function (e) {
 };
 function B(e, t) {
   var c = D("", "image", {
-      target: "Uploading_" + Object(s["a"])(),
+      target: "Uploading_" + uuidV4(),
       imageUrl: ""
     }).text,
     n = new Promise(function (c) {
@@ -541,7 +541,7 @@ var $ = function (e) {
     var i = {};
     return c.forEach(function (t) {
       "undefined" === typeof i[t.comp.align] && (i[t.comp.align] = []);
-      var c = "divider" === t.comp.pluginName ? Object(s["a"])() : t.comp.pluginName;
+      var c = "divider" === t.comp.pluginName ? uuidV4() : t.comp.pluginName;
       i[t.comp.align].push(u["createElement"](t.comp, {
         editor: e,
         editorConfig: e.config,
