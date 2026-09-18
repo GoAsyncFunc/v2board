@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./coreJsExport.js");
-r(r.S, "Object", {
+var coreJsExport = require("./coreJsExport.js");
+coreJsExport(coreJsExport.S, "Object", {
   setPrototypeOf: require("./setPrototypeOfLegacyFallback.js").set
 });

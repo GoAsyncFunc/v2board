@@ -4,7 +4,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var r = require("./32554434.js"),
-  i = require("./6a425942.js"),
+  i = require("./relativeTimeDifference.js"),
   o = require("./6f624455.js");
 legacyExports.default = l;
 var a = ["second", "second-short", "minute", "minute-short", "hour", "hour-short", "day", "day-short", "month", "month-short", "year", "year-short"],
