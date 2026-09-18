@@ -8969,7 +8969,7 @@
   },
   {
     "from": "vendor/modules/markdownIt.js",
-    "to": "vendor/modules/664d492b.js"
+    "to": "vendor/modules/markdownRenderer.js"
   },
   {
     "from": "vendor/modules/markdownIt.js",
@@ -9005,7 +9005,7 @@
   },
   {
     "from": "vendor/modules/markdownIt.js",
-    "to": "vendor/modules/516f302b.js"
+    "to": "vendor/modules/markdownCommonmarkConfig.js"
   },
   {
     "from": "vendor/modules/markdownInlineState.js",
@@ -10245,7 +10245,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/67302b76.js"
+    "to": "vendor/modules/markdownBlockState.js"
   },
   {
     "from": "vendor/modules/toString.js",
@@ -10332,15 +10332,15 @@
     "to": "vendor/modules/nativeMap.js"
   },
   {
-    "from": "vendor/modules/664d492b.js",
+    "from": "vendor/modules/markdownRenderer.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/664d492b.js",
+    "from": "vendor/modules/markdownRenderer.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/664d492b.js",
+    "from": "vendor/modules/markdownRenderer.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -10396,11 +10396,11 @@
     "to": "vendor/modules/stackSet.js"
   },
   {
-    "from": "vendor/modules/67302b76.js",
+    "from": "vendor/modules/markdownBlockState.js",
     "to": "vendor/modules/markdownToken.js"
   },
   {
-    "from": "vendor/modules/67302b76.js",
+    "from": "vendor/modules/markdownBlockState.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {

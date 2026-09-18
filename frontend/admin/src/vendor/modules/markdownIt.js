@@ -1,6 +1,6 @@
 var markdownUtils = require("./markdownUtils.js");
 var linkParsers = require("./markdownLinkParsers.js");
-var MarkdownRenderer = require("./664d492b.js");
+var MarkdownRenderer = require("./markdownRenderer.js");
 var MarkdownCoreParser = require("./markdownCoreParser.js");
 var MarkdownBlockParser = require("./markdownBlockParser.js");
 var MarkdownInlineParser = require("./markdownInlineParser.js");
@@ -11,7 +11,7 @@ var punycode = require("./47595779.js");
 var presets = {
   default: require("./markdownEmptyConfig.js"),
   zero: require("./markdownDefaultConfig.js"),
-  commonmark: require("./516f302b.js")
+  commonmark: require("./markdownCommonmarkConfig.js")
 };
 
 var unsafeProtocolPattern = /^(vbscript|javascript|file|data):/;

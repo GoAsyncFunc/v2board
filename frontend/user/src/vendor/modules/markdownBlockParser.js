@@ -60,6 +60,6 @@ MarkdownBlockParser.prototype.parse = function (source, md, env, outputTokens) {
   this.tokenize(state, state.line, state.lineMax);
 };
 
-MarkdownBlockParser.prototype.State = require("./67302b76.js");
+MarkdownBlockParser.prototype.State = require("./markdownBlockState.js");
 
 module.exports = MarkdownBlockParser;
