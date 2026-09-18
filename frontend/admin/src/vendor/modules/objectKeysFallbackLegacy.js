@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var hasOwn = require("./hasOwnLegacy.js"),
   toArray = require("./toArray.js"),
-  indexOf = require("./57303730.js")(!1),
+  indexOf = require("./arrayIndexOfLegacyFactory.js")(!1),
   ieProtoKey = require("./sharedKeyLegacy.js")("IE_PROTO");
 legacyModule.exports = function getObjectKeys(object, hiddenKeys) {
   var key,
