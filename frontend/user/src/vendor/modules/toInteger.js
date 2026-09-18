@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = Math.ceil,
-  r = Math.floor;
-legacyModule.exports = function (e) {
-  return isNaN(e = +e) ? 0 : (e > 0 ? r : n)(e);
+var ceil = Math.ceil,
+  floor = Math.floor;
+legacyModule.exports = function toInteger(value) {
+  return isNaN(value = +value) ? 0 : (value > 0 ? floor : ceil)(value);
 };

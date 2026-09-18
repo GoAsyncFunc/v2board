@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./baseGet.js");
-function i(e, t, n) {
-  var i = null == e ? void 0 : r(e, t);
-  return void 0 === i ? n : i;
+var baseGet = require("./baseGet.js");
+function getValueOrDefault(object, path, defaultValue) {
+  var value = null == object ? void 0 : baseGet(object, path);
+  return void 0 === value ? defaultValue : value;
 }
-legacyModule.exports = i;
+legacyModule.exports = getValueOrDefault;

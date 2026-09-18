@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = {}.hasOwnProperty;
-legacyModule.exports = function (e, t) {
-  return n.call(e, t);
+var hasOwnProperty = {}.hasOwnProperty;
+legacyModule.exports = function hasOwn(object, propertyName) {
+  return hasOwnProperty.call(object, propertyName);
 };
