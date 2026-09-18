@@ -143,8 +143,8 @@ var v = require("./75684241.js"),
   }(),
   M = new g(),
   C = M,
-  H = require("./57384d4a.js"),
-  O = interopDefault(H),
+  createClassModule = require("./createClassHelper.js"),
+  createClass = interopDefault(createClassModule),
   V = function (e) {
     function t() {
       return e.apply(this, arguments) || this;
@@ -153,7 +153,7 @@ var v = require("./75684241.js"),
     var c = t.prototype;
     return c.getConfig = function (e, t) {
       return "undefined" !== typeof this.props.config[e] && null !== this.props.config[e] ? this.props.config[e] : t;
-    }, O()(t, [{
+    }, createClass()(t, [{
       key: "editor",
       get: function () {
         return this.props.editor;
@@ -1690,7 +1690,7 @@ var Le = function (e) {
       }));
     }
     return null;
-  }, O()(t, [{
+  }, createClass()(t, [{
     key: "isDisplay",
     get: function () {
       var e = this.editorConfig.canView;

@@ -1916,10 +1916,6 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/57384d4a.js",
-    "to": "vendor/modules/toPropertyKey.js"
-  },
-  {
     "from": "vendor/modules/65412f59.js",
     "to": "vendor/modules/4a373869.js"
   },
@@ -2148,6 +2144,10 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/createClassHelper.js",
+    "to": "vendor/modules/toPropertyKey.js"
+  },
+  {
     "from": "vendor/modules/deprecate.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
@@ -2345,10 +2345,6 @@
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/57384d4a.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/75684241.js"
   },
   {
@@ -2358,6 +2354,10 @@
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
     "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/markdownEditorRuntime.js",
+    "to": "vendor/modules/createClassHelper.js"
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
