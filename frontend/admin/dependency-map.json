@@ -8977,11 +8977,11 @@
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/6470616d.js"
+    "to": "vendor/modules/markdownBlockParser.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/544c5235.js"
+    "to": "vendor/modules/markdownInlineParser.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
@@ -9864,71 +9864,71 @@
     "to": "vendor/modules/49587a71.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/markdownRuler.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/75737159.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/516a5946.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/6267436e.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/5370526d.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/6b697952.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/794b6e76.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/7a512f57.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/6b79306a.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/4b4f794b.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/markdownInlineHtmlRule.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/57315270.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/6734304a.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/6b697952.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/794b6e76.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/normalizeTokenLevels.js"
   },
   {
-    "from": "vendor/modules/544c5235.js",
+    "from": "vendor/modules/markdownInlineParser.js",
     "to": "vendor/modules/markdownInlineState.js"
   },
   {
@@ -10196,55 +10196,55 @@
     "to": "vendor/modules/isObjectValue.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/markdownRuler.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/674e5045.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/markdownCodeBlockRule.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/7679732b.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/3641354a.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/2f663651.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/537a354c.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/316e424f.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/58373158.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/markdownHeadingRule.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/475a3565.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/524b6837.js"
   },
   {
-    "from": "vendor/modules/6470616d.js",
+    "from": "vendor/modules/markdownBlockParser.js",
     "to": "vendor/modules/67302b76.js"
   },
   {
