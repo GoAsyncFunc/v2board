@@ -13,7 +13,7 @@ var n = require("./reactRuntime.js"),
   l = require("./6a666a59.js"),
   a = require("./6d682f6c.js"),
   i = require("../Icon.js"),
-  u = require("./322f5270.js"),
+  u = require("./antdButton.js"),
   s = require("./48383455.js");
 function h(e) {
   "@babel/helpers - typeof";

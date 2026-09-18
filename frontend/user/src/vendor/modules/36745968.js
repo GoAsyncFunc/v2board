@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isObjectLegacy.js"),
+var r = require("./isObject.js"),
   o = require("./assertObjectLegacy.js"),
   i = function (e, t) {
     if (o(e), !r(t) && null !== t) throw TypeError(t + ": can't set as prototype!");

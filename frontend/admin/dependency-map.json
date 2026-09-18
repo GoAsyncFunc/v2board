@@ -937,7 +937,7 @@
   },
   {
     "from": "vendor/modules/assertObjectLegacy.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/35513056.js",
@@ -1033,7 +1033,7 @@
   },
   {
     "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/362f3173.js",
@@ -1117,7 +1117,7 @@
   },
   {
     "from": "vendor/modules/36745968.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/36745968.js",
@@ -1437,7 +1437,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1921,7 +1921,7 @@
   },
   {
     "from": "vendor/modules/47384d6f.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/47595779.js",
@@ -1993,7 +1993,7 @@
   },
   {
     "from": "vendor/modules/48736e73.js",
-    "to": "vendor/modules/isObjectLegacy.js"
+    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/48736e73.js",

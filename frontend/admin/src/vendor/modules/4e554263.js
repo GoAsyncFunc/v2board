@@ -8,7 +8,7 @@ var n = require("./reactRuntime.js"),
   o = require("./48346667.js"),
   a = require("./classNames.js"),
   l = interopDefault(a),
-  i = require("./32664d37.js");
+  i = require("./antdSelect.js");
 function u(e) {
   "@babel/helpers - typeof";
 

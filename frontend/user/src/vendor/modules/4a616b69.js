@@ -20,7 +20,7 @@ if (require("./descriptorsLegacySupport.js")) {
     b = require("./hasOwn.js"),
     w = require("./toStringTagType.js"),
     x = require("./isObject.js"),
-    O = require("./696c3471.js"),
+    O = require("./toObjectLegacy.js"),
     E = require("./554c4d54.js"),
     _ = require("./2f4d6664.js"),
     k = require("./42467438.js"),

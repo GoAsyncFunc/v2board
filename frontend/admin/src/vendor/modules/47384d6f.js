@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isObjectLegacy.js");
+var r = require("./isObject.js");
 legacyModule.exports = function (e, t) {
   if (!r(e)) return e;
   var n, i;

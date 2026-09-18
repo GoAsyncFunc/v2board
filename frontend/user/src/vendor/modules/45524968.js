@@ -8,7 +8,7 @@ markEsModule(legacyExports), defineExport(legacyExports, "dva", function () {
   return f;
 });
 require("./emptyModule.js");
-var r = require("./74737172.js"),
+var r = require("./antdMessage.js"),
   o = require("../i18n.js"),
   i = require("../siteHelpers.js"),
   a = require("./6e444349.js");
