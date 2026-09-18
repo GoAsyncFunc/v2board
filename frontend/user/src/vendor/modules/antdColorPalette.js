@@ -1,16 +1,16 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = this && this.__importDefault || function (e) {
-  return e && e.__esModule ? e : {
-    default: e
+var interopDefault = this && this.__importDefault || function (moduleValue) {
+  return moduleValue && moduleValue.__esModule ? moduleValue : {
+    default: moduleValue
   };
 };
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var r = n(require("./64306278.js"));
-legacyExports.generate = r.default;
-var o = {
+var generatePalette = interopDefault(require("./64306278.js"));
+legacyExports.generate = generatePalette.default;
+var presetPrimaryColors = {
   red: "#F5222D",
   volcano: "#FA541C",
   orange: "#FA8C16",
@@ -25,34 +25,34 @@ var o = {
   magenta: "#EB2F96",
   grey: "#666666"
 };
-legacyExports.presetPrimaryColors = o;
-var l = {};
-legacyExports.presetPalettes = l, Object.keys(o).forEach(function (e) {
-  l[e] = r.default(o[e]), l[e].primary = l[e][5];
+legacyExports.presetPrimaryColors = presetPrimaryColors;
+var presetPalettes = {};
+legacyExports.presetPalettes = presetPalettes, Object.keys(presetPrimaryColors).forEach(function (colorName) {
+  presetPalettes[colorName] = generatePalette.default(presetPrimaryColors[colorName]), presetPalettes[colorName].primary = presetPalettes[colorName][5];
 });
-var a = l.red;
-legacyExports.red = a;
-var i = l.volcano;
-legacyExports.volcano = i;
-var u = l.gold;
-legacyExports.gold = u;
-var s = l.orange;
-legacyExports.orange = s;
-var h = l.yellow;
-legacyExports.yellow = h;
-var f = l.lime;
-legacyExports.lime = f;
-var v = l.green;
-legacyExports.green = v;
-var p = l.cyan;
-legacyExports.cyan = p;
-var m = l.blue;
-legacyExports.blue = m;
-var d = l.geekblue;
-legacyExports.geekblue = d;
-var z = l.purple;
-legacyExports.purple = z;
-var y = l.magenta;
-legacyExports.magenta = y;
-var b = l.grey;
-legacyExports.grey = b;
+var redPalette = presetPalettes.red;
+legacyExports.red = redPalette;
+var volcanoPalette = presetPalettes.volcano;
+legacyExports.volcano = volcanoPalette;
+var goldPalette = presetPalettes.gold;
+legacyExports.gold = goldPalette;
+var orangePalette = presetPalettes.orange;
+legacyExports.orange = orangePalette;
+var yellowPalette = presetPalettes.yellow;
+legacyExports.yellow = yellowPalette;
+var limePalette = presetPalettes.lime;
+legacyExports.lime = limePalette;
+var greenPalette = presetPalettes.green;
+legacyExports.green = greenPalette;
+var cyanPalette = presetPalettes.cyan;
+legacyExports.cyan = cyanPalette;
+var bluePalette = presetPalettes.blue;
+legacyExports.blue = bluePalette;
+var geekbluePalette = presetPalettes.geekblue;
+legacyExports.geekblue = geekbluePalette;
+var purplePalette = presetPalettes.purple;
+legacyExports.purple = purplePalette;
+var magentaPalette = presetPalettes.magenta;
+legacyExports.magenta = magentaPalette;
+var greyPalette = presetPalettes.grey;
+legacyExports.grey = greyPalette;
