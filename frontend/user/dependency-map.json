@@ -6120,7 +6120,7 @@
     "to": "vendor/modules/3257367a.js"
   },
   {
-    "from": "vendor/modules/2b365858.js",
+    "from": "vendor/modules/listCacheHas.js",
     "to": "vendor/modules/assocIndexOf.js"
   },
   {
@@ -6129,7 +6129,7 @@
   },
   {
     "from": "vendor/modules/2b516b61.js",
-    "to": "vendor/modules/666d5263.js"
+    "to": "vendor/modules/stack.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -6184,15 +6184,15 @@
     "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
-    "from": "vendor/modules/30437a38.js",
-    "to": "vendor/modules/58693765.js"
+    "from": "vendor/modules/stackSet.js",
+    "to": "vendor/modules/listCache.js"
   },
   {
-    "from": "vendor/modules/30437a38.js",
+    "from": "vendor/modules/stackSet.js",
     "to": "vendor/modules/nativeMap.js"
   },
   {
-    "from": "vendor/modules/30437a38.js",
+    "from": "vendor/modules/stackSet.js",
     "to": "vendor/modules/65344e63.js"
   },
   {
@@ -6221,7 +6221,7 @@
   },
   {
     "from": "vendor/modules/346b756b.js",
-    "to": "vendor/modules/48767a69.js"
+    "to": "vendor/modules/hashDelete.js"
   },
   {
     "from": "vendor/modules/346b756b.js",
@@ -6288,8 +6288,8 @@
     "to": "vendor/modules/39523934.js"
   },
   {
-    "from": "vendor/modules/37375a73.js",
-    "to": "vendor/modules/58693765.js"
+    "from": "vendor/modules/stackClear.js",
+    "to": "vendor/modules/listCache.js"
   },
   {
     "from": "vendor/modules/toKey.js",
@@ -6404,7 +6404,7 @@
     "to": "vendor/modules/rootObject.js"
   },
   {
-    "from": "vendor/modules/4a48674c.js",
+    "from": "vendor/modules/mapCacheGet.js",
     "to": "vendor/modules/getMapData.js"
   },
   {
@@ -6580,23 +6580,23 @@
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/58693765.js",
+    "from": "vendor/modules/listCache.js",
     "to": "vendor/modules/listCacheClear.js"
   },
   {
-    "from": "vendor/modules/58693765.js",
-    "to": "vendor/modules/61645534.js"
+    "from": "vendor/modules/listCache.js",
+    "to": "vendor/modules/listCacheDelete.js"
   },
   {
-    "from": "vendor/modules/58693765.js",
-    "to": "vendor/modules/listCacheGet.js"
+    "from": "vendor/modules/listCache.js",
+    "to": "vendor/modules/mapCacheGet.js"
   },
   {
-    "from": "vendor/modules/58693765.js",
-    "to": "vendor/modules/2b365858.js"
+    "from": "vendor/modules/listCache.js",
+    "to": "vendor/modules/listCacheHas.js"
   },
   {
-    "from": "vendor/modules/58693765.js",
+    "from": "vendor/modules/listCache.js",
     "to": "vendor/modules/listCacheSet.js"
   },
   {
@@ -6628,7 +6628,7 @@
     "to": "vendor/modules/toKey.js"
   },
   {
-    "from": "vendor/modules/61645534.js",
+    "from": "vendor/modules/listCacheDelete.js",
     "to": "vendor/modules/assocIndexOf.js"
   },
   {
@@ -6705,11 +6705,11 @@
   },
   {
     "from": "vendor/modules/65344e63.js",
-    "to": "vendor/modules/4a48674c.js"
+    "to": "vendor/modules/mapCacheGet.js"
   },
   {
     "from": "vendor/modules/65344e63.js",
-    "to": "vendor/modules/70535259.js"
+    "to": "vendor/modules/mapCacheHas.js"
   },
   {
     "from": "vendor/modules/65344e63.js",
@@ -6733,35 +6733,35 @@
   },
   {
     "from": "vendor/modules/66475433.js",
-    "to": "vendor/modules/58693765.js"
+    "to": "vendor/modules/listCache.js"
   },
   {
     "from": "vendor/modules/66475433.js",
     "to": "vendor/modules/nativeMap.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/58693765.js"
+    "from": "vendor/modules/stack.js",
+    "to": "vendor/modules/listCache.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/37375a73.js"
+    "from": "vendor/modules/stack.js",
+    "to": "vendor/modules/stackClear.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/4c387841.js"
+    "from": "vendor/modules/stack.js",
+    "to": "vendor/modules/stackDelete.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/listCacheGet.js"
+    "from": "vendor/modules/stack.js",
+    "to": "vendor/modules/mapCacheGet.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
+    "from": "vendor/modules/stack.js",
     "to": "vendor/modules/listCacheHas.js"
   },
   {
-    "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/30437a38.js"
+    "from": "vendor/modules/stack.js",
+    "to": "vendor/modules/stackSet.js"
   },
   {
     "from": "vendor/modules/6879706f.js",
@@ -6876,7 +6876,7 @@
     "to": "vendor/modules/identity.js"
   },
   {
-    "from": "vendor/modules/70535259.js",
+    "from": "vendor/modules/mapCacheHas.js",
     "to": "vendor/modules/getMapData.js"
   },
   {
@@ -6924,7 +6924,7 @@
     "to": "vendor/modules/isSymbol.js"
   },
   {
-    "from": "vendor/modules/listCacheGet.js",
+    "from": "vendor/modules/mapCacheGet.js",
     "to": "vendor/modules/assocIndexOf.js"
   },
   {

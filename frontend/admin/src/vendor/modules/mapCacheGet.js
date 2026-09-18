@@ -1,6 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return this.__data__.get(e);
+var r = require("./getMapData.js");
+function i(e) {
+  return r(this, e).get(e);
 }
-legacyModule.exports = n;
+legacyModule.exports = i;

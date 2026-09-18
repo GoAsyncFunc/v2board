@@ -2,8 +2,8 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./66475433.js"),
   i = require("./mapCacheDelete.js"),
-  o = require("./4a48674c.js"),
-  a = require("./70535259.js"),
+  o = require("./mapCacheGet.js"),
+  a = require("./mapCacheHas.js"),
   s = require("./48386a34.js");
 function l(e) {
   var t = -1,

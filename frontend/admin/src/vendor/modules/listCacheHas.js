@@ -1,6 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-function n(e) {
-  return this.__data__.has(e);
+var r = require("./assocIndexOf.js");
+function i(e) {
+  return r(this.__data__, e) > -1;
 }
-legacyModule.exports = n;
+legacyModule.exports = i;

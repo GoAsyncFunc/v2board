@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./listCacheClear.js"),
-  i = require("./61645534.js"),
+  i = require("./listCacheDelete.js"),
   a = require("./listCacheGet.js"),
-  o = require("./2b365858.js"),
+  o = require("./listCacheHas.js"),
   u = require("./listCacheSet.js");
 function l(e) {
   var t = -1,

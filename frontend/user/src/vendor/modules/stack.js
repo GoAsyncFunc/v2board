@@ -1,11 +1,11 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./58693765.js"),
-  i = require("./37375a73.js"),
-  a = require("./4c387841.js"),
+var r = require("./listCache.js"),
+  i = require("./stackClear.js"),
+  a = require("./stackDelete.js"),
   o = require("./listCacheGet.js"),
   u = require("./listCacheHas.js"),
-  l = require("./30437a38.js");
+  l = require("./stackSet.js");
 function s(e) {
   var t = this.__data__ = new r(e);
   this.size = t.size;
