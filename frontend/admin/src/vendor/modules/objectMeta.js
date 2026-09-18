@@ -1,48 +1,48 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./uid.js")("meta"),
-  i = require("./isObject.js"),
-  o = require("./hasOwn.js"),
-  a = require("./definePropertyHelper.js").f,
-  s = 0,
-  l = Object.isExtensible || function () {
+var metaKey = require("./uid.js")("meta"),
+  isObject = require("./isObject.js"),
+  hasOwn = require("./hasOwn.js"),
+  defineProperty = require("./definePropertyHelper.js").f,
+  objectId = 0,
+  isExtensible = Object.isExtensible || function () {
     return !0;
   },
-  c = !require("./tryCatchTest.js")(function () {
-    return l(Object.preventExtensions({}));
+  preventExtensionsBroken = !require("./tryCatchTest.js")(function () {
+    return isExtensible(Object.preventExtensions({}));
   }),
-  u = function (e) {
-    a(e, r, {
+  setMeta = function (object) {
+    defineProperty(object, metaKey, {
       value: {
-        i: "O" + ++s,
+        i: "O" + ++objectId,
         w: {}
       }
     });
   },
-  h = function (e, t) {
-    if (!i(e)) return "symbol" == typeof e ? e : ("string" == typeof e ? "S" : "P") + e;
-    if (!o(e, r)) {
-      if (!l(e)) return "F";
-      if (!t) return "E";
-      u(e);
+  fastKey = function (value, create) {
+    if (!isObject(value)) return "symbol" == typeof value ? value : ("string" == typeof value ? "S" : "P") + value;
+    if (!hasOwn(value, metaKey)) {
+      if (!isExtensible(value)) return "F";
+      if (!create) return "E";
+      setMeta(value);
     }
-    return e[r].i;
+    return value[metaKey].i;
   },
-  f = function (e, t) {
-    if (!o(e, r)) {
-      if (!l(e)) return !0;
-      if (!t) return !1;
-      u(e);
+  getWeak = function (value, create) {
+    if (!hasOwn(value, metaKey)) {
+      if (!isExtensible(value)) return !0;
+      if (!create) return !1;
+      setMeta(value);
     }
-    return e[r].w;
+    return value[metaKey].w;
   },
-  d = function (e) {
-    return c && p.NEED && l(e) && !o(e, r) && u(e), e;
+  onFreeze = function (value) {
+    return preventExtensionsBroken && objectMeta.NEED && isExtensible(value) && !hasOwn(value, metaKey) && setMeta(value), value;
   },
-  p = legacyModule.exports = {
-    KEY: r,
+  objectMeta = legacyModule.exports = {
+    KEY: metaKey,
     NEED: !1,
-    fastKey: h,
-    getWeak: f,
-    onFreeze: d
+    fastKey: fastKey,
+    getWeak: getWeak,
+    onFreeze: onFreeze
   };
