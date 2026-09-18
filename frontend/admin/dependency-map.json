@@ -9680,7 +9680,7 @@
     "to": "vendor/modules/keysIn.js"
   },
   {
-    "from": "vendor/modules/516a5946.js",
+    "from": "vendor/modules/markdownNewlineRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -9869,19 +9869,19 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/75737159.js"
+    "to": "vendor/modules/markdownTextRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/516a5946.js"
+    "to": "vendor/modules/markdownNewlineRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/6267436e.js"
+    "to": "vendor/modules/markdownEscapeRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/5370526d.js"
+    "to": "vendor/modules/markdownBackticksRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
@@ -9901,7 +9901,7 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/4b4f794b.js"
+    "to": "vendor/modules/markdownAutolinkRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
@@ -9909,7 +9909,7 @@
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
-    "to": "vendor/modules/57315270.js"
+    "to": "vendor/modules/markdownEntityRule.js"
   },
   {
     "from": "vendor/modules/markdownInlineParser.js",
@@ -9956,19 +9956,19 @@
     "to": "vendor/modules/665a464e.js"
   },
   {
-    "from": "vendor/modules/57315270.js",
+    "from": "vendor/modules/markdownEntityRule.js",
     "to": "vendor/modules/htmlEntitiesEntry.js"
   },
   {
-    "from": "vendor/modules/57315270.js",
+    "from": "vendor/modules/markdownEntityRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/57315270.js",
+    "from": "vendor/modules/markdownEntityRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/57315270.js",
+    "from": "vendor/modules/markdownEntityRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -10156,7 +10156,7 @@
     "to": "vendor/modules/2b54542f.js"
   },
   {
-    "from": "vendor/modules/6267436e.js",
+    "from": "vendor/modules/markdownEscapeRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {

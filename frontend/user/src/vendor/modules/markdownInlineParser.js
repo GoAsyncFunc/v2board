@@ -1,17 +1,17 @@
 var MarkdownRuler = require("./markdownRuler.js");
 
 var inlineRules = [
-  ["text", require("./75737159.js")],
-  ["newline", require("./516a5946.js")],
-  ["escape", require("./6267436e.js")],
-  ["backticks", require("./5370526d.js")],
+  ["text", require("./markdownTextRule.js")],
+  ["newline", require("./markdownNewlineRule.js")],
+  ["escape", require("./markdownEscapeRule.js")],
+  ["backticks", require("./markdownBackticksRule.js")],
   ["strikethrough", require("./6b697952.js").tokenize],
   ["emphasis", require("./794b6e76.js").tokenize],
   ["link", require("./7a512f57.js")],
   ["image", require("./6b79306a.js")],
-  ["autolink", require("./4b4f794b.js")],
+  ["autolink", require("./markdownAutolinkRule.js")],
   ["html_inline", require("./markdownInlineHtmlRule.js")],
-  ["entity", require("./57315270.js")]
+  ["entity", require("./markdownEntityRule.js")]
 ];
 
 var postProcessingRules = [
