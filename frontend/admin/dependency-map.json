@@ -8584,7 +8584,7 @@
     "to": "vendor/modules/62597459.js"
   },
   {
-    "from": "vendor/modules/2f663651.js",
+    "from": "vendor/modules/markdownHorizontalRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -10209,7 +10209,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/7679732b.js"
+    "to": "vendor/modules/markdownFenceRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
@@ -10217,7 +10217,7 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/2f663651.js"
+    "to": "vendor/modules/markdownHorizontalRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
@@ -10237,11 +10237,11 @@
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/475a3565.js"
+    "to": "vendor/modules/markdownSetextHeadingRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",
-    "to": "vendor/modules/524b6837.js"
+    "to": "vendor/modules/markdownParagraphRule.js"
   },
   {
     "from": "vendor/modules/markdownBlockParser.js",

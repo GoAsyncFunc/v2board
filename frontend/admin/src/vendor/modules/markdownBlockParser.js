@@ -3,15 +3,15 @@ var MarkdownRuler = require("./markdownRuler.js");
 var blockRules = [
   ["table", require("./674e5045.js"), ["paragraph", "reference"]],
   ["code", require("./markdownCodeBlockRule.js")],
-  ["fence", require("./7679732b.js"), ["paragraph", "reference", "blockquote", "list"]],
+  ["fence", require("./markdownFenceRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["blockquote", require("./3641354a.js"), ["paragraph", "reference", "blockquote", "list"]],
-  ["hr", require("./2f663651.js"), ["paragraph", "reference", "blockquote", "list"]],
+  ["hr", require("./markdownHorizontalRule.js"), ["paragraph", "reference", "blockquote", "list"]],
   ["list", require("./537a354c.js"), ["paragraph", "reference", "blockquote"]],
   ["reference", require("./316e424f.js")],
   ["html_block", require("./58373158.js"), ["paragraph", "reference", "blockquote"]],
   ["heading", require("./markdownHeadingRule.js"), ["paragraph", "reference", "blockquote"]],
-  ["lheading", require("./475a3565.js")],
-  ["paragraph", require("./524b6837.js")]
+  ["lheading", require("./markdownSetextHeadingRule.js")],
+  ["paragraph", require("./markdownParagraphRule.js")]
 ];
 
 function MarkdownBlockParser() {
