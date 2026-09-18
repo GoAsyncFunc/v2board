@@ -2036,30 +2036,6 @@
     "to": "vendor/modules/stringDecoder.js"
   },
   {
-    "from": "vendor/modules/75637430.js",
-    "to": "vendor/modules/786d5661.js"
-  },
-  {
-    "from": "vendor/modules/75637430.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/globalUniqueId.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/propTypesEntry.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/warning.js"
-  },
-  {
     "from": "vendor/modules/aceCoreRuntime.js",
     "to": "vendor/modules/defineIndirect.js"
   },
@@ -2082,6 +2058,30 @@
   {
     "from": "vendor/modules/aceSplitRuntime.js",
     "to": "vendor/modules/moduleObjectPolyfill.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContext.js",
+    "to": "vendor/modules/antdCreateReactContextPolyfill.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContext.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
+    "to": "vendor/modules/globalUniqueId.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
+    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/base64Runtime.js",
@@ -2345,7 +2345,7 @@
   },
   {
     "from": "vendor/modules/intlRuntime.js",
-    "to": "vendor/modules/75637430.js"
+    "to": "vendor/modules/antdCreateReactContext.js"
   },
   {
     "from": "vendor/modules/isEqual.js",
@@ -2444,20 +2444,12 @@
     "to": "vendor/modules/pathRuntime.js"
   },
   {
-    "from": "vendor/modules/propTypesEntry.js",
-    "to": "vendor/modules/propTypesShim.js"
-  },
-  {
     "from": "vendor/modules/propTypesFactory.js",
     "to": "vendor/modules/propTypesSecretLegacy.js"
   },
   {
     "from": "vendor/modules/propTypesRuntime.js",
     "to": "vendor/modules/propTypesFactory.js"
-  },
-  {
-    "from": "vendor/modules/propTypesShim.js",
-    "to": "vendor/modules/propTypesSecret.js"
   },
   {
     "from": "vendor/modules/reactAceEditor.js",

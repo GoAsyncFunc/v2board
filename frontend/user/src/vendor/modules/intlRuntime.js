@@ -31,7 +31,7 @@ function defineEnumerableProperty(target, key, value) {
 }
 var intlObject,
   intlExports = require("./4a525065.js"),
-  createLocaleContext = require("./75637430.js");
+  createLocaleContext = require("./antdCreateReactContext.js");
 function setLocale(locale) {
   var reload = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
     globalObject = window,
