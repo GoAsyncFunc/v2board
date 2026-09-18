@@ -21,7 +21,7 @@ let legacyModule = module,
   }
   var d = Object.create(require("./4f6e7a30.js"));
   d.inherits = require("./5037584d.js");
-  var p = require("./33.js"),
+  var p = require("./emptyModule.js"),
     m = void 0;
   m = p && p.debuglog ? p.debuglog("stream") : function () {};
   var g,

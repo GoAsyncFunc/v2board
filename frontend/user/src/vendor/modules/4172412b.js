@@ -8,7 +8,7 @@ defineExport(legacyExports, "router", function () {
 });
 require("./reactRuntime.js"), require("./436e424d.js");
 var r = require("../../app/history.js");
-require("./6f324a41.js");
+require("./emptyModule.js");
 function o() {
   r["default"].push.apply(r["default"], arguments);
 }

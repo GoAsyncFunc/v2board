@@ -17,7 +17,7 @@
   },
   {
     "from": "vendor/modules/symbolRuntime.js",
-    "to": "vendor/modules/77676555.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/symbolRuntime.js",
@@ -437,7 +437,7 @@
   },
   {
     "from": "vendor/modules/32554434.js",
-    "to": "vendor/modules/33.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/toStringTagType.js",
@@ -709,7 +709,7 @@
   },
   {
     "from": "vendor/modules/37496e62.js",
-    "to": "vendor/modules/34.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/37556b30.js",
@@ -1085,7 +1085,7 @@
   },
   {
     "from": "vendor/modules/4172412b.js",
-    "to": "vendor/modules/6f324a41.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/41795542.js",
@@ -1709,7 +1709,7 @@
   },
   {
     "from": "vendor/modules/4a525065.js",
-    "to": "vendor/modules/30.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/4a525065.js",
@@ -1965,7 +1965,7 @@
   },
   {
     "from": "app/bootstrap.js",
-    "to": "vendor/modules/68683863.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "layouts/MainLayout.jsx",
@@ -5005,15 +5005,15 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/39643851.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/62486a79.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/61305739.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -5193,19 +5193,19 @@
   },
   {
     "from": "vendor/modules/2b424a64.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2b424a64.js",
-    "to": "vendor/modules/364d7245.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2b4c3642.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2b4c3642.js",
-    "to": "vendor/modules/71434d36.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdDrawer.js",
@@ -5241,19 +5241,19 @@
   },
   {
     "from": "vendor/modules/2f786b65.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2f786b65.js",
-    "to": "vendor/modules/72535365.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2f7a7346.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/2f7a7346.js",
-    "to": "vendor/modules/62453445.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/30395766.js",
@@ -5325,11 +5325,11 @@
   },
   {
     "from": "vendor/modules/32717463.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/32717463.js",
-    "to": "vendor/modules/31776350.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/32717463.js",
@@ -5381,19 +5381,19 @@
   },
   {
     "from": "vendor/modules/35446d6f.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/35446d6f.js",
-    "to": "vendor/modules/35596741.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/354e4461.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/354e4461.js",
-    "to": "vendor/modules/4f6e5944.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/354e4461.js",
@@ -5449,11 +5449,11 @@
   },
   {
     "from": "vendor/modules/374b616b.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/374b616b.js",
-    "to": "vendor/modules/4b50467a.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/39393557.js",
@@ -5509,19 +5509,19 @@
   },
   {
     "from": "vendor/modules/41776870.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/41776870.js",
-    "to": "vendor/modules/50514d6a.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/426f5337.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/426f5337.js",
-    "to": "vendor/modules/637a5454.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
@@ -5589,11 +5589,11 @@
   },
   {
     "from": "vendor/modules/4a2b2f76.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/4a2b2f76.js",
-    "to": "vendor/modules/68675679.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdBadge.js",
@@ -5665,11 +5665,11 @@
   },
   {
     "from": "vendor/modules/4f614579.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/4f614579.js",
-    "to": "vendor/modules/624b4a7a.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/4f614579.js",
@@ -5677,11 +5677,11 @@
   },
   {
     "from": "vendor/modules/52396f6a.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/52396f6a.js",
-    "to": "vendor/modules/70777056.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdSwitch.js",
@@ -5737,11 +5737,11 @@
   },
   {
     "from": "vendor/modules/62627350.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/62627350.js",
-    "to": "vendor/modules/4357492b.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/64306278.js",
@@ -5749,11 +5749,11 @@
   },
   {
     "from": "vendor/modules/66563532.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/66563532.js",
-    "to": "vendor/modules/362f6b2b.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/666f5738.js",
@@ -5785,11 +5785,11 @@
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/7045442b.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/67395956.js",
@@ -5801,7 +5801,7 @@
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/4b435939.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/67395956.js",
@@ -5809,11 +5809,11 @@
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/59425442.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/67395956.js",
-    "to": "vendor/modules/55726570.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/67395956.js",
@@ -5849,11 +5849,11 @@
   },
   {
     "from": "vendor/modules/6c55544b.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/6c55544b.js",
-    "to": "vendor/modules/78353471.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/6c55544b.js",
@@ -5913,11 +5913,11 @@
   },
   {
     "from": "vendor/modules/6d69595a.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/6d69595a.js",
-    "to": "vendor/modules/62587743.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/antdTag.js",
@@ -5957,11 +5957,11 @@
   },
   {
     "from": "vendor/modules/71566450.js",
-    "to": "vendor/modules/63494f48.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/71566450.js",
-    "to": "vendor/modules/4b417342.js"
+    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/modules/71566450.js",

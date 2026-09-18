@@ -1,3 +1,3 @@
 let legacyModule = module,
   legacyExports = exports;
-require("./63494f48.js"), require("./68675679.js");
+require("./emptyModule.js"), require("./emptyModule.js");

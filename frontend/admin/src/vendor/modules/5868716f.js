@@ -4,7 +4,7 @@ function r(e, t) {
   if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
 }
 var i = require("./68776456.js").Buffer,
-  o = require("./34.js");
+  o = require("./emptyModule.js");
 function a(e, t, n) {
   e.copy(t, n);
 }

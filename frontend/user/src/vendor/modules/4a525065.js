@@ -6,7 +6,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var r = require("./30.js"),
+var r = require("./emptyModule.js"),
   o = interopDefault(r),
   i = require("./32554434.js"),
   a = interopDefault(i),
