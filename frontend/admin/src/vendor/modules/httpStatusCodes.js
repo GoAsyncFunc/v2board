@@ -1,6 +1,6 @@
-let legacyModule = module,
-  legacyExports = exports;
-legacyModule.exports = {
+"use strict";
+
+module.exports = {
   100: "Continue",
   101: "Switching Protocols",
   102: "Processing",

@@ -2185,19 +2185,19 @@
   },
   {
     "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/55366a79.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/6a415748.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
     "to": "vendor/modules/clientRequestRuntime.js"
   },
   {
     "from": "vendor/modules/httpRequestPolyfill.js",
+    "to": "vendor/modules/copyOwnProperties.js"
+  },
+  {
+    "from": "vendor/modules/httpRequestPolyfill.js",
     "to": "vendor/modules/globalObjectLegacy.js"
+  },
+  {
+    "from": "vendor/modules/httpRequestPolyfill.js",
+    "to": "vendor/modules/httpStatusCodes.js"
   },
   {
     "from": "vendor/modules/httpRequestPolyfill.js",

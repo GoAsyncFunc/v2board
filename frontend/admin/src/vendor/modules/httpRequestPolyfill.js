@@ -1,24 +1,51 @@
-let legacyModule = module,
-  legacyExports = exports;
-(function (e) {
-  var r = require("./clientRequestRuntime.js"),
-    i = require("./incomingMessageRuntime.js"),
-    o = require("./55366a79.js"),
-    a = require("./6a415748.js"),
-    s = require("./urlRuntime.js"),
-    l = legacyExports;
-  l.request = function (t, n) {
-    t = "string" === typeof t ? s.parse(t) : o(t);
-    var i = -1 === e.location.protocol.search(/^https?:$/) ? "http:" : "",
-      a = t.protocol || i,
-      l = t.hostname || t.host,
-      c = t.port,
-      u = t.path || "/";
-    l && -1 !== l.indexOf(":") && (l = "[" + l + "]"), t.url = (l ? a + "//" + l : "") + (c ? ":" + c : "") + u, t.method = (t.method || "GET").toUpperCase(), t.headers = t.headers || {};
-    var h = new r(t);
-    return n && h.on("response", n), h;
-  }, l.get = function (e, t) {
-    var n = l.request(e, t);
-    return n.end(), n;
-  }, l.ClientRequest = r, l.IncomingMessage = i.IncomingMessage, l.Agent = function () {}, l.Agent.defaultMaxSockets = 4, l.globalAgent = new l.Agent(), l.STATUS_CODES = a, l.METHODS = ["CHECKOUT", "CONNECT", "COPY", "DELETE", "GET", "HEAD", "LOCK", "M-SEARCH", "MERGE", "MKACTIVITY", "MKCOL", "MOVE", "NOTIFY", "OPTIONS", "PATCH", "POST", "PROPFIND", "PROPPATCH", "PURGE", "PUT", "REPORT", "SEARCH", "SUBSCRIBE", "TRACE", "UNLOCK", "UNSUBSCRIBE"];
-}).call(this, require("./globalObjectLegacy.js"));
+"use strict";
+
+const ClientRequest = require("./clientRequestRuntime.js");
+const IncomingMessage = require("./incomingMessageRuntime.js").IncomingMessage;
+const copyOwnProperties = require("./copyOwnProperties.js");
+const statusCodes = require("./httpStatusCodes.js");
+const url = require("./urlRuntime.js");
+const globalObject = require("./globalObjectLegacy.js");
+
+function request(options, callback) {
+  options = typeof options === "string" ? url.parse(options) : copyOwnProperties(options);
+
+  const defaultProtocol = globalObject.location.protocol.search(/^https?:$/) === -1 ? "http:" : "";
+  const protocol = options.protocol || defaultProtocol;
+  let hostname = options.hostname || options.host;
+  const port = options.port;
+  const path = options.path || "/";
+
+  if (hostname && hostname.indexOf(":") !== -1) hostname = "[" + hostname + "]";
+  options.url = (hostname ? protocol + "//" + hostname : "") +
+    (port ? ":" + port : "") + path;
+  options.method = (options.method || "GET").toUpperCase();
+  options.headers = options.headers || {};
+
+  const clientRequest = new ClientRequest(options);
+  if (callback) clientRequest.on("response", callback);
+  return clientRequest;
+}
+
+function get(options, callback) {
+  const clientRequest = request(options, callback);
+  clientRequest.end();
+  return clientRequest;
+}
+
+function Agent() {}
+Agent.defaultMaxSockets = 4;
+
+exports.request = request;
+exports.get = get;
+exports.ClientRequest = ClientRequest;
+exports.IncomingMessage = IncomingMessage;
+exports.Agent = Agent;
+exports.globalAgent = new Agent();
+exports.STATUS_CODES = statusCodes;
+exports.METHODS = [
+  "CHECKOUT", "CONNECT", "COPY", "DELETE", "GET", "HEAD", "LOCK",
+  "M-SEARCH", "MERGE", "MKACTIVITY", "MKCOL", "MOVE", "NOTIFY",
+  "OPTIONS", "PATCH", "POST", "PROPFIND", "PROPPATCH", "PURGE", "PUT",
+  "REPORT", "SEARCH", "SUBSCRIBE", "TRACE", "UNLOCK", "UNSUBSCRIBE"
+];
