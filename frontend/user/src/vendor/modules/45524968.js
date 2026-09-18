@@ -7,7 +7,7 @@ const {
 markEsModule(legacyExports), defineExport(legacyExports, "dva", function () {
   return f;
 });
-require("./6d69595a.js");
+require("./emptyModule.js");
 var r = require("./74737172.js"),
   o = require("../i18n.js"),
   i = require("../siteHelpers.js"),
