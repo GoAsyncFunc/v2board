@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./45705844.js"),
+var r = require("./arrayIsArrayLegacyRuntime.js"),
   o = require("./isObject.js"),
   i = require("./toLength.js"),
   a = require("./77487272.js"),

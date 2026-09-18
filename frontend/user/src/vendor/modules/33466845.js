@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./isObject.js"),
-  o = require("./45705844.js"),
+  o = require("./arrayIsArrayLegacyRuntime.js"),
   i = require("./wellKnownSymbol.js")("species");
 legacyModule.exports = function (e) {
   var t;
