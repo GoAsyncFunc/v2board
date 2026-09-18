@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6a585148.js"),
+var r = require("./trimStart.js"),
   i = require("./isObjectValue.js"),
   o = require("./isSymbol.js"),
   a = NaN,

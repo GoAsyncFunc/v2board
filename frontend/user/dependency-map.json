@@ -1413,7 +1413,7 @@
   },
   {
     "from": "vendor/modules/4456666c.js",
-    "to": "vendor/modules/6d77495a.js"
+    "to": "vendor/modules/getValueOrDefault.js"
   },
   {
     "from": "pages/Index.jsx",
@@ -6156,15 +6156,15 @@
     "to": "vendor/modules/6974736a.js"
   },
   {
-    "from": "vendor/modules/2b69464f.js",
+    "from": "vendor/modules/baseGetPrototype.js",
     "to": "vendor/modules/6454416c.js"
   },
   {
-    "from": "vendor/modules/2b69464f.js",
+    "from": "vendor/modules/baseGetPrototype.js",
     "to": "vendor/modules/getPrototypeOf.js"
   },
   {
-    "from": "vendor/modules/2b69464f.js",
+    "from": "vendor/modules/baseGetPrototype.js",
     "to": "vendor/modules/isPrototype.js"
   },
   {
@@ -6388,7 +6388,7 @@
     "to": "vendor/modules/memoizeCapped.js"
   },
   {
-    "from": "vendor/modules/48386a34.js",
+    "from": "vendor/modules/mapCacheSet.js",
     "to": "vendor/modules/getMapData.js"
   },
   {
@@ -6397,7 +6397,7 @@
   },
   {
     "from": "vendor/modules/496f616f.js",
-    "to": "vendor/modules/68654e57.js"
+    "to": "vendor/modules/apply.js"
   },
   {
     "from": "vendor/modules/nativeUint8Array.js",
@@ -6533,7 +6533,7 @@
   },
   {
     "from": "vendor/modules/54314156.js",
-    "to": "vendor/modules/2b69464f.js"
+    "to": "vendor/modules/baseGetPrototype.js"
   },
   {
     "from": "vendor/modules/54314156.js",
@@ -6713,7 +6713,7 @@
   },
   {
     "from": "vendor/modules/65344e63.js",
-    "to": "vendor/modules/48386a34.js"
+    "to": "vendor/modules/mapCacheSet.js"
   },
   {
     "from": "vendor/modules/nativeMap.js",
@@ -6768,7 +6768,7 @@
     "to": "vendor/modules/4f306f53.js"
   },
   {
-    "from": "vendor/modules/6a585148.js",
+    "from": "vendor/modules/trimStart.js",
     "to": "vendor/modules/544f3872.js"
   },
   {
@@ -6852,7 +6852,7 @@
     "to": "vendor/modules/isObjectValue.js"
   },
   {
-    "from": "vendor/modules/6d77495a.js",
+    "from": "vendor/modules/getValueOrDefault.js",
     "to": "vendor/modules/5a57744f.js"
   },
   {
@@ -6913,7 +6913,7 @@
   },
   {
     "from": "vendor/modules/744c4233.js",
-    "to": "vendor/modules/6a585148.js"
+    "to": "vendor/modules/trimStart.js"
   },
   {
     "from": "vendor/modules/744c4233.js",

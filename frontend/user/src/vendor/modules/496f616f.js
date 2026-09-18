@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./68654e57.js"),
+var r = require("./apply.js"),
   i = Math.max;
 function a(e, t, n) {
   return t = i(void 0 === t ? e.length - 1 : t, 0), function () {
