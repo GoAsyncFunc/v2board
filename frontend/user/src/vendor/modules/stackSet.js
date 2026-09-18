@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./listCache.js"),
   i = require("./nativeMap.js"),
-  a = require("./65344e63.js"),
+  a = require("./mapCache.js"),
   o = 200;
 function u(e, t) {
   var n = this.__data__;

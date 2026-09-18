@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6c534344.js"),
+var r = require("./isFunction.js"),
   i = require("./isMasked.js"),
   a = require("./isObjectValue.js"),
   o = require("./sourceFunctionToString.js"),

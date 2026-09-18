@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./65344e63.js"),
+var r = require("./mapCache.js"),
   i = "Expected a function";
 function a(e, t) {
   if ("function" != typeof e || null != t && "function" != typeof t) throw new TypeError(i);
