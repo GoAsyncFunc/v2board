@@ -705,7 +705,7 @@
   },
   {
     "from": "vendor/modules/33425273.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/33425273.js",
@@ -1169,7 +1169,7 @@
   },
   {
     "from": "vendor/modules/37746c63.js",
-    "to": "vendor/modules/46664277.js"
+    "to": "vendor/modules/nodeInherits.js"
   },
   {
     "from": "vendor/modules/37746c63.js",
@@ -2045,7 +2045,7 @@
   },
   {
     "from": "vendor/modules/4a373869.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/toObject.js",
@@ -3048,11 +3048,11 @@
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/51537338.js",
+    "from": "vendor/modules/inheritIfRequired.js",
     "to": "vendor/modules/isObject.js"
   },
   {
-    "from": "vendor/modules/51537338.js",
+    "from": "vendor/modules/inheritIfRequired.js",
     "to": "vendor/modules/2f2f336e.js"
   },
   {
@@ -4333,7 +4333,7 @@
   },
   {
     "from": "vendor/modules/65412f59.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/6544496f.js",
@@ -5241,7 +5241,7 @@
   },
   {
     "from": "vendor/modules/6b6c3541.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/6b6c3541.js",
@@ -5497,7 +5497,7 @@
   },
   {
     "from": "vendor/modules/collectionStrong.js",
-    "to": "vendor/modules/51537338.js"
+    "to": "vendor/modules/inheritIfRequired.js"
   },
   {
     "from": "vendor/modules/6e594c71.js",
@@ -5793,7 +5793,7 @@
   },
   {
     "from": "vendor/modules/72584675.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -5929,7 +5929,7 @@
   },
   {
     "from": "vendor/modules/735a726f.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/735a726f.js",
@@ -6997,7 +6997,7 @@
   },
   {
     "from": "vendor/modules/79517457.js",
-    "to": "vendor/modules/5037584d.js"
+    "to": "vendor/modules/nodeInheritsOptional.js"
   },
   {
     "from": "vendor/modules/79517457.js",

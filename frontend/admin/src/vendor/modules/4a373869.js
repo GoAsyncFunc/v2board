@@ -35,7 +35,7 @@ function l(e, t, n) {
   if (e._transformState.transforming) throw new Error("Calling transform done when still transforming");
   return e.push(null);
 }
-i.inherits = require("./5037584d.js"), i.inherits(a, r), a.prototype.push = function (e, t) {
+i.inherits = require("./nodeInheritsOptional.js"), i.inherits(a, r), a.prototype.push = function (e, t) {
   return this._transformState.needTransform = !1, r.prototype.push.call(this, e, t);
 }, a.prototype._transform = function (e, t, n) {
   throw new Error("_transform() is not implemented");

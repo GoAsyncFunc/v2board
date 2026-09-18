@@ -7,6 +7,6 @@ function o(e) {
   if (!(this instanceof o)) return new o(e);
   r.call(this, e);
 }
-i.inherits = require("./5037584d.js"), i.inherits(o, r), o.prototype._transform = function (e, t, n) {
+i.inherits = require("./nodeInheritsOptional.js"), i.inherits(o, r), o.prototype._transform = function (e, t, n) {
   n(null, e);
 };

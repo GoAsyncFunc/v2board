@@ -20,7 +20,7 @@ let legacyModule = module,
     return c.isBuffer(e) || e instanceof u;
   }
   var d = Object.create(require("./4f6e7a30.js"));
-  d.inherits = require("./5037584d.js");
+  d.inherits = require("./nodeInheritsOptional.js");
   var p = require("./emptyModule.js"),
     m = void 0;
   m = p && p.debuglog ? p.debuglog("stream") : function () {};

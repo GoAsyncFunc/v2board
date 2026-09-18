@@ -230,7 +230,7 @@ let legacyModule = module,
   }
   legacyExports.log = function () {
     console.log("%s - %s", R(), legacyExports.format.apply(legacyExports, arguments));
-  }, legacyExports.inherits = require("./46664277.js"), legacyExports._extend = function (e, t) {
+  }, legacyExports.inherits = require("./nodeInherits.js"), legacyExports._extend = function (e, t) {
     if (!t || !C(t)) return e;
     var n = Object.keys(t),
       r = n.length;

@@ -8,7 +8,7 @@ var r = require("./6c6d3052.js"),
   };
 legacyModule.exports = h;
 var o = Object.create(require("./4f6e7a30.js"));
-o.inherits = require("./5037584d.js");
+o.inherits = require("./nodeInheritsOptional.js");
 var a = require("./72584675.js"),
   s = require("./33425273.js");
 o.inherits(h, a);

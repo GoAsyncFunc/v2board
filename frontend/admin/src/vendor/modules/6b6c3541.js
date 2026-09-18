@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 (function (t, r, i) {
   var o = require("./71664857.js"),
-    a = require("./5037584d.js"),
+    a = require("./nodeInheritsOptional.js"),
     s = require("./79517457.js"),
     l = require("./streamRuntime.js"),
     c = require("./32546979.js"),
