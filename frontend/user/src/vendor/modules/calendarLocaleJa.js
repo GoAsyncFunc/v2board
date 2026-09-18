@@ -1,6 +1,4 @@
-let legacyModule = module,
-  legacyExports = exports;
-legacyExports["a"] = {
+module.exports = {
   today: "\u4eca\u65e5",
   now: "\u73fe\u5728\u6642\u523b",
   backToToday: "\u4eca\u65e5\u306b\u623b\u308b",

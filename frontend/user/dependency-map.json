@@ -3693,7 +3693,7 @@
   },
   {
     "from": "vendor/modules/faAntd.js",
-    "to": "vendor/modules/58596168.js"
+    "to": "vendor/modules/calendarLocaleFa.js"
   },
   {
     "from": "vendor/modules/faAntd.js",
@@ -4049,7 +4049,7 @@
   },
   {
     "from": "vendor/modules/jaAntd.js",
-    "to": "vendor/modules/48454742.js"
+    "to": "vendor/modules/calendarLocaleJa.js"
   },
   {
     "from": "vendor/modules/jaAntd.js",
@@ -4065,7 +4065,7 @@
   },
   {
     "from": "vendor/modules/koAntd.js",
-    "to": "vendor/modules/4376744f.js"
+    "to": "vendor/modules/calendarLocaleKo.js"
   },
   {
     "from": "vendor/modules/koAntd.js",
@@ -4977,7 +4977,7 @@
   },
   {
     "from": "vendor/modules/twAntd.js",
-    "to": "vendor/modules/4b716f38.js"
+    "to": "vendor/modules/calendarLocaleZhHant.js"
   },
   {
     "from": "vendor/modules/twAntd.js",
@@ -4993,7 +4993,7 @@
   },
   {
     "from": "vendor/modules/viAntd.js",
-    "to": "vendor/modules/7a526348.js"
+    "to": "vendor/modules/calendarLocaleVi.js"
   },
   {
     "from": "vendor/modules/viAntd.js",
@@ -5025,7 +5025,7 @@
   },
   {
     "from": "vendor/modules/zhAntd.js",
-    "to": "vendor/modules/4c397072.js"
+    "to": "vendor/modules/calendarLocaleZhHans.js"
   },
   {
     "from": "vendor/modules/zhAntd.js",

@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
 var n = require("./paginationLocaleFa.js"),
-  r = require("./58596168.js"),
+  calendarLocale = require("./calendarLocaleFa.js"),
   o = {
     placeholder: "\u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0645\u0627\u0646"
   },
@@ -23,7 +23,7 @@ var i = {
     lang: a({
       placeholder: "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e",
       rangePlaceholder: ["\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639", "\u062a\u0627\u0631\u06cc\u062e \u067e\u0627\u06cc\u0627\u0646"]
-    }, r["a"]),
+    }, calendarLocale),
     timePickerLocale: a({}, l)
   },
   u = i,

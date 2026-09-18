@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
 var n = require("./paginationLocaleZhHans.js"),
-  r = require("./4c397072.js"),
+  calendarLocale = require("./calendarLocaleZhHans.js"),
   o = {
     placeholder: "\u8bf7\u9009\u62e9\u65f6\u95f4"
   },
@@ -23,7 +23,7 @@ var i = {
   lang: a({
     placeholder: "\u8bf7\u9009\u62e9\u65e5\u671f",
     rangePlaceholder: ["\u5f00\u59cb\u65e5\u671f", "\u7ed3\u675f\u65e5\u671f"]
-  }, r["a"]),
+  }, calendarLocale),
   timePickerLocale: a({}, l)
 };
 i.lang.ok = "\u786e \u5b9a";
