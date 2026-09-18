@@ -3,7 +3,7 @@ let legacyModule = module,
 var n = require("./reactRuntime.js"),
   r = require("./propTypesRuntime.js"),
   o = require("./momentRuntime.js"),
-  a = require("./76657152.js"),
+  a = require("./interopDefault.js"),
   l = require("./756c3562.js"),
   i = require("./36436658.js");
 function u(e) {

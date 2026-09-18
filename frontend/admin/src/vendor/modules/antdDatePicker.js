@@ -15,7 +15,7 @@ var n = require("./57485058.js"),
   f = require("../Icon.js"),
   p = require("./48383455.js"),
   v = require("./36436658.js"),
-  m = require("./76657152.js");
+  m = require("./interopDefault.js");
 function d(e) {
   return Object.keys(e).reduce(function (t, c) {
     return "data-" !== c.substr(0, 5) && "aria-" !== c.substr(0, 5) && "role" !== c || "data-__" === c.substr(0, 7) || (t[c] = e[c]), t;

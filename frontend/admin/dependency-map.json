@@ -3480,7 +3480,7 @@
     "to": "vendor/modules/59714163.js"
   },
   {
-    "from": "vendor/modules/56625861.js",
+    "from": "vendor/modules/inherits.js",
     "to": "vendor/modules/536b734f.js"
   },
   {
@@ -3905,7 +3905,7 @@
   },
   {
     "from": "vendor/modules/61474a44.js",
-    "to": "vendor/modules/4a625758.js"
+    "to": "vendor/modules/extend.js"
   },
   {
     "from": "vendor/modules/61534531.js",
@@ -4525,7 +4525,7 @@
   },
   {
     "from": "vendor/modules/664e4a68.js",
-    "to": "vendor/modules/4a625758.js"
+    "to": "vendor/modules/extend.js"
   },
   {
     "from": "vendor/modules/664e4a68.js",
@@ -6037,7 +6037,7 @@
   },
   {
     "from": "vendor/modules/7432334d.js",
-    "to": "vendor/modules/585a3734.js"
+    "to": "vendor/modules/supportRef.js"
   },
   {
     "from": "services/request.js",
@@ -7257,7 +7257,7 @@
   },
   {
     "from": "vendor/modules/antdDatePicker.js",
-    "to": "vendor/modules/76657152.js"
+    "to": "vendor/modules/interopDefault.js"
   },
   {
     "from": "vendor/modules/antdDatePicker.js",
@@ -8385,7 +8385,7 @@
   },
   {
     "from": "vendor/modules/antdConfigProvider.js",
-    "to": "vendor/modules/76657152.js"
+    "to": "vendor/modules/interopDefault.js"
   },
   {
     "from": "vendor/modules/antdConfigProvider.js",

@@ -3217,7 +3217,7 @@
   },
   {
     "from": "vendor/modules/61474a44.js",
-    "to": "vendor/modules/4a625758.js"
+    "to": "vendor/modules/extend.js"
   },
   {
     "from": "vendor/modules/61534531.js",
@@ -3581,7 +3581,7 @@
   },
   {
     "from": "vendor/modules/664e4a68.js",
-    "to": "vendor/modules/4a625758.js"
+    "to": "vendor/modules/extend.js"
   },
   {
     "from": "vendor/modules/664e4a68.js",
@@ -4401,7 +4401,7 @@
   },
   {
     "from": "vendor/modules/7432334d.js",
-    "to": "vendor/modules/585a3734.js"
+    "to": "vendor/modules/supportRef.js"
   },
   {
     "from": "services/request.js",

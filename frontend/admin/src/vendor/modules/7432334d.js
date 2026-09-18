@@ -66,7 +66,7 @@ var p = f(require("./reactRuntime.js")),
   v = d(require("./634f6b43.js")),
   y = require("./73614a2b.js"),
   b = d(require("./6264674b.js")),
-  w = require("./585a3734.js"),
+  w = require("./supportRef.js"),
   x = "rc-observer-key",
   _ = function (e) {
     function t() {

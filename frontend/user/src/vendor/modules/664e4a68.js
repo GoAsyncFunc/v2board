@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4a625758.js"),
+var r = require("./extend.js"),
   o = require("./61474a44.js"),
   i = require("./58556569.js"),
   a = require("./messageFormatParser.js");

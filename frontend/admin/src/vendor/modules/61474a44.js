@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4a625758.js"),
+var r = require("./extend.js"),
   i = function () {
     try {
       return !!Object.defineProperty({}, "a", {});
