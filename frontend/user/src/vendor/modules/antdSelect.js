@@ -9,7 +9,9 @@ defineExport(legacyExports, "a", function () {
 });
 var n = require("./reactRuntime.js"),
   r = require("./propTypesRuntime.js"),
-  o = require("./4c64484d.js"),
+  RcSelect = require("./RcSelect.js").default,
+  SelectOption = require("./SelectOption.js").default,
+  SelectOptGroup = require("./SelectOptGroup.js").default,
   l = require("./classNames.js"),
   a = interopDefault(l),
   i = require("./omitProps.js"),
@@ -178,7 +180,7 @@ var w = function (e, t) {
             type: "check",
             className: "".concat(L, "-selected-icon")
           });
-        return n["createElement"](o["c"], p({
+        return n["createElement"](RcSelect, p({
           inputIcon: r.renderSuffixIcon(L),
           removeIcon: x,
           clearIcon: P,
@@ -238,7 +240,7 @@ var w = function (e, t) {
       }
     }]), c;
   }(n["Component"]);
-k.Option = o["b"], k.OptGroup = o["a"], k.SECRET_COMBOBOX_MODE_DO_NOT_USE = "SECRET_COMBOBOX_MODE_DO_NOT_USE", k.defaultProps = {
+k.Option = SelectOption, k.OptGroup = SelectOptGroup, k.SECRET_COMBOBOX_MODE_DO_NOT_USE = "SECRET_COMBOBOX_MODE_DO_NOT_USE", k.defaultProps = {
   showSearch: !1,
   transitionName: "slide-up",
   choiceTransitionName: "zoom"
