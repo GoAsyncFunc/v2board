@@ -47,7 +47,7 @@ defineExport(legacyExports, "MemoryRouter", function () {
   return r["o"];
 });
 var i = require("./6f685056.js"),
-  o = require("./71317449.js"),
+  o = require("./reactRuntime.js"),
   a = interopDefault(o),
   s = require("./67304d50.js"),
   l = require("./45567149.js"),

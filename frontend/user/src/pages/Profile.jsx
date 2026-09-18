@@ -7,7 +7,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var objectSpreadModule = require("../vendor/modules/6a65685a.js"),
   objectSpread = interopDefault(objectSpreadModule),
@@ -15,7 +15,7 @@ var objectSpreadModule = require("../vendor/modules/6a65685a.js"),
   buttonModule = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
   modalModule = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
   messageModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/antdMessage.js")),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   mainLayout = require("../layouts/MainLayout.jsx"),
   reactRedux = require("../vendor/reactRedux.js"),

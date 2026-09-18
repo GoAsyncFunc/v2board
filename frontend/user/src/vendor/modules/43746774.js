@@ -5,11 +5,11 @@ const {
   interopDefault
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   o = interopDefault(r),
   i = require("./31377839.js"),
   a = interopDefault(i),
-  s = require("./56434c38.js");
+  s = require("./reactLifecyclesCompat.js");
 function c() {
   return c = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
@@ -108,7 +108,7 @@ function x(e, t, n) {
     writable: !0
   }) : e[t] = n, e;
 }
-var O = require("./54535951.js"),
+var O = require("./classNames.js"),
   E = function (e) {
     h(n, e);
     var t = v(n);

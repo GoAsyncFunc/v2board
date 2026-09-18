@@ -6,7 +6,7 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   i = interopDefault(r),
   o = require("./31377839.js"),
   a = interopDefault(o),

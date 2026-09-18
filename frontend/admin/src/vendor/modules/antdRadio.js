@@ -3,10 +3,10 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./31377839.js"),
   o = require("./78315961.js"),
-  a = require("./54535951.js"),
+  a = require("./classNames.js"),
   l = interopDefault(a),
   i = require("./47797478.js"),
   u = interopDefault(i),
@@ -170,7 +170,7 @@ V.defaultProps = {
 }, V.contextTypes = {
   radioGroup: r["any"]
 };
-var w = require("./56434c38.js");
+var w = require("./reactLifecyclesCompat.js");
 function S(e) {
   "@babel/helpers - typeof";
 

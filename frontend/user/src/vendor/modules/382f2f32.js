@@ -3,7 +3,7 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports["default"] = void 0;
-var r = c(require("./71317449.js")),
+var r = c(require("./reactRuntime.js")),
   o = require("./75654e45.js"),
   i = c(require("./70497364.js")),
   a = c(require("./42425055.js")),

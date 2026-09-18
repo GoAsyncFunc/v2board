@@ -11,10 +11,10 @@ defineExport(legacyExports, "b", function () {
 }), defineExport(legacyExports, "c", function () {
   return k;
 });
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./31377839.js"),
-  o = require("./56434c38.js"),
-  l = require("./54535951.js"),
+  o = require("./reactLifecyclesCompat.js"),
+  l = require("./classNames.js"),
   a = interopDefault(l),
   i = require("./4247522b.js"),
   u = require("./43575167.js"),

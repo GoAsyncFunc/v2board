@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 (function (e, r) {
-  r(legacyExports, require("./71317449.js"));
+  r(legacyExports, require("./reactRuntime.js"));
 })(0, function (e, t) {
   "use strict";
 

@@ -11,7 +11,7 @@ async function load(original) {
     if (cache[name]) return cache[name];
     const module = { exports: {} };
     vm.runInNewContext(compiled[name], { module, exports: module.exports, require(id) {
-      if (id === 'react' || id.includes('71317449')) return React;
+      if (id === 'react' || id.includes('reactRuntime')) return React;
       if (id.includes('PlanCard')) return evaluate('card');
       if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };

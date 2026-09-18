@@ -10,7 +10,7 @@ markEsModule(legacyExports), defineExport(legacyExports, "routes", function () {
 }), defineExport(legacyExports, "default", function () {
   return Router;
 });
-var reactModule = require("../vendor/modules/71317449.js"),
+var reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   routeRendererModule = require("../vendor/modules/43727734.js"),
   routeRenderer = interopDefault(routeRendererModule),

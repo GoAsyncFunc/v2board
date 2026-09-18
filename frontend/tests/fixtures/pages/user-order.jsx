@@ -4,7 +4,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
@@ -19,9 +19,9 @@ var r = require("../vendor/modules/6a65685a.js"),
   d = interopDefault(p),
   h = require("../vendor/modules/6d526730.js"),
   m = interopDefault(h),
-  v = require("../vendor/modules/54535951.js"),
+  v = require("../vendor/modules/classNames.js"),
   y = interopDefault(v),
-  g = require("../vendor/modules/71317449.js"),
+  g = require("../vendor/modules/reactRuntime.js"),
   b = interopDefault(g),
   w = require("../vendor/modules/59454956.js"),
   x = interopDefault(w),

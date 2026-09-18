@@ -3,7 +3,7 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 require("../vendor/modules/62627350.js");
 var drawer = require("../vendor/modules/antdDrawer.js"),
   button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
@@ -14,7 +14,7 @@ var drawer = require("../vendor/modules/antdDrawer.js"),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
   notification = (require("../vendor/modules/2f786b65.js"), require("../vendor/notification.js")),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   reactRedux = require("../vendor/reactRedux.js"),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js"));

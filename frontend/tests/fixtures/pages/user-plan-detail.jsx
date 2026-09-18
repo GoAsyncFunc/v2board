@@ -4,7 +4,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
@@ -13,7 +13,7 @@ var r = require("../vendor/modules/6a65685a.js"),
   s = (require("../vendor/modules/4a2b2f76.js"), require("../vendor/modules/4d6f5257.js")),
   c = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
   u = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  l = require("../vendor/modules/71317449.js"),
+  l = require("../vendor/modules/reactRuntime.js"),
   f = interopDefault(l),
   p = require("../layouts/MainLayout.jsx"),
   d = require("../vendor/reactRedux.js"),

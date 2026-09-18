@@ -3,15 +3,15 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   i = interopDefault(r),
   o = require("./31377839.js"),
   a = interopDefault(o),
   s = require("./momentRuntime.js"),
   l = interopDefault(s),
-  c = require("./54535951.js"),
+  c = require("./classNames.js"),
   u = interopDefault(c),
-  h = require("./56434c38.js");
+  h = require("./reactLifecyclesCompat.js");
 function f(e, t) {
   if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
 }

@@ -104,7 +104,7 @@ function y(e, t, n) {
     writable: !0
   }) : e[t] = n, e;
 }
-var g = require("./71317449.js"),
+var g = require("./reactRuntime.js"),
   b = (require("./31377839.js"), require("./48333855.js")),
   w = require("./61525445.js");
 function x(e) {

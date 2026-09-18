@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./63304f79.js"),
+var r = require("./globalObject.js"),
   o = require("./56504f45.js"),
   i = require("./6f786f30.js"),
   a = require("./6b434b35.js")("src"),

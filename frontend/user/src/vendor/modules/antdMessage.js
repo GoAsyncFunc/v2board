@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./3874782b.js"),
   o = require("../Icon.js");
 function l() {

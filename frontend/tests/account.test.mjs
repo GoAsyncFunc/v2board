@@ -15,7 +15,7 @@ async function run(original,scenario){
   if(id.includes('sessionEffects'))return {};
   if(id.includes('moduleInterop'))return {markEsModule:obj=>Object.defineProperty(obj,'__esModule',{value:true}),interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
   if(id.includes('70307045'))return Object.assign;
-  if(id.includes('71317449')||id.includes('6d69595a'))return {};
+  if(id.includes('reactRuntime')||id.includes('6d69595a'))return {};
   if(id.includes('request'))return {get,post,a:get,b:post};
   if(id.includes('routerHistory'))return {push:value=>trace.push(['navigate',value])};
   if(id.includes('antdMessage'))return {a:{success:value=>trace.push(['success',value])}};

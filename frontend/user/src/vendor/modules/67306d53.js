@@ -7,7 +7,7 @@ defineExport(legacyExports, "a", function () {
   return H;
 });
 var n,
-  r = require("./71317449.js"),
+  r = require("./reactRuntime.js"),
   o = require("./69386934.js"),
   l = require("./2f644463.js"),
   a = require("./6f486950.js"),

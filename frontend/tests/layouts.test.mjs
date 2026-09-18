@@ -22,7 +22,7 @@ async function load(target,original){
   const module={exports:{}};cache.set(file,module.exports);
   const code=compiled.get(file);
   const require=id=>{
-   if(id==='react'||id.includes('71317449'))return React;
+   if(id==='react'||id.includes('reactRuntime'))return React;
    if(id.includes('reactRedux'))return {c:connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
    if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};

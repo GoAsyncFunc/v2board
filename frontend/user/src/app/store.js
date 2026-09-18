@@ -15,7 +15,7 @@ markEsModule(legacyExports), defineExport(legacyExports, "_onCreate", function (
 var r = require("../vendor/modules/70307045.js"),
   o = interopDefault(r),
   i = require("../vendor/dva.js"),
-  a = require("../vendor/modules/71317449.js"),
+  a = require("../vendor/modules/reactRuntime.js"),
   s = require("../vendor/modules/30576135.js"),
   c = interopDefault(s),
   u = require("./history.js"),

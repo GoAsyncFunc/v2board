@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./31377839.js"),
   o = require("./momentRuntime.js"),
   a = require("./76657152.js"),

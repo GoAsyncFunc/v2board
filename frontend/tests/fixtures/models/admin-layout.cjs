@@ -1,7 +1,7 @@
 let legacyModule = module,
     legacyExports = exports;
 const { markEsModule, interopDefault } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/70307045.js"),
     i = interopDefault(r);

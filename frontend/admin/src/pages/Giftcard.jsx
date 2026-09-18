@@ -7,7 +7,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var loadingModule = require("../vendor/modules/6a65685a.js"),
   loading = interopDefault(loadingModule),
@@ -24,7 +24,7 @@ var loadingModule = require("../vendor/modules/6a65685a.js"),
   checkbox = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/antdSwitch.js")),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   mainLayout = require("../layouts/MainLayout.jsx"),
   momentModule = require("../vendor/modules/77642f52.js"),

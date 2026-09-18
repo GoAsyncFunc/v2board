@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 if (require("./385a2f56.js")) {
   var r = require("./46715048.js"),
-    i = require("./63304f79.js"),
+    i = require("./globalObject.js"),
     o = require("./77555779.js"),
     a = require("./57474e57.js"),
     s = require("./3838566e.js"),

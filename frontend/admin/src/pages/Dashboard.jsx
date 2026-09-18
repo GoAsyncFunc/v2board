@@ -4,7 +4,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 const {
   formatIncome,
@@ -14,7 +14,7 @@ var r = require("../vendor/modules/6a65685a.js"),
   i = interopDefault(r),
   o = require("../vendor/modules/316c2f56.js"),
   a = interopDefault(o),
-  s = require("../vendor/modules/71317449.js"),
+  s = require("../vendor/modules/reactRuntime.js"),
   l = interopDefault(s),
   c = require("../layouts/MainLayout.jsx"),
   u = require("../vendor/reactRedux.js"),

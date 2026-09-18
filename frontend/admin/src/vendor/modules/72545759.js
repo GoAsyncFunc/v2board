@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./63304f79.js"),
+var r = require("./globalObject.js"),
   i = require("./764d7834.js").set,
   o = r.MutationObserver || r.WebKitMutationObserver,
   a = r.process,

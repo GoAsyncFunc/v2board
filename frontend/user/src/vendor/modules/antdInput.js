@@ -4,8 +4,8 @@ const {
   interopDefault
 } = require("../../app/moduleInterop.js");
 var n = require("./6d682f6c.js"),
-  r = require("./71317449.js"),
-  o = require("./54535951.js"),
+  r = require("./reactRuntime.js"),
+  o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./48383455.js");
 function i(e, t, c) {
@@ -38,7 +38,7 @@ var u,
   },
   h = s,
   f = require("./39393557.js"),
-  v = require("./56434c38.js"),
+  v = require("./reactLifecyclesCompat.js"),
   p = require("./4c6c5235.js"),
   m = require("./7432334d.js"),
   d = interopDefault(m),

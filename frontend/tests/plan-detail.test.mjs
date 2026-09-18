@@ -11,7 +11,7 @@ async function load(original,trace,expired){
  for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../user/src/components/checkout/'+name+'.jsx',import.meta.url),'utf8'),{format:'cjs',loader:'jsx'})).code;
  function evaluate(source){const module={exports:{}};
  vm.runInNewContext(source,{module,exports:module.exports,require(id){
-  if(id==='react'||id.includes('71317449'))return React;
+  if(id==='react'||id.includes('reactRuntime'))return React;
   const component=Object.keys(components).find(name=>id.endsWith('/'+name+'.jsx'));if(component)return evaluate(components[component]);
   if(id.includes('MainLayout'))return {__esModule:true,default:'Layout',a:'Layout'};
   if(id.includes('reactRedux'))return {c:()=>cls=>cls};

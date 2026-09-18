@@ -4,9 +4,9 @@ const {
   interopDefault
 } = require("../../app/moduleInterop.js");
 var r = require("./31572f39.js"),
-  i = require("./71317449.js"),
-  o = require("./56434c38.js"),
-  a = require("./54535951.js"),
+  i = require("./reactRuntime.js"),
+  o = require("./reactLifecyclesCompat.js"),
+  a = require("./classNames.js"),
   s = interopDefault(a),
   l = require("./71783446.js"),
   c = require("./34496c57.js");

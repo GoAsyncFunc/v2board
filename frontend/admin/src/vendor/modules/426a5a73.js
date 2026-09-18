@@ -74,7 +74,7 @@ var m = this && this.__importStar || function (e) {
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var g = m(require("./71317449.js")),
+var g = m(require("./reactRuntime.js")),
   v = function () {
     function e(t, n) {
       f(this, e), this._cached = {}, this.columns = t || this.normalize(n);

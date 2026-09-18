@@ -7,9 +7,9 @@ const {
 defineExport(legacyExports, "b", function () {
   return C;
 });
-var n = require("./71317449.js"),
-  r = require("./56434c38.js"),
-  o = require("./54535951.js"),
+var n = require("./reactRuntime.js"),
+  r = require("./reactLifecyclesCompat.js"),
+  o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("../Icon.js"),
   i = require("./43575167.js"),

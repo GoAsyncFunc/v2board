@@ -1,7 +1,7 @@
 let legacyModule = module,
     legacyExports = exports;
 const { defineExport, interopDefault } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 defineExport(legacyExports, "a", function () {
     return ContextMenuTable;
 });
@@ -9,7 +9,7 @@ require("../vendor/modules/67395956.js");
 var tableModule = require("../vendor/modules/antdTable.js"),
     objectAssignModule = require("../vendor/modules/6a65685a.js"),
     objectAssign = interopDefault(objectAssignModule),
-    reactModule = require("../vendor/modules/71317449.js"),
+    reactModule = require("../vendor/modules/reactRuntime.js"),
     ReactComponent = interopDefault(reactModule);
 (require("./Recovered_48394c55.jsx"),
     require("./Recovered_33585647.jsx"),

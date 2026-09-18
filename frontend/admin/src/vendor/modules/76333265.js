@@ -9,7 +9,7 @@ defineExport(legacyExports, "a", function () {
 });
 require("./54326f53.js");
 var r = require("./57394854.js"),
-  i = require("./71317449.js"),
+  i = require("./reactRuntime.js"),
   o = interopDefault(i);
 class a extends o.a.Component {
   render() {

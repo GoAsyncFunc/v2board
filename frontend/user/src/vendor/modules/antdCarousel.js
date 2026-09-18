@@ -7,7 +7,7 @@ const {
 defineExport(legacyExports, "a", function () {
   return H;
 });
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./73456643.js"),
   o = interopDefault(r),
   l = require("./48383455.js"),

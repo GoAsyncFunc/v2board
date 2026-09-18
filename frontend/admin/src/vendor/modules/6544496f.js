@@ -3,14 +3,14 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   i = interopDefault(r),
   o = require("./31377839.js"),
   a = interopDefault(o),
   s = require("./69386934.js"),
   l = interopDefault(s),
   c = require("./75636958.js"),
-  u = require("./54535951.js"),
+  u = require("./classNames.js"),
   h = interopDefault(u),
   f = {
     adjustX: 1,
@@ -56,7 +56,7 @@ var r = require("./71317449.js"),
     }
   },
   m = p,
-  g = require("./56434c38.js"),
+  g = require("./reactLifecyclesCompat.js"),
   v = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];

@@ -4,7 +4,7 @@ const {
   defineExport,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 defineExport(legacyExports, "a", function () {
   return FilterDrawer;
 });
@@ -20,7 +20,7 @@ var drawer = require("../vendor/modules/antdDrawer.js"),
   notificationModule = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/antdMessage.js")),
   objectAssignModule = require("../vendor/modules/70307045.js"),
   objectAssign = interopDefault(objectAssignModule),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   momentModule = require("../vendor/modules/77642f52.js"),
   moment = interopDefault(momentModule);

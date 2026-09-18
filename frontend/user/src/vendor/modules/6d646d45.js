@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 legacyExports.__esModule = !0;
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = (u(n), require("./31377839.js")),
   o = u(r),
   l = require("./665a7476.js"),

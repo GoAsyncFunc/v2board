@@ -14,7 +14,7 @@ async function run(original,scenario){
   if(id.includes('localeSettings'))return settings;
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id.includes('70307045'))return Object.assign;
-  if(id.includes('71317449'))return {};
+  if(id.includes('reactRuntime'))return {};
   if(id.includes('moduleInterop'))return {markEsModule:obj=>Object.defineProperty(obj,'__esModule',{value:true}),interopDefault:obj=>{const fn=()=>obj;Object.defineProperty(fn,'a',{get:fn});return fn;}};
   throw Error(id);
  }},{timeout:2000});

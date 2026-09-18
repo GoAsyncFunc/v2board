@@ -33,7 +33,7 @@ function setup(mode){
  }
  class Component{constructor(props){this.props=props;}setState(value){this.state={...this.state,...value};}}
  const context=vm.createContext({URL,console,document:{},window:{settings:{title:'Fixture'},location},setTimeout(fn,ms){const id=++timerId;timers.set(id,fn);events.push(['timer',ms]);return id;},clearTimeout:id=>timers.delete(id),dependency(id){
-  if(id==='react'||id.includes('71317449'))return {Component};
+  if(id==='react'||id.includes('reactRuntime'))return {Component};
   if(id.includes('reactRedux'))return {c:()=>cls=>cls};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};
   if(id.includes('70307045'))return Object.assign;

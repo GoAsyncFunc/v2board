@@ -136,9 +136,9 @@ var E = this && this.__importStar || function (e) {
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
-var k = E(require("./71317449.js")),
+var k = E(require("./reactRuntime.js")),
   S = require("./7849304a.js"),
-  C = require("./56434c38.js"),
+  C = require("./reactLifecyclesCompat.js"),
   j = _(require("./47797478.js")),
   P = _(require("./58615332.js")),
   T = require("./364f6771.js"),

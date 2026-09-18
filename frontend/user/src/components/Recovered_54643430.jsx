@@ -3,12 +3,12 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 require("../vendor/modules/32717463.js");
 var modal = require("../vendor/Modal.js"),
   input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
   select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   reactRedux = require("../vendor/reactRedux.js"),
   i18n = require("../vendor/i18n.js");

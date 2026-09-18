@@ -11,7 +11,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var objectAssignModule = require("../vendor/modules/6a65685a.js"),
   objectAssign = interopDefault(objectAssignModule),
@@ -21,7 +21,7 @@ var objectAssignModule = require("../vendor/modules/6a65685a.js"),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
   objectAssignModule2 = require("../vendor/modules/70307045.js"),
   objectAssign2 = interopDefault(objectAssignModule2),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   MainLayout = require("../layouts/MainLayout.jsx"),
   reactRedux = require("../vendor/reactRedux.js"),

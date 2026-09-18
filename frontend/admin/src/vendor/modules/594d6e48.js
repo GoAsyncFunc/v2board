@@ -3,7 +3,7 @@ let legacyModule = module,
 const {
   defineExport
 } = require("../../app/moduleInterop.js");
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./31377839.js"),
   o = require("./5a76705a.js"),
   a = o["a"];

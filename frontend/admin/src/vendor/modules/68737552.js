@@ -29,7 +29,7 @@ defineExport(legacyExports, "a", function () {
 });
 var r = require("./59454956.js"),
   i = interopDefault(r),
-  o = require("./71317449.js"),
+  o = require("./reactRuntime.js"),
   a = interopDefault(o);
 function s(e) {
   var t = [];

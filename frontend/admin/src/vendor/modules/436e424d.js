@@ -23,7 +23,7 @@ function a(e, t) {
     }
   }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
 }
-var s = require("./71317449.js"),
+var s = require("./reactRuntime.js"),
   l = require("./31377839.js"),
   c = [],
   u = [];

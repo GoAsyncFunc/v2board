@@ -7,7 +7,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var mergeProps = require("../vendor/modules/6a65685a.js"),
   mergedProps = interopDefault(mergeProps),
@@ -19,7 +19,7 @@ var mergeProps = require("../vendor/modules/6a65685a.js"),
   divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
   mergeStateModule = require("../vendor/modules/70307045.js"),
   mergeState = interopDefault(mergeStateModule),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   mainLayout = require("../layouts/MainLayout.jsx"),
   reactRedux = require("../vendor/reactRedux.js"),

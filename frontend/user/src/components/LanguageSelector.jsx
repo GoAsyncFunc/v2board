@@ -4,14 +4,14 @@ const {
   defineExport,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 defineExport(legacyExports, "a", function () {
   return LanguageSelector;
 });
 require("../vendor/modules/71566450.js");
 var dropdown = require("../vendor/modules/antdDropdown.js"),
   menu = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/antdMenu.js")),
-  reactModule = require("../vendor/modules/71317449.js"),
+  reactModule = require("../vendor/modules/reactRuntime.js"),
   ReactComponent = interopDefault(reactModule),
   i18n = require("../vendor/i18n.js"),
   siteHelpers = require("../vendor/siteHelpers.js"),

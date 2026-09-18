@@ -3,10 +3,10 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 require("../vendor/iconStyles.js");
 var r = require("../vendor/Icon.js"),
-  o = require("../vendor/modules/71317449.js"),
+  o = require("../vendor/modules/reactRuntime.js"),
   i = interopDefault(o),
   a = require("../vendor/routerHistory.js"),
   s = interopDefault(a),

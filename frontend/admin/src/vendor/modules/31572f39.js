@@ -3,13 +3,13 @@ let legacyModule = module,
 const {
   interopDefault
 } = require("../../app/moduleInterop.js");
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   i = interopDefault(r),
   o = require("./69386934.js"),
   a = interopDefault(o),
   s = require("./31377839.js"),
   l = interopDefault(s),
-  c = require("./56434c38.js"),
+  c = require("./reactLifecyclesCompat.js"),
   u = require("./5049416d.js"),
   h = require("./51432b4d.js"),
   f = require("./71783446.js");

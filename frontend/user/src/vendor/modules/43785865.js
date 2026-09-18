@@ -36,7 +36,7 @@ defineExport(legacyExports, "a", function () {
   return I;
 });
 var r = require("./6f685056.js"),
-  i = require("./71317449.js"),
+  i = require("./reactRuntime.js"),
   a = interopDefault(i),
   o = require("./67304d50.js"),
   u = require("./74456951.js"),

@@ -13,7 +13,7 @@ async function load(original) {
     if (cache.has(name)) return cache.get(name);
     const module = { exports: {} };
     vm.runInNewContext(compiled[name], { module, exports: module.exports, require(id) {
-      if (id === 'react' || id.includes('71317449')) return React;
+      if (id === 'react' || id.includes('reactRuntime')) return React;
       if (id.includes('NodeColumns')) return evaluate('columns');
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
       if (id.includes('reactRedux')) return { c: () => component => component };

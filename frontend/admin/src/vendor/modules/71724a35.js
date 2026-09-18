@@ -5,8 +5,8 @@ const {
   defineExport
 } = require("../../app/moduleInterop.js");
 var n,
-  r = require("./71317449.js"),
-  o = require("./54535951.js"),
+  r = require("./reactRuntime.js"),
+  o = require("./classNames.js"),
   a = interopDefault(o),
   l = require("./31377839.js"),
   i = require("./48383455.js"),

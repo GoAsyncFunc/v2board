@@ -18,7 +18,7 @@ async function setup(original){
  const statusModule={exports:{}};vm.runInNewContext(statusCode,{module:statusModule,exports:statusModule.exports,require:deps});
  vm.runInNewContext(code,{module,exports:module.exports,setTimeout(fn,delay){const id=++next;timers.set(id,fn);trace.push(['timer',id,delay]);return id;},clearTimeout(id){timers.delete(id);trace.push(['clear',id]);},require(id){
   if(id.includes('OrderStatusResult'))return statusModule.exports;
-  if(id==='react'||id.includes('71317449'))return React;
+  if(id==='react'||id.includes('reactRuntime'))return React;
   if(id.includes('reactRedux'))return {c:()=>cls=>cls};
   if(id.includes('5642306f'))return ()=> 'StripeForm';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};

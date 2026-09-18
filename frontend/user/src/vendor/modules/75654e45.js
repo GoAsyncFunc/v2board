@@ -3,11 +3,11 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports.InnerSlider = void 0;
-var r = d(require("./71317449.js")),
+var r = d(require("./reactRuntime.js")),
   o = d(require("./69386934.js")),
   i = d(require("./7278616c.js")),
   a = d(require("./392f352f.js")),
-  s = d(require("./54535951.js")),
+  s = d(require("./classNames.js")),
   c = require("./78395a61.js"),
   u = require("./555a762f.js"),
   l = require("./61615730.js"),

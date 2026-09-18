@@ -13,7 +13,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/6a65685a.js"),
   i = interopDefault(r),
@@ -29,7 +29,7 @@ var r = require("../vendor/modules/6a65685a.js"),
   p = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/antdMenu.js")),
   m = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   g = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/antdTag.js")),
-  v = require("../vendor/modules/71317449.js"),
+  v = require("../vendor/modules/reactRuntime.js"),
   y = interopDefault(v),
   b = require("../layouts/MainLayout.jsx"),
   w = require("../components/Recovered_48394c55.jsx"),

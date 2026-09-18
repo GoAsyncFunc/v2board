@@ -7,7 +7,7 @@ const {
 defineExport(legacyExports, "a", function () {
   return o;
 });
-var r = require("./71317449.js"),
+var r = require("./reactRuntime.js"),
   i = interopDefault(r);
 function o(e) {
   var t = e.prefixCls,

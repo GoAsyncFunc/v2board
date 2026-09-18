@@ -22,7 +22,7 @@ async function load(target,name,original,trace,response){
    interopDefault:obj=>{const fn=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(fn,'a',{get:fn});return fn;},
   };
   if(id.includes('70307045'))return Object.assign;
-  if(id.includes('71317449'))return {};
+  if(id.includes('reactRuntime'))return {};
   if(id.includes('request'))return {a:get,b:post,get,post};
   if(id.includes('routerHistory'))return history;
   if(id.includes('siteHelpers'))return helpers;

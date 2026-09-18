@@ -25,7 +25,7 @@ const {
     l = require("./56376f43.js"),
     i = interopDefault(l),
     u = require("./48584e39.js"),
-    s = require("./71317449.js");
+    s = require("./reactRuntime.js");
   function h(t) {
     e && Object({
       NODE_ENV: "production"

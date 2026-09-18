@@ -4,12 +4,12 @@ const {
   interopDefault,
   defineExport
 } = require("../../app/moduleInterop.js");
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./316a3577.js"),
-  o = require("./54535951.js"),
+  o = require("./classNames.js"),
   l = interopDefault(o),
   a = require("./4247522b.js"),
-  i = require("./56434c38.js"),
+  i = require("./reactLifecyclesCompat.js"),
   u = require("./31377839.js"),
   s = require("./666f5738.js"),
   h = interopDefault(s),

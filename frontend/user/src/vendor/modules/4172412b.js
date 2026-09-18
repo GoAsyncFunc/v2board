@@ -6,7 +6,7 @@ const {
 defineExport(legacyExports, "router", function () {
   return u;
 });
-require("./71317449.js"), require("./436e424d.js");
+require("./reactRuntime.js"), require("./436e424d.js");
 var r = require("../../app/history.js");
 require("./6f324a41.js");
 function o() {

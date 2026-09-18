@@ -5,7 +5,7 @@ const {
 } = require("../../app/moduleInterop.js");
 var r = require("./51624c5a.js"),
   o = interopDefault(r),
-  i = require("./71317449.js"),
+  i = require("./reactRuntime.js"),
   a = require("./69436335.js"),
   s = interopDefault(a),
   c = require("./46597733.js"),

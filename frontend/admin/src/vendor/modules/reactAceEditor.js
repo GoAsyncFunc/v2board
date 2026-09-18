@@ -27,7 +27,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var o = require("./31377839.js"),
-  a = require("./71317449.js"),
+  a = require("./reactRuntime.js"),
   s = require("./58614753.js"),
   l = require("./74474578.js"),
   u = l.getAceInstance(),

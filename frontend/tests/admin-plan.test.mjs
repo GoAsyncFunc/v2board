@@ -21,7 +21,7 @@ async function run(original, scenario) {
       if (id.includes('request')) return { a: get, b: post, get, post };
       if (id.includes('7449346c')) return { a: { periodText: { month_price: 'Month', year_price: 'Year', onetime_price: 'Once' } } };
       if (id.includes('70307045')) return Object.assign;
-      if (id.includes('71317449')) return {};
+      if (id.includes('reactRuntime')) return {};
       if (id.includes('moduleInterop')) return {
         markEsModule: object => Object.defineProperty(object, '__esModule', { value: true }),
         interopDefault: object => { const fn = () => object; Object.defineProperty(fn, 'a', { get: fn }); return fn; },

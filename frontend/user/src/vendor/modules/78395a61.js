@@ -3,7 +3,7 @@ let legacyModule = module,
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 }), legacyExports.canUseDOM = legacyExports.slidesOnLeft = legacyExports.slidesOnRight = legacyExports.siblingDirection = legacyExports.getTotalSlides = legacyExports.getPostClones = legacyExports.getPreClones = legacyExports.getTrackLeft = legacyExports.getTrackAnimateCSS = legacyExports.getTrackCSS = legacyExports.checkSpecKeys = legacyExports.getSlideCount = legacyExports.checkNavigable = legacyExports.getNavigableIndexes = legacyExports.swipeEnd = legacyExports.swipeMove = legacyExports.swipeStart = legacyExports.keyHandler = legacyExports.changeSlide = legacyExports.slideHandler = legacyExports.initializedState = legacyExports.extractObject = legacyExports.canGoNext = legacyExports.getSwipeDirection = legacyExports.getHeight = legacyExports.getWidth = legacyExports.lazySlidesOnRight = legacyExports.lazySlidesOnLeft = legacyExports.lazyEndIndex = legacyExports.lazyStartIndex = legacyExports.getRequiredLazySlides = legacyExports.getOnDemandLazySlides = void 0;
-var r = i(require("./71317449.js")),
+var r = i(require("./reactRuntime.js")),
   o = i(require("./69386934.js"));
 function i(e) {
   return e && e.__esModule ? e : {

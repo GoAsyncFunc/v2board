@@ -7,7 +7,7 @@ const {
 markEsModule(legacyExports), defineExport(legacyExports, "configConsumerProps", function () {
   return b;
 });
-var n = require("./71317449.js"),
+var n = require("./reactRuntime.js"),
   r = require("./4d522f38.js"),
   o = require("./594d6e48.js"),
   l = require("./48383455.js");

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./62563566.js"),
-  o = require("./63304f79.js"),
+  o = require("./globalObject.js"),
   i = "__core-js_shared__",
   a = o[i] || (o[i] = {});
 (legacyModule.exports = function (e, t) {

@@ -12,7 +12,7 @@ var n = require("./70566e4c.js"),
   a = interopDefault(o),
   l = require("./56625861.js"),
   i = interopDefault(l),
-  u = require("./71317449.js"),
+  u = require("./reactRuntime.js"),
   s = require("./37436276.js");
 function h(e) {
   return u["createElement"]("i", {
@@ -1851,7 +1851,7 @@ Pe.pluginName = "table", Pe.defaultConfig = {
   maxRow: 6,
   maxCol: 6
 };
-var Te = require("./54535951.js"),
+var Te = require("./classNames.js"),
   je = interopDefault(Te),
   Ne = function (e) {
     function t() {

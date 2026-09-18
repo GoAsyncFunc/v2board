@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./57474e57.js"),
   o = require("./62563566.js"),
-  i = require("./63304f79.js"),
+  i = require("./globalObject.js"),
   a = require("./56657959.js"),
   s = require("./74476433.js");
 r(r.P + r.R, "Promise", {

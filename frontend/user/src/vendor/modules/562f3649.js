@@ -22,13 +22,13 @@ var r = Object.assign || function (e) {
     };
   }();
 legacyExports.default = w;
-var i = require("./71317449.js"),
+var i = require("./reactRuntime.js"),
   a = d(i),
   s = require("./47797478.js"),
   c = d(s),
   u = require("./2b4c7254.js"),
   l = d(u),
-  f = require("./56434c38.js"),
+  f = require("./reactLifecyclesCompat.js"),
   p = require("./56497257.js");
 function d(e) {
   return e && e.__esModule ? e : {

@@ -4,7 +4,7 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 const {
   formatDate,
@@ -22,7 +22,7 @@ var r = require("../vendor/modules/6a65685a.js"),
   a = (require("../vendor/modules/66563532.js"), require("../vendor/modules/antdCarousel.js")),
   s = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
   c = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  u = require("../vendor/modules/71317449.js"),
+  u = require("../vendor/modules/reactRuntime.js"),
   l = interopDefault(u),
   f = require("../layouts/MainLayout.jsx"),
   p = require("../vendor/siteHelpers.js"),

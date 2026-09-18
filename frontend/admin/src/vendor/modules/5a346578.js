@@ -14,7 +14,7 @@ var r = function () {
       return n && e(t.prototype, n), r && e(t, r), t;
     };
   }(),
-  i = require("./71317449.js"),
+  i = require("./reactRuntime.js"),
   o = (a(i), require("./56497257.js"));
 function a(e) {
   return e && e.__esModule ? e : {

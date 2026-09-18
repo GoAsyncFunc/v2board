@@ -4,11 +4,11 @@ const {
   markEsModule,
   interopDefault
 } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/71317449.js");
+const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
-  i = require("../vendor/modules/71317449.js"),
+  i = require("../vendor/modules/reactRuntime.js"),
   a = interopDefault(i),
   s = require("../layouts/MainLayout.jsx"),
   c = require("../vendor/reactRedux.js"),
