@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r,
   o = require("./globalObject.js"),
-  i = require("./56504f45.js"),
+  i = require("./definePropertyValue.js"),
   a = require("./uid.js"),
   s = a("typed_array"),
   c = a("view"),

@@ -4,7 +4,7 @@ var r = require("./2f4d6664.js"),
   o = require("./createPropertyDescriptor.js"),
   i = require("./setToStringTag.js"),
   a = {};
-require("./56504f45.js")(a, require("./wellKnownSymbol.js")("iterator"), function () {
+require("./definePropertyValue.js")(a, require("./wellKnownSymbol.js")("iterator"), function () {
   return this;
 }), legacyModule.exports = function (e, t, n) {
   e.prototype = r(a, {

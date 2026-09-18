@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 require("./71393748.js");
 var r = require("./redefine.js"),
-  i = require("./56504f45.js"),
+  i = require("./definePropertyValue.js"),
   o = require("./tryCatchTest.js"),
   a = require("./requireObjectCoercible.js"),
   s = require("./wellKnownSymbol.js"),

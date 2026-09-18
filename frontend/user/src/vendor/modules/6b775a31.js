@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./descriptorsSupport.js"),
-  o = require("./7736474f.js"),
+  o = require("./objectKeysLegacy.js"),
   i = require("./getOwnPropertySymbolsLegacy.js"),
   a = require("./propertyIsEnumerableLegacy.js"),
   s = require("./toObject.js"),

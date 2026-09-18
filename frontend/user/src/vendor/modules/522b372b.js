@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./7736474f.js"),
+var r = require("./objectKeysLegacy.js"),
   o = require("./getOwnPropertySymbolsLegacy.js"),
   i = require("./propertyIsEnumerableLegacy.js");
 legacyModule.exports = function (e) {

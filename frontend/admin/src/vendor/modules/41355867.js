@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./toArray.js"),
-  i = require("./61722f70.js").f,
+  i = require("./getOwnPropertyNamesLegacy.js").f,
   o = {}.toString,
   a = "object" == typeof window && window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [],
   s = function (e) {

@@ -26,7 +26,7 @@ var r = require("./globalObject.js"),
   S = require("./7677754c.js"),
   C = require("./getOwnPropertySymbolsLegacy.js"),
   j = require("./definePropertyLegacy.js"),
-  P = require("./7736474f.js"),
+  P = require("./objectKeysLegacy.js"),
   T = S.f,
   L = j.f,
   N = k.f,
@@ -121,7 +121,7 @@ q || (M = function () {
   }), K(e);
 }, s(M[I], "toString", function () {
   return this._k;
-}), S.f = ee, j.f = Q, require("./61722f70.js").f = k.f = te, require("./propertyIsEnumerableLegacy.js").f = $, C.f = ne, i && !require("./trueValue.js") && s(U, "propertyIsEnumerable", $, !0), h.f = function (e) {
+}), S.f = ee, j.f = Q, require("./getOwnPropertyNamesLegacy.js").f = k.f = te, require("./propertyIsEnumerableLegacy.js").f = $, C.f = ne, i && !require("./trueValue.js") && s(U, "propertyIsEnumerable", $, !0), h.f = function (e) {
   return K(d(e));
 }), a(a.G + a.W + a.F * !q, {
   Symbol: M

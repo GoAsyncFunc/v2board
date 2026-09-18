@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
-  o = require("./56504f45.js"),
+  o = require("./definePropertyValue.js"),
   i = require("./hasOwn.js"),
   a = require("./uid.js")("src"),
   s = require("./functionToString.js"),

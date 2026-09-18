@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./definePropertyLegacy.js"),
   i = require("./assertObjectLegacy.js"),
-  o = require("./7736474f.js");
+  o = require("./objectKeysLegacy.js");
 legacyModule.exports = require("./descriptorsSupport.js") ? Object.defineProperties : function (e, t) {
   i(e);
   var n,
