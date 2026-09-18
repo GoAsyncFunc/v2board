@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./41555777.js"),
+var r = require("./toInteger.js"),
   o = Math.max,
   i = Math.min;
 legacyModule.exports = function (e, t) {

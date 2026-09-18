@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./3439736d.js");
+var r = require("./arrayIsArrayLegacy.js");
 legacyModule.exports = g, legacyModule.exports.parse = i, legacyModule.exports.compile = a, legacyModule.exports.tokensToFunction = u, legacyModule.exports.tokensToRegExp = y;
 var o = new RegExp(["(\\\\.)", "([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))"].join("|"), "g");
 function i(e, t) {

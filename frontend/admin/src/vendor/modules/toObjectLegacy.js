@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./5a44722f.js");
+var r = require("./requireObjectCoercible.js");
 legacyModule.exports = function (e) {
   return Object(r(e));
 };

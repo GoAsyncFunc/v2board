@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./41555777.js"),
-  i = require("./5a44722f.js");
+var r = require("./toInteger.js"),
+  i = require("./requireObjectCoercible.js");
 legacyModule.exports = function (e) {
   return function (t, n) {
     var o,

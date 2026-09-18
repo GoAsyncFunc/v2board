@@ -4,7 +4,7 @@ require("./71393748.js");
 var r = require("./redefine.js"),
   i = require("./56504f45.js"),
   o = require("./tryCatchTest.js"),
-  a = require("./5a44722f.js"),
+  a = require("./requireObjectCoercible.js"),
   s = require("./wellKnownSymbol.js"),
   l = require("./33333070.js"),
   c = s("species"),

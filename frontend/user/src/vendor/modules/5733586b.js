@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./57474e57.js"),
-  o = require("./5a44722f.js"),
+  o = require("./requireObjectCoercible.js"),
   i = require("./tryCatchTest.js"),
   a = require("./4773725a.js"),
   s = "[" + a + "]",

@@ -12,7 +12,7 @@ if (require("./descriptorsLegacySupport.js")) {
     h = require("./7051474a.js"),
     f = require("./56504f45.js"),
     d = require("./7a4e772b.js"),
-    p = require("./41555777.js"),
+    p = require("./toInteger.js"),
     m = require("./4f735664.js"),
     g = require("./6e594c71.js"),
     v = require("./53706333.js"),
