@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./definePropertyHelper.js"),
-  i = require("./createPropertyDescriptor.js");
-legacyModule.exports = function (e, t, n) {
-  t in e ? r.f(e, t, i(0, n)) : e[t] = n;
+var defineProperty = require("./definePropertyHelper.js"),
+  createDescriptor = require("./createPropertyDescriptor.js");
+legacyModule.exports = function definePropertyIfMissing(target, propertyName, value) {
+  propertyName in target ? defineProperty.f(target, propertyName, createDescriptor(0, value)) : target[propertyName] = value;
 };

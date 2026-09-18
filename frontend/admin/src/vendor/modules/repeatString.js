@@ -1,12 +1,12 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./toInteger.js"),
-  i = require("./requireObjectCoercible.js");
-legacyModule.exports = function (e) {
-  var t = String(i(this)),
-    n = "",
-    o = r(e);
-  if (o < 0 || o == 1 / 0) throw RangeError("Count can't be negative");
-  for (; o > 0; (o >>>= 1) && (t += t)) 1 & o && (n += t);
-  return n;
+var toInteger = require("./toInteger.js"),
+  requireObjectCoercible = require("./requireObjectCoercible.js");
+legacyModule.exports = function repeatString(count) {
+  var stringValue = String(requireObjectCoercible(this)),
+    repeatedString = "",
+    remainingCount = toInteger(count);
+  if (remainingCount < 0 || remainingCount == 1 / 0) throw RangeError("Count can't be negative");
+  for (; remainingCount > 0; (remainingCount >>>= 1) && (stringValue += stringValue)) 1 & remainingCount && (repeatedString += stringValue);
+  return repeatedString;
 };

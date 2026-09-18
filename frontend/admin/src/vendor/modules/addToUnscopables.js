@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./wellKnownSymbol.js")("unscopables"),
-  i = Array.prototype;
-void 0 == i[r] && require("./56504f45.js")(i, r, {}), legacyModule.exports = function (e) {
-  i[r][e] = !0;
+var unscopablesSymbol = require("./wellKnownSymbol.js")("unscopables"),
+  arrayPrototype = Array.prototype;
+void 0 == arrayPrototype[unscopablesSymbol] && require("./56504f45.js")(arrayPrototype, unscopablesSymbol, {}), legacyModule.exports = function addToUnscopables(propertyName) {
+  arrayPrototype[unscopablesSymbol][propertyName] = !0;
 };
