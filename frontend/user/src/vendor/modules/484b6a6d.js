@@ -5,7 +5,7 @@ Object.defineProperty(legacyExports, "__esModule", {
 });
 var r = require("./intlMessageFormatEn.js"),
   o = require("./relativeTimeDifference.js"),
-  i = require("./6f624455.js");
+  i = require("./intlRelativeFormatObjectUtils.js");
 legacyExports.default = c;
 var a = ["second", "second-short", "minute", "minute-short", "hour", "hour-short", "day", "day-short", "month", "month-short", "year", "year-short"],
   s = ["best fit", "numeric"];

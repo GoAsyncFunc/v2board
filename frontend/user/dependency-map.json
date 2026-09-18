@@ -2037,11 +2037,11 @@
   },
   {
     "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/6f624455.js"
+    "to": "vendor/modules/intlMessageFormatEn.js"
   },
   {
     "from": "vendor/modules/484b6a6d.js",
-    "to": "vendor/modules/intlMessageFormatEn.js"
+    "to": "vendor/modules/intlRelativeFormatObjectUtils.js"
   },
   {
     "from": "vendor/modules/484b6a6d.js",
