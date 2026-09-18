@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6a757638.js"),
+var r = require("./copyObject.js"),
   i = require("./getAllKeys.js");
 function o(e) {
   return r(e, i(e));
