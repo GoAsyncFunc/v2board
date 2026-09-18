@@ -1,6 +1,7 @@
-let legacyModule = module,
-  legacyExports = exports;
-var r = require("./nodeGlobalObject.js"),
-  i = "object" == typeof self && self && self.Object === Object && self,
-  o = r || i || Function("return this")();
-legacyModule.exports = o;
+var nodeGlobalObject = require("./nodeGlobalObject.js");
+var browserGlobalObject = typeof self === "object" &&
+  self &&
+  self.Object === Object &&
+  self;
+
+module.exports = nodeGlobalObject || browserGlobalObject || Function("return this")();
