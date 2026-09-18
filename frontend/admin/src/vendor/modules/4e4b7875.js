@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./6c534344.js"),
-  i = require("./45326a68.js"),
+  i = require("./isMasked.js"),
   o = require("./isObjectValue.js"),
   a = require("./sourceFunctionToString.js"),
   s = /[\\^$.*+?()[\]{}|]/g,

@@ -36,7 +36,7 @@
     "to": "vendor/modules/coreJsNamespace.js"
   },
   {
-    "from": "vendor/modules/2b6d6d6d.js",
+    "from": "vendor/modules/newPromiseCapability.js",
     "to": "vendor/modules/77596d38.js"
   },
   {
@@ -6089,7 +6089,7 @@
   },
   {
     "from": "vendor/modules/74476433.js",
-    "to": "vendor/modules/2b6d6d6d.js"
+    "to": "vendor/modules/newPromiseCapability.js"
   },
   {
     "from": "vendor/modules/74526762.js",
@@ -8621,7 +8621,7 @@
   },
   {
     "from": "vendor/modules/3033412b.js",
-    "to": "vendor/modules/4a547a42.js"
+    "to": "vendor/modules/isArguments.js"
   },
   {
     "from": "vendor/modules/3033412b.js",
@@ -9096,7 +9096,7 @@
     "to": "vendor/modules/59755469.js"
   },
   {
-    "from": "vendor/modules/45326a68.js",
+    "from": "vendor/modules/isMasked.js",
     "to": "vendor/modules/coreJsShared.js"
   },
   {
@@ -9544,11 +9544,11 @@
     "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
-    "from": "vendor/modules/4a547a42.js",
+    "from": "vendor/modules/isArguments.js",
     "to": "vendor/modules/4e796b4b.js"
   },
   {
-    "from": "vendor/modules/4a547a42.js",
+    "from": "vendor/modules/isArguments.js",
     "to": "vendor/modules/isObjectLikeLegacy.js"
   },
   {
@@ -9613,7 +9613,7 @@
   },
   {
     "from": "vendor/modules/4e4b7875.js",
-    "to": "vendor/modules/45326a68.js"
+    "to": "vendor/modules/isMasked.js"
   },
   {
     "from": "vendor/modules/4e4b7875.js",
@@ -10901,7 +10901,7 @@
   },
   {
     "from": "vendor/modules/77636c47.js",
-    "to": "vendor/modules/38384775.js"
+    "to": "vendor/modules/shortOut.js"
   },
   {
     "from": "vendor/modules/77746a4c.js",

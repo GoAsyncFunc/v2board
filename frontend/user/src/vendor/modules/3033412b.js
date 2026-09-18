@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4a547a42.js"),
+var r = require("./isArguments.js"),
   i = require("./isObjectLikeLegacy.js"),
   a = Object.prototype,
   o = a.hasOwnProperty,
