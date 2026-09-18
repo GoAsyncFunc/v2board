@@ -1885,7 +1885,7 @@
   },
   {
     "from": "vendor/modules/4634567a.js",
-    "to": "vendor/modules/75375951.js"
+    "to": "vendor/modules/antdDateLocaleEn.js"
   },
   {
     "from": "pages/TicketDetail.jsx",
@@ -7265,7 +7265,7 @@
   },
   {
     "from": "vendor/modules/antdDatePicker.js",
-    "to": "vendor/modules/36317332.js"
+    "to": "vendor/modules/antdDatePickerLocaleEn.js"
   },
   {
     "from": "vendor/modules/antdDatePicker.js",
@@ -7552,11 +7552,11 @@
     "to": "vendor/modules/6f486950.js"
   },
   {
-    "from": "vendor/modules/36317332.js",
-    "to": "vendor/modules/75375951.js"
+    "from": "vendor/modules/antdDatePickerLocaleEn.js",
+    "to": "vendor/modules/antdDateLocaleEn.js"
   },
   {
-    "from": "vendor/modules/36317332.js",
+    "from": "vendor/modules/antdDatePickerLocaleEn.js",
     "to": "vendor/modules/timePickerLocale.js"
   },
   {
@@ -7969,7 +7969,7 @@
   },
   {
     "from": "vendor/modules/5a76705a.js",
-    "to": "vendor/modules/36317332.js"
+    "to": "vendor/modules/antdDatePickerLocaleEn.js"
   },
   {
     "from": "vendor/modules/5a76705a.js",

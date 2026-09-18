@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = require("./75375951.js"),
+var n = require("./antdDateLocaleEn.js"),
   r = require("./timePickerLocale.js");
 function o() {
   return o = Object.assign || function (e) {

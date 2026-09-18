@@ -19,7 +19,7 @@ var r = require("./classCallCheck.js"),
   l = interopDefault(s),
   c = require("./propTypesRuntime.js"),
   u = interopDefault(c),
-  h = require("./75375951.js");
+  h = require("./antdDateLocaleEn.js");
 function f() {}
 var d = {
     className: u.a.string,

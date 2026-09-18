@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var n = require("./paginationLocaleEn.js"),
-  r = require("./75375951.js"),
+  r = require("./antdDateLocaleEn.js"),
   o = {
     placeholder: "Select time"
   },

@@ -278,7 +278,7 @@ function E(e) {
   }, Object(l["polyfill"])(t), t;
 }
 var P = require("./7767702b.js"),
-  T = require("./36317332.js"),
+  T = require("./antdDatePickerLocaleEn.js"),
   j = require("./594d6e48.js"),
   N = require("./356c6d72.js"),
   R = require("./timePickerLocale.js");

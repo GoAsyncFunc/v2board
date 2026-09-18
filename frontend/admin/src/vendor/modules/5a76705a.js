@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var n = require("./paginationLocaleEn.js"),
-  r = require("./36317332.js"),
+  r = require("./antdDatePickerLocaleEn.js"),
   o = require("./timePickerLocale.js"),
   a = r["a"];
 legacyExports["a"] = {
