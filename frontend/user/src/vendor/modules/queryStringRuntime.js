@@ -1,96 +1,100 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./fixedEncodeURIComponent.js"),
-  o = require("./4d677a57.js"),
-  i = require("./386a5249.js");
-function a(e) {
-  switch (e.arrayFormat) {
+var strictEncode = require("./fixedEncodeURIComponent.js"),
+  mergeOptions = require("./4d677a57.js"),
+  decodeComponent = require("./386a5249.js");
+function createStringifyPair(options) {
+  switch (options.arrayFormat) {
     case "index":
-      return function (t, n, r) {
-        return null === n ? [c(t, e), "[", r, "]"].join("") : [c(t, e), "[", c(r, e), "]=", c(n, e)].join("");
+      return function (key, value, index) {
+        return null === value ? [encodeValue(key, options), "[", index, "]"].join("") : [encodeValue(key, options), "[", encodeValue(index, options), "]=", encodeValue(value, options)].join("");
       };
     case "bracket":
-      return function (t, n) {
-        return null === n ? c(t, e) : [c(t, e), "[]=", c(n, e)].join("");
+      return function (key, value) {
+        return null === value ? encodeValue(key, options) : [encodeValue(key, options), "[]=", encodeValue(value, options)].join("");
       };
     default:
-      return function (t, n) {
-        return null === n ? c(t, e) : [c(t, e), "=", c(n, e)].join("");
+      return function (key, value) {
+        return null === value ? encodeValue(key, options) : [encodeValue(key, options), "=", encodeValue(value, options)].join("");
       };
   }
 }
-function s(e) {
-  var t;
-  switch (e.arrayFormat) {
+function createParsePair(options) {
+  var match;
+  switch (options.arrayFormat) {
     case "index":
-      return function (e, n, r) {
-        t = /\[(\d*)\]$/.exec(e), e = e.replace(/\[\d*\]$/, ""), t ? (void 0 === r[e] && (r[e] = {}), r[e][t[1]] = n) : r[e] = n;
+      return function (key, value, result) {
+        match = /\[(\d*)\]$/.exec(key), key = key.replace(/\[\d*\]$/, ""), match ? (void 0 === result[key] && (result[key] = {}), result[key][match[1]] = value) : result[key] = value;
       };
     case "bracket":
-      return function (e, n, r) {
-        t = /(\[\])$/.exec(e), e = e.replace(/\[\]$/, ""), t ? void 0 !== r[e] ? r[e] = [].concat(r[e], n) : r[e] = [n] : r[e] = n;
+      return function (key, value, result) {
+        match = /(\[\])$/.exec(key), key = key.replace(/\[\]$/, ""), match ? void 0 !== result[key] ? result[key] = [].concat(result[key], value) : result[key] = [value] : result[key] = value;
       };
     default:
-      return function (e, t, n) {
-        void 0 !== n[e] ? n[e] = [].concat(n[e], t) : n[e] = t;
+      return function (key, value, result) {
+        void 0 !== result[key] ? result[key] = [].concat(result[key], value) : result[key] = value;
       };
   }
 }
-function c(e, t) {
-  return t.encode ? t.strict ? r(e) : encodeURIComponent(e) : e;
+function encodeValue(value, options) {
+  return options.encode ? options.strict ? strictEncode(value) : encodeURIComponent(value) : value;
 }
-function u(e) {
-  return Array.isArray(e) ? e.sort() : "object" === typeof e ? u(Object.keys(e)).sort(function (e, t) {
-    return Number(e) - Number(t);
-  }).map(function (t) {
-    return e[t];
-  }) : e;
+function sortObject(value) {
+  return Array.isArray(value) ? value.sort() : "object" === typeof value ? sortObject(Object.keys(value)).sort(function (leftKey, rightKey) {
+    return Number(leftKey) - Number(rightKey);
+  }).map(function (key) {
+    return value[key];
+  }) : value;
 }
-function l(e) {
-  var t = e.indexOf("?");
-  return -1 === t ? "" : e.slice(t + 1);
+function extractQuery(url) {
+  var queryStart = url.indexOf("?");
+  return -1 === queryStart ? "" : url.slice(queryStart + 1);
 }
-function f(e, t) {
-  t = o({
+function parseQuery(query, options) {
+  options = mergeOptions({
     arrayFormat: "none"
-  }, t);
-  var n = s(t),
-    r = Object.create(null);
-  return "string" !== typeof e ? r : (e = e.trim().replace(/^[?#&]/, ""), e ? (e.split("&").forEach(function (e) {
-    var t = e.replace(/\+/g, " ").split("="),
-      o = t.shift(),
-      a = t.length > 0 ? t.join("=") : void 0;
-    a = void 0 === a ? null : i(a), n(i(o), a, r);
-  }), Object.keys(r).sort().reduce(function (e, t) {
-    var n = r[t];
-    return Boolean(n) && "object" === typeof n && !Array.isArray(n) ? e[t] = u(n) : e[t] = n, e;
-  }, Object.create(null))) : r);
+  }, options);
+  var addParsedPair = createParsePair(options),
+    result = Object.create(null);
+  if ("string" !== typeof query) return result;
+  query = query.trim().replace(/^[?#&]/, "");
+  if (!query) return result;
+  query.split("&").forEach(function (pair) {
+    var parts = pair.replace(/\+/g, " ").split("="),
+      key = parts.shift(),
+      value = parts.length > 0 ? parts.join("=") : void 0;
+    value = void 0 === value ? null : decodeComponent(value), addParsedPair(decodeComponent(key), value, result);
+  });
+  return Object.keys(result).sort().reduce(function (sortedResult, key) {
+    var value = result[key];
+    return Boolean(value) && "object" === typeof value && !Array.isArray(value) ? sortedResult[key] = sortObject(value) : sortedResult[key] = value, sortedResult;
+  }, Object.create(null));
 }
-legacyExports.extract = l, legacyExports.parse = f, legacyExports.stringify = function (e, t) {
-  var n = {
+legacyExports.extract = extractQuery, legacyExports.parse = parseQuery, legacyExports.stringify = function stringifyQuery(queryObject, options) {
+  var defaultOptions = {
     encode: !0,
     strict: !0,
     arrayFormat: "none"
   };
-  t = o(n, t), !1 === t.sort && (t.sort = function () {});
-  var r = a(t);
-  return e ? Object.keys(e).sort(t.sort).map(function (n) {
-    var o = e[n];
-    if (void 0 === o) return "";
-    if (null === o) return c(n, t);
-    if (Array.isArray(o)) {
-      var i = [];
-      return o.slice().forEach(function (e) {
-        void 0 !== e && i.push(r(n, e, i.length));
-      }), i.join("&");
+  options = mergeOptions(defaultOptions, options), !1 === options.sort && (options.sort = function () {});
+  var stringifyPair = createStringifyPair(options);
+  return queryObject ? Object.keys(queryObject).sort(options.sort).map(function (key) {
+    var value = queryObject[key];
+    if (void 0 === value) return "";
+    if (null === value) return encodeValue(key, options);
+    if (Array.isArray(value)) {
+      var pairs = [];
+      return value.slice().forEach(function (item) {
+        void 0 !== item && pairs.push(stringifyPair(key, item, pairs.length));
+      }), pairs.join("&");
     }
-    return c(n, t) + "=" + c(o, t);
+    return encodeValue(key, options) + "=" + encodeValue(value, options);
   }).filter(function (e) {
     return e.length > 0;
   }).join("&") : "";
-}, legacyExports.parseUrl = function (e, t) {
+}, legacyExports.parseUrl = function parseUrl(url, options) {
   return {
-    url: e.split("?")[0] || "",
-    query: f(l(e), t)
+    url: url.split("?")[0] || "",
+    query: parseQuery(extractQuery(url), options)
   };
 };
