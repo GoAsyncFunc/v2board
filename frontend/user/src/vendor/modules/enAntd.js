@@ -4,6 +4,6 @@ const {
   markEsModule
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var n = require("./5a76705a.js"),
+var n = require("./antdEnglishLocale.js"),
   r = n["a"];
 legacyExports["default"] = r;

@@ -1957,7 +1957,7 @@
   },
   {
     "from": "vendor/modules/48383455.js",
-    "to": "vendor/modules/594d6e48.js"
+    "to": "vendor/modules/LocaleReceiver.js"
   },
   {
     "from": "vendor/modules/48383455.js",
@@ -2284,22 +2284,6 @@
     "to": "vendor/modules/warningRuntime.js"
   },
   {
-    "from": "vendor/modules/594d6e48.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/594d6e48.js",
-    "to": "vendor/modules/5a76705a.js"
-  },
-  {
-    "from": "vendor/modules/594d6e48.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/594d6e48.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/554e7276.js"
   },
@@ -2314,14 +2298,6 @@
   {
     "from": "vendor/modules/59714446.js",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/5a76705a.js",
-    "to": "vendor/modules/antdDateLocaleEn.js"
-  },
-  {
-    "from": "vendor/modules/5a76705a.js",
-    "to": "vendor/modules/paginationLocaleEn.js"
   },
   {
     "from": "vendor/modules/6264674b.js",
@@ -2592,6 +2568,22 @@
     "to": "vendor/modules/objectAssignCompat.js"
   },
   {
+    "from": "vendor/modules/LocaleReceiver.js",
+    "to": "app/moduleInterop.js"
+  },
+  {
+    "from": "vendor/modules/LocaleReceiver.js",
+    "to": "vendor/modules/antdEnglishLocale.js"
+  },
+  {
+    "from": "vendor/modules/LocaleReceiver.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/LocaleReceiver.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/MiniStoreProvider.js",
     "to": "vendor/modules/reactRuntime.js"
   },
@@ -2740,6 +2732,14 @@
     "to": "vendor/modules/tuple.js"
   },
   {
+    "from": "vendor/modules/antdEnglishLocale.js",
+    "to": "vendor/modules/antdDateLocaleEn.js"
+  },
+  {
+    "from": "vendor/modules/antdEnglishLocale.js",
+    "to": "vendor/modules/paginationLocaleEn.js"
+  },
+  {
     "from": "vendor/modules/antdMenu.js",
     "to": "app/moduleInterop.js"
   },
@@ -2885,15 +2885,11 @@
   },
   {
     "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/594d6e48.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
-    "to": "vendor/modules/5a76705a.js"
-  },
-  {
-    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/78315961.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/LocaleReceiver.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -2902,6 +2898,10 @@
   {
     "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/antdDropdown.js"
+  },
+  {
+    "from": "vendor/modules/antdTable.js",
+    "to": "vendor/modules/antdEnglishLocale.js"
   },
   {
     "from": "vendor/modules/antdTable.js",
@@ -3577,7 +3577,7 @@
   },
   {
     "from": "vendor/modules/enAntd.js",
-    "to": "vendor/modules/5a76705a.js"
+    "to": "vendor/modules/antdEnglishLocale.js"
   },
   {
     "from": "vendor/modules/enMessages.js",

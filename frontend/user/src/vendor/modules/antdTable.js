@@ -1712,7 +1712,7 @@ var zc = function (e) {
   }]), c;
 }(n["Component"]);
 zc.Option = rc["a"].Option;
-var yc = require("./594d6e48.js");
+var yc = require("./LocaleReceiver.js");
 function bc(e) {
   "@babel/helpers - typeof";
 
@@ -2253,7 +2253,7 @@ var zn = function (e, t) {
     }]), c;
   }(n["Component"]),
   Mn = bn,
-  gn = require("./5a76705a.js");
+  gn = require("./antdEnglishLocale.js");
 function Hn(e) {
   "@babel/helpers - typeof";
 

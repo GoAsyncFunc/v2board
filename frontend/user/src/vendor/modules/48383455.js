@@ -9,7 +9,7 @@ var n = require("./reactRuntime.js"),
   o = interopDefault(r),
   l = require("./classNames.js"),
   a = interopDefault(l),
-  i = require("./594d6e48.js"),
+  i = require("./LocaleReceiver.js"),
   u = function () {
     return n["createElement"]("svg", {
       width: "184",

@@ -1,35 +1,22 @@
-let legacyModule = module,
-  legacyExports = exports;
-var n = require("./paginationLocaleEn.js"),
-  r = require("./antdDateLocaleEn.js"),
-  o = {
+var paginationLocale = require("./paginationLocaleEn.js")["a"],
+  datePickerLanguage = require("./antdDateLocaleEn.js")["a"],
+  timePickerLocale = {
     placeholder: "Select time"
   },
-  l = o;
-function a() {
-  return a = Object.assign || function (e) {
-    for (var t = 1; t < arguments.length; t++) {
-      var c = arguments[t];
-      for (var n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]);
-    }
-    return e;
-  }, a.apply(this, arguments);
-}
-var i = {
-    lang: a({
+  datePickerLocale = {
+    lang: Object.assign({
       placeholder: "Select date",
       rangePlaceholder: ["Start date", "End date"]
-    }, r["a"]),
-    timePickerLocale: a({}, l)
-  },
-  u = i,
-  s = u;
-legacyExports["a"] = {
+    }, datePickerLanguage),
+    timePickerLocale: Object.assign({}, timePickerLocale)
+  };
+
+exports["a"] = {
   locale: "en",
-  Pagination: n["a"],
-  DatePicker: u,
-  TimePicker: l,
-  Calendar: s,
+  Pagination: paginationLocale,
+  DatePicker: datePickerLocale,
+  TimePicker: timePickerLocale,
+  Calendar: datePickerLocale,
   global: {
     placeholder: "Please select"
   },
