@@ -1,91 +1,81 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = 60103,
-  i = 60106,
-  o = 60107,
-  a = 60108,
-  s = 60114,
-  l = 60109,
-  c = 60110,
-  u = 60112,
-  h = 60113,
-  f = 60120,
-  d = 60115,
-  p = 60116,
-  m = 60121,
-  g = 60122,
-  v = 60117,
-  y = 60129,
-  b = 60131;
+var reactElementType = 60103,
+  reactPortalType = 60106,
+  reactFragmentType = 60107,
+  reactStrictModeType = 60108,
+  reactProfilerType = 60114,
+  reactProviderType = 60109,
+  reactContextType = 60110,
+  reactForwardRefType = 60112,
+  reactSuspenseType = 60113,
+  reactSuspenseListType = 60120,
+  reactMemoType = 60115,
+  reactLazyType = 60116,
+  reactBlockType = 60121,
+  reactServerBlockType = 60122,
+  reactFundamentalType = 60117,
+  reactDebugTraceModeType = 60129,
+  reactLegacyHiddenType = 60131;
 if ("function" === typeof Symbol && Symbol.for) {
-  var w = Symbol.for;
-  r = w("react.element"), i = w("react.portal"), o = w("react.fragment"), a = w("react.strict_mode"), s = w("react.profiler"), l = w("react.provider"), c = w("react.context"), u = w("react.forward_ref"), h = w("react.suspense"), f = w("react.suspense_list"), d = w("react.memo"), p = w("react.lazy"), m = w("react.block"), g = w("react.server.block"), v = w("react.fundamental"), y = w("react.debug_trace_mode"), b = w("react.legacy_hidden");
+  var getReactSymbol = Symbol.for;
+  reactElementType = getReactSymbol("react.element"), reactPortalType = getReactSymbol("react.portal"), reactFragmentType = getReactSymbol("react.fragment"), reactStrictModeType = getReactSymbol("react.strict_mode"), reactProfilerType = getReactSymbol("react.profiler"), reactProviderType = getReactSymbol("react.provider"), reactContextType = getReactSymbol("react.context"), reactForwardRefType = getReactSymbol("react.forward_ref"), reactSuspenseType = getReactSymbol("react.suspense"), reactSuspenseListType = getReactSymbol("react.suspense_list"), reactMemoType = getReactSymbol("react.memo"), reactLazyType = getReactSymbol("react.lazy"), reactBlockType = getReactSymbol("react.block"), reactServerBlockType = getReactSymbol("react.server.block"), reactFundamentalType = getReactSymbol("react.fundamental"), reactDebugTraceModeType = getReactSymbol("react.debug_trace_mode"), reactLegacyHiddenType = getReactSymbol("react.legacy_hidden");
 }
-function x(e) {
-  if ("object" === typeof e && null !== e) {
-    var t = e.$$typeof;
-    switch (t) {
-      case r:
-        switch (e = e.type, e) {
-          case o:
-          case s:
-          case a:
-          case h:
-          case f:
-            return e;
+function typeOf(value) {
+  if ("object" === typeof value && null !== value) {
+    var reactType = value.$$typeof;
+    switch (reactType) {
+      case reactElementType:
+        switch (value = value.type, value) {
+          case reactFragmentType:
+          case reactProfilerType:
+          case reactStrictModeType:
+          case reactSuspenseType:
+          case reactSuspenseListType:
+            return value;
           default:
-            switch (e = e && e.$$typeof, e) {
-              case c:
-              case u:
-              case p:
-              case d:
-              case l:
-                return e;
+            switch (value = value && value.$$typeof, value) {
+              case reactContextType:
+              case reactForwardRefType:
+              case reactLazyType:
+              case reactMemoType:
+              case reactProviderType:
+                return value;
               default:
-                return t;
+                return reactType;
             }
         }
-      case i:
-        return t;
+      case reactPortalType:
+        return reactType;
     }
   }
 }
-var _ = l,
-  E = r,
-  S = u,
-  k = o,
-  C = p,
-  O = d,
-  T = i,
-  L = s,
-  A = a,
-  P = h;
-legacyExports.ContextConsumer = c, legacyExports.ContextProvider = _, legacyExports.Element = E, legacyExports.ForwardRef = S, legacyExports.Fragment = k, legacyExports.Lazy = C, legacyExports.Memo = O, legacyExports.Portal = T, legacyExports.Profiler = L, legacyExports.StrictMode = A, legacyExports.Suspense = P, legacyExports.isAsyncMode = function () {
+legacyExports.ContextConsumer = reactContextType, legacyExports.ContextProvider = reactProviderType, legacyExports.Element = reactElementType, legacyExports.ForwardRef = reactForwardRefType, legacyExports.Fragment = reactFragmentType, legacyExports.Lazy = reactLazyType, legacyExports.Memo = reactMemoType, legacyExports.Portal = reactPortalType, legacyExports.Profiler = reactProfilerType, legacyExports.StrictMode = reactStrictModeType, legacyExports.Suspense = reactSuspenseType, legacyExports.isAsyncMode = function () {
   return !1;
 }, legacyExports.isConcurrentMode = function () {
   return !1;
-}, legacyExports.isContextConsumer = function (e) {
-  return x(e) === c;
-}, legacyExports.isContextProvider = function (e) {
-  return x(e) === l;
-}, legacyExports.isElement = function (e) {
-  return "object" === typeof e && null !== e && e.$$typeof === r;
-}, legacyExports.isForwardRef = function (e) {
-  return x(e) === u;
-}, legacyExports.isFragment = function (e) {
-  return x(e) === o;
-}, legacyExports.isLazy = function (e) {
-  return x(e) === p;
-}, legacyExports.isMemo = function (e) {
-  return x(e) === d;
-}, legacyExports.isPortal = function (e) {
-  return x(e) === i;
-}, legacyExports.isProfiler = function (e) {
-  return x(e) === s;
-}, legacyExports.isStrictMode = function (e) {
-  return x(e) === a;
-}, legacyExports.isSuspense = function (e) {
-  return x(e) === h;
-}, legacyExports.isValidElementType = function (e) {
-  return "string" === typeof e || "function" === typeof e || e === o || e === s || e === y || e === a || e === h || e === f || e === b || "object" === typeof e && null !== e && (e.$$typeof === p || e.$$typeof === d || e.$$typeof === l || e.$$typeof === c || e.$$typeof === u || e.$$typeof === v || e.$$typeof === m || e[0] === g);
-}, legacyExports.typeOf = x;
+}, legacyExports.isContextConsumer = function (value) {
+  return typeOf(value) === reactContextType;
+}, legacyExports.isContextProvider = function (value) {
+  return typeOf(value) === reactProviderType;
+}, legacyExports.isElement = function (value) {
+  return "object" === typeof value && null !== value && value.$$typeof === reactElementType;
+}, legacyExports.isForwardRef = function (value) {
+  return typeOf(value) === reactForwardRefType;
+}, legacyExports.isFragment = function (value) {
+  return typeOf(value) === reactFragmentType;
+}, legacyExports.isLazy = function (value) {
+  return typeOf(value) === reactLazyType;
+}, legacyExports.isMemo = function (value) {
+  return typeOf(value) === reactMemoType;
+}, legacyExports.isPortal = function (value) {
+  return typeOf(value) === reactPortalType;
+}, legacyExports.isProfiler = function (value) {
+  return typeOf(value) === reactProfilerType;
+}, legacyExports.isStrictMode = function (value) {
+  return typeOf(value) === reactStrictModeType;
+}, legacyExports.isSuspense = function (value) {
+  return typeOf(value) === reactSuspenseType;
+}, legacyExports.isValidElementType = function (value) {
+  return "string" === typeof value || "function" === typeof value || value === reactFragmentType || value === reactProfilerType || value === reactDebugTraceModeType || value === reactStrictModeType || value === reactSuspenseType || value === reactSuspenseListType || value === reactLegacyHiddenType || "object" === typeof value && null !== value && (value.$$typeof === reactLazyType || value.$$typeof === reactMemoType || value.$$typeof === reactProviderType || value.$$typeof === reactContextType || value.$$typeof === reactForwardRefType || value.$$typeof === reactFundamentalType || value.$$typeof === reactBlockType || value[0] === reactServerBlockType);
+}, legacyExports.typeOf = typeOf;
