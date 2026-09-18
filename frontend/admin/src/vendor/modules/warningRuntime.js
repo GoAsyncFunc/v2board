@@ -2,25 +2,25 @@ let legacyModule = module,
   legacyExports = exports;
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
-}), legacyExports.warning = i, legacyExports.note = o, legacyExports.resetWarned = a, legacyExports.call = s, legacyExports.warningOnce = l, legacyExports.noteOnce = c, legacyExports.default = void 0;
-var r = {};
-function i(e, t) {
+}), legacyExports.warning = warning, legacyExports.note = note, legacyExports.resetWarned = resetWarned, legacyExports.call = callOnce, legacyExports.warningOnce = warningOnce, legacyExports.noteOnce = noteOnce, legacyExports.default = void 0;
+var warnedMessages = {};
+function warning(condition, message) {
   0;
 }
-function o(e, t) {
+function note(condition, message) {
   0;
 }
-function a() {
-  r = {};
+function resetWarned() {
+  warnedMessages = {};
 }
-function s(e, t, n) {
-  t || r[n] || (e(!1, n), r[n] = !0);
+function callOnce(callback, condition, message) {
+  condition || warnedMessages[message] || (callback(!1, message), warnedMessages[message] = !0);
 }
-function l(e, t) {
-  s(i, e, t);
+function warningOnce(condition, message) {
+  callOnce(warning, condition, message);
 }
-function c(e, t) {
-  s(o, e, t);
+function noteOnce(condition, message) {
+  callOnce(note, condition, message);
 }
-var u = l;
-legacyExports.default = u;
+var defaultWarning = warningOnce;
+legacyExports.default = defaultWarning;

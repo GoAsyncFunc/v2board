@@ -2,17 +2,17 @@ let legacyModule = module,
   legacyExports = exports;
 Object.defineProperty(legacyExports, "__esModule", {
   value: !0
-}), legacyExports.default = a;
-var r = i(require("./reactRuntime.js")),
-  o = require("./reactIsLegacyEntry.js");
-function i(e) {
-  return e && e.__esModule ? e : {
-    default: e
+}), legacyExports.default = flattenChildren;
+var reactModule = interopDefault(require("./reactRuntime.js")),
+  reactIs = require("./reactIsLegacyEntry.js");
+function interopDefault(moduleValue) {
+  return moduleValue && moduleValue.__esModule ? moduleValue : {
+    default: moduleValue
   };
 }
-function a(e) {
-  var t = [];
-  return r.default.Children.forEach(e, function (e) {
-    void 0 !== e && null !== e && (Array.isArray(e) ? t = t.concat(a(e)) : (0, o.isFragment)(e) && e.props ? t = t.concat(a(e.props.children)) : t.push(e));
-  }), t;
+function flattenChildren(children) {
+  var result = [];
+  return reactModule.default.Children.forEach(children, function (child) {
+    void 0 !== child && null !== child && (Array.isArray(child) ? result = result.concat(flattenChildren(child)) : (0, reactIs.isFragment)(child) && child.props ? result = result.concat(flattenChildren(child.props.children)) : result.push(child));
+  }), result;
 }
