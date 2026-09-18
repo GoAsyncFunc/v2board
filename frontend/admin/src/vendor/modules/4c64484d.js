@@ -183,7 +183,7 @@ function R(e) {
 var N = require("./34496c57.js"),
   D = require("./reactDomRuntime.js"),
   I = require("./reactLifecyclesCompat.js"),
-  $ = require("./3257367a.js"),
+  $ = require("./warning.js"),
   F = interopDefault($),
   B = require("./animationFrameRuntime.js"),
   V = interopDefault(B),

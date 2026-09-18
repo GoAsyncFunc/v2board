@@ -2045,10 +2045,6 @@
   },
   {
     "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/3257367a.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
     "to": "vendor/modules/globalUniqueId.js"
   },
   {
@@ -2058,6 +2054,10 @@
   {
     "from": "vendor/modules/786d5661.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/786d5661.js",
+    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/aceCoreRuntime.js",

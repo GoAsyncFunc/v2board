@@ -6,7 +6,7 @@ var n = require("./reactRuntime.js"),
   o = u(r),
   l = require("./globalUniqueId.js"),
   a = u(l),
-  i = require("./3257367a.js");
+  i = require("./warning.js");
 u(i);
 function u(e) {
   return e && e.__esModule ? e : {

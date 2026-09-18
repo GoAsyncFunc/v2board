@@ -2093,10 +2093,6 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/3257367a.js"
-  },
-  {
-    "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/34496c57.js"
   },
   {
@@ -2142,6 +2138,10 @@
   {
     "from": "vendor/modules/4c64484d.js",
     "to": "vendor/modules/scrollIntoViewEntry.js"
+  },
+  {
+    "from": "vendor/modules/4c64484d.js",
+    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/4d466a32.js",
@@ -2841,10 +2841,6 @@
   },
   {
     "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/3257367a.js"
-  },
-  {
-    "from": "vendor/modules/786d5661.js",
     "to": "vendor/modules/globalUniqueId.js"
   },
   {
@@ -2854,6 +2850,10 @@
   {
     "from": "vendor/modules/786d5661.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/786d5661.js",
+    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/7a536442.js",
@@ -3621,10 +3621,6 @@
   },
   {
     "from": "vendor/modules/createReactContextPolyfill.js",
-    "to": "vendor/modules/3257367a.js"
-  },
-  {
-    "from": "vendor/modules/createReactContextPolyfill.js",
     "to": "vendor/modules/globalUniqueId.js"
   },
   {
@@ -3634,6 +3630,10 @@
   {
     "from": "vendor/modules/createReactContextPolyfill.js",
     "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/createReactContextPolyfill.js",
+    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/dateNow.js",
