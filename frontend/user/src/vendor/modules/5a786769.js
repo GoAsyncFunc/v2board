@@ -2,8 +2,8 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./35543259.js"),
   o = require("./coreJsNamespace.js"),
-  i = require("./754f5053.js"),
-  a = require("./7a4c6b47.js"),
+  i = require("./trueValue.js"),
+  a = require("./wellKnownSymbolFactory.js"),
   s = require("./definePropertyLegacy.js").f;
 legacyModule.exports = function (e) {
   var t = o.Symbol || (o.Symbol = i ? {} : r.Symbol || {});

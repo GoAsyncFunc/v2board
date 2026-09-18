@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./7a4e772b.js"),
+var r = require("./redefineAll.js"),
   o = require("./objectMeta.js").getWeak,
   i = require("./assertObject.js"),
   a = require("./isObject.js"),

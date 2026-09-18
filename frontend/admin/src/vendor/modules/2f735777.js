@@ -3,7 +3,7 @@ let legacyModule = module,
 var r = require("./globalObject.js"),
   i = require("./coreJsVersion.js"),
   o = require("./pureMode.js"),
-  a = require("./7a4b6e68.js"),
+  a = require("./wellKnownSymbolExport.js"),
   s = require("./definePropertyHelper.js").f;
 legacyModule.exports = function (e) {
   var t = i.Symbol || (i.Symbol = o ? {} : r.Symbol || {});

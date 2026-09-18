@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./5a464f70.js"),
+var r = require("./fixedEncodeURIComponent.js"),
   o = require("./4d677a57.js"),
   i = require("./386a5249.js");
 function a(e) {

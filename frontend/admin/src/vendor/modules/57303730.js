@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./toArray.js"),
   i = require("./toLength.js"),
-  o = require("./44386b59.js");
+  o = require("./toAbsoluteIndex.js");
 legacyModule.exports = function (e) {
   return function (t, n, a) {
     var s,

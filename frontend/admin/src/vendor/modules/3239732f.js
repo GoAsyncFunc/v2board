@@ -8,6 +8,6 @@ var r = require("./coreJsNamespace.js"),
   return a[e] || (a[e] = void 0 !== t ? t : {});
 })("versions", []).push({
   version: r.version,
-  mode: require("./754f5053.js") ? "pure" : "global",
+  mode: require("./trueValue.js") ? "pure" : "global",
   copyright: "\xa9 2020 Denis Pushkarev (zloirock.ru)"
 });

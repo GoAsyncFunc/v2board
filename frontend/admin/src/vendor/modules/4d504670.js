@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./754f5053.js"),
+var r = require("./trueValue.js"),
   i = require("./59375a43.js"),
   o = require("./definePropertyEntry.js"),
   a = require("./definePropertyRuntime.js"),

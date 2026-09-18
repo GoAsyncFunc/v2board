@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./696c3471.js"),
-  o = require("./53706333.js"),
-  i = require("./4f735664.js");
+  o = require("./toAbsoluteIndex.js"),
+  i = require("./toLength.js");
 legacyModule.exports = function (e) {
   var t = r(this),
     n = i(t.length),
