@@ -1,48 +1,48 @@
 let legacyModule = module,
   legacyExports = exports;
-function r(e) {
-  return Array.isArray ? Array.isArray(e) : "[object Array]" === v(e);
+function isArray(value) {
+  return Array.isArray ? Array.isArray(value) : "[object Array]" === getTag(value);
 }
-function i(e) {
-  return "boolean" === typeof e;
+function isBoolean(value) {
+  return "boolean" === typeof value;
 }
-function o(e) {
-  return null === e;
+function isNull(value) {
+  return null === value;
 }
-function a(e) {
-  return null == e;
+function isNullOrUndefined(value) {
+  return null == value;
 }
-function s(e) {
-  return "number" === typeof e;
+function isNumber(value) {
+  return "number" === typeof value;
 }
-function l(e) {
-  return "string" === typeof e;
+function isString(value) {
+  return "string" === typeof value;
 }
-function c(e) {
-  return "symbol" === typeof e;
+function isSymbol(value) {
+  return "symbol" === typeof value;
 }
-function u(e) {
-  return void 0 === e;
+function isUndefined(value) {
+  return void 0 === value;
 }
-function h(e) {
-  return "[object RegExp]" === v(e);
+function isRegExp(value) {
+  return "[object RegExp]" === getTag(value);
 }
-function f(e) {
-  return "object" === typeof e && null !== e;
+function isObject(value) {
+  return "object" === typeof value && null !== value;
 }
-function d(e) {
-  return "[object Date]" === v(e);
+function isDate(value) {
+  return "[object Date]" === getTag(value);
 }
-function p(e) {
-  return "[object Error]" === v(e) || e instanceof Error;
+function isError(value) {
+  return "[object Error]" === getTag(value) || value instanceof Error;
 }
-function m(e) {
-  return "function" === typeof e;
+function isFunction(value) {
+  return "function" === typeof value;
 }
-function g(e) {
-  return null === e || "boolean" === typeof e || "number" === typeof e || "string" === typeof e || "symbol" === typeof e || "undefined" === typeof e;
+function isPrimitive(value) {
+  return null === value || "boolean" === typeof value || "number" === typeof value || "string" === typeof value || "symbol" === typeof value || "undefined" === typeof value;
 }
-function v(e) {
-  return Object.prototype.toString.call(e);
+function getTag(value) {
+  return Object.prototype.toString.call(value);
 }
-legacyExports.isArray = r, legacyExports.isBoolean = i, legacyExports.isNull = o, legacyExports.isNullOrUndefined = a, legacyExports.isNumber = s, legacyExports.isString = l, legacyExports.isSymbol = c, legacyExports.isUndefined = u, legacyExports.isRegExp = h, legacyExports.isObject = f, legacyExports.isDate = d, legacyExports.isError = p, legacyExports.isFunction = m, legacyExports.isPrimitive = g, legacyExports.isBuffer = require("./bufferPolyfill.js").Buffer.isBuffer;
+legacyExports.isArray = isArray, legacyExports.isBoolean = isBoolean, legacyExports.isNull = isNull, legacyExports.isNullOrUndefined = isNullOrUndefined, legacyExports.isNumber = isNumber, legacyExports.isString = isString, legacyExports.isSymbol = isSymbol, legacyExports.isUndefined = isUndefined, legacyExports.isRegExp = isRegExp, legacyExports.isObject = isObject, legacyExports.isDate = isDate, legacyExports.isError = isError, legacyExports.isFunction = isFunction, legacyExports.isPrimitive = isPrimitive, legacyExports.isBuffer = require("./bufferPolyfill.js").Buffer.isBuffer;

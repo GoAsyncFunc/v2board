@@ -1,18 +1,18 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = 800,
-  r = 16,
-  i = Date.now;
-function a(e) {
-  var t = 0,
-    a = 0;
+var HOT_CALL_COUNT = 800,
+  HOT_SPAN_MS = 16,
+  getNow = Date.now;
+function shortOut(func) {
+  var callCount = 0,
+    lastCalledAt = 0;
   return function () {
-    var o = i(),
-      u = r - (o - a);
-    if (a = o, u > 0) {
-      if (++t >= n) return arguments[0];
-    } else t = 0;
-    return e.apply(void 0, arguments);
+    var now = getNow(),
+      remainingMs = HOT_SPAN_MS - (now - lastCalledAt);
+    if (lastCalledAt = now, remainingMs > 0) {
+      if (++callCount >= HOT_CALL_COUNT) return arguments[0];
+    } else callCount = 0;
+    return func.apply(void 0, arguments);
   };
 }
-legacyModule.exports = a;
+legacyModule.exports = shortOut;

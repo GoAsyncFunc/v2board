@@ -4,30 +4,30 @@ const {
   markEsModule
 } = require("../../app/moduleInterop.js");
 markEsModule(legacyExports);
-var r = "function" === typeof Symbol && "symbol" === typeof Symbol.iterator ? function (e) {
-  return typeof e;
-} : function (e) {
-  return e && "function" === typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
+var getTypeof = "function" === typeof Symbol && "symbol" === typeof Symbol.iterator ? function (value) {
+  return typeof value;
+} : function (value) {
+  return value && "function" === typeof Symbol && value.constructor === Symbol && value !== Symbol.prototype ? "symbol" : typeof value;
 };
-function i(e, t) {
-  if (e === t) return !0;
-  if (null == e || null == t) return !1;
-  if (Array.isArray(e)) return Array.isArray(t) && e.length === t.length && e.every(function (e, n) {
-    return i(e, t[n]);
+function shallowEqual(firstValue, secondValue) {
+  if (firstValue === secondValue) return !0;
+  if (null == firstValue || null == secondValue) return !1;
+  if (Array.isArray(firstValue)) return Array.isArray(secondValue) && firstValue.length === secondValue.length && firstValue.every(function (value, index) {
+    return shallowEqual(value, secondValue[index]);
   });
-  var n = "undefined" === typeof e ? "undefined" : r(e),
-    o = "undefined" === typeof t ? "undefined" : r(t);
-  if (n !== o) return !1;
-  if ("object" === n) {
-    var a = e.valueOf(),
-      s = t.valueOf();
-    if (a !== e || s !== t) return i(a, s);
-    var l = Object.keys(e),
-      c = Object.keys(t);
-    return l.length === c.length && l.every(function (n) {
-      return i(e[n], t[n]);
+  var firstType = "undefined" === typeof firstValue ? "undefined" : getTypeof(firstValue),
+    secondType = "undefined" === typeof secondValue ? "undefined" : getTypeof(secondValue);
+  if (firstType !== secondType) return !1;
+  if ("object" === firstType) {
+    var firstValueOf = firstValue.valueOf(),
+      secondValueOf = secondValue.valueOf();
+    if (firstValueOf !== firstValue || secondValueOf !== secondValue) return shallowEqual(firstValueOf, secondValueOf);
+    var firstKeys = Object.keys(firstValue),
+      secondKeys = Object.keys(secondValue);
+    return firstKeys.length === secondKeys.length && firstKeys.every(function (key) {
+      return shallowEqual(firstValue[key], secondValue[key]);
     });
   }
   return !1;
 }
-legacyExports["default"] = i;
+legacyExports["default"] = shallowEqual;
