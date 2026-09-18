@@ -75,7 +75,7 @@ function y() {
   };
 }
 function g(e) {
-  var t = e.re = require("./73526456.js")(e.__opts__),
+  var t = e.re = require("./buildLinkifyRegexSources.js")(e.__opts__),
     r = e.__tlds__.slice();
   function o(e) {
     return e.replace("%TLDS%", t.src_tlds);

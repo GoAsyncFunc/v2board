@@ -5,7 +5,7 @@
   },
   {
     "from": "vendor/modules/2b383050.js",
-    "to": "vendor/modules/73526456.js"
+    "to": "vendor/modules/buildLinkifyRegexSources.js"
   },
   {
     "from": "vendor/modules/2b4a504c.js",
@@ -5904,19 +5904,19 @@
     "to": "vendor/modules/472b6553.js"
   },
   {
-    "from": "vendor/modules/73526456.js",
+    "from": "vendor/modules/buildLinkifyRegexSources.js",
     "to": "vendor/modules/7938664f.js"
   },
   {
-    "from": "vendor/modules/73526456.js",
+    "from": "vendor/modules/buildLinkifyRegexSources.js",
     "to": "vendor/modules/controlCharactersRegex.js"
   },
   {
-    "from": "vendor/modules/73526456.js",
+    "from": "vendor/modules/buildLinkifyRegexSources.js",
     "to": "vendor/modules/whitespaceRegex.js"
   },
   {
-    "from": "vendor/modules/73526456.js",
+    "from": "vendor/modules/buildLinkifyRegexSources.js",
     "to": "vendor/modules/664b4366.js"
   },
   {
@@ -10657,11 +10657,11 @@
   },
   {
     "from": "vendor/modules/71525556.js",
-    "to": "vendor/modules/4e416744.js"
+    "to": "vendor/modules/parseMarkdownBlock.js"
   },
   {
     "from": "vendor/modules/71525556.js",
-    "to": "vendor/modules/6f535352.js"
+    "to": "vendor/modules/parseMarkdownInline.js"
   },
   {
     "from": "vendor/modules/71525556.js",
