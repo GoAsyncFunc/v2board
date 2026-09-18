@@ -3397,7 +3397,7 @@
   },
   {
     "from": "vendor/modules/64493731.js",
-    "to": "vendor/modules/7334416e.js"
+    "to": "vendor/modules/setPrototypeOfNamedExport.js"
   },
   {
     "from": "vendor/modules/64575353.js",

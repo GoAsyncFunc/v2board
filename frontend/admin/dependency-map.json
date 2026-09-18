@@ -3481,7 +3481,7 @@
   },
   {
     "from": "vendor/modules/inherits.js",
-    "to": "vendor/modules/536b734f.js"
+    "to": "vendor/modules/setPrototypeOfCompat.js"
   },
   {
     "from": "vendor/modules/56656768.js",
@@ -4241,7 +4241,7 @@
   },
   {
     "from": "vendor/modules/64493731.js",
-    "to": "vendor/modules/7334416e.js"
+    "to": "vendor/modules/setPrototypeOfNamedExport.js"
   },
   {
     "from": "models/auth.js",
