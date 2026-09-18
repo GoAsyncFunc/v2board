@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./422b4f54.js"),
+var r = require("./hasOwnLegacy.js"),
   i = require("./4e734f2f.js"),
   o = require("./57303730.js")(!1),
   a = require("./56566c78.js")("IE_PROTO");

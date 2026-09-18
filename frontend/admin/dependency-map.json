@@ -117,7 +117,7 @@
   },
   {
     "from": "vendor/modules/2f4d6664.js",
-    "to": "vendor/modules/58493664.js"
+    "to": "vendor/modules/documentElement.js"
   },
   {
     "from": "vendor/modules/2f735777.js",
@@ -148,7 +148,7 @@
     "to": "vendor/modules/5a44722f.js"
   },
   {
-    "from": "vendor/modules/30385178.js",
+    "from": "vendor/modules/userAgent.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
@@ -373,7 +373,7 @@
   },
   {
     "from": "vendor/modules/31644758.js",
-    "to": "vendor/modules/70377973.js"
+    "to": "vendor/modules/controlCharactersRegex.js"
   },
   {
     "from": "vendor/modules/31644758.js",
@@ -385,7 +385,7 @@
   },
   {
     "from": "vendor/modules/31644758.js",
-    "to": "vendor/modules/54384938.js"
+    "to": "vendor/modules/whitespaceRegex.js"
   },
   {
     "from": "pages/ConfigSystem.jsx",
@@ -617,7 +617,7 @@
   },
   {
     "from": "vendor/modules/toStringTagType.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/toStringTagType.js",
@@ -969,7 +969,7 @@
   },
   {
     "from": "vendor/modules/35764d56.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/35764d56.js",
@@ -1037,7 +1037,7 @@
   },
   {
     "from": "vendor/modules/362f3173.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/362f3173.js",
@@ -1337,7 +1337,7 @@
   },
   {
     "from": "vendor/modules/39574656.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/396c5457.js",
@@ -1377,7 +1377,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1861,7 +1861,7 @@
   },
   {
     "from": "vendor/modules/45705844.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/462b326f.js",
@@ -2609,7 +2609,7 @@
   },
   {
     "from": "vendor/modules/4d317870.js",
-    "to": "vendor/modules/61307875.js"
+    "to": "vendor/modules/rawClassName.js"
   },
   {
     "from": "vendor/modules/4d466a32.js",
@@ -2708,7 +2708,7 @@
     "to": "vendor/modules/classNames.js"
   },
   {
-    "from": "vendor/modules/4d767743.js",
+    "from": "vendor/modules/documentElementLegacy.js",
     "to": "vendor/modules/35543259.js"
   },
   {
@@ -3177,7 +3177,7 @@
   },
   {
     "from": "vendor/modules/52664b42.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/52664b42.js",
@@ -3285,7 +3285,7 @@
   },
   {
     "from": "vendor/modules/552b4b44.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/552b4b44.js",
@@ -3672,7 +3672,7 @@
     "to": "vendor/modules/37494362.js"
   },
   {
-    "from": "vendor/modules/58493664.js",
+    "from": "vendor/modules/documentElement.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
@@ -3801,7 +3801,7 @@
   },
   {
     "from": "vendor/modules/59375a43.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/59454956.js",
@@ -5229,7 +5229,7 @@
   },
   {
     "from": "vendor/modules/6b414d48.js",
-    "to": "vendor/modules/61307875.js"
+    "to": "vendor/modules/rawClassName.js"
   },
   {
     "from": "vendor/modules/definePropertyEntry.js",
@@ -5533,7 +5533,7 @@
   },
   {
     "from": "vendor/modules/6f463132.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/6f463132.js",
@@ -5561,7 +5561,7 @@
   },
   {
     "from": "vendor/modules/6f566d6c.js",
-    "to": "vendor/modules/4d767743.js"
+    "to": "vendor/modules/documentElementLegacy.js"
   },
   {
     "from": "vendor/modules/70307045.js",
@@ -5765,7 +5765,7 @@
   },
   {
     "from": "vendor/modules/72545759.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/72584675.js",
@@ -5909,11 +5909,11 @@
   },
   {
     "from": "vendor/modules/73526456.js",
-    "to": "vendor/modules/70377973.js"
+    "to": "vendor/modules/controlCharactersRegex.js"
   },
   {
     "from": "vendor/modules/73526456.js",
-    "to": "vendor/modules/54384938.js"
+    "to": "vendor/modules/whitespaceRegex.js"
   },
   {
     "from": "vendor/modules/73526456.js",
@@ -6389,7 +6389,7 @@
   },
   {
     "from": "vendor/modules/764d7834.js",
-    "to": "vendor/modules/58493664.js"
+    "to": "vendor/modules/documentElement.js"
   },
   {
     "from": "vendor/modules/764d7834.js",
@@ -6401,7 +6401,7 @@
   },
   {
     "from": "vendor/modules/764d7834.js",
-    "to": "vendor/modules/32776532.js"
+    "to": "vendor/modules/rawClassNameLegacy.js"
   },
   {
     "from": "vendor/modules/7650642f.js",
@@ -6429,7 +6429,7 @@
   },
   {
     "from": "vendor/modules/7677754c.js",
-    "to": "vendor/modules/422b4f54.js"
+    "to": "vendor/modules/hasOwnLegacy.js"
   },
   {
     "from": "vendor/modules/7677754c.js",
@@ -8453,7 +8453,7 @@
   },
   {
     "from": "vendor/modules/2b4b2b62.js",
-    "to": "vendor/modules/4a485264.js"
+    "to": "vendor/modules/nativeUint8Array.js"
   },
   {
     "from": "vendor/modules/2b516b61.js",
@@ -8633,7 +8633,7 @@
   },
   {
     "from": "vendor/modules/30437a38.js",
-    "to": "vendor/modules/6562774e.js"
+    "to": "vendor/modules/nativeMap.js"
   },
   {
     "from": "vendor/modules/30437a38.js",
@@ -8664,7 +8664,7 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/32674e33.js",
+    "from": "vendor/modules/coreJsShared.js",
     "to": "vendor/modules/4b7a3579.js"
   },
   {
@@ -8705,7 +8705,7 @@
   },
   {
     "from": "vendor/modules/3456657a.js",
-    "to": "vendor/modules/652b4c55.js"
+    "to": "vendor/modules/nativeSymbolLegacy.js"
   },
   {
     "from": "vendor/modules/346b756b.js",
@@ -8913,7 +8913,7 @@
   },
   {
     "from": "vendor/modules/4150327a.js",
-    "to": "vendor/modules/6e6d6e63.js"
+    "to": "vendor/modules/nativeSymbol.js"
   },
   {
     "from": "vendor/modules/41565a47.js",
@@ -9097,7 +9097,7 @@
   },
   {
     "from": "vendor/modules/45326a68.js",
-    "to": "vendor/modules/32674e33.js"
+    "to": "vendor/modules/coreJsShared.js"
   },
   {
     "from": "vendor/modules/4541376d.js",
@@ -9532,7 +9532,7 @@
     "to": "vendor/modules/33736f46.js"
   },
   {
-    "from": "vendor/modules/4a485264.js",
+    "from": "vendor/modules/nativeUint8Array.js",
     "to": "vendor/modules/4b7a3579.js"
   },
   {
@@ -9541,7 +9541,7 @@
   },
   {
     "from": "vendor/modules/4a535155.js",
-    "to": "vendor/modules/59455377.js"
+    "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
     "from": "vendor/modules/4a547a42.js",
@@ -9625,7 +9625,7 @@
   },
   {
     "from": "vendor/modules/4e796b4b.js",
-    "to": "vendor/modules/6e6d6e63.js"
+    "to": "vendor/modules/nativeSymbol.js"
   },
   {
     "from": "vendor/modules/4e796b4b.js",
@@ -9664,7 +9664,7 @@
     "to": "vendor/modules/344e4f34.js"
   },
   {
-    "from": "vendor/modules/51497946.js",
+    "from": "vendor/modules/dateNow.js",
     "to": "vendor/modules/4b7a3579.js"
   },
   {
@@ -9729,7 +9729,7 @@
   },
   {
     "from": "vendor/modules/5366524d.js",
-    "to": "vendor/modules/59455377.js"
+    "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
     "from": "vendor/modules/537a354c.js",
@@ -9985,7 +9985,7 @@
   },
   {
     "from": "vendor/modules/58693765.js",
-    "to": "vendor/modules/4b4d6b64.js"
+    "to": "vendor/modules/listCacheClear.js"
   },
   {
     "from": "vendor/modules/58693765.js",
@@ -10004,7 +10004,7 @@
     "to": "vendor/modules/5a386f43.js"
   },
   {
-    "from": "vendor/modules/59455377.js",
+    "from": "vendor/modules/nativeObjectCreate.js",
     "to": "vendor/modules/43776335.js"
   },
   {
@@ -10252,7 +10252,7 @@
     "to": "vendor/modules/7a6f5965.js"
   },
   {
-    "from": "vendor/modules/652b4c55.js",
+    "from": "vendor/modules/nativeSymbolLegacy.js",
     "to": "vendor/modules/75674f69.js"
   },
   {
@@ -10308,16 +10308,16 @@
     "to": "vendor/modules/78364b74.js"
   },
   {
-    "from": "vendor/modules/6562774e.js",
+    "from": "vendor/modules/nativeMap.js",
     "to": "vendor/modules/43776335.js"
   },
   {
-    "from": "vendor/modules/6562774e.js",
+    "from": "vendor/modules/nativeMap.js",
     "to": "vendor/modules/4b7a3579.js"
   },
   {
     "from": "vendor/modules/656b6749.js",
-    "to": "vendor/modules/59455377.js"
+    "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
     "from": "vendor/modules/66475433.js",
@@ -10329,7 +10329,7 @@
   },
   {
     "from": "vendor/modules/66475433.js",
-    "to": "vendor/modules/6562774e.js"
+    "to": "vendor/modules/nativeMap.js"
   },
   {
     "from": "vendor/modules/664d492b.js",
@@ -10385,11 +10385,11 @@
   },
   {
     "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/67437134.js"
+    "to": "vendor/modules/listCacheGet.js"
   },
   {
     "from": "vendor/modules/666d5263.js",
-    "to": "vendor/modules/56614e4f.js"
+    "to": "vendor/modules/listCacheHas.js"
   },
   {
     "from": "vendor/modules/666d5263.js",
@@ -10588,7 +10588,7 @@
     "to": "vendor/modules/396c6870.js"
   },
   {
-    "from": "vendor/modules/6e6d6e63.js",
+    "from": "vendor/modules/nativeSymbol.js",
     "to": "vendor/modules/4b7a3579.js"
   },
   {
@@ -10749,7 +10749,7 @@
   },
   {
     "from": "vendor/modules/7267492b.js",
-    "to": "vendor/modules/652b4c55.js"
+    "to": "vendor/modules/nativeSymbolLegacy.js"
   },
   {
     "from": "vendor/modules/7267492b.js",
@@ -10805,7 +10805,7 @@
   },
   {
     "from": "vendor/modules/73456643.js",
-    "to": "vendor/modules/51497946.js"
+    "to": "vendor/modules/dateNow.js"
   },
   {
     "from": "vendor/modules/73456643.js",
@@ -10885,7 +10885,7 @@
   },
   {
     "from": "vendor/modules/75384474.js",
-    "to": "vendor/modules/59455377.js"
+    "to": "vendor/modules/nativeObjectCreate.js"
   },
   {
     "from": "vendor/modules/75674f69.js",
@@ -10945,7 +10945,7 @@
   },
   {
     "from": "vendor/modules/7a6f5965.js",
-    "to": "vendor/modules/6e6d6e63.js"
+    "to": "vendor/modules/nativeSymbol.js"
   },
   {
     "from": "vendor/modules/7a6f5965.js",

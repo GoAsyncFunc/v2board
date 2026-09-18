@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./58693765.js"),
-  i = require("./6562774e.js"),
+  i = require("./nativeMap.js"),
   a = require("./65344e63.js"),
   o = 200;
 function u(e, t) {

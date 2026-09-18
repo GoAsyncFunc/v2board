@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./32776532.js"),
+var r = require("./rawClassNameLegacy.js"),
   i = require("./wellKnownSymbol.js")("toStringTag"),
   o = "Arguments" == r(function () {
     return arguments;

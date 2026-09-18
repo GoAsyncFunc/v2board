@@ -5,7 +5,7 @@ var r = require("./globalObject.js"),
   o = r.MutationObserver || r.WebKitMutationObserver,
   a = r.process,
   s = r.Promise,
-  l = "process" == require("./32776532.js")(a);
+  l = "process" == require("./rawClassNameLegacy.js")(a);
 legacyModule.exports = function () {
   var e,
     t,

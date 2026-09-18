@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./32674e33.js"),
+var r = require("./coreJsShared.js"),
   i = function () {
     var e = /[^.]+$/.exec(r && r.keys && r.keys.IE_PROTO || "");
     return e ? "Symbol(src)_1." + e : "";

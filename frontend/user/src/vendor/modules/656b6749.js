@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./59455377.js"),
+var r = require("./nativeObjectCreate.js"),
   i = Object.prototype,
   a = i.hasOwnProperty;
 function o(e) {

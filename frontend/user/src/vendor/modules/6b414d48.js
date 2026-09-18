@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./61307875.js");
+var r = require("./rawClassName.js");
 legacyModule.exports = Array.isArray || function (e) {
   return "Array" == r(e);
 };

@@ -5,7 +5,7 @@ var r,
   o,
   a = require("./77487272.js"),
   s = require("./72725739.js"),
-  l = require("./58493664.js"),
+  l = require("./documentElement.js"),
   c = require("./53664447.js"),
   u = require("./globalObject.js"),
   h = u.process,
@@ -35,7 +35,7 @@ f && d || (f = function (e) {
   }, r(g), g;
 }, d = function (e) {
   delete v[e];
-}, "process" == require("./32776532.js")(h) ? r = function (e) {
+}, "process" == require("./rawClassNameLegacy.js")(h) ? r = function (e) {
   h.nextTick(a(b, e, 1));
 } : m && m.now ? r = function (e) {
   m.now(a(b, e, 1));

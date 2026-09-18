@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6e6d6e63.js"),
+var r = require("./nativeSymbol.js"),
   i = require("./4150327a.js"),
   a = require("./4b664e4d.js"),
   o = "[object Null]",

@@ -12,7 +12,7 @@ var r = require("./354b375a.js"),
       r = i.length,
       o = "<",
       a = ">";
-    t.style.display = "none", require("./4d767743.js").appendChild(t), t.src = "javascript:", e = t.contentWindow.document, e.open(), e.write(o + "script" + a + "document.F=Object" + o + "/script" + a), e.close(), u = e.F;
+    t.style.display = "none", require("./documentElementLegacy.js").appendChild(t), t.src = "javascript:", e = t.contentWindow.document, e.open(), e.write(o + "script" + a + "document.F=Object" + o + "/script" + a), e.close(), u = e.F;
     while (r--) delete u[c][i[r]];
     return u();
   };

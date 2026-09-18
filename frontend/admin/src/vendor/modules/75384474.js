@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./59455377.js"),
+var r = require("./nativeObjectCreate.js"),
   i = "__lodash_hash_undefined__",
   o = Object.prototype,
   a = o.hasOwnProperty;

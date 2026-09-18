@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./476f7951.js"),
-  i = require("./51497946.js"),
+  i = require("./dateNow.js"),
   a = require("./744c4233.js"),
   o = "Expected a function",
   u = Math.max,

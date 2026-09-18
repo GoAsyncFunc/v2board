@@ -4,7 +4,7 @@ var r = require("./35543259.js"),
   i = require("./coreJsNamespace.js"),
   o = require("./32475450.js"),
   a = require("./definePropertyRuntime.js"),
-  s = require("./422b4f54.js"),
+  s = require("./hasOwnLegacy.js"),
   l = "prototype",
   c = function (e, t, n) {
     var u,

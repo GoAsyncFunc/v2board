@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./4a485264.js");
+var r = require("./nativeUint8Array.js");
 function i(e) {
   var t = new e.constructor(e.byteLength);
   return new r(t).set(new r(e)), t;
