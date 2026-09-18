@@ -97,7 +97,7 @@ function C(e) {
   }
   return !1;
 }
-var j = require("./664b4366.js");
+var j = require("./punctuationRegex.js");
 function P(e) {
   return j.test(e);
 }

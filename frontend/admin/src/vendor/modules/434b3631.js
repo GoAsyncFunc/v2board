@@ -10,8 +10,8 @@ var r = require("./markdownUtils.js"),
   c = require("./324b5954.js"),
   f = require("./47595779.js"),
   d = {
-    default: require("./696a452b.js"),
-    zero: require("./484b7275.js"),
+    default: require("./markdownEmptyConfig.js"),
+    zero: require("./markdownDefaultConfig.js"),
     commonmark: require("./516f302b.js")
   },
   h = /^(vbscript|javascript|file|data):/,

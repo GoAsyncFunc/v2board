@@ -369,7 +369,7 @@
   },
   {
     "from": "vendor/modules/31644758.js",
-    "to": "vendor/modules/7938664f.js"
+    "to": "vendor/modules/unicodeTextRegex.js"
   },
   {
     "from": "vendor/modules/31644758.js",
@@ -377,11 +377,11 @@
   },
   {
     "from": "vendor/modules/31644758.js",
-    "to": "vendor/modules/62394559.js"
+    "to": "vendor/modules/formatControlCharactersRegex.js"
   },
   {
     "from": "vendor/modules/31644758.js",
-    "to": "vendor/modules/664b4366.js"
+    "to": "vendor/modules/punctuationRegex.js"
   },
   {
     "from": "vendor/modules/31644758.js",
@@ -5905,7 +5905,7 @@
   },
   {
     "from": "vendor/modules/buildLinkifyRegexSources.js",
-    "to": "vendor/modules/7938664f.js"
+    "to": "vendor/modules/unicodeTextRegex.js"
   },
   {
     "from": "vendor/modules/buildLinkifyRegexSources.js",
@@ -5917,7 +5917,7 @@
   },
   {
     "from": "vendor/modules/buildLinkifyRegexSources.js",
-    "to": "vendor/modules/664b4366.js"
+    "to": "vendor/modules/punctuationRegex.js"
   },
   {
     "from": "vendor/modules/735a726f.js",
@@ -8901,7 +8901,7 @@
   },
   {
     "from": "vendor/modules/markdownUtils.js",
-    "to": "vendor/modules/664b4366.js"
+    "to": "vendor/modules/punctuationRegex.js"
   },
   {
     "from": "vendor/modules/markdownUtils.js",
@@ -8997,11 +8997,11 @@
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/696a452b.js"
+    "to": "vendor/modules/markdownEmptyConfig.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/484b7275.js"
+    "to": "vendor/modules/markdownDefaultConfig.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
@@ -9925,7 +9925,7 @@
   },
   {
     "from": "vendor/modules/544c5235.js",
-    "to": "vendor/modules/49495572.js"
+    "to": "vendor/modules/normalizeTokenLevels.js"
   },
   {
     "from": "vendor/modules/544c5235.js",
@@ -9977,7 +9977,7 @@
   },
   {
     "from": "vendor/modules/58373158.js",
-    "to": "vendor/modules/34664e6b.js"
+    "to": "vendor/modules/htmlBlockTags.js"
   },
   {
     "from": "vendor/modules/58373158.js",
@@ -10172,7 +10172,7 @@
     "to": "vendor/modules/6d64504c.js"
   },
   {
-    "from": "vendor/modules/63544d4d.js",
+    "from": "vendor/modules/markdownParserState.js",
     "to": "vendor/modules/43577356.js"
   },
   {
@@ -10677,7 +10677,7 @@
   },
   {
     "from": "vendor/modules/71525556.js",
-    "to": "vendor/modules/63544d4d.js"
+    "to": "vendor/modules/markdownParserState.js"
   },
   {
     "from": "vendor/modules/7231774e.js",
