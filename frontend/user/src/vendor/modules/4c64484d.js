@@ -173,7 +173,7 @@ var k = {
   T = interopDefault(P),
   L = require("./4d466a32.js"),
   N = require("./316a3577.js"),
-  M = require("./544f7756.js");
+  M = require("./reactIsLegacyEntry.js");
 function A(e) {
   var t = [];
   return o.a.Children.forEach(e, function (e) {
@@ -188,7 +188,7 @@ var D = require("./34496c57.js"),
   z = require("./78456b55.js"),
   B = interopDefault(z),
   W = require("./75636958.js"),
-  U = require("./39446f38.js"),
+  U = require("./scrollIntoViewEntry.js"),
   q = interopDefault(U);
 function H(e) {
   return "string" === typeof e ? e : "";

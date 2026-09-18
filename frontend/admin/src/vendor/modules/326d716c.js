@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./544f7756.js"),
+var r = require("./reactIsLegacyEntry.js"),
   i = {
     childContextTypes: !0,
     contextType: !0,

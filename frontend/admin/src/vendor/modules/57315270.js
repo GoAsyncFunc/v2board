@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./76576746.js"),
+var r = require("./htmlEntitiesEntry.js"),
   i = require("./markdownUtils.js").has,
   o = require("./markdownUtils.js").isValidEntityCode,
   a = require("./markdownUtils.js").fromCodePoint,

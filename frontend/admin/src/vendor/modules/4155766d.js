@@ -4,7 +4,7 @@ var r = require("./35543259.js"),
   i = require("./422b4f54.js"),
   o = require("./6a6d4448.js"),
   a = require("./59375a43.js"),
-  s = require("./6b546957.js"),
+  s = require("./definePropertyEntry.js"),
   l = require("./362f3173.js").KEY,
   c = require("./4b557850.js"),
   u = require("./3239732f.js"),
@@ -173,4 +173,4 @@ a(a.S + a.F * se, "Object", {
       if ("function" == typeof n && (t = n.call(this, e, t)), !Y(t)) return t;
     }), r[1] = t, N.apply(R, r);
   }
-}), M[D][$] || require("./4e65674d.js")(M[D], $, M[D].valueOf), h(M, "Symbol"), h(Math, "Math", !0), h(r.JSON, "JSON", !0);
+}), M[D][$] || require("./definePropertyRuntime.js")(M[D], $, M[D].valueOf), h(M, "Symbol"), h(Math, "Math", !0), h(r.JSON, "JSON", !0);

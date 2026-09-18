@@ -40,7 +40,7 @@ var f = /\\([!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~])/g,
   p = /&([a-z#][a-z0-9]{1,31});/gi,
   d = new RegExp(f.source + "|" + p.source, "gi"),
   h = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i,
-  m = require("./76576746.js");
+  m = require("./htmlEntitiesEntry.js");
 function v(e, t) {
   var n = 0;
   return a(m, t) ? m[t] : 35 === t.charCodeAt(0) && h.test(t) && (n = "x" === t[1].toLowerCase() ? parseInt(t.slice(2), 16) : parseInt(t.slice(1), 10), u(n)) ? l(n) : e;

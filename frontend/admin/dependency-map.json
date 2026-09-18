@@ -109,7 +109,7 @@
   },
   {
     "from": "vendor/modules/2f4d4b6a.js",
-    "to": "vendor/modules/30767844.js"
+    "to": "vendor/modules/reactIsEntry.js"
   },
   {
     "from": "vendor/modules/2f4d4b6a.js",
@@ -237,7 +237,7 @@
   },
   {
     "from": "vendor/modules/30723068.js",
-    "to": "vendor/modules/544f7756.js"
+    "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
     "from": "vendor/modules/30737841.js",
@@ -252,8 +252,8 @@
     "to": "vendor/modules/6e574d51.js"
   },
   {
-    "from": "vendor/modules/30767844.js",
-    "to": "vendor/modules/44557a59.js"
+    "from": "vendor/modules/reactIsEntry.js",
+    "to": "vendor/modules/reactIsRuntime.js"
   },
   {
     "from": "vendor/modules/30776c71.js",
@@ -653,7 +653,7 @@
   },
   {
     "from": "vendor/modules/316a3577.js",
-    "to": "vendor/modules/39446f38.js"
+    "to": "vendor/modules/scrollIntoViewEntry.js"
   },
   {
     "from": "vendor/modules/3239732f.js",
@@ -781,7 +781,7 @@
   },
   {
     "from": "vendor/modules/326d716c.js",
-    "to": "vendor/modules/544f7756.js"
+    "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
     "from": "vendor/modules/327a7053.js",
@@ -1740,8 +1740,8 @@
     "to": "vendor/modules/2f4d4b6a.js"
   },
   {
-    "from": "vendor/modules/39446f38.js",
-    "to": "vendor/modules/7a743954.js"
+    "from": "vendor/modules/scrollIntoViewEntry.js",
+    "to": "vendor/modules/scrollIntoView.js"
   },
   {
     "from": "vendor/modules/39484668.js",
@@ -1825,7 +1825,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/6b546957.js"
+    "to": "vendor/modules/definePropertyEntry.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1929,7 +1929,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/4e65674d.js"
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/41795542.js",
@@ -2192,24 +2192,24 @@
     "to": "vendor/modules/50737a47.js"
   },
   {
-    "from": "vendor/modules/43746774.js",
+    "from": "vendor/modules/rcSwitchRuntime.js",
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/43746774.js",
+    "from": "vendor/modules/rcSwitchRuntime.js",
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/43746774.js",
+    "from": "vendor/modules/rcSwitchRuntime.js",
     "to": "vendor/modules/reactLifecyclesCompat.js"
   },
   {
-    "from": "vendor/modules/43746774.js",
+    "from": "vendor/modules/rcSwitchRuntime.js",
     "to": "vendor/modules/classNames.js"
   },
   {
-    "from": "vendor/modules/43766267.js",
-    "to": "vendor/modules/72364439.js"
+    "from": "vendor/modules/propTypesEntry.js",
+    "to": "vendor/modules/propTypesShim.js"
   },
   {
     "from": "vendor/modules/43773475.js",
@@ -3721,7 +3721,7 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/544f7756.js"
+    "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
     "from": "vendor/modules/4c64484d.js",
@@ -3749,7 +3749,7 @@
   },
   {
     "from": "vendor/modules/4c64484d.js",
-    "to": "vendor/modules/39446f38.js"
+    "to": "vendor/modules/scrollIntoViewEntry.js"
   },
   {
     "from": "vendor/modules/4c6e6578.js",
@@ -3829,11 +3829,11 @@
   },
   {
     "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/6b546957.js"
+    "to": "vendor/modules/definePropertyEntry.js"
   },
   {
     "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/4e65674d.js"
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/4d504670.js",
@@ -3920,15 +3920,15 @@
     "to": "vendor/modules/62597459.js"
   },
   {
-    "from": "vendor/modules/4e65674d.js",
+    "from": "vendor/modules/definePropertyRuntime.js",
     "to": "vendor/modules/32666145.js"
   },
   {
-    "from": "vendor/modules/4e65674d.js",
+    "from": "vendor/modules/definePropertyRuntime.js",
     "to": "vendor/modules/72723169.js"
   },
   {
-    "from": "vendor/modules/4e65674d.js",
+    "from": "vendor/modules/definePropertyRuntime.js",
     "to": "vendor/modules/6a6d4448.js"
   },
   {
@@ -4336,8 +4336,8 @@
     "to": "vendor/modules/propTypesRuntime.js"
   },
   {
-    "from": "vendor/modules/51436e62.js",
-    "to": "vendor/modules/2b776463.js"
+    "from": "vendor/modules/reactSchedulerEntry.js",
+    "to": "vendor/modules/reactSchedulerRuntime.js"
   },
   {
     "from": "vendor/modules/51457a63.js",
@@ -4684,8 +4684,8 @@
     "to": "vendor/modules/5142737a.js"
   },
   {
-    "from": "vendor/modules/544f7756.js",
-    "to": "vendor/modules/71543132.js"
+    "from": "vendor/modules/reactIsLegacyEntry.js",
+    "to": "vendor/modules/reactIsLegacyRuntime.js"
   },
   {
     "from": "vendor/modules/552b4b44.js",
@@ -5152,8 +5152,8 @@
     "to": "vendor/modules/globalObject.js"
   },
   {
-    "from": "vendor/modules/58496443.js",
-    "to": "vendor/modules/43746774.js"
+    "from": "vendor/modules/rcSwitchEntry.js",
+    "to": "vendor/modules/rcSwitchRuntime.js"
   },
   {
     "from": "vendor/modules/5850312f.js",
@@ -5309,7 +5309,7 @@
   },
   {
     "from": "vendor/modules/59375a43.js",
-    "to": "vendor/modules/4e65674d.js"
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/59375a43.js",
@@ -5549,7 +5549,7 @@
   },
   {
     "from": "vendor/modules/62427939.js",
-    "to": "vendor/modules/4e65674d.js"
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/62427939.js",
@@ -6913,7 +6913,7 @@
   },
   {
     "from": "vendor/modules/6a324443.js",
-    "to": "vendor/modules/4e65674d.js"
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/6a324443.js",
@@ -7224,8 +7224,8 @@
     "to": "vendor/modules/61307875.js"
   },
   {
-    "from": "vendor/modules/6b546957.js",
-    "to": "vendor/modules/4e65674d.js"
+    "from": "vendor/modules/definePropertyEntry.js",
+    "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
     "from": "vendor/modules/6b575235.js",
@@ -7924,7 +7924,7 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
-    "from": "vendor/modules/72364439.js",
+    "from": "vendor/modules/propTypesShim.js",
     "to": "vendor/modules/496c5338.js"
   },
   {
@@ -9784,7 +9784,7 @@
     "to": "vendor/modules/764d7834.js"
   },
   {
-    "from": "vendor/modules/7a743954.js",
+    "from": "vendor/modules/scrollIntoView.js",
     "to": "vendor/modules/6a423543.js"
   },
   {
@@ -10697,7 +10697,7 @@
   },
   {
     "from": "vendor/modules/antdSwitch.js",
-    "to": "vendor/modules/58496443.js"
+    "to": "vendor/modules/rcSwitchEntry.js"
   },
   {
     "from": "vendor/modules/antdSwitch.js",
@@ -11437,7 +11437,7 @@
   },
   {
     "from": "vendor/modules/786d5661.js",
-    "to": "vendor/modules/43766267.js"
+    "to": "vendor/modules/propTypesEntry.js"
   },
   {
     "from": "vendor/modules/786d5661.js",
@@ -12005,7 +12005,7 @@
   },
   {
     "from": "vendor/modules/markdownUtils.js",
-    "to": "vendor/modules/76576746.js"
+    "to": "vendor/modules/htmlEntitiesEntry.js"
   },
   {
     "from": "vendor/modules/markdownUtils.js",
@@ -12169,7 +12169,7 @@
   },
   {
     "from": "vendor/modules/43785865.js",
-    "to": "vendor/modules/544f7756.js"
+    "to": "vendor/modules/reactIsLegacyEntry.js"
   },
   {
     "from": "vendor/modules/43785865.js",
@@ -13697,7 +13697,7 @@
   },
   {
     "from": "vendor/modules/57315270.js",
-    "to": "vendor/modules/76576746.js"
+    "to": "vendor/modules/htmlEntitiesEntry.js"
   },
   {
     "from": "vendor/modules/57315270.js",
@@ -14708,8 +14708,8 @@
     "to": "vendor/modules/6b65777a.js"
   },
   {
-    "from": "vendor/modules/76576746.js",
-    "to": "vendor/modules/78574350.js"
+    "from": "vendor/modules/htmlEntitiesEntry.js",
+    "to": "vendor/modules/htmlEntities.js"
   },
   {
     "from": "vendor/modules/77636c47.js",
