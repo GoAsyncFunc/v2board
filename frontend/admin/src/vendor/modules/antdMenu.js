@@ -11,7 +11,7 @@ var n = require("./reactRuntime.js"),
   l = require("./4247522b.js"),
   i = require("./reactLifecyclesCompat.js"),
   u = require("./propTypesRuntime.js"),
-  s = require("./666f5738.js"),
+  s = require("./createReactContext.js"),
   h = interopDefault(s),
   f = h()({
     inlineCollapsed: !1
