@@ -7,7 +7,7 @@ var r = require("./6c6d3052.js"),
     return t;
   };
 legacyModule.exports = h;
-var o = Object.create(require("./4f6e7a30.js"));
+var o = Object.create(require("./nodeTypePredicates.js"));
 o.inherits = require("./nodeInheritsOptional.js");
 var a = require("./72584675.js"),
   s = require("./33425273.js");

@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = o;
 var r = require("./4a373869.js"),
-  i = Object.create(require("./4f6e7a30.js"));
+  i = Object.create(require("./nodeTypePredicates.js"));
 function o(e) {
   if (!(this instanceof o)) return new o(e);
   r.call(this, e);

@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 legacyModule.exports = a;
 var r = require("./735a726f.js"),
-  i = Object.create(require("./4f6e7a30.js"));
+  i = Object.create(require("./nodeTypePredicates.js"));
 function o(e, t) {
   var n = this._transformState;
   n.transforming = !1;

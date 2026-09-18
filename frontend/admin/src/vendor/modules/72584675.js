@@ -19,7 +19,7 @@ let legacyModule = module,
   function f(e) {
     return c.isBuffer(e) || e instanceof u;
   }
-  var d = Object.create(require("./4f6e7a30.js"));
+  var d = Object.create(require("./nodeTypePredicates.js"));
   d.inherits = require("./nodeInheritsOptional.js");
   var p = require("./emptyModule.js"),
     m = void 0;

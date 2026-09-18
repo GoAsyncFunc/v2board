@@ -12,7 +12,7 @@ let legacyModule = module,
   var a,
     s = !t.browser && ["v0.10", "v0.9."].indexOf(t.version.slice(0, 5)) > -1 ? setImmediate : i.nextTick;
   b.WritableState = y;
-  var l = Object.create(require("./4f6e7a30.js"));
+  var l = Object.create(require("./nodeTypePredicates.js"));
   l.inherits = require("./nodeInheritsOptional.js");
   var c = {
       deprecate: require("./74394645.js")
