@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./43577356.js"),
+var r = require("./markdownToken.js"),
   o = require("./markdownUtils.js").isWhiteSpace,
   i = require("./markdownUtils.js").isPunctChar,
   a = require("./markdownUtils.js").isMdAsciiPunct;

@@ -8965,7 +8965,7 @@
   },
   {
     "from": "vendor/modules/434b3631.js",
-    "to": "vendor/modules/566c762f.js"
+    "to": "vendor/modules/markdownLinkParsers.js"
   },
   {
     "from": "vendor/modules/434b3631.js",
@@ -9008,19 +9008,19 @@
     "to": "vendor/modules/516f302b.js"
   },
   {
-    "from": "vendor/modules/43587661.js",
-    "to": "vendor/modules/43577356.js"
+    "from": "vendor/modules/markdownInlineState.js",
+    "to": "vendor/modules/markdownToken.js"
   },
   {
-    "from": "vendor/modules/43587661.js",
+    "from": "vendor/modules/markdownInlineState.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/43587661.js",
+    "from": "vendor/modules/markdownInlineState.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/43587661.js",
+    "from": "vendor/modules/markdownInlineState.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -9929,7 +9929,7 @@
   },
   {
     "from": "vendor/modules/544c5235.js",
-    "to": "vendor/modules/43587661.js"
+    "to": "vendor/modules/markdownInlineState.js"
   },
   {
     "from": "vendor/modules/55342f65.js",
@@ -9944,15 +9944,15 @@
     "to": "vendor/modules/4b43735a.js"
   },
   {
-    "from": "vendor/modules/566c762f.js",
+    "from": "vendor/modules/markdownLinkParsers.js",
     "to": "vendor/modules/33316257.js"
   },
   {
-    "from": "vendor/modules/566c762f.js",
+    "from": "vendor/modules/markdownLinkParsers.js",
     "to": "vendor/modules/354d726b.js"
   },
   {
-    "from": "vendor/modules/566c762f.js",
+    "from": "vendor/modules/markdownLinkParsers.js",
     "to": "vendor/modules/665a464e.js"
   },
   {
@@ -10173,7 +10173,7 @@
   },
   {
     "from": "vendor/modules/markdownParserState.js",
-    "to": "vendor/modules/43577356.js"
+    "to": "vendor/modules/markdownToken.js"
   },
   {
     "from": "vendor/modules/baseEach.js",
@@ -10397,7 +10397,7 @@
   },
   {
     "from": "vendor/modules/67302b76.js",
-    "to": "vendor/modules/43577356.js"
+    "to": "vendor/modules/markdownToken.js"
   },
   {
     "from": "vendor/modules/67302b76.js",

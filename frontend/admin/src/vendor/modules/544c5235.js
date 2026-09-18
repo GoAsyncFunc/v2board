@@ -42,4 +42,4 @@ a.prototype.skipToken = function (e) {
     a,
     s = new this.State(e, t, n, r);
   for (this.tokenize(s), o = this.ruler2.getRules(""), a = o.length, i = 0; i < a; i++) o[i](s);
-}, a.prototype.State = require("./43587661.js"), legacyModule.exports = a;
+}, a.prototype.State = require("./markdownInlineState.js"), legacyModule.exports = a;

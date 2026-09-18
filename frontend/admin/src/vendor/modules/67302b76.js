@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./43577356.js"),
+var r = require("./markdownToken.js"),
   i = require("./markdownUtils.js").isSpace;
 function o(e, t, n, r) {
   var o, a, s, l, u, c, f, d;

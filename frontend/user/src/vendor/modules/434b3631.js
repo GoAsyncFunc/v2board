@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./markdownUtils.js"),
-  o = require("./566c762f.js"),
+  o = require("./markdownLinkParsers.js"),
   i = require("./664d492b.js"),
   a = require("./71525556.js"),
   s = require("./6470616d.js"),
