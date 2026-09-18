@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
-  o = require("./62563566.js"),
-  i = require("./46715048.js"),
+  o = require("./coreJsVersion.js"),
+  i = require("./pureMode.js"),
   a = require("./7a4b6e68.js"),
   s = require("./definePropertyHelper.js").f;
 legacyModule.exports = function (e) {

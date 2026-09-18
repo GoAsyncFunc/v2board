@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./35543259.js"),
-  i = require("./5745706b.js"),
+  i = require("./coreJsNamespace.js"),
   o = require("./754f5053.js"),
   a = require("./7a4c6b47.js"),
   s = require("./definePropertyLegacy.js").f;

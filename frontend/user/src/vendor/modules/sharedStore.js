@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./62563566.js"),
+var r = require("./coreJsVersion.js"),
   o = require("./globalObject.js"),
   i = "__core-js_shared__",
   a = o[i] || (o[i] = {});
@@ -8,6 +8,6 @@ var r = require("./62563566.js"),
   return a[e] || (a[e] = void 0 !== t ? t : {});
 })("versions", []).push({
   version: r.version,
-  mode: require("./46715048.js") ? "pure" : "global",
+  mode: require("./pureMode.js") ? "pure" : "global",
   copyright: "\xa9 2019 Denis Pushkarev (zloirock.ru)"
 });

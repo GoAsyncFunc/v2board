@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./45705844.js"),
-  i = require("./75382b75.js"),
+  i = require("./isObject.js"),
   o = require("./4f735664.js"),
   a = require("./77487272.js"),
   s = require("./wellKnownSymbol.js")("isConcatSpreadable");

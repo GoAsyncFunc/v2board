@@ -4,12 +4,12 @@ var r,
   i,
   o,
   a,
-  s = require("./46715048.js"),
+  s = require("./pureMode.js"),
   l = require("./globalObject.js"),
   c = require("./77487272.js"),
   u = require("./toStringTagType.js"),
   h = require("./57474e57.js"),
-  f = require("./75382b75.js"),
+  f = require("./isObject.js"),
   d = require("./77596d38.js"),
   p = require("./59455649.js"),
   m = require("./346f3336.js"),
@@ -150,7 +150,7 @@ j || (T = function (e) {
   return e === T || e === a ? new o(e) : i(e);
 }), h(h.G + h.W + h.F * !j, {
   Promise: T
-}), require("./6c76416f.js")(T, E), require("./67527169.js")(E), a = require("./62563566.js")[E], h(h.S + h.F * !j, E, {
+}), require("./setToStringTag.js")(T, E), require("./67527169.js")(E), a = require("./coreJsVersion.js")[E], h(h.S + h.F * !j, E, {
   reject: function (e) {
     var t = P(this),
       n = t.reject;

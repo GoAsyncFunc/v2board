@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./75382b75.js"),
+var r = require("./isObject.js"),
   o = require("./42467438.js"),
   i = require("./wellKnownSymbol.js")("hasInstance"),
   a = Function.prototype;

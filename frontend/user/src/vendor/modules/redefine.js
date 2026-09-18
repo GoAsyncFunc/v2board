@@ -2,12 +2,12 @@ let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
   o = require("./56504f45.js"),
-  i = require("./6f786f30.js"),
-  a = require("./6b434b35.js")("src"),
+  i = require("./hasOwn.js"),
+  a = require("./uid.js")("src"),
   s = require("./functionToString.js"),
   c = "toString",
   u = ("" + s).split(c);
-require("./62563566.js").inspectSource = function (e) {
+require("./coreJsVersion.js").inspectSource = function (e) {
   return s.call(e);
 }, (legacyModule.exports = function (e, t, n, s) {
   var c = "function" == typeof n;

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-for (var r = require("./arrayIterator.js"), o = require("./objectKeys.js"), i = require("./724b496c.js"), a = require("./globalObject.js"), s = require("./56504f45.js"), c = require("./emptyExports.js"), u = require("./wellKnownSymbol.js"), l = u("iterator"), f = u("toStringTag"), p = c.Array, d = {
+for (var r = require("./arrayIterator.js"), o = require("./objectKeys.js"), i = require("./redefine.js"), a = require("./globalObject.js"), s = require("./56504f45.js"), c = require("./emptyExports.js"), u = require("./wellKnownSymbol.js"), l = u("iterator"), f = u("toStringTag"), p = c.Array, d = {
     CSSRuleList: !0,
     CSSStyleDeclaration: !1,
     CSSValueList: !1,

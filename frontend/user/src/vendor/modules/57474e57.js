@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
-  o = require("./62563566.js"),
+  o = require("./coreJsVersion.js"),
   i = require("./56504f45.js"),
-  a = require("./724b496c.js"),
+  a = require("./redefine.js"),
   s = require("./77487272.js"),
   c = "prototype",
   u = function (e, t, n) {

@@ -6,7 +6,7 @@ var r = require("./57474e57.js"),
   a = require("./assertObject.js"),
   s = require("./53706333.js"),
   l = require("./4f735664.js"),
-  c = require("./75382b75.js"),
+  c = require("./isObject.js"),
   u = require("./globalObject.js").ArrayBuffer,
   h = require("./56657959.js"),
   f = o.ArrayBuffer,
@@ -21,7 +21,7 @@ r(r.G + r.W + r.F * (u !== f), {
   isView: function (e) {
     return p && p(e) || c(e) && g in e;
   }
-}), r(r.P + r.U + r.F * require("./77555779.js")(function () {
+}), r(r.P + r.U + r.F * require("./tryCatchTest.js")(function () {
   return !new f(2).slice(1, void 0).byteLength;
 }), v, {
   slice: function (e, t) {

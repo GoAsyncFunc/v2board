@@ -8,7 +8,7 @@ var r = require("./59714163.js")("meta"),
   c = Object.isExtensible || function () {
     return !0;
   },
-  u = !require("./4b557850.js")(function () {
+  u = !require("./tryCatchTestLegacy.js")(function () {
     return c(Object.preventExtensions({}));
   }),
   l = function (e) {

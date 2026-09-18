@@ -7,9 +7,9 @@ var r = require("./assertObject.js"),
   a = "toString",
   s = /./[a],
   c = function (e) {
-    require("./724b496c.js")(RegExp.prototype, a, e, !0);
+    require("./redefine.js")(RegExp.prototype, a, e, !0);
   };
-require("./77555779.js")(function () {
+require("./tryCatchTest.js")(function () {
   return "/a/b" != s.call({
     source: "a",
     flags: "b"

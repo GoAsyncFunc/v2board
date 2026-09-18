@@ -1,22 +1,22 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./globalObject.js"),
-  i = require("./6f786f30.js"),
+  i = require("./hasOwn.js"),
   o = require("./descriptorsLegacySupport.js"),
   a = require("./57474e57.js"),
-  s = require("./724b496c.js"),
-  l = require("./2b793531.js").KEY,
-  c = require("./77555779.js"),
+  s = require("./redefine.js"),
+  l = require("./objectMeta.js").KEY,
+  c = require("./tryCatchTest.js"),
   u = require("./sharedStore.js"),
-  h = require("./6c76416f.js"),
-  f = require("./6b434b35.js"),
+  h = require("./setToStringTag.js"),
+  f = require("./uid.js"),
   d = require("./wellKnownSymbol.js"),
   p = require("./7a4b6e68.js"),
   m = require("./2f735777.js"),
   g = require("./54316e72.js"),
   v = require("./45705844.js"),
   y = require("./assertObject.js"),
-  b = require("./75382b75.js"),
+  b = require("./isObject.js"),
   w = require("./696c3471.js"),
   x = require("./4f654f43.js"),
   _ = require("./38424d74.js"),
@@ -121,7 +121,7 @@ U || (M = function () {
   }), K(e);
 }, s(M[D], "toString", function () {
   return this._k;
-}), C.f = ee, T.f = X, require("./39484668.js").f = k.f = te, require("./4c734157.js").f = J, O.f = ne, o && !require("./46715048.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
+}), C.f = ee, T.f = X, require("./39484668.js").f = k.f = te, require("./4c734157.js").f = J, O.f = ne, o && !require("./pureMode.js") && s(H, "propertyIsEnumerable", J, !0), p.f = function (e) {
   return K(d(e));
 }), a(a.G + a.W + a.F * !U, {
   Symbol: M

@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./sharedStore.js")("wks"),
-  i = require("./6b434b35.js"),
+  i = require("./uid.js"),
   o = require("./globalObject.js").Symbol,
   a = "function" == typeof o,
   s = legacyModule.exports = function (e) {

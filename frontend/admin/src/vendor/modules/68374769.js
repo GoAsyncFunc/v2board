@@ -1,9 +1,9 @@
 let legacyModule = module,
   legacyExports = exports;
 require("./71393748.js");
-var r = require("./724b496c.js"),
+var r = require("./redefine.js"),
   i = require("./56504f45.js"),
-  o = require("./77555779.js"),
+  o = require("./tryCatchTest.js"),
   a = require("./5a44722f.js"),
   s = require("./wellKnownSymbol.js"),
   l = require("./33333070.js"),

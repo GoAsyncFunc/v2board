@@ -1,14 +1,14 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./6b434b35.js")("meta"),
-  i = require("./75382b75.js"),
-  o = require("./6f786f30.js"),
+var r = require("./uid.js")("meta"),
+  i = require("./isObject.js"),
+  o = require("./hasOwn.js"),
   a = require("./definePropertyHelper.js").f,
   s = 0,
   l = Object.isExtensible || function () {
     return !0;
   },
-  c = !require("./77555779.js")(function () {
+  c = !require("./tryCatchTest.js")(function () {
     return l(Object.preventExtensions({}));
   }),
   u = function (e) {

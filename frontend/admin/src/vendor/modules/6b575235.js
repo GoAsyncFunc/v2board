@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var r = require("./57474e57.js"),
-  i = require("./62563566.js"),
+  i = require("./coreJsVersion.js"),
   o = require("./globalObject.js"),
   a = require("./56657959.js"),
   s = require("./74476433.js");

@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./5745706b.js"),
+var r = require("./coreJsNamespace.js"),
   i = require("./35543259.js"),
   o = "__core-js_shared__",
   a = i[o] || (i[o] = {});

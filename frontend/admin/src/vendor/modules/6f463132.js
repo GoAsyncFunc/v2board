@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./75382b75.js"),
+var r = require("./isObject.js"),
   i = require("./32776532.js"),
   o = require("./wellKnownSymbol.js")("match");
 legacyModule.exports = function (e) {
