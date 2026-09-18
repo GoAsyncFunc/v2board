@@ -8,7 +8,7 @@ const React = require("../vendor/modules/71317449.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/6a65685a.js"),
   o = interopDefault(r),
-  i = (require("../vendor/modules/67395956.js"), require("../vendor/modules/7743416a.js")),
+  i = (require("../vendor/modules/67395956.js"), require("../vendor/modules/antdTable.js")),
   a = (require("../vendor/modules/39643851.js"), require("../vendor/modules/62486a79.js"), require("../vendor/modules/61305739.js"), require("../vendor/modules/51624c5a.js")),
   s = interopDefault(a),
   c = require("../vendor/modules/69436335.js"),

@@ -4,7 +4,7 @@ import { c as connect } from '../vendor/reactRedux.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { a as Select } from '../vendor/modules/32664d37.js';
 import { a as Input } from '../vendor/modules/35724567.js';
-import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Table } from '../vendor/modules/antdTable.js';
 import { a as Button } from '../vendor/modules/322f5270.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { a as Divider } from '../vendor/Divider.js';

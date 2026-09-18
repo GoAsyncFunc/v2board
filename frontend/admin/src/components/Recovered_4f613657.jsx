@@ -6,7 +6,7 @@ defineExport(legacyExports, "a", function () {
     return ContextMenuTable;
 });
 require("../vendor/modules/67395956.js");
-var tableModule = require("../vendor/modules/7743416a.js"),
+var tableModule = require("../vendor/modules/antdTable.js"),
     objectAssignModule = require("../vendor/modules/6a65685a.js"),
     objectAssign = interopDefault(objectAssignModule),
     reactModule = require("../vendor/modules/71317449.js"),

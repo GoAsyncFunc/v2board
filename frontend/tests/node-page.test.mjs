@@ -20,7 +20,7 @@ async function load(original) {
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]) };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
-      for (const [key, label] of [['7743416a', 'Table'], ['6d723332', 'Tag'], ['4b725473', 'Badge'], ['3353372b', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label };
+      for (const [key, label] of [['antdTable', 'Table'], ['6d723332', 'Tag'], ['4b725473', 'Badge'], ['3353372b', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label };
       if (/67395956|2b424a64|41776870|35446d6f|iconStyles|request|77642f52|2f497261/.test(id)) return {};
       if (id.includes('6a65685a')) return Object.assign;
       if (id.includes('moduleInterop')) return { markEsModule: o => Object.defineProperty(o, '__esModule', { value: true }), interopDefault: obj => { const fn = () => obj; Object.defineProperty(fn, 'a', { get: fn }); return fn; } };

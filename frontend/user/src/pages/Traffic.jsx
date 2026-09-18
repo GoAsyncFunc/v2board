@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Table } from '../vendor/modules/antdTable.js';
 import { c as connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createTrafficColumns } from '../components/TrafficColumns.jsx';

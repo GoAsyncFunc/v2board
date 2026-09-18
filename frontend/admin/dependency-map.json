@@ -301,7 +301,7 @@
   },
   {
     "from": "pages/ServerGroup.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/ServerGroup.jsx",
@@ -3029,7 +3029,7 @@
   },
   {
     "from": "pages/Notice.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Notice.jsx",
@@ -3269,7 +3269,7 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Queue.jsx",
@@ -4073,7 +4073,7 @@
   },
   {
     "from": "components/Recovered_4f613657.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "components/Recovered_4f613657.jsx",
@@ -4217,7 +4217,7 @@
   },
   {
     "from": "pages/Coupon.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -4469,7 +4469,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -5117,7 +5117,7 @@
   },
   {
     "from": "vendor/modules/58307135.js",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "vendor/modules/58307135.js",
@@ -6021,7 +6021,7 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/ConfigPayment.jsx",
@@ -6965,7 +6965,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -7749,7 +7749,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -9161,7 +9161,7 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/ServerRoute.jsx",
@@ -9869,7 +9869,7 @@
   },
   {
     "from": "pages/Giftcard.jsx",
-    "to": "vendor/modules/7743416a.js"
+    "to": "vendor/modules/antdTable.js"
   },
   {
     "from": "pages/Giftcard.jsx",
@@ -11308,95 +11308,95 @@
     "to": "vendor/modules/5a76705a.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/71317449.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/4247522b.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/3652526e.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/31377839.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/54535951.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/47797478.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/56434c38.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/69386934.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/316a3577.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/59663655.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/6a73432b.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/43745851.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/6b617a38.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/39794836.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/42764b73.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/78456b55.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/4e554263.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/57394854.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/34496c57.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/594d6e48.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/5a76705a.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/48383455.js"
   },
   {
-    "from": "vendor/modules/7743416a.js",
+    "from": "vendor/modules/antdTable.js",
     "to": "vendor/modules/36436658.js"
   },
   {

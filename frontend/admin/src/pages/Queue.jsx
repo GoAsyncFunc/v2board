@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Table } from '../vendor/modules/7743416a.js';
+import { a as Table } from '../vendor/modules/antdTable.js';
 import { a as LoadingContainer } from '../vendor/modules/76333265.js';
 import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.jsx';
 import '../vendor/modules/67395956.js';
