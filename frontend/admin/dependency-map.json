@@ -8653,7 +8653,7 @@
   },
   {
     "from": "vendor/modules/markdownItRuntime.js",
-    "to": "vendor/modules/434b3631.js"
+    "to": "vendor/modules/markdownIt.js"
   },
   {
     "from": "vendor/modules/316e424f.js",
@@ -8960,51 +8960,51 @@
     "to": "vendor/modules/37472b63.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownLinkParsers.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/664d492b.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownCoreParser.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownBlockParser.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownInlineParser.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/2b383050.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownUrl.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/47595779.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownEmptyConfig.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/markdownDefaultConfig.js"
   },
   {
-    "from": "vendor/modules/434b3631.js",
+    "from": "vendor/modules/markdownIt.js",
     "to": "vendor/modules/516f302b.js"
   },
   {
