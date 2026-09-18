@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
 var n = require("./75375951.js"),
-  r = require("./526c586f.js");
+  r = require("./timePickerLocale.js");
 function o() {
   return o = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {

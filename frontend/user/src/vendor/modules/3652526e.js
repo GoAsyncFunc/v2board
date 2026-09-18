@@ -9,7 +9,7 @@ Object.defineProperty(legacyExports, "__esModule", {
   value: !0
 });
 var o = r(require("./77435846.js")),
-  i = r(require("./42433831.js"));
+  i = r(require("./nullFunction.js"));
 legacyExports.Column = i.default;
 var a = r(require("./41484a73.js"));
 legacyExports.ColumnGroup = a.default;

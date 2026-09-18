@@ -2,7 +2,7 @@ let legacyModule = module,
   legacyExports = exports;
 var n = require("./48346667.js"),
   r = require("./36317332.js"),
-  o = require("./526c586f.js"),
+  o = require("./timePickerLocale.js"),
   a = r["a"];
 legacyExports["a"] = {
   locale: "en",
