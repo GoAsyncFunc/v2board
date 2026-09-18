@@ -1,79 +1,90 @@
 let legacyModule = module,
   legacyExports = exports;
-function r(e, t) {
-  var n = Object.keys(e);
+function getEnumerableKeys(object, includeSymbols) {
+  var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
-    var r = Object.getOwnPropertySymbols(e);
-    t && (r = r.filter(function (t) {
-      return Object.getOwnPropertyDescriptor(e, t).enumerable;
-    })), n.push.apply(n, r);
+    var symbols = Object.getOwnPropertySymbols(object);
+    includeSymbols && (symbols = symbols.filter(function (symbol) {
+      return Object.getOwnPropertyDescriptor(object, symbol).enumerable;
+    })), keys.push.apply(keys, symbols);
   }
-  return n;
+  return keys;
 }
-function o(e) {
-  for (var t = 1; t < arguments.length; t++) {
-    var n = null != arguments[t] ? arguments[t] : {};
-    t % 2 ? r(Object(n), !0).forEach(function (t) {
-      i(e, t, n[t]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : r(Object(n)).forEach(function (t) {
-      Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t));
+function copyProperties(target) {
+  for (var sourceIndex = 1; sourceIndex < arguments.length; sourceIndex++) {
+    var source = null != arguments[sourceIndex] ? arguments[sourceIndex] : {};
+    sourceIndex % 2 ? getEnumerableKeys(Object(source), !0).forEach(function (key) {
+      defineEnumerableProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : getEnumerableKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
-  return e;
+  return target;
 }
-function i(e, t, n) {
-  return t in e ? Object.defineProperty(e, t, {
-    value: n,
+function defineEnumerableProperty(target, key, value) {
+  return key in target ? Object.defineProperty(target, key, {
+    value: value,
     enumerable: !0,
     configurable: !0,
     writable: !0
-  }) : e[t] = n, e;
+  }) : target[key] = value, target;
 }
-var a,
-  s = require("./4a525065.js"),
-  c = require("./75637430.js");
-function u(e) {
-  var t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
-    n = window,
-    r = n.g_langSeparator,
-    o = void 0 === r ? "-" : r,
-    i = new RegExp("^([a-z]{2})".concat(o, "?([A-Z]{2})?$"));
-  if (void 0 !== e && !i.test(e)) throw new Error("setLocale lang format error");
-  if (l() !== e && (window.g_lang = e, window.localStorage.setItem("umi_locale", e || ""), a && !t && a.reloadAppLocale(), t && window.location.reload(), window.dispatchEvent)) {
-    var s = new Event("languagechange");
-    window.dispatchEvent(s);
+var intlObject,
+  intlExports = require("./4a525065.js"),
+  createLocaleContext = require("./75637430.js");
+function setLocale(locale) {
+  var reload = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
+    globalObject = window,
+    languageSeparator = globalObject.g_langSeparator,
+    separator = void 0 === languageSeparator ? "-" : languageSeparator,
+    localePattern = new RegExp("^([a-z]{2})".concat(separator, "?([A-Z]{2})?$"));
+  if (void 0 !== locale && !localePattern.test(locale)) throw new Error("setLocale lang format error");
+  if (getLocale() !== locale && (window.g_lang = locale, window.localStorage.setItem("umi_locale", locale || ""), intlObject && !reload && intlObject.reloadAppLocale(), reload && window.location.reload(), window.dispatchEvent)) {
+    var languageChangeEvent = new Event("languagechange");
+    window.dispatchEvent(languageChangeEvent);
   }
 }
-function l() {
-  var e = window,
-    t = e.g_langSeparator,
-    n = void 0 === t ? "-" : t,
-    r = e.g_lang,
-    o = "undefined" !== typeof localStorage ? window.localStorage.getItem("umi_locale") : "",
-    i = "undefined" !== typeof navigator && "string" === typeof navigator.language,
-    a = i ? navigator.language.split("-").join(n) : "";
-  return o || r || a;
+function getLocale() {
+  var globalObject = window,
+    languageSeparator = globalObject.g_langSeparator,
+    separator = void 0 === languageSeparator ? "-" : languageSeparator,
+    globalLocale = globalObject.g_lang,
+    storedLocale = "undefined" !== typeof localStorage ? window.localStorage.getItem("umi_locale") : "",
+    hasNavigatorLanguage = "undefined" !== typeof navigator && "string" === typeof navigator.language,
+    navigatorLocale = hasNavigatorLanguage ? navigator.language.split("-").join(separator) : "";
+  return storedLocale || globalLocale || navigatorLocale;
 }
-var f,
-  p = c({
-    lang: l()
+var messageApi,
+  localeContext = createLocaleContext({
+    lang: getLocale()
   }),
-  d = {};
-function h(e) {
-  f = e;
+  messageExports = {};
+function setIntlObject(value) {
+  messageApi = value;
 }
-function m(e) {
-  a = e;
+function setLocaleContext(value) {
+  intlObject = value;
 }
-["formatMessage", "formatHTMLMessage", "formatDate", "formatTime", "formatRelative", "formatNumber", "formatPlural", "LangContext", "now", "onError"].forEach(function (e) {
-  d[e] = function () {
-    var t;
-    return f && f[e] ? (t = f[e]).call.apply(t, [f].concat(Array.prototype.slice.call(arguments))) : (console && console.warn && console.warn("[umi-plugin-locale] ".concat(e, " not initialized yet, you should use it after react app mounted.")), null);
+[
+  "formatMessage",
+  "formatHTMLMessage",
+  "formatDate",
+  "formatTime",
+  "formatRelative",
+  "formatNumber",
+  "formatPlural",
+  "LangContext",
+  "now",
+  "onError"
+].forEach(function (methodName) {
+  messageExports[methodName] = function () {
+    var method;
+    return messageApi && messageApi[methodName] ? (method = messageApi[methodName]).call.apply(method, [messageApi].concat(Array.prototype.slice.call(arguments))) : (console && console.warn && console.warn("[umi-plugin-locale] ".concat(methodName, " not initialized yet, you should use it after react app mounted.")), null);
   };
-}), legacyModule.exports = o({}, s, {}, d, {
-  setLocale: u,
-  getLocale: l,
-  _setIntlObject: h,
-  LangContext: p,
-  _setLocaleContext: m
+}), legacyModule.exports = copyProperties({}, intlExports, {}, messageExports, {
+  setLocale: setLocale,
+  getLocale: getLocale,
+  _setIntlObject: setIntlObject,
+  LangContext: localeContext,
+  _setLocaleContext: setLocaleContext
 });
