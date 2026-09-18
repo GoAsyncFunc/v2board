@@ -1,10 +1,10 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./isSymbol.js"),
-  i = 1 / 0;
-function a(e) {
-  if ("string" == typeof e || r(e)) return e;
-  var t = e + "";
-  return "0" == t && 1 / e == -i ? "-0" : t;
+var isSymbol = require("./isSymbol.js"),
+  infinity = 1 / 0;
+function toKey(value) {
+  if ("string" == typeof value || isSymbol(value)) return value;
+  var stringValue = value + "";
+  return "0" == stringValue && 1 / value == -infinity ? "-0" : stringValue;
 }
-legacyModule.exports = a;
+legacyModule.exports = toKey;

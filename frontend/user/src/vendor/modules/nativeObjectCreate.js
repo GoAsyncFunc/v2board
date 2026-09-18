@@ -1,5 +1,5 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./getNative.js"),
-  i = r(Object, "create");
-legacyModule.exports = i;
+var getNative = require("./getNative.js"),
+  nativeObjectCreate = getNative(Object, "create");
+legacyModule.exports = nativeObjectCreate;

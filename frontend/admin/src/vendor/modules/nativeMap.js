@@ -1,6 +1,6 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./getNative.js"),
-  i = require("./rootObject.js"),
-  o = r(i, "Map");
-legacyModule.exports = o;
+var getNative = require("./getNative.js"),
+  rootObject = require("./rootObject.js"),
+  nativeMap = getNative(rootObject, "Map");
+legacyModule.exports = nativeMap;

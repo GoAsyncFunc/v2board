@@ -1,7 +1,7 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./baseToString.js");
-function i(e) {
-  return null == e ? "" : r(e);
+var baseToString = require("./baseToString.js");
+function toString(value) {
+  return null == value ? "" : baseToString(value);
 }
-legacyModule.exports = i;
+legacyModule.exports = toString;

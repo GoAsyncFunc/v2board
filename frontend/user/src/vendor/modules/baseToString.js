@@ -1,17 +1,17 @@
 let legacyModule = module,
   legacyExports = exports;
-var r = require("./nativeSymbol.js"),
-  i = require("./arrayMap.js"),
-  a = require("./isArray.js"),
-  o = require("./isSymbol.js"),
-  u = 1 / 0,
-  l = r ? r.prototype : void 0,
-  s = l ? l.toString : void 0;
-function c(e) {
-  if ("string" == typeof e) return e;
-  if (a(e)) return i(e, c) + "";
-  if (o(e)) return s ? s.call(e) : "";
-  var t = e + "";
-  return "0" == t && 1 / e == -u ? "-0" : t;
+var nativeSymbol = require("./nativeSymbol.js"),
+  arrayMap = require("./arrayMap.js"),
+  isArray = require("./isArray.js"),
+  isSymbol = require("./isSymbol.js"),
+  infinity = 1 / 0,
+  symbolPrototype = nativeSymbol ? nativeSymbol.prototype : void 0,
+  symbolToString = symbolPrototype ? symbolPrototype.toString : void 0;
+function baseToString(value) {
+  if ("string" == typeof value) return value;
+  if (isArray(value)) return arrayMap(value, baseToString) + "";
+  if (isSymbol(value)) return symbolToString ? symbolToString.call(value) : "";
+  var stringValue = value + "";
+  return "0" == stringValue && 1 / value == -infinity ? "-0" : stringValue;
 }
-legacyModule.exports = c;
+legacyModule.exports = baseToString;

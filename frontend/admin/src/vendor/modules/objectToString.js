@@ -1,8 +1,8 @@
 let legacyModule = module,
   legacyExports = exports;
-var n = Object.prototype,
-  r = n.toString;
-function i(e) {
-  return r.call(e);
+var objectPrototype = Object.prototype,
+  objectToString = objectPrototype.toString;
+function getObjectToString(value) {
+  return objectToString.call(value);
 }
-legacyModule.exports = i;
+legacyModule.exports = getObjectToString;
