@@ -1924,14 +1924,6 @@
     "to": "vendor/modules/isObject.js"
   },
   {
-    "from": "vendor/modules/punycode.js",
-    "to": "vendor/modules/59755469.js"
-  },
-  {
-    "from": "vendor/modules/punycode.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
     "from": "vendor/modules/47657637.js",
     "to": "vendor/modules/6d725347.js"
   },
