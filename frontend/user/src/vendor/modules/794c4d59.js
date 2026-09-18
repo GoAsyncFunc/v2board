@@ -11,7 +11,7 @@ var r = require("./globalObject.js"),
   f = require("./toInteger.js"),
   p = require("./toLength.js"),
   d = require("./validateTypedArrayLength.js"),
-  h = require("./39484668.js").f,
+  getOwnPropertyNames = require("./getOwnPropertyNames.js").f,
   m = require("./definePropertyHelper.js").f,
   arrayFill = require("./arrayFill.js"),
   y = require("./setToStringTag.js"),
@@ -120,7 +120,7 @@ if (a.ABV) {
     E = function (e) {
       return l(this, E), new j(d(e));
     };
-    for (var X, J = E[w] = j[w], $ = h(j), ee = 0; $.length > ee;) (X = $[ee++]) in E || s(E, X, j[X]);
+    for (var X, J = E[w] = j[w], $ = getOwnPropertyNames(j), ee = 0; $.length > ee;) (X = $[ee++]) in E || s(E, X, j[X]);
     i || (J.constructor = E);
   }
   var te = new _(new E(2)),

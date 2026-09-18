@@ -5,7 +5,7 @@ var r = require("./pureMode.js"),
   i = require("./redefine.js"),
   a = require("./definePropertyValue.js"),
   s = require("./emptyExports.js"),
-  c = require("./626d4969.js"),
+  createIteratorConstructor = require("./createIteratorConstructor.js"),
   u = require("./setToStringTag.js"),
   l = require("./getPrototypeOfFallback.js"),
   f = require("./wellKnownSymbol.js")("iterator"),
@@ -17,7 +17,7 @@ var r = require("./pureMode.js"),
     return this;
   };
 legacyModule.exports = function (e, t, n, y, g, b, w) {
-  c(n, t, y);
+  createIteratorConstructor(n, t, y);
   var x,
     O,
     E,

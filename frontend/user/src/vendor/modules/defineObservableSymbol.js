@@ -1,3 +1,3 @@
 let legacyModule = module,
   legacyExports = exports;
-require("./5a786769.js")("observable");
+require("./defineWellKnownSymbol.js")("observable");

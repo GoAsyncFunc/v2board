@@ -888,11 +888,11 @@
     "to": "vendor/modules/scrollIntoView.js"
   },
   {
-    "from": "vendor/modules/39484668.js",
+    "from": "vendor/modules/getOwnPropertyNames.js",
     "to": "vendor/modules/784a6965.js"
   },
   {
-    "from": "vendor/modules/39484668.js",
+    "from": "vendor/modules/getOwnPropertyNames.js",
     "to": "vendor/modules/objectKeysIn.js"
   },
   {
@@ -908,11 +908,11 @@
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/41355867.js",
+    "from": "vendor/modules/getOwnPropertyNamesWindowSafe.js",
     "to": "vendor/modules/toArray.js"
   },
   {
-    "from": "vendor/modules/41355867.js",
+    "from": "vendor/modules/getOwnPropertyNamesWindowSafe.js",
     "to": "vendor/modules/61722f70.js"
   },
   {
@@ -997,11 +997,11 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/5a786769.js"
+    "to": "vendor/modules/defineWellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/522b372b.js"
+    "to": "vendor/modules/enumerableOwnKeysLegacy.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1037,7 +1037,7 @@
   },
   {
     "from": "vendor/modules/4155766d.js",
-    "to": "vendor/modules/41355867.js"
+    "to": "vendor/modules/getOwnPropertyNamesWindowSafe.js"
   },
   {
     "from": "vendor/modules/4155766d.js",
@@ -1205,7 +1205,7 @@
   },
   {
     "from": "vendor/modules/43547364.js",
-    "to": "vendor/modules/39484668.js"
+    "to": "vendor/modules/getOwnPropertyNames.js"
   },
   {
     "from": "vendor/modules/markdownInlineState.js",
@@ -1833,7 +1833,7 @@
   },
   {
     "from": "vendor/modules/4a616b69.js",
-    "to": "vendor/modules/39484668.js"
+    "to": "vendor/modules/getOwnPropertyNames.js"
   },
   {
     "from": "vendor/modules/4a616b69.js",
@@ -2133,7 +2133,7 @@
   },
   {
     "from": "vendor/modules/4d504670.js",
-    "to": "vendor/modules/6a324443.js"
+    "to": "vendor/modules/createIteratorConstructorLegacy.js"
   },
   {
     "from": "vendor/modules/4d504670.js",
@@ -2348,15 +2348,15 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/522b372b.js",
+    "from": "vendor/modules/enumerableOwnKeysLegacy.js",
     "to": "vendor/modules/7736474f.js"
   },
   {
-    "from": "vendor/modules/522b372b.js",
+    "from": "vendor/modules/enumerableOwnKeysLegacy.js",
     "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
   },
   {
-    "from": "vendor/modules/522b372b.js",
+    "from": "vendor/modules/enumerableOwnKeysLegacy.js",
     "to": "vendor/modules/propertyIsEnumerableLegacy.js"
   },
   {
@@ -3093,7 +3093,7 @@
   },
   {
     "from": "vendor/modules/58645054.js",
-    "to": "vendor/modules/626d4969.js"
+    "to": "vendor/modules/createIteratorConstructor.js"
   },
   {
     "from": "vendor/modules/58645054.js",
@@ -3177,7 +3177,7 @@
   },
   {
     "from": "vendor/modules/5a676f65.js",
-    "to": "vendor/modules/39484668.js"
+    "to": "vendor/modules/getOwnPropertyNames.js"
   },
   {
     "from": "vendor/modules/5a676f65.js",
@@ -3192,23 +3192,23 @@
     "to": "vendor/modules/globalObject.js"
   },
   {
-    "from": "vendor/modules/5a786769.js",
+    "from": "vendor/modules/defineWellKnownSymbol.js",
     "to": "vendor/modules/globalObject.js"
   },
   {
-    "from": "vendor/modules/5a786769.js",
+    "from": "vendor/modules/defineWellKnownSymbol.js",
     "to": "vendor/modules/coreJsNamespace.js"
   },
   {
-    "from": "vendor/modules/5a786769.js",
+    "from": "vendor/modules/defineWellKnownSymbol.js",
     "to": "vendor/modules/trueValue.js"
   },
   {
-    "from": "vendor/modules/5a786769.js",
+    "from": "vendor/modules/defineWellKnownSymbol.js",
     "to": "vendor/modules/wellKnownSymbolFactory.js"
   },
   {
-    "from": "vendor/modules/5a786769.js",
+    "from": "vendor/modules/defineWellKnownSymbol.js",
     "to": "vendor/modules/definePropertyLegacy.js"
   },
   {
@@ -3237,7 +3237,7 @@
   },
   {
     "from": "vendor/modules/defineAsyncIteratorSymbol.js",
-    "to": "vendor/modules/5a786769.js"
+    "to": "vendor/modules/defineWellKnownSymbol.js"
   },
   {
     "from": "pages/Login.jsx",
@@ -3344,23 +3344,23 @@
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/626d4969.js",
+    "from": "vendor/modules/createIteratorConstructor.js",
     "to": "vendor/modules/2f4d6664.js"
   },
   {
-    "from": "vendor/modules/626d4969.js",
+    "from": "vendor/modules/createIteratorConstructor.js",
     "to": "vendor/modules/createPropertyDescriptor.js"
   },
   {
-    "from": "vendor/modules/626d4969.js",
+    "from": "vendor/modules/createIteratorConstructor.js",
     "to": "vendor/modules/setToStringTag.js"
   },
   {
-    "from": "vendor/modules/626d4969.js",
+    "from": "vendor/modules/createIteratorConstructor.js",
     "to": "vendor/modules/56504f45.js"
   },
   {
-    "from": "vendor/modules/626d4969.js",
+    "from": "vendor/modules/createIteratorConstructor.js",
     "to": "vendor/modules/wellKnownSymbol.js"
   },
   {
@@ -3405,7 +3405,7 @@
   },
   {
     "from": "vendor/modules/defineObservableSymbol.js",
-    "to": "vendor/modules/5a786769.js"
+    "to": "vendor/modules/defineWellKnownSymbol.js"
   },
   {
     "from": "vendor/modules/6470616d.js",
@@ -3848,23 +3848,23 @@
     "to": "vendor/modules/requireObjectCoercible.js"
   },
   {
-    "from": "vendor/modules/6a324443.js",
+    "from": "vendor/modules/createIteratorConstructorLegacy.js",
     "to": "vendor/modules/6f566d6c.js"
   },
   {
-    "from": "vendor/modules/6a324443.js",
+    "from": "vendor/modules/createIteratorConstructorLegacy.js",
     "to": "vendor/modules/propertyDescriptorFlags.js"
   },
   {
-    "from": "vendor/modules/6a324443.js",
+    "from": "vendor/modules/createIteratorConstructorLegacy.js",
     "to": "vendor/modules/52664b42.js"
   },
   {
-    "from": "vendor/modules/6a324443.js",
+    "from": "vendor/modules/createIteratorConstructorLegacy.js",
     "to": "vendor/modules/definePropertyRuntime.js"
   },
   {
-    "from": "vendor/modules/6a324443.js",
+    "from": "vendor/modules/createIteratorConstructorLegacy.js",
     "to": "vendor/modules/55576958.js"
   },
   {
@@ -5121,7 +5121,7 @@
   },
   {
     "from": "vendor/modules/794c4d59.js",
-    "to": "vendor/modules/39484668.js"
+    "to": "vendor/modules/getOwnPropertyNames.js"
   },
   {
     "from": "vendor/modules/794c4d59.js",
