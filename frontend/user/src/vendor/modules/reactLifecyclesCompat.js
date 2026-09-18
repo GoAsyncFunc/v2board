@@ -4,49 +4,49 @@ const {
   markEsModule,
   defineExport
 } = require("../../app/moduleInterop.js");
-function r() {
-  var e = this.constructor.getDerivedStateFromProps(this.props, this.state);
-  null !== e && void 0 !== e && this.setState(e);
+function applyDerivedStateFromProps() {
+  var derivedState = this.constructor.getDerivedStateFromProps(this.props, this.state);
+  null !== derivedState && void 0 !== derivedState && this.setState(derivedState);
 }
-function o(e) {
-  function t(t) {
-    var n = this.constructor.getDerivedStateFromProps(e, t);
-    return null !== n && void 0 !== n ? n : null;
+function applyDerivedStateFromPropsOnReceiveProps(nextProps) {
+  function getDerivedState(nextState) {
+    var derivedState = this.constructor.getDerivedStateFromProps(nextProps, nextState);
+    return null !== derivedState && void 0 !== derivedState ? derivedState : null;
   }
-  this.setState(t.bind(this));
+  this.setState(getDerivedState.bind(this));
 }
-function i(e, t) {
+function captureSnapshotBeforeUpdate(nextProps, nextState) {
   try {
-    var n = this.props,
-      r = this.state;
-    this.props = e, this.state = t, this.__reactInternalSnapshotFlag = !0, this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(n, r);
+    var previousProps = this.props,
+      previousState = this.state;
+    this.props = nextProps, this.state = nextState, this.__reactInternalSnapshotFlag = !0, this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(previousProps, previousState);
   } finally {
-    this.props = n, this.state = r;
+    this.props = previousProps, this.state = previousState;
   }
 }
-function a(e) {
-  var t = e.prototype;
-  if (!t || !t.isReactComponent) throw new Error("Can only polyfill class components");
-  if ("function" !== typeof e.getDerivedStateFromProps && "function" !== typeof t.getSnapshotBeforeUpdate) return e;
-  var n = null,
-    a = null,
-    s = null;
-  if ("function" === typeof t.componentWillMount ? n = "componentWillMount" : "function" === typeof t.UNSAFE_componentWillMount && (n = "UNSAFE_componentWillMount"), "function" === typeof t.componentWillReceiveProps ? a = "componentWillReceiveProps" : "function" === typeof t.UNSAFE_componentWillReceiveProps && (a = "UNSAFE_componentWillReceiveProps"), "function" === typeof t.componentWillUpdate ? s = "componentWillUpdate" : "function" === typeof t.UNSAFE_componentWillUpdate && (s = "UNSAFE_componentWillUpdate"), null !== n || null !== a || null !== s) {
-    var c = e.displayName || e.name,
-      u = "function" === typeof e.getDerivedStateFromProps ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
-    throw Error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n" + c + " uses " + u + " but also contains the following legacy lifecycles:" + (null !== n ? "\n  " + n : "") + (null !== a ? "\n  " + a : "") + (null !== s ? "\n  " + s : "") + "\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://fb.me/react-async-component-lifecycle-hooks");
+function polyfill(Component) {
+  var prototype = Component.prototype;
+  if (!prototype || !prototype.isReactComponent) throw new Error("Can only polyfill class components");
+  if ("function" !== typeof Component.getDerivedStateFromProps && "function" !== typeof prototype.getSnapshotBeforeUpdate) return Component;
+  var componentWillMountName = null,
+    componentWillReceivePropsName = null,
+    componentWillUpdateName = null;
+  if ("function" === typeof prototype.componentWillMount ? componentWillMountName = "componentWillMount" : "function" === typeof prototype.UNSAFE_componentWillMount && (componentWillMountName = "UNSAFE_componentWillMount"), "function" === typeof prototype.componentWillReceiveProps ? componentWillReceivePropsName = "componentWillReceiveProps" : "function" === typeof prototype.UNSAFE_componentWillReceiveProps && (componentWillReceivePropsName = "UNSAFE_componentWillReceiveProps"), "function" === typeof prototype.componentWillUpdate ? componentWillUpdateName = "componentWillUpdate" : "function" === typeof prototype.UNSAFE_componentWillUpdate && (componentWillUpdateName = "UNSAFE_componentWillUpdate"), null !== componentWillMountName || null !== componentWillReceivePropsName || null !== componentWillUpdateName) {
+    var displayName = Component.displayName || Component.name,
+      newLifecycleName = "function" === typeof Component.getDerivedStateFromProps ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
+    throw Error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n" + displayName + " uses " + newLifecycleName + " but also contains the following legacy lifecycles:" + (null !== componentWillMountName ? "\n  " + componentWillMountName : "") + (null !== componentWillReceivePropsName ? "\n  " + componentWillReceivePropsName : "") + (null !== componentWillUpdateName ? "\n  " + componentWillUpdateName : "") + "\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://fb.me/react-async-component-lifecycle-hooks");
   }
-  if ("function" === typeof e.getDerivedStateFromProps && (t.componentWillMount = r, t.componentWillReceiveProps = o), "function" === typeof t.getSnapshotBeforeUpdate) {
-    if ("function" !== typeof t.componentDidUpdate) throw new Error("Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype");
-    t.componentWillUpdate = i;
-    var l = t.componentDidUpdate;
-    t.componentDidUpdate = function (e, t, n) {
-      var r = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : n;
-      l.call(this, e, t, r);
+  if ("function" === typeof Component.getDerivedStateFromProps && (prototype.componentWillMount = applyDerivedStateFromProps, prototype.componentWillReceiveProps = applyDerivedStateFromPropsOnReceiveProps), "function" === typeof prototype.getSnapshotBeforeUpdate) {
+    if ("function" !== typeof prototype.componentDidUpdate) throw new Error("Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype");
+    prototype.componentWillUpdate = captureSnapshotBeforeUpdate;
+    var originalComponentDidUpdate = prototype.componentDidUpdate;
+    prototype.componentDidUpdate = function (previousProps, previousState, snapshot) {
+      var capturedSnapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : snapshot;
+      originalComponentDidUpdate.call(this, previousProps, previousState, capturedSnapshot);
     };
   }
-  return e;
+  return Component;
 }
 markEsModule(legacyExports), defineExport(legacyExports, "polyfill", function () {
-  return a;
-}), r.__suppressDeprecationWarning = !0, o.__suppressDeprecationWarning = !0, i.__suppressDeprecationWarning = !0;
+  return polyfill;
+}), applyDerivedStateFromProps.__suppressDeprecationWarning = !0, applyDerivedStateFromPropsOnReceiveProps.__suppressDeprecationWarning = !0, captureSnapshotBeforeUpdate.__suppressDeprecationWarning = !0;
