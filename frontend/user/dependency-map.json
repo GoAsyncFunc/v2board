@@ -4016,7 +4016,7 @@
     "to": "vendor/modules/454a6979.js"
   },
   {
-    "from": "vendor/modules/6d534630.js",
+    "from": "vendor/modules/markdownLinkifyRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
@@ -4277,15 +4277,15 @@
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
-    "to": "vendor/modules/6d534630.js"
+    "to": "vendor/modules/markdownLinkifyRule.js"
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
-    "to": "vendor/modules/7530714b.js"
+    "to": "vendor/modules/markdownTextReplacementsRule.js"
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
-    "to": "vendor/modules/727a4447.js"
+    "to": "vendor/modules/markdownSmartQuotesRule.js"
   },
   {
     "from": "vendor/modules/markdownCoreParser.js",
@@ -4344,15 +4344,15 @@
     "to": "vendor/modules/reactDomRuntime.js"
   },
   {
-    "from": "vendor/modules/727a4447.js",
+    "from": "vendor/modules/markdownSmartQuotesRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/727a4447.js",
+    "from": "vendor/modules/markdownSmartQuotesRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {
-    "from": "vendor/modules/727a4447.js",
+    "from": "vendor/modules/markdownSmartQuotesRule.js",
     "to": "vendor/modules/markdownUtils.js"
   },
   {

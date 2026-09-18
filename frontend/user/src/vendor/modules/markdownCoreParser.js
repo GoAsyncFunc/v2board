@@ -4,9 +4,9 @@ var coreRules = [
   ["normalize", require("./normalizeMarkdownSource.js")],
   ["block", require("./parseMarkdownBlock.js")],
   ["inline", require("./parseMarkdownInline.js")],
-  ["linkify", require("./6d534630.js")],
-  ["replacements", require("./7530714b.js")],
-  ["smartquotes", require("./727a4447.js")]
+  ["linkify", require("./markdownLinkifyRule.js")],
+  ["replacements", require("./markdownTextReplacementsRule.js")],
+  ["smartquotes", require("./markdownSmartQuotesRule.js")]
 ];
 
 function MarkdownCoreParser() {
