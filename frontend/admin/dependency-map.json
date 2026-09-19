@@ -1613,10 +1613,6 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
-    "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1840,10 +1836,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "vendor/i18n.js",
-    "to": "vendor/modules/intlRuntime.js"
-  },
-  {
     "from": "vendor/jsonEditor.js",
     "to": "vendor/modules/jsonEditorRuntime.js"
   },
@@ -1874,30 +1866,6 @@
   {
     "from": "vendor/modules/aceSplitRuntime.js",
     "to": "vendor/modules/moduleObjectPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContext.js",
-    "to": "vendor/modules/antdCreateReactContextPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContext.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/globalUniqueId.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/warning.js"
   },
   {
     "from": "vendor/modules/browserTransportFeatures.js",
@@ -2048,10 +2016,6 @@
     "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
-    "from": "vendor/modules/globalUniqueId.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
     "from": "vendor/modules/httpRequestPolyfill.js",
     "to": "vendor/modules/clientRequestRuntime.js"
   },
@@ -2102,10 +2066,6 @@
   {
     "from": "vendor/modules/inherits.js",
     "to": "vendor/modules/setPrototypeOfCompat.js"
-  },
-  {
-    "from": "vendor/modules/intlRuntime.js",
-    "to": "vendor/modules/antdCreateReactContext.js"
   },
   {
     "from": "vendor/modules/isEqual.js",

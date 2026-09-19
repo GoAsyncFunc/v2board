@@ -9,7 +9,6 @@ import { TrafficPanel } from '../vendor/features.js';
 import { formatDateTime } from '../components/DateTimeDisplay.jsx';
 
 import '../vendor/iconStyles.js';
-import '../vendor/i18n.js';
 
 import '../vendor/componentStyles.js';
 export class TicketDetailChat extends React.Component {
