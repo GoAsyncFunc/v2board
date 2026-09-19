@@ -47,7 +47,7 @@ export interface ServerRecord {
   dnsSettings?: DnsSettingsValue;
   obfs?: string | null;
   obfs_password?: string;
-  obfs_settings?: Record<string, unknown>;
+  obfs_settings?: { path?: string; host?: string };
   padding_scheme?: string;
   version?: Scalar;
   up_mbps?: Scalar;

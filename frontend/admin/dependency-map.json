@@ -228,28 +228,20 @@
     "to": "vendor/dva.js"
   },
   {
-    "from": "components/AnyTlsEditor.jsx",
+    "from": "components/AnyTlsEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/AnyTlsEditor.tsx",
     "to": "components/JsonEditor.tsx"
   },
   {
-    "from": "components/AnyTlsEditor.jsx",
+    "from": "components/AnyTlsEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/AnyTlsEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/AnyTlsEditor.jsx",
+    "from": "components/AnyTlsEditor.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/AnyTlsEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/AnyTlsEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/AssignOrderEditor.tsx",
@@ -260,24 +252,16 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/HysteriaEditor.jsx",
+    "from": "components/HysteriaEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/HysteriaEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/HysteriaEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/HysteriaEditor.jsx",
+    "from": "components/HysteriaEditor.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/HysteriaEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/HysteriaEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/OrderDetailBody.tsx",
@@ -288,16 +272,12 @@
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "components/ShadowsocksEditor.jsx",
+    "from": "components/ShadowsocksEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/ShadowsocksEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/ShadowsocksEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/ShadowsocksEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/TrafficPanel.tsx",
@@ -312,48 +292,32 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "components/TrojanEditor.jsx",
+    "from": "components/TrojanEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/TrojanEditor.tsx",
     "to": "components/JsonEditor.tsx"
   },
   {
-    "from": "components/TrojanEditor.jsx",
+    "from": "components/TrojanEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/TrojanEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/TrojanEditor.jsx",
+    "from": "components/TrojanEditor.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/TrojanEditor.jsx",
-    "to": "vendor/reactRedux.js"
+    "from": "components/TuicEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
   },
   {
-    "from": "components/TrojanEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
+    "from": "components/TuicEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/TuicEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
+    "from": "components/TuicEditor.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/UserEditor.tsx",
@@ -1069,7 +1033,7 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/AnyTlsEditor.jsx"
+    "to": "components/AnyTlsEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
@@ -1077,7 +1041,7 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/HysteriaEditor.jsx"
+    "to": "components/HysteriaEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
@@ -1097,7 +1061,7 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/ShadowsocksEditor.jsx"
+    "to": "components/ShadowsocksEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
@@ -1105,11 +1069,11 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/TrojanEditor.jsx"
+    "to": "components/TrojanEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/TuicEditor.jsx"
+    "to": "components/TuicEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
