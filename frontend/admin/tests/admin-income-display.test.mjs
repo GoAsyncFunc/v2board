@@ -8,9 +8,9 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-income-display.cjs' : '../src/components/MoneyDisplay.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-income-display.cjs' : '../src/components/MoneyDisplay.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require(id) {
         throw Error(id); } });
   if (original) { const f = module.exports(); return { formatIncome: f.income, formatLiveCount: f.count }; }
   return { formatIncome: module.exports.formatIncome, formatLiveCount: module.exports.formatLiveCount };

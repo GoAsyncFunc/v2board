@@ -1161,7 +1161,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "pages/Dashboard.jsx",

@@ -17,7 +17,7 @@ import {
   TooltipComponent,
   TransformComponent,
 } from '../vendor/charts.js';
-import { formatIncome, formatLiveCount } from '../components/MoneyDisplay.jsx';
+import { formatIncome, formatLiveCount } from '../components/MoneyDisplay.ts';
 
 registerCharts([
   LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent,

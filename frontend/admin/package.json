@@ -6,6 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
+    "check:types": "tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
     "deploy:test": "bash scripts/deploy-test.sh"
@@ -37,7 +38,10 @@
     "@babel/traverse": "7.28.4",
     "@babel/types": "7.28.4",
     "@playwright/test": "1.55.0",
+    "@types/react": "16.14.62",
+    "@types/react-dom": "16.9.24",
     "esbuild": "0.25.9",
-    "pngjs": "7.0.0"
+    "pngjs": "7.0.0",
+    "typescript": "5.9.2"
   }
 }
