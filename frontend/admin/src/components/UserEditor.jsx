@@ -95,5 +95,4 @@ export class UserEditor extends React.Component {
 }
 
 const ConnectedUserEditor = connect(state => ({ user: state.user, plan: state.plan }))(UserEditor);
-export { ConnectedUserEditor as a };
 export default ConnectedUserEditor;

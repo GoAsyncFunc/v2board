@@ -108,5 +108,4 @@ const ConnectedShadowsocksEditor = connect(state => ({
   serverRoute: state.serverRoute,
 }))(ShadowsocksEditor);
 
-export { ConnectedShadowsocksEditor as a };
 export default ConnectedShadowsocksEditor;

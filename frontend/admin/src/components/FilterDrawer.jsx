@@ -88,5 +88,4 @@ export class FilterDrawer extends React.Component {
   }
 }
 
-export { FilterDrawer as a };
 export default FilterDrawer;

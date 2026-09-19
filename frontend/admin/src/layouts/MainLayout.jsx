@@ -90,5 +90,4 @@ export class MainLayout extends React.Component {
 const ConnectedLayout = connect((state) => ({ layout: state.layout }))(
     MainLayout,
 );
-export { ConnectedLayout as a };
 export default ConnectedLayout;

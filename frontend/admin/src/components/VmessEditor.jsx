@@ -209,5 +209,4 @@ const ConnectedVmessEditor = connect(state => ({
   serverRoute: state.serverRoute,
 }))(VmessEditor);
 
-export { ConnectedVmessEditor as a };
 export default ConnectedVmessEditor;

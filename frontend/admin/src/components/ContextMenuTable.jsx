@@ -50,5 +50,4 @@ export class ContextMenuTable extends React.Component {
   }
 }
 
-export { ContextMenuTable as a };
 export default ContextMenuTable;

@@ -129,5 +129,4 @@ const ConnectedTrojanEditor = connect(state => ({
   serverRoute: state.serverRoute,
 }))(TrojanEditor);
 
-export { ConnectedTrojanEditor as a };
 export default ConnectedTrojanEditor;
