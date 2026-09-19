@@ -23,6 +23,7 @@ import "../vendor/iconStyles.js";
 import "../vendor/features.js";
 const StripeForm = loadable({
     loader: () => import("../vendor/payment.js"),
+    loading: () => null,
 });
 let S; // Original shared polling timer; lifecycle behavior is tested before changing it.
 
