@@ -7,8 +7,8 @@ import { Table, Button, Tooltip, message } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import copy from '../vendor/clipboard.js';
 import { formatMessage } from '../vendor/i18n.js';
-import TransferModal from '../components/TransferCommissionModal.jsx';
-import WithdrawModal from '../components/WithdrawModal.jsx';
+import TransferModal from '../components/TransferCommissionModal';
+import WithdrawModal from '../components/WithdrawModal';
 
 import '../vendor/iconStyles.js';
 import '../vendor/localeSettings.js';

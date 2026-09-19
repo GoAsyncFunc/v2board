@@ -6,7 +6,7 @@ test('user business components live outside the vendor compatibility layer', asy
   const componentPaths = [
     '../src/components/Recaptcha.tsx',
     '../src/components/SubscribeImporter.jsx',
-    '../src/components/TelegramBindModal.jsx',
+    '../src/components/TelegramBindModal.tsx',
   ];
   for (const relativePath of componentPaths) {
     const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');

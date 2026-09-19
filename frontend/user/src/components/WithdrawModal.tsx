@@ -1,12 +1,24 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Modal } from '../vendor/Modal.js';
 import { Input } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
+import type { UserDispatch } from '../types/store';
 
-export class WithdrawModal extends React.Component {
-  state = { visible: false, withdrawMethod: undefined, withdrawAccount: undefined };
+interface WithdrawStateProps {
+  user: { userInfo: { commission_balance?: number } };
+  comm: { config: { withdraw_methods?: string[] } };
+}
+interface WithdrawModalState {
+  visible: boolean;
+  withdrawMethod?: string;
+  withdrawAccount?: string;
+}
+type WithdrawModalProps = WithdrawStateProps & { children: React.ReactElement; dispatch: UserDispatch };
+
+export class WithdrawModal extends React.Component<WithdrawModalProps, WithdrawModalState> {
+  state: WithdrawModalState = { visible: false, withdrawMethod: undefined, withdrawAccount: undefined };
 
   show() {
     this.setState(state => ({
@@ -41,7 +53,7 @@ export class WithdrawModal extends React.Component {
         >
           <div className="form-group">
             <label>{formatMessage({ id: '提现方式' })}</label>
-            <Select
+            <Select<string>
               style={{ width: '100%' }}
               placeholder={formatMessage({ id: '请选择提现方式' })}
               value={withdrawMethod}
@@ -65,5 +77,5 @@ export class WithdrawModal extends React.Component {
   }
 }
 
-const ConnectedWithdrawModal = connect(state => ({ user: state.user, comm: state.comm }))(WithdrawModal);
+const ConnectedWithdrawModal = connect((state: WithdrawStateProps) => ({ user: state.user, comm: state.comm }))(WithdrawModal);
 export default ConnectedWithdrawModal;

@@ -304,24 +304,20 @@
     "to": "utils/subscription.ts"
   },
   {
-    "from": "components/TelegramBindModal.jsx",
+    "from": "components/TelegramBindModal.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "components/TelegramBindModal.jsx",
+    "from": "components/TelegramBindModal.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "components/TelegramBindModal.jsx",
+    "from": "components/TelegramBindModal.tsx",
     "to": "vendor/clipboard.js"
   },
   {
-    "from": "components/TelegramBindModal.jsx",
+    "from": "components/TelegramBindModal.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/TelegramBindModal.jsx",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "components/TicketReadonlyColumns.tsx",
@@ -360,35 +356,27 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/TransferCommissionModal.jsx",
+    "from": "components/TransferCommissionModal.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "components/TransferCommissionModal.jsx",
+    "from": "components/TransferCommissionModal.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/TransferCommissionModal.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/TransferCommissionModal.jsx",
+    "from": "components/TransferCommissionModal.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/WithdrawModal.jsx",
+    "from": "components/WithdrawModal.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "components/WithdrawModal.jsx",
+    "from": "components/WithdrawModal.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/WithdrawModal.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/WithdrawModal.jsx",
+    "from": "components/WithdrawModal.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -801,11 +789,11 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "components/TransferCommissionModal.jsx"
+    "to": "components/TransferCommissionModal.tsx"
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "components/WithdrawModal.jsx"
+    "to": "components/WithdrawModal.tsx"
   },
   {
     "from": "pages/Invite.jsx",
@@ -1117,7 +1105,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "components/TelegramBindModal.jsx"
+    "to": "components/TelegramBindModal.tsx"
   },
   {
     "from": "pages/Profile.jsx",

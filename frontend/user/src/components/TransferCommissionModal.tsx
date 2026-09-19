@@ -1,11 +1,18 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Modal } from '../vendor/Modal.js';
 import { Input } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
+import type { UserDispatch } from '../types/store';
 
-export class TransferCommissionModal extends React.Component {
-  state = { visible: false, transferAmount: undefined };
+interface TransferStateProps {
+  user: { userInfo: { commission_balance: number } };
+}
+interface TransferModalState { visible: boolean; transferAmount?: string; }
+type TransferModalProps = TransferStateProps & { children: React.ReactElement; dispatch: UserDispatch };
+
+export class TransferCommissionModal extends React.Component<TransferModalProps, TransferModalState> {
+  state: TransferModalState = { visible: false, transferAmount: undefined };
 
   show() {
     this.setState(state => ({ visible: !state.visible, transferAmount: undefined }));
@@ -58,5 +65,5 @@ export class TransferCommissionModal extends React.Component {
   }
 }
 
-const ConnectedTransferCommissionModal = connect(state => ({ user: state.user }))(TransferCommissionModal);
+const ConnectedTransferCommissionModal = connect((state: TransferStateProps) => ({ user: state.user }))(TransferCommissionModal);
 export default ConnectedTransferCommissionModal;

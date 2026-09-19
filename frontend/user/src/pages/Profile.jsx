@@ -4,7 +4,7 @@ import { Switch } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
 import { message } from '../vendor/ui.js';
-import TelegramBindModal from '../components/TelegramBindModal.jsx';
+import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request.js';
 import { formatMessage } from '../vendor/i18n.js';

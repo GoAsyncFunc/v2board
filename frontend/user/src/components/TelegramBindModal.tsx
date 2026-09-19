@@ -1,11 +1,18 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import Modal from '../vendor/Modal.js';
 import Icon from '../vendor/Icon.js';
 import copyText from '../vendor/clipboard.js';
 import { formatMessage } from '../vendor/i18n.js';
+import type { UserDispatch } from '../types/store';
 
-class TelegramBindModal extends React.Component {
+interface TelegramStateProps {
+  telegram: { botInfo?: { username?: string } | null };
+  user: { subscribe?: { subscribe_url?: string } };
+}
+type TelegramModalProps = TelegramStateProps & { children: React.ReactElement; dispatch: UserDispatch };
+
+export class TelegramBindModal extends React.Component<TelegramModalProps, { visible: boolean }> {
   state = { visible: false };
 
   toggle = () => {
@@ -47,4 +54,4 @@ class TelegramBindModal extends React.Component {
   }
 }
 
-export default connect(state => ({ telegram: state.telegram, user: state.user }))(TelegramBindModal);
+export default connect((state: TelegramStateProps) => ({ telegram: state.telegram, user: state.user }))(TelegramBindModal);
