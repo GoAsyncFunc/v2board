@@ -6,7 +6,9 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check:deployed": "node scripts/check-deployed.mjs",
+    "deploy:test": "bash scripts/deploy-test.sh"
   },
   "dependencies": {
     "antd": "3.26.20",

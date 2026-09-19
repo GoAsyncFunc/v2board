@@ -1,12 +1,13 @@
 # V2Board User
 
-V2Board 用户端的可维护 React 源码工程。此目录是独立 npm 包，依赖、锁文件、开发命令和构建命令均不与管理端混用。
+V2Board 用户端 React 源码工程。本目录可独立安装、开发、测试、构建和部署，不读取 `frontend/admin` 的源码、依赖或工具。
 
 ## 环境要求
 
 - Node.js 18 或更高版本
 - npm 9 或更高版本
-- 可访问的 V2Board 后端（仅联调时需要）
+- 本地开发联调时可访问的 V2Board 后端
+- 部署时可通过 SSH 登录测试服务器
 
 ## 安装
 
@@ -15,13 +16,17 @@ cd frontend/user
 npm ci
 ```
 
+## 配置
+
+运行时站点配置位于 `public/settings.js`。不要直接编辑 `dist/`，该目录每次构建都会重建。
+
 ## 本地开发
 
 ```sh
 API_PROXY=http://127.0.0.1:7003 npm run dev
 ```
 
-默认访问地址为 `http://127.0.0.1:3200`。运行时站点配置位于 `public/settings.js`；不要直接修改 `../dist/user`，该目录会在构建时覆盖。
+默认地址为 `http://127.0.0.1:3200`。开发服务器只监听本机，并将 `/api/` 请求代理到 `API_PROXY`。
 
 ## 构建
 
@@ -29,31 +34,65 @@ API_PROXY=http://127.0.0.1:7003 npm run dev
 npm run build
 ```
 
-产物输出到本目录的 `dist/`，入口为 `app.js`，并生成 source map。构建器会拒绝加载本目录之外的源码或依赖。
+输出位于 `dist/`：
+
+- `app.js`：浏览器入口
+- `app.js.map`：source map
+- `source-build.json`：本次构建输入清单
+- 从 `public/` 复制的静态资源
+
+构建器会拒绝读取本项目目录之外的输入。
+
+## 测试
+
+```sh
+npm run check:dependencies
+npm run build
+npm test -- --runInBand
+```
+
+当前用户端回归基线为 574 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 和 `scripts/check-page-screenshots.mjs` 用于局部及页面视觉对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
 ```text
-src/
-  app/          路由、状态容器与启动逻辑
-  components/   用户端组件
-  config/       导航等界面配置
-  layouts/      用户端布局
-  locales/      翻译消息
-  models/       用户端状态模型
-  pages/        用户端页面
-  services/     API 请求与下载服务
-  vendor/       尚待继续语义化的已恢复源码
+public/          独立静态资源和 settings.js
+scripts/         构建、开发、恢复检查、部署和线上验证工具
+src/app/         启动、路由和状态容器
+src/components/  用户端组件
+src/config/      导航等界面配置
+src/layouts/     用户端布局
+src/locales/     翻译消息
+src/models/      用户端状态模型
+src/pages/       用户端页面
+src/services/    API 请求服务
+src/vendor/      尚待继续语义化或替换的恢复源码
+tests/           独立回归测试与 fixture
+dist/            本地构建产物，不提交 Git
 ```
 
-`dependency-map.json` 用于记录当前入口可达的源码依赖。`modules.json` 和 `routes.json` 是逆向恢复追踪文件，不参与正常构建。
+`dependency-map.json` 是当前入口可达的项目内依赖基线。`modules.json` 和 `routes.json` 仅用于逆向恢复追踪，不参与正常构建。
 
-## 验证
+## 测试服务器部署
+
+部署脚本会先构建 User，只上传 `app.js`，备份用户端 Blade 入口，切换到带时间戳的发布目录，清理 Laravel 视图缓存并检查首页 HTTP 状态。它不会修改 Admin 入口。
 
 ```sh
-npm test -- --runInBand
-npm run check:dependencies
-npm run build
+DEPLOY_HOST=root@5.104.86.24 npm run deploy:test
 ```
 
-当前用户端回归测试共 574 项。测试、fixture 与辅助文件全部位于本目录，不读取管理端工程。
+可选变量：
+
+- `DEPLOY_SITE`：服务器项目目录，默认 `/data/v2board-legacy-dev/www/v2board`
+- `DEPLOY_BACKUP_ROOT`：备份目录，默认 `/data/v2board-legacy-dev/ui-backups`
+- `DEPLOY_SITE_URL`：服务器本机健康检查地址，默认 `http://127.0.0.1:7003`
+
+成功后终端会输出 `RELEASE`、`BACKUP` 和 `ROLLBACK`。发生模板、缓存或 HTTP 检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
+
+部署后检查登录页：
+
+```sh
+npm run check:deployed
+```
+
+提供 `TEST_EMAIL` 和 `TEST_PASSWORD` 时，还会登录并检查 Dashboard、套餐、订单、个人资料和工单页面。账号密码只从环境变量读取，不写入源码。
