@@ -57,7 +57,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Invite.jsx"
+    "to": "pages/Invite.tsx"
   },
   {
     "from": "app/routes.js",
@@ -776,55 +776,51 @@
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "components/InviteDisplayColumns.tsx"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "components/TransferCommissionModal.tsx"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "components/WithdrawModal.tsx"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/clipboard.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
+    "from": "pages/Invite.tsx",
     "to": "vendor/ui.js"
   },
   {

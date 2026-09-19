@@ -1,22 +1,31 @@
 import React from 'react';
 import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns';
-import { formatMoney } from '../components/MoneyDisplay.ts';
+import { formatMoney } from '../components/MoneyDisplay';
 import MainLayout from '../layouts/MainLayout';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Table, Button, Tooltip, message } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import copy from '../vendor/clipboard.js';
 import { formatMessage } from '../vendor/i18n.js';
 import TransferModal from '../components/TransferCommissionModal';
 import WithdrawModal from '../components/WithdrawModal';
+import type { ColumnProps } from 'antd/lib/table';
+import type { InviteCode, InviteConfig, InviteState } from '../types/invite';
+import type { UserDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';
 import '../vendor/localeSettings.js';
 import '../vendor/dateTime.js';
 
-const translate = id => formatMessage({ id });
+const translate = (id: string): string => formatMessage({ id });
 
-class InvitePage extends React.Component {
+interface InviteStateProps {
+  invite: InviteState;
+  comm: { config: InviteConfig };
+  user: { userInfo: { commission_balance?: number } };
+}
+
+export class InvitePage extends React.Component<InviteStateProps & { dispatch: UserDispatch }> {
   componentDidMount() {
     this.props.dispatch({ type: 'user/getUserInfo' });
     this.getCommissionDetails();
@@ -36,7 +45,7 @@ class InvitePage extends React.Component {
     this.props.dispatch({ type: 'invite/save' });
   }
 
-  copyInviteLink(code) {
+  copyInviteLink(code: string) {
     copy(`${window.location.origin}${window.location.pathname}#/register?code=${code}`);
     message.success(translate('复制成功'));
   }
@@ -55,12 +64,12 @@ class InvitePage extends React.Component {
     const { config } = this.props.comm;
     const { userInfo } = this.props.user;
     const blockClassName = `block block-rounded js-appear-enabled ${fetchLoading ? 'block-mode-loading' : ''}`;
-    const inviteCodeColumns = [
+    const inviteCodeColumns: ColumnProps<InviteCode>[] = [
       {
         title: translate('邀请码'),
         dataIndex: 'code',
         key: 'code',
-        render: code => (
+        render: (code: string) => (
           <>
             <span>{code}</span>
             <a style={{ marginLeft: 5 }} href="javascript:void(0);" onClick={() => this.copyInviteLink(code)}>
@@ -93,7 +102,7 @@ class InvitePage extends React.Component {
                       </span>
                       <div className="pt-3">
                         <TransferModal>
-                          <Button type="primary mr-2">
+                          <Button type="primary" className="mr-2">
                             <Icon type="transaction" /> {translate('划转')}
                           </Button>
                         </TransferModal>
@@ -132,7 +141,7 @@ class InvitePage extends React.Component {
                       </div>
                       <div style={{ flex: 1, textAlign: 'right' }}>
                         {config.commission_distribution_enable
-                          ? `${config.commission_distribution_l1 * (commissionRate / 100)}%,${config.commission_distribution_l2 * (commissionRate / 100)}%,${config.commission_distribution_l3 * (commissionRate / 100)}%`
+                          ? `${Number(config.commission_distribution_l1) * (Number(commissionRate) / 100)}%,${Number(config.commission_distribution_l2) * (Number(commissionRate) / 100)}%,${Number(config.commission_distribution_l3) * (Number(commissionRate) / 100)}%`
                           : commissionRate !== undefined ? `${commissionRate}%` : <Icon type="loading" />}
                       </div>
                     </div>
@@ -199,7 +208,7 @@ class InvitePage extends React.Component {
                         pageSize: detailsPagination.page_size,
                         size: 'small',
                         showSizeChanger: true,
-                        pageSizeOptions: [10, 50, 100, 150],
+                        pageSizeOptions: ['10', '50', '100', '150'],
                       }}
                       onChange={pagination => this.props.dispatch({
                         type: 'invite/details',
@@ -218,4 +227,4 @@ class InvitePage extends React.Component {
   }
 }
 
-export default connect(state => ({ invite: state.invite, comm: state.comm, user: state.user }))(InvitePage);
+export default connect((state: InviteStateProps) => ({ invite: state.invite, comm: state.comm, user: state.user }))(InvitePage);

@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Invite.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Invite.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const trace = [];
   const React = {
     Fragment: 'Fragment',
@@ -19,7 +19,7 @@ async function loadPage() {
     window: { location: { origin: 'https://example.test', pathname: '/' } },
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux') return { connect: () => Page => Page };
       if (id.includes('InviteDisplayColumns')) return {
         createInviteCodeDateColumn: () => ({ key: 'created_at' }),
         createReadonlyCommissionColumns: () => [{ key: 'commission' }],
@@ -94,6 +94,9 @@ for (const loading of [true, false]) for (const distributionEnabled of [true, fa
     assert.equal(tables[1].props.dataSource, invites);
     assert.equal(tables[1].props.loading, loading);
     assert.equal(tables[1].props.pagination.pageSize, 10);
+    assert.deepEqual(Array.from(tables[1].props.pagination.pageSizeOptions, Number), [10, 50, 100, 150]);
+    const transferButton = findNodes(tree, node => node.type === 'Button' && node.props.type === 'primary')[0];
+    assert.equal(transferButton.props.className, 'mr-2');
     tables[1].props.onChange({ current: 2, pageSize: 50 });
     assert.deepEqual(JSON.parse(JSON.stringify(trace.at(-1))), [
       'dispatch', { type: 'invite/details', current: 2, pageSize: 50 },
