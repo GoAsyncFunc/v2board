@@ -61,7 +61,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Knowledge.jsx"
+    "to": "pages/Knowledge.tsx"
   },
   {
     "from": "app/routes.js",
@@ -832,40 +832,28 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/utilities.js"
   },
   {
     "from": "pages/Login.tsx",

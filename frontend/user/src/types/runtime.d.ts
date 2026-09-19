@@ -2,6 +2,8 @@ export {};
 
 declare global {
   interface Window {
+    copy?: (text: string) => void;
+    jump?: (id: string | number) => void;
     settings: {
       background_url?: string;
       description?: string;

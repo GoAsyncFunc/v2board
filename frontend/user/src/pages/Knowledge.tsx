@@ -1,24 +1,36 @@
 import React from 'react';
-import { formatDate } from '../components/DateTimeDisplay.ts';
-import { Input, Modal, notification } from '../vendor/ui.js';
+import { formatDate } from '../components/DateTimeDisplay';
+import Input from 'antd/lib/input';
+import Drawer from 'antd/lib/drawer';
+import message from 'antd/lib/message';
 import MainLayout from '../layouts/MainLayout';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { Icon } from '../vendor/Icon.js';
-import { MarkdownIt } from '../vendor/utilities.js';
+import MarkdownIt from 'markdown-it';
+import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
+import type { UserDispatch } from '../types/store';
 import { copyToClipboard } from '../vendor/siteHelpers.js';
 import '../vendor/dateTime.js';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
-export class KnowledgeDetailModal extends React.Component {
+interface KnowledgeStateProps { knowledge: KnowledgeState; }
+interface KnowledgeDetailProps extends KnowledgeStateProps {
+  id: KnowledgeId;
+  autoOpen?: boolean;
+  children: React.ReactElement;
+  dispatch: UserDispatch;
+}
+
+export class KnowledgeDetailDrawer extends React.Component<KnowledgeDetailProps, { visible: boolean }> {
   state = { visible: false };
 
   componentDidMount() {
     if (this.props.autoOpen) this.show();
   }
 
-  getKnowledge(id) {
+  getKnowledge(id: KnowledgeId) {
     this.props.dispatch({ type: 'knowledge/fetchById', id, language: getLocale() });
   }
 
@@ -27,7 +39,7 @@ export class KnowledgeDetailModal extends React.Component {
     this.setState({ visible: true });
     window.copy = text => {
       copyToClipboard(text);
-      notification.success(formatMessage({ id: '复制成功' }));
+      message.success(formatMessage({ id: '复制成功' }));
     };
     window.jump = id => this.getKnowledge(id);
   }
@@ -45,28 +57,34 @@ export class KnowledgeDetailModal extends React.Component {
     return (
       <>
         {React.cloneElement(this.props.children, { onClick: () => this.show() })}
-        <Modal visible={visible} title={knowledge.title || 'Loading...'} width="80%" onClose={() => this.hide()}>
+        <Drawer visible={visible} title={knowledge.title || 'Loading...'} width="80%" onClose={() => this.hide()}>
           {fetchByIdLoading ? <Icon type="loading" /> : (
             <div
               className="custom-html-style"
               dangerouslySetInnerHTML={{ __html: markdownRenderer.render(knowledge.body || '') }}
             />
           )}
-        </Modal>
+        </Drawer>
       </>
     );
   }
 }
 
-const ConnectedKnowledgeDetailModal = connect(state => ({ knowledge: state.knowledge }))(KnowledgeDetailModal);
+const ConnectedKnowledgeDetailDrawer = connect((state: KnowledgeStateProps) => ({ knowledge: state.knowledge }))(KnowledgeDetailDrawer);
 
-export class KnowledgePage extends React.Component {
+interface KnowledgePageProps extends KnowledgeStateProps {
+  dispatch: UserDispatch;
+  location: { pathname: string; query: { id?: string } };
+}
+
+export class KnowledgePage extends React.Component<KnowledgePageProps> {
+  inputDelayTimer?: ReturnType<typeof setTimeout>;
   componentDidMount() {
     this.props.dispatch({ type: 'knowledge/fetch', language: getLocale() });
     this.inputDelayTimer = undefined;
   }
 
-  onSearch(keyword) {
+  onSearch(keyword: string) {
     if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
     this.inputDelayTimer = setTimeout(() => {
       this.inputDelayTimer = undefined;
@@ -107,8 +125,8 @@ export class KnowledgePage extends React.Component {
                     </div>
                     <div className="list-group">
                       {articlesByCategory[category] && articlesByCategory[category].map(article => (
-                        <ConnectedKnowledgeDetailModal
-                          autoOpen={parseInt(queryId) === parseInt(article.id)}
+                        <ConnectedKnowledgeDetailDrawer
+                          autoOpen={parseInt(String(queryId)) === parseInt(String(article.id))}
                           id={article.id}
                         >
                           <a
@@ -120,7 +138,7 @@ export class KnowledgePage extends React.Component {
                               {formatMessage({ id: '最后更新: {date}' }, { date: formatDate(article.updated_at) })}
                             </small>
                           </a>
-                        </ConnectedKnowledgeDetailModal>
+                        </ConnectedKnowledgeDetailDrawer>
                       ))}
                     </div>
                   </div>
@@ -134,4 +152,4 @@ export class KnowledgePage extends React.Component {
   }
 }
 
-export default connect(state => ({ knowledge: state.knowledge }))(KnowledgePage);
+export default connect((state: KnowledgeStateProps) => ({ knowledge: state.knowledge }))(KnowledgePage);

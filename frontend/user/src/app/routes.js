@@ -2,7 +2,7 @@ import Dashboard from '../pages/Dashboard.jsx';
 import Forgetpassword from '../pages/Forgetpassword';
 import Index from '../pages/Index';
 import Invite from '../pages/Invite.jsx';
-import Knowledge from '../pages/Knowledge.jsx';
+import Knowledge from '../pages/Knowledge';
 import Login from '../pages/Login';
 import Node from '../pages/Node';
 import OrderDetail from '../pages/OrderDetail.jsx';
