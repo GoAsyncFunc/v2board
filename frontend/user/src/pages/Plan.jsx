@@ -1,4 +1,5 @@
 import React from 'react';
+import Empty from 'antd/lib/empty';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
@@ -13,7 +14,7 @@ export class PlanPage extends React.Component {
   }
   getUnitPriceTag(plan) { return getUnitPriceTag(plan); }
   render() {
-    const { plans } = this.props.plan;
+    const { plans, fetchLoading } = this.props.plan;
     const { currency_symbol } = this.props.comm.config;
     return (
       <MainLayout {...this.props} title={message('购买订阅')}>
@@ -26,9 +27,9 @@ export class PlanPage extends React.Component {
               <span className={this.state.tabs === 2 && 'active bg-primary'} onClick={() => this.setState({ tabs: 2 })}>{message('按流量')}</span>
             </span>
           </div>
-          {plans.length <= 0 ? (
+          {plans.length <= 0 ? (fetchLoading ? (
             <div className="spinner-grow text-primary" role="status"><span className="sr-only">Loading...</span></div>
-          ) : <div className="row">{plans.filter(plan => matchesPlanTab(plan, this.state.tabs)).map(plan => (
+          ) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />) : <div className="row">{plans.filter(plan => matchesPlanTab(plan, this.state.tabs)).map(plan => (
             <PlanCard key={Math.random()} plan={plan} currencySymbol={currency_symbol} />
           ))}</div>}
         </div></main>

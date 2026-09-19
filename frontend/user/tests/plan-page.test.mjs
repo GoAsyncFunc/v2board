@@ -14,6 +14,7 @@ async function load(original) {
     const module = { exports: {} };
     vm.runInNewContext(compiled[name], { module, exports: module.exports, require(id) {
       if (id === 'react' || id.includes('reactRuntime')) return React;
+      if (id === 'antd/lib/empty') return { __esModule: true, default: 'Empty' };
       if (id.includes('PlanCard')) return evaluate('card');
       if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
@@ -52,8 +53,17 @@ for (const tab of [0, 1, 2]) for (const capacity of [null, 0, 3, 10]) for (const
   }
   assert.deepEqual(results[1], results[0]);
 });
-test('Plan empty list renders the original loading state', async () => {
+test('Plan empty list retains the original spinner while loading', async () => {
   const results = [];
-  for (const original of [true, false]) { const { Page } = await load(original); results.push(structuredClone(normalize(new Page({ plan: { plans: [] }, comm: { config: {} } }).render()))); }
+  for (const original of [true, false]) { const { Page } = await load(original); results.push(structuredClone(normalize(new Page({ plan: { plans: [], fetchLoading: true }, comm: { config: {} } }).render()))); }
   assert.deepEqual(results[1], results[0]);
+});
+test('Plan empty response clears the spinner and shows an empty state', async () => {
+  const { Page } = await load(false);
+  const page = new Page({ plan: { plans: [], fetchLoading: true }, comm: { config: {} } });
+  assert.match(JSON.stringify(page.render()), /Loading\.\.\./);
+  page.props = { ...page.props, plan: { plans: [], fetchLoading: false } };
+  const rendered = JSON.stringify(page.render());
+  assert.doesNotMatch(rendered, /Loading\.\.\./);
+  assert.match(rendered, /"type":"Empty"/);
 });
