@@ -1,7 +1,9 @@
-import moment from '../vendor/dateTime.js';
+import moment from 'moment';
 
-export function formatNoticeCreatedAt(value) {
-  return moment(1000 * value).format('YYYY/MM/DD HH:mm');
+export type NoticeTimestamp = number | string | null | undefined;
+
+export function formatNoticeCreatedAt(value: NoticeTimestamp): string {
+  return moment(1000 * (value as number)).format('YYYY/MM/DD HH:mm');
 }
 
 export function createReadonlyNoticeColumns() {

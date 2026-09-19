@@ -16,7 +16,7 @@ import { LoadingContainer } from '../vendor/ui.js';
 import { loadable, resolveDefaultExport } from '../vendor/utilities.js';
 import { MarkdownIt } from '../vendor/utilities.js';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { createReadonlyKnowledgeColumns } from '../components/KnowledgeDisplayColumns.jsx';
+import { createReadonlyKnowledgeColumns } from '../components/KnowledgeDisplayColumns.ts';
 
 import '../vendor/iconStyles.js';
 

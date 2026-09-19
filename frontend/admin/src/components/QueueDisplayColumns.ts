@@ -1,7 +1,7 @@
 // Readonly queue workload columns, extracted unchanged from the admin Queue page.
 // Only pure display cells are here: no events, requests, sorting or pagination.
 
-const QUEUE_NAME_LABELS = {
+const QUEUE_NAME_LABELS: Record<string, string> = {
   order_handle: '订单队列',
   send_email: '邮件队列',
   send_email_mass: '邮件群发队列',
@@ -11,13 +11,16 @@ const QUEUE_NAME_LABELS = {
 };
 
 // Direct property lookup: unknown names return undefined, as in the original.
-export function formatQueueName(value) {
-  return QUEUE_NAME_LABELS[value];
+export type QueueName = string | number | symbol | null | undefined;
+export type QueueWait = string | number | object | null | undefined;
+
+export function formatQueueName(value: QueueName): string | undefined {
+  return QUEUE_NAME_LABELS[value as string];
 }
 
 // Preserve the original implicit string coercion (`e + "s"`), including
 // undefined -> "undefineds" and object Symbol.toPrimitive/toString behaviour.
-export function formatQueueWait(value) {
+export function formatQueueWait(value: QueueWait): string {
   return value + 's';
 }
 

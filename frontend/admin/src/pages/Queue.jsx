@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
 import { Table, LoadingContainer } from '../vendor/ui.js';
-import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.jsx';
+import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.ts';
 
 import '../vendor/dateTime.js';
 import '../vendor/siteHelpers.js';

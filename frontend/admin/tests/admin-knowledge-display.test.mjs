@@ -8,9 +8,9 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const moment = value => ({ format: pattern => `${value}:${pattern}` });
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-knowledge-display.cjs' : '../src/components/KnowledgeDisplayColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-knowledge-display.cjs' : '../src/components/KnowledgeDisplayColumns.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs' })).code, { module, exports: module.exports, require(id) { if (id.includes('77642f52')) return moment;
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require(id) { if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id); } });
   return original ? module.exports(() => moment) : Object.values(module.exports.createReadonlyKnowledgeColumns());
 }

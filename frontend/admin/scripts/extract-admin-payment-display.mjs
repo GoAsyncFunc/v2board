@@ -16,5 +16,5 @@ traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpressio
  }p.skip();}});
 if(columns.length!==2)throw Error('Expected 2 readonly columns');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-payment-display.cjs',import.meta.url),'// Original readonly columns, extracted unchanged; write menus deliberately excluded.\nmodule.exports = function(){return '+generate(t.arrayExpression(columns)).code+';};\n');
-ast.program.body.unshift(...parse("const { createReadonlyPaymentColumns } = require('../components/PaymentDisplayColumns.jsx'); const readonlyColumns = createReadonlyPaymentColumns();",{sourceType:'script'}).program.body);
+ast.program.body.unshift(...parse("const { createReadonlyPaymentColumns } = require('../components/PaymentDisplayColumns.ts'); const readonlyColumns = createReadonlyPaymentColumns();",{sourceType:'script'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

@@ -8,9 +8,9 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-queue-display.cjs' : '../src/components/QueueDisplayColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-queue-display.cjs' : '../src/components/QueueDisplayColumns.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs' })).code, { module, exports: module.exports, require() { throw Error('no deps'); } });
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require() { throw Error('no deps'); } });
   return original ? module.exports() : module.exports.createReadonlyQueueColumns();
 }
 const normalize = value => JSON.parse(JSON.stringify(value, (key, value) => typeof value === 'function' ? '[render]' : value));

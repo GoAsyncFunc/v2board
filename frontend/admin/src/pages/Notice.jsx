@@ -5,7 +5,7 @@ import { Modal } from '../vendor/Modal.js';
 import { Select, Input, Table, Button, Switch, LoadingContainer } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { Icon } from '../vendor/Icon.js';
-import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.jsx';
+import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.ts';
 import '../vendor/iconStyles.js';
 import '../vendor/dateTime.js';
 

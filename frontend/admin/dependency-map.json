@@ -336,14 +336,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/KnowledgeDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/NoticeDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
     "from": "components/OrderDetailBody.jsx",
     "to": "vendor/Divider.js"
   },
@@ -989,7 +981,7 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
-    "to": "components/PaymentDisplayColumns.jsx"
+    "to": "components/PaymentDisplayColumns.ts"
   },
   {
     "from": "pages/ConfigPayment.jsx",
@@ -1217,7 +1209,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "components/KnowledgeDisplayColumns.jsx"
+    "to": "components/KnowledgeDisplayColumns.ts"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -1277,7 +1269,7 @@
   },
   {
     "from": "pages/Notice.jsx",
-    "to": "components/NoticeDisplayColumns.jsx"
+    "to": "components/NoticeDisplayColumns.ts"
   },
   {
     "from": "pages/Notice.jsx",
@@ -1417,7 +1409,7 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "components/QueueDisplayColumns.jsx"
+    "to": "components/QueueDisplayColumns.ts"
   },
   {
     "from": "pages/Queue.jsx",

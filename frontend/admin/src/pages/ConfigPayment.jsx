@@ -12,7 +12,7 @@ import { LoadingContainer } from '../vendor/ui.js';
 import { Sortable } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.jsx';
-import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumns.jsx';
+import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumns.ts';
 
 import '../vendor/iconStyles.js';
 
