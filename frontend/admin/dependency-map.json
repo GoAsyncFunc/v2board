@@ -73,7 +73,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Order.jsx"
+    "to": "pages/Order.tsx"
   },
   {
     "from": "app/routes.js",
@@ -976,60 +976,44 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/FilterDrawer.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/OrderDetailBody.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/OrderDisplayColumns.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "pages/Order.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Order.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/routerHistory.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Plan.tsx",

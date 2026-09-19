@@ -10,7 +10,7 @@ import { settings } from '../vendor/adminSettings.js';
 export interface OrderDetailRecord {
   trade_no: React.ReactNode;
   period: PropertyKey;
-  status: PropertyKey;
+  status: number;
   plan_id: string | number;
   callback_no?: React.ReactNode;
   total_amount: number;
@@ -23,7 +23,8 @@ export interface OrderDetailRecord {
   invite_user_id?: string | number;
   commission_balance: number;
   actual_commission_balance?: number;
-  commission_status: PropertyKey;
+  commission_status: number;
+  user_id?: string | number;
 }
 
 export interface OrderDetailUser {

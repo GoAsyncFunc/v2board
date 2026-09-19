@@ -8,7 +8,7 @@ import Index from '../pages/Index.tsx';
 import Knowledge from '../pages/Knowledge.tsx';
 import Login from '../pages/Login.tsx';
 import Notice from '../pages/Notice.tsx';
-import Order from '../pages/Order.jsx';
+import Order from '../pages/Order.tsx';
 import Plan from '../pages/Plan.tsx';
 import Queue from '../pages/Queue.tsx';
 import ServerGroup from '../pages/ServerGroup.tsx';

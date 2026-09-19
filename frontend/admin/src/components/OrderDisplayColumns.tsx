@@ -1,5 +1,6 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
+import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 import { settings } from '../vendor/adminSettings.js';
 
@@ -34,12 +35,12 @@ export function renderOrderPeriod(value: unknown, order: OrderDisplayRecord): Re
   return <Tag>{settings.periodText[order.period]}</Tag>;
 }
 
-export function createReadonlyOrderColumns() {
+export function createReadonlyOrderColumns<RecordType extends OrderDisplayRecord = OrderDisplayRecord>(): Record<string, ColumnProps<RecordType>> {
   return {
     type: { title: '类型', dataIndex: 'type', key: 'type', render: formatOrderType },
-    period: { title: '周期', dataIndex: 'period', key: 'period', align: 'center', render: renderOrderPeriod },
+    period: { title: '周期', dataIndex: 'period', key: 'period', align: 'center', render: (value, order) => renderOrderPeriod(value, order) },
     total_amount: { title: '支付金额', dataIndex: 'total_amount', key: 'total_amount', align: 'right', render: formatOrderPaymentAmount },
-    commission_balance: { title: '佣金金额', dataIndex: 'commission_balance', key: 'commission_balance', align: 'right', render: formatOrderCommission },
+    commission_balance: { title: '佣金金额', dataIndex: 'commission_balance', key: 'commission_balance', align: 'right', render: (value, order) => formatOrderCommission(value, order) },
     created_at: { title: '创建时间', dataIndex: 'created_at', key: 'created_at', align: 'right', render: formatOrderCreatedAt },
   };
 }

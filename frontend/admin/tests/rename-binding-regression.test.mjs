@@ -46,6 +46,7 @@ for (const file of [
   'admin/src/pages/Knowledge.tsx',
   'admin/src/pages/Index.tsx',
   'admin/src/pages/Notice.tsx',
+  'admin/src/pages/Order.tsx',
   'admin/src/pages/Queue.tsx',
   'admin/src/pages/ServerGroup.tsx',
   'admin/src/pages/ServerRoute.jsx',
