@@ -49,7 +49,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Dashboard.jsx"
+    "to": "pages/Dashboard.tsx"
   },
   {
     "from": "app/routes.js",
@@ -57,7 +57,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Index.jsx"
+    "to": "pages/Index.tsx"
   },
   {
     "from": "app/routes.js",
@@ -880,31 +880,23 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Dashboard.jsx",
+    "from": "pages/Dashboard.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Dashboard.jsx",
+    "from": "pages/Dashboard.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Dashboard.jsx",
+    "from": "pages/Dashboard.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/charts.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
+    "from": "pages/Dashboard.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Dashboard.jsx",
+    "from": "pages/Dashboard.tsx",
     "to": "vendor/siteSettings.js"
   },
   {
@@ -924,7 +916,7 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Index.jsx",
+    "from": "pages/Index.tsx",
     "to": "vendor/routerHistory.js"
   },
   {

@@ -1,8 +1,10 @@
 // Readonly income/count display shared by admin pages; no events or requests.
-export function formatIncome(value: unknown): string {
+export type DisplayScalar = string | number | boolean | null | undefined;
+
+export function formatIncome(value: DisplayScalar): string {
   return value ? ((value as number) / 100).toFixed(2) : '0.00';
 }
 
-export function formatLiveCount(value: unknown): unknown {
+export function formatLiveCount(value: DisplayScalar): string | number | boolean {
   return value ? value : '0';
 }

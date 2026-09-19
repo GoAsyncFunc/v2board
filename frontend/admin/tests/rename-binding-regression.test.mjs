@@ -6,7 +6,7 @@ import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
 const globals = new Set([
   'module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console',
-  'window', 'document', 'Element', 'HTMLElement', 'Node', 'setTimeout', 'clearTimeout',
+  'window', 'document', 'Element', 'HTMLElement', 'Node', 'URL', 'setTimeout', 'clearTimeout',
 ]);
 for (const file of [
   'admin/src/components/config/AppConfigTab.tsx',
@@ -40,9 +40,11 @@ for (const file of [
   'admin/src/pages/ConfigPayment.tsx',
   'admin/src/pages/ConfigTheme.tsx',
   'admin/src/pages/ConfigSystem.tsx',
+  'admin/src/pages/Dashboard.tsx',
   'admin/src/pages/Coupon.tsx',
   'admin/src/pages/Giftcard.tsx',
   'admin/src/pages/Knowledge.tsx',
+  'admin/src/pages/Index.tsx',
   'admin/src/pages/Notice.tsx',
   'admin/src/pages/Queue.tsx',
   'admin/src/pages/ServerGroup.tsx',

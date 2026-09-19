@@ -1,31 +1,110 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
+import * as echarts from 'echarts/core';
+import type { EChartsCoreOption, EChartsType } from 'echarts/core';
+import { BarChart, LineChart } from 'echarts/charts';
+import {
+  DatasetComponent,
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TransformComponent,
+} from 'echarts/components';
+import { LabelLayout } from 'echarts/features';
+import { SVGRenderer } from 'echarts/renderers';
 import history from '../vendor/routerHistory.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { get } from '../services/request.js';
 import { siteSettings } from '../vendor/siteSettings.js';
-import {
-  BarChart,
-  DatasetComponent,
-  GridComponent,
-  initChart,
-  LabelLayout,
-  LegendComponent,
-  LineChart,
-  registerCharts,
-  SVGRenderer,
-  TooltipComponent,
-  TransformComponent,
-} from '../vendor/charts.js';
-import { formatIncome, formatLiveCount } from '../components/MoneyDisplay.ts';
+import { formatIncome, formatLiveCount, type DisplayScalar } from '../components/MoneyDisplay';
+import type { AdminDispatch } from '../types/store';
 
-registerCharts([
+echarts.use([
   LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent,
   DatasetComponent, TransformComponent, LabelLayout, SVGRenderer,
 ]);
 
-function rankChartOption(data, labelField) {
-  const option = {
+interface OrderChartRecord {
+  type: string;
+  date: string;
+  value: number;
+}
+
+interface RankChartRecord {
+  total: number;
+  server_name?: string;
+  email?: string;
+}
+
+interface DashboardStats {
+  online_user?: DisplayScalar;
+  day_income?: DisplayScalar;
+  day_register_total?: DisplayScalar;
+  month_income?: DisplayScalar;
+  last_month_income?: DisplayScalar;
+  commission_last_month_payout?: DisplayScalar;
+  month_register_total?: DisplayScalar;
+  ticket_pending_total?: DisplayScalar;
+  commission_pending_total?: DisplayScalar;
+}
+
+interface DashboardConfig {
+  site: { currency?: string };
+}
+
+interface DashboardProps {
+  dispatch: AdminDispatch;
+  stat: DashboardStats;
+  config: DashboardConfig;
+}
+
+interface DashboardRootState {
+  stat: DashboardStats;
+  config: DashboardConfig;
+}
+
+interface DashboardState {
+  queueStatus?: string;
+}
+
+interface QuickLinkProps {
+  icon: string;
+  label: string;
+  path: string;
+}
+
+interface RankChartProps {
+  title: string;
+  chartRef: React.RefObject<HTMLDivElement>;
+  extraClass?: string;
+}
+
+interface RankChartOption {
+  tooltip: { trigger: string; formatter: (values: Array<{ value: string | number }>) => string };
+  grid: { top: string; left: string; right: string; bottom: string; containLabel: boolean };
+  xAxis: { type: string };
+  yAxis: { type: string; data: string[] };
+  series: Array<{ data: number[]; type: string }>;
+}
+
+interface OrderChartSeries {
+  name: string;
+  type: string;
+  smooth: boolean;
+  data: number[];
+}
+
+interface OrderChartOption {
+  tooltip: { trigger: string };
+  legend: { data: string[]; left: string; z: number };
+  grid: { left: string; right: string; bottom: string; containLabel: boolean };
+  xAxis: { type: string; boundaryGap: boolean; data: string[] };
+  yAxis: { type: string };
+  series: OrderChartSeries[];
+}
+
+export function rankChartOption(data: RankChartRecord[], getLabel: (item: RankChartRecord) => string | undefined) {
+  const option: RankChartOption = {
     tooltip: { trigger: 'axis', formatter: values => `${values[0].value} GB` },
     grid: { top: '1%', left: '1%', right: '1%', bottom: '3%', containLabel: true },
     xAxis: { type: 'value' },
@@ -33,13 +112,13 @@ function rankChartOption(data, labelField) {
     series: [{ data: [], type: 'bar' }],
   };
   [...data].reverse().forEach(item => {
-    option.yAxis.data.push(item[labelField]);
+    option.yAxis.data.push(getLabel(item) || '');
     option.series[0].data.push(item.total);
   });
   return option;
 }
 
-function QuickLink({ icon, label, path }) {
+function QuickLink({ icon, label, path }: QuickLinkProps) {
   return <div className="col-sm-6 col-xl-3 js-appear-enabled animated" data-toggle="appear">
     <a className="block block-bordered block-link-pop text-center mb-0" onClick={() => history.push(path)}>
       <div className="block-content block-content-full text-center"><i className={`fa-2x si ${icon} text-primary d-none d-sm-inline-block mb-3`} /><div className="font-w600 text-uppercase">{label}</div></div>
@@ -47,27 +126,33 @@ function QuickLink({ icon, label, path }) {
   </div>;
 }
 
-function RankChart({ title, chartRef, extraClass = '' }) {
+function RankChart({ title, chartRef, extraClass = '' }: RankChartProps) {
   return <div className={`col-lg-6 js-appear-enabled animated ${extraClass}`} data-toggle="appear">
     <div className="block border-bottom"><div className="block-header block-header-default"><h3 className="block-title">{title}</h3></div><div className="block-content"><div className="px-sm-3 pt-sm-3 py-3 clearfix" style={{ height: 400 }} ref={chartRef} /></div></div>
   </div>;
 }
 
-export class DashboardPage extends React.Component {
-  constructor(props) {
+export class DashboardPage extends React.Component<DashboardProps, DashboardState> {
+  state: DashboardState = {};
+  orderChart = React.createRef<HTMLDivElement>();
+  serverLastRankChart = React.createRef<HTMLDivElement>();
+  serverTodayRankChart = React.createRef<HTMLDivElement>();
+  userTodayRankChart = React.createRef<HTMLDivElement>();
+  userLastRankChart = React.createRef<HTMLDivElement>();
+  orderChartObject?: EChartsType;
+  serverLastRankChartObject?: EChartsType;
+  serverTodayRankChartObject?: EChartsType;
+  userTodayRankChartObject?: EChartsType;
+  userLastRankChartObject?: EChartsType;
+
+  constructor(props: DashboardProps) {
     super(props);
-    this.state = {};
-    this.orderChart = React.createRef();
-    this.serverLastRankChart = React.createRef();
-    this.serverTodayRankChart = React.createRef();
-    this.userTodayRankChart = React.createRef();
-    this.userLastRankChart = React.createRef();
     this.chartResize = this.chartResize.bind(this);
   }
 
-  renderOrderChart(data) {
-    this.orderChartObject = initChart(this.orderChart.current, 'vintage', { renderer: 'svg' });
-    const option = {
+  renderOrderChart(data: OrderChartRecord[]): void {
+    this.orderChartObject = echarts.init(this.orderChart.current, 'vintage', { renderer: 'svg' });
+    const option: OrderChartOption = {
       tooltip: { trigger: 'axis' },
       legend: { data: [], left: '0', z: 4 },
       grid: { left: '1%', right: '1%', bottom: '3%', containLabel: true },
@@ -82,41 +167,42 @@ export class DashboardPage extends React.Component {
       if (series) series.data.push(item.value);
       else option.series.push({ name: item.type, type: 'line', smooth: true, data: [item.value] });
     });
-    this.orderChartObject.setOption(option);
+    this.orderChartObject.setOption(option as unknown as EChartsCoreOption);
   }
 
-  renderRankChart(ref, propertyName, data, labelField) {
-    this[propertyName] = initChart(ref.current);
-    this[propertyName].setOption(rankChartOption(data, labelField));
+  renderRankChart(ref: React.RefObject<HTMLDivElement>, propertyName: 'serverLastRankChartObject' | 'serverTodayRankChartObject' | 'userTodayRankChartObject' | 'userLastRankChartObject', data: RankChartRecord[], getLabel: (item: RankChartRecord) => string | undefined): void {
+    const chart = echarts.init(ref.current);
+    this[propertyName] = chart;
+    chart.setOption(rankChartOption(data, getLabel) as unknown as EChartsCoreOption);
   }
 
-  chartResize() {
+  chartResize(): void {
     [this.orderChartObject, this.serverLastRankChartObject, this.serverTodayRankChartObject, this.userTodayRankChartObject, this.userLastRankChartObject].forEach(chart => chart?.resize());
   }
 
-  async componentDidMount() {
+  async componentDidMount(): Promise<void> {
     await this.checkQueue();
     this.props.dispatch({ type: 'stat/getOverride' });
-    this.props.dispatch({ type: 'stat/getOrder', complete: data => this.renderOrderChart(data) });
-    this.props.dispatch({ type: 'stat/getServerLastRank', complete: data => this.renderRankChart(this.serverLastRankChart, 'serverLastRankChartObject', data, 'server_name') });
-    this.props.dispatch({ type: 'stat/getServerTodayRank', complete: data => this.renderRankChart(this.serverTodayRankChart, 'serverTodayRankChartObject', data, 'server_name') });
-    this.props.dispatch({ type: 'stat/getUserTodayRank', complete: data => this.renderRankChart(this.userTodayRankChart, 'userTodayRankChartObject', data, 'email') });
-    this.props.dispatch({ type: 'stat/getUserLastRank', complete: data => this.renderRankChart(this.userLastRankChart, 'userLastRankChartObject', data, 'email') });
+    this.props.dispatch({ type: 'stat/getOrder', complete: (data: OrderChartRecord[]) => this.renderOrderChart(data) });
+    this.props.dispatch({ type: 'stat/getServerLastRank', complete: (data: RankChartRecord[]) => this.renderRankChart(this.serverLastRankChart, 'serverLastRankChartObject', data, item => item.server_name) });
+    this.props.dispatch({ type: 'stat/getServerTodayRank', complete: (data: RankChartRecord[]) => this.renderRankChart(this.serverTodayRankChart, 'serverTodayRankChartObject', data, item => item.server_name) });
+    this.props.dispatch({ type: 'stat/getUserTodayRank', complete: (data: RankChartRecord[]) => this.renderRankChart(this.userTodayRankChart, 'userTodayRankChartObject', data, item => item.email) });
+    this.props.dispatch({ type: 'stat/getUserLastRank', complete: (data: RankChartRecord[]) => this.renderRankChart(this.userLastRankChart, 'userLastRankChartObject', data, item => item.email) });
     this.props.dispatch({ type: 'config/fetch', key: 'site' });
     window.addEventListener('resize', this.chartResize);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.removeEventListener('resize', this.chartResize);
   }
 
-  async checkQueue() {
+  async checkQueue(): Promise<void> {
     const serviceUrl = new URL(siteSettings.serviceHost);
     const response = await get(`${serviceUrl.origin}/monitor/api/stats`);
-    this.setState({ queueStatus: response?.status });
+    this.setState({ queueStatus: typeof response?.status === 'string' ? response.status : undefined });
   }
 
-  showPendingCommissionOrders() {
+  showPendingCommissionOrders(): void {
     this.props.dispatch({ type: 'order/addFilter', key: 'status', condition: '=', value: '3' });
     this.props.dispatch({ type: 'order/addFilter', key: 'commission_status', condition: '=', value: '0' });
     this.props.dispatch({ type: 'order/addFilter', key: 'commission_balance', condition: '>', value: '0' });
@@ -166,4 +252,4 @@ export class DashboardPage extends React.Component {
   }
 }
 
-export default connect(state => ({ stat: state.stat, config: state.config }))(DashboardPage);
+export default connect((state: DashboardRootState) => ({ stat: state.stat, config: state.config }))(DashboardPage);
