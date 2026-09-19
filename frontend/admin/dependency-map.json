@@ -284,10 +284,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/DateTimeDisplay.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
     "from": "components/FilterDrawer.jsx",
     "to": "vendor/Divider.js"
   },
@@ -1657,7 +1653,7 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "pages/TicketDetail.jsx",
