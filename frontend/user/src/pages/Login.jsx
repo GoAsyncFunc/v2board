@@ -6,8 +6,9 @@ import history from "../vendor/routerHistory.js";
 import { formatMessage, getLocale } from "../vendor/i18n.js";
 import { a as LanguageSelector } from '../components/LanguageSelector.jsx';
 import { a as localeSettings } from "../vendor/localeSettings.js";
-import '../vendor/modules/2f7a7346.js';
+
 import "../vendor/iconStyles.js";
+import '../vendor/componentStyles.js';
 const message = id => formatMessage({
   id
 });

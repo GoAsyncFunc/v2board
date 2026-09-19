@@ -1,7 +1,7 @@
 import * as queries from './orderQueryEffects.js';
 import * as payments from './orderPaymentEffects.js';
-import '../vendor/modules/6d69595a.js';
 
+import '../vendor/componentStyles.js';
 const initialState = {
   fetchLoading: true,
   saveLoading: false,

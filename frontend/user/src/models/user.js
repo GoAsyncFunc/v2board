@@ -1,11 +1,11 @@
 import { get, post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { a as message } from '../vendor/modules/antdMessage.js';
-import moment from '../vendor/modules/77642f52.js';
+import { message } from '../vendor/ui.js';
+import moment from '../vendor/dateTime.js';
 import { b as formatTraffic } from '../vendor/siteHelpers.js';
 import * as sessionEffects from './sessionEffects.js';
-import '../vendor/modules/6d69595a.js';
 
+import '../vendor/componentStyles.js';
 export function describeGiftcard(type, value) {
   switch (type) {
     case 1: return '账户余额 ' + (value / 100).toFixed(2);

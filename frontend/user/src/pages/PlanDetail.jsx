@@ -1,19 +1,18 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Result } from '../vendor/modules/4d6f5257.js';
-import { a as Button } from '../vendor/modules/antdButton.js';
+import { Result } from '../vendor/features.js';
+import { Button } from '../vendor/ui.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { h as isExpired, c as parsePlanContent } from '../vendor/siteHelpers.js';
-import { router } from '../vendor/modules/4172412b.js';
+import { router } from '../vendor/appRuntime.js';
 import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing.jsx';
 import { CouponInput, CouponDiscount } from '../components/checkout/Coupon.jsx';
 import OrderSummary from '../components/checkout/OrderSummary.jsx';
 import '../vendor/iconStyles.js';
-import '../vendor/modules/4a2b2f76.js';
-import '../vendor/modules/2b4c3642.js';
-import '../vendor/modules/32717463.js';
+
+import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 
 export class PlanDetailPage extends React.Component {

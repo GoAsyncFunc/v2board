@@ -2,14 +2,15 @@ import React from 'react';
 import { a as Icon } from '../vendor/Icon.js';
 import history from '../vendor/routerHistory.js';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Recaptcha } from '../vendor/modules/464f4151.js';
+import { Recaptcha } from '../vendor/features.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { a as LanguageSelector } from '../components/LanguageSelector.jsx';
 import { r as notify } from '../vendor/siteHelpers.js';
 import { a as localeSettings } from '../vendor/localeSettings.js';
-import '../vendor/modules/2f7a7346.js';
+
 import '../vendor/iconStyles.js';
 
+import '../vendor/componentStyles.js';
 class RegisterPage extends React.Component {
   constructor(props) {
     super(props), this.state = {

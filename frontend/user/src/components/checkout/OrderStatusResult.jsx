@@ -1,7 +1,7 @@
 import React from "react";
-import { a as Result } from "../../vendor/modules/4d6f5257.js";
+import { Result } from "../../vendor/features.js";
 import { formatMessage } from "../../vendor/i18n.js";
-import { router } from "../../vendor/modules/4172412b.js";
+import { router } from "../../vendor/appRuntime.js";
 export function orderResultProps(e) {
     switch (e) {
         case 1:

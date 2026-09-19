@@ -1,8 +1,8 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import MobileList from '../vendor/MobileList.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Badge } from '../vendor/modules/antdBadge.js';
+import { Table } from '../vendor/ui.js';
+import { Badge } from '../vendor/ui.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { c as connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
@@ -12,9 +12,8 @@ import { a as settings } from '../vendor/localeSettings.js';
 import { l as isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns.jsx';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/32717463.js';
 
+import '../vendor/componentStyles.js';
 export class OrderPage extends React.Component {
   componentDidMount() { this.fetchData(); }
   fetchData() { this.props.dispatch({ type: 'order/fetch' }); }

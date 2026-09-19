@@ -1,13 +1,12 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/antdTag.js';
-import { a as Badge } from '../vendor/modules/antdBadge.js';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
+import { Tag } from '../vendor/ui.js';
+import { Badge } from '../vendor/ui.js';
+import { Tooltip } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { formatMessage } from '../vendor/i18n.js';
-import '../vendor/modules/2b424a64.js';
-import '../vendor/modules/41776870.js';
-import '../vendor/modules/35446d6f.js';
+
 import '../vendor/iconStyles.js';
+import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 
 export function createNodeColumns() {

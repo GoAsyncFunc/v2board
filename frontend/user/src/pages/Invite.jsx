@@ -3,25 +3,24 @@ import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../
 import { formatMoney } from '../components/MoneyDisplay.jsx';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Button } from '../vendor/modules/antdButton.js';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
+import { Table } from '../vendor/ui.js';
+import { Button } from '../vendor/ui.js';
+import { Tooltip } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
-import { a as message } from '../vendor/modules/antdMessage.js';
-import copy from '../vendor/modules/clipboardRuntime.js';
+import { message } from '../vendor/ui.js';
+import copy from '../vendor/clipboard.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { a as TransferModal } from '../components/Recovered_45334976.jsx';
-import WithdrawModal from '../components/Recovered_54643430.jsx';
-import { a as objectSpread } from '../vendor/modules/70307045.js';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/35446d6f.js';
-import '../vendor/modules/2b4c3642.js';
-import '../vendor/iconStyles.js';
-import '../vendor/modules/6d69595a.js';
-import '../vendor/localeSettings.js';
-import '../vendor/modules/77642f52.js';
-import '../vendor/modules/79786e6e.js';
+import TransferModal from '../components/TransferCommissionModal.jsx';
+import WithdrawModal from '../components/WithdrawModal.jsx';
+import { objectSpread } from '../vendor/utilities.js';
 
+import '../vendor/iconStyles.js';
+
+import '../vendor/localeSettings.js';
+import '../vendor/dateTime.js';
+import '../vendor/features.js';
+
+import '../vendor/componentStyles.js';
 class InvitePage extends React.Component {
   componentDidMount() {
     this.props.dispatch({

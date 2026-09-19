@@ -3,7 +3,7 @@ import { c as connect } from "../vendor/reactRedux.js";
 import {
     enable as enableDarkMode,
     disable as disableDarkMode,
-} from "../vendor/modules/6e444349.js";
+} from "../vendor/theme.js";
 import {
     e as getPreference,
     q as setPreference,
@@ -13,8 +13,8 @@ import { a as LanguageSelector } from "../components/LanguageSelector.jsx";
 const headerTheme = window.settings.theme;
 
 export class Header extends React.Component {
-    constructor(e) {
-        (super(e),
+    constructor(props) {
+        (super(props),
             (this.state = {
                 loading: !1,
                 showAvatarMenu: !1,
@@ -23,22 +23,21 @@ export class Header extends React.Component {
             }));
     }
     componentDidMount() {
-        var e = this.props.user.userInfo;
-        e.email ||
+        const userInfo = this.props.user.userInfo;
+        userInfo.email ||
             this.props.dispatch({
                 type: "user/getUserInfo",
             });
     }
-    showDropmenu(e) {
-        var t = this;
+    showDropmenu(menuKey) {
         this.setState(
             {
-                [e]: !this.state[e],
+                [menuKey]: !this.state[menuKey],
             },
             () => {
-                document.onclick = function (n) {
-                    (t.state[e] &&
-                        t.setState({
+                document.onclick = () => {
+                    (this.state[menuKey] &&
+                        this.setState({
                             showAvatarMenu: !1,
                             showLangMenu: !1,
                         }),
@@ -64,7 +63,7 @@ export class Header extends React.Component {
             this.forceUpdate());
     }
     render() {
-        var e = this.props.user.userInfo;
+        const userInfo = this.props.user.userInfo;
         return (
             <header id={"page-header"}>
                 <div className={"content-header"}>
@@ -174,7 +173,7 @@ export class Header extends React.Component {
                                 >
                                     <i className={"far fa fa-user-circle"}></i>
                                     <span className={"d-none d-lg-inline ml-1"}>
-                                        {e.email || "Loading..."}
+                                        {userInfo.email || "Loading..."}
                                     </span>
                                     <i
                                         className={

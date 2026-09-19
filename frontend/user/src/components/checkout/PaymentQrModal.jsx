@@ -1,6 +1,6 @@
 import React from "react";
 import { a as Modal } from "../../vendor/Modal.js";
-import QRCode from "../../vendor/modules/44314466.js";
+import { QRCode } from "../../vendor/content.js";
 import { formatMessage } from "../../vendor/i18n.js";
 
 export default function PaymentQrModal({ visible, payUrl, onCancel }) {

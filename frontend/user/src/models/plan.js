@@ -1,6 +1,6 @@
 import { get } from '../services/request.js';
 import { a as settings } from '../vendor/localeSettings.js';
-import { router } from '../vendor/modules/4172412b.js';
+import { router } from '../vendor/appRuntime.js';
 
 const initialState = { plans: [], plan: {}, selectPeriod: undefined, fetchLoading: true };
 

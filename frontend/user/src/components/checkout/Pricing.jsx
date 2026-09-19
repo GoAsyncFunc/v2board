@@ -1,10 +1,10 @@
 import React from 'react';
-import { a as Radio } from '../../vendor/modules/antdRadio.js';
+import { Radio } from '../../vendor/ui.js';
 import { a as settings } from '../../vendor/localeSettings.js';
 import { formatMessage } from '../../vendor/i18n.js';
 import { formatPrice } from '../MoneyDisplay.jsx';
-import '../../vendor/modules/374b616b.js';
 
+import '../../vendor/componentStyles.js';
 export function PeriodSelector({ plan, period, currencySymbol, onSelect }) {
   return <div className="block block-rounded js-appear-enabled">
     <div className="block-header block-header-default"><h3 className="block-title">{formatMessage({ id: '付款周期' })}</h3><div className="block-options" /></div>

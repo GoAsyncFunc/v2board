@@ -1,15 +1,15 @@
 import React from 'react';
 import { formatDate } from '../components/DateTimeDisplay.jsx';
-import { a as Input } from '../vendor/modules/antdInput.js';
+import { Input } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
-import { a as Modal } from '../vendor/modules/antdDrawer.js';
+import { Modal } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
-import { a as notification } from '../vendor/modules/antdMessage.js';
-import MarkdownIt from '../vendor/modules/markdownItRuntime.js';
+import { notification } from '../vendor/ui.js';
+import { MarkdownIt } from '../vendor/utilities.js';
 import { a as copyText } from '../vendor/siteHelpers.js';
-import '../vendor/modules/77642f52.js';
+import '../vendor/dateTime.js';
 
 const markdownRenderer = new MarkdownIt({
     html: !0,

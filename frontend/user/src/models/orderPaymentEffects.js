@@ -1,6 +1,6 @@
 import { post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { a as message } from '../vendor/modules/antdMessage.js';
+import { message } from '../vendor/ui.js';
 
 export function* save({ params }, { put }) {
   yield put({ type: 'setState', payload: { saveLoading: true } });

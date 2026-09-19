@@ -1,7 +1,7 @@
 import React from "react";
-import { a as Radio } from "../../vendor/modules/antdRadio.js";
-import "../../vendor/modules/374b616b.js";
+import { Radio } from "../../vendor/ui.js";
 
+import "../../vendor/componentStyles.js";
 export default function PaymentMethods({ methods, selectedMethod, onSelect }) {
     return (
         <div className="block-content p-0">

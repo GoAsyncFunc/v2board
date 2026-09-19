@@ -1,74 +1,69 @@
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  defineExport,
-  interopDefault
-} = require("./moduleInterop.js");
-markEsModule(legacyExports), defineExport(legacyExports, "_onCreate", function () {
-  return f;
-}), defineExport(legacyExports, "getApp", function () {
-  return p;
-}), defineExport(legacyExports, "_DvaContainer", function () {
-  return d;
-});
-var r = require("../vendor/modules/70307045.js"),
-  o = interopDefault(r),
-  i = require("../vendor/dva.js"),
-  a = require("../vendor/modules/reactRuntime.js"),
-  s = require("../vendor/modules/30576135.js"),
-  c = interopDefault(s),
-  u = require("./history.js"),
-  l = null;
-function f() {
-  var e = require("../vendor/modules/50737a47.js"),
-    t = e.mergeConfig("dva");
-  return l = Object(i["a"])(o()({
-    history: u["default"]
-  }, t.config || {}, window.g_useSSR ? {
-    initialState: window.g_initialData
-  } : {})), l.use(c()()), (t.plugins || []).forEach(e => {
-    l.use(e);
-  }), l.model(o()({
-    namespace: "comm"
-  }, require("../models/comm.js").default)), l.model(o()({
-    namespace: "coupon"
-  }, require("../models/coupon.js").default)), l.model(o()({
-    namespace: "guest"
-  }, require("../models/guest.js").default)), l.model(o()({
-    namespace: "invite"
-  }, require("../models/invite.js").default)), l.model(o()({
-    namespace: "knowledge"
-  }, require("../models/knowledge.js").default)), l.model(o()({
-    namespace: "layout"
-  }, require("../models/layout.js").default)), l.model(o()({
-    namespace: "notice"
-  }, require("../models/notice.js").default)), l.model(o()({
-    namespace: "order"
-  }, require("../models/order.js").default)), l.model(o()({
-    namespace: "passport"
-  }, require("../models/passport.js").default)), l.model(o()({
-    namespace: "plan"
-  }, require("../models/plan.js").default)), l.model(o()({
-    namespace: "server"
-  }, require("../models/server.js").default)), l.model(o()({
-    namespace: "stat"
-  }, require("../models/stat.js").default)), l.model(o()({
-    namespace: "telegram"
-  }, require("../models/telegram.js").default)), l.model(o()({
-    namespace: "ticket"
-  }, require("../models/ticket.js").default)), l.model(o()({
-    namespace: "tutorial"
-  }, require("../models/tutorial.js").default)), l.model(o()({
-    namespace: "user"
-  }, require("../models/user.js").default)), l;
+import React from 'react';
+import { a as createDva } from '../vendor/dva.js';
+import { loadingPlugin } from '../vendor/appRuntime.js';
+import { mergeConfig } from '../vendor/appRuntime.js';
+import history from './history.js';
+import comm from '../models/comm.js';
+import coupon from '../models/coupon.js';
+import guest from '../models/guest.js';
+import invite from '../models/invite.js';
+import knowledge from '../models/knowledge.js';
+import layout from '../models/layout.js';
+import notice from '../models/notice.js';
+import order from '../models/order.js';
+import passport from '../models/passport.js';
+import plan from '../models/plan.js';
+import server from '../models/server.js';
+import stat from '../models/stat.js';
+import telegram from '../models/telegram.js';
+import ticket from '../models/ticket.js';
+import tutorial from '../models/tutorial.js';
+import user from '../models/user.js';
+
+const models = {
+  comm,
+  coupon,
+  guest,
+  invite,
+  knowledge,
+  layout,
+  notice,
+  order,
+  passport,
+  plan,
+  server,
+  stat,
+  telegram,
+  ticket,
+  tutorial,
+  user,
+};
+
+let appInstance = null;
+
+export function _onCreate() {
+  const dvaConfig = mergeConfig('dva');
+  appInstance = createDva({
+    history,
+    ...(dvaConfig.config || {}),
+    ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
+  });
+  appInstance.use(loadingPlugin());
+  (dvaConfig.plugins || []).forEach(plugin => appInstance.use(plugin));
+  Object.entries(models).forEach(([namespace, model]) => {
+    appInstance.model({ namespace, ...model });
+  });
+  return appInstance;
 }
-function p() {
-  return l;
+
+export function getApp() {
+  return appInstance;
 }
-class d extends a["Component"] {
+
+export class _DvaContainer extends React.Component {
   render() {
-    var e = p();
-    return e.router(() => this.props.children), e.start()();
+    const app = getApp();
+    app.router(() => this.props.children);
+    return app.start()();
   }
 }

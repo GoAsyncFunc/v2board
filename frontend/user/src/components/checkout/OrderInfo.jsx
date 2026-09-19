@@ -4,7 +4,7 @@ import { a as settings } from "../../vendor/localeSettings.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
 import { formatPrice } from "../../components/MoneyDisplay.jsx";
 import { a as Modal } from "../../vendor/Modal.js";
-import { a as Spin } from "../../vendor/modules/76333265.js";
+import { Spin } from "../../vendor/ui.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
     return (
         <div className={"block block-rounded"}>

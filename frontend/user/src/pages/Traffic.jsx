@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { a as Table } from '../vendor/modules/antdTable.js';
+import { Table } from '../vendor/ui.js';
 import { c as connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createTrafficColumns } from '../components/TrafficColumns.jsx';
-import '../vendor/modules/67395956.js';
 
+import '../vendor/componentStyles.js';
 export class TrafficPage extends React.Component {
   componentDidMount() {
     this.props.dispatch({ type: 'stat/getTrafficLog' });

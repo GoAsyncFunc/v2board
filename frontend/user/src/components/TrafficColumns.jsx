@@ -1,14 +1,14 @@
 import React from 'react';
-import moment from '../vendor/modules/77642f52.js';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
-import { a as Tag } from '../vendor/modules/antdTag.js';
+import moment from '../vendor/dateTime.js';
+import { Tooltip } from '../vendor/ui.js';
+import { Tag } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { b as formatTraffic } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import '../vendor/modules/35446d6f.js';
-import '../vendor/modules/2b424a64.js';
+
 import '../vendor/iconStyles.js';
 
+import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 export function createTrafficColumns() {
   return [

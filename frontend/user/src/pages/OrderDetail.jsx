@@ -11,21 +11,19 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import { c as connect } from "../vendor/reactRedux.js";
 import { a as Icon } from "../vendor/Icon.js";
 import { a as Modal } from "../vendor/Modal.js";
-import { a as message } from "../vendor/modules/antdMessage.js";
+import { message } from "../vendor/ui.js";
 import { a as settings } from "../vendor/localeSettings.js";
-import loadable from "../vendor/modules/reactLoadableRuntime.js";
+import { loadable } from "../vendor/utilities.js";
 import { formatMessage } from "../vendor/i18n.js";
-import moment from "../vendor/modules/77642f52.js";
-import { a as Spin } from "../vendor/modules/76333265.js";
-import { router } from "../vendor/modules/4172412b.js";
+import moment from "../vendor/dateTime.js";
+import { Spin } from "../vendor/ui.js";
+import { router } from "../vendor/appRuntime.js";
 import "../vendor/iconStyles.js";
-import "../vendor/modules/374b616b.js";
-import "../vendor/modules/32717463.js";
-import "../vendor/modules/4a2b2f76.js";
-import "../vendor/modules/6d69595a.js";
-import "../vendor/modules/79786e6e.js";
+
+import "../vendor/features.js";
+import "../vendor/componentStyles.js";
 const StripeForm = loadable({
-    loader: () => import("../vendor/modules/6d623341.js"),
+    loader: () => import("../vendor/payment.js"),
 });
 let S; // Original shared polling timer; lifecycle behavior is tested before changing it.
 
@@ -158,9 +156,11 @@ export class OrderDetailPage extends React.Component {
                 },
             }));
     }
-    checkImage(e) {
-        var t = new XMLHttpRequest();
-        return (t.open("HEAD", e, !1), t.send(), 404 != t.status);
+    checkImage(url) {
+        const request = new XMLHttpRequest();
+        request.open("HEAD", url, false);
+        request.send();
+        return request.status !== 404;
     }
     render() {
         var orderState = this.props.order,
