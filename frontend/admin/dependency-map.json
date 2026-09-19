@@ -81,11 +81,11 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Queue.jsx"
+    "to": "pages/Queue.tsx"
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ServerGroup.jsx"
+    "to": "pages/ServerGroup.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1260,92 +1260,36 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Queue.jsx",
-    "to": "components/ContextMenuTable.tsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "components/FilterDrawer.tsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
+    "from": "pages/Queue.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Queue.jsx",
+    "from": "pages/Queue.tsx",
     "to": "components/QueueDisplayColumns.ts"
   },
   {
-    "from": "pages/Queue.jsx",
-    "to": "components/ShadowsocksEditor.jsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "components/TrojanEditor.jsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "components/UserEditor.jsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "components/VmessEditor.jsx"
-  },
-  {
-    "from": "pages/Queue.jsx",
+    "from": "pages/Queue.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Queue.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "pages/Queue.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
+    "from": "pages/ServerGroup.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/ServerGroup.jsx",
+    "from": "pages/ServerGroup.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "pages/ServerGroup.jsx",
+    "from": "pages/ServerGroup.tsx",
     "to": "components/ServerGroupDisplayColumns.tsx"
   },
   {
-    "from": "pages/ServerGroup.jsx",
+    "from": "pages/ServerGroup.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ServerGroup.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
+    "from": "pages/ServerGroup.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/ServerManage.jsx",

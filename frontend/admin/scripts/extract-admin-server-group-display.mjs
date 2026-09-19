@@ -5,8 +5,8 @@ import traverseModule from '@babel/traverse';
 import generatorModule from '@babel/generator';
 import * as t from '@babel/types';
 const traverse=traverseModule.default||traverseModule,generate=generatorModule.default||generatorModule;
-const file=new URL('../src/pages/ServerGroup.jsx',import.meta.url);
-const ast=parse(await fs.readFile(file,'utf8'),{sourceType:'unambiguous',plugins:['jsx']});
+const file=new URL('../src/pages/ServerGroup.tsx',import.meta.url);
+const ast=parse(await fs.readFile(file,'utf8'),{sourceType:'unambiguous',plugins:['jsx','typescript']});
 const keys=['id','name','user_count','server_count'];const columns=[];
 traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpression(e)&&e.properties.some(x=>x.key?.name==='dataIndex'&&x.value.value==='user_count')))return;
  for(let index=0;index<p.node.elements.length;index++){

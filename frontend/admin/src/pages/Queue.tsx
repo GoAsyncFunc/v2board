@@ -1,28 +1,40 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout.jsx';
-import { connect } from '../vendor/reactRedux.js';
-import { Table } from '../vendor/ui.js';
-import LoadingContainer from '../components/LoadingContainer.tsx';
-import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.ts';
+import MainLayout from '../layouts/MainLayout';
+import { connect } from 'react-redux';
+import Table from 'antd/lib/table';
+import LoadingContainer from '../components/LoadingContainer';
+import { createReadonlyQueueColumns, type QueueWorkload } from '../components/QueueDisplayColumns';
+import type { AdminDispatch } from '../types/store';
 
-import '../vendor/dateTime.js';
-import '../vendor/siteHelpers.js';
-import '../components/UserEditor.jsx';
-import '../components/FilterDrawer.tsx';
-import '../components/ContextMenuTable.tsx';
-import '../components/ShadowsocksEditor.jsx';
-import '../components/VmessEditor.jsx';
-import '../components/TrojanEditor.jsx';
+interface QueueStats {
+  jobsPerMinute?: number;
+  recentJobs?: number;
+  failedJobs?: number;
+  status?: boolean;
+}
 
-export class QueuePage extends React.Component {
-  state = {};
+interface QueuePageProps {
+  dispatch: AdminDispatch;
+  system: {
+    queueStats: QueueStats | null;
+    queueWorkload: QueueWorkload[] | null;
+  };
+  [key: string]: unknown;
+}
+
+interface QueueRootState {
+  system: QueuePageProps['system'];
+}
+
+export class QueuePage extends React.Component<QueuePageProps> {
+  refreshTimer?: ReturnType<typeof setTimeout>;
 
   componentDidMount() {
     this.fetchQueueData();
   }
 
   componentWillUnmount() {
-    clearTimeout(this.refreshTimer);
+    if (this.refreshTimer) clearTimeout(this.refreshTimer);
   }
 
   fetchQueueData() {
@@ -76,9 +88,9 @@ export class QueuePage extends React.Component {
               <h3 className="block-title">当前作业详情</h3>
             </div>
             <div className="block-content p-0">
-              <Table
+              <Table<QueueWorkload>
                 columns={createReadonlyQueueColumns()}
-                dataSource={queueWorkload && queueWorkload.filter(queue => queue.name !== 'default')}
+                dataSource={queueWorkload ? queueWorkload.filter(queue => queue.name !== 'default') : undefined}
                 pagination={false}
               />
             </div>
@@ -89,4 +101,4 @@ export class QueuePage extends React.Component {
   }
 }
 
-export default connect(state => ({ system: state.system }))(QueuePage);
+export default connect((state: QueueRootState) => ({ system: state.system }))(QueuePage);

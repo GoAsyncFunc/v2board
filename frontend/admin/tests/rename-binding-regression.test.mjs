@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {parse} from '@babel/parser';
 import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
-const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console', 'window']);
+const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console', 'window', 'setTimeout', 'clearTimeout']);
 for (const file of [
   'admin/src/components/ShadowsocksEditor.jsx',
   'admin/src/components/AnyTlsEditor.jsx',
@@ -24,6 +24,8 @@ for (const file of [
   'admin/src/pages/ConfigPayment.jsx',
   'admin/src/pages/Giftcard.jsx',
   'admin/src/pages/Knowledge.jsx',
+  'admin/src/pages/Queue.tsx',
+  'admin/src/pages/ServerGroup.tsx',
   'admin/src/pages/ServerRoute.jsx',
   'admin/src/pages/ServerManage.jsx',
 ]) {

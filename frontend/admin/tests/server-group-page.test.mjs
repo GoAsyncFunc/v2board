@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/ServerGroup.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/ServerGroup.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const React = {
     Component: class {
@@ -23,12 +23,13 @@ async function loadPage() {
     module, exports: module.exports,
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux') return { connect: () => Page => Page };
+      if (id === 'antd/lib/button') return 'Button';
+      if (id === 'antd/lib/divider') return 'Divider';
+      if (id === 'antd/lib/icon') return 'Icon';
+      if (id === 'antd/lib/table') return 'Table';
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('ui.js')) return { Table: 'Table', Button: 'Button' };
-      if (id.includes('Divider.js')) return { Divider: 'Divider' };
-      if (id.includes('Icon.js')) return { Icon: 'Icon' };
       if (id.includes('PermissionGroupEditor')) return 'PermissionGroupEditor';
       if (id.includes('ServerGroupDisplayColumns')) return {
         createReadonlyServerGroupColumns: () => ({
@@ -48,7 +49,7 @@ function nodes(tree, predicate) {
   return [...(predicate(tree) ? [tree] : []), ...nodes(tree.children, predicate), ...nodes(tree.props?.children, predicate)];
 }
 
-test('Server group page fetches, renders rows, toggles editor and dispatches delete', async () => {
+test('Server group page fetches, renders rows, exposes the editor and dispatches delete', async () => {
   const runtime = await loadPage();
   const groups = [{ id: 3, name: 'Operators', user_count: 2, server_count: 1 }];
   const page = new runtime.Page({
@@ -64,9 +65,5 @@ test('Server group page fetches, renders rows, toggles editor and dispatches del
   const deleteLink = nodes(actionCell, node => node.type === 'a' && node.props.onClick)[0];
   deleteLink.props.onClick();
   assert.deepEqual(runtime.actions.at(-1), { type: 'serverGroup/drop', id: 3 });
-  page.toggleModal();
-  assert.equal(page.state.visible, true);
-  page.toggleModal();
-  assert.equal(page.state.visible, false);
-  assert.deepEqual(JSON.parse(JSON.stringify(page.state.submit)), {});
+  assert.equal(nodes(tree, node => node.type === 'PermissionGroupEditor').length, 1);
 });

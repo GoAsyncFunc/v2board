@@ -1,5 +1,13 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
+import type { ColumnProps } from 'antd/lib/table/interface';
+
+export interface ServerGroupRecord {
+  id: string | number;
+  name: string;
+  user_count?: unknown;
+  server_count?: unknown;
+}
 
 // A synchronous element helper, not a wrapper component. Preserve the Fragment,
 // icon style and uncoerced child (including null/undefined or invalid children).
@@ -8,7 +16,7 @@ export function renderGroupCount(iconType: string, count: unknown) {
 }
 
 // Counts are rendered directly: no coercion, fallback or added interaction.
-export function createReadonlyServerGroupColumns() {
+export function createReadonlyServerGroupColumns(): Record<'id' | 'name' | 'user_count' | 'server_count', ColumnProps<ServerGroupRecord>> {
   return {
     id: { title: '组ID', dataIndex: 'id', key: 'id' },
     name: { title: '组名称', dataIndex: 'name', key: 'name' },

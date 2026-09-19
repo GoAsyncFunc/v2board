@@ -1,34 +1,45 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout.jsx';
-import { connect } from '../vendor/reactRedux.js';
-import { Table, Button } from '../vendor/ui.js';
-import LoadingContainer from '../components/LoadingContainer.tsx';
-import { Divider } from '../vendor/Divider.js';
-import { Icon } from '../vendor/Icon.js';
-import PermissionGroupEditor from '../components/PermissionGroupEditor.tsx';
-import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.tsx';
+import MainLayout from '../layouts/MainLayout';
+import { connect } from 'react-redux';
+import Button from 'antd/lib/button';
+import Divider from 'antd/lib/divider';
+import Icon from 'antd/lib/icon';
+import Table from 'antd/lib/table';
+import type { ColumnProps } from 'antd/lib/table/interface';
+import LoadingContainer from '../components/LoadingContainer';
+import PermissionGroupEditor from '../components/PermissionGroupEditor';
+import { createReadonlyServerGroupColumns, type ServerGroupRecord } from '../components/ServerGroupDisplayColumns';
+import type { AdminDispatch } from '../types/store';
 import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyServerGroupColumns();
 
-export class ServerGroupPage extends React.Component {
-  state = { submit: {}, visible: false };
+interface ServerGroupPageProps {
+  dispatch: AdminDispatch;
+  serverGroup: {
+    groups: ServerGroupRecord[];
+    fetchLoading: boolean;
+  };
+  [key: string]: unknown;
+}
+
+interface ServerGroupRootState {
+  serverGroup: ServerGroupPageProps['serverGroup'];
+}
+
+export class ServerGroupPage extends React.Component<ServerGroupPageProps> {
 
   componentDidMount() {
     this.props.dispatch({ type: 'serverGroup/fetch' });
   }
 
-  drop(groupId) {
+  drop(groupId: string | number): void {
     this.props.dispatch({ type: 'serverGroup/drop', id: groupId });
-  }
-
-  toggleModal() {
-    this.setState(state => ({ visible: !state.visible, submit: {} }));
   }
 
   render() {
     const { groups, fetchLoading } = this.props.serverGroup;
-    const columns = [
+    const columns: ColumnProps<ServerGroupRecord>[] = [
       readonlyColumns.id,
       readonlyColumns.name,
       readonlyColumns.user_count,
@@ -38,7 +49,7 @@ export class ServerGroupPage extends React.Component {
         dataIndex: 'action',
         key: 'action',
         align: 'right',
-        render: (value, record) => (
+        render: (_value, record) => (
           <div>
             <PermissionGroupEditor record={record}>
               <a href="javascript:void(0);">编辑</a>
@@ -56,12 +67,12 @@ export class ServerGroupPage extends React.Component {
             <div className="bg-white">
               <div style={{ padding: 15 }}>
                 <PermissionGroupEditor>
-                  <Button onClick={() => this.toggleModal()}>
+                  <Button>
                     <Icon type="plus" /> 添加权限组
                   </Button>
                 </PermissionGroupEditor>
               </div>
-              <Table tableLayout="auto" columns={columns} dataSource={groups} pagination={false} />
+              <Table<ServerGroupRecord> tableLayout="auto" columns={columns} dataSource={groups} pagination={false} />
             </div>
           </div>
         </LoadingContainer>
@@ -70,4 +81,4 @@ export class ServerGroupPage extends React.Component {
   }
 }
 
-export default connect(state => ({ serverGroup: state.serverGroup }))(ServerGroupPage);
+export default connect((state: ServerGroupRootState) => ({ serverGroup: state.serverGroup }))(ServerGroupPage);

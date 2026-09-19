@@ -1,5 +1,6 @@
 // Readonly queue workload columns, extracted unchanged from the admin Queue page.
 // Only pure display cells are here: no events, requests, sorting or pagination.
+import type { ColumnProps } from 'antd/lib/table/interface';
 
 const QUEUE_NAME_LABELS: Record<string, string> = {
   order_handle: '订单队列',
@@ -14,6 +15,14 @@ const QUEUE_NAME_LABELS: Record<string, string> = {
 export type QueueName = string | number | symbol | null | undefined;
 export type QueueWait = string | number | object | null | undefined;
 
+export interface QueueWorkload {
+  name: QueueName;
+  processes?: unknown;
+  length?: unknown;
+  wait?: QueueWait;
+  [key: string]: unknown;
+}
+
 export function formatQueueName(value: QueueName): string | undefined {
   return QUEUE_NAME_LABELS[value as string];
 }
@@ -24,7 +33,7 @@ export function formatQueueWait(value: QueueWait): string {
   return value + 's';
 }
 
-export function createReadonlyQueueColumns() {
+export function createReadonlyQueueColumns(): ColumnProps<QueueWorkload>[] {
   return [
     { title: '队列名称', dataIndex: 'name', key: 'name', render: formatQueueName },
     { title: '作业量', dataIndex: 'processes', key: 'processes' },

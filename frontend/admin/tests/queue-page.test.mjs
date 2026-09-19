@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Queue.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Queue.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const timers = [];
   const React = {
@@ -20,12 +20,11 @@ async function loadPage() {
     clearTimeout() {},
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux') return { connect: () => Page => Page };
+      if (id === 'antd/lib/table') return 'Table';
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('ui.js')) return { Table: 'Table' };
       if (id.includes('QueueDisplayColumns')) return { createReadonlyQueueColumns: () => [{ key: 'name' }] };
-      if (/dateTime|siteHelpers|UserEditor|FilterDrawer|ContextMenuTable|ShadowsocksEditor|VmessEditor|TrojanEditor/.test(id)) return {};
       throw new Error(id);
     },
   });
