@@ -1,407 +1,119 @@
-const {
-  createReadonlyCouponColumns
-} = require('../components/CouponDisplayColumns.jsx');
+import React from 'react';
+import { c as connect } from '../vendor/reactRedux.js';
+import { DatePicker } from '../vendor/ui.js';
+import { Select } from '../vendor/ui.js';
+import { Input } from '../vendor/ui.js';
+import { Table } from '../vendor/ui.js';
+import { Button } from '../vendor/ui.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { a as Modal } from '../vendor/Modal.js';
+import { a as Divider } from '../vendor/Divider.js';
+import { Tag } from '../vendor/ui.js';
+import { message } from '../vendor/ui.js';
+import { Switch } from '../vendor/ui.js';
+import { settings } from '../vendor/adminSettings.js';
+import { LoadingContainer } from '../vendor/ui.js';
+import copy from '../vendor/clipboard.js';
+import moment from '../vendor/dateTime.js';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { createReadonlyCouponColumns } from '../components/CouponDisplayColumns.jsx';
+
+import '../vendor/iconStyles.js';
+
+import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyCouponColumns();
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/reactRuntime.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = (require("../vendor/modules/69514446.js"), require("../vendor/modules/antdDatePicker.js")),
-  a = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
-  s = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
-  l = (require("../vendor/modules/67395956.js"), require("../vendor/modules/antdTable.js")),
-  c = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  h = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  f = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  d = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/antdTag.js")),
-  p = (require("../vendor/modules/6d69595a.js"), require("../vendor/modules/antdMessage.js")),
-  m = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/antdSwitch.js")),
-  g = require("../vendor/modules/70307045.js"),
-  v = interopDefault(g),
-  y = require("../vendor/modules/reactRuntime.js"),
-  b = interopDefault(y),
-  w = require("../layouts/MainLayout.jsx"),
-  x = require("../vendor/modules/77642f52.js"),
-  _ = interopDefault(x),
-  E = require("../vendor/modules/clipboardRuntime.js"),
-  S = interopDefault(E),
-  k = require("../vendor/reactRedux.js"),
-  C = require("../vendor/modules/adminSettingsRuntime.js"),
-  O = require("../vendor/modules/76333265.js");
-class T extends b.a.Component {
-  constructor(e) {
-    super(e), this.defaultValue = {
-      type: 1
-    }, this.state = {
-      visible: !1,
-      submit: v()({}, this.defaultValue)
-    };
+
+export class CouponPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.defaultValue = { type: 1 };
+    this.state = { visible: false, submit: { ...this.defaultValue } };
   }
+
   componentDidMount() {
-    this.props.dispatch({
-      type: "coupon/fetch"
-    }), this.props.dispatch({
-      type: "plan/fetch"
+    this.props.dispatch({ type: 'coupon/fetch' });
+    this.props.dispatch({ type: 'plan/fetch' });
+  }
+
+  updateSubmit(patch) {
+    this.setState({ submit: { ...this.state.submit, ...patch } });
+  }
+
+  toggleModal() {
+    this.setState({ visible: !this.state.visible }, () => {
+      if (!this.state.visible) this.setState({ submit: { ...this.defaultValue } });
     });
   }
-  modalVisible() {
-    this.setState({
-      visible: !this.state.visible
-    }, () => {
-      this.state.visible || this.setState({
-        submit: this.defaultValue
-      });
-    });
-  }
+
   generate() {
-    var e = v()({}, this.state.submit);
     this.props.dispatch({
-      type: "coupon/generate",
-      params: e,
-      callback: () => {
-        this.modalVisible();
-      }
+      type: 'coupon/generate',
+      params: { ...this.state.submit },
+      callback: () => this.toggleModal(),
     });
   }
-  drop(e) {
+
+  drop(coupon) {
+    this.props.dispatch({ type: 'coupon/drop', id: coupon.id });
+  }
+
+  tableOnChange(pagination, sorter) {
     this.props.dispatch({
-      type: "coupon/drop",
-      id: e.id
+      type: 'coupon/changeTable',
+      pagination,
+      sort: { sort_type: sorter.order === 'ascend' ? 'ASC' : 'DESC', sort: sorter.columnKey },
     });
   }
-  tableOnChange(e, t) {
-    this.props.dispatch({
-      type: "coupon/changeTable",
-      pagination: e,
-      sort: {
-        sort_type: "ascend" === t.order ? "ASC" : "DESC",
-        sort: t.columnKey
-      }
-    });
-  }
+
   render() {
-    var e = this.props.coupon,
-      t = e.coupons,
-      n = e.fetchLoading,
-      r = e.saveLoading,
-      g = e.pagination,
-      y = this.props.plan.plans,
-      x = [readonlyColumns["id"], {
-        title: "启用",
-        dataIndex: "show",
-        key: "show",
-        render: (e, t) => {
-          return b.a.createElement(m["a"], {
-            size: "small",
-            onChange: () => this.props.dispatch({
-              type: "coupon/show",
-              id: t.id
-            }),
-            checked: e
-          });
-        }
-      }, readonlyColumns["name"], readonlyColumns["type"], {
-        title: "券码",
-        dataIndex: "code",
-        key: "code",
-        render: e => {
-          return b.a.createElement(d["a"], {
-            style: {
-              cursor: "pointer"
-            },
-            onClick: () => {
-              S()(e), p["a"].success("复制成功");
-            }
-          }, e);
-        }
-      }, readonlyColumns["limit_use"], readonlyColumns["started_at"], {
-        title: "操作",
-        dataIndex: "action",
-        key: "action",
-        align: "right",
-        fixed: "right",
-        render: (e, n, r) => {
-          return <div>
-                                <a onClick={() => {
-              this.setState({
-                submit: t[r]
-              }, () => {
-                this.modalVisible();
-              });
-            }} href={"javascript:void(0);"}>
-                                    {"编辑"}
-                                </a>
-                                {b.a.createElement(f["a"], {
-              type: "vertical"
-            })}
-                                <a onClick={() => {
-              h["a"].confirm({
-                title: "警告",
-                content: "确定要删除该条项目吗？",
-                onOk: () => this.drop(n),
-                okText: "确定",
-                cancelText: "取消"
-              });
-            }} href={"javascript:void(0);"}>
-                                    {"删除"}
-                                </a>
-                            </div>;
-        }
-      }];
-    return b.a.createElement(w["a"], i()({}, this.props, {
-      title: "优惠券管理"
-    }), b.a.createElement(O["a"], {
-      loading: n
-    }, <div className={"block border-bottom"}>
-                    <div className={"bg-white"}>
-                        <div style={{
-          padding: 15
-        }}>
-                            {b.a.createElement(c["a"], {
-            onClick: () => this.modalVisible()
-          }, b.a.createElement(u["a"], {
-            type: "plus"
-          }), " 添加优惠券")}
-                        </div>
-                        {b.a.createElement(l["a"], {
-          tableLayout: "auto",
-          dataSource: t,
-          columns: x,
-          scroll: {
-            x: 1050
-          },
-          pagination: v()({}, g, {
-            size: "small",
-            showSizeChanger: !0,
-            pageSizeOptions: [10, 50, 100, 150]
-          }),
-          onChange: (e, t, n) => this.tableOnChange(e, n)
-        })}
-                    </div>
-                </div>), b.a.createElement(h["a"], {
-      title: "".concat(this.state.submit.id ? "编辑优惠券" : "新建优惠券"),
-      visible: this.state.visible,
-      onCancel: () => this.modalVisible(),
-      onOk: () => this.generate(),
-      okText: "提交",
-      cancelText: "取消",
-      okButtonProps: {
-        loading: r
+    const { coupon, plan } = this.props;
+    const { submit, visible } = this.state;
+    const columns = [
+      readonlyColumns.id,
+      {
+        title: '启用', dataIndex: 'show', key: 'show',
+        render: (enabled, row) => <Switch size="small" checked={enabled} onChange={() => this.props.dispatch({ type: 'coupon/show', id: row.id })} />,
       },
-      key: this.key
-    }, <div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>{"名称"}</label>
-                        {b.a.createElement(s["a"], {
-          placeholder: "请输入优惠券名称",
-          value: this.state.submit.name,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                name: e.target.value
-              })
-            });
-          }
-        })}
-                    </div>
-                    {!this.state.submit.generate_count && <div className={"form-group"}>
-                            <label for={"example-text-input-alt"}>
-                                {"自定义优惠券码"}
-                            </label>
-                            {b.a.createElement(s["a"], {
-          placeholder: "自定义优惠券码(留空随机生成)",
-          value: this.state.submit.code,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                code: e.target.value,
-                generate_count: void 0
-              })
-            });
-          }
-        })}
-                        </div>}
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"优惠信息"}
-                        </label>
-                        {b.a.createElement(s["a"], {
-          type: "number",
-          addonBefore: b.a.createElement(a["a"], {
-            style: {
-              width: 120
-            },
-            value: this.state.submit.type,
-            onChange: e => {
-              this.setState({
-                submit: v()({}, this.state.submit, {
-                  type: e
-                })
-              });
-            }
-          }, b.a.createElement(a["a"].Option, {
-            value: 1
-          }, "按金额优惠"), b.a.createElement(a["a"].Option, {
-            value: 2
-          }, "按比例优惠")),
-          addonAfter: 1 === this.state.submit.type ? "¥" : "%",
-          placeholder: "请输入值",
-          value: this.state.submit.value,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                value: e.target.value
-              })
-            });
-          }
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"优惠券有效期"}
-                        </label>
-                        {b.a.createElement(o["a"].RangePicker, {
-          style: {
-            width: "100%"
-          },
-          showTime: {
-            format: "HH:mm"
-          },
-          format: "YYYY-MM-DD HH:mm",
-          placeholder: ["Start Time", "End Time"],
-          value: [this.state.submit.started_at ? _()(1e3 * this.state.submit.started_at) : null, this.state.submit.ended_at ? _()(1e3 * this.state.submit.ended_at) : null],
-          onChange: e => this.setState({
-            submit: v()({}, this.state.submit, {
-              started_at: e[0] ? e[0].format("X") : null,
-              ended_at: e[1] ? e[1].format("X") : null
-            })
-          }),
-          onOk: e => this.setState({
-            submit: v()({}, this.state.submit, {
-              started_at: e[0] ? e[0].format("X") : null,
-              ended_at: e[1] ? e[1].format("X") : null
-            })
-          })
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"最大使用次数"}
-                        </label>
-                        {b.a.createElement(s["a"], {
-          placeholder: "限制最大使用次数，用完则无法使用(为空则不限制)",
-          value: this.state.submit.limit_use,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                limit_use: e.target.value
-              })
-            });
-          }
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label htmlFor={"example-text-input-alt"}>
-                            {"每个用户可使用次数"}
-                        </label>
-                        {b.a.createElement(s["a"], {
-          placeholder: "限制每个用户可使用次数(为空则不限制)",
-          value: this.state.submit.limit_use_with_user,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                limit_use_with_user: e.target.value
-              })
-            });
-          }
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"指定订阅"}
-                        </label>
-                        <div>
-                            {b.a.createElement(a["a"], {
-            value: this.state.submit.limit_plan_ids || [],
-            onChange: e => {
-              this.setState({
-                submit: v()({}, this.state.submit, {
-                  limit_plan_ids: e.length ? e : null
-                })
-              });
-            },
-            mode: "multiple",
-            placeholder: "限制指定订阅可以使用优惠(为空则不限制)",
-            style: {
-              width: "100%"
-            }
-          }, y.map(e => {
-            return b.a.createElement(a["a"].Option, {
-              key: Math.random(),
-              value: "".concat(e.id)
-            }, e.name);
-          }))}
-                        </div>
-                    </div>
-                    <div className={"form-group"}>
-                        <label htmlFor={"example-text-input-alt"}>
-                            {"指定周期"}
-                        </label>
-                        <div>
-                            {b.a.createElement(a["a"], {
-            value: this.state.submit.limit_period || [],
-            onChange: e => {
-              this.setState({
-                submit: v()({}, this.state.submit, {
-                  limit_period: e.length ? e : null
-                })
-              });
-            },
-            mode: "multiple",
-            placeholder: "限制指定周期可以使用优惠(为空则不限制)",
-            style: {
-              width: "100%"
-            }
-          }, Object.keys(C["a"].periodText).map(e => {
-            return b.a.createElement(a["a"].Option, {
-              key: Math.random(),
-              value: e
-            }, C["a"].periodText[e]);
-          }))}
-                        </div>
-                    </div>
-                    {!this.state.submit.code && !this.state.submit.id && <div className={"form-group"}>
-                            <label htmlFor={"example-text-input-alt"}>
-                                {"生成数量"}
-                            </label>
-                            {b.a.createElement(s["a"], {
-          placeholder: "输入数量批量生成",
-          value: this.state.submit.generate_count,
-          onChange: e => {
-            this.setState({
-              submit: v()({}, this.state.submit, {
-                generate_count: e.target.value,
-                code: void 0
-              })
-            });
-          }
-        })}
-                        </div>}
-                </div>));
+      readonlyColumns.name,
+      readonlyColumns.type,
+      {
+        title: '券码', dataIndex: 'code', key: 'code',
+        render: code => <Tag style={{ cursor: 'pointer' }} onClick={() => { copy(code); message.success('复制成功'); }}>{code}</Tag>,
+      },
+      readonlyColumns.limit_use,
+      readonlyColumns.started_at,
+      {
+        title: '操作', dataIndex: 'action', key: 'action', align: 'right', fixed: 'right',
+        render: (value, row) => <div>
+          <a href="javascript:void(0);" onClick={() => this.setState({ submit: { ...row } }, () => this.toggleModal())}>编辑</a>
+          <Divider type="vertical" />
+          <a href="javascript:void(0);" onClick={() => Modal.confirm({ title: '警告', content: '确定要删除该条项目吗？', onOk: () => this.drop(row), okText: '确定', cancelText: '取消' })}>删除</a>
+        </div>,
+      },
+    ];
+
+    return <MainLayout {...this.props} title="优惠券管理">
+      <LoadingContainer loading={coupon.fetchLoading}>
+        <div className="block border-bottom"><div className="bg-white">
+          <div style={{ padding: 15 }}><Button onClick={() => this.toggleModal()}><Icon type="plus" /> 添加优惠券</Button></div>
+          <Table tableLayout="auto" dataSource={coupon.coupons} columns={columns} scroll={{ x: 1050 }} pagination={{ ...coupon.pagination, size: 'small', showSizeChanger: true, pageSizeOptions: [10, 50, 100, 150] }} onChange={(pagination, filters, sorter) => this.tableOnChange(pagination, sorter)} />
+        </div></div>
+      </LoadingContainer>
+      <Modal title={submit.id ? '编辑优惠券' : '新建优惠券'} visible={visible} onCancel={() => this.toggleModal()} onOk={() => this.generate()} okText="提交" cancelText="取消" okButtonProps={{ loading: coupon.saveLoading }}>
+        <div>
+          <div className="form-group"><label htmlFor="coupon-name">名称</label><Input id="coupon-name" placeholder="请输入优惠券名称" value={submit.name} onChange={event => this.updateSubmit({ name: event.target.value })} /></div>
+          {!submit.generate_count && <div className="form-group"><label htmlFor="coupon-code">自定义优惠券码</label><Input id="coupon-code" placeholder="自定义优惠券码(留空随机生成)" value={submit.code} onChange={event => this.updateSubmit({ code: event.target.value, generate_count: undefined })} /></div>}
+          <div className="form-group"><label htmlFor="coupon-value">优惠信息</label><Input id="coupon-value" type="number" addonBefore={<Select style={{ width: 120 }} value={submit.type} onChange={type => this.updateSubmit({ type })}><Select.Option value={1}>按金额优惠</Select.Option><Select.Option value={2}>按比例优惠</Select.Option></Select>} addonAfter={submit.type === 1 ? '¥' : '%'} placeholder="请输入值" value={submit.value} onChange={event => this.updateSubmit({ value: event.target.value })} /></div>
+          <div className="form-group"><label>优惠券有效期</label><DatePicker.RangePicker style={{ width: '100%' }} showTime={{ format: 'HH:mm' }} format="YYYY-MM-DD HH:mm" placeholder={['Start Time', 'End Time']} value={[submit.started_at ? moment(1000 * submit.started_at) : null, submit.ended_at ? moment(1000 * submit.ended_at) : null]} onChange={range => this.updateSubmit({ started_at: range[0] ? range[0].format('X') : null, ended_at: range[1] ? range[1].format('X') : null })} /></div>
+          <div className="form-group"><label htmlFor="coupon-limit">最大使用次数</label><Input id="coupon-limit" placeholder="限制最大使用次数，用完则无法使用(为空则不限制)" value={submit.limit_use} onChange={event => this.updateSubmit({ limit_use: event.target.value })} /></div>
+          <div className="form-group"><label htmlFor="coupon-user-limit">每个用户可使用次数</label><Input id="coupon-user-limit" placeholder="限制每个用户可使用次数(为空则不限制)" value={submit.limit_use_with_user} onChange={event => this.updateSubmit({ limit_use_with_user: event.target.value })} /></div>
+          <div className="form-group"><label htmlFor="coupon-plans">指定订阅</label><Select id="coupon-plans" value={submit.limit_plan_ids || []} onChange={ids => this.updateSubmit({ limit_plan_ids: ids.length ? ids : null })} mode="multiple" placeholder="限制指定订阅可以使用优惠(为空则不限制)" style={{ width: '100%' }}>{plan.plans.map(item => <Select.Option key={item.id} value={`${item.id}`}>{item.name}</Select.Option>)}</Select></div>
+          <div className="form-group"><label htmlFor="coupon-periods">指定周期</label><Select id="coupon-periods" value={submit.limit_period || []} onChange={periods => this.updateSubmit({ limit_period: periods.length ? periods : null })} mode="multiple" placeholder="限制指定周期可以使用优惠(为空则不限制)" style={{ width: '100%' }}>{Object.keys(settings.periodText).map(period => <Select.Option key={period} value={period}>{settings.periodText[period]}</Select.Option>)}</Select></div>
+          {!submit.code && !submit.id && <div className="form-group"><label htmlFor="coupon-count">生成数量</label><Input id="coupon-count" placeholder="输入数量批量生成" value={submit.generate_count} onChange={event => this.updateSubmit({ generate_count: event.target.value, code: undefined })} /></div>}
+        </div>
+      </Modal>
+    </MainLayout>;
   }
 }
-legacyExports["default"] = Object(k["c"])(e => {
-  var t = e.coupon,
-    n = e.plan;
-  return {
-    coupon: t,
-    plan: n
-  };
-})(T);
+
+export default connect(state => ({ coupon: state.coupon, plan: state.plan }))(CouponPage);

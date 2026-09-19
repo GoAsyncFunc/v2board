@@ -1,96 +1,91 @@
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  defineExport,
-  interopDefault
-} = require("./moduleInterop.js");
-markEsModule(legacyExports), defineExport(legacyExports, "_onCreate", function () {
-  return h;
-}), defineExport(legacyExports, "getApp", function () {
-  return f;
-}), defineExport(legacyExports, "_DvaContainer", function () {
-  return d;
-});
-var r = require("../vendor/modules/70307045.js"),
-  i = interopDefault(r),
-  o = require("../vendor/dva.js"),
-  a = require("../vendor/modules/reactRuntime.js"),
-  s = require("../vendor/modules/30576135.js"),
-  l = interopDefault(s),
-  c = require("./history.js"),
-  u = null;
-function h() {
-  var e = require("../vendor/modules/50737a47.js"),
-    t = e.mergeConfig("dva");
-  return u = Object(o["a"])(i()({
-    history: c["default"]
-  }, t.config || {}, window.g_useSSR ? {
-    initialState: window.g_initialData
-  } : {})), u.use(l()()), (t.plugins || []).forEach(e => {
-    u.use(e);
-  }), u.model(i()({
-    namespace: "auth"
-  }, require("../models/auth.js").default)), u.model(i()({
-    namespace: "config"
-  }, require("../models/config.js").default)), u.model(i()({
-    namespace: "coupon"
-  }, require("../models/coupon.js").default)), u.model(i()({
-    namespace: "giftcard"
-  }, require("../models/giftcard.js").default)), u.model(i()({
-    namespace: "knowledge"
-  }, require("../models/knowledge.js").default)), u.model(i()({
-    namespace: "layout"
-  }, require("../models/layout.js").default)), u.model(i()({
-    namespace: "notice"
-  }, require("../models/notice.js").default)), u.model(i()({
-    namespace: "order"
-  }, require("../models/order.js").default)), u.model(i()({
-    namespace: "passport"
-  }, require("../models/passport.js").default)), u.model(i()({
-    namespace: "payment"
-  }, require("../models/payment.js").default)), u.model(i()({
-    namespace: "plan"
-  }, require("../models/plan.js").default)), u.model(i()({
-    namespace: "serverGroup"
-  }, require("../models/serverGroup.js").default)), u.model(i()({
-    namespace: "serverHysteria"
-  }, require("../models/serverHysteria.js").default)), u.model(i()({
-    namespace: "serverTuic"
-  }, require("../models/serverTuic.js").default)), u.model(i()({
-    namespace: "serverManage"
-  }, require("../models/serverManage.js").default)), u.model(i()({
-    namespace: "serverRoute"
-  }, require("../models/serverRoute.js").default)), u.model(i()({
-    namespace: "serverShadowsocks"
-  }, require("../models/serverShadowsocks.js").default)), u.model(i()({
-    namespace: "serverTrojan"
-  }, require("../models/serverTrojan.js").default)), u.model(i()({
-    namespace: "serverVless"
-  }, require("../models/serverVless.js").default)), u.model(i()({
-    namespace: "serverVmess"
-  }, require("../models/serverVmess.js").default)), u.model(i()({
-    namespace: "serverAnyTLS"
-  }, require("../models/serverAnyTLS.js").default)), u.model(i()({
-    namespace: "serverV2node"
-  }, require("../models/serverV2node.js").default)), u.model(i()({
-    namespace: "stat"
-  }, require("../models/stat.js").default)), u.model(i()({
-    namespace: "system"
-  }, require("../models/system.js").default)), u.model(i()({
-    namespace: "theme"
-  }, require("../models/theme.js").default)), u.model(i()({
-    namespace: "ticket"
-  }, require("../models/ticket.js").default)), u.model(i()({
-    namespace: "user"
-  }, require("../models/user.js").default)), u;
+import React from 'react';
+import { a as createDva } from '../vendor/dva.js';
+import { loadingPlugin } from '../vendor/appRuntime.js';
+import { mergeConfig } from '../vendor/appRuntime.js';
+import history from './history.js';
+import auth from '../models/auth.js';
+import config from '../models/config.js';
+import coupon from '../models/coupon.js';
+import giftcard from '../models/giftcard.js';
+import knowledge from '../models/knowledge.js';
+import layout from '../models/layout.js';
+import notice from '../models/notice.js';
+import order from '../models/order.js';
+import passport from '../models/passport.js';
+import payment from '../models/payment.js';
+import plan from '../models/plan.js';
+import serverAnyTLS from '../models/serverAnyTLS.js';
+import serverGroup from '../models/serverGroup.js';
+import serverHysteria from '../models/serverHysteria.js';
+import serverManage from '../models/serverManage.js';
+import serverRoute from '../models/serverRoute.js';
+import serverShadowsocks from '../models/serverShadowsocks.js';
+import serverTrojan from '../models/serverTrojan.js';
+import serverTuic from '../models/serverTuic.js';
+import serverV2node from '../models/serverV2node.js';
+import serverVless from '../models/serverVless.js';
+import serverVmess from '../models/serverVmess.js';
+import stat from '../models/stat.js';
+import system from '../models/system.js';
+import theme from '../models/theme.js';
+import ticket from '../models/ticket.js';
+import user from '../models/user.js';
+
+const models = {
+  auth,
+  config,
+  coupon,
+  giftcard,
+  knowledge,
+  layout,
+  notice,
+  order,
+  passport,
+  payment,
+  plan,
+  serverGroup,
+  serverHysteria,
+  serverTuic,
+  serverManage,
+  serverRoute,
+  serverShadowsocks,
+  serverTrojan,
+  serverVless,
+  serverVmess,
+  serverAnyTLS,
+  serverV2node,
+  stat,
+  system,
+  theme,
+  ticket,
+  user,
+};
+
+let appInstance = null;
+
+export function _onCreate() {
+  const dvaConfig = mergeConfig('dva');
+  appInstance = createDva({
+    history,
+    ...(dvaConfig.config || {}),
+    ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
+  });
+  appInstance.use(loadingPlugin());
+  (dvaConfig.plugins || []).forEach(plugin => appInstance.use(plugin));
+  Object.entries(models).forEach(([namespace, model]) => {
+    appInstance.model({ namespace, ...model });
+  });
+  return appInstance;
 }
-function f() {
-  return u;
+
+export function getApp() {
+  return appInstance;
 }
-class d extends a["Component"] {
+
+export class _DvaContainer extends React.Component {
   render() {
-    var e = f();
-    return e.router(() => this.props.children), e.start()();
+    const app = getApp();
+    app.router(() => this.props.children);
+    return app.start()();
   }
 }

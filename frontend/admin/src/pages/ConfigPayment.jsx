@@ -1,364 +1,140 @@
-const {
-  createPaymentNotifyColumn
-} = require('../components/PaymentNotifyColumn.jsx');
-const {
-  createReadonlyPaymentColumns
-} = require('../components/PaymentDisplayColumns.jsx');
+import React from 'react';
+import { c as connect } from '../vendor/reactRedux.js';
+import { Table } from '../vendor/ui.js';
+import { Button } from '../vendor/ui.js';
+import { a as Modal } from '../vendor/Modal.js';
+import { a as Divider } from '../vendor/Divider.js';
+import { Switch } from '../vendor/ui.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { Select } from '../vendor/ui.js';
+import { Input } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
+import { Sortable } from '../vendor/ui.js';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.jsx';
+import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumns.jsx';
+
+import '../vendor/iconStyles.js';
+
+import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyPaymentColumns();
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/reactRuntime.js");
-markEsModule(legacyExports);
-var loadingModule = require("../vendor/modules/6a65685a.js"),
-  loading = interopDefault(loadingModule),
-  table = (require("../vendor/modules/67395956.js"), require("../vendor/modules/antdTable.js")),
-  button = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
-  modal = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  divider = (require("../vendor/modules/2f7a7346.js"), require("../vendor/Divider.js")),
-  tooltip = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/antdTooltip.js")),
-  checkbox = (require("../vendor/modules/426f5337.js"), require("../vendor/modules/antdSwitch.js")),
-  icon = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  reactModule = require("../vendor/modules/reactRuntime.js"),
-  ReactComponent = interopDefault(reactModule),
-  mainLayout = require("../layouts/MainLayout.jsx"),
-  reactRedux = require("../vendor/reactRedux.js"),
-  select = (require("../vendor/modules/4f614579.js"), require("../vendor/modules/antdSelect.js")),
-  input = (require("../vendor/modules/354e4461.js"), require("../vendor/modules/antdInput.js")),
-  objectAssignModule = require("../vendor/modules/70307045.js"),
-  objectAssign = interopDefault(objectAssignModule);
-class PaymentEditor extends ReactComponent.a.Component {
-  constructor(e) {
-    super(e), this.state = {
-      submit: objectAssign()({}, this.props.record),
-      visible: !1,
+
+export class PaymentEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    const record = props.record || {};
+    this.state = {
+      visible: false,
+      submit: { ...record },
+      config: { ...(record.config || {}) },
       paymentMethods: [],
-      selectPaymentMethod: void 0,
+      selectedPaymentMethod: undefined,
       form: {},
-      config: this.props.record && this.props.record.config || {}
     };
   }
+
   save() {
-    var e = this.state,
-      t = e.config,
-      n = e.selectPaymentMethod,
-      r = e.submit;
+    const { config, selectedPaymentMethod, submit } = this.state;
     this.props.dispatch({
-      type: "payment/save",
-      params: objectAssign()({}, r, {
-        payment: n,
-        config: t
-      }),
-      complete: () => this.setState({
-        visible: !1
-      })
+      type: 'payment/save',
+      params: { ...submit, payment: selectedPaymentMethod, config },
+      complete: () => this.setState({ visible: false }),
     });
   }
+
   show() {
     this.props.dispatch({
-      type: "payment/getPaymentMethods",
-      complete: e => {
-        this.setState({
-          visible: !0,
-          paymentMethods: e,
-          selectPaymentMethod: this.state.selectPaymentMethod || this.state.submit.payment || e[0]
-        }, () => {
-          this.onSelectPaymentMethod(this.state.selectPaymentMethod);
+      type: 'payment/getPaymentMethods',
+      complete: paymentMethods => {
+        const selectedPaymentMethod = this.state.selectedPaymentMethod
+          || this.state.submit.payment
+          || paymentMethods[0];
+        this.setState({ visible: true, paymentMethods, selectedPaymentMethod }, () => {
+          this.selectPaymentMethod(selectedPaymentMethod);
         });
-      }
-    });
-  }
-  onSelectPaymentMethod(e) {
-    this.props.dispatch({
-      type: "payment/getPaymentForm",
-      payment: e,
-      id: this.state.submit.id,
-      complete: t => {
-        this.setState({
-          form: t,
-          selectPaymentMethod: e
-        });
-      }
-    });
-  }
-  configOnChange(e, t) {
-    var n = this.state.config;
-    n[e] = t, this.setState({
-      config: n
-    });
-  }
-  submitOnChange(e, t) {
-    var n = this.state.submit;
-    n[e] = t, this.setState({
-      submit: n
-    });
-  }
-  render() {
-    var e = this.props.payment.fetchLoading,
-      t = this.state,
-      n = t.paymentMethods,
-      r = t.selectPaymentMethod,
-      i = t.form,
-      o = t.config,
-      a = t.submit;
-    return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.cloneElement(this.props.children, {
-      onClick: () => this.show()
-    }), ReactComponent.a.createElement(modal["a"], {
-      title: this.state.submit.id ? "编辑支付方式" : "添加支付方式",
-      visible: this.state.visible,
-      onCancel: () => this.setState({
-        visible: !1
-      }),
-      onOk: () => this.save(),
-      okText: this.state.submit.id ? "保存" : "添加",
-      okButtonProps: {
-        loading: e
       },
-      cancelText: "取消"
-    }, <div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"显示名称"}
-                        </label>
-                        {ReactComponent.a.createElement(input["a"], {
-          placeholder: "用于前端显示使用",
-          defaultValue: a.name,
-          onChange: e => this.submitOnChange("name", e.target.value)
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label htmlFor={"example-text-input-alt"}>
-                            {"图标URL(选填)"}
-                        </label>
-                        {ReactComponent.a.createElement(input["a"], {
-          placeholder: "用于前端显示使用(https://x.com/icon.svg)",
-          defaultValue: a.icon,
-          onChange: e => this.submitOnChange("icon", e.target.value)
-        })}
-                    </div>
-                    <div className={"form-group"}>
-                        <label htmlFor={"example-text-input-alt"}>
-                            {"自定义通知域名(选填)"}
-                        </label>
-                        {ReactComponent.a.createElement(input["a"], {
-          placeholder: "网关的通知将会发送到该域名(https://x.com)",
-          defaultValue: a.notify_domain,
-          onChange: e => this.submitOnChange("notify_domain", e.target.value)
-        })}
-                    </div>
-                    <div className={"row"}>
-                        <div className={"col-6"}>
-                            <div className={"form-group"}>
-                                <label htmlFor={"example-text-input-alt"}>
-                                    {"百分比手续费(选填)"}
-                                </label>
-                                {ReactComponent.a.createElement(input["a"], {
-              suffix: "%",
-              type: "number",
-              placeholder: "在订单金额基础上附加手续费",
-              defaultValue: a.handling_fee_percent,
-              onChange: e => this.submitOnChange("handling_fee_percent", e.target.value)
-            })}
-                            </div>
-                        </div>
-                        <div className={"col-6"}>
-                            <div className={"form-group"}>
-                                <label htmlFor={"example-text-input-alt"}>
-                                    {"固定手续费(选填)"}
-                                </label>
-                                {ReactComponent.a.createElement(input["a"], {
-              type: "number",
-              placeholder: "在订单金额基础上附加手续费",
-              defaultValue: a.handling_fee_fixed / 100,
-              onChange: e => this.submitOnChange("handling_fee_fixed", 100 * e.target.value)
-            })}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"form-group"}>
-                        <label for={"example-text-input-alt"}>
-                            {"接口文件"}
-                        </label>
-                        <div>
-                            {ReactComponent.a.createElement(select["a"], {
-            style: {
-              width: "100%"
-            },
-            defaultValue: r,
-            onChange: e => this.onSelectPaymentMethod(e)
-          }, n.map(e => {
-            return ReactComponent.a.createElement(select["a"].Option, {
-              value: e
-            }, e);
-          }))}
-                        </div>
-                    </div>
-                    {Object.keys(i).map(e => {
-        return <div className={"form-group"}>
-                                <label for={"example-text-input-alt"}>
-                                    {i[e].label}
-                                </label>
-                                {("input" === i[e].type || "text" === i[e].type || "string" === i[e].type || !i[e].type) && ReactComponent.a.createElement(input["a"], {
-            placeholder: i[e].description,
-            defaultValue: o[e] || i[e].value,
-            onChange: t => this.configOnChange(e, t.target.value)
-          })}
-                            </div>;
-      })}
-                    {r && r.includes("Paytaro") && <div className={"alert alert-warning mb-0"} role={"alert"}>
-                            <p className={"mb-0"}>
-                                {"客服TG"}
-                                <a href={"https://t.me/paytaro"} target={"_blank"} rel={"noopener noreferrer"}>
-                                    {"@paytaro"}
-                                </a>
-                                <br></br>
-                                {"机器人"}
-                                <a href={"https://t.me/paytarorobot"} target={"_blank"} rel={"noopener noreferrer"}>
-                                    {"@paytarorobot"}
-                                </a>
-                                <br></br>
-                                {"官方网站"}
-                                <a href={"https://v3.paytaro.com/#/docs"} target={"_blank"} rel={"noopener noreferrer"}>
-                                    {"https://v3.paytaro.com"}
-                                </a>
-                            </p>
-                        </div>}
-                </div>));
-  }
-}
-var ConnectedPaymentEditor = Object(reactRedux["c"])(e => {
-    var t = e.payment;
-    return {
-      payment: t
-    };
-  })(PaymentEditor),
-  _ = require("../vendor/modules/76333265.js"),
-  E = require("../vendor/modules/71716f75.js");
-class PaymentPage extends ReactComponent.a.Component {
-  constructor(e) {
-    super(e), this.state = {
-      visible: !1,
-      submit: {
-        show: 0
-      }
-    };
-  }
-  componentDidMount() {
-    this.props.dispatch({
-      type: "payment/fetch"
     });
   }
-  save(e, t) {
+
+  selectPaymentMethod(payment) {
     this.props.dispatch({
-      type: "payment/save",
-      params: {
-        id: e,
-        enable: t
-      }
+      type: 'payment/getPaymentForm',
+      payment,
+      id: this.state.submit.id,
+      complete: form => this.setState({ form, selectedPaymentMethod: payment }),
     });
   }
-  show(e) {
-    this.props.dispatch({
-      type: "payment/show",
-      id: e
-    });
+
+  updateConfig(field, value) {
+    this.setState({ config: { ...this.state.config, [field]: value } });
   }
+
+  updateSubmit(field, value) {
+    this.setState({ submit: { ...this.state.submit, [field]: value } });
+  }
+
   render() {
-    var e = this,
-      t = this.props.payment,
-      n = t.payments,
-      r = t.fetchLoading,
-      f = [{
-        title: "ID",
-        dataIndex: "id",
-        key: "id",
-        render: e => {
-          return ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.createElement(icon["a"], {
-            type: "menu",
-            style: {
-              cursor: "move"
-            }
-          }), " ", e);
-        }
-      }, {
-        title: "启用",
-        dataIndex: "enable",
-        key: "enable",
-        render: (e, t) => ReactComponent.a.createElement(checkbox["a"], {
-          checked: parseInt(e),
-          size: "small",
-          onChange: e => this.show(t.id)
-        })
-      }, readonlyColumns["name"], readonlyColumns["payment"], createPaymentNotifyColumn(), {
-        title: "操作",
-        dataIndex: "action",
-        key: "action",
-        align: "right",
-        fixed: "right",
-        render: (e, t) => ReactComponent.a.createElement(ReactComponent.a.Fragment, null, ReactComponent.a.createElement(ConnectedPaymentEditor, {
-          key: t.id,
-          record: t
-        }, <a href={"javascript:void(0);"}>{"编辑"}</a>), ReactComponent.a.createElement(divider["a"], {
-          type: "vertical"
-        }), <a href={"javascript:void(0)"} onClick={() => {
-          modal["a"].confirm({
-            title: "警告",
-            content: "确定要删除该条项目吗？",
-            onOk: () => this.props.dispatch({
-              type: "payment/drop",
-              id: t.id
-            }),
-            okText: "确定",
-            cancelText: "取消"
-          });
-        }}>
-                                {"删除"}
-                            </a>)
-      }];
-    return ReactComponent.a.createElement(mainLayout["a"], objectAssign()({}, this.props, {
-      title: "支付配置"
-    }), <div className={"d-flex justify-content-between align-items-center"}></div>, ReactComponent.a.createElement(_["a"], {
-      loading: r
-    }, <div className={"block block-rounded"}>
-                    <div className={"bg-white"}>
-                        <div style={{
-          padding: 15
-        }}>
-                            {ReactComponent.a.createElement(ConnectedPaymentEditor, {
-            key: 0
-          }, ReactComponent.a.createElement(button["a"], null, ReactComponent.a.createElement(icon["a"], {
-            type: "plus"
-          }), " 添加支付方式"))}
-                        </div>
-                        {ReactComponent.a.createElement(E["a"], {
-          onDragEnd: (t, n) => {
-            e.props.dispatch({
-              type: "payment/sort",
-              fromIndex: t,
-              toIndex: n
-            });
-          },
-          nodeSelector: "tr",
-          handleSelector: "i"
-        }, ReactComponent.a.createElement(table["a"], {
-          tableLayout: "auto",
-          dataSource: n,
-          columns: f,
-          pagination: !1,
-          scroll: {
-            x: 1300
-          }
-        }))}
-                    </div>
-                </div>));
+    const { paymentMethods, selectedPaymentMethod, form, config, submit, visible } = this.state;
+    return <>
+      {React.cloneElement(this.props.children, { onClick: () => this.show() })}
+      <Modal title={submit.id ? '编辑支付方式' : '添加支付方式'} visible={visible} onCancel={() => this.setState({ visible: false })} onOk={() => this.save()} okText={submit.id ? '保存' : '添加'} okButtonProps={{ loading: this.props.payment.fetchLoading }} cancelText="取消">
+        <div>
+          <div className="form-group"><label htmlFor="payment-name">显示名称</label><Input id="payment-name" placeholder="用于前端显示使用" defaultValue={submit.name} onChange={event => this.updateSubmit('name', event.target.value)} /></div>
+          <div className="form-group"><label htmlFor="payment-icon">图标URL(选填)</label><Input id="payment-icon" placeholder="用于前端显示使用(https://x.com/icon.svg)" defaultValue={submit.icon} onChange={event => this.updateSubmit('icon', event.target.value)} /></div>
+          <div className="form-group"><label htmlFor="payment-domain">自定义通知域名(选填)</label><Input id="payment-domain" placeholder="网关的通知将会发送到该域名(https://x.com)" defaultValue={submit.notify_domain} onChange={event => this.updateSubmit('notify_domain', event.target.value)} /></div>
+          <div className="row">
+            <div className="col-6"><div className="form-group"><label htmlFor="payment-percent">百分比手续费(选填)</label><Input id="payment-percent" suffix="%" type="number" placeholder="在订单金额基础上附加手续费" defaultValue={submit.handling_fee_percent} onChange={event => this.updateSubmit('handling_fee_percent', event.target.value)} /></div></div>
+            <div className="col-6"><div className="form-group"><label htmlFor="payment-fixed">固定手续费(选填)</label><Input id="payment-fixed" type="number" placeholder="在订单金额基础上附加手续费" defaultValue={submit.handling_fee_fixed / 100} onChange={event => this.updateSubmit('handling_fee_fixed', 100 * event.target.value)} /></div></div>
+          </div>
+          <div className="form-group"><label htmlFor="payment-method">接口文件</label><Select id="payment-method" style={{ width: '100%' }} value={selectedPaymentMethod} onChange={payment => this.selectPaymentMethod(payment)}>{paymentMethods.map(payment => <Select.Option key={payment} value={payment}>{payment}</Select.Option>)}</Select></div>
+          {Object.keys(form).map(field => <div className="form-group" key={field}>
+            <label htmlFor={`payment-config-${field}`}>{form[field].label}</label>
+            {['input', 'text', 'string', undefined].includes(form[field].type) && <Input id={`payment-config-${field}`} placeholder={form[field].description} defaultValue={config[field] || form[field].value} onChange={event => this.updateConfig(field, event.target.value)} />}
+          </div>)}
+          {selectedPaymentMethod && selectedPaymentMethod.includes('Paytaro') && <div className="alert alert-warning mb-0" role="alert"><p className="mb-0">客服TG <a href="https://t.me/paytaro" target="_blank" rel="noopener noreferrer">@paytaro</a><br />机器人 <a href="https://t.me/paytarorobot" target="_blank" rel="noopener noreferrer">@paytarorobot</a><br />官方网站 <a href="https://v3.paytaro.com/#/docs" target="_blank" rel="noopener noreferrer">https://v3.paytaro.com</a></p></div>}
+        </div>
+      </Modal>
+    </>;
   }
 }
-legacyExports["default"] = Object(reactRedux["c"])(e => {
-  var t = e.payment;
-  return {
-    payment: t
-  };
-})(PaymentPage);
+
+const ConnectedPaymentEditor = connect(state => ({ payment: state.payment }))(PaymentEditor);
+
+export class PaymentPage extends React.Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'payment/fetch' });
+  }
+
+  render() {
+    const { payment } = this.props;
+    const columns = [
+      { title: 'ID', dataIndex: 'id', key: 'id', render: id => <><Icon type="menu" style={{ cursor: 'move' }} /> {id}</> },
+      { title: '启用', dataIndex: 'enable', key: 'enable', render: (enabled, record) => <Switch checked={Boolean(parseInt(enabled, 10))} size="small" onChange={() => this.props.dispatch({ type: 'payment/show', id: record.id })} /> },
+      readonlyColumns.name,
+      readonlyColumns.payment,
+      createPaymentNotifyColumn(),
+      {
+        title: '操作', dataIndex: 'action', key: 'action', align: 'right', fixed: 'right',
+        render: (value, record) => <>
+          <ConnectedPaymentEditor key={record.id} record={record}><a href="javascript:void(0);">编辑</a></ConnectedPaymentEditor>
+          <Divider type="vertical" />
+          <a href="javascript:void(0);" onClick={() => Modal.confirm({ title: '警告', content: '确定要删除该条项目吗？', onOk: () => this.props.dispatch({ type: 'payment/drop', id: record.id }), okText: '确定', cancelText: '取消' })}>删除</a>
+        </>,
+      },
+    ];
+
+    return <MainLayout {...this.props} title="支付配置">
+      <div className="d-flex justify-content-between align-items-center" />
+      <LoadingContainer loading={payment.fetchLoading}>
+        <div className="block block-rounded"><div className="bg-white">
+          <div style={{ padding: 15 }}><ConnectedPaymentEditor key={0}><Button><Icon type="plus" /> 添加支付方式</Button></ConnectedPaymentEditor></div>
+          <Sortable onDragEnd={(fromIndex, toIndex) => this.props.dispatch({ type: 'payment/sort', fromIndex, toIndex })} nodeSelector="tr" handleSelector="i">
+            <Table tableLayout="auto" dataSource={payment.payments} columns={columns} pagination={false} scroll={{ x: 1300 }} />
+          </Sortable>
+        </div></div>
+      </LoadingContainer>
+    </MainLayout>;
+  }
+}
+
+export default connect(state => ({ payment: state.payment }))(PaymentPage);

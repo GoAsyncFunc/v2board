@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
+import { Tooltip } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 
 export function createPaymentNotifyColumn() {

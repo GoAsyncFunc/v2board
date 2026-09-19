@@ -1,7 +1,7 @@
 import React from 'react';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
-import { a as Badge } from '../vendor/modules/antdBadge.js';
-import moment from '../vendor/modules/77642f52.js';
+import { Tooltip } from '../vendor/ui.js';
+import { Badge } from '../vendor/ui.js';
+import moment from '../vendor/dateTime.js';
 
 export function formatUserLastOnline(lastSeen) {
   return lastSeen ? '最后在线'.concat(moment(1000 * lastSeen).format('YYYY-MM-DD HH:mm:ss')) : '从未在线';

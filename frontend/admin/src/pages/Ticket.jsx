@@ -1,21 +1,18 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Input } from '../vendor/modules/antdInput.js';
-import { a as Radio } from '../vendor/modules/antdRadio.js';
+import { Table } from '../vendor/ui.js';
+import { Input } from '../vendor/ui.js';
+import { Radio } from '../vendor/ui.js';
 import { a as Divider } from '../vendor/Divider.js';
-import { a as Badge } from '../vendor/modules/antdBadge.js';
-import { a as LoadingContainer } from '../vendor/modules/76333265.js';
-import { a as mergeProps } from '../vendor/modules/6a65685a.js';
+import { Badge } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
+import { assignProps as mergeProps } from '../vendor/utilities.js';
 import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.jsx';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/354e4461.js';
-import '../vendor/modules/374b616b.js';
-import '../vendor/modules/2f7a7346.js';
-import '../vendor/modules/41776870.js';
-import '../vendor/modules/77642f52.js';
 
+import '../vendor/dateTime.js';
+
+import '../vendor/componentStyles.js';
 class TicketPage extends React.Component {
   constructor(e) {
     super(e), this.state = {

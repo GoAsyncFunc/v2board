@@ -1,10 +1,10 @@
 import React from 'react';
-import { a as Row } from '../vendor/modules/antdRow.js';
-import { a as Col } from '../vendor/modules/antdCol.js';
-import { a as settings } from '../vendor/modules/adminSettingsRuntime.js';
-import moment from '../vendor/modules/77642f52.js';
+import { Row } from '../vendor/ui.js';
+import { Col } from '../vendor/ui.js';
+import { settings } from '../vendor/adminSettings.js';
+import moment from '../vendor/dateTime.js';
 import { a as Divider } from '../vendor/Divider.js';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
+import { Tooltip } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 
 // Keep JavaScript coercion: null becomes 0.00, undefined becomes NaN.

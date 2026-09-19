@@ -3,7 +3,7 @@ import { c as connect } from "../vendor/reactRedux.js";
 import {
     enable as enableDarkMode,
     disable as disableDarkMode,
-} from "../vendor/modules/6e444349.js";
+} from "../vendor/theme.js";
 import {
     d as getPreference,
     i as setPreference,
@@ -14,35 +14,32 @@ import "../services/request.js";
 const headerTheme = window.settings.theme;
 
 export class Header extends React.Component {
-    constructor(e) {
-        (super(e),
-            (this.state = {
-                showAvatarMenu: !1,
-                showSearchBar: !1,
-            }));
+    constructor(props) {
+        super(props);
+        this.state = {
+            showAvatarMenu: false,
+            showSearchBar: false,
+        };
     }
     componentDidMount() {
-        var e = this.props.user.userInfo;
-        e.email ||
+        const userInfo = this.props.user.userInfo;
+        userInfo.email ||
             this.props.dispatch({
                 type: "user/getUserInfo",
             });
     }
     showAvatarMenu() {
-        var e = this;
+        const closeMenu = () => {
+            if (this.state.showAvatarMenu) {
+                this.setState({ showAvatarMenu: false });
+            }
+            document.onclick = undefined;
+        };
         this.setState(
             {
                 showAvatarMenu: !this.state.showAvatarMenu,
             },
-            () => {
-                document.onclick = function (t) {
-                    (e.state.showAvatarMenu &&
-                        e.setState({
-                            showAvatarMenu: !1,
-                        }),
-                        (document.onclick = void 0));
-                };
-            },
+            () => { document.onclick = closeMenu; },
         );
     }
     logout() {
@@ -60,7 +57,7 @@ export class Header extends React.Component {
             this.forceUpdate());
     }
     render() {
-        var e = this.props.user.userInfo;
+        const userInfo = this.props.user.userInfo;
         return (
             <header id={"page-header"}>
                 <div
@@ -159,7 +156,7 @@ export class Header extends React.Component {
                                 >
                                     <i className={"far fa fa-user-circle"}></i>
                                     <span className={"d-none d-lg-inline ml-1"}>
-                                        {e.email}
+                                    {userInfo.email}
                                     </span>
                                     <i
                                         className={

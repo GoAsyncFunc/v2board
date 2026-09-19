@@ -2,8 +2,9 @@ import React from 'react';
 import { c as connect } from "../vendor/reactRedux.js";
 import { a as Modal } from "../vendor/Modal.js";
 import { a as Icon } from "../vendor/Icon.js";
-import '../vendor/modules/32717463.js';
+
 import "../vendor/iconStyles.js";
+import '../vendor/componentStyles.js';
 export class AdminLogin extends React.Component {
   emailInput = React.createRef();
   passwordInput = React.createRef();

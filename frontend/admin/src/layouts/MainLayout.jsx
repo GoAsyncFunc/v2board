@@ -2,9 +2,10 @@ import React from "react";
 import { c as connect } from "../vendor/reactRedux.js";
 import ConnectedSidebar from "./Sidebar.jsx";
 import ConnectedHeader from "./Header.jsx";
-import { a as ConfigProvider } from "../vendor/modules/antdConfigProvider.js";
-import { a as chineseLocale } from "../vendor/modules/antdZhCnLocale.js";
-import "../vendor/modules/474e4e74.js";
+import { ConfigProvider } from "../vendor/ui.js";
+import { chineseLocale } from "../vendor/content.js";
+
+import "../vendor/componentStyles.js";
 const layoutTheme = window.settings.theme;
 
 export class MainLayout extends React.Component {

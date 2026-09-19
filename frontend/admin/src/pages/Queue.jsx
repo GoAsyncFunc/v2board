@@ -1,22 +1,23 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as LoadingContainer } from '../vendor/modules/76333265.js';
+import { Table } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
 import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.jsx';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/6d615643.js';
-import '../vendor/modules/77642f52.js';
-import '../vendor/modules/6d43642f.js';
-import '../vendor/siteHelpers.js';
-import '../vendor/modules/51673471.js';
-import '../components/Recovered_43674f62.jsx';
-import '../components/Recovered_68566c61.jsx';
-import '../components/Recovered_4f613657.jsx';
-import '../components/Recovered_48394c55.jsx';
-import '../components/Recovered_33585647.jsx';
-import '../components/Recovered_796b4332.jsx';
 
+import '../vendor/features.js';
+import '../vendor/dateTime.js';
+import '../vendor/features.js';
+import '../vendor/siteHelpers.js';
+import '../vendor/features.js';
+import '../components/UserEditor.jsx';
+import '../components/FilterDrawer.jsx';
+import '../components/ContextMenuTable.jsx';
+import '../components/ShadowsocksEditor.jsx';
+import '../components/VmessEditor.jsx';
+import '../components/TrojanEditor.jsx';
+
+import '../vendor/componentStyles.js';
 class QueuePage extends React.Component {
   constructor(props) {
     super(props), this.state = {}, this.getDataTimer = void 0;

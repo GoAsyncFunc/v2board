@@ -3,8 +3,8 @@ import * as session from './sessionEffects.js';
 import * as queries from './userQueryEffects.js';
 import * as mutations from './userMutationEffects.js';
 import * as exports from './userExportEffects.js';
-import '../vendor/modules/6d69595a.js';
 
+import '../vendor/componentStyles.js';
 const initialState = {
   userInfo: {}, getUserInfoLoading: false,
   pagination: { pageSize: getPreference('user_manage_page_size') || 10, current: 1 },

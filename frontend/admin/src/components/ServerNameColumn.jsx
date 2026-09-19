@@ -1,6 +1,6 @@
 import React from 'react';
-import { a as Tooltip } from '../vendor/modules/antdTooltip.js';
-import { a as Badge } from '../vendor/modules/antdBadge.js';
+import { Tooltip } from '../vendor/ui.js';
+import { Badge } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 
 // Synchronous construction keeps the original child order and fresh elements.

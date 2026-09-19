@@ -1,4 +1,4 @@
-import moment from '../vendor/modules/77642f52.js';
+import moment from '../vendor/dateTime.js';
 
 export function formatNoticeCreatedAt(value) {
   return moment(1000 * value).format('YYYY/MM/DD HH:mm');

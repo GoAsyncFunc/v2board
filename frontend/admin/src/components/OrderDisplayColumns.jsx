@@ -1,7 +1,7 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/antdTag.js';
-import { a as settings } from '../vendor/modules/adminSettingsRuntime.js';
-import moment from '../vendor/modules/77642f52.js';
+import { Tag } from '../vendor/ui.js';
+import { settings } from '../vendor/adminSettings.js';
+import moment from '../vendor/dateTime.js';
 
 // Preserve status short-circuiting and value truthiness. Do not destructure status
 // or convert the amount before checking whether the order hides commission.

@@ -1,6 +1,6 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/antdTag.js';
-import moment from '../vendor/modules/77642f52.js';
+import { Tag } from '../vendor/ui.js';
+import moment from '../vendor/dateTime.js';
 
 // Read and format the start before accessing the end, as in the original renderer.
 // Missing timestamps and null records deliberately keep their existing behavior.

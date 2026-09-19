@@ -1,6 +1,6 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/antdTag.js';
-import moment from '../vendor/modules/77642f52.js';
+import { Tag } from '../vendor/ui.js';
+import moment from '../vendor/dateTime.js';
 
 export function giftcardTypeText(type) {
   switch (type) {

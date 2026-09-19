@@ -1,4 +1,4 @@
-import moment from '../vendor/modules/77642f52.js';
+import moment from '../vendor/dateTime.js';
 
 // Readonly date/time display shared by admin pages; no events or requests.
 export function formatDateTime(value) {

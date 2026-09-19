@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Tag } from '../vendor/modules/antdTag.js';
+import { Tag } from '../vendor/ui.js';
 
 export function renderPlanGroupTags(groups, groupId) {
   const tags = [];

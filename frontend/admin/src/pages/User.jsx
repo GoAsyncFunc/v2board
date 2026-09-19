@@ -1,606 +1,176 @@
-const {
-  createReadonlyUserEmailColumn
-} = require('../components/UserDisplayColumns.jsx');
-let legacyModule = module,
-  legacyExports = exports;
-const {
-  markEsModule,
-  interopDefault
-} = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/reactRuntime.js");
-markEsModule(legacyExports);
-var r = require("../vendor/modules/6a65685a.js"),
-  i = interopDefault(r),
-  o = require("../vendor/modules/70307045.js"),
-  a = interopDefault(o),
-  s = (require("../vendor/modules/2b4c3642.js"), require("../vendor/modules/antdButton.js")),
-  l = (require("../vendor/modules/71566450.js"), require("../vendor/modules/antdDropdown.js")),
-  c = (require("../vendor/modules/6c55544b.js"), require("../vendor/modules/antdMenu.js")),
-  u = (require("../vendor/iconStyles.js"), require("../vendor/Icon.js")),
-  h = (require("../vendor/modules/2b424a64.js"), require("../vendor/modules/antdTag.js")),
-  f = (require("../vendor/modules/35446d6f.js"), require("../vendor/modules/antdTooltip.js")),
-  d = (require("../vendor/modules/41776870.js"), require("../vendor/modules/antdBadge.js")),
-  p = (require("../vendor/modules/32717463.js"), require("../vendor/Modal.js")),
-  m = require("../vendor/modules/reactRuntime.js"),
-  g = interopDefault(m),
-  v = require("../layouts/MainLayout.jsx"),
-  y = require("../vendor/modules/6d615643.js"),
-  b = require("../vendor/modules/77642f52.js"),
-  w = interopDefault(b),
-  x = require("../vendor/routerHistory.js"),
-  _ = interopDefault(x),
-  E = require("../vendor/reactRedux.js"),
-  S = require("../vendor/modules/6d43642f.js"),
-  k = require("../components/Recovered_43674f62.jsx"),
-  C = require("../vendor/modules/antdButtonGroup.js"),
-  O = require("../components/Recovered_68566c61.jsx"),
-  T = require("../vendor/modules/51673471.js"),
-  L = require("../vendor/siteHelpers.js"),
-  A = require("../components/Recovered_4f613657.jsx"),
-  P = require("../vendor/modules/76333265.js"),
-  j = require("../vendor/modules/58307135.js");
-class M extends g.a.Component {
-  constructor(e) {
-    super(e), this.state = {
-      sorter: {},
-      visible: !1
-    };
-  }
-  componentWillUnmount() {
-    this.props.dispatch({
-      type: "user/empty"
-    }), this.props.dispatch({
-      type: "user/setState",
-      payload: {
-        filter: []
-      }
-    });
-  }
+import React from 'react';
+import { c as connect } from '../vendor/reactRedux.js';
+import { Button } from '../vendor/ui.js';
+import { Dropdown } from '../vendor/ui.js';
+import { Menu } from '../vendor/ui.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { Tag } from '../vendor/ui.js';
+import { Tooltip } from '../vendor/ui.js';
+import { a as Modal } from '../vendor/Modal.js';
+import { SendMailEditor } from '../vendor/features.js';
+import { AssignOrderEditor } from '../vendor/features.js';
+import { ButtonGroup } from '../vendor/ui.js';
+import { UserGenerator } from '../vendor/features.js';
+import { LoadingContainer } from '../vendor/ui.js';
+import { TrafficPanel } from '../vendor/features.js';
+import moment from '../vendor/dateTime.js';
+import history from '../vendor/routerHistory.js';
+import { a as copy, j as setPreference } from '../vendor/siteHelpers.js';
+import MainLayout from '../layouts/MainLayout.jsx';
+import UserEditor from '../components/UserEditor.jsx';
+import FilterDrawer from '../components/FilterDrawer.jsx';
+import ContextMenuTable from '../components/ContextMenuTable.jsx';
+import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns.jsx';
+
+import '../vendor/iconStyles.js';
+
+import '../vendor/componentStyles.js';
+export class UserPage extends React.Component {
   componentDidMount() {
+    this.props.dispatch({ type: 'plan/fetch' });
+    this.props.dispatch({ type: 'user/fetch' });
+    this.props.dispatch({ type: 'serverGroup/fetch' });
+  }
+
+  componentWillUnmount() {
+    if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
+    this.props.dispatch({ type: 'user/empty' });
+    this.props.dispatch({ type: 'user/setState', payload: { filter: [] } });
+  }
+
+  tableOnChange(pagination, sorter) {
+    setPreference('user_manage_page_size', pagination.pageSize);
     this.props.dispatch({
-      type: "plan/fetch"
-    }), this.props.dispatch({
-      type: "user/fetch"
-    }), this.props.dispatch({
-      type: "serverGroup/fetch"
+      type: 'user/changeTable',
+      pagination,
+      sort: { sort_type: sorter.order === 'ascend' ? 'ASC' : 'DESC', sort: sorter.columnKey },
     });
   }
-  tableOnChange(e, t) {
-    Object(L["j"])("user_manage_page_size", e.pageSize), this.props.dispatch({
-      type: "user/changeTable",
-      pagination: e,
-      sort: {
-        sort_type: "ascend" === t.order ? "ASC" : "DESC",
-        sort: t.columnKey
-      }
+
+  searchOnChange(email) {
+    if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
+    this.inputDelayTimer = setTimeout(() => {
+      this.inputDelayTimer = null;
+      this.props.dispatch({ type: 'user/filter', filter: { email }, pagination: { current: 1 } });
+    }, 400);
+  }
+
+  userFilter(key, condition, value, clear = false) {
+    this.props.dispatch({ type: 'user/addFilter', key, condition, value, clear });
+  }
+
+  orderFilter(key, condition, value) {
+    this.props.dispatch({ type: 'order/addFilter', key, condition, value });
+    history.push('/order');
+  }
+
+  confirmBatch(action, content) {
+    Modal.confirm({ title: '提醒', content, onOk: () => this.props.dispatch({ type: `user/${action}` }) });
+  }
+
+  resetSecret(user) {
+    Modal.confirm({
+      title: '重置安全信息',
+      content: `确定要重置${user.email}的安全信息吗？`,
+      onOk: () => this.props.dispatch({ type: 'user/resetSecret', id: user.id }),
+      okText: '确定', cancelText: '取消',
     });
   }
-  searchOnChange(e) {
-    this.inputDelayTimer && clearTimeout(this.inputDelayTimer), this.inputDelayTimer = setTimeout(function () {
-      this.inputDelayTimer = null, this.props.dispatch({
-        type: "user/filter",
-        filter: {
-          email: e
-        },
-        pagination: {
-          current: 1
-        }
-      });
-    }.bind(this), 400);
-  }
-  dumpCSV() {
-    this.props.dispatch({
-      type: "user/dumpCSV"
+
+  deleteUser(user) {
+    Modal.confirm({
+      title: '删除用户',
+      content: `确定要删除${user.email}的用户信息吗？`,
+      onOk: () => this.props.dispatch({ type: 'user/delUser', id: user.id }),
+      okText: '确定', cancelText: '取消',
     });
   }
-  ban() {
-    p["a"].confirm({
-      title: "提醒",
-      content: "确定要进行封禁吗？",
-      onOk: () => {
-        this.props.dispatch({
-          type: "user/ban"
-        });
-      }
-    });
+
+  filterFields() {
+    return [
+      { key: 'email', title: '邮箱', condition: ['模糊'] },
+      { key: 'id', title: '用户ID', condition: ['=', '>=', '>', '<', '<='] },
+      { key: 'plan_id', title: '订阅', condition: ['='], type: 'select', options: [{ key: '无订阅', value: 'null' }, ...this.props.plan.plans.map(plan => ({ key: plan.name, value: plan.id }))] },
+      { key: 'transfer_enable', title: '流量', condition: ['>=', '>', '<', '<='] },
+      { key: 'd', title: '下行', condition: ['>=', '>', '<', '<='] },
+      { key: 'expired_at', title: '到期时间', condition: ['>=', '>', '<', '<='], type: 'date' },
+      { key: 'uuid', title: 'UUID', condition: ['='] },
+      { key: 'token', title: 'TOKEN', condition: ['='] },
+      { key: 'banned', title: '账号状态', condition: ['='], type: 'select', options: [{ key: '正常', value: 0 }, { key: '封禁', value: 1 }] },
+      { key: 'invite_by_email', title: '邀请人邮箱', condition: ['模糊'] },
+      { key: 'invite_user_id', title: '邀请人ID', condition: ['='] },
+      { key: 'remarks', title: '备注', condition: ['模糊'] },
+      { key: 'is_admin', title: '管理员', condition: ['='], type: 'select', options: [{ key: '是', value: 1 }, { key: '否', value: 0 }] },
+    ];
   }
-  allDel() {
-    p["a"].confirm({
-      title: "提醒",
-      content: "确定要进行删除吗？",
-      onOk: () => {
-        this.props.dispatch({
-          type: "user/allDel"
-        });
-      }
-    });
+
+  actionMenu(user) {
+    return <Menu>
+      <Menu.Item onContextMenu={event => event.stopPropagation()}><UserEditor userId={user.id} key={user.id}><a><Icon type="edit" /> 编辑</a></UserEditor></Menu.Item>
+      <Menu.Item onContextMenu={event => event.stopPropagation()}><AssignOrderEditor email={user.email} key={user.email}><a><Icon type="plus" /> 分配订单</a></AssignOrderEditor></Menu.Item>
+      <Menu.Item><a onClick={() => copy(user.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></Menu.Item>
+      <Menu.Item><a onClick={() => this.resetSecret(user)}><Icon type="reload" /> 重置UUID及订阅URL</a></Menu.Item>
+      <Menu.Item onClick={() => this.orderFilter('user_id', '=', user.id)}><a><Icon type="account-book" /> TA的订单</a></Menu.Item>
+      <Menu.Item onClick={() => this.userFilter('invite_user_id', '=', user.id, true)}><a><Icon type="usergroup-add" /> TA的邀请</a></Menu.Item>
+      <Menu.Item onContextMenu={event => event.stopPropagation()}><TrafficPanel userId={user.id} key={user.email}><a><Icon type="solution" /> TA的流量记录</a></TrafficPanel></Menu.Item>
+      <Menu.Item><a onClick={() => this.deleteUser(user)}><Icon type="delete" /> 删除用户</a></Menu.Item>
+    </Menu>;
   }
-  userFilter(e, t, n) {
-    var r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];
-    this.props.dispatch({
-      type: "user/addFilter",
-      key: e,
-      condition: t,
-      value: n,
-      clear: r
-    });
+
+  columns() {
+    const groups = this.props.serverGroup.groups;
+    return [
+      { title: 'ID', dataIndex: 'id', key: 'id', sorter: true },
+      createReadonlyUserEmailColumn(),
+      { title: '状态', dataIndex: 'banned', key: 'banned', sorter: true, render: banned => <Tag color={banned ? 'red' : 'green'}>{banned ? '封禁' : '正常'}</Tag> },
+      { title: '订阅', dataIndex: 'plan_name', key: 'plan_id', sorter: true, render: name => name || '-' },
+      { title: '权限组', dataIndex: 'group_id', key: 'group_id', sorter: true, render: groupId => groups.find(group => group.id === groupId)?.name || '-' },
+      { title: '已用(G)', dataIndex: 'total_used', key: 'total_used', sorter: true, render: (used, user) => <Tag color={parseFloat(used) > parseFloat(user.transfer_enable) ? 'red' : 'green'}>{used}</Tag> },
+      { title: '流量(G)', dataIndex: 'transfer_enable', key: 'transfer_enable', sorter: true },
+      { title: '设备数', dataIndex: 'device_limit', key: 'updated_at', sorter: (left, right) => left.alive_ip - right.alive_ip, render: (value, user) => { const text = `${user.alive_ip !== null ? user.alive_ip : 0} / ${user.device_limit !== null ? user.device_limit : '∞'}`; return user.ips ? <Tooltip placement="top" title={user.ips}>{text}</Tooltip> : text; } },
+      { title: '到期时间', dataIndex: 'expired_at', key: 'expired_at', sorter: true, render: expiresAt => <Tag color={expiresAt < Date.now() / 1000 && expiresAt !== null ? 'red' : 'green'}>{expiresAt ? moment(1000 * expiresAt).format('YYYY/MM/DD HH:mm') : expiresAt === null ? '长期有效' : '-'}</Tag> },
+      { title: '余额', dataIndex: 'balance', key: 'balance', sorter: true },
+      { title: '佣金', dataIndex: 'commission_balance', key: 'commission_balance', sorter: true },
+      { title: '加入时间', dataIndex: 'created_at', key: 'created_at', sorter: true, render: createdAt => moment(1000 * createdAt).format('YYYY/MM/DD HH:mm') },
+      { title: '操作', dataIndex: 'action', key: 'action', align: 'right', fixed: 'right', render: (value, user) => <Dropdown trigger="click" overlay={this.actionMenu(user)}><a href="javascript:void(0);">操作 <Icon type="caret-down" /></a></Dropdown> },
+    ];
   }
-  orderFilter(e, t, n) {
-    this.props.dispatch({
-      type: "order/addFilter",
-      key: e,
-      condition: t,
-      value: n
-    }), _.a.push("/order");
+
+  contextMenu() {
+    const user = this.contextUser;
+    return <ul className="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical">
+      <li className="ant-dropdown-menu-item"><UserEditor userId={user?.id} key={user?.id}><a><Icon type="edit" /> 编辑</a></UserEditor></li>
+      <li className="ant-dropdown-menu-item"><AssignOrderEditor email={user?.email} key={user?.email}><a><Icon type="plus" /> 分配订单</a></AssignOrderEditor></li>
+      <li className="ant-dropdown-menu-item"><a onClick={() => copy(user?.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></li>
+      <li className="ant-dropdown-menu-item"><a style={{ color: '#ff4d4f' }} onClick={() => this.resetSecret(user)}><Icon type="reload" /> 重置UUID及订阅URL</a></li>
+      <li className="ant-dropdown-menu-item" onClick={() => this.orderFilter('user_id', '=', user?.id)}><a><Icon type="account-book" /> TA的订单</a></li>
+      <li className="ant-dropdown-menu-item" onClick={() => this.userFilter('invite_user_id', '=', user?.id, true)}><a><Icon type="usergroup-add" /> TA的邀请</a></li>
+      <li className="ant-dropdown-menu-item"><TrafficPanel userId={user?.id} key={user?.email}><a><Icon type="solution" /> TA的流量记录</a></TrafficPanel></li>
+      <li className="ant-dropdown-menu-item"><a onClick={() => this.deleteUser(user)}><Icon type="delete" /> 删除用户</a></li>
+    </ul>;
   }
-  resetSecret(e) {
-    var t = this;
-    p["a"].confirm({
-      title: "重置安全信息",
-      content: "确定要重置".concat(e.email, "的安全信息吗？"),
-      onOk() {
-        t.props.dispatch({
-          type: "user/resetSecret",
-          id: e.id
-        });
-      },
-      okText: "确定",
-      cancelText: "取消"
-    });
-  }
-  delUser(e) {
-    var t = this;
-    p["a"].confirm({
-      title: "删除用户",
-      content: "确定要删除".concat(e.email, "的用户信息吗？"),
-      onOk() {
-        t.props.dispatch({
-          type: "user/delUser",
-          id: e.id
-        });
-      },
-      okText: "确定",
-      cancelText: "取消"
-    });
-  }
+
   render() {
-    var e,
-      t,
-      n,
-      r,
-      o,
-      p,
-      m = this.props.user,
-      b = m.users,
-      x = m.pagination,
-      _ = m.fetchLoading,
-      E = m.filter,
-      M = this.props.serverGroup.groups,
-      R = this.props.plan.plans,
-      N = [{
-        title: "ID",
-        dataIndex: "id",
-        key: "id",
-        sorter: !0
-      }, createReadonlyUserEmailColumn(), {
-        title: "状态",
-        dataIndex: "banned",
-        key: "banned",
-        sorter: !0,
-        render: e => {
-          return g.a.createElement(h["a"], {
-            color: e ? "red" : "green"
-          }, e ? "封禁" : "正常");
-        }
-      }, {
-        title: "订阅",
-        dataIndex: "plan_name",
-        key: "plan_id",
-        sorter: !0,
-        render: e => {
-          return e || "-";
-        }
-      }, {
-        title: "权限组",
-        dataIndex: "group_id",
-        key: "group_id",
-        sorter: !0,
-        render: e => {
-          var t = M.find(t => t.id === e);
-          return t ? t.name : "-";
-        }
-      }, {
-        title: "已用(G)",
-        dataIndex: "total_used",
-        key: "total_used",
-        sorter: !0,
-        render: (e, t) => {
-          return g.a.createElement(h["a"], {
-            color: parseFloat(e) > parseFloat(t.transfer_enable) ? "red" : "green"
-          }, e);
-        }
-      }, {
-        title: "流量(G)",
-        dataIndex: "transfer_enable",
-        key: "transfer_enable",
-        sorter: !0,
-        render: (e, t) => {
-          return e;
-        }
-      }, {
-        title: "设备数",
-        dataIndex: "device_limit",
-        key: "updated_at",
-        sorter: (e, t) => e.alive_ip - t.alive_ip,
-        render: (e, t) => {
-          var deviceCount = t.alive_ip !== null ? t.alive_ip : 0;
-          var deviceLimit = t.device_limit !== null ? t.device_limit : "∞";
-          return t.ips ? g.a.createElement(f["a"], {
-            placement: "top",
-            title: t.ips
-          }, `${deviceCount} / ${deviceLimit}`) : `${deviceCount} / ${deviceLimit}`;
-        }
-      }, {
-        title: "到期时间",
-        dataIndex: "expired_at",
-        key: "expired_at",
-        sorter: !0,
-        render: e => {
-          return g.a.createElement(h["a"], {
-            color: e < new Date().getTime() / 1e3 && null !== e ? "red" : "green"
-          }, e ? w()(1e3 * e).format("YYYY/MM/DD HH:mm") : null === e ? "长期有效" : "-");
-        }
-      }, {
-        title: "余额",
-        dataIndex: "balance",
-        key: "balance",
-        sorter: !0
-      }, {
-        title: "佣金",
-        dataIndex: "commission_balance",
-        key: "commission_balance",
-        sorter: !0
-      }, {
-        title: "加入时间",
-        dataIndex: "created_at",
-        key: "created_at",
-        sorter: !0,
-        render: e => {
-          return w()(1e3 * e).format("YYYY/MM/DD HH:mm");
-        }
-      }, {
-        title: "操作",
-        dataIndex: "action",
-        key: "action",
-        align: "right",
-        fixed: "right",
-        render: (e, t, n) => {
-          return g.a.createElement(g.a.Fragment, null, g.a.createElement(l["a"], {
-            trigger: "click",
-            overlay: g.a.createElement(c["a"], null, g.a.createElement(c["a"].Item, {
-              onContextMenu: e => {
-                e.stopPropagation();
-              }
-            }, g.a.createElement(k["a"], {
-              userId: t.id,
-              key: t.id
-            }, <a>
-                                                    {g.a.createElement(u["a"], {
-                type: "edit"
-              })}
-                                                    {" 编辑"}
-                                                </a>)), g.a.createElement(c["a"].Item, {
-              onContextMenu: e => {
-                e.stopPropagation();
-              }
-            }, g.a.createElement(S["a"], {
-              email: t.email,
-              key: t.email
-            }, <a>
-                                                    {g.a.createElement(u["a"], {
-                type: "plus"
-              })}
-                                                    {" 分配订单"}
-                                                </a>)), g.a.createElement(c["a"].Item, null, <a onClick={() => Object(L["a"])(t.subscribe_url)}>
-                                                {g.a.createElement(u["a"], {
-                type: "copy"
-              })}
-                                                {" 复制订阅URL"}
-                                            </a>), g.a.createElement(c["a"].Item, null, <a onClick={() => this.resetSecret(t)}>
-                                                {g.a.createElement(u["a"], {
-                type: "reload"
-              })}
-                                                {" 重置UUID及订阅URL"}
-                                            </a>), g.a.createElement(c["a"].Item, {
-              onClick: () => this.orderFilter("user_id", "=", t.id)
-            }, <a>
-                                                {g.a.createElement(u["a"], {
-                type: "account-book"
-              })}
-                                                {" TA的订单"}
-                                            </a>), g.a.createElement(c["a"].Item, {
-              onClick: () => this.userFilter("invite_user_id", "=", t.id, !0)
-            }, <a>
-                                                {g.a.createElement(u["a"], {
-                type: "usergroup-add"
-              })}
-                                                {" TA的邀请"}
-                                            </a>), g.a.createElement(c["a"].Item, {
-              onContextMenu: e => {
-                e.stopPropagation();
-              }
-            }, g.a.createElement(j["a"], {
-              userId: null === t || void 0 === t ? void 0 : t.id,
-              key: null === t || void 0 === t ? void 0 : t.email
-            }, <a>
-                                                    {g.a.createElement(u["a"], {
-                type: "solution"
-              })}
-                                                    {" TA的流量记录"}
-                                                </a>)), g.a.createElement(c["a"].Item, null, <a onClick={() => this.delUser(t)}>
-                                                {g.a.createElement(u["a"], {
-                type: "delete"
-              })}
-                                                {" 删除用户"}
-                                            </a>))
-          }, <a href={"javascript:void(0);"}>
-                                    {"操作 "}
-                                    {g.a.createElement(u["a"], {
-              type: "caret-down"
-            })}
-                                </a>));
-        }
-      }];
-    return g.a.createElement(v["a"], i()({}, this.props, {
-      title: "用户管理"
-    }), g.a.createElement(P["a"], {
-      loading: _
-    }, <div className={"block border-bottom"}>
-                    <div className={"bg-white"}>
-                        <div className={"v2board-table-action"} style={{
-          padding: 15
-        }}>
-                            {g.a.createElement(f["a"], {
-            title: "Tips：可以使用过滤器过滤后再使用操作对过滤的用户进行操作。",
-            placement: "right"
-          }, g.a.createElement(C["a"], null, g.a.createElement(O["a"], {
-            key: E.length,
-            value: E,
-            onOk: e => this.props.dispatch({
-              type: "user/filter",
-              filter: e
-            }),
-            keys: [{
-              key: "email",
-              title: "邮箱",
-              condition: ["模糊"]
-            }, {
-              key: "id",
-              title: "用户ID",
-              condition: ["=", ">=", ">", "<", "<="]
-            }, {
-              key: "plan_id",
-              title: "订阅",
-              condition: ["="],
-              type: "select",
-              options: [{
-                key: "无订阅",
-                value: "null"
-              }, ...R.map(e => ({
-                key: e.name,
-                value: e.id
-              }))]
-            }, {
-              key: "transfer_enable",
-              title: "流量",
-              condition: [">=", ">", "<", "<="]
-            }, {
-              key: "d",
-              title: "下行",
-              condition: [">=", ">", "<", "<="]
-            }, {
-              key: "expired_at",
-              title: "到期时间",
-              condition: [">=", ">", "<", "<="],
-              type: "date"
-            }, {
-              key: "uuid",
-              title: "UUID",
-              condition: ["="]
-            }, {
-              key: "token",
-              title: "TOKEN",
-              condition: ["="]
-            }, {
-              key: "banned",
-              title: "账号状态",
-              condition: ["="],
-              type: "select",
-              options: [{
-                key: "正常",
-                value: 0
-              }, {
-                key: "封禁",
-                value: 1
-              }]
-            }, {
-              key: "invite_by_email",
-              title: "邀请人邮箱",
-              condition: ["模糊"]
-            }, {
-              key: "invite_user_id",
-              title: "邀请人ID",
-              condition: ["="]
-            }, {
-              key: "remarks",
-              title: "备注",
-              condition: ["模糊"]
-            }, {
-              key: "is_admin",
-              title: "管理员",
-              condition: ["="],
-              type: "select",
-              options: [{
-                key: "是",
-                value: 1
-              }, {
-                key: "否",
-                value: 0
-              }]
-            }]
-          }, g.a.createElement(s["a"], {
-            type: E.length > 0 ? "primary" : ""
-          }, g.a.createElement(u["a"], {
-            type: "filter"
-          }), " 过滤器")), g.a.createElement(l["a"], {
-            overlay: g.a.createElement(c["a"], null, g.a.createElement(c["a"].Item, null, <a onClick={() => this.dumpCSV()}>
-                                                        {g.a.createElement(u["a"], {
-                type: "file-excel"
-              })}
-                                                        {" 导出CSV"}
-                                                    </a>), g.a.createElement(c["a"].Item, null, g.a.createElement(y["a"], null, <a>
-                                                            {g.a.createElement(u["a"], {
-                type: "mail"
-              })}
-                                                            {" 发送邮件"}
-                                                        </a>)), g.a.createElement(c["a"].Item, {
-              disabled: !E.length
-            }, <a disabled={!E.length} onClick={() => this.ban()}>
-                                                        {g.a.createElement(u["a"], {
-                type: "stop"
-              })}
-                                                        {" 批量封禁"}
-                                                    </a>), g.a.createElement(c["a"].Item, {
-              disabled: !E.length
-            }, <a disabled={!E.length} onClick={() => this.allDel()}>
-                                                        {g.a.createElement(u["a"], {
-                type: "delete"
-              })}
-                                                        {" 批量删除"}
-                                                    </a>))
-          }, g.a.createElement(s["a"], null, g.a.createElement(u["a"], {
-            type: "select"
-          }), "操作"))))}
-                            {g.a.createElement(T["a"], null, g.a.createElement(s["a"], {
-            className: "ml-2"
-          }, g.a.createElement(u["a"], {
-            type: "user-add"
-          })))}
-                        </div>
-                        {g.a.createElement(A["a"], {
-          onContextMenu: e => {
-            this.record = e, this.forceUpdate();
-          },
-          className: "v2board-table",
-          tableLayout: "auto",
-          dataSource: b,
-          pagination: a()({}, x, {
-            size: "small",
-            showSizeChanger: !0,
-            pageSizeOptions: [10, 50, 100, 150]
-          }),
-          columns: N,
-          scroll: {
-            x: 1500
-          },
-          onChange: (e, t, n) => this.tableOnChange(e, n)
-        }, <ul className={"ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"}>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    {g.a.createElement(k["a"], {
-              userId: null === (e = this.record) || void 0 === e ? void 0 : e.id,
-              key: null === (t = this.record) || void 0 === t ? void 0 : t.id
-            }, <a>
-                                            {g.a.createElement(u["a"], {
-                type: "edit"
-              })}
-                                            {" 编辑"}
-                                        </a>)}
-                                </li>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    {g.a.createElement(S["a"], {
-              email: null === (n = this.record) || void 0 === n ? void 0 : n.email,
-              key: null === (r = this.record) || void 0 === r ? void 0 : r.email
-            }, <a>
-                                            {g.a.createElement(u["a"], {
-                type: "plus"
-              })}
-                                            {" 分配订单"}
-                                        </a>)}
-                                </li>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    <a onClick={() => {
-              var e;
-              return Object(L["a"])(null === (e = this.record) || void 0 === e ? void 0 : e.subscribe_url);
-            }}>
-                                        {g.a.createElement(u["a"], {
-                type: "copy"
-              })}
-                                        {" 复制订阅URL"}
-                                    </a>
-                                </li>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    <a style={{
-              color: "#ff4d4f"
-            }} onClick={() => this.resetSecret(this.record)}>
-                                        {g.a.createElement(u["a"], {
-                type: "reload"
-              })}
-                                        {" 重置UUID及订阅URL"}
-                                    </a>
-                                </li>
-                                <li className={"ant-dropdown-menu-item"} onClick={() => {
-            var e;
-            return this.orderFilter("user_id", "=", null === (e = this.record) || void 0 === e ? void 0 : e.id);
-          }}>
-                                    <a>
-                                        {g.a.createElement(u["a"], {
-                type: "account-book"
-              })}
-                                        {" TA的订单"}
-                                    </a>
-                                </li>
-                                <li className={"ant-dropdown-menu-item"} onClick={() => {
-            var e;
-            return this.userFilter("invite_user_id", "=", null === (e = this.record) || void 0 === e ? void 0 : e.id, !0);
-          }}>
-                                    <a>
-                                        {g.a.createElement(u["a"], {
-                type: "usergroup-add"
-              })}
-                                        {" TA的邀请"}
-                                    </a>
-                                </li>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    {g.a.createElement(j["a"], {
-              userId: null === (o = this.record) || void 0 === o ? void 0 : o.id,
-              key: null === (p = this.record) || void 0 === p ? void 0 : p.email
-            }, <a>
-                                            {g.a.createElement(u["a"], {
-                type: "solution"
-              })}
-                                            {" TA的流量记录"}
-                                        </a>)}
-                                </li>
-                                <li className={"ant-dropdown-menu-item"}>
-                                    <a onClick={() => this.delUser(this.record)}>
-                                        {g.a.createElement(u["a"], {
-                type: "delete"
-              })}
-                                        {" 删除用户"}
-                                    </a>
-                                </li>
-                            </ul>)}
-                    </div>
-                </div>));
+    const { users, pagination, fetchLoading, filter } = this.props.user;
+    return <MainLayout {...this.props} title="用户管理">
+      <LoadingContainer loading={fetchLoading}>
+        <div className="block border-bottom"><div className="bg-white">
+          <div className="v2board-table-action" style={{ padding: 15 }}>
+            <Tooltip title="Tips：可以使用过滤器过滤后再使用操作对过滤的用户进行操作。" placement="right">
+              <ButtonGroup>
+                <FilterDrawer key={filter.length} value={filter} onOk={nextFilter => this.props.dispatch({ type: 'user/filter', filter: nextFilter })} keys={this.filterFields()}><Button type={filter.length > 0 ? 'primary' : ''}><Icon type="filter" /> 过滤器</Button></FilterDrawer>
+                <Dropdown overlay={<Menu><Menu.Item><a onClick={() => this.props.dispatch({ type: 'user/dumpCSV' })}><Icon type="file-excel" /> 导出CSV</a></Menu.Item><Menu.Item><SendMailEditor><a><Icon type="mail" /> 发送邮件</a></SendMailEditor></Menu.Item><Menu.Item disabled={!filter.length}><a disabled={!filter.length} onClick={() => this.confirmBatch('ban', '确定要进行封禁吗？')}><Icon type="stop" /> 批量封禁</a></Menu.Item><Menu.Item disabled={!filter.length}><a disabled={!filter.length} onClick={() => this.confirmBatch('allDel', '确定要进行删除吗？')}><Icon type="delete" /> 批量删除</a></Menu.Item></Menu>}><Button><Icon type="select" />操作</Button></Dropdown>
+              </ButtonGroup>
+            </Tooltip>
+            <UserGenerator><Button className="ml-2"><Icon type="user-add" /></Button></UserGenerator>
+          </div>
+          <ContextMenuTable onContextMenu={user => { this.contextUser = user; this.forceUpdate(); }} className="v2board-table" tableLayout="auto" dataSource={users} pagination={{ ...pagination, size: 'small', showSizeChanger: true, pageSizeOptions: [10, 50, 100, 150] }} columns={this.columns()} scroll={{ x: 1500 }} onChange={(nextPagination, filters, sorter) => this.tableOnChange(nextPagination, sorter)}>
+            {this.contextMenu()}
+          </ContextMenuTable>
+        </div></div>
+      </LoadingContainer>
+    </MainLayout>;
   }
 }
-legacyExports["default"] = Object(E["c"])(e => {
-  var t = e.user,
-    n = e.serverGroup,
-    r = e.plan;
-  return {
-    user: t,
-    serverGroup: n,
-    plan: r
-  };
-})(M);
+
+export default connect(state => ({ user: state.user, serverGroup: state.serverGroup, plan: state.plan }))(UserPage);

@@ -2,26 +2,22 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
 import { a as Modal } from '../vendor/Modal.js';
-import { a as Select } from '../vendor/modules/antdSelect.js';
-import { a as Input } from '../vendor/modules/antdInput.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Button } from '../vendor/modules/antdButton.js';
+import { Select } from '../vendor/ui.js';
+import { Input } from '../vendor/ui.js';
+import { Table } from '../vendor/ui.js';
+import { Button } from '../vendor/ui.js';
 import { a as Icon } from '../vendor/Icon.js';
 import { a as Divider } from '../vendor/Divider.js';
-import { a as Switch } from '../vendor/modules/antdSwitch.js';
-import { a as LoadingContainer } from '../vendor/modules/76333265.js';
-import { a as mergeProps } from '../vendor/modules/70307045.js';
+import { Switch } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
+import { mergeProps } from '../vendor/utilities.js';
 import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.jsx';
-import '../vendor/modules/32717463.js';
-import '../vendor/modules/4f614579.js';
-import '../vendor/modules/354e4461.js';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/2b4c3642.js';
-import '../vendor/iconStyles.js';
-import '../vendor/modules/2f7a7346.js';
-import '../vendor/modules/426f5337.js';
-import '../vendor/modules/77642f52.js';
 
+import '../vendor/iconStyles.js';
+
+import '../vendor/dateTime.js';
+
+import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyNoticeColumns();
 class NoticePage extends React.Component {
   constructor(props) {

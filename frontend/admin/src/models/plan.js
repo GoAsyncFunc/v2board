@@ -1,5 +1,5 @@
 import { get, post } from '../services/request.js';
-import { a as settings } from '../vendor/modules/adminSettingsRuntime.js';
+import { settings } from '../vendor/adminSettings.js';
 
 const endpoint = action => `/${window.settings.secure_path}/plan/${action}`;
 const initialState = { plans: [], fetchLoading: false };

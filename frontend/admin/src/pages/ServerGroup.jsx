@@ -1,17 +1,17 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { c as connect } from '../vendor/reactRedux.js';
-import { a as Table } from '../vendor/modules/antdTable.js';
-import { a as Button } from '../vendor/modules/antdButton.js';
+import { Table } from '../vendor/ui.js';
+import { Button } from '../vendor/ui.js';
 import { a as Divider } from '../vendor/Divider.js';
 import { a as Icon } from '../vendor/Icon.js';
-import { a as GroupEditor } from '../vendor/modules/387a4e6a.js';
-import { a as LoadingContainer } from '../vendor/modules/76333265.js';
+import { GroupEditor } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
 import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.jsx';
-import '../vendor/modules/67395956.js';
-import '../vendor/modules/2b4c3642.js';
+
 import '../vendor/iconStyles.js';
 
+import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyServerGroupColumns();
 
 class ServerGroupPage extends React.Component {
