@@ -312,8 +312,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/SubscribeUsage.jsx",
-    "to": "vendor/siteHelpers.js"
+    "from": "components/SubscribeUsage.ts",
+    "to": "utils/subscription.ts"
   },
   {
     "from": "components/TelegramBindModal.jsx",
@@ -749,7 +749,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "components/SubscribeUsage.jsx"
+    "to": "components/SubscribeUsage.ts"
   },
   {
     "from": "pages/Dashboard.jsx",

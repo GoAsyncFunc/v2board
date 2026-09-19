@@ -10,11 +10,11 @@ const percentOf = (used, total) => used / total * 100;
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/user-subscribe-usage.cjs' : '../src/components/SubscribeUsage.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/user-subscribe-usage.cjs' : '../src/components/SubscribeUsage.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {
     module, exports: module.exports, require(id) {
-      if (id.includes('siteHelpers')) return { f: percentOf, calculateUsage: percentOf };
+      if (id.includes('subscription')) return { calculateUsage: percentOf };
         throw Error(id);
     },
   });
