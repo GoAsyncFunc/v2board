@@ -15,6 +15,7 @@ import InviteConfigTab from "../components/config/InviteConfigTab.jsx";
 import FrontendConfigTab from "../components/config/FrontendConfigTab.jsx";
 import AppConfigTab from "../components/config/AppConfigTab.jsx";
 import TelegramConfigTab from "../components/config/TelegramConfigTab.jsx";
+import EmailConfigTab from "../components/config/EmailConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -291,201 +292,14 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "邮件",
-                                key: "email",
-                            },
-                            <div className={"block-content"}>
-                                <div className={"row"}>
-                                    <div className={"col-lg-12"}>
-                                        <div
-                                            className={"alert alert-warning"}
-                                            role={"alert"}
-                                        >
-                                            <p className={"mb-0"}>
-                                                {
-                                                    "如果你更改了本页配置，需要对队列服务进行重启。另外本页配置优先级高于.env中邮件配置。"
-                                                }
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "SMTP服务器地址",
-                                        description:
-                                            "由邮件服务商提供的服务地址",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_host}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_host",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "SMTP服务端口",
-                                        description: "常见的端口有25, 465, 587",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_port}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_port",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "SMTP加密方式",
-                                        description:
-                                            "465端口加密方式一般为SSL，587端口加密方式一般为TLS",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_encryption}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_encryption",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "SMTP账号",
-                                        description: "由邮件服务商提供的账号",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_username}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_username",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "SMTP密码",
-                                        description: "由邮件服务商提供的密码",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_password}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_password",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "发件地址",
-                                        description:
-                                            "由邮件服务商提供的发件地址",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={email.email_from_address}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_from_address",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "邮件模板",
-                                        description:
-                                            "你可以在文档查看如何自定义邮件模板",
-                                    },
-                                    <select
-                                        onChange={(e) =>
-                                            this.set(
-                                                "email",
-                                                "email_template",
-                                                e.target.value,
-                                            )
-                                        }
-                                        className={"form-control"}
-                                        value={email.email_template}
-                                    >
-                                        {emailTemplate.map((e) => {
-                                            return (
-                                                <option
-                                                    key={Math.random()}
-                                                    value={e}
-                                                >
-                                                    {e}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "发送测试邮件",
-                                        description:
-                                            "邮件将会发送到当前登陆用户邮箱",
-                                    },
-                                    React.createElement(
-                                        Button,
-                                        {
-                                            loading: testSendMailLoading,
-                                            type: "primary",
-                                            onClick: () =>
-                                                this.props.dispatch({
-                                                    type: "config/testSendMail",
-                                                }),
-                                        },
-                                        "发送测试邮件",
-                                    ),
-                                )}
-                            </div>,
+                            { tab: "邮件", key: "email" },
+                            <EmailConfigTab
+                                email={email}
+                                templates={emailTemplate}
+                                testSendMailLoading={testSendMailLoading}
+                                onChange={(field, value) => this.set("email", field, value)}
+                                onTestSendMail={() => this.props.dispatch({ type: "config/testSendMail" })}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,

@@ -648,6 +648,14 @@
     "to": "components/config/ConfigRow.jsx"
   },
   {
+    "from": "components/config/EmailConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
+  },
+  {
+    "from": "components/config/EmailConfigTab.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
     "from": "components/config/FrontendConfigTab.jsx",
     "to": "components/config/ConfigRow.jsx"
   },
@@ -1014,6 +1022,10 @@
   {
     "from": "pages/ConfigSystem.jsx",
     "to": "components/config/DepositConfigTab.jsx"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/EmailConfigTab.jsx"
   },
   {
     "from": "pages/ConfigSystem.jsx",

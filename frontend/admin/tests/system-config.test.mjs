@@ -23,6 +23,7 @@ async function loadConfig() {
     ['frontend', '../src/components/config/FrontendConfigTab.jsx'],
     ['app', '../src/components/config/AppConfigTab.jsx'],
     ['telegram', '../src/components/config/TelegramConfigTab.jsx'],
+    ['email', '../src/components/config/EmailConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -44,6 +45,7 @@ async function loadConfig() {
         if (id.includes('FrontendConfigTab')) return components.frontend;
         if (id.includes('AppConfigTab')) return components.app;
         if (id.includes('TelegramConfigTab')) return components.telegram;
+        if (id.includes('EmailConfigTab')) return components.email;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -64,6 +66,7 @@ async function loadConfig() {
     FrontendConfigTab: components.frontend.default,
     AppConfigTab: components.app.default,
     TelegramConfigTab: components.telegram.default,
+    EmailConfigTab: components.email.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -400,4 +403,40 @@ test('Telegram config tab conditionally exposes webhook setup and maps bot setti
     .props.onChange({ target: { value: 'https://t.me/new' } });
   assert.equal(webhookCalls, 1);
   assert.deepEqual(changes, [['telegram_discuss_link', 'https://t.me/new']]);
+});
+
+test('Email config tab maps SMTP fields, templates and test-mail action', async () => {
+  const { EmailConfigTab } = await loadConfig();
+  const changes = [];
+  let testMailCalls = 0;
+  const tree = EmailConfigTab({
+    email: {
+      email_host: 'smtp.example.test', email_port: '465', email_encryption: 'ssl',
+      email_username: 'mailer', email_password: 'secret', email_from_address: 'from@example.test',
+      email_template: 'default',
+    },
+    templates: ['default', 'custom'],
+    testSendMailLoading: false,
+    onChange: (field, value) => changes.push([field, value]),
+    onTestSendMail: () => { testMailCalls += 1; },
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange || node.props?.onClick) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  assert.match(JSON.stringify(tree), /SMTP服务器地址/);
+  controls.find(control => control.props.defaultValue === 'smtp.example.test')
+    .props.onChange({ target: { value: 'smtp.new.test' } });
+  controls.find(control => control.props.onClick).props.onClick();
+  assert.equal(testMailCalls, 1);
+  assert.deepEqual(changes, [['email_host', 'smtp.new.test']]);
 });
