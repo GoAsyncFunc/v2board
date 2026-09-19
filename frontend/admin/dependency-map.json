@@ -77,7 +77,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Plan.jsx"
+    "to": "pages/Plan.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1032,56 +1032,40 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/ContextMenuTable.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/PlanGroupColumn.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/PlanPriceColumns.ts"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/PlanResourceColumns.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "components/Sortable.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Queue.tsx",
