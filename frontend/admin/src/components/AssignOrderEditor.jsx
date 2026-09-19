@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
-import Icon from '../Icon.js';
-import { Input, Select } from '../ui.js';
-import { settings } from '../adminSettings.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
+import Icon from '../vendor/Icon.js';
+import { Input, Select } from '../vendor/ui.js';
+import { settings } from '../vendor/adminSettings.js';
 
 const emptySubmit = email => ({ email: email || undefined, plan_id: undefined, period: undefined, total_amount: undefined });
 

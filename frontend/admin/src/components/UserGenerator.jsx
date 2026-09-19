@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
-import { DatePicker, Input, Select } from '../ui.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
+import { DatePicker, Input, Select } from '../vendor/ui.js';
 
 class UserGenerator extends React.Component {
   state = { visible: false, submit: {} };

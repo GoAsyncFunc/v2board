@@ -5,11 +5,8 @@ import { Table } from '../vendor/ui.js';
 import { LoadingContainer } from '../vendor/ui.js';
 import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.jsx';
 
-import '../vendor/features.js';
 import '../vendor/dateTime.js';
-import '../vendor/features.js';
 import '../vendor/siteHelpers.js';
-import '../vendor/features.js';
 import '../components/UserEditor.jsx';
 import '../components/FilterDrawer.jsx';
 import '../components/ContextMenuTable.jsx';

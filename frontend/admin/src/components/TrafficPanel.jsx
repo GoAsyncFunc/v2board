@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import Modal from '../Modal.js';
-import { LoadingContainer, Table } from '../ui.js';
-import { get } from '../../services/request.js';
-import { formatBytes } from '../siteHelpers.js';
+import Modal from '../vendor/Modal.js';
+import { LoadingContainer, Table } from '../vendor/ui.js';
+import { get } from '../services/request.js';
+import { formatBytes } from '../vendor/siteHelpers.js';
 
 export default class TrafficPanel extends React.Component {
   state = {

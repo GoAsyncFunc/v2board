@@ -5,7 +5,7 @@ import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { Icon } from '../vendor/Icon.js';
-import { GroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from '../components/PermissionGroupEditor.jsx';
 import { LoadingContainer } from '../vendor/ui.js';
 import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.jsx';
 
@@ -49,11 +49,11 @@ class ServerGroupPage extends React.Component {
         align: "right",
         render: (value, record) => {
           return <div>
-                                <GroupEditor record={record} key={record.id}>
+                                <PermissionGroupEditor record={record} key={record.id}>
                                   <a href={"javascript:void(0);"}>
                                         {"编辑"}
                                   </a>
-                                </GroupEditor>
+                                </PermissionGroupEditor>
                                 <Divider type="vertical" />
                                 <a href={"javascript:void(0);"} onClick={() => this.drop(record.id)}>
                                     {"删除"}
@@ -67,11 +67,11 @@ class ServerGroupPage extends React.Component {
         <div className={"block block-rounded"}>
           <div className={"bg-white"}>
             <div style={{ padding: 15 }}>
-              <GroupEditor>
+              <PermissionGroupEditor>
                 <Button onClick={() => this.modalVisible()}>
                   <Icon type="plus" />{" 添加权限组"}
                 </Button>
-              </GroupEditor>
+              </PermissionGroupEditor>
             </div>
             <Table
               tableLayout="auto"

@@ -7,7 +7,7 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { notification } from '../vendor/notification.js';
-import { PermissionGroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 import { JsonEditor } from '../vendor/ui.js';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';
 

@@ -14,7 +14,7 @@ import { Row } from '../vendor/ui.js';
 import { Col } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { Input } from '../vendor/ui.js';
-import { PermissionGroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from '../components/PermissionGroupEditor.jsx';
 import { LoadingContainer } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import ContextMenuTable from '../components/ContextMenuTable.jsx';

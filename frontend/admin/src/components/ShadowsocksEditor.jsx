@@ -5,7 +5,7 @@ import { Button } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
-import { PermissionGroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 
 const CIPHERS = [
   'aes-128-gcm',

@@ -6,7 +6,7 @@ import { Tooltip } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import { PermissionGroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 import { JsonEditor } from '../vendor/ui.js';
 
 import '../vendor/iconStyles.js';

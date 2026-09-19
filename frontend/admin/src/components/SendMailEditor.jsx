@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
-import { Input } from '../ui.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
+import { Input } from '../vendor/ui.js';
 
 class SendMailEditor extends React.Component {
   state = { visible: false, submit: {} };

@@ -229,6 +229,10 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
+  },
+  {
+    "from": "components/AnyTlsEditor.jsx",
     "to": "vendor/Icon.js"
   },
   {
@@ -241,6 +245,26 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/AssignOrderEditor.jsx",
+    "to": "vendor/Icon.js"
+  },
+  {
+    "from": "components/AssignOrderEditor.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/AssignOrderEditor.jsx",
+    "to": "vendor/adminSettings.js"
+  },
+  {
+    "from": "components/AssignOrderEditor.jsx",
+    "to": "vendor/reactRedux.js"
+  },
+  {
+    "from": "components/AssignOrderEditor.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -290,6 +314,10 @@
   {
     "from": "components/GiftcardDisplayColumns.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/HysteriaEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "components/HysteriaEditor.jsx",
@@ -356,12 +384,40 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "components/PermissionGroupEditor.jsx",
+    "to": "vendor/Icon.js"
+  },
+  {
+    "from": "components/PermissionGroupEditor.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/PermissionGroupEditor.jsx",
+    "to": "vendor/reactRedux.js"
+  },
+  {
+    "from": "components/PermissionGroupEditor.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
     "from": "components/PlanGroupColumn.jsx",
     "to": "vendor/ui.js"
   },
   {
     "from": "components/PlanResourceColumns.jsx",
     "to": "vendor/Icon.js"
+  },
+  {
+    "from": "components/SendMailEditor.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/SendMailEditor.jsx",
+    "to": "vendor/reactRedux.js"
+  },
+  {
+    "from": "components/SendMailEditor.jsx",
+    "to": "vendor/ui.js"
   },
   {
     "from": "components/ServerGroupDisplayColumns.jsx",
@@ -393,6 +449,10 @@
   },
   {
     "from": "components/ShadowsocksEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
+  },
+  {
+    "from": "components/ShadowsocksEditor.jsx",
     "to": "vendor/reactRedux.js"
   },
   {
@@ -404,6 +464,26 @@
     "to": "vendor/dateTime.js"
   },
   {
+    "from": "components/TrafficPanel.jsx",
+    "to": "services/request.js"
+  },
+  {
+    "from": "components/TrafficPanel.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/TrafficPanel.jsx",
+    "to": "vendor/siteHelpers.js"
+  },
+  {
+    "from": "components/TrafficPanel.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/TrojanEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
+  },
+  {
     "from": "components/TrojanEditor.jsx",
     "to": "vendor/Icon.js"
   },
@@ -418,6 +498,10 @@
   {
     "from": "components/TrojanEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/TuicEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "components/TuicEditor.jsx",
@@ -462,6 +546,22 @@
   {
     "from": "components/UserEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/UserGenerator.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/UserGenerator.jsx",
+    "to": "vendor/reactRedux.js"
+  },
+  {
+    "from": "components/UserGenerator.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/V2NodeEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "components/V2NodeEditor.jsx",
@@ -482,6 +582,10 @@
   {
     "from": "components/V2NodeEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/VlessEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -506,6 +610,10 @@
   {
     "from": "components/VlessEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/VmessEditor.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -1085,6 +1193,10 @@
   },
   {
     "from": "pages/Order.jsx",
+    "to": "components/AssignOrderEditor.jsx"
+  },
+  {
+    "from": "pages/Order.jsx",
     "to": "components/FilterDrawer.jsx"
   },
   {
@@ -1117,10 +1229,6 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/features.js"
-  },
-  {
-    "from": "pages/Order.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1138,6 +1246,10 @@
   {
     "from": "pages/Plan.jsx",
     "to": "components/ContextMenuTable.jsx"
+  },
+  {
+    "from": "pages/Plan.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1213,10 +1325,6 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "vendor/features.js"
-  },
-  {
-    "from": "pages/Queue.jsx",
     "to": "vendor/reactRedux.js"
   },
   {
@@ -1226,6 +1334,10 @@
   {
     "from": "pages/Queue.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "pages/ServerGroup.jsx",
+    "to": "components/PermissionGroupEditor.jsx"
   },
   {
     "from": "pages/ServerGroup.jsx",
@@ -1413,6 +1525,10 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
+    "to": "components/TrafficPanel.jsx"
+  },
+  {
+    "from": "pages/TicketDetail.jsx",
     "to": "components/UserEditor.jsx"
   },
   {
@@ -1429,10 +1545,6 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
-    "to": "vendor/features.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1445,6 +1557,10 @@
   },
   {
     "from": "pages/User.jsx",
+    "to": "components/AssignOrderEditor.jsx"
+  },
+  {
+    "from": "pages/User.jsx",
     "to": "components/ContextMenuTable.jsx"
   },
   {
@@ -1453,11 +1569,23 @@
   },
   {
     "from": "pages/User.jsx",
+    "to": "components/SendMailEditor.jsx"
+  },
+  {
+    "from": "pages/User.jsx",
+    "to": "components/TrafficPanel.jsx"
+  },
+  {
+    "from": "pages/User.jsx",
     "to": "components/UserDisplayColumns.jsx"
   },
   {
     "from": "pages/User.jsx",
     "to": "components/UserEditor.jsx"
+  },
+  {
+    "from": "pages/User.jsx",
+    "to": "components/UserGenerator.jsx"
   },
   {
     "from": "pages/User.jsx",
@@ -1474,10 +1602,6 @@
   {
     "from": "pages/User.jsx",
     "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/User.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "pages/User.jsx",
@@ -1552,82 +1676,6 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "vendor/features.js",
-    "to": "vendor/features/AssignOrderEditor.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/SendMailEditor.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/TrafficPanel.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/UserGenerator.jsx"
-  },
-  {
-    "from": "vendor/features/AssignOrderEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "vendor/features/AssignOrderEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/AssignOrderEditor.jsx",
-    "to": "vendor/adminSettings.js"
-  },
-  {
-    "from": "vendor/features/AssignOrderEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/features/AssignOrderEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/features/SendMailEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/SendMailEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/features/SendMailEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/features/TrafficPanel.jsx",
-    "to": "services/request.js"
-  },
-  {
-    "from": "vendor/features/TrafficPanel.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/TrafficPanel.jsx",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "vendor/features/TrafficPanel.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/features/UserGenerator.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/UserGenerator.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/features/UserGenerator.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "vendor/rootRuntime.js",
     "to": "app/store.js"
   },
@@ -1650,25 +1698,5 @@
   {
     "from": "vendor/ui.js",
     "to": "vendor/sortable.js"
-  },
-  {
-    "from": "vendor/ui.js",
-    "to": "vendor/ui/GroupEditor.jsx"
-  },
-  {
-    "from": "vendor/ui/GroupEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "vendor/ui/GroupEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/ui/GroupEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/ui/GroupEditor.jsx",
-    "to": "vendor/ui.js"
   }
 ]

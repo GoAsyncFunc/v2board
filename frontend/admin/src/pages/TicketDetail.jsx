@@ -5,7 +5,7 @@ import { Tooltip } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
 import UserEditor from '../components/UserEditor.jsx';
-import { TrafficPanel } from '../vendor/features.js';
+import TrafficPanel from '../components/TrafficPanel.jsx';
 import { formatDateTime } from '../components/DateTimeDisplay.jsx';
 
 import '../vendor/iconStyles.js';

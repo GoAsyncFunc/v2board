@@ -9,7 +9,7 @@ import { Icon } from '../vendor/Icon.js';
 import { Divider } from '../vendor/Divider.js';
 import { Switch } from '../vendor/ui.js';
 import { notification } from '../vendor/notification.js';
-import { PermissionGroupEditor } from '../vendor/ui.js';
+import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 import { JsonEditor } from '../vendor/ui.js';
 
 import '../vendor/iconStyles.js';

@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
-import Icon from '../Icon.js';
-import { Input } from '../ui.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
+import Icon from '../vendor/Icon.js';
+import { Input } from '../vendor/ui.js';
 
-class GroupEditor extends React.Component {
+class PermissionGroupEditor extends React.Component {
   state = {
     submit: { ...(this.props.record || {}) },
     visible: false,
@@ -48,4 +48,4 @@ class GroupEditor extends React.Component {
   }
 }
 
-export default connect(state => ({ serverGroup: state.serverGroup }))(GroupEditor);
+export default connect(state => ({ serverGroup: state.serverGroup }))(PermissionGroupEditor);
