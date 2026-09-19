@@ -9,7 +9,7 @@ import { Tooltip } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
 import { settings } from '../vendor/adminSettings.js';
-import AssignOrderEditor from '../components/AssignOrderEditor.jsx';
+import AssignOrderEditor from '../components/AssignOrderEditor.tsx';
 import { ButtonGroup } from '../vendor/ui.js';
 import LoadingContainer from '../components/LoadingContainer.tsx';
 import history from '../vendor/routerHistory.js';

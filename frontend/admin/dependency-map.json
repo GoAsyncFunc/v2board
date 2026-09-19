@@ -233,7 +233,7 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/AnyTlsEditor.jsx",
@@ -252,24 +252,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/AssignOrderEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/AssignOrderEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/AssignOrderEditor.jsx",
+    "from": "components/AssignOrderEditor.tsx",
     "to": "vendor/adminSettings.js"
-  },
-  {
-    "from": "components/AssignOrderEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/AssignOrderEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/FilterDrawer.tsx",
@@ -277,7 +261,7 @@
   },
   {
     "from": "components/HysteriaEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/HysteriaEditor.jsx",
@@ -304,36 +288,8 @@
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "components/PermissionGroupEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/PermissionGroupEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/PermissionGroupEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/PermissionGroupEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/SendMailEditor.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/SendMailEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/SendMailEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/ShadowsocksEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/ShadowsocksEditor.jsx",
@@ -361,7 +317,7 @@
   },
   {
     "from": "components/TrojanEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/TrojanEditor.jsx",
@@ -381,7 +337,7 @@
   },
   {
     "from": "components/TuicEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/TuicEditor.jsx",
@@ -420,24 +376,12 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/UserGenerator.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/UserGenerator.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/UserGenerator.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/V2NodeEditor.jsx",
     "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/V2NodeEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/V2NodeEditor.jsx",
@@ -465,7 +409,7 @@
   },
   {
     "from": "components/VlessEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -497,7 +441,7 @@
   },
   {
     "from": "components/VmessEditor.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -1213,7 +1157,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/AssignOrderEditor.jsx"
+    "to": "components/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1277,7 +1221,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1373,7 +1317,7 @@
   },
   {
     "from": "pages/ServerGroup.jsx",
-    "to": "components/PermissionGroupEditor.jsx"
+    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/ServerGroup.jsx",
@@ -1605,7 +1549,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/AssignOrderEditor.jsx"
+    "to": "components/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/User.jsx",
@@ -1621,7 +1565,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/SendMailEditor.jsx"
+    "to": "components/SendMailEditor.tsx"
   },
   {
     "from": "pages/User.jsx",
@@ -1637,7 +1581,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/UserGenerator.jsx"
+    "to": "components/UserGenerator.tsx"
   },
   {
     "from": "pages/User.jsx",

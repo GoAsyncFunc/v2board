@@ -1,10 +1,35 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import Modal from '../vendor/Modal.js';
-import Icon from '../vendor/Icon.js';
-import { Input } from '../vendor/ui.js';
+import { connect } from 'react-redux';
+import Icon from 'antd/lib/icon';
+import Input from 'antd/lib/input';
+import Modal from 'antd/lib/modal';
+import type { AdminDispatch } from '../types/store';
 
-class PermissionGroupEditor extends React.Component {
+export interface PermissionGroupRecord {
+  id?: string | number;
+  name?: string;
+}
+
+interface PermissionGroupEditorOwnProps {
+  children: React.ReactElement<{ onClick?: React.MouseEventHandler }>;
+  record?: PermissionGroupRecord;
+}
+
+interface PermissionGroupEditorProps extends PermissionGroupEditorOwnProps {
+  dispatch: AdminDispatch;
+  serverGroup: { fetchLoading: boolean };
+}
+
+interface PermissionGroupEditorState {
+  submit: PermissionGroupRecord;
+  visible: boolean;
+}
+
+interface PermissionGroupRootState {
+  serverGroup: PermissionGroupEditorProps['serverGroup'];
+}
+
+export class PermissionGroupEditor extends React.Component<PermissionGroupEditorProps, PermissionGroupEditorState> {
   state = {
     submit: { ...(this.props.record || {}) },
     visible: false,
@@ -12,7 +37,9 @@ class PermissionGroupEditor extends React.Component {
 
   show = () => this.setState({ visible: true });
   hide = () => this.setState({ visible: false });
-  updateName = event => this.setState(({ submit }) => ({ submit: { ...submit, name: event.target.value } }));
+  updateName = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    this.setState(({ submit }) => ({ submit: { ...submit, name: event.target.value } }));
+  };
 
   save = () => {
     const { dispatch } = this.props;
@@ -48,4 +75,4 @@ class PermissionGroupEditor extends React.Component {
   }
 }
 
-export default connect(state => ({ serverGroup: state.serverGroup }))(PermissionGroupEditor);
+export default connect((state: PermissionGroupRootState) => ({ serverGroup: state.serverGroup }))(PermissionGroupEditor);

@@ -1,10 +1,39 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import Modal from '../vendor/Modal.js';
-import { Input } from '../vendor/ui.js';
+import { connect } from 'react-redux';
+import Input from 'antd/lib/input';
+import Modal from 'antd/lib/modal';
+import type { AdminDispatch } from '../types/store';
 
-class SendMailEditor extends React.Component {
-  state = { visible: false, submit: {} };
+interface MailForm {
+  subject?: string;
+  content?: string;
+}
+
+interface UserMailState {
+  sendMailLoading: boolean;
+  filter: object[];
+}
+
+interface SendMailEditorOwnProps {
+  children: React.ReactElement<{ onClick?: React.MouseEventHandler }>;
+}
+
+interface SendMailEditorProps extends SendMailEditorOwnProps {
+  dispatch: AdminDispatch;
+  user: UserMailState;
+}
+
+interface SendMailEditorState {
+  visible: boolean;
+  submit: MailForm;
+}
+
+interface SendMailRootState {
+  user: UserMailState;
+}
+
+export class SendMailEditor extends React.Component<SendMailEditorProps, SendMailEditorState> {
+  state: SendMailEditorState = { visible: false, submit: {} };
 
   show = () => this.setState({ visible: true });
   hide = () => this.setState({ visible: false });
@@ -13,7 +42,9 @@ class SendMailEditor extends React.Component {
     this.props.dispatch({ type: 'user/sendMail', params: this.state.submit, callback: this.hide });
   };
 
-  update = (field, value) => this.setState(({ submit }) => ({ submit: { ...submit, [field]: value } }));
+  update = <Field extends keyof MailForm>(field: Field, value: MailForm[Field]): void => {
+    this.setState(({ submit }) => ({ submit: { ...submit, [field]: value } }));
+  };
 
   render() {
     const { children, user } = this.props;
@@ -40,4 +71,4 @@ class SendMailEditor extends React.Component {
   }
 }
 
-export default connect(state => ({ user: state.user }))(SendMailEditor);
+export default connect((state: SendMailRootState) => ({ user: state.user }))(SendMailEditor);

@@ -1,22 +1,64 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import Modal from '../vendor/Modal.js';
-import Icon from '../vendor/Icon.js';
-import { Input, Select } from '../vendor/ui.js';
+import { connect } from 'react-redux';
+import Icon from 'antd/lib/icon';
+import Input from 'antd/lib/input';
+import Modal from 'antd/lib/modal';
+import Select from 'antd/lib/select';
 import { settings } from '../vendor/adminSettings.js';
+import type { AdminDispatch } from '../types/store';
 
-const emptySubmit = email => ({ email: email || undefined, plan_id: undefined, period: undefined, total_amount: undefined });
+interface AssignOrderForm {
+  email?: string;
+  plan_id?: string | number;
+  period?: string;
+  total_amount?: string;
+}
 
-class AssignOrderEditor extends React.Component {
-  state = { visible: false, submit: emptySubmit(this.props.email) };
+interface PlanOption {
+  id: string | number;
+  name: string;
+}
+
+interface AssignOrderEditorOwnProps {
+  children: React.ReactElement<{ onClick?: React.MouseEventHandler }>;
+  email?: string;
+}
+
+interface AssignOrderEditorProps extends AssignOrderEditorOwnProps {
+  dispatch: AdminDispatch;
+  plan: { plans?: PlanOption[] };
+  order: { assignLoading: boolean };
+}
+
+interface AssignOrderEditorState {
+  visible: boolean;
+  submit: AssignOrderForm;
+}
+
+interface AssignOrderRootState {
+  plan: AssignOrderEditorProps['plan'];
+  order: AssignOrderEditorProps['order'];
+}
+
+export const emptyAssignOrder = (email?: string): AssignOrderForm => ({
+  email: email || undefined,
+  plan_id: undefined,
+  period: undefined,
+  total_amount: undefined,
+});
+
+export class AssignOrderEditor extends React.Component<AssignOrderEditorProps, AssignOrderEditorState> {
+  state = { visible: false, submit: emptyAssignOrder(this.props.email) };
 
   toggle = () => {
     this.setState(({ visible }) => ({ visible: !visible }), () => {
-      if (!this.state.visible) this.setState({ submit: emptySubmit(this.props.email) });
+      if (!this.state.visible) this.setState({ submit: emptyAssignOrder(this.props.email) });
     });
   };
 
-  setSubmit = (field, value) => this.setState(({ submit }) => ({ submit: { ...submit, [field]: value } }));
+  setSubmit = <Field extends keyof AssignOrderForm>(field: Field, value: AssignOrderForm[Field]): void => {
+    this.setState(({ submit }) => ({ submit: { ...submit, [field]: value } }));
+  };
 
   submit = () => {
     this.props.dispatch({
@@ -60,4 +102,4 @@ class AssignOrderEditor extends React.Component {
   }
 }
 
-export default connect(state => ({ plan: state.plan, order: state.order }))(AssignOrderEditor);
+export default connect((state: AssignOrderRootState) => ({ plan: state.plan, order: state.order }))(AssignOrderEditor);
