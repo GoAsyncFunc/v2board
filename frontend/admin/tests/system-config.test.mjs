@@ -15,6 +15,7 @@ async function loadConfig() {
   for (const [name, file] of [
     ['row', '../src/components/config/ConfigRow.jsx'],
     ['site', '../src/components/config/SiteConfigTab.jsx'],
+    ['safe', '../src/components/config/SafeConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -28,6 +29,7 @@ async function loadConfig() {
         if (id.includes('reactRedux')) return { connect: () => Page => Page };
         if (id.includes('ConfigRow')) return components.row;
         if (id.includes('SiteConfigTab')) return components.site;
+        if (id.includes('SafeConfigTab')) return components.safe;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -40,6 +42,7 @@ async function loadConfig() {
   }
   return {
     ConfigRow: components.row.default, SiteConfigTab: components.site.default,
+    SafeConfigTab: components.safe.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -118,4 +121,42 @@ test('Site config tab maps each control to its semantic setting key', async () =
   controls.find(control => control.props.defaultValue === '').props.onChange({ target: { value: 'logo' } });
   controls.find(control => control.props.defaultValue === 24).props.onChange({ target: { value: '48' } });
   assert.deepEqual(changes, [['app_name', 'New'], ['logo', 'logo'], ['try_out_hour', '48']]);
+});
+
+test('Safe config tab exposes conditional security controls and semantic updates', async () => {
+  const { SafeConfigTab } = await loadConfig();
+  const changes = [];
+  const safe = {
+    email_verify: 1, email_gmail_limit_enable: 0, safe_mode_enable: 0, secure_path: 'admin',
+    email_whitelist_enable: 1, email_whitelist_suffix: ['example.com'],
+    recaptcha_enable: 1, recaptcha_key: 'key', recaptcha_site_key: 'site',
+    register_limit_by_ip_enable: 0, register_limit_count: 5, register_limit_expire: 10,
+    password_limit_enable: 0, password_limit_count: 5, password_limit_expire: 10,
+  };
+  const tree = SafeConfigTab({ safe, onChange: (field, value) => changes.push([field, value]) });
+  const serialized = JSON.stringify(tree);
+  assert.match(serialized, /白名单后缀/);
+  assert.match(serialized, /密钥/);
+  assert.doesNotMatch(serialized, /达到注册次数后开启惩罚/);
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  const securePath = controls.find(control => control.props.defaultValue === 'admin');
+  securePath.props.onChange({ target: { value: 'control' } });
+  const whitelist = controls.find(control => Array.isArray(control.props.defaultValue));
+  whitelist.props.onChange({ target: { value: 'example.com,example.org' } });
+  assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
+    ['secure_path', 'control'],
+    ['email_whitelist_suffix', ['example.com', 'example.org']],
+  ]);
 });
