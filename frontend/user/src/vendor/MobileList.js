@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import './mobileListStyles.js';
 
 class Touchable extends React.Component {
   static defaultProps = { disabled: false };

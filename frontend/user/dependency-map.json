@@ -1380,10 +1380,6 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "vendor/MobileList.js",
-    "to": "vendor/mobileListStyles.js"
-  },
-  {
     "from": "vendor/appDvaConfig.js",
     "to": "vendor/i18n.js"
   },
@@ -1588,18 +1584,6 @@
     "to": "vendor/modules/zhMessages.js"
   },
   {
-    "from": "vendor/mobileListStyles.js",
-    "to": "vendor/modules/antdTable.js"
-  },
-  {
-    "from": "vendor/mobileListStyles.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/mobileListStyles.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
     "from": "vendor/modules/antdCreateReactContext.js",
     "to": "vendor/modules/antdCreateReactContextPolyfill.js"
   },
@@ -1630,110 +1614,6 @@
   {
     "from": "vendor/modules/antdEnglishLocale.js",
     "to": "vendor/modules/paginationLocaleEn.js"
-  },
-  {
-    "from": "vendor/modules/arrayIndexOfLegacyFactory.js",
-    "to": "vendor/modules/toAbsoluteIndex.js"
-  },
-  {
-    "from": "vendor/modules/arrayIndexOfLegacyFactory.js",
-    "to": "vendor/modules/toArray.js"
-  },
-  {
-    "from": "vendor/modules/arrayIndexOfLegacyFactory.js",
-    "to": "vendor/modules/toLength.js"
-  },
-  {
-    "from": "vendor/modules/assertObjectLegacy.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/bindContext.js",
-    "to": "vendor/modules/requireCallable.js"
-  },
-  {
-    "from": "vendor/modules/coreJsExport.js",
-    "to": "vendor/modules/bindContext.js"
-  },
-  {
-    "from": "vendor/modules/coreJsExport.js",
-    "to": "vendor/modules/coreJsNamespace.js"
-  },
-  {
-    "from": "vendor/modules/coreJsExport.js",
-    "to": "vendor/modules/definePropertyRuntime.js"
-  },
-  {
-    "from": "vendor/modules/coreJsExport.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/coreJsExport.js",
-    "to": "vendor/modules/hasOwnLegacy.js"
-  },
-  {
-    "from": "vendor/modules/coreJsSharedStore.js",
-    "to": "vendor/modules/coreJsNamespace.js"
-  },
-  {
-    "from": "vendor/modules/coreJsSharedStore.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/coreJsSharedStore.js",
-    "to": "vendor/modules/trueValue.js"
-  },
-  {
-    "from": "vendor/modules/createElement.js",
-    "to": "vendor/modules/globalObject.js"
-  },
-  {
-    "from": "vendor/modules/createElement.js",
-    "to": "vendor/modules/isObject.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyLegacy.js",
-    "to": "vendor/modules/assertObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyLegacy.js",
-    "to": "vendor/modules/descriptorsSupport.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyLegacy.js",
-    "to": "vendor/modules/domDefinePropertyLegacySupport.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyLegacy.js",
-    "to": "vendor/modules/toPrimitive.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyRuntime.js",
-    "to": "vendor/modules/definePropertyLegacy.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyRuntime.js",
-    "to": "vendor/modules/descriptorsSupport.js"
-  },
-  {
-    "from": "vendor/modules/definePropertyRuntime.js",
-    "to": "vendor/modules/propertyDescriptorFlags.js"
-  },
-  {
-    "from": "vendor/modules/descriptorsSupport.js",
-    "to": "vendor/modules/tryCatchTestLegacy.js"
-  },
-  {
-    "from": "vendor/modules/domDefinePropertyLegacySupport.js",
-    "to": "vendor/modules/createElement.js"
-  },
-  {
-    "from": "vendor/modules/domDefinePropertyLegacySupport.js",
-    "to": "vendor/modules/descriptorsSupport.js"
-  },
-  {
-    "from": "vendor/modules/domDefinePropertyLegacySupport.js",
-    "to": "vendor/modules/tryCatchTestLegacy.js"
   },
   {
     "from": "vendor/modules/enAntd.js",
@@ -1816,82 +1696,6 @@
     "to": "app/moduleInterop.js"
   },
   {
-    "from": "vendor/modules/objectAssign.js",
-    "to": "vendor/modules/coreJsNamespace.js"
-  },
-  {
-    "from": "vendor/modules/objectAssign.js",
-    "to": "vendor/modules/objectAssignPolyfillRuntime.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignDefault.js",
-    "to": "vendor/modules/objectAssign.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignHelper.js",
-    "to": "vendor/modules/objectAssignDefault.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/descriptorsSupport.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/getOwnPropertySymbolsLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/objectKeysLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/propertyIsEnumerableLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/toIndexedObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/toObject.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignLegacy.js",
-    "to": "vendor/modules/tryCatchTestLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignPolyfillRuntime.js",
-    "to": "vendor/modules/coreJsExport.js"
-  },
-  {
-    "from": "vendor/modules/objectAssignPolyfillRuntime.js",
-    "to": "vendor/modules/objectAssignLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysFallbackLegacy.js",
-    "to": "vendor/modules/arrayIndexOfLegacyFactory.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysFallbackLegacy.js",
-    "to": "vendor/modules/hasOwnLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysFallbackLegacy.js",
-    "to": "vendor/modules/sharedKeyLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysFallbackLegacy.js",
-    "to": "vendor/modules/toArray.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysLegacy.js",
-    "to": "vendor/modules/objectKeysFallbackLegacy.js"
-  },
-  {
-    "from": "vendor/modules/objectKeysLegacy.js",
-    "to": "vendor/modules/objectKeysIn.js"
-  },
-  {
     "from": "vendor/modules/objectWithoutPropertiesLoose.js",
     "to": "vendor/modules/objectWithoutProperties.js"
   },
@@ -1902,42 +1706,6 @@
   {
     "from": "vendor/modules/propTypesRuntime.js",
     "to": "vendor/modules/propTypesFactory.js"
-  },
-  {
-    "from": "vendor/modules/sharedKeyLegacy.js",
-    "to": "vendor/modules/coreJsSharedStore.js"
-  },
-  {
-    "from": "vendor/modules/sharedKeyLegacy.js",
-    "to": "vendor/modules/uid.js"
-  },
-  {
-    "from": "vendor/modules/toAbsoluteIndex.js",
-    "to": "vendor/modules/toInteger.js"
-  },
-  {
-    "from": "vendor/modules/toArray.js",
-    "to": "vendor/modules/requireObject.js"
-  },
-  {
-    "from": "vendor/modules/toArray.js",
-    "to": "vendor/modules/toIndexedObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/toIndexedObjectLegacy.js",
-    "to": "vendor/modules/rawClassName.js"
-  },
-  {
-    "from": "vendor/modules/toLength.js",
-    "to": "vendor/modules/toInteger.js"
-  },
-  {
-    "from": "vendor/modules/toObject.js",
-    "to": "vendor/modules/requireObject.js"
-  },
-  {
-    "from": "vendor/modules/toPrimitive.js",
-    "to": "vendor/modules/isObject.js"
   },
   {
     "from": "vendor/modules/twAntd.js",
