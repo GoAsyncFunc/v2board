@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Forgetpassword.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Forgetpassword.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [], notices = [], timers = [], routes = [];
   const window = { settings: {} };
   const React = {
@@ -14,6 +14,7 @@ async function loadPage() {
       constructor(props) { this.props = props; }
       setState(update) { this.state = { ...this.state, ...update }; }
     },
+    createRef: () => ({ current: null }),
     createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
   };
   const module = { exports: {} };
@@ -22,7 +23,7 @@ async function loadPage() {
     setTimeout(callback, delay) { timers.push({ callback, delay }); },
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux' || id.includes('reactRedux')) return { connect: () => Page => Page };
       if (id.includes('Icon.js')) return { Icon: 'Icon' };
       if (id.includes('routerHistory')) return { push: route => routes.push(route) };
       if (id.includes('Recaptcha')) return 'Recaptcha';
@@ -39,10 +40,10 @@ async function loadPage() {
     guest: { commConfig: { is_recaptcha: true } },
     dispatch: action => actions.push(action),
   });
-  page.refs = {
-    email: { value: 'test@example.com' }, email_code: { value: '123456' },
-    password: { value: 'new-password' }, repassword: { value: 'new-password' },
-  };
+  page.emailInput.current = { value: 'test@example.com' };
+  page.emailCodeInput.current = { value: '123456' };
+  page.passwordInput.current = { value: 'new-password' };
+  page.repeatedPasswordInput.current = { value: 'new-password' };
   return { page, actions, notices, timers, routes, window };
 }
 
@@ -56,11 +57,11 @@ test('Forgot password validates matching passwords and preserves request fields'
   const { page, actions, notices } = await loadPage();
   page.componentDidMount();
   assert.equal(actions[0].type, 'guest/getCommConfig');
-  page.refs.repassword.value = 'different';
+  page.repeatedPasswordInput.current.value = 'different';
   page.forget();
   assert.equal(actions.length, 1);
   assert.deepEqual(notices, [['error', '请求失败', '两次密码输入不同']]);
-  page.refs.repassword.value = page.refs.password.value;
+  page.repeatedPasswordInput.current.value = page.passwordInput.current.value;
   page.forget();
   assert.deepEqual(JSON.parse(JSON.stringify(actions[1])), {
     type: 'passport/forget', email: 'test@example.com', password: 'new-password', emailCode: '123456',

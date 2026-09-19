@@ -5,14 +5,15 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Register.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Register.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [], notices = [], timers = [];
   const React = {
     Component: class {
       constructor(props) { this.props = props; }
       setState(update) { this.state = { ...this.state, ...update }; }
     },
+    createRef: () => ({ current: null }),
     createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
   };
   const module = { exports: {} };
@@ -21,7 +22,7 @@ async function loadPage() {
     setTimeout(callback, delay) { timers.push({ callback, delay }); },
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux' || id.includes('reactRedux')) return { connect: () => Page => Page };
       if (id.includes('Icon.js')) return { Icon: 'Icon' };
       if (id.includes('routerHistory')) return { push() {} };
       if (id.includes('Recaptcha')) return 'Recaptcha';
@@ -39,24 +40,24 @@ async function loadPage() {
     location: { query: { code: 'invite-code' } },
     dispatch: action => actions.push(action),
   });
-  page.refs = {
-    email: { value: 'person' }, password: { value: 'password' },
-    repassword: { value: 'password' }, invite: { value: 'invite-code' },
-  };
+  page.emailInput.current = { value: 'person' };
+  page.passwordInput.current = { value: 'password' };
+  page.repeatedPasswordInput.current = { value: 'password' };
+  page.inviteInput.current = { value: 'invite-code' };
   return { page, actions, notices, timers };
 }
 
 test('Registration validates terms before password and preserves the submitted payload', async () => {
   const { page, actions, notices } = await loadPage();
   page.props.guest.commConfig = { tos_url: '/terms', email_whitelist_suffix: ['example.com'] };
-  page.refs.repassword.value = 'different';
+  page.repeatedPasswordInput.current.value = 'different';
   page.register('captcha');
   assert.deepEqual(notices.at(-1), ['error', '请求失败', '请同意服务条款']);
   page.setState({ tosChecked: true });
   page.register('captcha');
   assert.deepEqual(notices.at(-1), ['error', '请求失败', '两次密码输入不同']);
   assert.equal(actions.length, 0);
-  page.refs.repassword.value = 'password';
+  page.repeatedPasswordInput.current.value = 'password';
   page.register('captcha');
   assert.deepEqual(JSON.parse(JSON.stringify(actions[0])), {
     type: 'passport/register', email: 'person@example.com', password: 'password',
@@ -64,8 +65,8 @@ test('Registration validates terms before password and preserves the submitted p
   });
   page.props.guest.commConfig = {};
   page.setState({ tosChecked: false });
-  page.refs.email.value = 'whole@example.org';
-  page.refs.email_code = { value: '654321' };
+  page.emailInput.current.value = 'whole@example.org';
+  page.emailCodeInput.current = { value: '654321' };
   page.register('second-captcha');
   assert.equal(actions[1].email, 'whole@example.org');
   assert.equal(actions[1].emailCode, '654321');
@@ -106,19 +107,19 @@ test('Registration keeps invite locking, whitelist selection, email verification
     is_recaptcha: true, is_invite_force: true, tos_url: '/terms',
   };
   let tree = page.render();
-  const invite = nodes(tree, node => node.props.ref === 'invite')[0];
+  const invite = nodes(tree, node => node.props.ref === page.inviteInput)[0];
   assert.equal(invite.props.defaultValue, 'invite-code');
-  assert.equal(invite.props.disabled, 'invite-code');
+  assert.equal(invite.props.disabled, true);
   assert.equal(invite.props.placeholder, '邀请码');
   const suffix = nodes(tree, node => node.type === 'select')[0];
   suffix.props.onChange({ target: { value: 'example.org' } });
   assert.equal(actions.at(-1).payload.selectEmailSuffix, 'example.org');
   assert.equal(nodes(tree, node => node.type === 'Recaptcha').length, 2);
   assert.equal(nodes(tree, node => node.type === 'button').at(-1).props.disabled, true);
-  nodes(tree, node => node.props.type === 'checkbox')[0].props.onClick();
+  nodes(tree, node => node.props.type === 'checkbox')[0].props.onChange();
   tree = page.render();
   assert.equal(nodes(tree, node => node.type === 'button').at(-1).props.disabled, false);
   page.props.passport.getCommConfigLoading = true;
   assert.equal(nodes(page.render(), node => node.props.role === 'status').length, 1);
-  assert.equal(nodes(page.render(), node => node.props.ref === 'email').length, 0);
+  assert.equal(nodes(page.render(), node => node.props.ref === page.emailInput).length, 0);
 });

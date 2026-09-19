@@ -23,3 +23,4 @@ export function setIntlApi(value: IntlApi): void;
 export function setLocaleController(value: LocaleController | LanguageContextValue): void;
 export function setLocale(locale: string, reload?: boolean): void;
 export function formatMessage(descriptor: { id: string }, values?: Record<string, unknown>): string;
+export function getLocale(): string;

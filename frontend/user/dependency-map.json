@@ -49,11 +49,11 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Forgetpassword.jsx"
+    "to": "pages/Forgetpassword.tsx"
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Index.jsx"
+    "to": "pages/Index.tsx"
   },
   {
     "from": "app/routes.js",
@@ -65,7 +65,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Login.jsx"
+    "to": "pages/Login.tsx"
   },
   {
     "from": "app/routes.js",
@@ -93,7 +93,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Register.jsx"
+    "to": "pages/Register.tsx"
   },
   {
     "from": "app/routes.js",
@@ -268,12 +268,8 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "components/Recaptcha.jsx",
+    "from": "components/Recaptcha.tsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/Recaptcha.jsx",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "components/SubscribeImporter.jsx",
@@ -760,43 +756,39 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "components/LanguageSelector.tsx"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "components/Recaptcha.jsx"
+    "from": "pages/Forgetpassword.tsx",
+    "to": "components/Recaptcha.tsx"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Forgetpassword.jsx",
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "pages/Index.jsx",
+    "from": "pages/Index.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
@@ -888,35 +880,31 @@
     "to": "vendor/utilities.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "components/LanguageSelector.tsx"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/Divider.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "pages/Login.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
@@ -1168,39 +1156,35 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "components/LanguageSelector.tsx"
   },
   {
-    "from": "pages/Register.jsx",
-    "to": "components/Recaptcha.jsx"
+    "from": "pages/Register.tsx",
+    "to": "components/Recaptcha.tsx"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "pages/Register.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Register.jsx",
+    "from": "pages/Register.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {

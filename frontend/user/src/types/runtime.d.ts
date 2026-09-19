@@ -3,6 +3,10 @@ export {};
 declare global {
   interface Window {
     settings: {
+      background_url?: string;
+      description?: string;
+      homepage?: string;
+      logo?: string;
       secure_path: string;
       title?: string;
       theme: { header?: string; sidebar?: string };
@@ -12,5 +16,14 @@ declare global {
     g_routes: unknown;
     g_lang?: string;
     g_langSeparator?: string;
+    grecaptcha?: {
+      render(container: HTMLElement, options: {
+        sitekey?: string;
+        callback: (value?: string | null) => void;
+        'expired-callback': () => void;
+        'error-callback': () => void;
+      }): number;
+      reset(widgetId: number): void;
+    };
   }
 }
