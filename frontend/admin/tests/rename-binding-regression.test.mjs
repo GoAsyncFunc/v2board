@@ -47,6 +47,8 @@ for (const file of [
   'admin/src/pages/ServerGroup.tsx',
   'admin/src/pages/ServerRoute.jsx',
   'admin/src/pages/ServerManage.jsx',
+  'admin/src/pages/Ticket.tsx',
+  'admin/src/pages/TicketDetail.tsx',
 ]) {
   const localFile = file.replace(/^admin\//, '');
   test(`${localFile}: references resolve in their lexical scope`, () => {

@@ -1,21 +1,30 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import { Divider } from '../vendor/Divider.js';
-import { Tooltip } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
+import { connect } from 'react-redux';
+import Divider from 'antd/lib/divider';
+import Icon from 'antd/lib/icon';
+import Tooltip from 'antd/lib/tooltip';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
 import UserEditor from '../components/UserEditor.jsx';
-import TrafficPanel from '../components/TrafficPanel.tsx';
-import { formatDateTime } from '../components/DateTimeDisplay.ts';
+import TrafficPanel from '../components/TrafficPanel';
+import { formatDateTime } from '../components/DateTimeDisplay';
+import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';
+import type { AdminDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';
 
-export class TicketDetailChat extends React.Component {
-  constructor(props) {
+interface TicketDetailChatProps {
+  ticket?: TicketRecord;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>, clearMessage: () => void) => void;
+}
+
+export class TicketDetailChat extends React.Component<TicketDetailChatProps> {
+  chatCount = 0;
+  chatRef = React.createRef<HTMLDivElement>();
+  messageRef = React.createRef<HTMLInputElement>();
+
+  constructor(props: TicketDetailChatProps) {
     super(props);
-    this.chatCount = 0;
-    this.chatRef = React.createRef();
-    this.messageRef = React.createRef();
   }
 
   componentDidMount() {
@@ -23,7 +32,7 @@ export class TicketDetailChat extends React.Component {
   }
 
   componentDidUpdate() {
-    const messageCount = this.props.ticket?.message.length;
+    const messageCount = this.props.ticket?.message?.length || 0;
     if (this.chatCount !== messageCount) {
       this.chatCount = messageCount;
       this.scrollToLatestMessage();
@@ -35,7 +44,7 @@ export class TicketDetailChat extends React.Component {
     if (chat) chat.scrollTo(0, chat.scrollHeight);
   }
 
-  renderMessage(message, index) {
+  renderMessage(message: TicketMessage, index: number): React.ReactNode {
     const timestamp = <div className={`font-size-sm text-muted my-2${message.is_me ? ' text-right' : ''}`}>{formatDateTime(message.created_at)}</div>;
     return <div key={message.id || index}>
       {timestamp}
@@ -53,11 +62,11 @@ export class TicketDetailChat extends React.Component {
         <div className={styles.ctrl}>
           <UserEditor userId={ticket?.user_id}><Tooltip title="用户管理" placement="left"><Icon type="user" /></Tooltip></UserEditor>
           <Divider type="vertical" />
-          <TrafficPanel userId={ticket?.user_id} key={ticket?.user_id}><Tooltip title="TA的流量记录" placement="left"><Icon type="solution" /></Tooltip></TrafficPanel>
+          <TrafficPanel userId={ticket?.user_id as TicketId} key={ticket?.user_id}><Tooltip title="TA的流量记录" placement="left"><Icon type="solution" /></Tooltip></TrafficPanel>
         </div>
       </div>
       <div ref={this.chatRef} className={`bg-white js-chat-messages block-content block-content-full text-wrap-break-word overflow-y-auto ${styles.content}`}>
-        {ticket?.message.map((message, index) => this.renderMessage(message, index))}
+        {ticket?.message?.map((message, index) => this.renderMessage(message, index))}
       </div>
       <div className={`js-chat-form block-content p-2 bg-body-dark ${styles.input}`}>
         <input
@@ -73,10 +82,31 @@ export class TicketDetailChat extends React.Component {
   }
 }
 
-export class TicketDetailPage extends React.Component {
-  constructor(props) {
+interface TicketDetailState {
+  message?: string;
+}
+
+interface TicketDetailStoreState {
+  ticket?: TicketRecord;
+  replyLoading: boolean;
+}
+
+interface TicketDetailPageProps {
+  dispatch: AdminDispatch;
+  match: { params: { ticket_id: string } };
+  ticket: TicketDetailStoreState;
+}
+
+interface TicketDetailRootState {
+  ticket: TicketDetailStoreState;
+}
+
+export class TicketDetailPage extends React.Component<TicketDetailPageProps, TicketDetailState> {
+  state: TicketDetailState = { message: undefined };
+  refreshTimer?: ReturnType<typeof setTimeout>;
+
+  constructor(props: TicketDetailPageProps) {
     super(props);
-    this.state = { message: undefined };
   }
 
   componentDidMount() {
@@ -100,7 +130,7 @@ export class TicketDetailPage extends React.Component {
     }, 5000);
   }
 
-  reply(clearMessage) {
+  reply(clearMessage: () => void): void {
     this.props.dispatch({
       type: 'ticket/reply',
       id: this.props.match.params.ticket_id,
@@ -113,11 +143,10 @@ export class TicketDetailPage extends React.Component {
     const { ticket, replyLoading } = this.props.ticket;
     return <TicketDetailChat
       ticket={ticket}
-      user={this.props.user.user}
       onKeyDown={(event, clearMessage) => { if (event.keyCode === 13 && !replyLoading) this.reply(clearMessage); }}
       onChange={event => this.setState({ message: event.target.value })}
     />;
   }
 }
 
-export default connect(state => ({ user: state.user, ticket: state.ticket }))(TicketDetailPage);
+export default connect((state: TicketDetailRootState) => ({ ticket: state.ticket }))(TicketDetailPage);

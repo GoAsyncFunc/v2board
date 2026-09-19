@@ -14,8 +14,8 @@ import Queue from '../pages/Queue.tsx';
 import ServerGroup from '../pages/ServerGroup.tsx';
 import ServerManage from '../pages/ServerManage.jsx';
 import ServerRoute from '../pages/ServerRoute.jsx';
-import TicketDetail from '../pages/TicketDetail.jsx';
-import Ticket from '../pages/Ticket.jsx';
+import TicketDetail from '../pages/TicketDetail.tsx';
+import Ticket from '../pages/Ticket.tsx';
 import User from '../pages/User.jsx';
 
 // Add or edit routes here. Every component is a source file, not a module ID.

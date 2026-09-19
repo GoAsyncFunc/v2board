@@ -97,11 +97,11 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Ticket.jsx"
+    "to": "pages/Ticket.tsx"
   },
   {
     "from": "app/routes.js",
-    "to": "pages/TicketDetail.jsx"
+    "to": "pages/TicketDetail.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1296,72 +1296,40 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "components/TicketDisplayColumns.ts"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/utilities.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "components/TrafficPanel.tsx"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "components/UserEditor.jsx"
   },
   {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "vendor/content.js"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/User.jsx",

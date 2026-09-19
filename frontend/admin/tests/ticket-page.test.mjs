@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage(userAgent = 'desktop') {
-  const source = await fs.readFile(new URL('../src/pages/Ticket.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Ticket.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const timers = [];
   const opened = [];
@@ -23,15 +23,14 @@ async function loadPage(userAgent = 'desktop') {
     clearTimeout() {},
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux') return { connect: () => Page => Page };
+      if (id === 'antd/lib/table') return 'Table';
+      if (id === 'antd/lib/input') return 'Input';
+      if (id === 'antd/lib/radio') return { Group: 'RadioGroup', Button: 'RadioButton' };
+      if (id === 'antd/lib/badge') return 'Badge';
+      if (id === 'antd/lib/divider') return 'Divider';
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('ui.js')) return {
-        Table: 'Table', Input: 'Input', Radio: { Group: 'RadioGroup', Button: 'RadioButton' },
-        Badge: 'Badge',
-      };
-      if (id.includes('Divider.js')) return { Divider: 'Divider' };
-      if (id.includes('utilities')) return { assignProps: Object.assign };
       if (id.includes('TicketDisplayColumns')) return {
         createReadonlyTicketColumns: () => ({
           id: { key: 'id' }, subject: { key: 'subject' }, level: { key: 'level' },
