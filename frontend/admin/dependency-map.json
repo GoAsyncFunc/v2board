@@ -1025,10 +1025,6 @@
   },
   {
     "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/ConfigRow.jsx"
-  },
-  {
-    "from": "pages/ConfigSystem.jsx",
     "to": "components/config/DepositConfigTab.jsx"
   },
   {
