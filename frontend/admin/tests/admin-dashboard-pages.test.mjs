@@ -130,6 +130,23 @@ test('Dashboard pending commission alert keeps the original order filters and ro
   assert.deepEqual(JSON.parse(JSON.stringify(runtime.historyEvents)), [{ type: 'history/push', path: '/order' }]);
 });
 
+test('Dashboard alert area does not render stray zeros for empty pending counts', async () => {
+  const runtime = await loadDashboard();
+  const page = new runtime.DashboardPage({
+    dispatch() {},
+    stat: { ticket_pending_total: 0, commission_pending_total: 0 },
+    config: { site: { currency: '¥' } },
+  });
+  const alerts = page.renderAlerts();
+  assert.equal(alerts.children.filter(child => child === 0).length, 0);
+  assert.equal(alerts.children.filter(Boolean).length, 0);
+
+  page.props.stat.ticket_pending_total = 2;
+  page.props.stat.commission_pending_total = 3;
+  const pendingAlerts = page.renderAlerts();
+  assert.equal(pendingAlerts.children.filter(Boolean).length, 2);
+});
+
 test('Admin home redirects to login on mount', async () => {
   const source = await fs.readFile(new URL('../src/pages/Index.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
