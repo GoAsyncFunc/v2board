@@ -1,8 +1,17 @@
 import React from 'react';
-import { Button, Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Button from 'antd/lib/button';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, TelegramConfig } from '../../types/config';
 
-export default function TelegramConfigTab({ telegram, webhookLoading, onChange, onSetWebhook }) {
+interface TelegramConfigTabProps {
+  telegram: TelegramConfig;
+  webhookLoading: boolean;
+  onChange: ConfigChangeHandler<TelegramConfig>;
+  onSetWebhook: () => void;
+}
+
+export default function TelegramConfigTab({ telegram, webhookLoading, onChange, onSetWebhook }: TelegramConfigTabProps) {
   return (
     <div>
       <ConfigRow title="机器人Token" description="请输入由Botfather提供的token。">
@@ -28,7 +37,7 @@ export default function TelegramConfigTab({ telegram, webhookLoading, onChange, 
       )}
       <ConfigRow title="开启机器人通知" description="开启后bot将会对绑定了telegram的管理员和用户进行基础通知。">
         <Switch
-          checked={parseInt(telegram.telegram_bot_enable)}
+          checked={Boolean(parseInt(String(telegram.telegram_bot_enable), 10))}
           onChange={enabled => onChange('telegram_bot_enable', enabled ? 1 : 0)}
         />
       </ConfigRow>

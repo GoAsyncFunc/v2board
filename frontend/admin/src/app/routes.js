@@ -1,5 +1,5 @@
 import ConfigPayment from '../pages/ConfigPayment.jsx';
-import ConfigSystem from '../pages/ConfigSystem.jsx';
+import ConfigSystem from '../pages/ConfigSystem.tsx';
 import ConfigTheme from '../pages/ConfigTheme.jsx';
 import Coupon from '../pages/Coupon.jsx';
 import Giftcard from '../pages/Giftcard.jsx';

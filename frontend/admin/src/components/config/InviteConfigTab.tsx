@@ -1,11 +1,22 @@
 import React from 'react';
-import { Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, ConfigValue, InviteConfig } from '../../types/config';
 
-function TextSetting({ title, description, value, onChange, parseValue = value => value, multiline = false, isChildren = false }) {
+interface TextSettingProps {
+  title: string;
+  description?: string;
+  value?: Exclude<ConfigValue, null>;
+  onChange: (value: ConfigValue) => void;
+  parseValue?: (value: string) => ConfigValue;
+  multiline?: boolean;
+  isChildren?: boolean;
+}
+
+function TextSetting({ title, description, value, onChange, parseValue = value => value, multiline = false, isChildren = false }: TextSettingProps) {
   const field = multiline ? (
     <textarea
-      rows="4"
+      rows={4}
       className="form-control"
       placeholder="请输入后缀域名，逗号分割 如：支付宝,USDT,贝宝"
       defaultValue={value}
@@ -23,15 +34,27 @@ function TextSetting({ title, description, value, onChange, parseValue = value =
   return <ConfigRow isChildren={isChildren} title={title} description={description}>{field}</ConfigRow>;
 }
 
-function ToggleSetting({ title, description, value, onChange }) {
+interface ToggleSettingProps {
+  title: string;
+  description?: string;
+  value?: string | number;
+  onChange: (value: number) => void;
+}
+
+function ToggleSetting({ title, description, value, onChange }: ToggleSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
-      <Switch checked={parseInt(value)} onChange={enabled => onChange(enabled ? 1 : 0)} />
+      <Switch checked={Boolean(parseInt(String(value), 10))} onChange={enabled => onChange(enabled ? 1 : 0)} />
     </ConfigRow>
   );
 }
 
-export default function InviteConfigTab({ invite, onChange }) {
+interface InviteConfigTabProps {
+  invite: InviteConfig;
+  onChange: ConfigChangeHandler<InviteConfig>;
+}
+
+export default function InviteConfigTab({ invite, onChange }: InviteConfigTabProps) {
   return (
     <div>
       <ToggleSetting
@@ -97,7 +120,7 @@ export default function InviteConfigTab({ invite, onChange }) {
         value={invite.commission_distribution_enable}
         onChange={value => onChange('commission_distribution_enable', value)}
       />
-      {parseInt(invite.commission_distribution_enable) ? (
+      {parseInt(String(invite.commission_distribution_enable), 10) ? (
         <>
           <TextSetting isChildren title="一级邀请人比例" value={invite.commission_distribution_l1} onChange={value => onChange('commission_distribution_l1', value)} />
           <TextSetting isChildren title="二级邀请人比例" value={invite.commission_distribution_l2} onChange={value => onChange('commission_distribution_l2', value)} />

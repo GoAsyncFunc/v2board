@@ -1,17 +1,33 @@
 import React from 'react';
-import { Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, ConfigValue, PlanSummary, SiteConfig } from '../../types/config';
 
-function TextSetting({ title, description, placeholder, value, onChange, multiline = false }) {
+interface TextSettingProps {
+  title: string;
+  description?: string;
+  placeholder?: string;
+  value?: Exclude<ConfigValue, null>;
+  onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  multiline?: boolean;
+}
+
+function TextSetting({ title, description, placeholder, value, onChange, multiline = false }: TextSettingProps) {
   const field = multiline ? (
-    <textarea rows="4" className="form-control" placeholder={placeholder} defaultValue={value} onChange={onChange} />
+    <textarea rows={4} className="form-control" placeholder={placeholder} defaultValue={value} onChange={onChange} />
   ) : (
     <input type="text" className="form-control" placeholder={placeholder} defaultValue={value} onChange={onChange} />
   );
   return <ConfigRow title={title} description={description}>{field}</ConfigRow>;
 }
 
-export default function SiteConfigTab({ site, plans, onChange }) {
+interface SiteConfigTabProps {
+  site: SiteConfig;
+  plans: PlanSummary[];
+  onChange: ConfigChangeHandler<SiteConfig>;
+}
+
+export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabProps) {
   return (
     <div>
       <TextSetting
@@ -36,7 +52,7 @@ export default function SiteConfigTab({ site, plans, onChange }) {
         onChange={event => onChange('app_url', event.target.value)}
       />
       <ConfigRow title="强制HTTPS" description="当站点没有使用HTTPS，CDN或反代开启强制HTTPS时需要开启。">
-        <Switch checked={parseInt(site.force_https)} onChange={enabled => onChange('force_https', enabled ? 1 : 0)} />
+        <Switch checked={Boolean(parseInt(String(site.force_https), 10))} onChange={enabled => onChange('force_https', enabled ? 1 : 0)} />
       </ConfigRow>
       <TextSetting
         title="LOGO"
@@ -68,7 +84,7 @@ export default function SiteConfigTab({ site, plans, onChange }) {
         onChange={event => onChange('tos_url', event.target.value)}
       />
       <ConfigRow title="停止新用户注册" description="开启后任何人都将无法进行注册。">
-        <Switch checked={parseInt(site.stop_register)} onChange={enabled => onChange('stop_register', enabled ? 1 : 0)} />
+        <Switch checked={Boolean(parseInt(String(site.stop_register), 10))} onChange={enabled => onChange('stop_register', enabled ? 1 : 0)} />
       </ConfigRow>
       <ConfigRow title="注册试用" description="选择需要试用的订阅，如果没有选项请先前往订阅管理添加。">
         <select

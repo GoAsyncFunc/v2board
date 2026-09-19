@@ -1,8 +1,16 @@
 import React from 'react';
-import { Button } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Button from 'antd/lib/button';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, EmailConfig } from '../../types/config';
 
-function TextSetting({ title, description, value, onChange }) {
+interface TextSettingProps {
+  title: string;
+  description: string;
+  value?: string | number;
+  onChange: (value: string) => void;
+}
+
+function TextSetting({ title, description, value, onChange }: TextSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
       <input
@@ -16,7 +24,15 @@ function TextSetting({ title, description, value, onChange }) {
   );
 }
 
-export default function EmailConfigTab({ email, templates, testSendMailLoading, onChange, onTestSendMail }) {
+interface EmailConfigTabProps {
+  email: EmailConfig;
+  templates: string[];
+  testSendMailLoading: boolean;
+  onChange: ConfigChangeHandler<EmailConfig>;
+  onTestSendMail: () => void;
+}
+
+export default function EmailConfigTab({ email, templates, testSendMailLoading, onChange, onTestSendMail }: EmailConfigTabProps) {
   return (
     <>
       <div className="block-content">

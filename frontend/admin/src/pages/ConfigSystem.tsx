@@ -1,20 +1,40 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import { Tabs } from '../vendor/ui.js';
-import MainLayout from '../layouts/MainLayout.jsx';
-import SiteConfigTab from '../components/config/SiteConfigTab.jsx';
-import SafeConfigTab from '../components/config/SafeConfigTab.jsx';
-import SubscribeConfigTab from '../components/config/SubscribeConfigTab.jsx';
-import DepositConfigTab from '../components/config/DepositConfigTab.jsx';
-import TicketConfigTab from '../components/config/TicketConfigTab.jsx';
-import InviteConfigTab from '../components/config/InviteConfigTab.jsx';
-import FrontendConfigTab from '../components/config/FrontendConfigTab.jsx';
-import ServerConfigTab from '../components/config/ServerConfigTab.jsx';
-import EmailConfigTab from '../components/config/EmailConfigTab.jsx';
-import TelegramConfigTab from '../components/config/TelegramConfigTab.jsx';
-import AppConfigTab from '../components/config/AppConfigTab.jsx';
+import { connect } from 'react-redux';
+import Tabs from 'antd/lib/tabs';
+import MainLayout from '../layouts/MainLayout';
+import SiteConfigTab from '../components/config/SiteConfigTab';
+import SafeConfigTab from '../components/config/SafeConfigTab';
+import SubscribeConfigTab from '../components/config/SubscribeConfigTab';
+import DepositConfigTab from '../components/config/DepositConfigTab';
+import TicketConfigTab from '../components/config/TicketConfigTab';
+import InviteConfigTab from '../components/config/InviteConfigTab';
+import FrontendConfigTab from '../components/config/FrontendConfigTab';
+import ServerConfigTab from '../components/config/ServerConfigTab';
+import EmailConfigTab from '../components/config/EmailConfigTab';
+import TelegramConfigTab from '../components/config/TelegramConfigTab';
+import AppConfigTab from '../components/config/AppConfigTab';
+import type { AdminDispatch } from '../types/store';
+import type { AdminConfigState, ConfigGroupKey, ConfigValue, PlanSummary } from '../types/config';
 
-export class SystemConfigPage extends React.Component {
+interface SystemConfigPageProps {
+  dispatch: AdminDispatch;
+  config: AdminConfigState;
+  plan: { plans: PlanSummary[] };
+  [key: string]: unknown;
+}
+
+interface SystemConfigRootState {
+  config: AdminConfigState;
+  plan: SystemConfigPageProps['plan'];
+}
+
+interface SystemConfigPageState {
+  tabs?: string;
+}
+
+export class SystemConfigPage extends React.Component<SystemConfigPageProps, SystemConfigPageState> {
+  inputDelayTimer: ReturnType<typeof setTimeout> | null = null;
+
   componentDidMount() {
     this.props.dispatch({ type: 'config/fetch' });
     this.props.dispatch({ type: 'plan/fetch' });
@@ -22,7 +42,7 @@ export class SystemConfigPage extends React.Component {
     this.props.dispatch({ type: 'config/getThemeTemplate' });
   }
 
-  set(parentKey, field, value) {
+  set(parentKey: ConfigGroupKey, field: string, value: ConfigValue): void {
     const config = this.props.config;
     this.props.dispatch({
       type: 'config/setState',
@@ -42,7 +62,7 @@ export class SystemConfigPage extends React.Component {
       app, testSendMailLoading, safe,
     } = this.props.config;
     const plans = this.props.plan.plans;
-    const update = (group, field, value) => this.set(group, field, value);
+    const update = (group: ConfigGroupKey, field: string, value: ConfigValue): void => this.set(group, field, value);
     return (
       <MainLayout {...this.props} title="系统配置">
         <div className={`mb-0 block border-bottom ${fetchLoading ? 'block-mode-loading' : ''}`}>
@@ -102,4 +122,4 @@ export class SystemConfigPage extends React.Component {
   }
 }
 
-export default connect(state => ({ plan: state.plan, config: state.config }))(SystemConfigPage);
+export default connect((state: SystemConfigRootState) => ({ plan: state.plan, config: state.config }))(SystemConfigPage);

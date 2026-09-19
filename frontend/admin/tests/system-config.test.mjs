@@ -8,26 +8,32 @@ async function loadConfig() {
   const actions = [], timers = new Map();
   let nextTimer = 0;
   const React = {
-    Component: class { constructor(props) { this.props = props; } },
+    Component: class {
+      constructor(props) { this.props = props; this.state = {}; }
+      setState(update) {
+        const next = typeof update === 'function' ? update(this.state, this.props) : update;
+        this.state = { ...this.state, ...next };
+      }
+    },
     createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
   };
   const components = {};
   for (const [name, file] of [
-    ['row', '../src/components/config/ConfigRow.jsx'],
-    ['site', '../src/components/config/SiteConfigTab.jsx'],
-    ['safe', '../src/components/config/SafeConfigTab.jsx'],
-    ['subscribe', '../src/components/config/SubscribeConfigTab.jsx'],
-    ['deposit', '../src/components/config/DepositConfigTab.jsx'],
-    ['ticket', '../src/components/config/TicketConfigTab.jsx'],
-    ['invite', '../src/components/config/InviteConfigTab.jsx'],
-    ['frontend', '../src/components/config/FrontendConfigTab.jsx'],
-    ['app', '../src/components/config/AppConfigTab.jsx'],
-    ['telegram', '../src/components/config/TelegramConfigTab.jsx'],
-    ['email', '../src/components/config/EmailConfigTab.jsx'],
-    ['server', '../src/components/config/ServerConfigTab.jsx'],
-    ['page', '../src/pages/ConfigSystem.jsx'],
+    ['row', '../src/components/config/ConfigRow.tsx'],
+    ['site', '../src/components/config/SiteConfigTab.tsx'],
+    ['safe', '../src/components/config/SafeConfigTab.tsx'],
+    ['subscribe', '../src/components/config/SubscribeConfigTab.tsx'],
+    ['deposit', '../src/components/config/DepositConfigTab.tsx'],
+    ['ticket', '../src/components/config/TicketConfigTab.tsx'],
+    ['invite', '../src/components/config/InviteConfigTab.tsx'],
+    ['frontend', '../src/components/config/FrontendConfigTab.tsx'],
+    ['app', '../src/components/config/AppConfigTab.tsx'],
+    ['telegram', '../src/components/config/TelegramConfigTab.tsx'],
+    ['email', '../src/components/config/EmailConfigTab.tsx'],
+    ['server', '../src/components/config/ServerConfigTab.tsx'],
+    ['page', '../src/pages/ConfigSystem.tsx'],
   ]) {
-    const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
+    const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'tsx' });
     const module = { exports: {} };
     vm.runInNewContext(code, {
       module, exports: module.exports,
@@ -35,7 +41,11 @@ async function loadConfig() {
       clearTimeout(id) { timers.delete(id); },
       require(id) {
         if (id === 'react') return React;
-        if (id.includes('reactRedux')) return { connect: () => Page => Page };
+        if (id === 'react-redux') return { connect: () => Page => Page };
+        if (id === 'antd/lib/button') return 'Button';
+        if (id === 'antd/lib/input') return 'Input';
+        if (id === 'antd/lib/switch') return 'Switch';
+        if (id === 'antd/lib/tabs') return { TabPane: 'TabPane' };
         if (id.includes('ConfigRow')) return components.row;
         if (id.includes('SiteConfigTab')) return components.site;
         if (id.includes('SafeConfigTab')) return components.safe;
@@ -49,10 +59,6 @@ async function loadConfig() {
         if (id.includes('EmailConfigTab')) return components.email;
         if (id.includes('ServerConfigTab')) return components.server;
         if (id.includes('MainLayout')) return 'Layout';
-        if (id.includes('ui.js')) return {
-          Button: 'Button', Input: 'Input', Switch: 'Switch',
-          Tabs: { TabPane: 'TabPane' },
-        };
         throw new Error(id);
       },
     });
@@ -99,6 +105,24 @@ test('System config preserves sibling fields and debounces saves for the updated
   timer.callback();
   assert.deepEqual(actions.at(-1), { type: 'config/save', parentKey: 'email' });
   assert.equal(page.inputDelayTimer, null);
+});
+
+test('System config keeps tab selection local to the page', async () => {
+  const { Page, actions, dispatch } = await loadConfig();
+  const page = new Page({
+    dispatch,
+    config: {
+      site: {}, safe: {}, subscribe: {}, deposit: {}, ticket: {}, invite: {}, frontend: {},
+      server: {}, email: {}, telegram: {}, app: {}, tabs: 'site', fetchLoading: false,
+      emailTemplate: [], themeTemplate: [], setTelegramWebhookLoading: false, testSendMailLoading: false,
+    },
+    plan: { plans: [] },
+  });
+  const tree = page.render();
+  const tabs = tree.children[0].children[0];
+  tabs.props.onChange('email');
+  assert.equal(page.state.tabs, 'email');
+  assert.deepEqual(actions, []);
 });
 
 test('Config row keeps its two-column layout, descriptions and nested-row styling', async () => {

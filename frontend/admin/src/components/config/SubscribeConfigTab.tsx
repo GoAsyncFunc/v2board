@@ -1,16 +1,37 @@
 import React from 'react';
-import { Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, SubscribeConfig } from '../../types/config';
 
-function ToggleSetting({ title, description, value, onChange }) {
+interface ToggleSettingProps {
+  title: string;
+  description: string;
+  value?: string | number;
+  onChange: (value: number) => void;
+}
+
+function ToggleSetting({ title, description, value, onChange }: ToggleSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
-      <Switch checked={parseInt(value)} onChange={enabled => onChange(enabled ? 1 : 0)} />
+      <Switch checked={Boolean(parseInt(String(value), 10))} onChange={enabled => onChange(enabled ? 1 : 0)} />
     </ConfigRow>
   );
 }
 
-function SelectSetting({ title, description, value, options, onChange }) {
+interface SelectOption {
+  value: number;
+  label: string;
+}
+
+interface SelectSettingProps {
+  title: string;
+  description: string;
+  value?: string | number;
+  options: SelectOption[];
+  onChange: (value: string) => void;
+}
+
+function SelectSetting({ title, description, value, options, onChange }: SelectSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
       <select className="form-control" value={value} onChange={event => onChange(event.target.value)}>
@@ -20,7 +41,12 @@ function SelectSetting({ title, description, value, options, onChange }) {
   );
 }
 
-export default function SubscribeConfigTab({ subscribe, onChange }) {
+interface SubscribeConfigTabProps {
+  subscribe: SubscribeConfig;
+  onChange: ConfigChangeHandler<SubscribeConfig>;
+}
+
+export default function SubscribeConfigTab({ subscribe, onChange }: SubscribeConfigTabProps) {
   const resetOptions = [
     { value: 0, label: '每月1号' },
     { value: 1, label: '按月重置' },

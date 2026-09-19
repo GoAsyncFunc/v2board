@@ -1,8 +1,14 @@
 import React from 'react';
-import { Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, FrontendConfig } from '../../types/config';
 
-export default function FrontendConfigTab({ frontend, onChange }) {
+interface FrontendConfigTabProps {
+  frontend: FrontendConfig;
+  onChange: ConfigChangeHandler<FrontendConfig>;
+}
+
+export default function FrontendConfigTab({ frontend, onChange }: FrontendConfigTabProps) {
   return (
     <>
       <div className="block-content">
@@ -22,7 +28,7 @@ export default function FrontendConfigTab({ frontend, onChange }) {
           <Switch
             checkedChildren="亮"
             unCheckedChildren="暗"
-            checked={frontend.frontend_theme_sidebar === 'light' ? 1 : 0}
+            checked={frontend.frontend_theme_sidebar === 'light'}
             onChange={enabled => onChange('frontend_theme_sidebar', enabled ? 'light' : 'dark')}
           />
         </ConfigRow>
@@ -30,7 +36,7 @@ export default function FrontendConfigTab({ frontend, onChange }) {
           <Switch
             checkedChildren="亮"
             unCheckedChildren="暗"
-            checked={frontend.frontend_theme_header === 'light' ? 1 : 0}
+            checked={frontend.frontend_theme_header === 'light'}
             onChange={enabled => onChange('frontend_theme_header', enabled ? 'light' : 'dark')}
           />
         </ConfigRow>

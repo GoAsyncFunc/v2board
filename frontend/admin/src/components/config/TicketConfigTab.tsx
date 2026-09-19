@@ -1,7 +1,13 @@
 import React from 'react';
-import ConfigRow from './ConfigRow.jsx';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, TicketConfig } from '../../types/config';
 
-export default function TicketConfigTab({ ticket, onChange }) {
+interface TicketConfigTabProps {
+  ticket: TicketConfig;
+  onChange: ConfigChangeHandler<TicketConfig>;
+}
+
+export default function TicketConfigTab({ ticket, onChange }: TicketConfigTabProps) {
   return (
     <div>
       <ConfigRow title="工单设置" description="请选择工单的状态。">

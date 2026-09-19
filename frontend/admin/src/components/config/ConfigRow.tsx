@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function ConfigRow({ title, description, isChildren, children }) {
+export interface ConfigRowProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  isChildren?: boolean;
+  children?: React.ReactNode;
+}
+
+export default function ConfigRow({ title, description, isChildren = false, children }: ConfigRowProps) {
   return (
     <div
       className={`row ${isChildren ? 'v2board-config-children' : ''}`}

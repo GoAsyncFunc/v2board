@@ -1,7 +1,17 @@
 import React from 'react';
-import ConfigRow from './ConfigRow.jsx';
+import ConfigRow from './ConfigRow';
+import type { AppConfig, ConfigChangeHandler } from '../../types/config';
 
-function AppPlatformSetting({ name, description, version, downloadUrl, onChange, downloadPlaceholder }) {
+interface AppPlatformSettingProps {
+  name: string;
+  description: string;
+  version?: string;
+  downloadUrl?: string;
+  downloadPlaceholder: string;
+  onChange: (field: 'version' | 'downloadUrl', value: string) => void;
+}
+
+function AppPlatformSetting({ name, description, version, downloadUrl, onChange, downloadPlaceholder }: AppPlatformSettingProps) {
   return (
     <ConfigRow title={name} description={description}>
       <input
@@ -22,7 +32,12 @@ function AppPlatformSetting({ name, description, version, downloadUrl, onChange,
   );
 }
 
-export default function AppConfigTab({ app, onChange }) {
+interface AppConfigTabProps {
+  app: AppConfig;
+  onChange: ConfigChangeHandler<AppConfig>;
+}
+
+export default function AppConfigTab({ app, onChange }: AppConfigTabProps) {
   return (
     <>
       <div className="block-content">

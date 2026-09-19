@@ -6,6 +6,18 @@ import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
 const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console', 'window', 'setTimeout', 'clearTimeout']);
 for (const file of [
+  'admin/src/components/config/AppConfigTab.tsx',
+  'admin/src/components/config/ConfigRow.tsx',
+  'admin/src/components/config/DepositConfigTab.tsx',
+  'admin/src/components/config/EmailConfigTab.tsx',
+  'admin/src/components/config/FrontendConfigTab.tsx',
+  'admin/src/components/config/InviteConfigTab.tsx',
+  'admin/src/components/config/SafeConfigTab.tsx',
+  'admin/src/components/config/ServerConfigTab.tsx',
+  'admin/src/components/config/SiteConfigTab.tsx',
+  'admin/src/components/config/SubscribeConfigTab.tsx',
+  'admin/src/components/config/TelegramConfigTab.tsx',
+  'admin/src/components/config/TicketConfigTab.tsx',
   'admin/src/components/ShadowsocksEditor.jsx',
   'admin/src/components/AnyTlsEditor.jsx',
   'admin/src/components/AssignOrderEditor.tsx',
@@ -22,6 +34,7 @@ for (const file of [
   'admin/src/components/VlessEditor.jsx',
   'admin/src/components/VmessEditor.jsx',
   'admin/src/pages/ConfigPayment.jsx',
+  'admin/src/pages/ConfigSystem.tsx',
   'admin/src/pages/Giftcard.jsx',
   'admin/src/pages/Knowledge.jsx',
   'admin/src/pages/Queue.tsx',

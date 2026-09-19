@@ -37,7 +37,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ConfigSystem.jsx"
+    "to": "pages/ConfigSystem.tsx"
   },
   {
     "from": "app/routes.js",
@@ -468,80 +468,48 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/config/AppConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/AppConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/DepositConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/DepositConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/EmailConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/EmailConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/EmailConfigTab.jsx",
-    "to": "vendor/ui.js"
+    "from": "components/config/FrontendConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/FrontendConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/InviteConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/FrontendConfigTab.jsx",
-    "to": "vendor/ui.js"
+    "from": "components/config/SafeConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/InviteConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/ServerConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/InviteConfigTab.jsx",
-    "to": "vendor/ui.js"
+    "from": "components/config/SiteConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/SafeConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/SubscribeConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/SafeConfigTab.jsx",
-    "to": "vendor/ui.js"
+    "from": "components/config/TelegramConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "components/config/ServerConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
-  },
-  {
-    "from": "components/config/ServerConfigTab.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/config/SiteConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
-  },
-  {
-    "from": "components/config/SiteConfigTab.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/config/SubscribeConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
-  },
-  {
-    "from": "components/config/SubscribeConfigTab.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/config/TelegramConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
-  },
-  {
-    "from": "components/config/TelegramConfigTab.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/config/TicketConfigTab.jsx",
-    "to": "components/config/ConfigRow.jsx"
+    "from": "components/config/TicketConfigTab.tsx",
+    "to": "components/config/ConfigRow.tsx"
   },
   {
     "from": "layouts/Header.jsx",
@@ -852,60 +820,52 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/AppConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/AppConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/DepositConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/DepositConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/EmailConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/EmailConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/FrontendConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/FrontendConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/InviteConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/InviteConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/SafeConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/SafeConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/ServerConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/ServerConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/SiteConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/SiteConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/SubscribeConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/SubscribeConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/TelegramConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/TelegramConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "components/config/TicketConfigTab.jsx"
+    "from": "pages/ConfigSystem.tsx",
+    "to": "components/config/TicketConfigTab.tsx"
   },
   {
-    "from": "pages/ConfigSystem.jsx",
+    "from": "pages/ConfigSystem.tsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/ConfigTheme.jsx",

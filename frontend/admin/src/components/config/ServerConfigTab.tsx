@@ -1,8 +1,17 @@
 import React from 'react';
-import { Input, Switch } from '../../vendor/ui.js';
-import ConfigRow from './ConfigRow.jsx';
+import Input from 'antd/lib/input';
+import Switch from 'antd/lib/switch';
+import ConfigRow from './ConfigRow';
+import type { ConfigChangeHandler, ServerConfig } from '../../types/config';
 
-function TextSetting({ title, description, value, onChange }) {
+interface TextSettingProps {
+  title: string;
+  description: string;
+  value?: string | number;
+  onChange: (value: string) => void;
+}
+
+function TextSetting({ title, description, value, onChange }: TextSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
       <input
@@ -16,7 +25,11 @@ function TextSetting({ title, description, value, onChange }) {
   );
 }
 
-function NumberSetting({ title, description, value, unit, onChange }) {
+interface NumberSettingProps extends TextSettingProps {
+  unit: string;
+}
+
+function NumberSetting({ title, description, value, unit, onChange }: NumberSettingProps) {
   return (
     <ConfigRow title={title} description={description}>
       <Input
@@ -31,7 +44,12 @@ function NumberSetting({ title, description, value, unit, onChange }) {
   );
 }
 
-export default function ServerConfigTab({ server, onChange }) {
+interface ServerConfigTabProps {
+  server: ServerConfig;
+  onChange: ConfigChangeHandler<ServerConfig>;
+}
+
+export default function ServerConfigTab({ server, onChange }: ServerConfigTabProps) {
   return (
     <div>
       <TextSetting
@@ -75,7 +93,7 @@ export default function ServerConfigTab({ server, onChange }) {
         onChange={value => onChange('server_device_online_min_traffic', value)}
       />
       <ConfigRow title="全局设备数限制采用宽松模式" description="开启后同一IP地址使用多个节点只统计为一个设备">
-        <Switch checked={parseInt(server.device_limit_mode)} onChange={enabled => onChange('device_limit_mode', enabled ? 1 : 0)} />
+        <Switch checked={Boolean(parseInt(String(server.device_limit_mode), 10))} onChange={enabled => onChange('device_limit_mode', enabled ? 1 : 0)} />
       </ConfigRow>
     </div>
   );
