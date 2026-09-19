@@ -24,6 +24,7 @@ async function loadConfig() {
     ['app', '../src/components/config/AppConfigTab.jsx'],
     ['telegram', '../src/components/config/TelegramConfigTab.jsx'],
     ['email', '../src/components/config/EmailConfigTab.jsx'],
+    ['server', '../src/components/config/ServerConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -46,6 +47,7 @@ async function loadConfig() {
         if (id.includes('AppConfigTab')) return components.app;
         if (id.includes('TelegramConfigTab')) return components.telegram;
         if (id.includes('EmailConfigTab')) return components.email;
+        if (id.includes('ServerConfigTab')) return components.server;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -67,6 +69,7 @@ async function loadConfig() {
     AppConfigTab: components.app.default,
     TelegramConfigTab: components.telegram.default,
     EmailConfigTab: components.email.default,
+    ServerConfigTab: components.server.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -439,4 +442,39 @@ test('Email config tab maps SMTP fields, templates and test-mail action', async 
   controls.find(control => control.props.onClick).props.onClick();
   assert.equal(testMailCalls, 1);
   assert.deepEqual(changes, [['email_host', 'smtp.new.test']]);
+});
+
+test('Server config tab maps node endpoints, numeric intervals and device mode', async () => {
+  const { ServerConfigTab } = await loadConfig();
+  const changes = [];
+  const tree = ServerConfigTab({
+    server: {
+      server_api_url: '/api', server_token: 'secret',
+      server_pull_interval: 60, server_push_interval: 60,
+      server_node_report_min_traffic: 100, server_device_online_min_traffic: 50,
+      device_limit_mode: 0,
+    },
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  controls.find(control => control.props.defaultValue === '/api')
+    .props.onChange({ target: { value: '/node-api' } });
+  controls.find(control => control.props.defaultValue === 60)
+    .props.onChange({ target: { value: '120' } });
+  assert.deepEqual(changes, [
+    ['server_api_url', '/node-api'],
+    ['server_pull_interval', '120'],
+  ]);
 });

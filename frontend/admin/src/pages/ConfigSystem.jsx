@@ -16,6 +16,7 @@ import FrontendConfigTab from "../components/config/FrontendConfigTab.jsx";
 import AppConfigTab from "../components/config/AppConfigTab.jsx";
 import TelegramConfigTab from "../components/config/TelegramConfigTab.jsx";
 import EmailConfigTab from "../components/config/EmailConfigTab.jsx";
+import ServerConfigTab from "../components/config/ServerConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -126,169 +127,11 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "节点",
-                                key: "server",
-                            },
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "节点对接API地址",
-                                        description:
-                                            "v2node节点一键对接专用地址。",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={server.server_api_url}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "server",
-                                                "server_api_url",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "通讯密钥",
-                                        description:
-                                            "V2board与节点通讯的密钥，以便数据不会被他人获取。",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"请输入"}
-                                        defaultValue={server.server_token}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "server",
-                                                "server_token",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "节点拉取动作轮询间隔",
-                                        description:
-                                            "节点从面板获取数据的间隔频率。",
-                                    },
-                                    React.createElement(Input, {
-                                        addonAfter: "秒",
-                                        size: "large",
-                                        type: "number",
-                                        placeholder: "请输入",
-                                        defaultValue:
-                                            server.server_pull_interval,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "server",
-                                                "server_pull_interval",
-                                                e.target.value,
-                                            ),
-                                    }),
-                                )}
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "节点推送动作轮询间隔",
-                                        description:
-                                            "节点推送数据到面板的间隔频率。",
-                                    },
-                                    React.createElement(Input, {
-                                        addonAfter: "秒",
-                                        size: "large",
-                                        type: "number",
-                                        placeholder: "请输入",
-                                        defaultValue:
-                                            server.server_push_interval,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "server",
-                                                "server_push_interval",
-                                                e.target.value,
-                                            ),
-                                    }),
-                                )}
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "节点用户流量上报最低阈值",
-                                        description:
-                                            "每次推送动作仅累计使用流量高于阈值的用户信息会被上报，未上报流量会累计",
-                                    },
-                                    React.createElement(Input, {
-                                        addonAfter: "Kb",
-                                        size: "large",
-                                        type: "number",
-                                        placeholder: "请输入",
-                                        defaultValue:
-                                            server.server_node_report_min_traffic,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "server",
-                                                "server_node_report_min_traffic",
-                                                e.target.value,
-                                            ),
-                                    }),
-                                )}
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "节点用户设备数统计最低阈值",
-                                        description:
-                                            "每次推送动作仅上报流量高于阈值的在线设备IP地址会被节点统计",
-                                    },
-                                    React.createElement(Input, {
-                                        addonAfter: "Kb",
-                                        size: "large",
-                                        type: "number",
-                                        placeholder: "请输入",
-                                        defaultValue:
-                                            server.server_device_online_min_traffic,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "server",
-                                                "server_device_online_min_traffic",
-                                                e.target.value,
-                                            ),
-                                    }),
-                                )}
-                            </div>,
-                            React.createElement(
-                                ConfigRow,
-                                {
-                                    title: "全局设备数限制采用宽松模式",
-                                    description:
-                                        "开启后同一IP地址使用多个节点只统计为一个设备",
-                                },
-                                React.createElement(Switch, {
-                                    checked: parseInt(server.device_limit_mode),
-                                    onChange: (e) =>
-                                        this.set(
-                                            "server",
-                                            "device_limit_mode",
-                                            e ? 1 : 0,
-                                        ),
-                                }),
-                            ),
+                            { tab: "节点", key: "server" },
+                            <ServerConfigTab
+                                server={server}
+                                onChange={(field, value) => this.set("server", field, value)}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,
