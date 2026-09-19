@@ -237,7 +237,7 @@
   },
   {
     "from": "components/OrderColumns.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/OrderColumns.jsx",
@@ -261,7 +261,7 @@
   },
   {
     "from": "components/PlanCard.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/PlanCard.jsx",
@@ -409,7 +409,7 @@
   },
   {
     "from": "components/checkout/Coupon.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/checkout/Coupon.jsx",
@@ -425,7 +425,7 @@
   },
   {
     "from": "components/checkout/OrderInfo.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/checkout/OrderInfo.jsx",
@@ -445,7 +445,7 @@
   },
   {
     "from": "components/checkout/OrderPaymentSummary.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.jsx",
@@ -469,7 +469,7 @@
   },
   {
     "from": "components/checkout/OrderSummary.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/checkout/OrderSummary.jsx",
@@ -509,7 +509,7 @@
   },
   {
     "from": "components/checkout/Pricing.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "components/checkout/Pricing.jsx",
@@ -837,7 +837,7 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "pages/Invite.jsx",
@@ -997,7 +997,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "pages/Order.jsx",
@@ -1169,7 +1169,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "components/MoneyDisplay.jsx"
+    "to": "components/MoneyDisplay.ts"
   },
   {
     "from": "pages/Profile.jsx",

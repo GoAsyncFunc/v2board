@@ -4,7 +4,7 @@ import { Badge } from '../vendor/ui.js';
 import { Tag } from '../vendor/ui.js';
 import history from '../vendor/routerHistory.js';
 import { formatDateTime } from './DateTimeDisplay.jsx';
-import { formatPrice } from './MoneyDisplay.jsx';
+import { formatPrice } from './MoneyDisplay.ts';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { formatMessage } from '../vendor/i18n.js';
 

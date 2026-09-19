@@ -2,7 +2,7 @@ import React from 'react';
 import { Radio } from '../../vendor/ui.js';
 import { localeSettings as settings } from '../../vendor/localeSettings.js';
 import { formatMessage } from '../../vendor/i18n.js';
-import { formatPrice } from '../MoneyDisplay.jsx';
+import { formatPrice } from '../MoneyDisplay.ts';
 
 export function PeriodSelector({ plan, period, currencySymbol, onSelect }) {
   return <div className="block block-rounded js-appear-enabled">

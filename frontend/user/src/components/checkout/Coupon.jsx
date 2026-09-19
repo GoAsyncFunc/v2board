@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatMessage } from '../../vendor/i18n.js';
 import { couponDiscount } from './Pricing.jsx';
-import { formatPrice } from '../MoneyDisplay.jsx';
+import { formatPrice } from '../MoneyDisplay.ts';
 
 export function CouponInput({ inputRef, onCheck }) {
   return <div className="block block-link-pop block-rounded  px-3 py-3 mb-2 text-light" style={{ background: '#35383D' }}>

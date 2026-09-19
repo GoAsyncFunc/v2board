@@ -7,7 +7,7 @@ import { Modal } from '../vendor/Modal.js';
 import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
 import { formatDateTimeSeconds } from '../components/DateTimeDisplay.jsx';
-import { formatPrice } from '../components/MoneyDisplay.jsx';
+import { formatPrice } from '../components/MoneyDisplay.ts';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';

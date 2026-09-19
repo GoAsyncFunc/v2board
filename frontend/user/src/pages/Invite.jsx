@@ -1,6 +1,6 @@
 import React from 'react';
 import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns.jsx';
-import { formatMoney } from '../components/MoneyDisplay.jsx';
+import { formatMoney } from '../components/MoneyDisplay.ts';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
 import { Table, Button, Tooltip, message } from '../vendor/ui.js';

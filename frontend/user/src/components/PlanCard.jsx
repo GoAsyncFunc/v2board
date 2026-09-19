@@ -3,7 +3,7 @@ import history from '../vendor/routerHistory.js';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { parseJson } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatPrice } from './MoneyDisplay.jsx';
+import { formatPrice } from './MoneyDisplay.ts';
 const message = id => formatMessage({ id });
 
 export function getUnitPriceTag(plan) {

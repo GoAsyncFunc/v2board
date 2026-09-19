@@ -2,7 +2,7 @@ import React from "react";
 import { formatMessage } from "../../vendor/i18n.js";
 import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
-import { formatPrice } from "../../components/MoneyDisplay.jsx";
+import { formatPrice } from "../../components/MoneyDisplay.ts";
 import { Modal } from "../../vendor/Modal.js";
 import { LoadingContainer } from "../../vendor/ui.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {

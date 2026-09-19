@@ -8,7 +8,7 @@ import TelegramBindModal from '../components/TelegramBindModal.jsx';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { get } from '../services/request.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatMoney } from '../components/MoneyDisplay.jsx';
+import { formatMoney } from '../components/MoneyDisplay.ts';
 
 export class ProfilePage extends React.Component {
   constructor(props) {

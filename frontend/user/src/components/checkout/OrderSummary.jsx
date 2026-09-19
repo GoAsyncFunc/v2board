@@ -4,7 +4,7 @@ import { localeSettings as settings } from '../../vendor/localeSettings.js';
 import { formatMessage } from '../../vendor/i18n.js';
 import { CouponDiscount } from './Coupon.jsx';
 import { totalAmount } from './Pricing.jsx';
-import { formatPrice } from '../MoneyDisplay.jsx';
+import { formatPrice } from '../MoneyDisplay.ts';
 
 export default function OrderSummary({ plan, period, coupon, config, saving, onOrder }) {
   return <div className="block block-link-pop block-rounded  px-3 py-3 text-light" style={{ background: '#35383D' }}>

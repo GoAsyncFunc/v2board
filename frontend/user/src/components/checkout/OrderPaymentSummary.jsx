@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "../../vendor/Icon.js";
 import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatMessage } from "../../vendor/i18n.js";
-import { formatPrice } from "../MoneyDisplay.jsx";
+import { formatPrice } from "../MoneyDisplay.ts";
 export default function OrderPaymentSummary({
     order,
     config,
