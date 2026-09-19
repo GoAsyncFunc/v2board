@@ -1,12 +1,12 @@
 import React from "react";
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import {
     enable as enableDarkMode,
     disable as disableDarkMode,
 } from "../vendor/theme.js";
 import {
-    e as getPreference,
-    q as setPreference,
+    getCookie,
+    setCookie,
 } from "../vendor/siteHelpers.js";
 import { formatMessage } from "../vendor/i18n.js";
 import { a as LanguageSelector } from "../components/LanguageSelector.jsx";
@@ -52,14 +52,14 @@ export class Header extends React.Component {
         });
     }
     darkMode() {
-        ("1" === getPreference("dark_mode")
-            ? (disableDarkMode(), setPreference("dark_mode", 0))
+        ("1" === getCookie("dark_mode")
+            ? (disableDarkMode(), setCookie("dark_mode", 0))
             : (enableDarkMode({
                   brightness: 100,
                   contrast: 90,
                   sepia: 10,
               }),
-              setPreference("dark_mode", 1)),
+              setCookie("dark_mode", 1)),
             this.forceUpdate());
     }
     render() {
@@ -133,7 +133,7 @@ export class Header extends React.Component {
                                 }
                                 onClick={() => this.darkMode()}
                             >
-                                {"1" === getPreference("dark_mode") ? (
+                                {"1" === getCookie("dark_mode") ? (
                                     <i className={"far fa fa-moon"}></i>
                                 ) : (
                                     <i className={"far fa fa-sun"}></i>

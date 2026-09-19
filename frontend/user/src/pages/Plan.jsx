@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import PlanCard, { getUnitPriceTag, matchesPlanTab } from '../components/PlanCard.jsx';
 const message = id => formatMessage({ id });

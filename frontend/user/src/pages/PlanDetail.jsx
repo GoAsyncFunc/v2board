@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Result } from '../vendor/features.js';
 import { Button } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { h as isExpired, c as parsePlanContent } from '../vendor/siteHelpers.js';
+import { isExpired, parseJson } from '../vendor/siteHelpers.js';
 import { router } from '../vendor/appRuntime.js';
 import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing.jsx';
 import { CouponInput, CouponDiscount } from '../components/checkout/Coupon.jsx';
@@ -64,7 +64,7 @@ export class PlanDetailPage extends React.Component {
   render() {
     const { plan, selectPeriod: period, fetchLoading: loading } = this.props.plan;
     const { config } = this.props.comm;
-    const content = parsePlanContent(plan.content);
+    const content = parseJson(plan.content);
     return <MainLayout {...this.props} title={message('配置订阅')}>
       <main id="main-container"><div className="content content-full">
         {loading ? <div className="spinner-grow text-primary" role="status"><span className="sr-only">Loading...</span></div>

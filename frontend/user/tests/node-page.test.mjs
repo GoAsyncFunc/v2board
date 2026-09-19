@@ -18,11 +18,11 @@ async function load(original) {
       if (id === 'react' || id.includes('reactRuntime')) return React;
       if (id.includes('NodeColumns')) return evaluate('columns');
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
-      if (id.includes('reactRedux')) return { c: () => component => component };
+      if (id.includes('reactRedux')) return { c: () => component => component, connect: () => component => component };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
-      if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]) };
+      if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]), calculateUsage: (...args) => trace.push(['usage', ...args]) };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
-      for (const [key, label] of [['antdTable', 'Table'], ['antdTag', 'Tag'], ['antdBadge', 'Badge'], ['antdTooltip', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label };
+      for (const [key, label] of [['antdTable', 'Table'], ['antdTag', 'Tag'], ['antdBadge', 'Badge'], ['antdTooltip', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label, [label]: label };
       if (/67395956|2b424a64|41776870|35446d6f|iconStyles|request|77642f52|2f497261/.test(id)) return {};
       if (id.includes('6a65685a')) return Object.assign;
       if (id.includes('moduleInterop')) return { markEsModule: o => Object.defineProperty(o, '__esModule', { value: true }), interopDefault: obj => { const fn = () => obj; Object.defineProperty(fn, 'a', { get: fn }); return fn; } };

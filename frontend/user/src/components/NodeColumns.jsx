@@ -2,7 +2,7 @@ import React from 'react';
 import { Tag } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { formatMessage } from '../vendor/i18n.js';
 
 import '../vendor/iconStyles.js';

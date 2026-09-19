@@ -2,7 +2,7 @@ import { get, post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
 import { message } from '../vendor/ui.js';
 import moment from '../vendor/dateTime.js';
-import { b as formatTraffic } from '../vendor/siteHelpers.js';
+import { formatBytes } from '../vendor/siteHelpers.js';
 import * as sessionEffects from './sessionEffects.js';
 
 import '../vendor/componentStyles.js';
@@ -39,8 +39,8 @@ export default {
         window.$crisp.push(['set', 'session:data', [[
           ['Plan', subscription.plan?.name || '-'],
           ['ExpireTime', moment(1000 * subscription.expired_at).format('YYYY-MM-DD')],
-          ['UsedTraffic', formatTraffic(subscription.u + subscription.d)],
-          ['AllTraffic', formatTraffic(subscription.transfer_enable)],
+          ['UsedTraffic', formatBytes(subscription.u + subscription.d)],
+          ['AllTraffic', formatBytes(subscription.transfer_enable)],
         ]]]);
       }
     },

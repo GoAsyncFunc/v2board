@@ -1,9 +1,9 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { Table } from '../vendor/ui.js';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
-import { f as calculateUsage } from '../vendor/siteHelpers.js';
+import { calculateUsage } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createNodeColumns } from '../components/NodeColumns.jsx';
 

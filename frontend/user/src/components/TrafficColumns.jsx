@@ -2,8 +2,8 @@ import React from 'react';
 import moment from '../vendor/dateTime.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Tag } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { b as formatTraffic } from '../vendor/siteHelpers.js';
+import { Icon } from '../vendor/Icon.js';
+import { formatBytes } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 
 import '../vendor/iconStyles.js';
@@ -18,11 +18,11 @@ export function createTrafficColumns() {
     },
     {
       title: message('实际上行'), dataIndex: 'u', key: 'u', align: 'right',
-      render: (value, record) => record.server_rate ? formatTraffic(parseInt(value)) : 0,
+      render: (value, record) => record.server_rate ? formatBytes(parseInt(value)) : 0,
     },
     {
       title: message('实际下行'), dataIndex: 'd', key: 'd', align: 'right',
-      render: (value, record) => record.server_rate ? formatTraffic(parseInt(value)) : 0,
+      render: (value, record) => record.server_rate ? formatBytes(parseInt(value)) : 0,
     },
     {
       title: message('扣费倍率'), dataIndex: 'server_rate', key: 'server_rate', align: 'center',
@@ -33,7 +33,7 @@ export function createTrafficColumns() {
         {message('合计')}{' '}<Icon type="question-circle" />
       </Tooltip>,
       dataIndex: 'total', key: 'total', align: 'right', fixed: 'right',
-      render: (value, record) => formatTraffic((parseInt(record.u) + parseInt(record.d)) * record.server_rate),
+      render: (value, record) => formatBytes((parseInt(record.u) + parseInt(record.d)) * record.server_rate),
     },
   ];
 }

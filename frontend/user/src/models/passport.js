@@ -1,6 +1,6 @@
 import { get, post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { p as saveToken, r as notify } from '../vendor/siteHelpers.js';
+import { setToken, notify } from '../vendor/siteHelpers.js';
 
 export default {
   name: 'passport',
@@ -19,7 +19,7 @@ export default {
     *token2Login({ verify, redirect }) {
       const response = yield get('/passport/auth/token2Login', { verify, redirect });
       if (response.code !== 200 || !response.data) return;
-      saveToken(response.data.auth_data);
+      setToken(response.data.auth_data);
       return history.push(redirect || 'dashboard');
     },
     *login({ email, password, redirect }, { put }) {
@@ -27,7 +27,7 @@ export default {
       const response = yield post('/passport/auth/login', { email, password });
       yield put({ type: 'setState', payload: { loginLoading: false } });
       if (response.code !== 200) return;
-      saveToken(response.data.auth_data);
+      setToken(response.data.auth_data);
       yield put({ type: 'user/getUserInfo' });
       history.push(redirect || 'dashboard');
     },

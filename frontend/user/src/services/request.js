@@ -1,6 +1,6 @@
-import { b as fetchResponse } from "../vendor/dva.js";
+import { fetchResponse } from "../vendor/dva.js";
 import { getLocale, formatMessage } from "../vendor/i18n.js";
-import { d as getToken, o as clearToken, r as notify } from "../vendor/siteHelpers.js";
+import { getToken, clearToken, notify } from "../vendor/siteHelpers.js";
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
 document.title = window.settings.title;
 export function encodeForm(data) {

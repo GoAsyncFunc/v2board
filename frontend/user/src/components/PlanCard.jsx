@@ -1,7 +1,7 @@
 import React from 'react';
 import history from '../vendor/routerHistory.js';
-import { a as settings } from '../vendor/localeSettings.js';
-import { c as parsePlanContent } from '../vendor/siteHelpers.js';
+import { localeSettings as settings } from '../vendor/localeSettings.js';
+import { parseJson } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatPrice } from './MoneyDisplay.jsx';
 const message = id => formatMessage({ id });
@@ -25,7 +25,7 @@ export function matchesPlanTab(plan, tab) {
 
 export default function PlanCard({ plan, currencySymbol }) {
   const price = getUnitPriceTag(plan);
-  const content = parsePlanContent(plan.content);
+  const content = parseJson(plan.content);
   const soldOut = plan.capacity_limit !== null && plan.capacity_limit <= 0;
   const nearlySoldOut = plan.capacity_limit !== null && plan.capacity_limit <= 5 && plan.capacity_limit >= 1;
   return (

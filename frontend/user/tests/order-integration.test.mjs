@@ -34,12 +34,12 @@ function setup(mode){
  class Component{constructor(props){this.props=props;}setState(value){this.state={...this.state,...value};}}
  const context=vm.createContext({URL,console,document:{},window:{settings:{title:'Fixture'},location},setTimeout(fn,ms){const id=++timerId;timers.set(id,fn);events.push(['timer',ms]);return id;},clearTimeout:id=>timers.delete(id),dependency(id){
   if(id==='react'||id.includes('reactRuntime'))return {Component};
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls};
+  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};
   if(id.includes('70307045'))return Object.assign;
-  if(id.includes('dva'))return {b:fetchResponse};
+  if(id.includes('dva'))return {b:fetchResponse,fetchResponse};
   if(id.includes('i18n'))return {formatMessage:({id})=>id,getLocale:()=> 'zh-CN'};
-  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args])};
+  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args]),getToken:()=> 'fixture-token',clearToken:()=>events.push(['clear-token']),notify:(...args)=>events.push(['notify',...args])};
   if(id.includes('routerHistory'))return {push:value=>events.push(['navigate',value])};
   if(id.endsWith('/vendor/utilities.js'))return {loadable:()=>null};
   if(id.includes('reactLoadableRuntime'))return ()=>null;

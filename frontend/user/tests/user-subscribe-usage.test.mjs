@@ -14,7 +14,7 @@ async function load(original) {
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
     module, exports: module.exports, require(id) {
-      if (id.includes('siteHelpers')) return { f: percentOf };
+      if (id.includes('siteHelpers')) return { f: percentOf, calculateUsage: percentOf };
         throw Error(id);
     },
   });

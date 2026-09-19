@@ -2,8 +2,8 @@ import React from 'react';
 import { Dropdown } from '../vendor/ui.js';
 import { Menu } from '../vendor/ui.js';
 import { setLocale } from '../vendor/i18n.js';
-import { q as setCookie } from '../vendor/siteHelpers.js';
-import { a as localeSettings } from '../vendor/localeSettings.js';
+import { setCookie } from '../vendor/siteHelpers.js';
+import { localeSettings } from '../vendor/localeSettings.js';
 
 import '../vendor/componentStyles.js';
 export class LanguageSelector extends React.Component {

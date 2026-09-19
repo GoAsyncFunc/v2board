@@ -20,11 +20,11 @@ async function load(original){
    if(id==='react'||id.includes('reactRuntime'))return React;
    if(id.includes('TrafficColumns'))return evaluate('columns');
    if(id.includes('MainLayout'))return {__esModule:true,default:'Layout',a:'Layout'};
-   if(id.includes('reactRedux'))return {c:()=>component=>component};
+   if(id.includes('reactRedux'))return {c:()=>component=>component,connect:()=>component=>component};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
-   if(id.includes('siteHelpers'))return {b:value=>'traffic:'+value};
+   if(id.includes('siteHelpers'))return {b:value=>'traffic:'+value,formatBytes:value=>'traffic:'+value};
    if(id.includes('77642f52'))return value=>({format:pattern=>`${value}:${pattern}`});
-   for(const [key,label]of [['antdTable','Table'],['antdTooltip','Tooltip'],['antdTag','Tag'],['/Icon','Icon']])if(id.includes(key))return {a:label};
+   for(const [key,label]of [['antdTable','Table'],['antdTooltip','Tooltip'],['antdTag','Tag'],['/Icon','Icon']])if(id.includes(key))return {a:label,[label]:label};
    if(/67395956|35446d6f|2b424a64|iconStyles/.test(id))return {};
    if(id.includes('6a65685a'))return Object.assign;
    if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:obj=>{const fn=()=>obj;Object.defineProperty(fn,'a',{get:fn});return fn;}};

@@ -1,4 +1,4 @@
 import Divider from 'antd/lib/divider';
 
-export { Divider, Divider as a };
+export { Divider };
 export default Divider;

@@ -1,14 +1,14 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Button } from '../vendor/ui.js';
 import { Carousel } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Icon } from '../vendor/Icon.js';
+import { Modal } from '../vendor/Modal.js';
 import { SubscribeImporter } from '../vendor/features.js';
 import { LoadingIndicator } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import history from '../vendor/routerHistory.js';
-import { b as formatTraffic, f as trafficPercent, h as isExpired, m as canRenew } from '../vendor/siteHelpers.js';
+import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay.jsx';
 import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage.jsx';
@@ -113,9 +113,9 @@ export class DashboardPage extends React.Component {
           </p>
         )}
         <div className="mb-0">
-          <div className="progress mb-1" style={{ height: 6 }}><div className={`progress-bar progress-bar-striped progress-bar-animated bg-${progressBarColor(usagePercent)}`} role="progressbar" style={{ width: `${trafficPercent(subscribe.u + subscribe.d, subscribe.transfer_enable)}%` }} /></div>
+          <div className="progress mb-1" style={{ height: 6 }}><div className={`progress-bar progress-bar-striped progress-bar-animated bg-${progressBarColor(usagePercent)}`} role="progressbar" style={{ width: `${calculateUsage(subscribe.u + subscribe.d, subscribe.transfer_enable)}%` }} /></div>
           <p className="font-size-sm font-w600 mb-3">
-            <span className="font-w700">{formatMessage({ id: '已用 {used} / 总计 {total}' }, { used: formatTraffic(subscribe.u + subscribe.d), total: formatTraffic(subscribe.transfer_enable) })}</span>{'  '}
+            <span className="font-w700">{formatMessage({ id: '已用 {used} / 总计 {total}' }, { used: formatBytes(subscribe.u + subscribe.d), total: formatBytes(subscribe.transfer_enable) })}</span>{'  '}
             <span className="font-w700">{formatMessage({ id: '在线设备 {alive_ip}/{device_limit}' }, { alive_ip: subscribe.alive_ip, device_limit: formatDeviceLimit(subscribe.device_limit) })}</span>
           </p>
         </div>

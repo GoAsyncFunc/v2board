@@ -22,7 +22,7 @@ async function run(original,scenario){
   if(id.includes('routerHistory'))return {push:value=>trace.push(['navigate',value])};
   if(id.includes('antdMessage'))return {a:{success:value=>trace.push(['success',value])}};
   if(id.includes('77642f52'))return value=>({format:format=>{trace.push(['date',value,format]);return 'fixture-date';}});
-  if(id.includes('siteHelpers'))return {b:value=>{trace.push(['traffic',value]);return 'bytes:'+value;}};
+  if(id.includes('siteHelpers'))return {b:value=>{trace.push(['traffic',value]);return 'bytes:'+value;},formatBytes:value=>{trace.push(['traffic',value]);return 'bytes:'+value;}};
         throw Error(id);
  };
  const file=original?path.join(home,'tests/fixtures/models/user-account.cjs'):path.join(home,'src/models/user.js');

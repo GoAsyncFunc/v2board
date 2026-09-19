@@ -3,13 +3,13 @@ import MainLayout from '../layouts/MainLayout.jsx';
 import MobileList from '../vendor/MobileList.js';
 import { Table } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
-import { c as connect } from '../vendor/reactRedux.js';
+import { Modal } from '../vendor/Modal.js';
+import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
 import { formatDateTimeSeconds } from '../components/DateTimeDisplay.jsx';
 import { formatPrice } from '../components/MoneyDisplay.jsx';
-import { a as settings } from '../vendor/localeSettings.js';
-import { l as isMobile } from '../vendor/siteHelpers.js';
+import { localeSettings as settings } from '../vendor/localeSettings.js';
+import { isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns.jsx';
 

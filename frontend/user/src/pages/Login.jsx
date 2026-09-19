@@ -1,11 +1,11 @@
 import React from 'react';
-import { c as connect } from "../vendor/reactRedux.js";
-import { a as Divider } from "../vendor/Divider.js";
-import { a as Icon } from "../vendor/Icon.js";
+import { connect } from "../vendor/reactRedux.js";
+import { Divider } from "../vendor/Divider.js";
+import { Icon } from "../vendor/Icon.js";
 import history from "../vendor/routerHistory.js";
 import { formatMessage, getLocale } from "../vendor/i18n.js";
 import { a as LanguageSelector } from '../components/LanguageSelector.jsx';
-import { a as localeSettings } from "../vendor/localeSettings.js";
+import { localeSettings } from "../vendor/localeSettings.js";
 
 import "../vendor/iconStyles.js";
 import '../vendor/componentStyles.js';

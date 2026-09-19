@@ -1,6 +1,6 @@
 import React from 'react';
 import { routeRenderer } from '../vendor/appRuntime.js';
-import { c as routerBindings } from '../vendor/dva.js';
+import { routerBindings } from '../vendor/dva.js';
 import { ConfigProvider } from '../vendor/ui.js';
 import {
   enAntd, enData, enMessages, faAntd, faData, faMessages, intl,

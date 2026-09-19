@@ -1,5 +1,5 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
 import { formatDateTime } from '../components/DateTimeDisplay.jsx';

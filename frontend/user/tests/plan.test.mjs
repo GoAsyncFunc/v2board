@@ -8,7 +8,8 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 async function run(original,scenario){
  const trace=[],module={exports:{}};
  const get=(...args)=>{trace.push(['get',...args]);return 'request';};
- const settings={a:{periodText:{month_price:'Month',year_price:'Year',onetime_price:'Once'}}};
+ const localeSettings={periodText:{month_price:'Month',year_price:'Year',onetime_price:'Once'}};
+ const settings={a:localeSettings,localeSettings};
  const file=new URL(original?'./fixtures/models/user-plan.cjs':'../src/models/plan.js',import.meta.url);
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,require(id){

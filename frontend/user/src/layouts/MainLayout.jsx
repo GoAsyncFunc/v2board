@@ -1,8 +1,8 @@
 import React from "react";
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import ConnectedSidebar from "./Sidebar.jsx";
 import ConnectedHeader from "./Header.jsx";
-import { a as Icon } from "../vendor/Icon.js";
+import { Icon } from "../vendor/Icon.js";
 import "../vendor/iconStyles.js";
 import { withLocale } from "../vendor/content.js";
 const layoutTheme = window.settings.theme;

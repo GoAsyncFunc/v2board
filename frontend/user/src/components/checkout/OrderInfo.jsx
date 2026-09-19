@@ -1,9 +1,9 @@
 import React from "react";
 import { formatMessage } from "../../vendor/i18n.js";
-import { a as settings } from "../../vendor/localeSettings.js";
+import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
 import { formatPrice } from "../../components/MoneyDisplay.jsx";
-import { a as Modal } from "../../vendor/Modal.js";
+import { Modal } from "../../vendor/Modal.js";
 import { Spin } from "../../vendor/ui.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
     return (

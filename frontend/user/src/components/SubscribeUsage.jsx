@@ -1,8 +1,8 @@
-import { f as percentOf } from '../vendor/siteHelpers.js';
+import { calculateUsage } from '../vendor/siteHelpers.js';
 
 // Readonly subscribe usage display shared by user pages; no events or requests.
 export function subscribePercent(subscribe) {
-  return Math.round(percentOf(subscribe.u + subscribe.d, subscribe.transfer_enable) * 100) / 100;
+  return Math.round(calculateUsage(subscribe.u + subscribe.d, subscribe.transfer_enable) * 100) / 100;
 }
 
 export function progressBarColor(percent) {

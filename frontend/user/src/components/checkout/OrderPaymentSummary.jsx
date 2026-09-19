@@ -1,6 +1,6 @@
 import React from "react";
-import { a as Icon } from "../../vendor/Icon.js";
-import { a as settings } from "../../vendor/localeSettings.js";
+import { Icon } from "../../vendor/Icon.js";
+import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatMessage } from "../../vendor/i18n.js";
 import { formatPrice } from "../MoneyDisplay.jsx";
 export default function OrderPaymentSummary({

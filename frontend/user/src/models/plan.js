@@ -1,5 +1,5 @@
 import { get } from '../services/request.js';
-import { a as settings } from '../vendor/localeSettings.js';
+import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { router } from '../vendor/appRuntime.js';
 
 const initialState = { plans: [], plan: {}, selectPeriod: undefined, fetchLoading: true };

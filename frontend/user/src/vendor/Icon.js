@@ -4,5 +4,5 @@ const createFromIconfontCN = Icon.createFromIconfontCN;
 const getTwoToneColor = Icon.getTwoToneColor;
 const setTwoToneColor = Icon.setTwoToneColor;
 
-export { Icon, Icon as a, createFromIconfontCN, getTwoToneColor, setTwoToneColor };
+export { Icon, createFromIconfontCN, getTwoToneColor, setTwoToneColor };
 export default Icon;

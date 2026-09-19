@@ -21,9 +21,12 @@ async function setup(original){
  vm.runInNewContext(code,{module,exports:module.exports,setTimeout(fn,delay){const id=++next;timers.set(id,fn);trace.push(['timer',id,delay]);return id;},clearTimeout(id){timers.delete(id);trace.push(['clear',id]);},require(id){
   if(id.includes('OrderStatusResult'))return statusModule.exports;
   if(id==='react'||id.includes('reactRuntime'))return React;
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls};
+  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('reactLoadableRuntime'))return ()=> 'StripeForm';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
+  if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
+  if(id.includes('/Modal')){const Modal={confirm:options=>options};return {a:Modal,Modal};}
+  if(id.includes('localeSettings')){const localeSettings={periodText:{},orderStatusText:{}};return {a:localeSettings,localeSettings};}
   if(id.includes('antdMessage'))return {a:{error:msg=>trace.push(['error',msg])}};
   if(id.includes('4172412b'))return {router:{push:url=>trace.push(['navigate',url])}};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};

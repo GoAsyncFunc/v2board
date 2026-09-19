@@ -11,9 +11,9 @@ function setup(cancelLoading){
  const trace=[],module={exports:{}};
  vm.runInNewContext(code,{module,exports:module.exports,require(id){
   if(id==='react')return {Component:class{constructor(props){this.props=props;}}};
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls};
+  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
-  if(id.includes('Modal'))return {a:{confirm:options=>{trace.push(['confirm',options]);return options;}}};
+  if(id.includes('Modal')){const Modal={confirm:options=>{trace.push(['confirm',options]);return options;}};return {a:Modal,Modal};}
   return {};
  }},{timeout:2000});
  return {page:new module.exports.OrderPage({order:{cancelLoading},dispatch:action=>trace.push(['dispatch',action])}),trace};

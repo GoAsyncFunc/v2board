@@ -1,6 +1,6 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { connect } from '../vendor/reactRedux.js';
+import { Modal } from '../vendor/Modal.js';
 import { Input } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
 

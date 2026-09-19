@@ -2,13 +2,13 @@ import React from 'react';
 import { formatDate } from '../components/DateTimeDisplay.jsx';
 import { Input } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { Modal } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { notification } from '../vendor/ui.js';
 import { MarkdownIt } from '../vendor/utilities.js';
-import { a as copyText } from '../vendor/siteHelpers.js';
+import { copyToClipboard } from '../vendor/siteHelpers.js';
 import '../vendor/dateTime.js';
 
 const markdownRenderer = new MarkdownIt({
@@ -36,7 +36,7 @@ export class KnowledgeDetailModal extends React.Component {
     this.getKnowledge(this.props.id), this.setState({
       visible: !0
     }), window.copy = copied => {
-      copyText(copied), notification.success(formatMessage({
+      copyToClipboard(copied), notification.success(formatMessage({
         id: "复制成功"
       }));
     }, window.jump = targetId => {

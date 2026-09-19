@@ -91,8 +91,3 @@ export function createDva(options = {}) {
 }
 
 export { fetchResponse, routerBindings };
-export {
-  createDva as a,
-  fetchResponse as b,
-  routerBindings as c,
-};

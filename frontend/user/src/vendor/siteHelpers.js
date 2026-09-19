@@ -1,7 +1,7 @@
 import copyText from './clipboard.js';
 import { formatMessage } from './i18n.js';
 import { message } from './ui.js';
-import { a as desktopNotification } from './notification.js';
+import { notification as desktopNotification } from './notification.js';
 import './componentStyles.js';
 
 export function getCookie(name) {
@@ -96,24 +96,3 @@ export function clearToken() {
 export function getToken() {
   return window.localStorage.getItem('authorization');
 }
-
-export {
-  copyToClipboard as a,
-  formatBytes as b,
-  parseJson as c,
-  getToken as d,
-  getCookie as e,
-  calculateUsage as f,
-  isAndroid as g,
-  isExpired as h,
-  isAppleMobile as i,
-  isIPadDesktopMode as j,
-  isMac as k,
-  isMobile as l,
-  canRenew as m,
-  isWindows as n,
-  clearToken as o,
-  setToken as p,
-  setCookie as q,
-  notify as r,
-};

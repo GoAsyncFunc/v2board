@@ -1,8 +1,8 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Switch } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { message } from '../vendor/ui.js';
 import { TelegramBindModal } from '../vendor/features.js';
 import MainLayout from '../layouts/MainLayout.jsx';

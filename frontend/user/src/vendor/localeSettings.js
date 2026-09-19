@@ -53,5 +53,4 @@ export const localeSettings = {
   },
 };
 
-export { localeSettings as a };
 export default localeSettings;

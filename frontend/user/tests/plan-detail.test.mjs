@@ -16,14 +16,14 @@ async function load(original,trace,expired){
   if(id==='react'||id.includes('reactRuntime'))return React;
   const component=Object.keys(components).find(name=>id.endsWith('/'+name+'.jsx'));if(component)return evaluate(components[component]);
   if(id.includes('MainLayout'))return {__esModule:true,default:'Layout',a:'Layout'};
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls};
-  if(id.includes('/Modal'))return {a:{confirm:options=>{trace.push(['confirm',options]);}}};
-  if(id.includes('localeSettings'))return {a:{periodText:{month_price:()=> 'Month',year_price:()=> 'Year',reset_price:()=> 'Reset'}}};
+  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
+  if(id.includes('/Modal')){const Modal={confirm:options=>{trace.push(['confirm',options]);}};return {a:Modal,Modal};}
+  if(id.includes('localeSettings')){const localeSettings={periodText:{month_price:()=> 'Month',year_price:()=> 'Year',reset_price:()=> 'Reset'}};return {a:localeSettings,localeSettings};}
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
   if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value / 100).toFixed(2)};
-  if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content};
+  if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content,isExpired:()=>expired,parseJson:content=>content};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
-  for(const [key,name]of [['/Icon','Icon'],['antdRadio','Radio'],['4d6f5257','Result'],['antdButton','Button']])if(id.includes(key))return {a:name};
+  for(const [key,name]of [['/Icon','Icon'],['antdRadio','Radio'],['4d6f5257','Result'],['antdButton','Button']])if(id.includes(key))return {a:name,[name]:name};
   if(/iconStyles|374b616b|4a2b2f76|2b4c3642|32717463/.test(id))return {};
   if(id.includes('6a65685a'))return Object.assign;
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:obj=>{const f=()=>obj;Object.defineProperty(f,'a',{get:f});return f;}};
