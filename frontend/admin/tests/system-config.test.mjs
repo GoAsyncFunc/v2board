@@ -16,6 +16,7 @@ async function loadConfig() {
     ['row', '../src/components/config/ConfigRow.jsx'],
     ['site', '../src/components/config/SiteConfigTab.jsx'],
     ['safe', '../src/components/config/SafeConfigTab.jsx'],
+    ['subscribe', '../src/components/config/SubscribeConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -30,6 +31,7 @@ async function loadConfig() {
         if (id.includes('ConfigRow')) return components.row;
         if (id.includes('SiteConfigTab')) return components.site;
         if (id.includes('SafeConfigTab')) return components.safe;
+        if (id.includes('SubscribeConfigTab')) return components.subscribe;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -43,6 +45,7 @@ async function loadConfig() {
   return {
     ConfigRow: components.row.default, SiteConfigTab: components.site.default,
     SafeConfigTab: components.safe.default,
+    SubscribeConfigTab: components.subscribe.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -158,5 +161,45 @@ test('Safe config tab exposes conditional security controls and semantic updates
   assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
     ['secure_path', 'control'],
     ['email_whitelist_suffix', ['example.com', 'example.org']],
+  ]);
+});
+
+test('Subscribe config tab maps reset, event and link mode controls', async () => {
+  const { SubscribeConfigTab } = await loadConfig();
+  const changes = [];
+  const subscribe = {
+    plan_change_enable: 0, reset_traffic_method: 0, surplus_enable: 0,
+    allow_new_period: 0, new_order_event_id: 0, renew_order_event_id: 0,
+    change_order_event_id: 0, show_info_to_server_enable: 0,
+    show_subscribe_method: 2, show_subscribe_expire: 30,
+  };
+  const tree = SubscribeConfigTab({
+    subscribe,
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  assert.match(JSON.stringify(tree), /订阅链接有效时间/);
+  controls.find(control => control.props.value === 0 && control.type === 'select')
+    .props.onChange({ target: { value: '4' } });
+  controls.find(control => control.props.value === 2 && control.type === 'select')
+    .props.onChange({ target: { value: '1' } });
+  controls.find(control => control.props.defaultValue === 30)
+    .props.onChange({ target: { value: '60' } });
+  assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
+    ['reset_traffic_method', '4'],
+    ['show_subscribe_method', '1'],
+    ['show_subscribe_expire', '60'],
   ]);
 });
