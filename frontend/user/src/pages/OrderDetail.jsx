@@ -24,66 +24,54 @@ const StripeForm = loadable({
     loader: () => import("../vendor/payment.js"),
     loading: () => null,
 });
-let S; // Original shared polling timer; lifecycle behavior is tested before changing it.
+let orderPollingTimer; // Shared timer behavior is preserved by lifecycle regression tests.
 
 export class OrderDetailPage extends React.Component {
-    constructor(e) {
-        (super(e),
-            (this.state = {
-                stripe: {},
-            }));
-    }
+    state = { stripe: {} };
+
     componentDidMount() {
-        (this.fetchData(),
-            this.props.dispatch({
-                type: "user/getUserInfo",
-            }),
-            this.props.dispatch({
-                type: "comm/config",
-            }));
+        this.fetchData();
+        this.props.dispatch({ type: "user/getUserInfo" });
+        this.props.dispatch({ type: "comm/config" });
     }
     componentWillUnmount() {
-        (clearTimeout(S),
-            this.props.dispatch({
-                type: "order/empty",
-            }));
+        clearTimeout(orderPollingTimer);
+        this.props.dispatch({ type: "order/empty" });
     }
     fetchData() {
         this.props.dispatch({
             type: "order/detail",
             tradeNo: this.props.match.params.trade_no,
             callback: () => {
-                (this.check(), this.getPaymentMethod());
+                this.check();
+                this.getPaymentMethod();
             },
         });
     }
     getPaymentMethod() {
         this.props.dispatch({
             type: "order/getPaymentMethod",
-            complete: (e) => {
-                e.length && this.changePaymentMethod(e[0].id);
+            complete: (methods) => {
+                if (methods.length) this.changePaymentMethod(methods[0].id);
             },
         });
     }
     checkout() {
-        var orderState = this.props.order,
-            methodId = orderState.selectMethod,
-            methods = orderState.paymentMethod,
-            stripe = this.state.stripe,
-            payment = methods.find((e) => e.id === methodId);
-        if (payment && "StripeCredit" === payment.payment)
-            return stripe.token
-                ? void this.props.dispatch({
-                      type: "order/checkoutByStripe",
-                      tradeNo: this.props.match.params.trade_no,
-                      method: methodId,
-                      token: stripe.token.id,
-                  })
-                : message.error(
-                      formatMessage({
-                          id: "请检查信用卡支付信息",
-                      }),
-                  );
+        const { selectMethod: methodId, paymentMethod: methods } = this.props.order;
+        const { stripe } = this.state;
+        const payment = methods.find(method => method.id === methodId);
+        if (payment && payment.payment === "StripeCredit") {
+            if (!stripe.token) {
+                return message.error(formatMessage({ id: "请检查信用卡支付信息" }));
+            }
+            this.props.dispatch({
+                type: "order/checkoutByStripe",
+                tradeNo: this.props.match.params.trade_no,
+                method: methodId,
+                token: stripe.token.id,
+            });
+            return;
+        }
         this.props.dispatch({
             type: "order/checkout",
             tradeNo: this.props.match.params.trade_no,
@@ -91,69 +79,56 @@ export class OrderDetailPage extends React.Component {
         });
     }
     check() {
-        S = setTimeout(() => {
+        orderPollingTimer = setTimeout(() => {
             this.props.dispatch({
                 type: "order/check",
                 tradeNo: this.props.match.params.trade_no,
-                callback: (e) => {
-                    0 !== e.data
-                        ? (clearTimeout(S),
-                          this.props.dispatch({
-                              type: "order/setState",
-                              payload: {
-                                  qrcodeModalVisible: !1,
-                              },
-                          }),
-                          this.props.dispatch({
-                              type: "order/detail",
-                              tradeNo: this.props.match.params.trade_no,
-                          }))
-                        : this.check();
+                callback: (response) => {
+                    if (response.data === 0) {
+                        this.check();
+                        return;
+                    }
+                    clearTimeout(orderPollingTimer);
+                    this.props.dispatch({
+                        type: "order/setState",
+                        payload: { qrcodeModalVisible: false },
+                    });
+                    this.props.dispatch({
+                        type: "order/detail",
+                        tradeNo: this.props.match.params.trade_no,
+                    });
                 },
             });
-        }, 3e3);
+        }, 3000);
     }
-    stripeCallback(e, t) {
-        this.setState({
-            stripe: {
-                token: t,
-            },
-        });
+    stripeCallback(error, token) {
+        this.setState({ stripe: { token } });
     }
-    getResultText(e) {
-        return orderResultProps(e);
+    getResultText(status) {
+        return orderResultProps(status);
     }
     changePaymentMethod(methodId) {
-        var orderState = this.props.order,
-            methods = orderState.paymentMethod,
-            order = orderState.order,
-            payment = methods.find((t) => t.id === methodId);
-        (payment &&
-            "StripeCredit" === payment.payment &&
-            !this.state.pk &&
+        const { paymentMethod: methods, order } = this.props.order;
+        const payment = methods.find(method => method.id === methodId);
+        if (payment && payment.payment === "StripeCredit" && !this.state.pk) {
             this.props.dispatch({
                 type: "comm/getStripePublicKey",
                 id: methodId,
-                complete: (e) => {
-                    this.setState({
-                        pk: e,
-                    });
+                complete: (publicKey) => {
+                    this.setState({ pk: publicKey });
                 },
-            }),
-            order.total_amount > 0 &&
-            (payment.handling_fee_fixed || payment.handling_fee_percent)
-                ? (order.pre_handling_amount =
-                      order.total_amount *
-                          (payment.handling_fee_percent / 100) +
-                      payment.handling_fee_fixed)
-                : (order.pre_handling_amount = 0),
-            this.props.dispatch({
-                type: "order/setState",
-                payload: {
-                    selectMethod: methodId,
-                    order: order,
-                },
-            }));
+            });
+        }
+        if (order.total_amount > 0 && (payment.handling_fee_fixed || payment.handling_fee_percent)) {
+            order.pre_handling_amount =
+                order.total_amount * (payment.handling_fee_percent / 100) + payment.handling_fee_fixed;
+        } else {
+            order.pre_handling_amount = 0;
+        }
+        this.props.dispatch({
+            type: "order/setState",
+            payload: { selectMethod: methodId, order },
+        });
     }
     checkImage(url) {
         const request = new XMLHttpRequest();
@@ -162,26 +137,23 @@ export class OrderDetailPage extends React.Component {
         return request.status !== 404;
     }
     render() {
-        var orderState = this.props.order,
-            order = orderState.order,
-            selectedMethod = orderState.selectMethod,
-            methods = orderState.paymentMethod,
-            qrVisible = orderState.qrcodeModalVisible,
-            payUrl = orderState.payUrl,
-            checkoutLoading = orderState.checkoutLoading,
-            detailsLoading = orderState.detailsLoading,
-            cancelLoading = orderState.cancelLoading,
-            config = this.props.comm.config,
-            stripe = this.state.stripe,
-            selectedPayment =
-                methods.find((e) => e.id === selectedMethod) || {};
+        const {
+            order,
+            selectMethod: selectedMethod,
+            paymentMethod: methods,
+            qrcodeModalVisible: qrVisible,
+            payUrl,
+            checkoutLoading,
+            detailsLoading,
+            cancelLoading,
+        } = this.props.order;
+        const { config } = this.props.comm;
+        const { stripe } = this.state;
+        const selectedPayment = methods.find(method => method.id === selectedMethod) || {};
         return (
             <MainLayout
-                {...Object.assign({}, this.props, {
-                    title: formatMessage({
-                        id: "订单详情",
-                    }),
-                })}
+                {...this.props}
+                title={formatMessage({ id: "订单详情" })}
             >
                 <main id={"main-container"}>
                     <div className={"content content-full"}>
