@@ -8,25 +8,29 @@ import PaymentMethods from "../components/checkout/PaymentMethods";
 import PaymentQrModal from "../components/checkout/PaymentQrModal";
 import React from "react";
 import MainLayout from "../layouts/MainLayout";
-import { connect } from "../vendor/reactRedux.js";
-import { Icon } from "../vendor/Icon.js";
-import { Modal } from "../vendor/Modal.js";
+import { connect } from "react-redux";
 import { message } from "../vendor/ui.js";
-import { localeSettings as settings } from "../vendor/localeSettings.js";
 import { loadable } from "../vendor/utilities.js";
 import { formatMessage } from "../vendor/i18n.js";
-import moment from "../vendor/dateTime.js";
-import { router } from "../vendor/appRuntime.js";
+import type { CheckoutPaymentMethod, OrderDetailRootState, StripeCheckoutState, StripeToken } from "../types/payment";
+import type { PaymentMethod } from "../types/commerce";
+import type { UserDispatch } from "../types/store";
 import "../vendor/iconStyles.js";
 
 const StripeForm = loadable({
     loader: () => import("../vendor/payment.js"),
     loading: () => null,
 });
-let orderPollingTimer; // Shared timer behavior is preserved by lifecycle regression tests.
+let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
 
-export class OrderDetailPage extends React.Component {
-    state = { stripe: {} };
+type OrderDetailProps = OrderDetailRootState & {
+    dispatch: UserDispatch;
+    match: { params: { trade_no: string } };
+};
+interface PaymentState { stripe: StripeCheckoutState; pk?: string; }
+
+export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentState> {
+    state: PaymentState = { stripe: {} };
 
     componentDidMount() {
         this.fetchData();
@@ -50,7 +54,7 @@ export class OrderDetailPage extends React.Component {
     getPaymentMethod() {
         this.props.dispatch({
             type: "order/getPaymentMethod",
-            complete: (methods) => {
+            complete: (methods: CheckoutPaymentMethod[]) => {
                 if (methods.length) this.changePaymentMethod(methods[0].id);
             },
         });
@@ -82,7 +86,7 @@ export class OrderDetailPage extends React.Component {
             this.props.dispatch({
                 type: "order/check",
                 tradeNo: this.props.match.params.trade_no,
-                callback: (response) => {
+                callback: (response: { data?: number | string | null }) => {
                     if (response.data === 0) {
                         this.check();
                         return;
@@ -100,27 +104,27 @@ export class OrderDetailPage extends React.Component {
             });
         }, 3000);
     }
-    stripeCallback(error, token) {
+    stripeCallback(_error: string | null | undefined, token?: StripeToken | null) {
         this.setState({ stripe: { token } });
     }
-    getResultText(status) {
+    getResultText(status: number) {
         return orderResultProps(status);
     }
-    changePaymentMethod(methodId) {
+    changePaymentMethod(methodId: PaymentMethod['id']) {
         const { paymentMethod: methods, order } = this.props.order;
         const payment = methods.find(method => method.id === methodId);
         if (payment && payment.payment === "StripeCredit" && !this.state.pk) {
             this.props.dispatch({
                 type: "comm/getStripePublicKey",
                 id: methodId,
-                complete: (publicKey) => {
+                complete: (publicKey: string) => {
                     this.setState({ pk: publicKey });
                 },
             });
         }
-        if (order.total_amount > 0 && (payment.handling_fee_fixed || payment.handling_fee_percent)) {
+        if (order.total_amount > 0 && (payment!.handling_fee_fixed || payment!.handling_fee_percent)) {
             order.pre_handling_amount =
-                order.total_amount * (payment.handling_fee_percent / 100) + payment.handling_fee_fixed;
+                order.total_amount * (payment!.handling_fee_percent / 100) + payment!.handling_fee_fixed;
         } else {
             order.pre_handling_amount = 0;
         }
@@ -129,7 +133,7 @@ export class OrderDetailPage extends React.Component {
             payload: { selectMethod: methodId, order },
         });
     }
-    checkImage(url) {
+    checkImage(url: string) {
         const request = new XMLHttpRequest();
         request.open("HEAD", url, false);
         request.send();
@@ -148,7 +152,7 @@ export class OrderDetailPage extends React.Component {
         } = this.props.order;
         const { config } = this.props.comm;
         const { stripe } = this.state;
-        const selectedPayment = methods.find(method => method.id === selectedMethod) || {};
+        const selectedPayment: Partial<CheckoutPaymentMethod> = methods.find(method => method.id === selectedMethod) || {};
         return (
             <MainLayout
                 {...this.props}
@@ -257,10 +261,10 @@ export class OrderDetailPage extends React.Component {
                                                 <StripeForm
                                                     key={this.state.pk}
                                                     pk={this.state.pk}
-                                                    callback={(e, t) =>
+                                                    callback={(error: string | null | undefined, token?: StripeToken | null) =>
                                                         this.stripeCallback(
-                                                            e,
-                                                            t,
+                                                            error,
+                                                            token,
                                                         )
                                                     }
                                                 ></StripeForm>
@@ -317,7 +321,7 @@ export class OrderDetailPage extends React.Component {
         );
     }
 }
-export default connect(({ order, comm }) => ({
+export default connect(({ order, comm }: OrderDetailRootState) => ({
     order,
     comm,
 }))(OrderDetailPage);

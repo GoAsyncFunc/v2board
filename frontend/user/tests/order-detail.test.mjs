@@ -8,8 +8,8 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 async function setup(original){
  const trace=[],timers=new Map();let next=0;
  const React={Component:class{constructor(props){this.props=props;}setState(s){this.state={...this.state,...s};}},createElement:(type,props,...children)=>({type,props,children})};
- const module={exports:{}};const text=await fs.readFile(new URL(original?'./fixtures/pages/user-order-detail.jsx':'../src/pages/OrderDetail.jsx',import.meta.url),'utf8');
- const code=(await transform(text,{loader:'jsx',format:'cjs'})).code;
+ const module={exports:{}};const text=await fs.readFile(new URL(original?'./fixtures/pages/user-order-detail.jsx':'../src/pages/OrderDetail.tsx',import.meta.url),'utf8');
+ const code=(await transform(text,{loader:original?'jsx':'tsx',format:'cjs'})).code;
  const statusCode=(await transform(await fs.readFile(new URL('../src/components/checkout/OrderStatusResult.tsx',import.meta.url),'utf8'),{loader:'tsx',format:'cjs'})).code;
  const deps=id=>{
  if(id==='react')return React;
@@ -22,7 +22,7 @@ async function setup(original){
  vm.runInNewContext(code,{module,exports:module.exports,setTimeout(fn,delay){const id=++next;timers.set(id,fn);trace.push(['timer',id,delay]);return id;},clearTimeout(id){timers.delete(id);trace.push(['clear',id]);},require(id){
   if(id.includes('OrderStatusResult'))return statusModule.exports;
   if(id==='react'||id.includes('reactRuntime'))return React;
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
+  if(id==='react-redux'||id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('reactLoadableRuntime'))return ()=> 'StripeForm';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
   if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};

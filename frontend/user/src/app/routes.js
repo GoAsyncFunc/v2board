@@ -5,7 +5,7 @@ import Invite from '../pages/Invite';
 import Knowledge from '../pages/Knowledge';
 import Login from '../pages/Login';
 import Node from '../pages/Node';
-import OrderDetail from '../pages/OrderDetail.jsx';
+import OrderDetail from '../pages/OrderDetail';
 import Order from '../pages/Order';
 import PlanDetail from '../pages/PlanDetail';
 import Plan from '../pages/Plan';

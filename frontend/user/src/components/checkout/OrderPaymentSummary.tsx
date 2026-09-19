@@ -5,13 +5,14 @@ import { formatMessage } from "../../vendor/i18n.js";
 import { formatPrice } from "../MoneyDisplay";
 import type { CheckoutOrder } from "../../types/checkout";
 import type { PaymentConfig } from "../../types/commerce";
+import type { StripeCheckoutState } from "../../types/payment";
 
 interface OrderPaymentSummaryProps {
     order: CheckoutOrder;
     config: PaymentConfig;
     checkoutLoading?: boolean;
     selectedPayment: { payment?: string };
-    stripe: { token?: string | null };
+    stripe: StripeCheckoutState;
     onCheckout: () => void;
 }
 

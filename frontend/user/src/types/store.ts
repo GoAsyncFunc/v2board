@@ -1,8 +1,8 @@
-export interface UserAction {
+export interface UserAction<Result = void> {
   type: string;
   params?: object;
-  callback?: () => void;
+  callback?: (result: Result) => void;
   [key: string]: unknown;
 }
 
-export type UserDispatch = (action: UserAction) => unknown;
+export type UserDispatch = <Result = void>(action: UserAction<Result>) => unknown;
