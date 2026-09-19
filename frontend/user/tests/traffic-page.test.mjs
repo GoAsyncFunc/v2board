@@ -10,9 +10,9 @@ async function load(original){
  const cache=new Map();
  const sources={
   page:new URL(original?'./fixtures/pages/user-traffic.jsx':'../src/pages/Traffic.jsx',import.meta.url),
-  columns:new URL('../src/components/TrafficColumns.jsx',import.meta.url),
+  columns:new URL('../src/components/TrafficColumns.tsx',import.meta.url),
  };
- const compiled={};for(const [name,file]of Object.entries(sources))compiled[name]=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'jsx'})).code;
+ const compiled={};for(const [name,file]of Object.entries(sources))compiled[name]=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:name==='columns'?'tsx':'jsx'})).code;
  function evaluate(name){
   if(cache.has(name))return cache.get(name);
   const module={exports:{}};

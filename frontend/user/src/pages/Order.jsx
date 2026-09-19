@@ -11,7 +11,7 @@ import { formatPrice } from '../components/MoneyDisplay.ts';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns.jsx';
+import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns';
 
 export class OrderPage extends React.Component {
   componentDidMount() { this.fetchData(); }

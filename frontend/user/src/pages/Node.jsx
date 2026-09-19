@@ -5,7 +5,7 @@ import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
 import { calculateUsage } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { createNodeColumns } from '../components/NodeColumns.jsx';
+import { createNodeColumns } from '../components/NodeColumns';
 
 import '../services/request.js';
 import '../vendor/dateTime.js';

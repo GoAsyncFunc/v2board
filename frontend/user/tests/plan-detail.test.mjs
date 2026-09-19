@@ -10,11 +10,11 @@ async function load(original,trace,expired){
  const file=new URL(original?'./fixtures/pages/user-plan-detail.jsx':'../src/pages/PlanDetail.jsx',import.meta.url);
  const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'jsx'})).code;
  const components={};
- for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../src/components/checkout/'+name+'.jsx',import.meta.url),'utf8'),{format:'cjs',loader:'jsx'})).code;
+ for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../src/components/checkout/'+name+'.tsx',import.meta.url),'utf8'),{format:'cjs',loader:'tsx'})).code;
  function evaluate(source){const module={exports:{}};
  vm.runInNewContext(source,{module,exports:module.exports,require(id){
   if(id==='react'||id.includes('reactRuntime'))return React;
-  const component=Object.keys(components).find(name=>id.endsWith('/'+name+'.jsx'));if(component)return evaluate(components[component]);
+  const component=Object.keys(components).find(name=>id.endsWith('/'+name)||id.endsWith('/'+name+'.tsx'));if(component)return evaluate(components[component]);
   if(id.includes('MainLayout'))return {__esModule:true,default:'Layout',a:'Layout'};
   if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('/Modal')){const Modal={confirm:options=>{trace.push(['confirm',options]);}};return {a:Modal,Modal};}

@@ -3,7 +3,13 @@ import { Modal } from "../../vendor/Modal.js";
 import { QRCode } from "../../vendor/content.js";
 import { formatMessage } from "../../vendor/i18n.js";
 
-export default function PaymentQrModal({ visible, payUrl, onCancel }) {
+interface PaymentQrModalProps {
+    onCancel: () => void;
+    payUrl?: string;
+    visible?: boolean;
+}
+
+export default function PaymentQrModal({ visible, payUrl, onCancel }: PaymentQrModalProps) {
     return (
         <Modal
             className="v2board-payment-qrcode"

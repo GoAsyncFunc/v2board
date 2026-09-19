@@ -4,8 +4,8 @@ import OrderPaymentSummary from "../components/checkout/OrderPaymentSummary.jsx"
 import OrderStatusResult, {
     orderResultProps,
 } from "../components/checkout/OrderStatusResult.jsx";
-import PaymentMethods from "../components/checkout/PaymentMethods.jsx";
-import PaymentQrModal from "../components/checkout/PaymentQrModal.jsx";
+import PaymentMethods from "../components/checkout/PaymentMethods";
+import PaymentQrModal from "../components/checkout/PaymentQrModal";
 import React from "react";
 import MainLayout from "../layouts/MainLayout";
 import { connect } from "../vendor/reactRedux.js";

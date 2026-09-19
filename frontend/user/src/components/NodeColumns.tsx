@@ -4,9 +4,10 @@ import { Badge } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { formatMessage } from '../vendor/i18n.js';
+import type { NodeRecord, NumericValue } from '../types/commerce';
 
 import '../vendor/iconStyles.js';
-const message = id => formatMessage({ id });
+const message = (id: string): string => formatMessage({ id });
 
 export function createNodeColumns() {
   return [
@@ -16,18 +17,18 @@ export function createNodeColumns() {
         {message('状态')}{' '}<Icon type="question-circle" />
       </Tooltip></span>,
       dataIndex: 'is_online', key: 'is_online', align: 'center',
-      render: value => <Badge status={parseInt(value) ? 'processing' : 'error'} />,
+      render: (value: NumericValue) => <Badge status={parseInt(String(value), 10) ? 'processing' : 'error'} />,
     },
     {
       title: <span><Tooltip placement="top" title={message('使用的流量将乘以倍率进行扣除')}>
         {message('倍率')}{' '}<Icon type="question-circle" />
       </Tooltip></span>,
       dataIndex: 'rate', key: 'rate', align: 'center',
-      render: value => <Tag style={{ minWidth: 60 }}>{value + ' x'}</Tag>,
+      render: (value: NumericValue) => <Tag style={{ minWidth: 60 }}>{`${value} x`}</Tag>,
     },
     {
       title: message('标签'), dataIndex: 'tags', key: 'tags',
-      render: tags => tags ? tags.map(tag => <Tag key={Math.random()}>{tag}</Tag>) : '-',
+      render: (tags: NodeRecord['tags']) => tags ? tags.map(tag => <Tag key={Math.random()}>{tag}</Tag>) : '-',
     },
   ];
 }

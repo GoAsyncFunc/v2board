@@ -8,8 +8,8 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Component: class { constructor(props) { this.props = props; } }, createElement: (type, props, ...children) => ({ type, props: props || {}, children }) };
 async function load(original) {
   const trace = [], cache = new Map(), compiled = {};
-  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/Node.jsx', columns: '../src/components/NodeColumns.jsx' })) {
-    compiled[name] = (await transform(await fs.readFile(new URL(relative, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' })).code;
+  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/Node.jsx', columns: '../src/components/NodeColumns.tsx' })) {
+    compiled[name] = (await transform(await fs.readFile(new URL(relative, import.meta.url), 'utf8'), { format: 'cjs', loader: name === 'columns' ? 'tsx' : 'jsx' })).code;
   }
   function evaluate(name) {
     if (cache.has(name)) return cache.get(name);

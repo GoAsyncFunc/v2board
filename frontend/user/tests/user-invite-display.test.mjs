@@ -12,9 +12,9 @@ const deps = { formatMessage, moment };
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/user-invite-display.cjs' : '../src/components/InviteDisplayColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/user-invite-display.cjs' : '../src/components/InviteDisplayColumns.tsx', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'tsx' })).code, {
     module, exports: module.exports, require(id) {
       if (id.includes('77642f52')) return moment;
       if (id.includes('i18n')) return { formatMessage };

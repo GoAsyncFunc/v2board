@@ -7,9 +7,9 @@ import { Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { isExpired, parseJson } from '../vendor/siteHelpers.js';
 import { router } from '../vendor/appRuntime.js';
-import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing.jsx';
-import { CouponInput, CouponDiscount } from '../components/checkout/Coupon.jsx';
-import OrderSummary from '../components/checkout/OrderSummary.jsx';
+import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing';
+import { CouponInput, CouponDiscount } from '../components/checkout/Coupon';
+import OrderSummary from '../components/checkout/OrderSummary';
 import '../vendor/iconStyles.js';
 
 const message = id => formatMessage({ id });

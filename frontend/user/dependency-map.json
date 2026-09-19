@@ -184,11 +184,11 @@
     "to": "vendor/dva.js"
   },
   {
-    "from": "components/InviteDisplayColumns.jsx",
+    "from": "components/InviteDisplayColumns.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "components/InviteDisplayColumns.jsx",
+    "from": "components/InviteDisplayColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -204,47 +204,47 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "components/NodeColumns.jsx",
+    "from": "components/NodeColumns.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "components/NodeColumns.jsx",
+    "from": "components/NodeColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/NodeColumns.jsx",
+    "from": "components/NodeColumns.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/NodeColumns.jsx",
+    "from": "components/NodeColumns.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "vendor/Divider.js"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "components/OrderColumns.jsx",
+    "from": "components/OrderColumns.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -324,39 +324,39 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "components/TicketReadonlyColumns.jsx",
+    "from": "components/TicketReadonlyColumns.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "components/TicketReadonlyColumns.jsx",
+    "from": "components/TicketReadonlyColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/TicketReadonlyColumns.jsx",
+    "from": "components/TicketReadonlyColumns.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "components/TrafficColumns.jsx",
+    "from": "components/TrafficColumns.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -392,15 +392,15 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/checkout/Coupon.jsx",
+    "from": "components/checkout/Coupon.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/Coupon.jsx",
-    "to": "components/checkout/Pricing.jsx"
+    "from": "components/checkout/Coupon.tsx",
+    "to": "components/checkout/Pricing.tsx"
   },
   {
-    "from": "components/checkout/Coupon.jsx",
+    "from": "components/checkout/Coupon.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -452,59 +452,59 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
+    "from": "components/checkout/OrderSummary.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
-    "to": "components/checkout/Coupon.jsx"
+    "from": "components/checkout/OrderSummary.tsx",
+    "to": "components/checkout/Coupon.tsx"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
-    "to": "components/checkout/Pricing.jsx"
+    "from": "components/checkout/OrderSummary.tsx",
+    "to": "components/checkout/Pricing.tsx"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
+    "from": "components/checkout/OrderSummary.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
+    "from": "components/checkout/OrderSummary.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/OrderSummary.jsx",
+    "from": "components/checkout/OrderSummary.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/checkout/PaymentMethods.jsx",
+    "from": "components/checkout/PaymentMethods.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/checkout/PaymentQrModal.jsx",
+    "from": "components/checkout/PaymentQrModal.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "components/checkout/PaymentQrModal.jsx",
+    "from": "components/checkout/PaymentQrModal.tsx",
     "to": "vendor/content.js"
   },
   {
-    "from": "components/checkout/PaymentQrModal.jsx",
+    "from": "components/checkout/PaymentQrModal.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/Pricing.jsx",
+    "from": "components/checkout/Pricing.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/Pricing.jsx",
+    "from": "components/checkout/Pricing.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/Pricing.jsx",
+    "from": "components/checkout/Pricing.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/checkout/Pricing.jsx",
+    "from": "components/checkout/Pricing.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -793,7 +793,7 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "components/InviteDisplayColumns.jsx"
+    "to": "components/InviteDisplayColumns.tsx"
   },
   {
     "from": "pages/Invite.jsx",
@@ -909,7 +909,7 @@
   },
   {
     "from": "pages/Node.jsx",
-    "to": "components/NodeColumns.jsx"
+    "to": "components/NodeColumns.tsx"
   },
   {
     "from": "pages/Node.jsx",
@@ -957,7 +957,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/OrderColumns.jsx"
+    "to": "components/OrderColumns.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1005,11 +1005,11 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/PaymentMethods.jsx"
+    "to": "components/checkout/PaymentMethods.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/PaymentQrModal.jsx"
+    "to": "components/checkout/PaymentQrModal.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -1081,15 +1081,15 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "components/checkout/Coupon.jsx"
+    "to": "components/checkout/Coupon.tsx"
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "components/checkout/OrderSummary.jsx"
+    "to": "components/checkout/OrderSummary.tsx"
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "components/checkout/Pricing.jsx"
+    "to": "components/checkout/Pricing.tsx"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -1189,7 +1189,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "components/TicketReadonlyColumns.jsx"
+    "to": "components/TicketReadonlyColumns.tsx"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -1237,7 +1237,7 @@
   },
   {
     "from": "pages/Traffic.jsx",
-    "to": "components/TrafficColumns.jsx"
+    "to": "components/TrafficColumns.tsx"
   },
   {
     "from": "pages/Traffic.jsx",

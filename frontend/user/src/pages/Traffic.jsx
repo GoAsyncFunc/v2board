@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import { Table } from '../vendor/ui.js';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { createTrafficColumns } from '../components/TrafficColumns.jsx';
+import { createTrafficColumns } from '../components/TrafficColumns';
 
 export class TrafficPage extends React.Component {
   componentDidMount() {

@@ -1,7 +1,14 @@
 import React from "react";
 import { Radio } from "../../vendor/ui.js";
+import type { PaymentMethod } from "../../types/commerce";
 
-export default function PaymentMethods({ methods, selectedMethod, onSelect }) {
+interface PaymentMethodsProps {
+    methods: PaymentMethod[];
+    onSelect: (methodId: PaymentMethod['id']) => void;
+    selectedMethod?: PaymentMethod['id'];
+}
+
+export default function PaymentMethods({ methods, selectedMethod, onSelect }: PaymentMethodsProps) {
     return (
         <div className="block-content p-0">
             {methods.map((method) => (

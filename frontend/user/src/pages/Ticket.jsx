@@ -7,7 +7,7 @@ import { Table } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../vendor/i18n.js';
-import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns.jsx';
+import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns';
 
 import '../vendor/iconStyles.js';
 

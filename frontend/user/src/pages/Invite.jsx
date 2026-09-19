@@ -1,5 +1,5 @@
 import React from 'react';
-import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns.jsx';
+import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns';
 import { formatMoney } from '../components/MoneyDisplay.ts';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from '../vendor/reactRedux.js';
