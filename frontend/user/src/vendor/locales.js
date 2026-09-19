@@ -16,12 +16,12 @@ export { default as viAntd } from './modules/viAntd.js';
 export { default as zhAntd } from './modules/zhAntd.js';
 export { default as twAntd } from './modules/twAntd.js';
 
-export { default as enData } from './modules/enData.js';
-export { default as faData } from './modules/faData.js';
-export { default as jaData } from './modules/jaData.js';
-export { default as koData } from './modules/koData.js';
-export { default as viData } from './modules/viData.js';
-export { default as zhData } from './modules/zhData.js';
+export { default as enData } from 'react-intl/locale-data/en';
+export { default as faData } from 'react-intl/locale-data/fa';
+export { default as jaData } from 'react-intl/locale-data/ja';
+export { default as koData } from 'react-intl/locale-data/ko';
+export { default as viData } from 'react-intl/locale-data/vi';
+export { default as zhData } from 'react-intl/locale-data/zh';
 
 import 'moment/locale/fa';
 import 'moment/locale/ja';
