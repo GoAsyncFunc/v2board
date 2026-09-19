@@ -1664,6 +1664,30 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/Icon.js"
+  },
+  {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/modules/ConfigContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/modules/antdButton.js"
+  },
+  {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/modules/antdDropdown.js"
+  },
+  {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/AntdDropdownButton.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/AntdMenuItem.js",
     "to": "vendor/modules/MenuItem.js"
   },
@@ -2961,11 +2985,11 @@
   },
   {
     "from": "vendor/modules/antdDropdown.js",
-    "to": "app/moduleInterop.js"
+    "to": "vendor/Icon.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
-    "to": "vendor/Icon.js"
+    "to": "vendor/modules/AntdDropdownButton.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
@@ -2974,10 +2998,6 @@
   {
     "from": "vendor/modules/antdDropdown.js",
     "to": "vendor/modules/RcDropdown.js"
-  },
-  {
-    "from": "vendor/modules/antdDropdown.js",
-    "to": "vendor/modules/antdButton.js"
   },
   {
     "from": "vendor/modules/antdDropdown.js",
@@ -2990,10 +3010,6 @@
   {
     "from": "vendor/modules/antdDropdown.js",
     "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdDropdown.js",
-    "to": "vendor/modules/tuple.js"
   },
   {
     "from": "vendor/modules/antdEnglishLocale.js",

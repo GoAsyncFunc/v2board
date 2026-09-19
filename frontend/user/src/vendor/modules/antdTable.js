@@ -19,7 +19,7 @@ var n = require("./reactRuntime.js"),
   RcMenuItem = require("./MenuItem.js").default,
   m = require("./closest.js"),
   d = interopDefault(m),
-  z = require("./antdDropdown.js"),
+  AntdDropdown = require("./antdDropdown.js").default,
   y = require("../Icon.js"),
   b = require("./RcCheckbox.js"),
   M = require("./ConfigContext.js"),
@@ -847,7 +847,7 @@ var Te = function (e) {
         className: "".concat(l, "-dropdown-link clear"),
         onClick: this.handleClearFilters
       }, o.filterReset)));
-      return n["createElement"](z["a"], {
+      return n["createElement"](AntdDropdown, {
         trigger: ["click"],
         placement: "bottomRight",
         overlay: v,
@@ -1272,7 +1272,7 @@ var mt = function (e) {
             className: "".concat(s, "-menu"),
             selectedKeys: []
           }, this.renderMenus(f));
-        h = f.length > 0 ? n["createElement"](z["a"], {
+        h = f.length > 0 ? n["createElement"](AntdDropdown, {
           overlay: v,
           getPopupContainer: o
         }, n["createElement"]("div", {
