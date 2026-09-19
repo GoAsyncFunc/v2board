@@ -467,7 +467,7 @@ ne.defaultProps = {
 var re = ne;
 R.Group = re;
 var oe = R,
-  le = require("./antdRadio.js"),
+  AntdRadio = require("./antdRadio.js").default,
   ae = function (e) {
     return n["createElement"]("div", {
       className: e.className,
@@ -789,7 +789,7 @@ var Te = function (e) {
         }),
         l = r ? n["createElement"](oe, {
           checked: o.indexOf(e.value.toString()) >= 0
-        }) : n["createElement"](le["a"], {
+        }) : n["createElement"](AntdRadio, {
           checked: o.indexOf(e.value.toString()) >= 0
         });
       return n["createElement"](RcMenuItem, {
@@ -1040,7 +1040,7 @@ var Xe = function (e, t) {
           c = e.rowIndex,
           r = Xe(e, ["type", "rowIndex"]),
           o = this.state.checked;
-        return "radio" === t ? n["createElement"](le["a"], Ne({
+        return "radio" === t ? n["createElement"](AntdRadio, Ne({
           checked: o,
           value: c
         }, r)) : n["createElement"](oe, Ne({

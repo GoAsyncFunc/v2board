@@ -1708,6 +1708,50 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/AntdRadioButton.js",
+    "to": "vendor/modules/ConfigContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioButton.js",
+    "to": "vendor/modules/antdRadio.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioButton.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioButton.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/ConfigContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/antdRadio.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/reactLifecyclesCompat.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdRadioGroup.js",
+    "to": "vendor/modules/shallowEqualWithComparator.js"
+  },
+  {
     "from": "vendor/modules/AntdSubMenu.js",
     "to": "vendor/modules/SubMenu.js"
   },
@@ -3085,7 +3129,11 @@
   },
   {
     "from": "vendor/modules/antdRadio.js",
-    "to": "app/moduleInterop.js"
+    "to": "vendor/modules/AntdRadioButton.js"
+  },
+  {
+    "from": "vendor/modules/antdRadio.js",
+    "to": "vendor/modules/AntdRadioGroup.js"
   },
   {
     "from": "vendor/modules/antdRadio.js",
@@ -3102,10 +3150,6 @@
   {
     "from": "vendor/modules/antdRadio.js",
     "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdRadio.js",
-    "to": "vendor/modules/reactLifecyclesCompat.js"
   },
   {
     "from": "vendor/modules/antdRadio.js",
