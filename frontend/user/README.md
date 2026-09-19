@@ -48,4 +48,12 @@ src/
 
 `dependency-map.json` 用于记录当前入口可达的源码依赖。`modules.json` 和 `routes.json` 是逆向恢复追踪文件，不参与正常构建。
 
-依赖图可通过 `npm run check:dependencies` 检查。回归测试正在按用户端归属迁入本目录，迁移完成前仍需执行仓库现有测试门禁。
+## 验证
+
+```sh
+npm test -- --runInBand
+npm run check:dependencies
+npm run build
+```
+
+当前用户端回归测试共 574 项。测试、fixture 与辅助文件全部位于本目录，不读取管理端工程。

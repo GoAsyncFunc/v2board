@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
-    "check:dependencies": "node scripts/generate-dependency-map.mjs --check"
+    "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "1.7.2",
@@ -29,6 +30,8 @@
     "react-router-redux": "5.0.0-alpha.9"
   },
   "devDependencies": {
+    "@babel/parser": "7.28.4",
+    "@babel/types": "7.28.4",
     "esbuild": "0.25.9"
   }
 }
