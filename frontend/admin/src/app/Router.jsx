@@ -9,11 +9,11 @@ const { ConnectedRouter } = routerBindings;
 
 export const routes = appRoutes;
 window.g_routes = routes;
-plugins.applyForEach('patchRoutes', { initialValue: routes });
 
 export default class Router extends React.Component {
   constructor(props) {
     super(props);
+    plugins.applyForEach('patchRoutes', { initialValue: routes });
     const onRouteChange = (location, action) => {
       plugins.applyForEach('onRouteChange', {
         initialValue: { routes, location, action },
