@@ -69,4 +69,3 @@ export function get(endpoint, data) {
   const query = encodeForm(data);
   return request(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
 }
-export { get as a, post as b };
