@@ -6,7 +6,7 @@ import Giftcard from '../pages/Giftcard.tsx';
 import Dashboard from '../pages/Dashboard.tsx';
 import Index from '../pages/Index.tsx';
 import Knowledge from '../pages/Knowledge.tsx';
-import Login from '../pages/Login.jsx';
+import Login from '../pages/Login.tsx';
 import Notice from '../pages/Notice.tsx';
 import Order from '../pages/Order.jsx';
 import Plan from '../pages/Plan.jsx';

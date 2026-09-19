@@ -65,7 +65,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Login.jsx"
+    "to": "pages/Login.tsx"
   },
   {
     "from": "app/routes.js",
@@ -948,20 +948,16 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "pages/Login.jsx",
+    "from": "pages/Login.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Login.jsx",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "pages/Notice.tsx",
