@@ -11,7 +11,6 @@ import { createReadonlyServerGroupColumns } from '../components/ServerGroupDispl
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyServerGroupColumns();
 
 class ServerGroupPage extends React.Component {

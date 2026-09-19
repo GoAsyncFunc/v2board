@@ -15,7 +15,6 @@ import { createReadonlyServerRouteColumns } from '../components/ServerRouteDispl
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/featureRuntime.js';
 const readonlyColumns = createReadonlyServerRouteColumns();
 

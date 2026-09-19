@@ -10,7 +10,6 @@ import { formatDateTime } from '../components/DateTimeDisplay.jsx';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class TicketDetailChat extends React.Component {
   constructor(props) {
     super(props);

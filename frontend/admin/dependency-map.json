@@ -28,10 +28,6 @@
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/bootstrap.js",
-    "to": "vendor/transpilerRuntime.js"
-  },
-  {
     "from": "app/history.js",
     "to": "vendor/appRuntime.js"
   },
@@ -241,10 +237,6 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/AnyTlsEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -254,10 +246,6 @@
   {
     "from": "components/AnyTlsEditor.jsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ContextMenuTable.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/ContextMenuTable.jsx",
@@ -282,10 +270,6 @@
   {
     "from": "components/FilterDrawer.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/FilterDrawer.jsx",
@@ -318,10 +302,6 @@
   {
     "from": "components/HysteriaEditor.jsx",
     "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/HysteriaEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/HysteriaEditor.jsx",
@@ -413,10 +393,6 @@
   },
   {
     "from": "components/ServerSecuritySettings.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/ServerSecuritySettings.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -426,10 +402,6 @@
   {
     "from": "components/ShadowsocksEditor.jsx",
     "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/ShadowsocksEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/ShadowsocksEditor.jsx",
@@ -457,10 +429,6 @@
   },
   {
     "from": "components/TrojanEditor.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/TrojanEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -478,10 +446,6 @@
   {
     "from": "components/TuicEditor.jsx",
     "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/TuicEditor.jsx",
@@ -506,10 +470,6 @@
   {
     "from": "components/UserEditor.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/UserEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/UserEditor.jsx",
@@ -541,10 +501,6 @@
   },
   {
     "from": "components/V2NodeEditor.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/V2NodeEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -566,10 +522,6 @@
   {
     "from": "components/VlessEditor.jsx",
     "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -598,10 +550,6 @@
   {
     "from": "components/VmessEditor.jsx",
     "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -649,10 +597,6 @@
   },
   {
     "from": "layouts/MainLayout.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
     "to": "vendor/content.js"
   },
   {
@@ -694,10 +638,6 @@
   {
     "from": "models/config.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/config.js",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "models/config.js",
@@ -845,10 +785,6 @@
   },
   {
     "from": "models/ticket.js",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "models/ticket.js",
     "to": "vendor/ui.js"
   },
   {
@@ -866,10 +802,6 @@
   {
     "from": "models/user.js",
     "to": "models/userQueryEffects.js"
-  },
-  {
-    "from": "models/user.js",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "models/user.js",
@@ -929,10 +861,6 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -946,10 +874,6 @@
   {
     "from": "pages/ConfigSystem.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/ConfigSystem.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/ConfigSystem.jsx",
@@ -970,10 +894,6 @@
   {
     "from": "pages/ConfigTheme.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/ConfigTheme.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/ConfigTheme.jsx",
@@ -1010,10 +930,6 @@
   {
     "from": "pages/Coupon.jsx",
     "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -1085,10 +1001,6 @@
   },
   {
     "from": "pages/Giftcard.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
     "to": "vendor/dateTime.js"
   },
   {
@@ -1133,10 +1045,6 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
     "to": "vendor/featureRuntime.js"
   },
   {
@@ -1169,10 +1077,6 @@
   },
   {
     "from": "pages/Login.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Login.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1198,10 +1102,6 @@
   {
     "from": "pages/Notice.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Notice.jsx",
@@ -1257,10 +1157,6 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Order.jsx",
     "to": "vendor/featureRuntime.js"
   },
   {
@@ -1313,10 +1209,6 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1361,10 +1253,6 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Queue.jsx",
     "to": "vendor/dateTime.js"
   },
   {
@@ -1398,10 +1286,6 @@
   {
     "from": "pages/ServerGroup.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/ServerGroup.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/ServerGroup.jsx",
@@ -1485,10 +1369,6 @@
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1533,10 +1413,6 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
     "to": "vendor/featureRuntime.js"
   },
   {
@@ -1562,10 +1438,6 @@
   {
     "from": "pages/Ticket.jsx",
     "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -1598,10 +1470,6 @@
   {
     "from": "pages/TicketDetail.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/TicketDetail.jsx",
@@ -1653,10 +1521,6 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/User.jsx",
     "to": "vendor/dateTime.js"
   },
   {
@@ -1686,10 +1550,6 @@
   {
     "from": "runtime/routeRenderer.js",
     "to": "runtime/pluginRuntime.js"
-  },
-  {
-    "from": "services/request.js",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "services/request.js",
@@ -1738,10 +1598,6 @@
   {
     "from": "vendor/codeEditorRuntime.js",
     "to": "vendor/modules/aceJsonMode.js"
-  },
-  {
-    "from": "vendor/componentStyles.js",
-    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/dva.js",
@@ -2076,18 +1932,6 @@
     "to": "vendor/modules/moduleObjectPolyfill.js"
   },
   {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/arrayWithHoles.js"
-  },
-  {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/iterableToArrayLimit.js"
-  },
-  {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/nonIterableRest.js"
-  },
-  {
     "from": "vendor/modules/jsonEditorRuntime.js",
     "to": "vendor/modules/codeEditorDiff.js"
   },
@@ -2146,10 +1990,6 @@
   {
     "from": "vendor/modules/nodeTypePredicates.js",
     "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/objectWithoutPropertiesLoose.js",
-    "to": "vendor/modules/objectWithoutProperties.js"
   },
   {
     "from": "vendor/modules/passThroughStream.js",
@@ -2373,23 +2213,7 @@
   },
   {
     "from": "vendor/siteHelpers.js",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/iterableToArray.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/objectWithoutPropertiesLoose.js"
   },
   {
     "from": "vendor/ui.js",

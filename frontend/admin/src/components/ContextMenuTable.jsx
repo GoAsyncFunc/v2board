@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from '../vendor/ui.js';
 
-import '../vendor/componentStyles.js';
 export class ContextMenuTable extends React.Component {
   getMenuElement() {
     return document.getElementById('v2board-table-dropdown');

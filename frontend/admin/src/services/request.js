@@ -3,7 +3,6 @@ import { notification } from "../vendor/notification.js";
 import { siteSettings } from "../vendor/siteSettings.js";
 import { getToken, clearToken } from "../vendor/siteHelpers.js";
 
-import '../vendor/componentStyles.js';
 export function encodeForm(data) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return '';
   const fields = [];

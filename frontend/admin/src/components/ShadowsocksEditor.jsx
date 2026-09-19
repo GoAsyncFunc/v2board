@@ -7,7 +7,6 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { PermissionGroupEditor } from '../vendor/ui.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/featureRuntime.js';
 import '../vendor/codeEditorRuntime.js';
 const CIPHERS = [

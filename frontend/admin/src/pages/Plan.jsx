@@ -24,7 +24,6 @@ import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns.j
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const resourceColumns = createReadonlyPlanResourceColumns();
 const priceColumns = createReadonlyPlanPriceColumns();
 const PRICE_FIELDS = [

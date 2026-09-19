@@ -12,7 +12,6 @@ import moment from '../vendor/dateTime.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 function FormGroup({ label, children }) {
   return <div className="form-group"><label>{label}</label>{children}</div>;
 }

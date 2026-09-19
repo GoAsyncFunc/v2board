@@ -20,7 +20,6 @@ import { createReadonlyCouponColumns } from '../components/CouponDisplayColumns.
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyCouponColumns();
 
 export class CouponPage extends React.Component {

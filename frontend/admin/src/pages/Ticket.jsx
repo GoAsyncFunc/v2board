@@ -12,7 +12,6 @@ import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.
 
 import '../vendor/dateTime.js';
 
-import '../vendor/componentStyles.js';
 class TicketPage extends React.Component {
   constructor(e) {
     super(e), this.state = {

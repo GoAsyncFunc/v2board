@@ -5,7 +5,6 @@ import ConnectedHeader from "./Header.jsx";
 import { ConfigProvider } from "../vendor/ui.js";
 import { chineseLocale } from "../vendor/content.js";
 
-import "../vendor/componentStyles.js";
 const layoutTheme = window.settings.theme;
 
 export class MainLayout extends React.Component {

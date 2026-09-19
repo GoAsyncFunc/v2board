@@ -2,7 +2,6 @@ import { notification } from '../vendor/ui.js';
 
 import { get, post } from '../services/request.js';
 
-import '../vendor/componentStyles.js';
 const initialState = {
   tickets: [],
   fetchLoading: false,

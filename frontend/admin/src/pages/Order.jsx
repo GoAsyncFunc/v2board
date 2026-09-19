@@ -21,7 +21,6 @@ import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns.js
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/featureRuntime.js';
 const readonlyColumns = createReadonlyOrderColumns();
 const ORDER_BADGE_STATUS = ['error', 'processing', 'default', 'success', 'default'];

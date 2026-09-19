@@ -17,7 +17,6 @@ import '../vendor/iconStyles.js';
 
 import '../vendor/dateTime.js';
 
-import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyNoticeColumns();
 class NoticePage extends React.Component {
   constructor(props) {

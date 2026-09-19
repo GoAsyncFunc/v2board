@@ -12,7 +12,6 @@ import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/codeEditorRuntime.js';
 const NETWORK_PRESETS = {
   tcp: JSON.stringify({ acceptProxyProtocol: false, header: { type: 'http', request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } }, response: {} } }, null, 4),

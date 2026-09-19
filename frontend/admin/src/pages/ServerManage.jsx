@@ -33,7 +33,6 @@ import { createServerRateColumn } from '../components/ServerRateColumn.jsx';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const STATUS_BADGE = { 0: 'error', 1: 'warning', 2: 'processing' };
 const SERVER_TYPES = ['V2node', 'Shadowsocks', 'Vmess', 'Trojan', 'Hysteria', 'Tuic', 'Vless', 'AnyTLS'];
 const MODEL_BY_TYPE = {

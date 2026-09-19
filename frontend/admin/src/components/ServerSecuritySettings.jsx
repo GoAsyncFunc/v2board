@@ -3,7 +3,6 @@ import { Input } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { Switch } from '../vendor/ui.js';
 
-import '../vendor/componentStyles.js';
 const DEFAULT_TLS_SETTINGS = {
   server_name: '',
   cert_mode: 'self',

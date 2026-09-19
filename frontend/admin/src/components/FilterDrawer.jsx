@@ -11,7 +11,6 @@ import moment from '../vendor/dateTime.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class FilterDrawer extends React.Component {
   constructor(props) {
     super(props);

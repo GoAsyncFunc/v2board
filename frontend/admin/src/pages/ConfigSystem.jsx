@@ -6,7 +6,6 @@ import { Tabs } from "../vendor/ui.js";
 import { Switch } from "../vendor/ui.js";
 import MainLayout from "../layouts/MainLayout.jsx";
 
-import "../vendor/componentStyles.js";
 export class ConfigRow extends React.Component {
     render() {
         return (

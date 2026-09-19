@@ -11,7 +11,6 @@ import { JsonEditor } from '../vendor/ui.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/codeEditorRuntime.js';
 const DEFAULT_PADDING_SCHEME = JSON.stringify([
   'stop=8',

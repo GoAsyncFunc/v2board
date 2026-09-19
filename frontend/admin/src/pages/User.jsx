@@ -24,7 +24,6 @@ import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns.
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class UserPage extends React.Component {
   componentDidMount() {
     this.props.dispatch({ type: 'plan/fetch' });

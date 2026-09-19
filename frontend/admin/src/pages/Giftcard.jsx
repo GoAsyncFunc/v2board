@@ -18,7 +18,6 @@ import { createReadonlyGiftcardColumns } from '../components/GiftcardDisplayColu
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class GiftcardPage extends React.Component {
   constructor(props) {
     super(props);

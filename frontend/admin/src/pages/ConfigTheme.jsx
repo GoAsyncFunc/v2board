@@ -7,7 +7,6 @@ import { message } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { post } from '../services/request.js';
 
-import '../vendor/componentStyles.js';
 export class ThemeConfigEditor extends React.Component {
   constructor(props) {
     super(props);

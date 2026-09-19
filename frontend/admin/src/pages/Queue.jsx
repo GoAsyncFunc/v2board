@@ -17,7 +17,6 @@ import '../components/ShadowsocksEditor.jsx';
 import '../components/VmessEditor.jsx';
 import '../components/TrojanEditor.jsx';
 
-import '../vendor/componentStyles.js';
 class QueuePage extends React.Component {
   constructor(props) {
     super(props), this.state = {}, this.getDataTimer = void 0;

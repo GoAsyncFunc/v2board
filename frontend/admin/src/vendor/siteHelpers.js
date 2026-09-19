@@ -1,6 +1,5 @@
 import copyText from './clipboard.js';
 import { message } from './ui.js';
-import './componentStyles.js';
 
 export function getCookie(name) {
   return document.cookie.split('; ').reduce((value, cookie) => {

@@ -4,7 +4,6 @@ import { Modal } from "../vendor/Modal.js";
 import { Icon } from "../vendor/Icon.js";
 
 import "../vendor/iconStyles.js";
-import '../vendor/componentStyles.js';
 export class AdminLogin extends React.Component {
   emailInput = React.createRef();
   passwordInput = React.createRef();

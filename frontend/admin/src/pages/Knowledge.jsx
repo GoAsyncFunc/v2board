@@ -20,7 +20,6 @@ import { createReadonlyKnowledgeColumns } from '../components/KnowledgeDisplayCo
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 import '../vendor/featureRuntime.js';
 const readonlyColumns = createReadonlyKnowledgeColumns();
 const MarkdownEditor = loadable({ loader: () => import('../vendor/markdownEditor.js') });

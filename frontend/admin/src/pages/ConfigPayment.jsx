@@ -16,7 +16,6 @@ import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumn
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const readonlyColumns = createReadonlyPaymentColumns();
 
 export class PaymentEditor extends React.Component {
