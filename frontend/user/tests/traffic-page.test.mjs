@@ -49,3 +49,10 @@ for(const rate of [0,1,1.5,'0',null])test(`Traffic columns values match; rate=${
  const rendered=[before,after].map(Page=>table(new Page({stat:{traffics:[],getTrafficLogLoading:false}}).render()).props.columns.map(column=>column.render(record[column.dataIndex],record)));
  assert.deepEqual(normalize(rendered[1]),normalize(rendered[0]));
 });
+
+test('Traffic preserves hexadecimal byte values from the original renderer', async () => {
+ const before=await load(true),after=await load(false);
+ const record={record_at:1700000000,u:'0x400',d:'0x800',server_rate:1.5};
+ const rendered=[before,after].map(Page=>table(new Page({stat:{traffics:[],getTrafficLogLoading:false}}).render()).props.columns.map(column=>column.render(record[column.dataIndex],record)));
+ assert.deepEqual(normalize(rendered[1]),normalize(rendered[0]));
+});

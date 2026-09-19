@@ -47,7 +47,7 @@ for (const loading of [false, true]) for (const populated of [false, true]) for 
     assert.deepEqual(results[1], results[0]);
   });
 }
-for (const record of [{ is_online: 1, rate: 1.5, tags: ['A', 'B'] }, { is_online: '0', rate: 0, tags: null }, { is_online: null, rate: '2', tags: [] }]) {
+for (const record of [{ is_online: 1, rate: 1.5, tags: ['A', 'B'] }, { is_online: '0', rate: 0, tags: null }, { is_online: null, rate: '2', tags: [] }, { is_online: '0x1', rate: 1, tags: [] }]) {
   test(`Node column render ${JSON.stringify(record)}`, async () => {
     const results = [];
     for (const original of [true, false]) {

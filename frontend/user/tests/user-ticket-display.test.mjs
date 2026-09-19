@@ -47,7 +47,7 @@ for (const level of [0, 1, 2, 99, '1', -1, null, undefined, Symbol('level')]) te
   assert.deepEqual(results[1], results[0]);
 });
 
-for (const status of [0, 1, 2, null, undefined]) for (const reply of [0, 1, 2, '1', '', null]) test(`ticket reply ${status}/${reply}`, async () => {
+for (const status of [0, 1, 2, null, undefined]) for (const reply of [0, 1, 2, '1', '', null, '0x1']) test(`ticket reply ${status}/${reply}`, async () => {
   const results = [];
   for (const original of [true, false]) {
     const column = (await load(original)).find(c => c.key === 'reply_status');

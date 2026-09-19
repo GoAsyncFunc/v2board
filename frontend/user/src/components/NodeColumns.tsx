@@ -17,7 +17,7 @@ export function createNodeColumns() {
         {message('状态')}{' '}<Icon type="question-circle" />
       </Tooltip></span>,
       dataIndex: 'is_online', key: 'is_online', align: 'center',
-      render: (value: NumericValue) => <Badge status={parseInt(String(value), 10) ? 'processing' : 'error'} />,
+      render: (value: NumericValue) => <Badge status={parseInt(String(value)) ? 'processing' : 'error'} />,
     },
     {
       title: <span><Tooltip placement="top" title={message('使用的流量将乘以倍率进行扣除')}>

@@ -11,7 +11,7 @@ export function renderTicketLevel(levels: readonly string[], value: PropertyKey 
 }
 
 export function renderTicketReplyStatus(status: number | null | undefined, value: NumericValue): React.ReactNode {
-  const hasReply = Boolean(parseInt(String(value), 10));
+  const hasReply = Boolean(parseInt(String(value)));
   return 1 === status
     ? <span><Badge status="success" />{message('已关闭')}</span>
     : <span><Badge status={hasReply ? 'processing' : 'error'} />{hasReply ? message('已答复') : message('待处理')}</span>;

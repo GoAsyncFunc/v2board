@@ -18,11 +18,11 @@ export function createTrafficColumns() {
     },
     {
       title: message('实际上行'), dataIndex: 'u', key: 'u', align: 'right',
-      render: (value: string, record: TrafficRecord) => record.server_rate ? formatBytes(parseInt(value, 10)) : 0,
+      render: (value: string, record: TrafficRecord) => record.server_rate ? formatBytes(parseInt(value)) : 0,
     },
     {
       title: message('实际下行'), dataIndex: 'd', key: 'd', align: 'right',
-      render: (value: string, record: TrafficRecord) => record.server_rate ? formatBytes(parseInt(value, 10)) : 0,
+      render: (value: string, record: TrafficRecord) => record.server_rate ? formatBytes(parseInt(value)) : 0,
     },
     {
       title: message('扣费倍率'), dataIndex: 'server_rate', key: 'server_rate', align: 'center',
@@ -36,7 +36,7 @@ export function createTrafficColumns() {
         {message('合计')}{' '}<Icon type="question-circle" />
       </Tooltip>,
       dataIndex: 'total', key: 'total', align: 'right', fixed: 'right',
-      render: (_value: never, record: TrafficRecord) => formatBytes((parseInt(record.u, 10) + parseInt(record.d, 10)) * Number(record.server_rate)),
+      render: (_value: never, record: TrafficRecord) => formatBytes((parseInt(record.u) + parseInt(record.d)) * Number(record.server_rate)),
     },
   ];
 }
