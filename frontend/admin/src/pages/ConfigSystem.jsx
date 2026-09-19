@@ -5,59 +5,13 @@ import { Input } from "../vendor/ui.js";
 import { Tabs } from "../vendor/ui.js";
 import { Switch } from "../vendor/ui.js";
 import MainLayout from "../layouts/MainLayout.jsx";
-
-export class ConfigRow extends React.Component {
-    render() {
-        return (
-            <div
-                className={"row ".concat(
-                    this.props.isChildren ? "v2board-config-children" : "",
-                )}
-                style={{
-                    padding: "20px",
-                    borderBottom: "1px solid #eee",
-                }}
-            >
-                <div className={"col-lg-6"}>
-                    <div
-                        style={{
-                            fontWeight: "bold",
-                            marginBottom: 5,
-                        }}
-                    >
-                        {this.props.title}
-                    </div>
-                    <div
-                        style={{
-                            fontSize: 12,
-                            marginBottom: 5,
-                            color: "#666",
-                        }}
-                    >
-                        {this.props.description}
-                    </div>
-                </div>
-                <div className={"col-lg-6 text-right"}>
-                    {this.props.children}
-                </div>
-            </div>
-        );
-    }
-}
+import ConfigRow from "../components/config/ConfigRow.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
-        (this.props.dispatch({
-            type: "config/fetch",
-        }),
-            this.props.dispatch({
-                type: "plan/fetch",
-            }),
-            this.props.dispatch({
-                type: "config/getEmailTemplate",
-            }),
-            this.props.dispatch({
-                type: "config/getThemeTemplate",
-            }));
+        this.props.dispatch({ type: "config/fetch" });
+        this.props.dispatch({ type: "plan/fetch" });
+        this.props.dispatch({ type: "config/getEmailTemplate" });
+        this.props.dispatch({ type: "config/getThemeTemplate" });
     }
     set(parentKey, field, value) {
         const config = this.props.config;
@@ -1015,7 +969,7 @@ export class SystemConfigPage extends React.Component {
                                         placeholder={
                                             "请输入 充值金额:奖励金额,逗号分割\n如 50:18,100:38, 200:88"
                                         }
-                                        defaultValue={e.deposit.deposit_bounus}
+                                        defaultValue={this.props.config.deposit.deposit_bounus}
                                         onChange={(e) =>
                                             this.set(
                                                 "deposit",
@@ -1049,7 +1003,7 @@ export class SystemConfigPage extends React.Component {
                                             )
                                         }
                                         className={"form-control"}
-                                        value={e.ticket.ticket_status || 0}
+                                        value={this.props.config.ticket.ticket_status || 0}
                                     >
                                         <option value={0}>
                                             {"完全开放工单"}
