@@ -9,7 +9,7 @@ async function loadRouterBindings() {
     new URL('../src/runtime/routerBindings.js', import.meta.url),
     'utf8',
   );
-  const code = (await transform(source, { format: 'cjs', loader: 'js' })).code;
+  const code = (await transform(source, { format: 'cjs', loader: 'jsx' })).code;
   const module = { exports: {} };
 
   class Component {

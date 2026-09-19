@@ -46,11 +46,7 @@ export class ConnectedRouter extends React.Component {
     }
 
     render() {
-        return React.createElement(
-            Router,
-            { history: this.props.history },
-            this.props.children,
-        );
+        return <Router history={this.props.history}>{this.props.children}</Router>;
     }
 }
 
