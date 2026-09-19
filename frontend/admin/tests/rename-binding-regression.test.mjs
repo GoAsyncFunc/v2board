@@ -50,7 +50,7 @@ for (const file of [
   'admin/src/pages/Queue.tsx',
   'admin/src/pages/ServerGroup.tsx',
   'admin/src/pages/ServerRoute.tsx',
-  'admin/src/pages/ServerManage.jsx',
+  'admin/src/pages/ServerManage.tsx',
   'admin/src/pages/Ticket.tsx',
   'admin/src/pages/TicketDetail.tsx',
   'admin/src/pages/User.tsx',

@@ -12,7 +12,7 @@ import Order from '../pages/Order.tsx';
 import Plan from '../pages/Plan.tsx';
 import Queue from '../pages/Queue.tsx';
 import ServerGroup from '../pages/ServerGroup.tsx';
-import ServerManage from '../pages/ServerManage.jsx';
+import ServerManage from '../pages/ServerManage.tsx';
 import ServerRoute from '../pages/ServerRoute.tsx';
 import TicketDetail from '../pages/TicketDetail.tsx';
 import Ticket from '../pages/Ticket.tsx';

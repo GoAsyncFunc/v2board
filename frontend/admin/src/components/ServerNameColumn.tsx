@@ -7,7 +7,7 @@ export type ServerStatus = React.ComponentProps<typeof Badge>['status'];
 export type ServerStatusMap = Record<PropertyKey, ServerStatus>;
 
 export interface ServerAvailability {
-  available_status: PropertyKey;
+  available_status?: PropertyKey;
 }
 
 // Synchronous construction keeps the original child order and fresh elements.
@@ -25,13 +25,13 @@ export function renderServerNameTitle(): React.ReactElement {
 
 // Synchronous renderer: preserve raw name children and direct status lookup.
 export function renderServerName(statuses: ServerStatusMap, value: React.ReactNode, server: ServerAvailability): React.ReactElement {
-  return <React.Fragment><Badge status={statuses[server.available_status]} /><span>{value}</span></React.Fragment>;
+  return <React.Fragment><Badge status={statuses[server.available_status as PropertyKey]} /><span>{value}</span></React.Fragment>;
 }
 
-export function createServerNameColumn(statuses: ServerStatusMap) {
+export function createServerNameColumn<RecordType extends ServerAvailability = ServerAvailability>(statuses: ServerStatusMap) {
   return {
     title: renderServerNameTitle(),
     dataIndex: 'name', key: 'name',
-    render: (value: React.ReactNode, server: ServerAvailability) => renderServerName(statuses, value, server),
+    render: (value: React.ReactNode, server: RecordType) => renderServerName(statuses, value, server),
   };
 }

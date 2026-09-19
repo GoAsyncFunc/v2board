@@ -17,7 +17,7 @@ export function renderServerRateTitle(): React.ReactElement {
 export function createServerRateColumn() {
   return {
     title: renderServerRateTitle(),
-    dataIndex: 'rate', key: 'rate', align: 'center',
+    dataIndex: 'rate', key: 'rate', align: 'center' as const,
     render: renderServerRate,
   };
 }

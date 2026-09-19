@@ -89,7 +89,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ServerManage.jsx"
+    "to": "pages/ServerManage.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1068,96 +1068,72 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/AnyTlsEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/ContextMenuTable.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/HysteriaEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/ServerNameColumn.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/ServerRateColumn.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/ServerTypeTag.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/ShadowsocksEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/Sortable.tsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/TrojanEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/TuicEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/V2NodeEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/VlessEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "components/VmessEditor.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
+    "from": "pages/ServerManage.tsx",
     "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "pages/ServerManage.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/ServerRoute.tsx",

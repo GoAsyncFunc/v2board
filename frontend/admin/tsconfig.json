@@ -4,6 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "react",
+    "allowJs": true,
+    "checkJs": false,
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
