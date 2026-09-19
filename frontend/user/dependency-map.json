@@ -888,10 +888,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/utilities.js"
-  },
-  {
     "from": "pages/Knowledge.jsx",
     "to": "components/DateTimeDisplay.jsx"
   },

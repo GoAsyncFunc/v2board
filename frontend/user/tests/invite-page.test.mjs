@@ -32,7 +32,6 @@ async function loadPage() {
       if (id.includes('Icon.js')) return { Icon: 'Icon' };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       if (id.includes('clipboard')) return value => trace.push(['copy', value]);
-      if (id.includes('utilities')) return { objectSpread: Object.assign };
       if (/iconStyles|localeSettings|dateTime/.test(id)) return {};
       if (/MainLayout|TransferCommissionModal|WithdrawModal/.test(id)) return id;
       throw new Error(`Unexpected import: ${id}`);
@@ -47,18 +46,25 @@ function findNodes(tree, predicate) {
   return [...(predicate(tree) ? [tree] : []), ...findNodes(tree.children, predicate)];
 }
 
-for (const loading of [true, false]) {
-  test(`Invite page renders API state and actions with loading=${loading}`, async () => {
+for (const loading of [true, false]) for (const distributionEnabled of [true, false]) {
+  test(`Invite page renders state and actions with loading=${loading}, distribution=${distributionEnabled}`, async () => {
     const { Page, trace } = await loadPage();
     const codes = loading ? [] : [{ code: 'demo-code', created_at: 1700000000 }];
     const invites = loading ? [] : [{ id: 1, commission_balance: 500 }];
     const props = {
       invite: {
         stat: loading ? [] : [2, 1000, 500, 10], codes, invites,
-        fetchLoading: loading, detailsLoading: loading, saveLoading: false,
+        fetchLoading: loading, detailsLoading: loading, saveLoading: loading,
         detailsPagination: { total: 1, current: 1, page_size: 10 },
       },
-      comm: { config: { currency: 'CNY', currency_symbol: '¥' } },
+      comm: { config: {
+        currency: 'CNY', currency_symbol: '¥',
+        commission_distribution_enable: distributionEnabled,
+        commission_distribution_l1: 80,
+        commission_distribution_l2: 15,
+        commission_distribution_l3: 5,
+        withdraw_close: distributionEnabled,
+      } },
       user: { userInfo: { commission_balance: 500 } },
       dispatch: action => trace.push(['dispatch', action]),
     };
@@ -69,6 +75,19 @@ for (const loading of [true, false]) {
     ]);
     const tree = page.render();
     assert.equal(tree.props.title, '我的邀请');
+    const rendered = JSON.stringify(tree);
+    assert.equal(rendered.includes('三级分销比例'), distributionEnabled);
+    assert.equal(rendered.includes('推广佣金提现'), !distributionEnabled);
+    if (!loading) {
+      assert.ok(rendered.includes(distributionEnabled ? '8%,1.5%,0.5%' : '10%'));
+      assert.ok(rendered.includes('¥ 5'));
+      assert.ok(rendered.includes('¥ 10'));
+    }
+    const generateButton = findNodes(tree, node => node.type === 'button')[0];
+    const beforeSave = trace.length;
+    generateButton.props.onClick();
+    assert.equal(trace.length, beforeSave + (loading ? 0 : 1));
+    if (!loading) assert.equal(trace.at(-1)[1].type, 'invite/save');
     const tables = findNodes(tree, node => node.type === 'Table');
     assert.equal(tables.length, 2);
     assert.equal(tables[0].props.dataSource, codes);
