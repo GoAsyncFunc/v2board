@@ -25,28 +25,30 @@ async function load(target,original){
   const code=compiled.get(file);
   const require=id=>{
    if(id==='react'||id.includes('reactRuntime'))return React;
-   if(id.includes('reactRedux'))return {c:connect,connect};
+   if(id==='react-redux'||id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
+   if(id==='../app/history.js')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
    if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
-   if(id.includes('LanguageSelector'))return {a:'LanguageSelector',LanguageSelector:'LanguageSelector'};
+   if(id==='../components/LanguageSelector'||id.includes('LanguageSelector'))return {__esModule:true,default:'LanguageSelector',a:'LanguageSelector',LanguageSelector:'LanguageSelector'};
    if(id.includes('siteHelpers'))return {e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken']),getCookie:()=> '0',setCookie:(...a)=>trace.push(['pref',...a])};
-   if(id.includes('6e444349'))return {enable:options=>trace.push(['dark',options]),disable:()=>trace.push(['light'])};
+   if(id==='darkreader'||id.includes('6e444349'))return {enable:options=>trace.push(['dark',options]),disable:()=>trace.push(['light'])};
+   if(id==='react-router-dom')return {withRouter:cls=>cls};
    if(id.includes('withLocaleRuntime'))return cls=>cls;
-   if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
+   if(id==='antd/lib/icon'||id.includes('/Icon'))return {__esModule:true,default:'Icon',a:'Icon',Icon:'Icon'};
    if(id.includes('antdConfigProvider'))return {a:'ConfigProvider'};
    if(id.includes('antdZhCnLocale'))return {a:'zh-CN'};
-   if(id==='./Sidebar.jsx'||id==='./Header.jsx')return evaluate(path.join(home,'src/layouts',id.slice(2)));
-   if(id==='../config/navigation.jsx')return evaluate(path.join(home,'src/config/navigation.jsx'));
+   if(id==='./Sidebar'||id==='./Header')return evaluate(path.join(home,'src/layouts',id.slice(2)+'.tsx'));
+   if(id==='../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
   };
   vm.runInNewContext(code,{module,exports:module.exports,require,window,document,Math},{filename:file,timeout:3000});
   cache.set(file,module.exports);return module.exports;
  }
- const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name+'.jsx'));
- if(!original)paths.push(path.join(home,'src/config/navigation.jsx'));
- const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
+ const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name+'.tsx'));
+ if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
+ const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
 }
 function normalize(value){return JSON.parse(JSON.stringify(value,(key,value)=>key==='key'?undefined:typeof value==='function'?'[handler]':value));}
@@ -60,7 +62,7 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
    assert.deepEqual(normalize(b.render()),normalize(a.render()),name);
   }
  }
- function actions(subject){
+ function actions(subject,modern){
   const props={location:{pathname:'/dashboard'},user:{userInfo:{}},dispatch:action=>subject.trace.push(['dispatch',action])};
   const header=new subject.classes.Header(props);
   header.componentDidMount();header.darkMode();header.logout();
@@ -68,10 +70,12 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
   assert.equal(header.state.showAvatarMenu,true);
   subject.document.onclick({});assert.equal(header.state.showAvatarMenu,false);
   const sidebar=new subject.classes.Sidebar(props);
-  const menu=sidebar.renderMenu('item','Plan','/plan',null);
+  const menu=modern
+   ? sidebar.renderMenu({type:'item',title:'Plan',href:'/plan'})
+   : sidebar.renderMenu('item','Plan','/plan',null);
   menu.children[0].props.onClick();
   const main=new subject.classes.MainLayout(props);main.componentDidMount();
   return normalize(subject.trace);
  }
- assert.deepEqual(actions(next),actions(old));
+ assert.deepEqual(actions(next,true),actions(old,false));
 });

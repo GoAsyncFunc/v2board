@@ -4,7 +4,7 @@ import history from "../vendor/routerHistory.js";
 import { connect } from "../vendor/reactRedux.js";
 import Recaptcha from "../components/Recaptcha.jsx";
 import { formatMessage, getLocale } from "../vendor/i18n.js";
-import { LanguageSelector } from "../components/LanguageSelector.jsx";
+import { LanguageSelector } from "../components/LanguageSelector";
 import { notify } from "../vendor/siteHelpers.js";
 import { localeSettings } from "../vendor/localeSettings.js";
 import "../vendor/iconStyles.js";

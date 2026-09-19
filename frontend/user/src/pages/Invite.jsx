@@ -1,7 +1,7 @@
 import React from 'react';
 import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns.jsx';
 import { formatMoney } from '../components/MoneyDisplay.ts';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { connect } from '../vendor/reactRedux.js';
 import { Table, Button, Tooltip, message } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';

@@ -85,7 +85,7 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
     twAntd: {}, viAntd: {}, viData: [], viMessages: {}, zhAntd: {}, zhData: [], zhMessages: {},
   };
   const LangContext = { Consumer: 'Consumer', Provider: 'Provider' };
-  const routerModule = evaluate(await compile('../src/app/Router.jsx', 'jsx'), {
+  const routerModule = evaluate(await compile('../src/app/Router.tsx', 'tsx'), {
     React,
     window: { g_routes: undefined },
     localStorage: { getItem: () => null },
@@ -99,7 +99,7 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
         };
       }
       if (id.includes('/dva')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
-      if (id.includes('/ui')) return { ConfigProvider: 'ConfigProvider' };
+      if (id === 'antd/lib/config-provider') return { __esModule: true, default: 'ConfigProvider' };
       if (id.includes('/locales')) return localeExports;
       if (id.includes('/i18n')) {
         return {

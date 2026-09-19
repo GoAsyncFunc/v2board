@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import MobileList from '../components/MobileList.tsx';
 import { Table } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';

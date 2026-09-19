@@ -6,7 +6,7 @@ import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
 import SubscribeImporter from '../components/SubscribeImporter.jsx';
 import { LoadingContainer } from '../vendor/ui.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import history from '../vendor/routerHistory.js';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';

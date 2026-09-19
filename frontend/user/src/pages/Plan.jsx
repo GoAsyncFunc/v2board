@@ -1,6 +1,6 @@
 import React from 'react';
 import Empty from 'antd/lib/empty';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import PlanCard, { getUnitPriceTag, matchesPlanTab } from '../components/PlanCard.jsx';

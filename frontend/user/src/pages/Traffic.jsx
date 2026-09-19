@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { Table } from '../vendor/ui.js';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';

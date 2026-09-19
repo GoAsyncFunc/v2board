@@ -7,7 +7,7 @@ import OrderStatusResult, {
 import PaymentMethods from "../components/checkout/PaymentMethods.jsx";
 import PaymentQrModal from "../components/checkout/PaymentQrModal.jsx";
 import React from "react";
-import MainLayout from "../layouts/MainLayout.jsx";
+import MainLayout from "../layouts/MainLayout";
 import { connect } from "../vendor/reactRedux.js";
 import { Icon } from "../vendor/Icon.js";
 import { Modal } from "../vendor/Modal.js";

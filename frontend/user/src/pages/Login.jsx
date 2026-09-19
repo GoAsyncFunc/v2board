@@ -4,7 +4,7 @@ import { Divider } from "../vendor/Divider.js";
 import { Icon } from "../vendor/Icon.js";
 import history from "../vendor/routerHistory.js";
 import { formatMessage, getLocale } from "../vendor/i18n.js";
-import { LanguageSelector } from '../components/LanguageSelector.jsx';
+import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from "../vendor/localeSettings.js";
 
 import "../vendor/iconStyles.js";

@@ -1,6 +1,6 @@
 import React from 'react';
 import Result from 'antd/lib/result';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { connect } from '../vendor/reactRedux.js';
 import { Button } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';

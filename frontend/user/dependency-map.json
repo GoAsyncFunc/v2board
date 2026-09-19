@@ -1,39 +1,35 @@
 [
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "app/history.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "app/routes.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/dva.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/locales.js"
   },
   {
-    "from": "app/Router.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "app/bootstrap.js",
-    "to": "app/Router.jsx"
+    "to": "app/Router.tsx"
   },
   {
     "from": "app/bootstrap.js",
@@ -196,20 +192,16 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/LanguageSelector.jsx",
+    "from": "components/LanguageSelector.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/LanguageSelector.jsx",
+    "from": "components/LanguageSelector.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/LanguageSelector.jsx",
+    "from": "components/LanguageSelector.tsx",
     "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "components/LanguageSelector.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/NodeColumns.jsx",
@@ -536,64 +528,44 @@
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "config/navigation.jsx",
+    "from": "config/navigation.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "layouts/Header.jsx",
-    "to": "components/LanguageSelector.jsx"
+    "from": "layouts/Header.tsx",
+    "to": "components/LanguageSelector.tsx"
   },
   {
-    "from": "layouts/Header.jsx",
+    "from": "layouts/Header.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "layouts/Header.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "layouts/Header.jsx",
+    "from": "layouts/Header.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "layouts/Header.jsx",
-    "to": "vendor/theme.js"
+    "from": "layouts/MainLayout.tsx",
+    "to": "app/history.js"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "layouts/Header.jsx"
+    "from": "layouts/MainLayout.tsx",
+    "to": "layouts/Header.tsx"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "layouts/Sidebar.jsx"
+    "from": "layouts/MainLayout.tsx",
+    "to": "layouts/Sidebar.tsx"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/content.js"
-  },
-  {
-    "from": "layouts/MainLayout.jsx",
+    "from": "layouts/MainLayout.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/reactRedux.js"
+    "from": "layouts/Sidebar.tsx",
+    "to": "app/history.js"
   },
   {
-    "from": "layouts/Sidebar.jsx",
-    "to": "config/navigation.jsx"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
-    "to": "vendor/routerHistory.js"
+    "from": "layouts/Sidebar.tsx",
+    "to": "config/navigation.tsx"
   },
   {
     "from": "main.js",
@@ -753,7 +725,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -789,7 +761,7 @@
   },
   {
     "from": "pages/Forgetpassword.jsx",
-    "to": "components/LanguageSelector.jsx"
+    "to": "components/LanguageSelector.tsx"
   },
   {
     "from": "pages/Forgetpassword.jsx",
@@ -845,7 +817,7 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Invite.jsx",
@@ -885,7 +857,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -917,7 +889,7 @@
   },
   {
     "from": "pages/Login.jsx",
-    "to": "components/LanguageSelector.jsx"
+    "to": "components/LanguageSelector.tsx"
   },
   {
     "from": "pages/Login.jsx",
@@ -953,7 +925,7 @@
   },
   {
     "from": "pages/Node.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Node.jsx",
@@ -1001,7 +973,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1057,7 +1029,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -1109,7 +1081,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1133,7 +1105,7 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/PlanDetail.jsx",
@@ -1173,7 +1145,7 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Profile.jsx",
@@ -1197,7 +1169,7 @@
   },
   {
     "from": "pages/Register.jsx",
-    "to": "components/LanguageSelector.jsx"
+    "to": "components/LanguageSelector.tsx"
   },
   {
     "from": "pages/Register.jsx",
@@ -1237,7 +1209,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Ticket.jsx",
@@ -1285,7 +1257,7 @@
   },
   {
     "from": "pages/Traffic.jsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Traffic.jsx",

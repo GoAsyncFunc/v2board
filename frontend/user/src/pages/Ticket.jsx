@@ -5,7 +5,7 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Table } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../vendor/i18n.js';
 import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns.jsx';
 
