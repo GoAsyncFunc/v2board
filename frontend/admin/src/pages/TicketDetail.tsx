@@ -4,7 +4,7 @@ import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
-import UserEditor from '../components/UserEditor.jsx';
+import UserEditor from '../components/UserEditor';
 import TrafficPanel from '../components/TrafficPanel';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';

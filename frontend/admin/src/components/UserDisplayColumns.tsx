@@ -1,6 +1,7 @@
 import React from 'react';
 import Badge from 'antd/lib/badge';
 import Tooltip from 'antd/lib/tooltip';
+import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 
 export type UserTimestamp = number | string | null | undefined;
@@ -19,11 +20,11 @@ export function renderUserOnlineStatus(lastSeen: UserTimestamp): 'default' | 'su
 }
 
 // Readonly email/online column; no sorter, filter or event handlers.
-export function createReadonlyUserEmailColumn() {
+export function createReadonlyUserEmailColumn<RecordType extends UserListRecord = UserListRecord>(): ColumnProps<RecordType> {
   return {
     title: '邮箱',
     dataIndex: 'email',
     key: 'email',
-    render: (email: string | null | undefined, record: UserListRecord) => <Tooltip placement="top" title={formatUserLastOnline(record.t)}><Badge status={renderUserOnlineStatus(record.t)} />{email}</Tooltip>,
+    render: (email: string | null | undefined, record) => <Tooltip placement="top" title={formatUserLastOnline(record.t)}><Badge status={renderUserOnlineStatus(record.t)} />{email}</Tooltip>,
   };
 }

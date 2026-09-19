@@ -33,7 +33,7 @@ for (const file of [
   'admin/src/components/TrojanEditor.jsx',
   'admin/src/components/TuicEditor.jsx',
   'admin/src/components/UserGenerator.tsx',
-  'admin/src/components/UserEditor.jsx',
+  'admin/src/components/UserEditor.tsx',
   'admin/src/components/V2NodeEditor.jsx',
   'admin/src/components/VlessEditor.jsx',
   'admin/src/components/VmessEditor.jsx',
@@ -53,6 +53,7 @@ for (const file of [
   'admin/src/pages/ServerManage.jsx',
   'admin/src/pages/Ticket.tsx',
   'admin/src/pages/TicketDetail.tsx',
+  'admin/src/pages/User.tsx',
 ]) {
   const localFile = file.replace(/^admin\//, '');
   test(`${localFile}: references resolve in their lexical scope`, () => {

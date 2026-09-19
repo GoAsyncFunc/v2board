@@ -16,7 +16,7 @@ import ServerManage from '../pages/ServerManage.jsx';
 import ServerRoute from '../pages/ServerRoute.jsx';
 import TicketDetail from '../pages/TicketDetail.tsx';
 import Ticket from '../pages/Ticket.tsx';
-import User from '../pages/User.jsx';
+import User from '../pages/User.tsx';
 
 // Add or edit routes here. Every component is a source file, not a module ID.
 const routes = [

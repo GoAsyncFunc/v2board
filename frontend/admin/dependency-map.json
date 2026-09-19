@@ -105,7 +105,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/User.jsx"
+    "to": "pages/User.tsx"
   },
   {
     "from": "app/store.js",
@@ -356,24 +356,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/UserEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/UserEditor.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/UserEditor.jsx",
+    "from": "components/UserEditor.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/UserEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/UserEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/V2NodeEditor.jsx",
@@ -1245,7 +1229,7 @@
   },
   {
     "from": "pages/TicketDetail.tsx",
-    "to": "components/UserEditor.jsx"
+    "to": "components/UserEditor.tsx"
   },
   {
     "from": "pages/TicketDetail.tsx",
@@ -1256,76 +1240,56 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/ContextMenuTable.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/FilterDrawer.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/SendMailEditor.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/TrafficPanel.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/UserDisplayColumns.tsx"
   },
   {
-    "from": "pages/User.jsx",
-    "to": "components/UserEditor.jsx"
+    "from": "pages/User.tsx",
+    "to": "components/UserEditor.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "components/UserGenerator.tsx"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/User.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/User.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/User.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/User.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/User.jsx",
+    "from": "pages/User.tsx",
     "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "pages/User.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "runtime/routeRenderer.js",
