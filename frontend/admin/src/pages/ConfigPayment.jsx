@@ -9,7 +9,7 @@ import { Icon } from '../vendor/Icon.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import LoadingContainer from '../components/LoadingContainer.tsx';
-import { Sortable } from '../vendor/ui.js';
+import Sortable from '../components/Sortable.tsx';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.tsx';
 import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumns.ts';

@@ -19,8 +19,6 @@ import Tabs from 'antd/lib/tabs';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 
-export { default as Sortable } from './sortable.js';
-
 const notification = message;
 const Modal = Drawer;
 const ButtonGroup = Button.Group;

@@ -1,4 +1,5 @@
 export interface AdminSettings {
+  i18nText: Record<string, string>;
   periodText: Record<PropertyKey, string>;
   orderStatusText: Record<PropertyKey, string>;
   commissionStatusText: Record<PropertyKey, string>;

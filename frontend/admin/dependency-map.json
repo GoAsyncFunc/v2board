@@ -61,7 +61,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Knowledge.jsx"
+    "to": "pages/Knowledge.tsx"
   },
   {
     "from": "app/routes.js",
@@ -793,6 +793,10 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
+    "to": "components/Sortable.tsx"
+  },
+  {
+    "from": "pages/ConfigPayment.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -956,52 +960,32 @@
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "components/KnowledgeDisplayColumns.ts"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "components/MarkdownEditor.tsx"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
+    "to": "components/Sortable.tsx"
+  },
+  {
+    "from": "pages/Knowledge.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "pages/Knowledge.jsx",
+    "from": "pages/Knowledge.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/utilities.js"
   },
   {
     "from": "pages/Login.jsx",
@@ -1117,6 +1101,10 @@
   },
   {
     "from": "pages/Plan.jsx",
+    "to": "components/Sortable.tsx"
+  },
+  {
+    "from": "pages/Plan.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -1202,6 +1190,10 @@
   {
     "from": "pages/ServerManage.jsx",
     "to": "components/ShadowsocksEditor.jsx"
+  },
+  {
+    "from": "pages/ServerManage.jsx",
+    "to": "components/Sortable.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",
@@ -1510,9 +1502,5 @@
   {
     "from": "vendor/siteHelpers.js",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/ui.js",
-    "to": "vendor/sortable.js"
   }
 ]

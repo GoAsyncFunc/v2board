@@ -4,7 +4,10 @@ import {readFileSync} from 'node:fs';
 import {parse} from '@babel/parser';
 import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
-const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console', 'window', 'setTimeout', 'clearTimeout']);
+const globals = new Set([
+  'module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console',
+  'window', 'document', 'Element', 'HTMLElement', 'Node', 'setTimeout', 'clearTimeout',
+]);
 for (const file of [
   'admin/src/components/config/AppConfigTab.tsx',
   'admin/src/components/config/ConfigRow.tsx',
@@ -26,6 +29,7 @@ for (const file of [
   'admin/src/components/PermissionGroupEditor.tsx',
   'admin/src/components/SendMailEditor.tsx',
   'admin/src/components/ServerSecuritySettings.tsx',
+  'admin/src/components/Sortable.tsx',
   'admin/src/components/TrojanEditor.jsx',
   'admin/src/components/TuicEditor.jsx',
   'admin/src/components/UserGenerator.tsx',
@@ -37,7 +41,7 @@ for (const file of [
   'admin/src/pages/ConfigSystem.tsx',
   'admin/src/pages/Coupon.tsx',
   'admin/src/pages/Giftcard.tsx',
-  'admin/src/pages/Knowledge.jsx',
+  'admin/src/pages/Knowledge.tsx',
   'admin/src/pages/Notice.tsx',
   'admin/src/pages/Queue.tsx',
   'admin/src/pages/ServerGroup.tsx',

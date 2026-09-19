@@ -7,56 +7,94 @@ const PIXELS = 'px';
 const VERTICAL_LINE_STYLE = 'position:fixed;z-index:9999;height:0;margin-top:-1px;border-bottom:dashed 2px rgba(0,0,0,.3);display:none;';
 const HORIZONTAL_LINE_STYLE = 'width:0;margin-left:-1px;margin-top:0;border-bottom:0 none;border-left:dashed 2px rgba(0,0,0,.3);';
 
-function closest(element, selector, boundary) {
+export interface SortableProps {
+  children?: React.ReactNode;
+  nodeSelector?: string;
+  ignoreSelector?: string;
+  enableScroll?: boolean;
+  scrollSpeed?: number;
+  handleSelector?: string;
+  lineClassName?: string;
+  onDragEnd?: (fromIndex: number, toIndex: number) => void;
+}
+
+interface SortableState {
+  fromIndex: number;
+  toIndex: number;
+}
+
+function closest(element: EventTarget | null, selector: string, boundary: Element | null): HTMLElement | null {
   let current = element;
   while (current) {
     const isBoundary = current === boundary || current === document.body;
-    if (isBoundary || (current.nodeType === 1 && current.matches(selector))) {
+    if (isBoundary || (current instanceof HTMLElement && current.matches(selector))) {
       if (isBoundary) current = null;
       break;
     }
-    current = current.parentNode;
+    current = current instanceof Node ? current.parentNode : null;
   }
-  return current;
+  return current instanceof HTMLElement ? current : null;
 }
 
-function findScrollableParent(element) {
+function findScrollableParent(element: HTMLElement | null): HTMLElement | null {
   let current = element;
   do {
+    if (!current) break;
     const style = window.getComputedStyle(current);
     const overflow = style.overflow;
-    if ((overflow === 'auto' || overflow === 'scroll') && current && current.nodeType && (current.offsetWidth < current.scrollWidth || current.offsetHeight < current.scrollHeight)) {
+    if ((overflow === 'auto' || overflow === 'scroll') && (current.offsetWidth < current.scrollWidth || current.offsetHeight < current.scrollHeight)) {
       break;
     }
-    if (!current || !current.nodeType || current === document.body) {
+    if (current === document.body) {
       current = null;
       break;
     }
-    current = current.parentNode;
+    current = current.parentElement;
   } while (current);
   return current;
 }
 
-function siblingIndex(element, ignoreSelector) {
-  return Array.from(element.parentNode.children)
+function siblingIndex(element: HTMLElement, ignoreSelector: string): number {
+  if (!element.parentElement) return -1;
+  return Array.from(element.parentElement.children)
     .filter(sibling => ignoreSelector === '' || !sibling.matches(ignoreSelector))
     .indexOf(element);
 }
 
 function ensureMatchesPolyfill() {
   if (typeof Element !== 'undefined' && !Element.prototype.matches) {
-    const prototype = Element.prototype;
-    prototype.matches = prototype.matchesSelector || prototype.mozMatchesSelector || prototype.msMatchesSelector || prototype.oMatchesSelector || prototype.webkitMatchesSelector;
+    const prototype = Element.prototype as typeof Element.prototype & {
+      matchesSelector?: typeof Element.prototype.matches;
+      mozMatchesSelector?: typeof Element.prototype.matches;
+      msMatchesSelector?: typeof Element.prototype.matches;
+      oMatchesSelector?: typeof Element.prototype.matches;
+      webkitMatchesSelector?: typeof Element.prototype.matches;
+    };
+    prototype.matches = prototype.matchesSelector || prototype.mozMatchesSelector || prototype.msMatchesSelector || prototype.oMatchesSelector || prototype.webkitMatchesSelector || prototype.matches;
   }
 }
 
-class Sortable extends React.Component {
-  constructor(props) {
+class Sortable extends React.Component<SortableProps, SortableState> {
+  static defaultProps: Partial<SortableProps> = {
+    nodeSelector: DEFAULT_NODE_SELECTOR,
+    ignoreSelector: '',
+    enableScroll: true,
+    scrollSpeed: 10,
+    handleSelector: '',
+    lineClassName: '',
+    children: null,
+  };
+
+  dragList: HTMLDivElement | null = null;
+  dragLine: HTMLDivElement | null = null;
+  cacheDragTarget: HTMLElement | null = null;
+  scrollElement: HTMLElement | null = null;
+  scrollTimerId = -1;
+  direction = VERTICAL.BOTTOM;
+
+  constructor(props: SortableProps) {
     super(props);
     this.state = { fromIndex: -1, toIndex: -1 };
-    this.scrollElement = null;
-    this.scrollTimerId = -1;
-    this.direction = VERTICAL.BOTTOM;
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onDragStart = this.onDragStart.bind(this);
     this.onDragEnter = this.onDragEnter.bind(this);
@@ -72,23 +110,24 @@ class Sortable extends React.Component {
     }
   }
 
-  onMouseDown(event) {
+  onMouseDown(event: React.MouseEvent<HTMLDivElement>): void {
     const handleNode = this.getHandleNode(event.target);
     if (!handleNode) return;
     const dragNode = this.props.handleSelector && this.props.handleSelector !== this.props.nodeSelector
       ? this.getDragNode(handleNode)
       : handleNode;
     if (!dragNode) return;
-    handleNode.setAttribute('draggable', false);
-    dragNode.setAttribute('draggable', true);
+    handleNode.setAttribute('draggable', 'false');
+    dragNode.setAttribute('draggable', 'true');
     dragNode.ondragstart = this.onDragStart;
     dragNode.ondragend = this.onDragEnd;
   }
 
-  onDragStart(event) {
+  onDragStart(event: DragEvent): void {
     const dragNode = this.getDragNode(event.target);
     if (!dragNode) return;
-    const parent = dragNode.parentNode;
+    const parent = dragNode.parentElement;
+    if (!parent || !event.dataTransfer) return;
     event.dataTransfer.setData('Text', '');
     event.dataTransfer.effectAllowed = 'move';
     parent.ondragenter = this.onDragEnter;
@@ -96,16 +135,16 @@ class Sortable extends React.Component {
       dragEvent.preventDefault();
       return true;
     };
-    const index = siblingIndex(dragNode, this.props.ignoreSelector);
+    const index = siblingIndex(dragNode, this.props.ignoreSelector || '');
     this.setState({ fromIndex: index, toIndex: index });
     this.scrollElement = findScrollableParent(parent);
   }
 
-  onDragEnter(event) {
+  onDragEnter(event: DragEvent): void {
     const dragNode = this.getDragNode(event.target);
     let index = -1;
     if (dragNode) {
-      index = siblingIndex(dragNode, this.props.ignoreSelector);
+      index = siblingIndex(dragNode, this.props.ignoreSelector || '');
       if (this.props.enableScroll) this.resolveAutoScroll(event, dragNode);
     } else {
       this.stopAutoScroll();
@@ -115,32 +154,34 @@ class Sortable extends React.Component {
     this.fixDragLine(dragNode);
   }
 
-  onDragEnd(event) {
+  onDragEnd(event: DragEvent): void {
     const dragNode = this.getDragNode(event.target);
     this.stopAutoScroll();
     if (dragNode) {
       dragNode.removeAttribute('draggable');
       dragNode.ondragstart = null;
       dragNode.ondragend = null;
-      dragNode.parentNode.ondragenter = null;
-      dragNode.parentNode.ondragover = null;
+      if (dragNode.parentElement) {
+        dragNode.parentElement.ondragenter = null;
+        dragNode.parentElement.ondragover = null;
+      }
       if (this.state.fromIndex >= 0 && this.state.fromIndex !== this.state.toIndex) {
-        this.props.onDragEnd(this.state.fromIndex, this.state.toIndex);
+        this.props.onDragEnd?.(this.state.fromIndex, this.state.toIndex);
       }
     }
     this.hideDragLine();
     this.setState({ fromIndex: -1, toIndex: -1 });
   }
 
-  getDragNode(element) {
-    return closest(element, this.props.nodeSelector, this.dragList);
+  protected getDragNode(element: EventTarget | null): HTMLElement | null {
+    return closest(element, this.props.nodeSelector || DEFAULT_NODE_SELECTOR, this.dragList);
   }
 
-  getHandleNode(element) {
-    return closest(element, this.props.handleSelector || this.props.nodeSelector, this.dragList);
+  protected getHandleNode(element: EventTarget | null): HTMLElement | null {
+    return closest(element, this.props.handleSelector || this.props.nodeSelector || DEFAULT_NODE_SELECTOR, this.dragList);
   }
 
-  getDragLine() {
+  protected getDragLine(): HTMLDivElement {
     if (!this.dragLine) {
       this.dragLine = window.document.createElement('div');
       this.dragLine.setAttribute('style', VERTICAL_LINE_STYLE);
@@ -150,7 +191,7 @@ class Sortable extends React.Component {
     return this.dragLine;
   }
 
-  resolveAutoScroll(event, dragNode) {
+  protected resolveAutoScroll(event: DragEvent, dragNode: HTMLElement): void {
     if (!this.scrollElement) return;
     const bounds = this.scrollElement.getBoundingClientRect();
     const threshold = dragNode.offsetHeight * (2 / 3);
@@ -158,36 +199,37 @@ class Sortable extends React.Component {
     if (event.pageY > bounds.top + bounds.height - threshold) this.direction = VERTICAL.BOTTOM;
     else if (event.pageY < bounds.top + threshold) this.direction = VERTICAL.TOP;
     if (this.direction) {
-      if (this.scrollTimerId < 0) this.scrollTimerId = setInterval(this.autoScroll, 20);
+      if (this.scrollTimerId < 0) this.scrollTimerId = window.setInterval(this.autoScroll, 20);
     } else {
       this.stopAutoScroll();
     }
   }
 
-  stopAutoScroll() {
-    clearInterval(this.scrollTimerId);
+  protected stopAutoScroll(): void {
+    window.clearInterval(this.scrollTimerId);
     this.scrollTimerId = -1;
     this.fixDragLine(this.cacheDragTarget);
   }
 
-  autoScroll() {
+  protected autoScroll(): void {
+    if (!this.scrollElement) return;
     const current = this.scrollElement.scrollTop;
     if (this.direction === VERTICAL.BOTTOM) {
-      this.scrollElement.scrollTop = current + this.props.scrollSpeed;
+      this.scrollElement.scrollTop = current + (this.props.scrollSpeed || 10);
       if (current === this.scrollElement.scrollTop) this.stopAutoScroll();
     } else if (this.direction === VERTICAL.TOP) {
-      this.scrollElement.scrollTop = current - this.props.scrollSpeed;
+      this.scrollElement.scrollTop = current - (this.props.scrollSpeed || 10);
       if (this.scrollElement.scrollTop <= 0) this.stopAutoScroll();
     } else {
       this.stopAutoScroll();
     }
   }
 
-  hideDragLine() {
+  protected hideDragLine(): void {
     if (this.dragLine) this.dragLine.style.display = 'none';
   }
 
-  fixDragLine(target) {
+  protected fixDragLine(target: HTMLElement | null): void {
     const line = this.getDragLine();
     if (!target || this.state.fromIndex < 0 || this.state.fromIndex === this.state.toIndex) {
       this.hideDragLine();
@@ -217,18 +259,8 @@ class Sortable extends React.Component {
   }
 }
 
-Sortable.defaultProps = {
-  nodeSelector: DEFAULT_NODE_SELECTOR,
-  ignoreSelector: '',
-  enableScroll: true,
-  scrollSpeed: 10,
-  handleSelector: '',
-  lineClassName: '',
-  children: null,
-};
-
 class DragColumn extends Sortable {
-  getDragLine() {
+  protected getDragLine(): HTMLDivElement {
     const line = super.getDragLine();
     if (!line.dataset.horizontal) {
       line.setAttribute('style', `${line.getAttribute('style')}${HORIZONTAL_LINE_STYLE}`);
@@ -237,7 +269,7 @@ class DragColumn extends Sortable {
     return line;
   }
 
-  resolveAutoScroll(event, dragNode) {
+  protected resolveAutoScroll(event: DragEvent, dragNode: HTMLElement): void {
     if (!this.scrollElement) return;
     const bounds = this.scrollElement.getBoundingClientRect();
     const threshold = 2 * dragNode.offsetWidth / 3;
@@ -245,26 +277,27 @@ class DragColumn extends Sortable {
     if (event.pageX > bounds.left + bounds.width - threshold) this.direction = HORIZONTAL.RIGHT;
     else if (event.pageX < bounds.left + threshold) this.direction = HORIZONTAL.LEFT;
     if (this.direction) {
-      if (this.scrollTimerId < 0) this.scrollTimerId = setInterval(this.autoScroll, 20);
+      if (this.scrollTimerId < 0) this.scrollTimerId = window.setInterval(this.autoScroll, 20);
     } else {
       this.stopAutoScroll();
     }
   }
 
-  autoScroll() {
+  protected autoScroll(): void {
+    if (!this.scrollElement) return;
     const current = this.scrollElement.scrollLeft;
     if (this.direction === HORIZONTAL.RIGHT) {
-      this.scrollElement.scrollLeft = current + this.props.scrollSpeed;
+      this.scrollElement.scrollLeft = current + (this.props.scrollSpeed || 10);
       if (current === this.scrollElement.scrollLeft) this.stopAutoScroll();
     } else if (this.direction === HORIZONTAL.LEFT) {
-      this.scrollElement.scrollLeft = current - this.props.scrollSpeed;
+      this.scrollElement.scrollLeft = current - (this.props.scrollSpeed || 10);
       if (this.scrollElement.scrollLeft <= 0) this.stopAutoScroll();
     } else {
       this.stopAutoScroll();
     }
   }
 
-  fixDragLine(target) {
+  protected fixDragLine(target: HTMLElement | null): void {
     const line = this.getDragLine();
     if (!target || this.state.fromIndex < 0 || this.state.fromIndex === this.state.toIndex) {
       this.hideDragLine();
@@ -287,7 +320,7 @@ class DragColumn extends Sortable {
 }
 
 ensureMatchesPolyfill();
-Sortable.DragColumn = DragColumn;
+(Sortable as typeof Sortable & { DragColumn: typeof DragColumn }).DragColumn = DragColumn;
 
 export { Sortable, DragColumn };
 export default Sortable;

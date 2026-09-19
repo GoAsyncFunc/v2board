@@ -6,7 +6,7 @@ import { Menu } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Switch } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import { Sortable } from '../vendor/ui.js';
+import Sortable from '../components/Sortable.tsx';
 import { Drawer } from '../vendor/ui.js';
 import { Checkbox } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';

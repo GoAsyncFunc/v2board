@@ -5,7 +5,7 @@ import Coupon from '../pages/Coupon.tsx';
 import Giftcard from '../pages/Giftcard.tsx';
 import Dashboard from '../pages/Dashboard.jsx';
 import Index from '../pages/Index.jsx';
-import Knowledge from '../pages/Knowledge.jsx';
+import Knowledge from '../pages/Knowledge.tsx';
 import Login from '../pages/Login.jsx';
 import Notice from '../pages/Notice.tsx';
 import Order from '../pages/Order.jsx';

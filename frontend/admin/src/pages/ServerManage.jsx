@@ -12,7 +12,7 @@ import { Dropdown } from '../vendor/ui.js';
 import { Menu } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Tag } from '../vendor/ui.js';
-import { Sortable } from '../vendor/ui.js';
+import Sortable from '../components/Sortable.tsx';
 import LoadingContainer from '../components/LoadingContainer.tsx';
 import { Prompt } from '../vendor/appRuntime.js';
 import copyText from '../vendor/clipboard.js';
