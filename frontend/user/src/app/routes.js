@@ -11,8 +11,8 @@ import PlanDetail from '../pages/PlanDetail.jsx';
 import Plan from '../pages/Plan';
 import Profile from '../pages/Profile.jsx';
 import Register from '../pages/Register';
-import TicketDetail from '../pages/TicketDetail.jsx';
-import Ticket from '../pages/Ticket.jsx';
+import TicketDetail from '../pages/TicketDetail';
+import Ticket from '../pages/Ticket';
 import Traffic from '../pages/Traffic';
 
 // Add or edit routes here. Every component is a source file, not a module ID.

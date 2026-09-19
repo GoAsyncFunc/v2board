@@ -3,6 +3,7 @@ import { Badge } from '../vendor/ui.js';
 import moment from '../vendor/dateTime.js';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, TicketRecord } from '../types/commerce';
+import type { ColumnProps } from 'antd/lib/table';
 const message = (id: string): string => formatMessage({ id });
 
 export function renderTicketLevel(levels: readonly string[], value: PropertyKey | null | undefined): string | undefined {
@@ -26,7 +27,7 @@ export function formatTicketUpdatedAt(value: NumericValue): string {
 }
 
 // Readonly columns only; the 操作 column (view/close events) stays in the page.
-export function createReadonlyTicketColumns(levels: readonly string[]) {
+export function createReadonlyTicketColumns(levels: readonly string[]): ColumnProps<TicketRecord>[] {
   return [
     { title: '#', dataIndex: 'id', key: 'id' },
     { title: message('主题'), dataIndex: 'subject', key: 'subject' },

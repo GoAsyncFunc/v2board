@@ -97,11 +97,11 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Ticket.jsx"
+    "to": "pages/Ticket.tsx"
   },
   {
     "from": "app/routes.js",
-    "to": "pages/TicketDetail.jsx"
+    "to": "pages/TicketDetail.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1144,52 +1144,44 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "components/TicketReadonlyColumns.tsx"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/Ticket.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
+    "from": "pages/Ticket.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "vendor/content.js"
   },
   {
-    "from": "pages/TicketDetail.jsx",
+    "from": "pages/TicketDetail.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/TicketDetail.jsx",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "pages/Traffic.tsx",

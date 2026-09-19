@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
@@ -8,11 +8,15 @@ import { Icon } from '../vendor/Icon.js';
 import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../vendor/i18n.js';
 import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns';
+import type { TicketDraft, TicketState } from '../types/ticket';
+import type { UserDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';
 
-export class TicketPage extends React.Component {
-  setSaveData(key, value) {
+interface TicketStateProps { ticket: TicketState; }
+
+export class TicketPage extends React.Component<TicketStateProps & { dispatch: UserDispatch }> {
+  setSaveData<Key extends keyof TicketDraft>(key: Key, value: TicketDraft[Key]) {
     const { saveData } = this.props.ticket;
     this.props.dispatch({
       type: 'ticket/setState',
@@ -32,11 +36,11 @@ export class TicketPage extends React.Component {
     this.props.dispatch({ type: 'ticket/save' });
   }
 
-  close(id) {
+  close(id: number) {
     this.props.dispatch({ type: 'ticket/close', id });
   }
 
-  toChat(id) {
+  toChat(id: number) {
     const url = `${window.location.origin}${window.location.pathname}#/ticket/${id}`;
     const userAgent = window.navigator.userAgent.toLowerCase();
     if (!userAgent.includes('mobile') && !userAgent.includes('ipad')) {
@@ -107,7 +111,7 @@ export class TicketPage extends React.Component {
             </div>
             <div className="form-group">
               <label htmlFor="ticket-level">{formatMessage({ id: '工单等级' })}</label>
-              <Select
+              <Select<number>
                 id="ticket-level"
                 placeholder={formatMessage({ id: '请选择工单等级' })}
                 style={{ width: '100%' }}
@@ -134,4 +138,4 @@ export class TicketPage extends React.Component {
   }
 }
 
-export default connect(state => ({ ticket: state.ticket }))(TicketPage);
+export default connect((state: TicketStateProps) => ({ ticket: state.ticket }))(TicketPage);

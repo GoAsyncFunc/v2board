@@ -1,16 +1,21 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { formatMessage } from '../vendor/i18n.js';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
-import { formatDateTime } from '../components/DateTimeDisplay.ts';
+import { formatDateTime } from '../components/DateTimeDisplay';
+import type { TicketConversation, TicketMessage, TicketState } from '../types/ticket';
+import type { UserDispatch } from '../types/store';
 
-export class TicketDetailBody extends React.Component {
-  constructor(props) {
-    super(props);
-    this.chatCount = 0;
-    this.chatRef = React.createRef();
-    this.messageRef = React.createRef();
-  }
+interface TicketDetailBodyProps {
+  ticket?: TicketConversation;
+  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>, clearMessage: () => void) => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+export class TicketDetailBody extends React.Component<TicketDetailBodyProps> {
+  chatCount: number | undefined = 0;
+  chatRef = React.createRef<HTMLDivElement>();
+  messageRef = React.createRef<HTMLInputElement>();
 
   componentDidMount() {
     this.chatScroll();
@@ -29,7 +34,7 @@ export class TicketDetailBody extends React.Component {
     if (chat) chat.scrollTo(0, chat.scrollHeight);
   }
 
-  renderMessage(message) {
+  renderMessage(message: TicketMessage) {
     return message.is_me ? (
       <div key={message.id || message.created_at}>
         <div className="font-size-sm text-muted my-2 text-right">{formatDateTime(message.created_at)}</div>
@@ -73,7 +78,17 @@ export class TicketDetailBody extends React.Component {
   }
 }
 
-export class TicketDetailPage extends React.Component {
+interface TicketDetailStateProps {
+  ticket: TicketState;
+  header?: object;
+}
+interface TicketDetailProps extends TicketDetailStateProps {
+  dispatch: UserDispatch;
+  match: { params: { ticket_id: string } };
+}
+
+export class TicketDetailPage extends React.Component<TicketDetailProps> {
+  refreshTimeout?: ReturnType<typeof setTimeout>;
   componentDidMount() {
     this.fetchData();
     const refresh = () => {
@@ -93,7 +108,7 @@ export class TicketDetailPage extends React.Component {
     this.props.dispatch({ type: 'ticket/fetchById', id: this.props.match.params.ticket_id });
   }
 
-  reply(clearMessage) {
+  reply(clearMessage: () => void) {
     this.props.dispatch({
       type: 'ticket/reply',
       id: this.props.match.params.ticket_id,
@@ -118,4 +133,4 @@ export class TicketDetailPage extends React.Component {
   }
 }
 
-export default connect(state => ({ header: state.header, ticket: state.ticket }))(TicketDetailPage);
+export default connect((state: TicketDetailStateProps) => ({ header: state.header, ticket: state.ticket }))(TicketDetailPage);
