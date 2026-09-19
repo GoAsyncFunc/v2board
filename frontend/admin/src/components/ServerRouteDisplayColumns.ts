@@ -1,3 +1,5 @@
+import type { ColumnProps } from 'antd/lib/table/interface';
+
 // Preserve the original length access before type checking (null/undefined throw).
 export type RouteMatch = string | unknown[] | { length: number | string };
 
@@ -6,7 +8,7 @@ export function formatRouteMatchCount(match: RouteMatch): string {
   const count = typeof match === 'string' ? match.split(',').filter(value => !!value).length : match.length;
   return `匹配 ${count} 条规则`;
 }
-export function createReadonlyServerRouteColumns() {
+export function createReadonlyServerRouteColumns<RecordType extends object = Record<string, unknown>>(): Record<string, ColumnProps<RecordType>> {
   return {
     id: { title: 'ID', dataIndex: 'id', key: 'id' },
     remarks: { title: '备注', dataIndex: 'remarks', key: 'remarks' },

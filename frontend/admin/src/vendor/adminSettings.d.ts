@@ -3,6 +3,7 @@ export interface AdminSettings {
   periodText: Record<PropertyKey, string>;
   orderStatusText: Record<PropertyKey, string>;
   commissionStatusText: Record<PropertyKey, string>;
+  routeActionText: Record<PropertyKey, string>;
   [key: string]: unknown;
 }
 

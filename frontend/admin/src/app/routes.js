@@ -13,7 +13,7 @@ import Plan from '../pages/Plan.tsx';
 import Queue from '../pages/Queue.tsx';
 import ServerGroup from '../pages/ServerGroup.tsx';
 import ServerManage from '../pages/ServerManage.jsx';
-import ServerRoute from '../pages/ServerRoute.jsx';
+import ServerRoute from '../pages/ServerRoute.tsx';
 import TicketDetail from '../pages/TicketDetail.tsx';
 import Ticket from '../pages/Ticket.tsx';
 import User from '../pages/User.tsx';

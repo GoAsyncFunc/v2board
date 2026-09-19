@@ -93,7 +93,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ServerRoute.jsx"
+    "to": "pages/ServerRoute.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1160,48 +1160,28 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "components/RouteActionColumn.ts"
   },
   {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "components/ServerRouteDisplayColumns.ts"
   },
   {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ServerRoute.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "pages/ServerRoute.jsx",
+    "from": "pages/ServerRoute.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Ticket.tsx",
