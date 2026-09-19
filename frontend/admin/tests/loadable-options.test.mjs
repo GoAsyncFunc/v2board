@@ -22,7 +22,12 @@ test('Markdown editor lazy loader provides the required loading component', asyn
   assert.ok(options, 'Expected the Markdown editor to use loadable options');
   assert.ok(options.some(property => property.type === 'ObjectProperty'
     && property.key.type === 'Identifier'
-    && property.key.name === 'loader'));
+    && property.key.name === 'loader'
+    && property.value.type === 'ArrowFunctionExpression'
+    && property.value.body.type === 'CallExpression'
+    && property.value.body.callee.type === 'MemberExpression'
+    && property.value.body.callee.property.type === 'Identifier'
+    && property.value.body.callee.property.name === 'then'));
   assert.ok(options.some(property => property.type === 'ObjectProperty'
     && property.key.type === 'Identifier'
     && property.key.name === 'loading'

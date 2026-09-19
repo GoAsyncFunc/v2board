@@ -13,7 +13,7 @@ import { Input } from '../vendor/ui.js';
 import { message } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';
 import { LoadingContainer } from '../vendor/ui.js';
-import { loadable } from '../vendor/utilities.js';
+import { loadable, resolveDefaultExport } from '../vendor/utilities.js';
 import { MarkdownIt } from '../vendor/utilities.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { createReadonlyKnowledgeColumns } from '../components/KnowledgeDisplayColumns.jsx';
@@ -22,7 +22,7 @@ import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyKnowledgeColumns();
 const MarkdownEditor = loadable({
-  loader: () => import('../components/MarkdownEditor.jsx'),
+  loader: () => import('../components/MarkdownEditor.jsx').then(resolveDefaultExport),
   loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
