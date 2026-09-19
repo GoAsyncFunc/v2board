@@ -993,6 +993,10 @@
   },
   {
     "from": "pages/Knowledge.jsx",
+    "to": "components/MarkdownEditor.jsx"
+  },
+  {
+    "from": "pages/Knowledge.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -1018,10 +1022,6 @@
   {
     "from": "pages/Knowledge.jsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
-    "to": "vendor/markdownEditor.js"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -1648,10 +1648,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "vendor/markdownEditor.js",
-    "to": "vendor/modules/markdownEditorRuntime.js"
-  },
-  {
     "from": "vendor/modules/browserTransportFeatures.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
@@ -1718,10 +1714,6 @@
   {
     "from": "vendor/modules/clientRequestRuntime.js",
     "to": "vendor/modules/streamRuntime.js"
-  },
-  {
-    "from": "vendor/modules/createClassHelper.js",
-    "to": "vendor/modules/toPropertyKey.js"
   },
   {
     "from": "vendor/modules/deprecate.js",
@@ -1798,46 +1790,6 @@
   {
     "from": "vendor/modules/incomingMessageRuntime.js",
     "to": "vendor/modules/streamRuntime.js"
-  },
-  {
-    "from": "vendor/modules/inherits.js",
-    "to": "vendor/modules/setPrototypeOfCompat.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/assertThisInitialized.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/classNames.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/createClassHelper.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/eventEmitter3.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/inherits.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/objectAssignHelper.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/markdownEditorRuntime.js",
-    "to": "vendor/modules/uuidV4.js"
   },
   {
     "from": "vendor/modules/nodeQueryStringLegacy.js",
@@ -1958,18 +1910,6 @@
   {
     "from": "vendor/modules/stringDecoder.js",
     "to": "vendor/modules/bufferRuntime.js"
-  },
-  {
-    "from": "vendor/modules/toPrimitiveDefault.js",
-    "to": "vendor/modules/typeofHelper.js"
-  },
-  {
-    "from": "vendor/modules/toPropertyKey.js",
-    "to": "vendor/modules/toPrimitiveDefault.js"
-  },
-  {
-    "from": "vendor/modules/toPropertyKey.js",
-    "to": "vendor/modules/typeofHelper.js"
   },
   {
     "from": "vendor/modules/transformStream.js",
