@@ -5,8 +5,8 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Notice.jsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'jsx' });
+  const source = await fs.readFile(new URL('../src/pages/Notice.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const React = {
     Component: class {
@@ -24,25 +24,23 @@ async function loadPage() {
     module, exports: module.exports,
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id === 'react-redux') return { connect: () => Page => Page };
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('Modal')) return { Modal: 'Modal' };
-      if (id.includes('ui.js')) return {
-        Select: 'Select',
-        Input: Object.assign('Input', { TextArea: 'TextArea' }),
-        Table: 'Table',
-        Button: 'Button',
-        Switch: 'Switch',
-      };
-      if (id.includes('Divider.js')) return { Divider: 'Divider' };
-      if (id.includes('Icon.js')) return { Icon: 'Icon' };
+      if (id === 'antd/lib/modal') return 'Modal';
+      if (id === 'antd/lib/select') return 'Select';
+      if (id === 'antd/lib/input') return Object.assign('Input', { TextArea: 'TextArea' });
+      if (id === 'antd/lib/table') return 'Table';
+      if (id === 'antd/lib/button') return 'Button';
+      if (id === 'antd/lib/switch') return 'Switch';
+      if (id === 'antd/lib/divider') return 'Divider';
+      if (id === 'antd/lib/icon') return 'Icon';
       if (id.includes('NoticeDisplayColumns')) return {
         createReadonlyNoticeColumns: () => ({
           id: { key: 'id' }, title: { key: 'title' }, created_at: { key: 'created_at' },
         }),
       };
-      if (/iconStyles|dateTime/.test(id)) return {};
+      if (/iconStyles/.test(id)) return {};
       throw new Error(id);
     },
   });

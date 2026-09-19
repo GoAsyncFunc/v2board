@@ -1,31 +1,56 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout.jsx';
-import { connect } from '../vendor/reactRedux.js';
-import { Modal } from '../vendor/Modal.js';
-import { Select, Input, Table, Button, Switch } from '../vendor/ui.js';
-import { Divider } from '../vendor/Divider.js';
-import { Icon } from '../vendor/Icon.js';
-import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.ts';
-import LoadingContainer from '../components/LoadingContainer.tsx';
+import { connect } from 'react-redux';
+import Button from 'antd/lib/button';
+import Divider from 'antd/lib/divider';
+import Icon from 'antd/lib/icon';
+import Input from 'antd/lib/input';
+import Modal from 'antd/lib/modal';
+import Select from 'antd/lib/select';
+import Switch from 'antd/lib/switch';
+import Table from 'antd/lib/table';
+import type { ColumnProps } from 'antd/lib/table/interface';
+import { createReadonlyNoticeColumns, type NoticeRecord } from '../components/NoticeDisplayColumns';
+import LoadingContainer from '../components/LoadingContainer';
+import MainLayout from '../layouts/MainLayout';
+import type { AdminDispatch } from '../types/store';
 import '../vendor/iconStyles.js';
-import '../vendor/dateTime.js';
 
 const readonlyColumns = createReadonlyNoticeColumns();
 
-export class NoticePage extends React.Component {
-  state = { visible: false, submit: {}, notices: [] };
+interface NoticePageProps {
+  dispatch: AdminDispatch;
+  notice: {
+    notices: NoticeRecord[];
+    fetchLoading: boolean;
+    saveLoading?: boolean;
+  };
+  [key: string]: unknown;
+}
 
-  componentDidMount() {
+interface NoticeRootState {
+  notice: NoticePageProps['notice'];
+}
+
+interface NoticePageState {
+  visible: boolean;
+  submit: NoticeRecord;
+  saveLoading?: boolean;
+}
+
+export class NoticePage extends React.Component<NoticePageProps, NoticePageState> {
+  state: NoticePageState = { visible: false, submit: {} };
+
+  componentDidMount(): void {
     this.props.dispatch({ type: 'notice/fetch' });
   }
 
-  toggleModal() {
-    this.setState(state => ({ visible: !state.visible }), () => {
+  toggleModal(): void {
+    this.setState(({ visible }) => ({ visible: !visible }), () => {
       if (!this.state.visible) this.setState({ submit: {} });
     });
   }
 
-  save() {
+  save(): void {
     this.props.dispatch({
       type: 'notice/save',
       params: { ...this.state.submit },
@@ -33,23 +58,23 @@ export class NoticePage extends React.Component {
     });
   }
 
-  drop(notice) {
+  drop(notice: NoticeRecord): void {
     this.props.dispatch({ type: 'notice/drop', id: notice.id });
   }
 
-  updateField(field, value) {
-    this.setState({ submit: { ...this.state.submit, [field]: value } });
+  updateField<Field extends keyof NoticeRecord>(field: Field, value: NoticeRecord[Field]): void {
+    this.setState(({ submit }) => ({ submit: { ...submit, [field]: value } }));
   }
 
   render() {
     const { notices, fetchLoading } = this.props.notice;
-    const columns = [
+    const columns: ColumnProps<NoticeRecord>[] = [
       readonlyColumns.id,
       {
         title: '显示',
         dataIndex: 'show',
         key: 'show',
-        render: (value, record) => (
+        render: (value: boolean, record) => (
           <Switch
             size="small"
             checked={value}
@@ -65,7 +90,7 @@ export class NoticePage extends React.Component {
         key: 'action',
         align: 'right',
         fixed: 'right',
-        render: (value, record, index) => (
+        render: (_value, record, index) => (
           <div>
             <a
               href="javascript:void(0);"
@@ -89,7 +114,7 @@ export class NoticePage extends React.Component {
                   <Icon type="plus" /> 添加公告
                 </Button>
               </div>
-              <Table tableLayout="auto" dataSource={notices} pagination={false} columns={columns} scroll={{ x: 950 }} />
+              <Table<NoticeRecord> tableLayout="auto" dataSource={notices} pagination={false} columns={columns} scroll={{ x: 950 }} />
             </div>
           </div>
         </LoadingContainer>
@@ -118,7 +143,7 @@ export class NoticePage extends React.Component {
                 value={this.state.submit.tags || []}
                 style={{ width: '100%' }}
                 placeholder="输入后回车添加标签"
-                onChange={tags => this.updateField('tags', tags.length > 0 ? tags : null)}
+                onChange={(tags: string[]) => this.updateField('tags', tags.length > 0 ? tags : null)}
               />
             </div>
             <div className="form-group">
@@ -132,4 +157,4 @@ export class NoticePage extends React.Component {
   }
 }
 
-export default connect(state => ({ notice: state.notice }))(NoticePage);
+export default connect((state: NoticeRootState) => ({ notice: state.notice }))(NoticePage);

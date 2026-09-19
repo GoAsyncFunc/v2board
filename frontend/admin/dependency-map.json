@@ -69,7 +69,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Notice.jsx"
+    "to": "pages/Notice.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1020,44 +1020,20 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "pages/Notice.jsx",
+    "from": "pages/Notice.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Notice.jsx",
+    "from": "pages/Notice.tsx",
     "to": "components/NoticeDisplayColumns.ts"
   },
   {
-    "from": "pages/Notice.jsx",
+    "from": "pages/Notice.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
+    "from": "pages/Notice.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Order.jsx",

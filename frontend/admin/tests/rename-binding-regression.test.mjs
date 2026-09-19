@@ -38,6 +38,7 @@ for (const file of [
   'admin/src/pages/Coupon.tsx',
   'admin/src/pages/Giftcard.tsx',
   'admin/src/pages/Knowledge.jsx',
+  'admin/src/pages/Notice.tsx',
   'admin/src/pages/Queue.tsx',
   'admin/src/pages/ServerGroup.tsx',
   'admin/src/pages/ServerRoute.jsx',
