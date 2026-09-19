@@ -188,10 +188,6 @@
     "to": "vendor/dva.js"
   },
   {
-    "from": "components/DateTimeDisplay.ts",
-    "to": "vendor/dateTime.js"
-  },
-  {
     "from": "components/InviteDisplayColumns.jsx",
     "to": "vendor/dateTime.js"
   },

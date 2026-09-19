@@ -18,7 +18,7 @@ async function load(original) {
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {
     module, exports: module.exports, require(id) {
-      if (id.includes('77642f52')) return moment;
+      if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
     },
   });

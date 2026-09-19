@@ -1,4 +1,4 @@
-import moment from '../vendor/dateTime.js';
+import moment from 'moment';
 
 // Readonly date/time display shared by user pages; no events or requests.
 export function formatDateTime(value: unknown): string {
@@ -18,5 +18,5 @@ export function formatDateDash(value: unknown): string {
 }
 
 export function formatDaysRemaining(expiredAt: unknown): string {
-  return (((expiredAt as number) - moment().format('X')) / 86400).toFixed(0);
+  return (((expiredAt as number) - Number(moment().format('X'))) / 86400).toFixed(0);
 }

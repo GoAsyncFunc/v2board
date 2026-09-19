@@ -59,7 +59,9 @@ class Touchable extends React.Component<TouchableProps, { active: boolean }> {
     const handlerName = `on${eventName}`;
     const child = this.props.children;
     const handler = child.props[handlerName as keyof typeof child.props];
-    if (typeof handler === 'function') handler(event);
+    if (typeof handler === 'function') {
+      (handler as (event: React.SyntheticEvent) => void)(event);
+    }
     if (active !== this.state.active) this.setState({ active });
   }
 
@@ -115,6 +117,8 @@ export class MobileListItem extends React.Component<MobileListItemProps, MobileL
     coverRippleStyle: { display: 'none' },
     rippleClicked: false,
   };
+
+  private debounceTimeout: ReturnType<typeof setTimeout> | null = null;
 
   componentWillUnmount() {
     if (this.debounceTimeout) {
@@ -173,7 +177,7 @@ export class MobileListItem extends React.Component<MobileListItemProps, MobileL
       platform,
       ...restProps
     } = this.props;
-    const touchHandlers = {};
+    const touchHandlers: Record<string, unknown> = {};
     Object.keys(restProps).forEach(key => {
       if (/onTouch/i.test(key)) touchHandlers[key] = restProps[key];
     });
