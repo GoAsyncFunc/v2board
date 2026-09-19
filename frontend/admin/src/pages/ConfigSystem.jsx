@@ -14,6 +14,7 @@ import TicketConfigTab from "../components/config/TicketConfigTab.jsx";
 import InviteConfigTab from "../components/config/InviteConfigTab.jsx";
 import FrontendConfigTab from "../components/config/FrontendConfigTab.jsx";
 import AppConfigTab from "../components/config/AppConfigTab.jsx";
+import TelegramConfigTab from "../components/config/TelegramConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -488,104 +489,13 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "Telegram",
-                                key: "telegram",
-                            },
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "机器人Token",
-                                        description:
-                                            "请输入由Botfather提供的token。",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={
-                                            "0000000000:xxxxxxxxx_xxxxxxxxxxxxxxx"
-                                        }
-                                        defaultValue={
-                                            telegram.telegram_bot_token
-                                        }
-                                        onChange={(e) =>
-                                            this.set(
-                                                "telegram",
-                                                "telegram_bot_token",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {telegram.telegram_bot_token &&
-                                    React.createElement(
-                                        ConfigRow,
-                                        {
-                                            title: "设置Webhook",
-                                            description:
-                                                "对机器人进行Webhook设置，不设置将无法收到Telegram通知。",
-                                        },
-                                        React.createElement(
-                                            Button,
-                                            {
-                                                type: "primary",
-                                                onClick: () => {
-                                                    this.props.dispatch({
-                                                        type: "config/setTelegramWebhook",
-                                                    });
-                                                },
-                                                loading:
-                                                    setTelegramWebhookLoading,
-                                                disabled:
-                                                    setTelegramWebhookLoading,
-                                            },
-                                            "一键设置",
-                                        ),
-                                    )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "开启机器人通知",
-                                        description:
-                                            "开启后bot将会对绑定了telegram的管理员和用户进行基础通知。",
-                                    },
-                                    React.createElement(Switch, {
-                                        checked: parseInt(
-                                            telegram.telegram_bot_enable,
-                                        ),
-                                        onChange: (e) =>
-                                            this.set(
-                                                "telegram",
-                                                "telegram_bot_enable",
-                                                e ? 1 : 0,
-                                            ),
-                                    }),
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "群组地址",
-                                        description:
-                                            "填写后将会在用户端展示，或者被用于需要的地方。",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"https://t.me/xxxxxx"}
-                                        defaultValue={
-                                            telegram.telegram_discuss_link
-                                        }
-                                        onChange={(e) =>
-                                            this.set(
-                                                "telegram",
-                                                "telegram_discuss_link",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                            </div>,
+                            { tab: "Telegram", key: "telegram" },
+                            <TelegramConfigTab
+                                telegram={telegram}
+                                webhookLoading={setTelegramWebhookLoading}
+                                onChange={(field, value) => this.set("telegram", field, value)}
+                                onSetWebhook={() => this.props.dispatch({ type: "config/setTelegramWebhook" })}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,

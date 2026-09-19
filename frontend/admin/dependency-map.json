@@ -688,6 +688,14 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "components/config/TelegramConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
+  },
+  {
+    "from": "components/config/TelegramConfigTab.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
     "from": "components/config/TicketConfigTab.jsx",
     "to": "components/config/ConfigRow.jsx"
   },
@@ -1026,6 +1034,10 @@
   {
     "from": "pages/ConfigSystem.jsx",
     "to": "components/config/SubscribeConfigTab.jsx"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/TelegramConfigTab.jsx"
   },
   {
     "from": "pages/ConfigSystem.jsx",

@@ -22,6 +22,7 @@ async function loadConfig() {
     ['invite', '../src/components/config/InviteConfigTab.jsx'],
     ['frontend', '../src/components/config/FrontendConfigTab.jsx'],
     ['app', '../src/components/config/AppConfigTab.jsx'],
+    ['telegram', '../src/components/config/TelegramConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -42,6 +43,7 @@ async function loadConfig() {
         if (id.includes('InviteConfigTab')) return components.invite;
         if (id.includes('FrontendConfigTab')) return components.frontend;
         if (id.includes('AppConfigTab')) return components.app;
+        if (id.includes('TelegramConfigTab')) return components.telegram;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -61,6 +63,7 @@ async function loadConfig() {
     InviteConfigTab: components.invite.default,
     FrontendConfigTab: components.frontend.default,
     AppConfigTab: components.app.default,
+    TelegramConfigTab: components.telegram.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -362,4 +365,39 @@ test('App config tab maps platform versions and download URLs to app fields', as
     ['windows_version', '2.0.0'],
     ['windows_download_url', '/new.exe'],
   ]);
+});
+
+test('Telegram config tab conditionally exposes webhook setup and maps bot settings', async () => {
+  const { TelegramConfigTab } = await loadConfig();
+  const changes = [];
+  let webhookCalls = 0;
+  const tree = TelegramConfigTab({
+    telegram: {
+      telegram_bot_token: 'token',
+      telegram_bot_enable: 0,
+      telegram_discuss_link: 'https://t.me/group',
+    },
+    webhookLoading: false,
+    onChange: (field, value) => changes.push([field, value]),
+    onSetWebhook: () => { webhookCalls += 1; },
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange || node.props?.onClick) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  assert.match(JSON.stringify(tree), /设置Webhook/);
+  controls.find(control => control.props.onClick).props.onClick();
+  controls.find(control => control.props.onChange && control.props.defaultValue === 'https://t.me/group')
+    .props.onChange({ target: { value: 'https://t.me/new' } });
+  assert.equal(webhookCalls, 1);
+  assert.deepEqual(changes, [['telegram_discuss_link', 'https://t.me/new']]);
 });
