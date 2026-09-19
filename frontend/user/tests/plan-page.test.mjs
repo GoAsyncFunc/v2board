@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Fragment: 'Fragment', Component: class { constructor(props) { this.props = props; } setState(value) { this.state = { ...this.state, ...value }; } }, createElement(type, props, ...children) { return typeof type === 'function' ? type(props) : { type, props: props || {}, children }; } };
 async function load(original) {
   const trace = [], cache = {}, compiled = {};
-  for (const [name, file] of Object.entries({ page: original ? './fixtures/pages/user-plan.jsx' : '../src/pages/Plan.jsx', card: '../src/components/PlanCard.jsx' })) compiled[name] = (await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' })).code;
+  for (const [name, file] of Object.entries({ page: original ? './fixtures/pages/user-plan.jsx' : '../src/pages/Plan.tsx', card: '../src/components/PlanCard.tsx' })) compiled[name] = (await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: file.endsWith('.tsx') ? 'tsx' : 'jsx' })).code;
   function evaluate(name) {
     if (cache[name]) return cache[name];
     const module = { exports: {} };
@@ -18,7 +18,7 @@ async function load(original) {
       if (id.includes('PlanCard')) return evaluate('card');
       if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
-      if (id.includes('reactRedux')) return { c: () => cls => cls, connect: () => cls => cls };
+      if (id === 'react-redux' || id.includes('reactRedux')) return { c: () => cls => cls, connect: () => cls => cls };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('localeSettings')) { const localeSettings = { periodText: { month_price: () => 'Month', year_price: () => 'Year', onetime_price: () => 'Once', reset_price: () => 'Reset' } }; return { a: localeSettings, localeSettings }; }
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
@@ -36,7 +36,8 @@ function normalize(value) {
   // className; this explicit correction is normalized rather than hidden.
   if (Array.isArray(value)) return value.map(normalize);
   if (typeof value === 'function') return '[handler]';
-  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'key').map(([key, v]) => [key === 'class' ? 'className' : key, normalize(v)]));
+  // Both false and undefined omit the class attribute in React DOM.
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).filter(([key, entry]) => key !== 'key' && !(['class', 'className'].includes(key) && (entry === false || entry === undefined))).map(([key, v]) => [key === 'class' ? 'className' : key, normalize(v)]));
   return value;
 }
 function links(tree, found = []) { if (Array.isArray(tree)) tree.forEach(node => links(node, found)); else if (tree && typeof tree === 'object') { if (tree.type === 'a') found.push(tree); links(tree.children, found); } return found; }
@@ -66,4 +67,36 @@ test('Plan empty response clears the spinner and shows an empty state', async ()
   const rendered = JSON.stringify(page.render());
   assert.doesNotMatch(rendered, /Loading\.\.\./);
   assert.match(rendered, /"type":"Empty"/);
+});
+
+test('Plan category controls switch the visible cards without refetching', async () => {
+  const { Page, trace } = await load(false);
+  const base = { capacity_limit: null, content: '', month_price: null, year_price: null, onetime_price: null, reset_price: 99 };
+  const page = new Page({
+    plan: { plans: [
+      { ...base, id: 1, name: 'Monthly', month_price: 100 },
+      { ...base, id: 2, name: 'Once', onetime_price: 200 },
+    ] },
+    comm: { config: {} },
+    dispatch: action => trace.push(['dispatch', action]),
+  });
+  function tabControls(tree) {
+    if (Array.isArray(tree)) return tree.flatMap(tabControls);
+    if (!tree || typeof tree !== 'object') return [];
+    return [
+      ...(tree.type === 'span' && tree.props.onClick ? [tree] : []),
+      ...tabControls(tree.children),
+    ];
+  }
+  for (const [tab, destination] of [[1, '/plan/1'], [2, '/plan/2']]) {
+    tabControls(page.render())[tab].props.onClick();
+    assert.equal(page.state.tabs, tab);
+    const cards = links(page.render());
+    assert.equal(cards.length, 1);
+    cards[0].props.onClick();
+    assert.deepEqual(trace.at(-1), ['navigate', destination]);
+  }
+  tabControls(page.render())[0].props.onClick();
+  assert.equal(links(page.render()).length, 2);
+  assert.equal(trace.filter(entry => entry[0] === 'dispatch').length, 0);
 });

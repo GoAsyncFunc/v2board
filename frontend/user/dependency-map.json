@@ -81,7 +81,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Plan.jsx"
+    "to": "pages/Plan.tsx"
   },
   {
     "from": "app/routes.js",
@@ -248,23 +248,23 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/PlanCard.jsx",
+    "from": "components/PlanCard.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/PlanCard.jsx",
+    "from": "components/PlanCard.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/PlanCard.jsx",
+    "from": "components/PlanCard.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/PlanCard.jsx",
+    "from": "components/PlanCard.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "components/PlanCard.jsx",
+    "from": "components/PlanCard.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
@@ -1056,20 +1056,16 @@
     "to": "vendor/utilities.js"
   },
   {
-    "from": "pages/Plan.jsx",
-    "to": "components/PlanCard.jsx"
+    "from": "pages/Plan.tsx",
+    "to": "components/PlanCard.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Plan.jsx",
+    "from": "pages/Plan.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Plan.jsx",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "pages/PlanDetail.jsx",

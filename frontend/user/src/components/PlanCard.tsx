@@ -3,12 +3,13 @@ import history from '../vendor/routerHistory.js';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { parseJson } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatPrice } from './MoneyDisplay.ts';
-const message = id => formatMessage({ id });
+import { formatPrice } from './MoneyDisplay';
+import type { CatalogPlan, PlanFeature, PlanPeriod, PlanTab, PlanUnitPrice } from '../types/plan';
+const message = (id: string): string => formatMessage({ id });
 
-export function getUnitPriceTag(plan) {
-  let result = {};
-  for (const period of Object.keys(settings.periodText).reverse()) {
+export function getUnitPriceTag(plan: CatalogPlan): PlanUnitPrice {
+  let result: PlanUnitPrice = {};
+  for (const period of (Object.keys(settings.periodText) as PlanPeriod[]).reverse()) {
     if (period !== 'reset_price' && plan[period] !== null) {
       result = { tag: settings.periodText[period] && settings.periodText[period](), price: plan[period] };
     }
@@ -16,16 +17,21 @@ export function getUnitPriceTag(plan) {
   return result;
 }
 
-export function matchesPlanTab(plan, tab) {
+export function matchesPlanTab(plan: CatalogPlan, tab: PlanTab): boolean {
   if (!tab) return true;
   if (tab === 1) return !!(plan.month_price || plan.quarter_price || plan.half_year_price || plan.year_price || plan.two_year_price || plan.three_year_price);
   if (tab === 2) return !!plan.onetime_price;
   return false;
 }
 
-export default function PlanCard({ plan, currencySymbol }) {
+interface PlanCardProps {
+  plan: CatalogPlan;
+  currencySymbol?: string;
+}
+
+export default function PlanCard({ plan, currencySymbol }: PlanCardProps) {
   const price = getUnitPriceTag(plan);
-  const content = parseJson(plan.content);
+  const content = parseJson<PlanFeature[]>(plan.content);
   const soldOut = plan.capacity_limit !== null && plan.capacity_limit <= 0;
   const nearlySoldOut = plan.capacity_limit !== null && plan.capacity_limit <= 5 && plan.capacity_limit >= 1;
   return (
