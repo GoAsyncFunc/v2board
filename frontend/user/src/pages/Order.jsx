@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import MobileList from '../components/MobileList.jsx';
+import MobileList from '../components/MobileList.tsx';
 import { Table } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';

@@ -993,7 +993,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/MobileList.jsx"
+    "to": "components/MobileList.tsx"
   },
   {
     "from": "pages/Order.jsx",

@@ -1,8 +1,52 @@
 import React from 'react';
 import classNames from 'classnames';
 
-// Recovered mobile order-list primitives.
-class Touchable extends React.Component {
+type StyleValue = React.CSSProperties | undefined;
+type RenderableChild = React.ReactNode;
+
+interface TouchableProps {
+  children: React.ReactElement;
+  disabled?: boolean;
+  activeClassName?: string;
+  activeStyle?: React.CSSProperties | false;
+}
+
+interface MobileListBriefProps {
+  children?: RenderableChild;
+  style?: StyleValue;
+}
+
+interface MobileListItemProps {
+  prefixCls?: string;
+  className?: string;
+  activeStyle?: React.CSSProperties | false;
+  error?: boolean;
+  align?: 'top' | 'middle' | 'bottom';
+  wrap?: boolean;
+  disabled?: boolean;
+  children?: RenderableChild;
+  multipleLine?: boolean;
+  thumb?: string | React.ReactNode;
+  extra?: RenderableChild;
+  arrow?: 'horizontal' | 'down' | 'up';
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  platform?: 'ios' | 'android';
+  [key: string]: unknown;
+}
+
+interface MobileListState {
+  coverRippleStyle: React.CSSProperties;
+  rippleClicked: boolean;
+}
+
+interface MobileListProps extends React.HTMLAttributes<HTMLDivElement> {
+  prefixCls?: string;
+  children?: RenderableChild;
+  renderHeader?: RenderableChild | (() => RenderableChild);
+  renderFooter?: RenderableChild | (() => RenderableChild);
+}
+
+class Touchable extends React.Component<TouchableProps, { active: boolean }> {
   static defaultProps = { disabled: false };
 
   state = { active: false };
@@ -11,20 +55,21 @@ class Touchable extends React.Component {
     if (this.props.disabled && this.state.active) this.setState({ active: false });
   }
 
-  triggerEvent(eventName, active, event) {
+  triggerEvent(eventName: string, active: boolean, event: React.SyntheticEvent) {
     const handlerName = `on${eventName}`;
     const child = this.props.children;
-    if (child.props[handlerName]) child.props[handlerName](event);
+    const handler = child.props[handlerName as keyof typeof child.props];
+    if (typeof handler === 'function') handler(event);
     if (active !== this.state.active) this.setState({ active });
   }
 
-  onTouchStart = event => this.triggerEvent('TouchStart', true, event);
-  onTouchMove = event => this.triggerEvent('TouchMove', false, event);
-  onTouchEnd = event => this.triggerEvent('TouchEnd', false, event);
-  onTouchCancel = event => this.triggerEvent('TouchCancel', false, event);
-  onMouseDown = event => this.triggerEvent('MouseDown', true, event);
-  onMouseUp = event => this.triggerEvent('MouseUp', false, event);
-  onMouseLeave = event => this.triggerEvent('MouseLeave', false, event);
+  onTouchStart = (event: React.TouchEvent) => this.triggerEvent('TouchStart', true, event);
+  onTouchMove = (event: React.TouchEvent) => this.triggerEvent('TouchMove', false, event);
+  onTouchEnd = (event: React.TouchEvent) => this.triggerEvent('TouchEnd', false, event);
+  onTouchCancel = (event: React.TouchEvent) => this.triggerEvent('TouchCancel', false, event);
+  onMouseDown = (event: React.MouseEvent) => this.triggerEvent('MouseDown', true, event);
+  onMouseUp = (event: React.MouseEvent) => this.triggerEvent('MouseUp', false, event);
+  onMouseLeave = (event: React.MouseEvent) => this.triggerEvent('MouseLeave', false, event);
 
   render() {
     const { children, disabled, activeClassName, activeStyle } = this.props;
@@ -48,13 +93,13 @@ class Touchable extends React.Component {
   }
 }
 
-export class MobileListBrief extends React.Component {
+export class MobileListBrief extends React.Component<MobileListBriefProps> {
   render() {
-    return React.createElement('div', { className: 'am-list-brief', style: this.props.style }, this.props.children);
+    return <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>;
   }
 }
 
-export class MobileListItem extends React.Component {
+export class MobileListItem extends React.Component<MobileListItemProps, MobileListState> {
   static defaultProps = {
     prefixCls: 'am-list',
     align: 'middle',
@@ -66,7 +111,7 @@ export class MobileListItem extends React.Component {
 
   static Brief = MobileListBrief;
 
-  state = {
+  state: MobileListState = {
     coverRippleStyle: { display: 'none' },
     rippleClicked: false,
   };
@@ -78,7 +123,7 @@ export class MobileListItem extends React.Component {
     }
   }
 
-  onClick = event => {
+  onClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const { onClick, platform } = this.props;
     if (onClick && platform === 'android') {
       if (this.debounceTimeout) {
@@ -151,33 +196,32 @@ export class MobileListItem extends React.Component {
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
-    const item = React.createElement(
-      'div',
-      { ...restProps, onClick: this.onClick, className: itemClassName },
-      thumb ? React.createElement(
-        'div',
-        { className: `${prefixCls}-thumb` },
-        typeof thumb === 'string' ? React.createElement('img', { src: thumb }) : thumb,
-      ) : null,
-      React.createElement(
-        'div',
-        { className: lineClassName },
-        children !== undefined ? React.createElement('div', { className: `${prefixCls}-content` }, children) : null,
-        extra !== undefined ? React.createElement('div', { className: `${prefixCls}-extra` }, extra) : null,
-        arrow ? React.createElement('div', { className: arrowClassName, 'aria-hidden': 'true' }) : null,
-      ),
-      React.createElement('div', { style: this.state.coverRippleStyle, className: rippleClassName }),
+    return (
+      <Touchable
+        {...touchHandlers}
+        disabled={disabled || !onClick}
+        activeStyle={activeStyle}
+        activeClassName={`${prefixCls}-item-active`}
+      >
+        <div {...restProps} onClick={this.onClick} className={itemClassName}>
+          {thumb && (
+            <div className={`${prefixCls}-thumb`}>
+              {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
+            </div>
+          )}
+          <div className={lineClassName}>
+            {children !== undefined && <div className={`${prefixCls}-content`}>{children}</div>}
+            {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
+            {arrow && <div className={arrowClassName} aria-hidden="true" />}
+          </div>
+          <div style={this.state.coverRippleStyle} className={rippleClassName} />
+        </div>
+      </Touchable>
     );
-    return React.createElement(Touchable, {
-      ...touchHandlers,
-      disabled: disabled || !onClick,
-      activeStyle,
-      activeClassName: `${prefixCls}-item-active`,
-    }, item);
   }
 }
 
-export class MobileList extends React.Component {
+export class MobileList extends React.Component<MobileListProps> {
   static Item = MobileListItem;
   static defaultProps = { prefixCls: 'am-list' };
 
@@ -191,12 +235,20 @@ export class MobileList extends React.Component {
       renderFooter,
       ...restProps
     } = this.props;
-    return React.createElement(
-      'div',
-      { className: classNames(prefixCls, className), style, ...restProps },
-      renderHeader ? React.createElement('div', { className: `${prefixCls}-header` }, typeof renderHeader === 'function' ? renderHeader() : renderHeader) : null,
-      children ? React.createElement('div', { className: `${prefixCls}-body` }, children) : null,
-      renderFooter ? React.createElement('div', { className: `${prefixCls}-footer` }, typeof renderFooter === 'function' ? renderFooter() : renderFooter) : null,
+    return (
+      <div className={classNames(prefixCls, className)} style={style} {...restProps}>
+        {renderHeader && (
+          <div className={`${prefixCls}-header`}>
+            {typeof renderHeader === 'function' ? renderHeader() : renderHeader}
+          </div>
+        )}
+        {children && <div className={`${prefixCls}-body`}>{children}</div>}
+        {renderFooter && (
+          <div className={`${prefixCls}-footer`}>
+            {typeof renderFooter === 'function' ? renderFooter() : renderFooter}
+          </div>
+        )}
+      </div>
     );
   }
 }
