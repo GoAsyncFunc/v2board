@@ -16,7 +16,6 @@ import { localeSettings as settings } from "../vendor/localeSettings.js";
 import { loadable } from "../vendor/utilities.js";
 import { formatMessage } from "../vendor/i18n.js";
 import moment from "../vendor/dateTime.js";
-import { Spin } from "../vendor/ui.js";
 import { router } from "../vendor/appRuntime.js";
 import "../vendor/iconStyles.js";
 

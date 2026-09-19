@@ -5,7 +5,7 @@ import { Carousel } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
 import SubscribeImporter from '../components/SubscribeImporter.jsx';
-import { LoadingIndicator } from '../vendor/ui.js';
+import { LoadingContainer } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import history from '../vendor/routerHistory.js';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
@@ -90,7 +90,7 @@ export class DashboardPage extends React.Component {
   }
 
   renderSubscription(subscribe, usagePercent) {
-    if (!subscribe.email) return <LoadingIndicator className="font-size-h3 mb-3" />;
+    if (!subscribe.email) return <LoadingContainer className="font-size-h3 mb-3" />;
     if (!subscribe.plan_id) {
       return <a onClick={() => history.push('/plan')}><div className="text-center"><div><i className="fa fa-plus fa-2x" /></div><div className="font-size-sm text-uppercase text-muted pt-2 pb-3">{formatMessage({ id: '购买订阅' })}</div></div></a>;
     }

@@ -540,10 +540,6 @@
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/checkout/ProductInfo.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "config/navigation.jsx",
     "to": "vendor/i18n.js"
   },

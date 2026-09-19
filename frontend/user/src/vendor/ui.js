@@ -29,9 +29,7 @@ class LoadingContainer extends React.Component {
   }
 }
 
-// These aliases preserve the behavior of the recovered production bundle.
-const Spin = LoadingContainer;
-const LoadingIndicator = LoadingContainer;
+// LoadingContainer is the shared loading surface used by pages and checkout.
 const notification = message;
 const Modal = Drawer;
 
@@ -44,14 +42,12 @@ export {
   Dropdown,
   Input,
   LoadingContainer,
-  LoadingIndicator,
   Menu,
   message,
   Modal,
   notification,
   Radio,
   Select,
-  Spin,
   Switch,
   Table,
   Tag,

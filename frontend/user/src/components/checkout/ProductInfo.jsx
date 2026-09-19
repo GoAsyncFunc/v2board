@@ -3,7 +3,6 @@ import { formatMessage } from "../../vendor/i18n.js";
 import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import moment from "../../vendor/dateTime.js";
 import { Modal } from "../../vendor/Modal.js";
-import { Spin } from "../../vendor/ui.js";
 export default function ProductInfo({
     order,
     config,

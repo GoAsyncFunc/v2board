@@ -4,7 +4,7 @@ import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.jsx";
 import { formatPrice } from "../../components/MoneyDisplay.jsx";
 import { Modal } from "../../vendor/Modal.js";
-import { Spin } from "../../vendor/ui.js";
+import { LoadingContainer } from "../../vendor/ui.js";
 export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
     return (
         <div className={"block block-rounded"}>
@@ -46,12 +46,12 @@ export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
                             }}
                         >
                             {cancelLoading && (
-                                <Spin
+                                <LoadingContainer
                                     {...{
                                         size: "sm",
                                         type: "light",
                                     }}
-                                ></Spin>
+                                ></LoadingContainer>
                             )}{" "}
                             {formatMessage({
                                 id: "关闭订单",
