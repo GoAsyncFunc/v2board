@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 test('user business components live outside the vendor compatibility layer', async () => {
   const componentPaths = [
     '../src/components/Recaptcha.tsx',
-    '../src/components/SubscribeImporter.jsx',
+    '../src/components/SubscribeImporter.tsx',
     '../src/components/TelegramBindModal.tsx',
   ];
   for (const relativePath of componentPaths) {

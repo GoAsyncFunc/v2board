@@ -1,4 +1,4 @@
-import Dashboard from '../pages/Dashboard.jsx';
+import Dashboard from '../pages/Dashboard';
 import Forgetpassword from '../pages/Forgetpassword';
 import Index from '../pages/Index';
 import Invite from '../pages/Invite.jsx';

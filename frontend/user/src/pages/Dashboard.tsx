@@ -1,22 +1,31 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Button } from '../vendor/ui.js';
 import { Carousel } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
-import SubscribeImporter from '../components/SubscribeImporter.jsx';
+import SubscribeImporter from '../components/SubscribeImporter';
 import { LoadingContainer } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout';
 import history from '../vendor/routerHistory.js';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay.ts';
-import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage.ts';
+import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay';
+import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage';
+import type { UserNotice, UserSubscription } from '../types/subscription';
+import type { UserDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';
 
-export class DashboardPage extends React.Component {
-  state = { visible: false, notice: undefined };
+interface DashboardStateProps {
+  user: { subscribe: UserSubscription; stat: number[] };
+  notice: { notices: UserNotice[] };
+  order: { saveLoading: boolean };
+}
+interface DashboardState { visible: boolean; notice?: Partial<UserNotice>; }
+
+export class DashboardPage extends React.Component<DashboardStateProps & { dispatch: UserDispatch }, DashboardState> {
+  state: DashboardState = { visible: false, notice: undefined };
 
   componentDidMount() {
     this.props.dispatch({ type: 'user/getSubscribe' });
@@ -31,11 +40,11 @@ export class DashboardPage extends React.Component {
     this.props.dispatch({ type: 'comm/config' });
   }
 
-  modalVisible(notice) {
+  modalVisible(notice?: UserNotice) {
     this.setState(state => ({ visible: !state.visible, notice: notice || {} }));
   }
 
-  renderNotice(notice) {
+  renderNotice(notice: UserNotice) {
     const background = notice.img_url ? { backgroundImage: `url(${notice.img_url})`, backgroundSize: 'cover' } : {};
     return (
       <a className="block block-rounded bg-image mb-0 v2board-bg-pixels" style={background} href="javascript:void(0)" onClick={() => this.modalVisible(notice)}>
@@ -74,7 +83,7 @@ export class DashboardPage extends React.Component {
     });
   }
 
-  renderAlerts(subscribe, usagePercent) {
+  renderAlerts(subscribe: UserSubscription, usagePercent: number) {
     const { stat } = this.props.user;
     const alerts = [];
     if (stat[0]) {
@@ -89,7 +98,7 @@ export class DashboardPage extends React.Component {
     return alerts;
   }
 
-  renderSubscription(subscribe, usagePercent) {
+  renderSubscription(subscribe: UserSubscription, usagePercent: number) {
     if (!subscribe.email) return <LoadingContainer className="font-size-h3 mb-3" />;
     if (!subscribe.plan_id) {
       return <a onClick={() => history.push('/plan')}><div className="text-center"><div><i className="fa fa-plus fa-2x" /></div><div className="font-size-sm text-uppercase text-muted pt-2 pb-3">{formatMessage({ id: '购买订阅' })}</div></div></a>;
@@ -98,7 +107,7 @@ export class DashboardPage extends React.Component {
     const renewalPath = canRenew(subscribe) ? `/plan/${subscribe.plan_id}` : '/plan';
     return (
       <div>
-        <h3 className="h4 mb-3">{subscribe.plan.name}</h3>
+        <h3 className="h4 mb-3">{subscribe.plan!.name}</h3>
         {subscribe.expired_at === null ? (
           <p className="font-size-sm text-muted">{formatMessage({ id: '该订阅长期有效' })}</p>
         ) : (
@@ -125,7 +134,7 @@ export class DashboardPage extends React.Component {
     );
   }
 
-  renderShortcuts(subscribe) {
+  renderShortcuts(subscribe: UserSubscription) {
     const renewal = canRenew(subscribe);
     return (
       <div className="mb-3">
@@ -155,4 +164,7 @@ export class DashboardPage extends React.Component {
   }
 }
 
-export default connect(state => ({ notice: state.notice, user: state.user, comm: state.comm, knowledge: state.knowledge, order: state.order }))(DashboardPage);
+export default connect((state: DashboardStateProps & {
+  comm: { config: object };
+  knowledge: { knowledges: object };
+}) => ({ notice: state.notice, user: state.user, comm: state.comm, knowledge: state.knowledge, order: state.order }))(DashboardPage);

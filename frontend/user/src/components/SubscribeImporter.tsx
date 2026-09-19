@@ -7,11 +7,16 @@ import { formatMessage } from '../vendor/i18n.js';
 import { push } from '../vendor/routerHistory.js';
 import { subscribeStyles as styles } from '../vendor/subscribeStyles.js';
 
-export default class SubscribeImporter extends React.Component {
+interface SubscribeImporterProps {
+  children: React.ReactElement;
+  subscribeUrl?: string;
+}
+
+export default class SubscribeImporter extends React.Component<SubscribeImporterProps> {
   state = { showSubscribe: false, showQrSubscribe: false };
 
   getImportLinks() {
-    const subscribeUrl = this.props.subscribeUrl;
+    const subscribeUrl = String(this.props.subscribeUrl);
     const title = window.settings.title;
     const links = [
       { title: 'Hiddify', href: `hiddify://import/${subscribeUrl}&flag=sing#${title}` },
@@ -78,7 +83,7 @@ export default class SubscribeImporter extends React.Component {
         {React.cloneElement(children, { onClick: () => this.setState({ showSubscribe: true }) })}
         {qrModal}
         {isMobile() ? (
-          <Drawer placement="bottom" closable={false} visible={showSubscribe} footer={false} width={300} onClose={() => this.setState({ showSubscribe: false })} bodyStyle={{ padding: 0 }}>
+          <Drawer {...{ footer: false }} placement="bottom" closable={false} visible={showSubscribe} width={300} onClose={() => this.setState({ showSubscribe: false })} bodyStyle={{ padding: 0 }}>
             {this.renderSubscribeBox()}
           </Drawer>
         ) : (
