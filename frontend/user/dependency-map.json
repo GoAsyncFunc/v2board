@@ -1561,30 +1561,6 @@
   },
   {
     "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-fa.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-ja.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-ko.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-vi.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-zh-cn.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/moment-zh-tw.js"
-  },
-  {
-    "from": "vendor/locales.js",
     "to": "vendor/modules/twAntd.js"
   },
   {
@@ -1914,34 +1890,6 @@
   {
     "from": "vendor/modules/messageFormatParser.js",
     "to": "vendor/modules/messageFormatParserRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-fa.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-ja.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-ko.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-vi.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-zh-cn.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/moment-zh-tw.js",
-    "to": "vendor/modules/momentRuntime.js"
-  },
-  {
-    "from": "vendor/modules/momentRuntime.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
   },
   {
     "from": "vendor/modules/objectAssign.js",

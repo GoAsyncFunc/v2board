@@ -23,9 +23,9 @@ export { default as koData } from './modules/koData.js';
 export { default as viData } from './modules/viData.js';
 export { default as zhData } from './modules/zhData.js';
 
-import './modules/moment-fa.js';
-import './modules/moment-ja.js';
-import './modules/moment-ko.js';
-import './modules/moment-vi.js';
-import './modules/moment-zh-cn.js';
-import './modules/moment-zh-tw.js';
+import 'moment/locale/fa';
+import 'moment/locale/ja';
+import 'moment/locale/ko';
+import 'moment/locale/vi';
+import 'moment/locale/zh-cn';
+import 'moment/locale/zh-tw';
