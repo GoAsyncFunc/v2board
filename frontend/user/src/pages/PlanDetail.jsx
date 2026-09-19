@@ -12,7 +12,6 @@ import { CouponInput, CouponDiscount } from '../components/checkout/Coupon.jsx';
 import OrderSummary from '../components/checkout/OrderSummary.jsx';
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 
 export class PlanDetailPage extends React.Component {

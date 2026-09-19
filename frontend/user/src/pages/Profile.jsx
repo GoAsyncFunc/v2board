@@ -10,7 +10,6 @@ import { get } from '../services/request.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatMoney } from '../components/MoneyDisplay.jsx';
 
-import '../vendor/componentStyles.js';
 import '../vendor/featureRuntime.js';
 export class ProfilePage extends React.Component {
   constructor(props) {

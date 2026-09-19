@@ -5,7 +5,6 @@ import moment from '../vendor/dateTime.js';
 import { formatBytes } from '../vendor/siteHelpers.js';
 import * as sessionEffects from './sessionEffects.js';
 
-import '../vendor/componentStyles.js';
 export function describeGiftcard(type, value) {
   switch (type) {
     case 1: return '账户余额 ' + (value / 100).toFixed(2);

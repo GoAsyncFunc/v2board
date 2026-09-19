@@ -13,7 +13,6 @@ import { isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns.jsx';
 
-import '../vendor/componentStyles.js';
 export class OrderPage extends React.Component {
   componentDidMount() { this.fetchData(); }
   fetchData() { this.props.dispatch({ type: 'order/fetch' }); }

@@ -2,7 +2,6 @@ import copyText from './clipboard.js';
 import { formatMessage } from './i18n.js';
 import { message } from './ui.js';
 import { notification as desktopNotification } from './notification.js';
-import './componentStyles.js';
 
 export function getCookie(name) {
   return document.cookie.split('; ').reduce((value, cookie) => {

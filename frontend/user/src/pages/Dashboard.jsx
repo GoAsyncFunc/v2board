@@ -15,7 +15,6 @@ import { subscribePercent, progressBarColor, formatDeviceLimit } from '../compon
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class DashboardPage extends React.Component {
   state = { visible: false, notice: undefined };
 

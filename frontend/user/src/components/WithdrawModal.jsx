@@ -5,7 +5,6 @@ import { Input } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
 
-import '../vendor/componentStyles.js';
 export class WithdrawModal extends React.Component {
   state = { visible: false, withdrawMethod: undefined, withdrawAccount: undefined };
 

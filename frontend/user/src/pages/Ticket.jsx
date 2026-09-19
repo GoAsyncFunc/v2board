@@ -11,7 +11,6 @@ import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 export class TicketPage extends React.Component {
   setSaveData(key, value) {
     const { saveData } = this.props.ticket;

@@ -44,10 +44,6 @@
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/bootstrap.js",
-    "to": "vendor/transpilerRuntime.js"
-  },
-  {
     "from": "app/history.js",
     "to": "vendor/appRuntime.js"
   },
@@ -205,10 +201,6 @@
   },
   {
     "from": "components/LanguageSelector.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/LanguageSelector.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -226,10 +218,6 @@
   {
     "from": "components/NodeColumns.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/NodeColumns.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/NodeColumns.jsx",
@@ -254,10 +242,6 @@
   {
     "from": "components/OrderColumns.jsx",
     "to": "vendor/Divider.js"
-  },
-  {
-    "from": "components/OrderColumns.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/OrderColumns.jsx",
@@ -317,10 +301,6 @@
   },
   {
     "from": "components/TrafficColumns.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/TrafficColumns.jsx",
     "to": "vendor/dateTime.js"
   },
   {
@@ -345,10 +325,6 @@
   },
   {
     "from": "components/TransferCommissionModal.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/TransferCommissionModal.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -362,10 +338,6 @@
   {
     "from": "components/WithdrawModal.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/WithdrawModal.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/WithdrawModal.jsx",
@@ -469,10 +441,6 @@
   },
   {
     "from": "components/checkout/PaymentMethods.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "components/checkout/PaymentMethods.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -490,10 +458,6 @@
   {
     "from": "components/checkout/Pricing.jsx",
     "to": "components/MoneyDisplay.jsx"
-  },
-  {
-    "from": "components/checkout/Pricing.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "components/checkout/Pricing.jsx",
@@ -628,10 +592,6 @@
     "to": "models/orderQueryEffects.js"
   },
   {
-    "from": "models/order.js",
-    "to": "vendor/componentStyles.js"
-  },
-  {
     "from": "models/orderPaymentEffects.js",
     "to": "services/request.js"
   },
@@ -721,10 +681,6 @@
   },
   {
     "from": "models/user.js",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "models/user.js",
     "to": "vendor/dateTime.js"
   },
   {
@@ -758,10 +714,6 @@
   {
     "from": "pages/Dashboard.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -861,10 +813,6 @@
   },
   {
     "from": "pages/Invite.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
     "to": "vendor/dateTime.js"
   },
   {
@@ -945,10 +893,6 @@
   },
   {
     "from": "pages/Login.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Login.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -978,10 +922,6 @@
   {
     "from": "pages/Node.jsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Node.jsx",
@@ -1034,10 +974,6 @@
   {
     "from": "pages/Order.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -1102,10 +1038,6 @@
   {
     "from": "pages/OrderDetail.jsx",
     "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -1185,10 +1117,6 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
     "to": "vendor/features.js"
   },
   {
@@ -1229,10 +1157,6 @@
   },
   {
     "from": "pages/Profile.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
     "to": "vendor/featureRuntime.js"
   },
   {
@@ -1258,10 +1182,6 @@
   {
     "from": "pages/Register.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Register.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Register.jsx",
@@ -1309,10 +1229,6 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "pages/Ticket.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -1350,10 +1266,6 @@
   {
     "from": "pages/Traffic.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/componentStyles.js"
   },
   {
     "from": "pages/Traffic.jsx",
@@ -1418,10 +1330,6 @@
   {
     "from": "vendor/appRuntime.js",
     "to": "vendor/routerRuntime.js"
-  },
-  {
-    "from": "vendor/componentStyles.js",
-    "to": "vendor/modules/emptyModule.js"
   },
   {
     "from": "vendor/content.js",
@@ -1524,22 +1432,6 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/arrayWithHoles.js"
-  },
-  {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/iterableToArrayLimit.js"
-  },
-  {
-    "from": "vendor/modules/iterableToArray.js",
-    "to": "vendor/modules/nonIterableRest.js"
-  },
-  {
-    "from": "vendor/modules/objectWithoutPropertiesLoose.js",
-    "to": "vendor/modules/objectWithoutProperties.js"
-  },
-  {
     "from": "vendor/rootRuntime.js",
     "to": "app/store.js"
   },
@@ -1557,10 +1449,6 @@
   },
   {
     "from": "vendor/siteHelpers.js",
-    "to": "vendor/componentStyles.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
     "to": "vendor/i18n.js"
   },
   {
@@ -1570,17 +1458,5 @@
   {
     "from": "vendor/siteHelpers.js",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/iterableToArray.js"
-  },
-  {
-    "from": "vendor/transpilerRuntime.js",
-    "to": "vendor/modules/objectWithoutPropertiesLoose.js"
   }
 ]

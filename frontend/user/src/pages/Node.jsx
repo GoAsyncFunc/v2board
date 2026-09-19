@@ -10,7 +10,6 @@ import { createNodeColumns } from '../components/NodeColumns.jsx';
 import '../services/request.js';
 import '../vendor/dateTime.js';
 import '../vendor/features.js';
-import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 
 export class NodePage extends React.Component {

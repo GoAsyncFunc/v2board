@@ -11,7 +11,6 @@ import { appDvaConfig } from '../vendor/appRuntime.js';
 import Router from './Router.jsx';
 import { _onCreate } from './store.js';
 
-import '../vendor/transpilerRuntime.js';
 window.g_plugins = plugins;
 plugins.init({
   validKeys: [

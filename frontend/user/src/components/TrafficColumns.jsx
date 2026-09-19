@@ -8,7 +8,6 @@ import { formatMessage } from '../vendor/i18n.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 const message = id => formatMessage({ id });
 export function createTrafficColumns() {
   return [

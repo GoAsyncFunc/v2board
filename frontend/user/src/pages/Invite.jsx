@@ -20,7 +20,6 @@ import '../vendor/localeSettings.js';
 import '../vendor/dateTime.js';
 import '../vendor/features.js';
 
-import '../vendor/componentStyles.js';
 class InvitePage extends React.Component {
   componentDidMount() {
     this.props.dispatch({

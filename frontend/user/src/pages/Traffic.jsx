@@ -5,7 +5,6 @@ import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createTrafficColumns } from '../components/TrafficColumns.jsx';
 
-import '../vendor/componentStyles.js';
 export class TrafficPage extends React.Component {
   componentDidMount() {
     this.props.dispatch({ type: 'stat/getTrafficLog' });

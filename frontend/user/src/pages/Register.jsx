@@ -10,7 +10,6 @@ import { localeSettings } from '../vendor/localeSettings.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/componentStyles.js';
 class RegisterPage extends React.Component {
   constructor(props) {
     super(props), this.state = {

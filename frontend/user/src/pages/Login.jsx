@@ -8,7 +8,6 @@ import { LanguageSelector } from '../components/LanguageSelector.jsx';
 import { localeSettings } from "../vendor/localeSettings.js";
 
 import "../vendor/iconStyles.js";
-import '../vendor/componentStyles.js';
 const message = id => formatMessage({
   id
 });

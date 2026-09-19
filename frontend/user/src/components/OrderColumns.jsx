@@ -8,7 +8,6 @@ import { formatPrice } from './MoneyDisplay.jsx';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { formatMessage } from '../vendor/i18n.js';
 
-import '../vendor/componentStyles.js';
 export const orderBadgeStatuses = ['error', 'processing', 'default', 'success', 'default'];
 const message = id => formatMessage({ id });
 export function createOrderColumns(onCancel) {

@@ -21,7 +21,6 @@ import { router } from "../vendor/appRuntime.js";
 import "../vendor/iconStyles.js";
 
 import "../vendor/features.js";
-import "../vendor/componentStyles.js";
 const StripeForm = loadable({
     loader: () => import("../vendor/payment.js"),
 });

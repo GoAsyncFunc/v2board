@@ -4,7 +4,6 @@ import { Modal } from '../vendor/Modal.js';
 import { Input } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
 
-import '../vendor/componentStyles.js';
 export class TransferCommissionModal extends React.Component {
   state = { visible: false, transferAmount: undefined };
 
