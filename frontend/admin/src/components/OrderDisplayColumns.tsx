@@ -1,31 +1,36 @@
 import React from 'react';
-import { Tag } from '../vendor/ui.js';
+import Tag from 'antd/lib/tag';
+import moment from 'moment';
 import { settings } from '../vendor/adminSettings.js';
-import moment from '../vendor/dateTime.js';
+
+export interface OrderDisplayRecord {
+  status: number;
+  period: PropertyKey;
+}
 
 // Preserve status short-circuiting and value truthiness. Do not destructure status
 // or convert the amount before checking whether the order hides commission.
-export function formatOrderCommission(value, order) {
+export function formatOrderCommission(value: number | null | undefined, order: OrderDisplayRecord): string {
   return order.status === 0 || order.status === 2
     ? '-'
     : value ? (value / 100).toFixed(2) : '-';
 }
 
-export function formatOrderPaymentAmount(value) {
+export function formatOrderPaymentAmount(value: number): string {
   return (value / 100).toFixed(2);
 }
 
-export function formatOrderCreatedAt(value) {
+export function formatOrderCreatedAt(value: number): string {
   return moment(1000 * value).format('YYYY/MM/DD HH:mm');
 }
 
 // Keep a fresh ordinary object and direct property lookup (including coercion
 // and inherited properties); a Map or strict switch would change semantics.
-export function formatOrderType(value) {
-  return ({1:'新购',2:'续费',3:'变更',4:'流量包',9:'充值'})[value];
+export function formatOrderType(value: PropertyKey): unknown {
+  return ({1:'新购',2:'续费',3:'变更',4:'流量包',9:'充值'} as Record<PropertyKey, unknown>)[value];
 }
 
-export function renderOrderPeriod(value, order) {
+export function renderOrderPeriod(value: unknown, order: OrderDisplayRecord): React.ReactElement {
   return <Tag>{settings.periodText[order.period]}</Tag>;
 }
 

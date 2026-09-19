@@ -1,29 +1,65 @@
 import React from 'react';
-import { Row } from '../vendor/ui.js';
-import { Col } from '../vendor/ui.js';
+import Col from 'antd/lib/col';
+import Divider from 'antd/lib/divider';
+import Icon from 'antd/lib/icon';
+import Row from 'antd/lib/row';
+import Tooltip from 'antd/lib/tooltip';
+import moment from 'moment';
 import { settings } from '../vendor/adminSettings.js';
-import moment from '../vendor/dateTime.js';
-import { Divider } from '../vendor/Divider.js';
-import { Tooltip } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
+
+export interface OrderDetailRecord {
+  trade_no: React.ReactNode;
+  period: PropertyKey;
+  status: PropertyKey;
+  plan_id: string | number;
+  callback_no?: React.ReactNode;
+  total_amount: number;
+  balance_amount: number;
+  discount_amount: number;
+  refund_amount: number;
+  surplus_amount: number;
+  created_at: number;
+  updated_at: number;
+  invite_user_id?: string | number;
+  commission_balance: number;
+  actual_commission_balance?: number;
+  commission_status: PropertyKey;
+}
+
+export interface OrderDetailUser {
+  email: string;
+}
+
+export interface OrderDetailPlan {
+  id: string | number;
+  name?: React.ReactNode;
+}
+
+export interface OrderDetailBodyProps {
+  order: OrderDetailRecord;
+  user: OrderDetailUser;
+  inviteUser: OrderDetailUser;
+  plans: OrderDetailPlan[];
+  onUserFilter: (field: string, operator: string, value: string) => void;
+}
 
 // Keep JavaScript coercion: null becomes 0.00, undefined becomes NaN.
-export function formatOrderAmount(amount) {
+export function formatOrderAmount(amount: number): string {
   return (amount / 100).toFixed(2);
 }
-export function formatOrderTime(timestamp) {
+export function formatOrderTime(timestamp: number): string {
   return moment(1000 * timestamp).format('YYYY-MM-DD HH:mm:ss');
 }
 
 // A synchronous render helper preserves the original Row/Col tree and evaluation
 // order without introducing another component lifecycle or DOM wrapper.
-function detailRow(label, value, rowStyle) {
+function detailRow(label: React.ReactNode, value: React.ReactNode, rowStyle: React.CSSProperties): React.ReactElement {
   return <Row gutter={[16, 16]} style={rowStyle}>
     <Col span={6}>{label}</Col><Col span={18}>{value}</Col>
   </Row>;
 }
 
-export default function OrderDetailBody({ order, user, inviteUser, plans, onUserFilter }) {
+export default function OrderDetailBody({ order, user, inviteUser, plans, onUserFilter }: OrderDetailBodyProps): React.ReactElement {
   const rowStyle = { marginBottom: 0 };
   // Deliberately no optional chaining/default objects: retain the original null
   // errors and avoid reading order/plans while the email-gated loader is shown.

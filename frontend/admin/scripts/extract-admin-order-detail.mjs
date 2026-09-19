@@ -21,6 +21,6 @@ traverse(tree,{MemberExpression:{exit(p){const text=generate(p.node).code;if(ali
  p.replaceWith(t.jsxElement(t.jsxOpeningElement(name,props&&!t.isNullLiteral(props)?[t.jsxSpreadAttribute(props)]:[],false),t.jsxClosingElement(name),children.map(c=>t.isJSXElement(c)?c:t.jsxExpressionContainer(c)),false));
 }}});
 const imports=`import React from 'react';\nimport {a as Row} from '../vendor/modules/antdRow.js';\nimport {a as Col} from '../vendor/modules/antdCol.js';\nimport {a as settings} from '../vendor/modules/adminSettingsRuntime.js';\nimport moment from '../vendor/modules/77642f52.js';\nimport {a as Divider} from '../vendor/Divider.js';\nimport {a as Tooltip} from '../vendor/modules/antdTooltip.js';\nimport {a as Icon} from '../vendor/Icon.js';\n`;
-await fs.writeFile(new URL('../src/components/OrderDetailBody.jsx',import.meta.url),imports+'export default function OrderDetailBody({order,user,inviteUser,plans,onUserFilter}) {var e;const t=plans,n={marginBottom:0};return '+generate(tree.program.body[0].expression,{jsescOption:{minimal:true}}).code+';}\n');
-ast.program.body.unshift(...parse("const OrderDetailBody = require('../components/OrderDetailBody.jsx').default;").program.body);
+await fs.writeFile(new URL('../src/components/OrderDetailBody.tsx',import.meta.url),imports+'export default function OrderDetailBody({order,user,inviteUser,plans,onUserFilter}) {var e;const t=plans,n={marginBottom:0};return '+generate(tree.program.body[0].expression,{jsescOption:{minimal:true}}).code+';}\n');
+ast.program.body.unshift(...parse("const OrderDetailBody = require('../components/OrderDetailBody.tsx').default;").program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

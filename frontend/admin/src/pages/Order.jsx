@@ -16,8 +16,8 @@ import history from '../vendor/routerHistory.js';
 import { get, post } from '../services/request.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import FilterDrawer from '../components/FilterDrawer.jsx';
-import OrderDetailBody from '../components/OrderDetailBody.jsx';
-import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns.jsx';
+import OrderDetailBody from '../components/OrderDetailBody.tsx';
+import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns.tsx';
 
 import '../vendor/iconStyles.js';
 

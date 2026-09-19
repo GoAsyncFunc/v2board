@@ -9,5 +9,5 @@ const ast=parse(await fs.readFile(file,'utf8'),{sourceType:'unambiguous',plugins
 traverse(ast,{ClassMethod(p){if(p.node.key.name==='getTypeTag'){count++;body=t.cloneNode(p.node.body,true);p.node.body=t.blockStatement([t.returnStatement(t.callExpression(t.identifier('renderServerTypeTag'),[t.identifier('e'),t.identifier('t')]))]);}}});
 if(count!==1)throw Error('Expected single type-tag method');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-server-type-tag.cjs',import.meta.url),'// Original method body, dependency injection only.\nmodule.exports = function(y,g){return function(e,t)'+generate(body).code+';};\n');
-ast.program.body.unshift(...parse("const { renderServerTypeTag } = require('../components/ServerTypeTag.jsx');").program.body);
+ast.program.body.unshift(...parse("const { renderServerTypeTag } = require('../components/ServerTypeTag.tsx');").program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

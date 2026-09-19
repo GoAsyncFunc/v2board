@@ -320,36 +320,12 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/OrderDetailBody.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "components/OrderDetailBody.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/OrderDetailBody.jsx",
+    "from": "components/OrderDetailBody.tsx",
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "components/OrderDetailBody.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/OrderDetailBody.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/OrderDisplayColumns.jsx",
+    "from": "components/OrderDisplayColumns.tsx",
     "to": "vendor/adminSettings.js"
-  },
-  {
-    "from": "components/OrderDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/OrderDisplayColumns.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/PermissionGroupEditor.jsx",
@@ -377,30 +353,10 @@
   },
   {
     "from": "components/SendMailEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ServerNameColumn.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/ServerNameColumn.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ServerRateColumn.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/ServerRateColumn.jsx",
     "to": "vendor/ui.js"
   },
   {
     "from": "components/ServerSecuritySettings.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ServerTypeTag.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -1277,11 +1233,11 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/OrderDetailBody.jsx"
+    "to": "components/OrderDetailBody.tsx"
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/OrderDisplayColumns.jsx"
+    "to": "components/OrderDisplayColumns.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1457,15 +1413,15 @@
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "components/ServerNameColumn.jsx"
+    "to": "components/ServerNameColumn.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "components/ServerRateColumn.jsx"
+    "to": "components/ServerRateColumn.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "components/ServerTypeTag.jsx"
+    "to": "components/ServerTypeTag.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",

@@ -13,5 +13,5 @@ traverse(ast,{ArrayExpression(p){for(let index=0;index<p.node.elements.length;in
 }}});
 if(count!==1)throw Error('Expected exactly one rate column, found '+count);
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-server-rate.cjs',import.meta.url),'// Original readonly column unchanged, dependencies injected.\nmodule.exports = function(y,u,m,g){return '+generate(original).code+';};\n');
-ast.program.body.unshift(...parse("const { createServerRateColumn } = require('../components/ServerRateColumn.jsx');").program.body);
+ast.program.body.unshift(...parse("const { createServerRateColumn } = require('../components/ServerRateColumn.tsx');").program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

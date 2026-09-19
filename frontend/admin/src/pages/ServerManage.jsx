@@ -27,9 +27,9 @@ import TuicEditor from '../components/TuicEditor.jsx';
 import VlessEditor from '../components/VlessEditor.jsx';
 import AnyTlsEditor from '../components/AnyTlsEditor.jsx';
 import V2NodeEditor from '../components/V2NodeEditor.jsx';
-import { renderServerTypeTag } from '../components/ServerTypeTag.jsx';
-import { createServerNameColumn } from '../components/ServerNameColumn.jsx';
-import { createServerRateColumn } from '../components/ServerRateColumn.jsx';
+import { renderServerTypeTag } from '../components/ServerTypeTag.tsx';
+import { createServerNameColumn } from '../components/ServerNameColumn.tsx';
+import { createServerRateColumn } from '../components/ServerRateColumn.tsx';
 
 import '../vendor/iconStyles.js';
 

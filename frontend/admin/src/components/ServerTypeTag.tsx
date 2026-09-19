@@ -1,7 +1,7 @@
 import React from 'react';
-import { Tag } from '../vendor/ui.js';
+import Tag from 'antd/lib/tag';
 
-export function renderServerTypeTag(type, label) {
+export function renderServerTypeTag(type: unknown, label: React.ReactNode): React.ReactElement | undefined {
   // Strict switch retains unknown/non-string type behavior; no fallback tag.
   switch (type) {
     case 'shadowsocks': return <Tag color="#489851">{label}</Tag>;
