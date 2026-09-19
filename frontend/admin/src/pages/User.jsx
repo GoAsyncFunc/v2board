@@ -18,7 +18,7 @@ import history from '../vendor/routerHistory.js';
 import { copyToClipboard, setPreference } from '../vendor/siteHelpers.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import UserEditor from '../components/UserEditor.jsx';
-import FilterDrawer from '../components/FilterDrawer.jsx';
+import FilterDrawer from '../components/FilterDrawer.tsx';
 import ContextMenuTable from '../components/ContextMenuTable.tsx';
 import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns.tsx';
 

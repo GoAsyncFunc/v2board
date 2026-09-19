@@ -8,7 +8,7 @@ import { Input } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 import JsonEditor from './JsonEditor.tsx';
-import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';
+import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.tsx';
 
 import '../vendor/iconStyles.js';
 

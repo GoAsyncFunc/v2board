@@ -8,7 +8,7 @@ import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.ts
 import '../vendor/dateTime.js';
 import '../vendor/siteHelpers.js';
 import '../components/UserEditor.jsx';
-import '../components/FilterDrawer.jsx';
+import '../components/FilterDrawer.tsx';
 import '../components/ContextMenuTable.tsx';
 import '../components/ShadowsocksEditor.jsx';
 import '../components/VmessEditor.jsx';

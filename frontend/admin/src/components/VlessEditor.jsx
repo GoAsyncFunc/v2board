@@ -9,7 +9,7 @@ import { Icon } from '../vendor/Icon.js';
 import { notification } from '../vendor/notification.js';
 import PermissionGroupEditor from './PermissionGroupEditor.jsx';
 import JsonEditor from './JsonEditor.tsx';
-import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';
+import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.tsx';
 
 import '../vendor/iconStyles.js';
 

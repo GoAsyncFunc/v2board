@@ -1,18 +1,53 @@
 import React from 'react';
-import { Drawer } from '../vendor/ui.js';
-import { Button } from '../vendor/ui.js';
-import { Input } from '../vendor/ui.js';
-import { DatePicker } from '../vendor/ui.js';
-import { Select } from '../vendor/ui.js';
-import { Divider } from '../vendor/Divider.js';
-import { Icon } from '../vendor/Icon.js';
-import { notification } from '../vendor/notification.js';
-import moment from '../vendor/dateTime.js';
+import Button from 'antd/lib/button';
+import DatePicker from 'antd/lib/date-picker';
+import Divider from 'antd/lib/divider';
+import Drawer from 'antd/lib/drawer';
+import Icon from 'antd/lib/icon';
+import Input from 'antd/lib/input';
+import notification from 'antd/lib/notification';
+import Select from 'antd/lib/select';
+import moment from 'moment';
 
 import '../vendor/iconStyles.js';
 
-export class FilterDrawer extends React.Component {
-  constructor(props) {
+const DrawerWithFooter = Drawer as React.ComponentType<React.ComponentProps<typeof Drawer> & { footer?: React.ReactNode }>;
+
+export type FilterValue = string | number | null | undefined;
+
+export interface FilterItem {
+  key: string;
+  condition: string;
+  value: FilterValue;
+}
+
+export interface FilterOption {
+  key: string | number;
+  value: string | number | null;
+}
+
+export interface FilterField {
+  key: string;
+  title: React.ReactNode;
+  condition: string[];
+  type?: 'select' | 'date' | string;
+  options?: FilterOption[];
+}
+
+export interface FilterDrawerProps {
+  children: React.ReactElement;
+  value?: FilterItem[];
+  keys: FilterField[];
+  onOk: (filter: FilterItem[]) => void;
+}
+
+interface FilterDrawerState {
+  visible: boolean;
+  filter: FilterItem[];
+}
+
+export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawerState> {
+  constructor(props: FilterDrawerProps) {
     super(props);
     this.state = { visible: false, filter: props.value || [] };
   }
@@ -24,12 +59,12 @@ export class FilterDrawer extends React.Component {
     this.setState({ filter: [...this.state.filter, { key: firstField.key, condition: firstField.condition[0], value: '' }] });
   }
 
-  changeFilter(index, field, value) {
+  changeFilter(index: number, field: keyof FilterItem, value: FilterValue): void {
     const filter = this.state.filter.map((item, itemIndex) => {
       if (itemIndex !== index) return item;
       if (field === 'key') {
-        const fieldConfig = this.props.keys.find(candidate => candidate.key === value);
-        return { ...item, key: value, condition: fieldConfig.condition[0], value: '' };
+        const fieldConfig = this.props.keys.find(candidate => candidate.key === value) as FilterField;
+        return { ...item, key: value as string, condition: fieldConfig.condition[0], value: '' };
       }
       return { ...item, [field]: value };
     });
@@ -46,13 +81,13 @@ export class FilterDrawer extends React.Component {
   }
 
   hide() { this.setState({ visible: false }); }
-  remove(index) { this.setState({ filter: this.state.filter.filter((item, itemIndex) => itemIndex !== index) }); }
+  remove(index: number): void { this.setState({ filter: this.state.filter.filter((item, itemIndex) => itemIndex !== index) }); }
   reset() { this.setState({ filter: [] }, () => this.apply()); }
 
-  renderValueInput(filterItem, index, fieldConfig) {
+  renderValueInput(filterItem: FilterItem, index: number, fieldConfig: FilterField): React.ReactElement {
     if (fieldConfig.type === 'select') {
       return <Select value={filterItem.value || undefined} style={{ width: '100%' }} placeholder="请选择值" onChange={value => this.changeFilter(index, 'value', value)}>
-        {fieldConfig.options.map(option => <Select.Option key={`${option.key}-${option.value}`} value={option.value}>{option.key}</Select.Option>)}
+        {(fieldConfig.options as FilterOption[]).map(option => <Select.Option key={`${option.key}-${option.value}`} value={option.value as string | number | undefined}>{option.key}</Select.Option>)}
       </Select>;
     }
     if (fieldConfig.type === 'date') {
@@ -61,7 +96,7 @@ export class FilterDrawer extends React.Component {
     return <Input style={{ width: '100%' }} value={filterItem.value || undefined} placeholder="值" onChange={event => this.changeFilter(index, 'value', event.target.value)} />;
   }
 
-  renderFilter(filterItem, index) {
+  renderFilter(filterItem: FilterItem, index: number): React.ReactElement {
     const fieldConfig = this.props.keys.find(field => field.key === filterItem.key) || this.props.keys[0];
     return <React.Fragment key={`${filterItem.key}-${index}`}>
       <Divider type="horizontal">条件{index + 1} <Icon type="delete" style={{ color: '#ff4d4f' }} onClick={() => this.remove(index)} /></Divider>
@@ -74,7 +109,7 @@ export class FilterDrawer extends React.Component {
   render() {
     return <>
       {React.cloneElement(this.props.children, { onClick: () => this.show() })}
-      <Drawer title="过滤器" visible={this.state.visible} onClose={() => this.hide()} className="v2board-filter-drawer" footer={<></>}>
+      <DrawerWithFooter title="过滤器" visible={this.state.visible} onClose={() => this.hide()} className="v2board-filter-drawer" footer={<></>}>
         {this.state.filter.map((filterItem, index) => this.renderFilter(filterItem, index))}
         <Button style={{ width: '100%' }} type="primary" onClick={() => this.add()}><Icon type="plus" /> 添加条件</Button>
         <div className="v2board-drawer-action">
@@ -82,7 +117,7 @@ export class FilterDrawer extends React.Component {
           <Button style={{ marginRight: 8 }} onClick={() => this.hide()}>取消</Button>
           <Button disabled={!this.state.filter.length} onClick={() => this.apply()} type="primary">检索</Button>
         </div>
-      </Drawer>
+      </DrawerWithFooter>
     </>;
   }
 }

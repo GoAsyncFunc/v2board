@@ -272,28 +272,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
+    "from": "components/FilterDrawer.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/notification.js"
-  },
-  {
-    "from": "components/FilterDrawer.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/HysteriaEditor.jsx",
@@ -349,10 +329,6 @@
   },
   {
     "from": "components/SendMailEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ServerSecuritySettings.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -465,7 +441,7 @@
   },
   {
     "from": "components/V2NodeEditor.jsx",
-    "to": "components/ServerSecuritySettings.jsx"
+    "to": "components/ServerSecuritySettings.tsx"
   },
   {
     "from": "components/V2NodeEditor.jsx",
@@ -493,7 +469,7 @@
   },
   {
     "from": "components/VlessEditor.jsx",
-    "to": "components/ServerSecuritySettings.jsx"
+    "to": "components/ServerSecuritySettings.tsx"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -1241,7 +1217,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/FilterDrawer.jsx"
+    "to": "components/FilterDrawer.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1345,7 +1321,7 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "components/FilterDrawer.jsx"
+    "to": "components/FilterDrawer.tsx"
   },
   {
     "from": "pages/Queue.jsx",
@@ -1637,7 +1613,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/FilterDrawer.jsx"
+    "to": "components/FilterDrawer.tsx"
   },
   {
     "from": "pages/User.jsx",

@@ -8,9 +8,9 @@ const globals = new Set(['module', 'exports', 'require', 'Object', 'Array', 'Mat
 for (const file of [
   'admin/src/components/ShadowsocksEditor.jsx',
   'admin/src/components/AnyTlsEditor.jsx',
-  'admin/src/components/FilterDrawer.jsx',
+  'admin/src/components/FilterDrawer.tsx',
   'admin/src/components/HysteriaEditor.jsx',
-  'admin/src/components/ServerSecuritySettings.jsx',
+  'admin/src/components/ServerSecuritySettings.tsx',
   'admin/src/components/TrojanEditor.jsx',
   'admin/src/components/TuicEditor.jsx',
   'admin/src/components/UserEditor.jsx',
@@ -26,10 +26,11 @@ for (const file of [
   const localFile = file.replace(/^admin\//, '');
   test(`${localFile}: references resolve in their lexical scope`, () => {
     const source = readFileSync(new URL('../' + localFile, import.meta.url), 'utf8');
-    const ast = parse(source, {sourceType: 'module', plugins: ['jsx']});
+    const ast = parse(source, {sourceType: 'module', plugins: ['jsx', 'typescript']});
     const missing = [];
     traverse(ast, {
       ReferencedIdentifier(path) {
+        if (path.findParent(parent => parent.node.type.startsWith('TS'))) return;
         if (!globals.has(path.node.name) && !path.scope.hasBinding(path.node.name)) {
           missing.push(`${path.node.name}:${path.node.loc.start.line}`);
         }
