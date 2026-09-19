@@ -188,7 +188,7 @@
     "to": "vendor/dva.js"
   },
   {
-    "from": "components/DateTimeDisplay.jsx",
+    "from": "components/DateTimeDisplay.ts",
     "to": "vendor/dateTime.js"
   },
   {
@@ -233,7 +233,7 @@
   },
   {
     "from": "components/OrderColumns.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "components/OrderColumns.jsx",
@@ -421,7 +421,7 @@
   },
   {
     "from": "components/checkout/OrderInfo.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "components/checkout/OrderInfo.jsx",
@@ -745,7 +745,7 @@
   },
   {
     "from": "pages/Dashboard.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -885,7 +885,7 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -989,7 +989,7 @@
   },
   {
     "from": "pages/Order.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "pages/Order.jsx",
@@ -1269,7 +1269,7 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
-    "to": "components/DateTimeDisplay.jsx"
+    "to": "components/DateTimeDisplay.ts"
   },
   {
     "from": "pages/TicketDetail.jsx",

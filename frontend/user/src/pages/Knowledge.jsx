@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '../components/DateTimeDisplay.jsx';
+import { formatDate } from '../components/DateTimeDisplay.ts';
 import { Input, Modal, notification } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';

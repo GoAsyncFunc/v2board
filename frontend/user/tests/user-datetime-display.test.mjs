@@ -14,9 +14,9 @@ const moment = (...args) => {
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/user-datetime-display.cjs' : '../src/components/DateTimeDisplay.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/user-datetime-display.cjs' : '../src/components/DateTimeDisplay.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {
     module, exports: module.exports, require(id) {
       if (id.includes('77642f52')) return moment;
         throw Error(id);

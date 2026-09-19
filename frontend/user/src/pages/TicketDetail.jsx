@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
-import { formatDateTime } from '../components/DateTimeDisplay.jsx';
+import { formatDateTime } from '../components/DateTimeDisplay.ts';
 
 export class TicketDetailBody extends React.Component {
   constructor(props) {

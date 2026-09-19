@@ -6,7 +6,7 @@ import { Badge } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
 import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
-import { formatDateTimeSeconds } from '../components/DateTimeDisplay.jsx';
+import { formatDateTimeSeconds } from '../components/DateTimeDisplay.ts';
 import { formatPrice } from '../components/MoneyDisplay.ts';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { isMobile } from '../vendor/siteHelpers.js';

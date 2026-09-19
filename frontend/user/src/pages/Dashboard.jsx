@@ -10,7 +10,7 @@ import MainLayout from '../layouts/MainLayout.jsx';
 import history from '../vendor/routerHistory.js';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay.jsx';
+import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay.ts';
 import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage.jsx';
 
 import '../vendor/iconStyles.js';
