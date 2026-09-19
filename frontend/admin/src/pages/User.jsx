@@ -20,7 +20,7 @@ import MainLayout from '../layouts/MainLayout.jsx';
 import UserEditor from '../components/UserEditor.jsx';
 import FilterDrawer from '../components/FilterDrawer.jsx';
 import ContextMenuTable from '../components/ContextMenuTable.jsx';
-import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns.jsx';
+import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns.tsx';
 
 import '../vendor/iconStyles.js';
 

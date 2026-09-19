@@ -520,14 +520,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/UserDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/UserDisplayColumns.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/UserEditor.jsx",
     "to": "vendor/Icon.js"
   },
@@ -1705,7 +1697,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/UserDisplayColumns.jsx"
+    "to": "components/UserDisplayColumns.tsx"
   },
   {
     "from": "pages/User.jsx",

@@ -18,14 +18,16 @@ const deps = { createElement: React.createElement, Tooltip, Badge, moment };
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-user-display.cjs' : '../src/components/UserDisplayColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-user-display.cjs' : '../src/components/UserDisplayColumns.tsx', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'jsx' })).code, {
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'tsx' })).code, {
     module, exports: module.exports, Date: FakeDate, require(id) {
       if (id === 'react') return React;
+      if (id === 'antd/lib/tooltip') return Tooltip;
+      if (id === 'antd/lib/badge') return Badge;
       if (id.includes('antdTooltip')) return { a: Tooltip };
       if (id.includes('antdBadge')) return { a: Badge };
-      if (id.includes('77642f52')) return moment;
+      if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
     },
   });
