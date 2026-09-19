@@ -1,11 +1,17 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 import { Table } from '../vendor/ui.js';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { formatMessage } from '../vendor/i18n.js';
 import { createTrafficColumns } from '../components/TrafficColumns';
+import type { TrafficRecord } from '../types/commerce';
+import type { UserDispatch } from '../types/store';
 
-export class TrafficPage extends React.Component {
+interface TrafficStateProps {
+  stat: { traffics: TrafficRecord[]; getTrafficLogLoading: boolean };
+}
+
+export class TrafficPage extends React.Component<TrafficStateProps & { dispatch: UserDispatch }> {
   componentDidMount() {
     this.props.dispatch({ type: 'stat/getTrafficLog' });
   }
@@ -35,4 +41,4 @@ export class TrafficPage extends React.Component {
     );
   }
 }
-export default connect(({ stat }) => ({ stat }))(TrafficPage);
+export default connect(({ stat }: TrafficStateProps) => ({ stat }))(TrafficPage);

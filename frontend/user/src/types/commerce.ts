@@ -23,6 +23,7 @@ export interface PaymentMethod {
 }
 
 export interface OrderRecord {
+  plan?: { name: string } | null;
   created_at?: NumericValue;
   period: string;
   status: number;

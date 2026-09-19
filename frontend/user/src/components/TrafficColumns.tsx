@@ -6,11 +6,12 @@ import { Icon } from '../vendor/Icon.js';
 import { formatBytes } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, TrafficRecord } from '../types/commerce';
+import type { ColumnProps } from 'antd/lib/table';
 
 import '../vendor/iconStyles.js';
 
 const message = (id: string): string => formatMessage({ id });
-export function createTrafficColumns() {
+export function createTrafficColumns(): ColumnProps<TrafficRecord>[] {
   return [
     {
       title: message('记录时间'), dataIndex: 'record_at', key: 'record_at',
@@ -36,7 +37,7 @@ export function createTrafficColumns() {
         {message('合计')}{' '}<Icon type="question-circle" />
       </Tooltip>,
       dataIndex: 'total', key: 'total', align: 'right', fixed: 'right',
-      render: (_value: never, record: TrafficRecord) => formatBytes((parseInt(record.u) + parseInt(record.d)) * Number(record.server_rate)),
+      render: (_value: undefined, record: TrafficRecord) => formatBytes((parseInt(record.u) + parseInt(record.d)) * Number(record.server_rate)),
     },
   ];
 }

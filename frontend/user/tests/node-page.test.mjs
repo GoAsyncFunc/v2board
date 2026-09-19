@@ -8,8 +8,8 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Component: class { constructor(props) { this.props = props; } }, createElement: (type, props, ...children) => ({ type, props: props || {}, children }) };
 async function load(original) {
   const trace = [], cache = new Map(), compiled = {};
-  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/Node.jsx', columns: '../src/components/NodeColumns.tsx' })) {
-    compiled[name] = (await transform(await fs.readFile(new URL(relative, import.meta.url), 'utf8'), { format: 'cjs', loader: name === 'columns' ? 'tsx' : 'jsx' })).code;
+  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/Node.tsx', columns: '../src/components/NodeColumns.tsx' })) {
+    compiled[name] = (await transform(await fs.readFile(new URL(relative, import.meta.url), 'utf8'), { format: 'cjs', loader: relative.endsWith('.tsx') ? 'tsx' : 'jsx' })).code;
   }
   function evaluate(name) {
     if (cache.has(name)) return cache.get(name);
@@ -18,7 +18,7 @@ async function load(original) {
       if (id === 'react' || id.includes('reactRuntime')) return React;
       if (id.includes('NodeColumns')) return evaluate('columns');
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
-      if (id.includes('reactRedux')) return { c: () => component => component, connect: () => component => component };
+      if (id === 'react-redux' || id.includes('reactRedux')) return { c: () => component => component, connect: () => component => component };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]), calculateUsage: (...args) => trace.push(['usage', ...args]) };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };

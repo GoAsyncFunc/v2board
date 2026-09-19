@@ -1,17 +1,27 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 import { Table } from '../vendor/ui.js';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import history from '../vendor/routerHistory.js';
 import { calculateUsage } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createNodeColumns } from '../components/NodeColumns';
+import type { NodeRecord, OrderRecord } from '../types/commerce';
+import type { UserDispatch } from '../types/store';
 
 import '../services/request.js';
 import '../vendor/dateTime.js';
-const message = id => formatMessage({ id });
+const message = (id: string): string => formatMessage({ id });
 
-export class NodePage extends React.Component {
+interface NodePageStateProps {
+  server: { servers: NodeRecord[]; fetchLoading: boolean };
+  user: { subscribe: { u: number; d: number; transfer_enable: number; plan_id?: number | null } };
+  order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };
+}
+
+type NodePageProps = NodePageStateProps & { dispatch: UserDispatch };
+
+export class NodePage extends React.Component<NodePageProps> {
   componentDidMount() { this.fetchData(); }
   fetchData() {
     this.props.dispatch({ type: 'user/getSubscribe' });
@@ -57,4 +67,4 @@ export class NodePage extends React.Component {
     );
   }
 }
-export default connect(({ user, server, order }) => ({ user, server, order }))(NodePage);
+export default connect(({ user, server, order }: NodePageStateProps) => ({ user, server, order }))(NodePage);

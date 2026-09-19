@@ -69,11 +69,11 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Node.jsx"
+    "to": "pages/Node.tsx"
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Order.jsx"
+    "to": "pages/Order.tsx"
   },
   {
     "from": "app/routes.js",
@@ -105,7 +105,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Traffic.jsx"
+    "to": "pages/Traffic.tsx"
   },
   {
     "from": "app/store.js",
@@ -908,87 +908,79 @@
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "components/NodeColumns.tsx"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "vendor/dateTime.js"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Node.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "pages/Node.jsx",
+    "from": "pages/Node.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/MobileList.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "components/OrderColumns.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "pages/Order.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "pages/Order.jsx",
+    "from": "pages/Order.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -1236,23 +1228,19 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "pages/Traffic.jsx",
+    "from": "pages/Traffic.tsx",
     "to": "components/TrafficColumns.tsx"
   },
   {
-    "from": "pages/Traffic.jsx",
+    "from": "pages/Traffic.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Traffic.jsx",
+    "from": "pages/Traffic.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Traffic.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Traffic.jsx",
+    "from": "pages/Traffic.tsx",
     "to": "vendor/ui.js"
   },
   {

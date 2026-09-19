@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import type { RouteComponentProps } from 'react-router-dom';
 import Icon from 'antd/lib/icon';
 import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
@@ -49,4 +50,4 @@ const ConnectedLayout = connect<MainLayoutStateProps, MainLayoutDispatchProps, M
   state => ({ layout: state.layout }),
 )(MainLayout);
 
-export default withRouter(ConnectedLayout);
+export default withRouter<MainLayoutOwnProps & RouteComponentProps, typeof ConnectedLayout>(ConnectedLayout);

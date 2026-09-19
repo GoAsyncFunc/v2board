@@ -1,22 +1,30 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import MobileList from '../components/MobileList.tsx';
+import MobileList from '../components/MobileList';
 import { Table } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import history from '../vendor/routerHistory.js';
-import { formatDateTimeSeconds } from '../components/DateTimeDisplay.ts';
-import { formatPrice } from '../components/MoneyDisplay.ts';
+import { formatDateTimeSeconds } from '../components/DateTimeDisplay';
+import { formatPrice } from '../components/MoneyDisplay';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { isMobile } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns';
+import type { OrderRecord } from '../types/commerce';
+import type { UserDispatch } from '../types/store';
 
-export class OrderPage extends React.Component {
+interface OrderStateProps {
+  order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };
+}
+
+const orderStatusText: Readonly<Partial<Record<number, () => string>>> = settings.orderStatusText;
+
+export class OrderPage extends React.Component<OrderStateProps & { dispatch: UserDispatch }> {
   componentDidMount() { this.fetchData(); }
   fetchData() { this.props.dispatch({ type: 'order/fetch' }); }
-  cancel(order) {
+  cancel(order: OrderRecord) {
     return Modal.confirm({
       title: formatMessage({ id: '注意' }),
       content: formatMessage({ id: '如果你已经付款，取消订单可能会导致支付失败，确定取消订单吗？' }),
@@ -33,7 +41,7 @@ export class OrderPage extends React.Component {
           {isMobile() ? <MobileList>{orders.map(order => (
             <MobileList.Item key={order.trade_no} arrow="horizontal" multipleLine onClick={() => history.push('/order/' + order.trade_no)} extra={<div>
               <div>{formatPrice(order.total_amount)}</div>
-              <div><Badge status={orderBadgeStatuses[order.status]} />{settings.orderStatusText[order.status] && settings.orderStatusText[order.status]()}</div>
+              <div><Badge status={orderBadgeStatuses[order.status]} />{orderStatusText[order.status]?.()}</div>
             </div>}>
               {order.plan?.name}{' '}<MobileList.Item.Brief>{formatDateTimeSeconds(order.created_at)}</MobileList.Item.Brief>
             </MobileList.Item>
@@ -43,4 +51,4 @@ export class OrderPage extends React.Component {
     </MainLayout>;
   }
 }
-export default connect(({ order }) => ({ order }))(OrderPage);
+export default connect(({ order }: OrderStateProps) => ({ order }))(OrderPage);

@@ -4,16 +4,16 @@ import Index from '../pages/Index';
 import Invite from '../pages/Invite.jsx';
 import Knowledge from '../pages/Knowledge.jsx';
 import Login from '../pages/Login';
-import Node from '../pages/Node.jsx';
+import Node from '../pages/Node';
 import OrderDetail from '../pages/OrderDetail.jsx';
-import Order from '../pages/Order.jsx';
+import Order from '../pages/Order';
 import PlanDetail from '../pages/PlanDetail.jsx';
 import Plan from '../pages/Plan.jsx';
 import Profile from '../pages/Profile.jsx';
 import Register from '../pages/Register';
 import TicketDetail from '../pages/TicketDetail.jsx';
 import Ticket from '../pages/Ticket.jsx';
-import Traffic from '../pages/Traffic.jsx';
+import Traffic from '../pages/Traffic';
 
 // Add or edit routes here. Every component is a source file, not a module ID.
 const routes = [
