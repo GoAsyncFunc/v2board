@@ -57,8 +57,8 @@ test('user i18n runtime delegates messages and reloads locale without refreshing
     formatMessage({ id }) { return `${this.prefix}:${id}`; },
   };
   let localeReloads = 0;
-  runtime._setIntlObject(intl);
-  runtime._setLocaleContext({ reloadAppLocale: () => { localeReloads += 1; } });
+  runtime.setIntlApi(intl);
+  runtime.setLocaleController({ reloadAppLocale: () => { localeReloads += 1; } });
 
   assert.equal(runtime.formatMessage({ id: 'hello' }), 'translated:hello');
   runtime.setLocale('en-US', false);
@@ -103,8 +103,8 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
       if (id.includes('/locales')) return localeExports;
       if (id.includes('/i18n')) {
         return {
-          _setIntlObject: value => injected.push(value),
-          _setLocaleContext() {},
+          setIntlApi: value => injected.push(value),
+          setLocaleController() {},
           addLocaleData() {},
           injectIntl: component => component,
           IntlProvider: 'IntlProvider',

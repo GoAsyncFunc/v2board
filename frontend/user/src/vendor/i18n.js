@@ -32,11 +32,11 @@ export function setLocale(locale, reload = true) {
 
 export const LangContext = React.createContext({ lang: getLocale() });
 
-export function _setIntlObject(value) {
+export function setIntlApi(value) {
   intlApi = value;
 }
 
-export function _setLocaleContext(value) {
+export function setLocaleController(value) {
   localeController = value;
 }
 
@@ -63,8 +63,8 @@ export const { addLocaleData, injectIntl, IntlProvider, intlShape } = reactIntl;
 const localeApi = {
   ...reactIntl,
   LangContext,
-  _setIntlObject,
-  _setLocaleContext,
+  setIntlApi,
+  setLocaleController,
   formatDate,
   formatHTMLMessage,
   formatMessage,

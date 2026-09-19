@@ -8,8 +8,8 @@ import {
   twAntd, viAntd, viData, viMessages, zhAntd, zhData, zhMessages,
 } from '../vendor/locales.js';
 import {
-  _setIntlObject,
-  _setLocaleContext,
+  setIntlApi,
+  setLocaleController,
   addLocaleData,
   injectIntl,
   IntlProvider,
@@ -38,7 +38,7 @@ window.g_routes = routes;
 
 export class IntlApiBridge extends React.Component {
   render() {
-    _setIntlObject(this.props.intl);
+    setIntlApi(this.props.intl);
     return this.props.children;
   }
 }
@@ -50,7 +50,7 @@ export class LocaleBridge extends React.Component {
     return (
       <LangContext.Consumer>
         {context => {
-          _setLocaleContext(context);
+    setLocaleController(context);
           return this.props.children;
         }}
       </LangContext.Consumer>

@@ -63,7 +63,7 @@ const models = {
 
 let appInstance = null;
 
-export function _onCreate() {
+export function createApp() {
   const dvaConfig = mergeConfig('dva');
   appInstance = createDva({
     history,
@@ -82,7 +82,7 @@ export function getApp() {
   return appInstance;
 }
 
-export class _DvaContainer extends React.Component {
+export class DvaContainer extends React.Component {
   render() {
     const app = getApp();
     app.router(() => React.cloneElement(this.props.children, { store: app._store }));

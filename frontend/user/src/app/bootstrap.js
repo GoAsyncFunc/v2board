@@ -9,7 +9,7 @@ import {
 import { appDvaConfig } from '../vendor/appRuntime.js';
 
 import Router from './Router.jsx';
-import { _onCreate } from './store.js';
+import { createApp } from './store.js';
 
 window.g_plugins = plugins;
 plugins.init({
@@ -21,7 +21,7 @@ plugins.init({
 plugins.use({ rootContainer, initialProps, modifyInitialProps });
 plugins.use({ dva: appDvaConfig });
 
-window.g_app = _onCreate();
+window.g_app = createApp();
 
 async function renderApp() {
   window.g_isBrowser = true;

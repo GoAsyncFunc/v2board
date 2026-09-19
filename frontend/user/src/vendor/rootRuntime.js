@@ -1,8 +1,8 @@
 import React from 'react';
-import { _DvaContainer, getApp } from '../app/store.js';
+import { DvaContainer, getApp } from '../app/store.js';
 
 export function rootContainer(children) {
-  return <_DvaContainer>{children}</_DvaContainer>;
+  return <DvaContainer>{children}</DvaContainer>;
 }
 
 export function initialProps(props) {
