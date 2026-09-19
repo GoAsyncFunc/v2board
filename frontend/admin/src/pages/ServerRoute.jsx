@@ -15,7 +15,6 @@ import { createReadonlyServerRouteColumns } from '../components/ServerRouteDispl
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/featureRuntime.js';
 const readonlyColumns = createReadonlyServerRouteColumns();
 
 export class RouteEditor extends React.Component {

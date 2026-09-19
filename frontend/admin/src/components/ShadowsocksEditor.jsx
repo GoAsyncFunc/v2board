@@ -7,7 +7,6 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { PermissionGroupEditor } from '../vendor/ui.js';
 
-import '../vendor/featureRuntime.js';
 const CIPHERS = [
   'aes-128-gcm',
   'aes-192-gcm',

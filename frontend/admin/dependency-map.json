@@ -393,10 +393,6 @@
   },
   {
     "from": "components/ShadowsocksEditor.jsx",
-    "to": "vendor/featureRuntime.js"
-  },
-  {
-    "from": "components/ShadowsocksEditor.jsx",
     "to": "vendor/reactRedux.js"
   },
   {
@@ -1017,10 +1013,6 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "vendor/featureRuntime.js"
-  },
-  {
-    "from": "pages/Knowledge.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1122,10 +1114,6 @@
   {
     "from": "pages/Order.jsx",
     "to": "vendor/adminSettings.js"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/featureRuntime.js"
   },
   {
     "from": "pages/Order.jsx",
@@ -1381,10 +1369,6 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "vendor/featureRuntime.js"
-  },
-  {
-    "from": "pages/ServerRoute.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -1568,10 +1552,6 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "vendor/featureRuntime.js",
-    "to": "vendor/modules/httpRequestPolyfill.js"
-  },
-  {
     "from": "vendor/features.js",
     "to": "vendor/features/AssignOrderEditor.jsx"
   },
@@ -1646,334 +1626,6 @@
   {
     "from": "vendor/features/UserGenerator.jsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/modules/browserTransportFeatures.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/bufferList.js",
-    "to": "vendor/modules/bufferRuntime.js"
-  },
-  {
-    "from": "vendor/modules/bufferList.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/modules/bufferPolyfill.js",
-    "to": "vendor/modules/arrayIsArrayFallback.js"
-  },
-  {
-    "from": "vendor/modules/bufferPolyfill.js",
-    "to": "vendor/modules/base64ByteArray.js"
-  },
-  {
-    "from": "vendor/modules/bufferPolyfill.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/bufferPolyfill.js",
-    "to": "vendor/modules/ieee754.js"
-  },
-  {
-    "from": "vendor/modules/bufferRuntime.js",
-    "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/bufferToArrayBuffer.js",
-    "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/browserTransportFeatures.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/bufferToArrayBuffer.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/incomingMessageRuntime.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/clientRequestRuntime.js",
-    "to": "vendor/modules/streamRuntime.js"
-  },
-  {
-    "from": "vendor/modules/deprecate.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/duplexStream.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/duplexStream.js",
-    "to": "vendor/modules/nodeTypePredicates.js"
-  },
-  {
-    "from": "vendor/modules/duplexStream.js",
-    "to": "vendor/modules/processNextTick.js"
-  },
-  {
-    "from": "vendor/modules/duplexStream.js",
-    "to": "vendor/modules/readableStream.js"
-  },
-  {
-    "from": "vendor/modules/duplexStream.js",
-    "to": "vendor/modules/writableStream.js"
-  },
-  {
-    "from": "vendor/modules/eventEmitter.js",
-    "to": "vendor/modules/eventEmitterRuntime.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/clientRequestRuntime.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/copyOwnProperties.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/httpStatusCodes.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/incomingMessageRuntime.js"
-  },
-  {
-    "from": "vendor/modules/httpRequestPolyfill.js",
-    "to": "vendor/modules/urlRuntime.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/browserTransportFeatures.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/incomingMessageRuntime.js",
-    "to": "vendor/modules/streamRuntime.js"
-  },
-  {
-    "from": "vendor/modules/nodeQueryStringLegacy.js",
-    "to": "vendor/modules/queryStringDecodeLegacy.js"
-  },
-  {
-    "from": "vendor/modules/nodeQueryStringLegacy.js",
-    "to": "vendor/modules/queryStringEncodeLegacy.js"
-  },
-  {
-    "from": "vendor/modules/nodeTypePredicates.js",
-    "to": "vendor/modules/bufferPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/passThroughStream.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/passThroughStream.js",
-    "to": "vendor/modules/nodeTypePredicates.js"
-  },
-  {
-    "from": "vendor/modules/passThroughStream.js",
-    "to": "vendor/modules/transformStream.js"
-  },
-  {
-    "from": "vendor/modules/pathRuntime.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/processNextTick.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/processRuntime.js",
-    "to": "vendor/modules/pathRuntime.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/arrayIsArrayFallback.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/bufferList.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/bufferRuntime.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/duplexStream.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/emptyModule.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/eventEmitter.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/eventEmitterRuntime.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/nodeTypePredicates.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/processNextTick.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/streamDestroy.js"
-  },
-  {
-    "from": "vendor/modules/readableStream.js",
-    "to": "vendor/modules/stringDecoder.js"
-  },
-  {
-    "from": "vendor/modules/streamDestroy.js",
-    "to": "vendor/modules/processNextTick.js"
-  },
-  {
-    "from": "vendor/modules/streamRuntime.js",
-    "to": "vendor/modules/duplexStream.js"
-  },
-  {
-    "from": "vendor/modules/streamRuntime.js",
-    "to": "vendor/modules/passThroughStream.js"
-  },
-  {
-    "from": "vendor/modules/streamRuntime.js",
-    "to": "vendor/modules/readableStream.js"
-  },
-  {
-    "from": "vendor/modules/streamRuntime.js",
-    "to": "vendor/modules/transformStream.js"
-  },
-  {
-    "from": "vendor/modules/streamRuntime.js",
-    "to": "vendor/modules/writableStream.js"
-  },
-  {
-    "from": "vendor/modules/stringDecoder.js",
-    "to": "vendor/modules/bufferRuntime.js"
-  },
-  {
-    "from": "vendor/modules/transformStream.js",
-    "to": "vendor/modules/duplexStream.js"
-  },
-  {
-    "from": "vendor/modules/transformStream.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/transformStream.js",
-    "to": "vendor/modules/nodeTypePredicates.js"
-  },
-  {
-    "from": "vendor/modules/urlRuntime.js",
-    "to": "vendor/modules/nodeQueryStringLegacy.js"
-  },
-  {
-    "from": "vendor/modules/urlRuntime.js",
-    "to": "vendor/modules/punycode.js"
-  },
-  {
-    "from": "vendor/modules/urlRuntime.js",
-    "to": "vendor/modules/typePredicates.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/bufferRuntime.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/deprecate.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/duplexStream.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/eventEmitter.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/nodeInheritsOptional.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/nodeTypePredicates.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/processNextTick.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/processRuntime.js"
-  },
-  {
-    "from": "vendor/modules/writableStream.js",
-    "to": "vendor/modules/streamDestroy.js"
   },
   {
     "from": "vendor/rootRuntime.js",
