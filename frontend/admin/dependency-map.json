@@ -1312,10 +1312,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Notice.jsx",
-    "to": "vendor/utilities.js"
-  },
-  {
     "from": "pages/Order.jsx",
     "to": "components/AssignOrderEditor.jsx"
   },
