@@ -67,5 +67,4 @@ export class WithdrawModal extends React.Component {
 }
 
 const ConnectedWithdrawModal = connect(state => ({ user: state.user, comm: state.comm }))(WithdrawModal);
-export { ConnectedWithdrawModal as a };
 export default ConnectedWithdrawModal;

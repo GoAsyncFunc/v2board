@@ -60,5 +60,4 @@ export class TransferCommissionModal extends React.Component {
 }
 
 const ConnectedTransferCommissionModal = connect(state => ({ user: state.user }))(TransferCommissionModal);
-export { ConnectedTransferCommissionModal as a };
 export default ConnectedTransferCommissionModal;

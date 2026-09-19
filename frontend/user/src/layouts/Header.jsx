@@ -9,7 +9,7 @@ import {
     setCookie,
 } from "../vendor/siteHelpers.js";
 import { formatMessage } from "../vendor/i18n.js";
-import { a as LanguageSelector } from "../components/LanguageSelector.jsx";
+import { LanguageSelector } from "../components/LanguageSelector.jsx";
 const headerTheme = window.settings.theme;
 
 export class Header extends React.Component {

@@ -31,5 +31,4 @@ export class LanguageSelector extends React.Component {
   }
 }
 
-export { LanguageSelector as a };
 export default LanguageSelector;
