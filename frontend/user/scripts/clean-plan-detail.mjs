@@ -1,0 +1,42 @@
+// One-time AST cleanup preserving render and checkout behavior.
+import fs from 'node:fs/promises';
+import {parse} from '@babel/parser';
+import traverseModule from '@babel/traverse';
+import generatorModule from '@babel/generator';
+import * as t from '@babel/types';
+const traverse=traverseModule.default||traverseModule,generate=generatorModule.default||generatorModule;
+const file=new URL('../src/pages/PlanDetail.jsx',import.meta.url);
+const ast=parse(await fs.readFile(file,'utf8'),{sourceType:'unambiguous',plugins:['jsx']});
+const cls=ast.program.body.find(t.isClassDeclaration);cls.id=t.identifier('PlanDetailPage');cls.superClass=t.memberExpression(t.identifier('React'),t.identifier('Component'));
+const tree=t.file(t.program([cls]));
+const aliases={'f.a':'React','p["a"]':'MainLayout','i["a"]':'Icon','a["a"]':'Radio','s["a"]':'Result','c["a"]':'Button','u["a"]':'Modal','h["a"]':'settings','m["formatMessage"]':'formatMessage','v["h"]':'isExpired','v["c"]':'parsePlanContent','y["router"]':'router'};
+traverse(tree,{MemberExpression:{exit(p){const text=generate(p.node).code;if(aliases[text])p.replaceWith(t.identifier(aliases[text]));}},CallExpression:{exit(p){
+ const n=p.node;if(n.callee.name==='Object'&&n.arguments.length===1&&t.isIdentifier(n.arguments[0])){p.replaceWith(n.arguments[0]);return;}
+ if(!t.isMemberExpression(n.callee)||n.callee.object.name!=='React'||n.callee.property.name!=='createElement')return;
+ const [tag,props,...children]=n.arguments;if(!t.isIdentifier(tag))return;
+ const name=t.jsxIdentifier(tag.name);let attrs=[];
+ if(tag.name==='MainLayout')attrs=[t.jsxSpreadAttribute(t.memberExpression(t.thisExpression(),t.identifier('props'))),t.jsxAttribute(t.jsxIdentifier('title'),t.jsxExpressionContainer(props.arguments[2].properties[0].value))];
+ else if(props&&!t.isNullLiteral(props))attrs=[t.jsxSpreadAttribute(props)];
+ p.replaceWith(t.jsxElement(t.jsxOpeningElement(name,attrs,false),t.jsxClosingElement(name),children.map(c=>t.isJSXElement(c)?c:t.jsxExpressionContainer(c)),false));
+}}});
+const renames={preOrder:{e:'plan',t:'orderState',n:'orders',r:'cancelLoading',o:'userState',i:'currentPlanId',a:'subscription'},order:{e:'coupon',t:'planState',n:'plan',r:'period',o:'params'},couponProcess:{e:'price',t:'type',n:'value'},getTotalAmount:{e:'coupon',t:'planState',n:'period',r:'plan',o:'amount'},getCouponJSX:{e:'coupon',t:'planState',n:'period',r:'plan',o:'config'},render:{e:'planState',t:'plan',n:'period',r:'loading',u:'userInfo',l:'saving',d:'config',g:'content'}};
+traverse(tree,{ClassMethod(p){for(const [from,to]of Object.entries(renames[p.node.key.name]||{}))p.scope.rename(from,to);},StringLiteral(p){delete p.node.extra;}});
+const imports=`import React from 'react';
+import MainLayout from '../layouts/MainLayout.jsx';
+import { c as connect } from '../vendor/reactRedux.js';
+import { a as Icon } from '../vendor/Icon.js';
+import { a as Radio } from '../vendor/modules/antdRadio.js';
+import { a as Result } from '../vendor/modules/4d6f5257.js';
+import { a as Button } from '../vendor/modules/antdButton.js';
+import { a as Modal } from '../vendor/Modal.js';
+import { a as settings } from '../vendor/localeSettings.js';
+import { formatMessage } from '../vendor/i18n.js';
+import { h as isExpired, c as parsePlanContent } from '../vendor/siteHelpers.js';
+import { router } from '../vendor/modules/4172412b.js';
+import '../vendor/iconStyles.js';
+import '../vendor/modules/374b616b.js';
+import '../vendor/modules/4a2b2f76.js';
+import '../vendor/modules/2b4c3642.js';
+import '../vendor/modules/32717463.js';
+`;
+await fs.writeFile(file,imports+'\nexport '+generate(cls,{jsescOption:{minimal:true}}).code+'\nexport default connect(({ plan, coupon, order, user, comm }) => ({ plan, coupon, order, user, comm }))(PlanDetailPage);\n');

@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {parse} from '@babel/parser';
+import traverseModule from '@babel/traverse';
+import generatorModule from '@babel/generator';
+import * as t from '@babel/types';
+const traverse=traverseModule.default||traverseModule,generate=generatorModule.default||generatorModule;
+const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const file=path.join(home,'src/models/user.js');
+const source=await fs.readFile(file,'utf8');
+if(source.includes('const userQueryEffects'))throw Error('Already extracted');
+const ast=parse(source,{sourceType:'unambiguous',plugins:['jsx']});
+const runtime=ast.program.body.find(node=>t.isFunctionDeclaration(node)&&node.id.name==='f');
+const names=['getUserInfoById','fetch','filter','changeTable','addFilter'];
+const selected=[];
+traverse(ast,{ObjectMethod(p){if(names.includes(p.node.key.name)){
+ selected.push(t.cloneNode(p.node,true));
+ p.replaceWith(t.objectProperty(t.identifier(p.node.key.name),t.memberExpression(t.identifier('userQueryEffects'),t.identifier(p.node.key.name))));
+}}});
+if(selected.length!==names.length)throw Error('Missing query effect');
+await fs.writeFile(path.join(home,'tests/fixtures/models/admin-user-query.cjs'),'const a = api, o = () => Object.assign;\n'+generate(runtime).code+'\nmodule.exports = '+generate(t.objectExpression(selected)).code+';\n');
+ast.program.body.unshift(...parse('const userQueryEffects = require("./userQueryEffects.js");').program.body);
+await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');
