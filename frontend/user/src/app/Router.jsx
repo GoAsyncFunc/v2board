@@ -125,7 +125,7 @@ export default class Router extends React.Component {
   render() {
     return (
       <LocaleProvider>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={history} store={this.props.store}>
           {routeRenderer(routes, this.props || {})}
         </ConnectedRouter>
       </LocaleProvider>

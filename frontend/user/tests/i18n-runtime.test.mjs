@@ -119,8 +119,10 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
   });
 
   assert.deepEqual(pluginCalls, [], 'Router module evaluation must not access plugins before bootstrap initializes them');
-  new routerModule.default({});
+  const router = new routerModule.default({ store: 'fixture-store' });
   assert.deepEqual(pluginCalls, ['patchRoutes', 'onRouteChange']);
+  const routerTree = router.render();
+  assert.equal(routerTree.children[0].props.store, 'fixture-store');
 
   const intl = { formatMessage: ({ id }) => id };
   const bridge = new routerModule.IntlApiBridge({ intl, children: 'page' });
