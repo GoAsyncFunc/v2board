@@ -1364,6 +1364,10 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "runtime/routeRenderer.js",
+    "to": "runtime/pluginRuntime.js"
+  },
+  {
     "from": "services/request.js",
     "to": "vendor/dva.js"
   },
@@ -1393,6 +1397,18 @@
   },
   {
     "from": "vendor/appRuntime.js",
+    "to": "runtime/loadingPlugin.js"
+  },
+  {
+    "from": "vendor/appRuntime.js",
+    "to": "runtime/pluginRuntime.js"
+  },
+  {
+    "from": "vendor/appRuntime.js",
+    "to": "runtime/routeRenderer.js"
+  },
+  {
+    "from": "vendor/appRuntime.js",
     "to": "vendor/appDvaConfig.js"
   },
   {
@@ -1410,6 +1426,10 @@
   {
     "from": "vendor/content.js",
     "to": "vendor/router.js"
+  },
+  {
+    "from": "vendor/dva.js",
+    "to": "runtime/routerBindings.js"
   },
   {
     "from": "vendor/dva.js",

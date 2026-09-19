@@ -1,5 +1,12 @@
 # V2Board React 源码工程
 
+`user` 与 `admin` 是两个独立前端应用，各自维护 npm 依赖、锁文件和 README：
+
+- 用户端：[user/README.md](user/README.md)
+- 管理端：[admin/README.md](admin/README.md)
+
+`frontend/` 根目录只保留本说明文件；源码、依赖、脚本、测试和构建产物均归属各自应用目录。
+
 ## 当前状态（请先读）
 
 **已实现独立构建，尚未完成全部源码清理及页面验收。**
@@ -39,9 +46,14 @@ user/ 或 admin/
 
 ## 安装与构建
 
-在 frontend 目录运行：
+两个应用分别安装和构建：
 
 ```sh
+cd frontend/user
+npm ci
+npm run build
+
+cd ../admin
 npm ci
 npm run build
 ```
