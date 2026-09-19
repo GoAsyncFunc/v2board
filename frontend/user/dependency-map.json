@@ -89,7 +89,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Profile.jsx"
+    "to": "pages/Profile.tsx"
   },
   {
     "from": "app/routes.js",
@@ -1080,35 +1080,31 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "components/TelegramBindModal.tsx"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
+    "from": "pages/Profile.tsx",
     "to": "vendor/ui.js"
   },
   {

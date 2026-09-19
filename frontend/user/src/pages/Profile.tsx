@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Switch } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
@@ -8,16 +8,21 @@ import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { formatMoney } from '../components/MoneyDisplay.ts';
+import { formatMoney } from '../components/MoneyDisplay';
+import type { ProfileConfig, ProfileInfo, ProfileSetting, ProfileUserState } from '../types/profile';
+import type { UserDispatch } from '../types/store';
 
-export class ProfilePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.giftcardRef = React.createRef();
-    this.oldPasswordRef = React.createRef();
-    this.newPasswordRef = React.createRef();
-    this.repeatPasswordRef = React.createRef();
-  }
+interface ProfileStateProps {
+  user: ProfileUserState;
+  comm: { config: ProfileConfig };
+}
+
+export class ProfilePage extends React.Component<ProfileStateProps & { dispatch: UserDispatch }> {
+  giftcardRef = React.createRef<HTMLInputElement>();
+  oldPasswordRef = React.createRef<HTMLInputElement>();
+  newPasswordRef = React.createRef<HTMLInputElement>();
+  repeatPasswordRef = React.createRef<HTMLInputElement>();
+  depositAmount?: number;
 
   componentDidMount() {
     this.refreshProfile();
@@ -29,9 +34,9 @@ export class ProfilePage extends React.Component {
   }
 
   changePassword() {
-    const oldPassword = this.oldPasswordRef.current.value;
-    const newPassword = this.newPasswordRef.current.value;
-    const repeatPassword = this.repeatPasswordRef.current.value;
+    const oldPassword = this.oldPasswordRef.current!.value;
+    const newPassword = this.newPasswordRef.current!.value;
+    const repeatPassword = this.repeatPasswordRef.current!.value;
     if (repeatPassword !== newPassword) {
       message.error(formatMessage({ id: '两次新密码输入不同' }));
       return;
@@ -40,7 +45,7 @@ export class ProfilePage extends React.Component {
   }
 
   redeemGiftcard() {
-    const giftcard = this.giftcardRef.current.value;
+    const giftcard = this.giftcardRef.current!.value;
     if (!giftcard.length) {
       message.error(formatMessage({ id: '请输入礼品卡' }));
       return;
@@ -48,7 +53,7 @@ export class ProfilePage extends React.Component {
     this.props.dispatch({ type: 'user/redeemgiftcard', giftcard });
   }
 
-  update(key, value) {
+  update(key: ProfileSetting, value: 0 | 1) {
     this.props.dispatch({ type: 'user/update', key, value });
   }
 
@@ -90,7 +95,7 @@ export class ProfilePage extends React.Component {
         <input
           className="form-control"
           placeholder={formatMessage({ id: `请输入充值金额${this.props.comm.config.currency}` })}
-          onChange={event => { this.depositAmount = event.target.value * 100; }}
+          onChange={event => { this.depositAmount = Number(event.target.value) * 100; }}
           autoComplete="one-time-code"
         />
       ),
@@ -103,7 +108,7 @@ export class ProfilePage extends React.Component {
     });
   }
 
-  renderWallet(userInfo, userState, config) {
+  renderWallet(userInfo: ProfileInfo, userState: ProfileUserState, config: ProfileConfig) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-lg-12">
@@ -120,7 +125,7 @@ export class ProfilePage extends React.Component {
                   {formatMessage({ id: '自动续费' })}{' '}
                   <Switch
                     loading={userState.auto_renewal_loading}
-                    checked={userInfo.auto_renewal}
+                    checked={Boolean(userInfo.auto_renewal)}
                     onChange={enabled => this.update('auto_renewal', enabled ? 1 : 0)}
                   />
                 </span>
@@ -133,7 +138,7 @@ export class ProfilePage extends React.Component {
     );
   }
 
-  renderGiftcard(userState) {
+  renderGiftcard(userState: ProfileUserState) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-md-12">
@@ -153,7 +158,7 @@ export class ProfilePage extends React.Component {
     );
   }
 
-  renderPassword(userState) {
+  renderPassword(userState: ProfileUserState) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-md-12"><div className="block block-rounded">
@@ -169,19 +174,19 @@ export class ProfilePage extends React.Component {
     );
   }
 
-  renderNotifications(userInfo, userState) {
+  renderNotifications(userInfo: ProfileInfo, userState: ProfileUserState) {
     return (
       <div className="row mb-3 mb-md-0"><div className="col-md-12"><div className="block block-rounded">
         <div className="block-header block-header-default"><h3 className="block-title">{formatMessage({ id: '通知' })}</h3></div>
         <div className="block-content"><div className="row"><div className="col-lg-8 col-xl-5">
-          <div className="form-group"><label>{formatMessage({ id: '到期邮件提醒' })}</label><div><Switch loading={userState.remind_expire_loading} checked={userInfo.remind_expire} onChange={enabled => this.update('remind_expire', enabled ? 1 : 0)} /></div></div>
-          <div className="form-group"><label>{formatMessage({ id: '流量邮件提醒' })}</label><div><Switch loading={userState.remind_traffic_loading} checked={userInfo.remind_traffic} onChange={enabled => this.update('remind_traffic', enabled ? 1 : 0)} /></div></div>
+          <div className="form-group"><label>{formatMessage({ id: '到期邮件提醒' })}</label><div><Switch loading={userState.remind_expire_loading} checked={Boolean(userInfo.remind_expire)} onChange={enabled => this.update('remind_expire', enabled ? 1 : 0)} /></div></div>
+          <div className="form-group"><label>{formatMessage({ id: '流量邮件提醒' })}</label><div><Switch loading={userState.remind_traffic_loading} checked={Boolean(userInfo.remind_traffic)} onChange={enabled => this.update('remind_traffic', enabled ? 1 : 0)} /></div></div>
         </div></div></div>
       </div></div></div>
     );
   }
 
-  renderTelegram(userInfo, config) {
+  renderTelegram(userInfo: ProfileInfo, config: ProfileConfig) {
     if (!config.is_telegram) return null;
     return userInfo.telegram_id ? (
       <div className="block block-rounded unbind_telegram">
@@ -234,4 +239,4 @@ export class ProfilePage extends React.Component {
   }
 }
 
-export default connect(state => ({ user: state.user, comm: state.comm }))(ProfilePage);
+export default connect((state: ProfileStateProps) => ({ user: state.user, comm: state.comm }))(ProfilePage);
