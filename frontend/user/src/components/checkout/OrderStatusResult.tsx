@@ -1,9 +1,10 @@
 import React from "react";
 import Result from "antd/lib/result";
+import type { ResultProps } from "antd/lib/result";
 import { formatMessage } from "../../vendor/i18n.js";
 import { router } from "../../vendor/appRuntime.js";
-export function orderResultProps(e) {
-    switch (e) {
+export function orderResultProps(status: number): ResultProps | undefined {
+    switch (status) {
         case 1:
             return {
                 status: "info",
@@ -55,6 +56,6 @@ export function orderResultProps(e) {
             };
     }
 }
-export default function OrderStatusResult({ status }) {
+export default function OrderStatusResult({ status }: { status: number }) {
     return <Result className="py-4" {...orderResultProps(status)} />;
 }

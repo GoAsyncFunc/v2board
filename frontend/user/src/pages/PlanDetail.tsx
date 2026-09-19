@@ -1,7 +1,7 @@
 import React from 'react';
 import Result from 'antd/lib/result';
 import MainLayout from '../layouts/MainLayout';
-import { connect } from '../vendor/reactRedux.js';
+import { connect } from 'react-redux';
 import { Button } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
@@ -10,12 +10,20 @@ import { router } from '../vendor/appRuntime.js';
 import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing';
 import { CouponInput, CouponDiscount } from '../components/checkout/Coupon';
 import OrderSummary from '../components/checkout/OrderSummary';
+import type { PlanCheckoutState } from '../types/checkout';
+import type { PlanFeature } from '../types/plan';
+import type { UserDispatch } from '../types/store';
 import '../vendor/iconStyles.js';
 
-const message = id => formatMessage({ id });
+const message = (id: string): string => formatMessage({ id });
 
-export class PlanDetailPage extends React.Component {
-  couponInput = React.createRef();
+type PlanDetailProps = PlanCheckoutState & {
+  dispatch: UserDispatch;
+  match: { params: { plan_id: string } };
+};
+
+export class PlanDetailPage extends React.Component<PlanDetailProps> {
+  couponInput = React.createRef<HTMLInputElement>();
   componentDidMount() {
     this.props.dispatch({ type: 'plan/fetchById', id: this.props.match.params.plan_id });
     this.props.dispatch({ type: 'comm/config' });
@@ -47,15 +55,15 @@ export class PlanDetailPage extends React.Component {
   order() {
     const { plan, selectPeriod } = this.props.plan;
     const coupon = this.props.coupon.coupon;
-    const params = { period: selectPeriod, plan_id: plan.id };
+    const params: { period: string; plan_id: number; coupon_code?: string } = { period: selectPeriod, plan_id: plan.id };
     if (coupon.name) params.coupon_code = coupon.code;
     this.props.dispatch({ type: 'order/save', params });
   }
   couponCheck() {
-    this.props.dispatch({ type: 'coupon/check', code: this.couponInput.current.value, planId: this.props.match.params.plan_id });
+    this.props.dispatch({ type: 'coupon/check', code: this.couponInput.current!.value, planId: this.props.match.params.plan_id });
   }
-  couponProcess(price, type, value) { return couponDiscount(price, type, value); }
-  getTotalAmount() { return totalAmount(this.props.plan.plan[this.props.plan.selectPeriod], this.props.coupon.coupon); }
+  couponProcess(price: number, type: number, value: number) { return couponDiscount(price, type, value); }
+  getTotalAmount() { return totalAmount(Number(this.props.plan.plan[this.props.plan.selectPeriod]), this.props.coupon.coupon); }
   getCouponJSX() {
     if (!this.props.coupon.coupon.name) return undefined;
     return <CouponDiscount coupon={this.props.coupon.coupon} price={this.props.plan.plan[this.props.plan.selectPeriod]} currencySymbol={this.props.comm.config.currency_symbol} />;
@@ -63,7 +71,7 @@ export class PlanDetailPage extends React.Component {
   render() {
     const { plan, selectPeriod: period, fetchLoading: loading } = this.props.plan;
     const { config } = this.props.comm;
-    const content = parseJson(plan.content);
+    const content = parseJson<PlanFeature[]>(plan.content);
     return <MainLayout {...this.props} title={message('配置订阅')}>
       <main id="main-container"><div className="content content-full">
         {loading ? <div className="spinner-grow text-primary" role="status"><span className="sr-only">Loading...</span></div>
@@ -93,4 +101,4 @@ export class PlanDetailPage extends React.Component {
     </MainLayout>;
   }
 }
-export default connect(({ plan, coupon, order, user, comm }) => ({ plan, coupon, order, user, comm }))(PlanDetailPage);
+export default connect(({ plan, coupon, order, user, comm }: PlanCheckoutState) => ({ plan, coupon, order, user, comm }))(PlanDetailPage);

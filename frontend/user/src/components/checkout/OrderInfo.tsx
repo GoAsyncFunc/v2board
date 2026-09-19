@@ -1,11 +1,21 @@
 import React from "react";
 import { formatMessage } from "../../vendor/i18n.js";
-import { localeSettings as settings } from "../../vendor/localeSettings.js";
-import { formatDateTimeSeconds } from "../../components/DateTimeDisplay.ts";
-import { formatPrice } from "../../components/MoneyDisplay.ts";
+import { formatDateTimeSeconds } from "../../components/DateTimeDisplay";
+import { formatPrice } from "../../components/MoneyDisplay";
 import { Modal } from "../../vendor/Modal.js";
 import { LoadingContainer } from "../../vendor/ui.js";
-export default function OrderInfo({ order, config, cancelLoading, dispatch }) {
+import type { CheckoutOrder } from "../../types/checkout";
+import type { PaymentConfig } from "../../types/commerce";
+import type { UserDispatch } from "../../types/store";
+
+interface OrderInfoProps {
+    order: CheckoutOrder;
+    config?: PaymentConfig;
+    cancelLoading?: boolean;
+    dispatch: UserDispatch;
+}
+
+export default function OrderInfo({ order, cancelLoading, dispatch }: OrderInfoProps) {
     return (
         <div className={"block block-rounded"}>
             <div className={"block-header block-header-default"}>

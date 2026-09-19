@@ -85,7 +85,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/PlanDetail.jsx"
+    "to": "pages/PlanDetail.tsx"
   },
   {
     "from": "app/routes.js",
@@ -392,51 +392,47 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/OrderInfo.jsx",
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
   {
-    "from": "components/checkout/OrderInfo.jsx",
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/OrderInfo.jsx",
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "components/checkout/OrderInfo.jsx",
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/OrderInfo.jsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "components/checkout/OrderInfo.jsx",
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/checkout/OrderPaymentSummary.jsx",
+    "from": "components/checkout/OrderPaymentSummary.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/OrderPaymentSummary.jsx",
+    "from": "components/checkout/OrderPaymentSummary.tsx",
     "to": "vendor/Icon.js"
   },
   {
-    "from": "components/checkout/OrderPaymentSummary.jsx",
+    "from": "components/checkout/OrderPaymentSummary.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "components/checkout/OrderPaymentSummary.jsx",
+    "from": "components/checkout/OrderPaymentSummary.tsx",
     "to": "vendor/localeSettings.js"
   },
   {
-    "from": "components/checkout/OrderStatusResult.jsx",
+    "from": "components/checkout/OrderStatusResult.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "components/checkout/OrderStatusResult.jsx",
+    "from": "components/checkout/OrderStatusResult.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -496,20 +492,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/checkout/ProductInfo.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/checkout/ProductInfo.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/checkout/ProductInfo.jsx",
+    "from": "components/checkout/ProductInfo.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/checkout/ProductInfo.jsx",
-    "to": "vendor/localeSettings.js"
   },
   {
     "from": "config/navigation.tsx",
@@ -953,15 +937,15 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/OrderInfo.jsx"
+    "to": "components/checkout/OrderInfo.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/OrderPaymentSummary.jsx"
+    "to": "components/checkout/OrderPaymentSummary.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/OrderStatusResult.jsx"
+    "to": "components/checkout/OrderStatusResult.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -973,7 +957,7 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "components/checkout/ProductInfo.jsx"
+    "to": "components/checkout/ProductInfo.tsx"
   },
   {
     "from": "pages/OrderDetail.jsx",
@@ -1036,47 +1020,43 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "components/checkout/Coupon.tsx"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "components/checkout/OrderSummary.tsx"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "components/checkout/Pricing.tsx"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/Modal.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "pages/PlanDetail.jsx",
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/ui.js"
   },
   {

@@ -7,8 +7,8 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createRef:()=>({current:{value:'fixture'}}),Component:class{constructor(props){this.props=props;this.refs={coupon:{value:'fixture'}};}},createElement:(type,props,...children)=>typeof type==='function'?type(props):({type,props:props||{},children})};
 async function load(original,trace,expired){
- const file=new URL(original?'./fixtures/pages/user-plan-detail.jsx':'../src/pages/PlanDetail.jsx',import.meta.url);
- const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'jsx'})).code;
+ const file=new URL(original?'./fixtures/pages/user-plan-detail.jsx':'../src/pages/PlanDetail.tsx',import.meta.url);
+ const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:original?'jsx':'tsx'})).code;
  const components={};
  for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../src/components/checkout/'+name+'.tsx',import.meta.url),'utf8'),{format:'cjs',loader:'tsx'})).code;
  function evaluate(source){const module={exports:{}};
@@ -16,7 +16,7 @@ async function load(original,trace,expired){
   if(id==='react'||id.includes('reactRuntime'))return React;
   const component=Object.keys(components).find(name=>id.endsWith('/'+name)||id.endsWith('/'+name+'.tsx'));if(component)return evaluate(components[component]);
   if(id.includes('MainLayout'))return {__esModule:true,default:'Layout',a:'Layout'};
-  if(id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
+  if(id==='react-redux'||id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('/Modal')){const Modal={confirm:options=>{trace.push(['confirm',options]);}};return {a:Modal,Modal};}
   if(id.includes('localeSettings')){const localeSettings={periodText:{month_price:()=> 'Month',year_price:()=> 'Year',reset_price:()=> 'Reset'}};return {a:localeSettings,localeSettings};}
   if(id.includes('i18n'))return {formatMessage:({id})=>id};

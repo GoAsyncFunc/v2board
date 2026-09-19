@@ -1,9 +1,9 @@
-import OrderInfo from "../components/checkout/OrderInfo.jsx";
-import ProductInfo from "../components/checkout/ProductInfo.jsx";
-import OrderPaymentSummary from "../components/checkout/OrderPaymentSummary.jsx";
+import OrderInfo from "../components/checkout/OrderInfo";
+import ProductInfo from "../components/checkout/ProductInfo";
+import OrderPaymentSummary from "../components/checkout/OrderPaymentSummary";
 import OrderStatusResult, {
     orderResultProps,
-} from "../components/checkout/OrderStatusResult.jsx";
+} from "../components/checkout/OrderStatusResult";
 import PaymentMethods from "../components/checkout/PaymentMethods";
 import PaymentQrModal from "../components/checkout/PaymentQrModal";
 import React from "react";

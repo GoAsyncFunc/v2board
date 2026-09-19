@@ -2,7 +2,20 @@ import React from "react";
 import { Icon } from "../../vendor/Icon.js";
 import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatMessage } from "../../vendor/i18n.js";
-import { formatPrice } from "../MoneyDisplay.ts";
+import { formatPrice } from "../MoneyDisplay";
+import type { CheckoutOrder } from "../../types/checkout";
+import type { PaymentConfig } from "../../types/commerce";
+
+interface OrderPaymentSummaryProps {
+    order: CheckoutOrder;
+    config: PaymentConfig;
+    checkoutLoading?: boolean;
+    selectedPayment: { payment?: string };
+    stripe: { token?: string | null };
+    onCheckout: () => void;
+}
+
+const periodLabels: Readonly<Partial<Record<string, () => string>>> = settings.periodText;
 export default function OrderPaymentSummary({
     order,
     config,
@@ -10,7 +23,7 @@ export default function OrderPaymentSummary({
     selectedPayment,
     stripe,
     onCheckout,
-}) {
+}: OrderPaymentSummaryProps) {
     return (
         <div className={"col-md-4 col-sm-12"}>
             <div
@@ -68,8 +81,8 @@ export default function OrderPaymentSummary({
                         <div className={"col-8"}>
                             {order.plan.name}
                             {" x "}
-                            {settings.periodText[order.period] &&
-                                settings.periodText[order.period]()}
+                            {periodLabels[order.period] &&
+                                periodLabels[order.period]!()}
                         </div>
                         <div className={"col-4 text-right"}>
                             {config.currency_symbol}

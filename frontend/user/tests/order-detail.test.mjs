@@ -10,7 +10,7 @@ async function setup(original){
  const React={Component:class{constructor(props){this.props=props;}setState(s){this.state={...this.state,...s};}},createElement:(type,props,...children)=>({type,props,children})};
  const module={exports:{}};const text=await fs.readFile(new URL(original?'./fixtures/pages/user-order-detail.jsx':'../src/pages/OrderDetail.jsx',import.meta.url),'utf8');
  const code=(await transform(text,{loader:'jsx',format:'cjs'})).code;
- const statusCode=(await transform(await fs.readFile(new URL('../src/components/checkout/OrderStatusResult.jsx',import.meta.url),'utf8'),{loader:'jsx',format:'cjs'})).code;
+ const statusCode=(await transform(await fs.readFile(new URL('../src/components/checkout/OrderStatusResult.tsx',import.meta.url),'utf8'),{loader:'tsx',format:'cjs'})).code;
  const deps=id=>{
  if(id==='react')return React;
   if(id==='antd/lib/result')return 'Result';

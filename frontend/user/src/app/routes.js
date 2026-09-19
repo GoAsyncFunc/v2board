@@ -7,7 +7,7 @@ import Login from '../pages/Login';
 import Node from '../pages/Node';
 import OrderDetail from '../pages/OrderDetail.jsx';
 import Order from '../pages/Order';
-import PlanDetail from '../pages/PlanDetail.jsx';
+import PlanDetail from '../pages/PlanDetail';
 import Plan from '../pages/Plan';
 import Profile from '../pages/Profile';
 import Register from '../pages/Register';
