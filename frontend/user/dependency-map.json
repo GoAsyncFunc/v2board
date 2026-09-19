@@ -280,8 +280,64 @@
     "to": "vendor/siteHelpers.js"
   },
   {
+    "from": "components/Recaptcha.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/Recaptcha.jsx",
+    "to": "vendor/reactRedux.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/content.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/i18n.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/routerHistory.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/siteHelpers.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/subscribeStyles.js"
+  },
+  {
+    "from": "components/SubscribeImporter.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
     "from": "components/SubscribeUsage.jsx",
     "to": "vendor/siteHelpers.js"
+  },
+  {
+    "from": "components/TelegramBindModal.jsx",
+    "to": "vendor/Icon.js"
+  },
+  {
+    "from": "components/TelegramBindModal.jsx",
+    "to": "vendor/Modal.js"
+  },
+  {
+    "from": "components/TelegramBindModal.jsx",
+    "to": "vendor/clipboard.js"
+  },
+  {
+    "from": "components/TelegramBindModal.jsx",
+    "to": "vendor/i18n.js"
+  },
+  {
+    "from": "components/TelegramBindModal.jsx",
+    "to": "vendor/reactRedux.js"
   },
   {
     "from": "components/TicketReadonlyColumns.jsx",
@@ -406,10 +462,6 @@
   {
     "from": "components/checkout/OrderStatusResult.jsx",
     "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "components/checkout/OrderStatusResult.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "components/checkout/OrderStatusResult.jsx",
@@ -701,6 +753,10 @@
   },
   {
     "from": "pages/Dashboard.jsx",
+    "to": "components/SubscribeImporter.jsx"
+  },
+  {
+    "from": "pages/Dashboard.jsx",
     "to": "components/SubscribeUsage.jsx"
   },
   {
@@ -714,10 +770,6 @@
   {
     "from": "pages/Dashboard.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Dashboard.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -749,11 +801,11 @@
   },
   {
     "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/Icon.js"
+    "to": "components/Recaptcha.jsx"
   },
   {
     "from": "pages/Forgetpassword.jsx",
-    "to": "vendor/features.js"
+    "to": "vendor/Icon.js"
   },
   {
     "from": "pages/Forgetpassword.jsx",
@@ -814,10 +866,6 @@
   {
     "from": "pages/Invite.jsx",
     "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Invite.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "pages/Invite.jsx",
@@ -926,10 +974,6 @@
   {
     "from": "pages/Node.jsx",
     "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Node.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "pages/Node.jsx",
@@ -1045,10 +1089,6 @@
   },
   {
     "from": "pages/OrderDetail.jsx",
-    "to": "vendor/features.js"
-  },
-  {
-    "from": "pages/OrderDetail.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -1117,10 +1157,6 @@
   },
   {
     "from": "pages/PlanDetail.jsx",
-    "to": "vendor/features.js"
-  },
-  {
-    "from": "pages/PlanDetail.jsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -1145,6 +1181,10 @@
   },
   {
     "from": "pages/Profile.jsx",
+    "to": "components/TelegramBindModal.jsx"
+  },
+  {
+    "from": "pages/Profile.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -1154,14 +1194,6 @@
   {
     "from": "pages/Profile.jsx",
     "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/featureRuntime.js"
-  },
-  {
-    "from": "pages/Profile.jsx",
-    "to": "vendor/features.js"
   },
   {
     "from": "pages/Profile.jsx",
@@ -1181,11 +1213,11 @@
   },
   {
     "from": "pages/Register.jsx",
-    "to": "vendor/Icon.js"
+    "to": "components/Recaptcha.jsx"
   },
   {
     "from": "pages/Register.jsx",
-    "to": "vendor/features.js"
+    "to": "vendor/Icon.js"
   },
   {
     "from": "pages/Register.jsx",
@@ -1342,90 +1374,6 @@
   {
     "from": "vendor/dva.js",
     "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/featureRuntime.js",
-    "to": "vendor/loadingIndicator.js"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/Recaptcha.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/Result.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/SubscribeImporter.jsx"
-  },
-  {
-    "from": "vendor/features.js",
-    "to": "vendor/features/TelegramBindModal.jsx"
-  },
-  {
-    "from": "vendor/features/Recaptcha.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/Recaptcha.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/content.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/i18n.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/routerHistory.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/subscribeStyles.js"
-  },
-  {
-    "from": "vendor/features/SubscribeImporter.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/features/TelegramBindModal.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "vendor/features/TelegramBindModal.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "vendor/features/TelegramBindModal.jsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "vendor/features/TelegramBindModal.jsx",
-    "to": "vendor/i18n.js"
-  },
-  {
-    "from": "vendor/features/TelegramBindModal.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/loadingIndicator.js",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "vendor/loadingIndicator.js",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "vendor/localeSettings.js",

@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
-import Icon from '../Icon.js';
-import copyText from '../clipboard.js';
-import { formatMessage } from '../i18n.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
+import Icon from '../vendor/Icon.js';
+import copyText from '../vendor/clipboard.js';
+import { formatMessage } from '../vendor/i18n.js';
 
 class TelegramBindModal extends React.Component {
   state = { visible: false };

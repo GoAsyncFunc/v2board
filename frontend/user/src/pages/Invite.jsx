@@ -18,7 +18,6 @@ import '../vendor/iconStyles.js';
 
 import '../vendor/localeSettings.js';
 import '../vendor/dateTime.js';
-import '../vendor/features.js';
 
 class InvitePage extends React.Component {
   componentDidMount() {

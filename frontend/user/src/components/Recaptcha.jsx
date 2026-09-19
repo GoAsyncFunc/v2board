@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from '../reactRedux.js';
-import Modal from '../Modal.js';
+import { connect } from '../vendor/reactRedux.js';
+import Modal from '../vendor/Modal.js';
 
 let scriptPromise;
 

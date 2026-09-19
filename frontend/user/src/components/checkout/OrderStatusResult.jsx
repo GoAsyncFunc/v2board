@@ -1,5 +1,5 @@
 import React from "react";
-import { Result } from "../../vendor/features.js";
+import Result from "antd/lib/result";
 import { formatMessage } from "../../vendor/i18n.js";
 import { router } from "../../vendor/appRuntime.js";
 export function orderResultProps(e) {

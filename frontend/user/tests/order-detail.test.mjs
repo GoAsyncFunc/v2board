@@ -12,7 +12,8 @@ async function setup(original){
  const code=(await transform(text,{loader:'jsx',format:'cjs'})).code;
  const statusCode=(await transform(await fs.readFile(new URL('../src/components/checkout/OrderStatusResult.jsx',import.meta.url),'utf8'),{loader:'jsx',format:'cjs'})).code;
  const deps=id=>{
-  if(id==='react')return React;
+ if(id==='react')return React;
+  if(id==='antd/lib/result')return 'Result';
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
   if(id.includes('4172412b'))return {router:{push:url=>trace.push(['navigate',url])}};
   return {};

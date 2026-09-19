@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '../vendor/Icon.js';
 import history from '../vendor/routerHistory.js';
 import { connect } from '../vendor/reactRedux.js';
-import { Recaptcha } from '../vendor/features.js';
+import Recaptcha from '../components/Recaptcha.jsx';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { LanguageSelector } from '../components/LanguageSelector.jsx';
 import { notify } from '../vendor/siteHelpers.js';

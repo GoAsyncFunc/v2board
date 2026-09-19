@@ -4,7 +4,7 @@ import { Button } from '../vendor/ui.js';
 import { Carousel } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
-import { SubscribeImporter } from '../vendor/features.js';
+import SubscribeImporter from '../components/SubscribeImporter.jsx';
 import { LoadingIndicator } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import history from '../vendor/routerHistory.js';

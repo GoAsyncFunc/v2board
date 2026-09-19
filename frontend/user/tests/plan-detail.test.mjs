@@ -23,6 +23,7 @@ async function load(original,trace,expired){
   if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value / 100).toFixed(2)};
   if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content,isExpired:()=>expired,parseJson:content=>content};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
+  if(id==='antd/lib/result')return 'Result';
   for(const [key,name]of [['/Icon','Icon'],['antdRadio','Radio'],['4d6f5257','Result'],['antdButton','Button']])if(id.includes(key))return {a:name,[name]:name};
   if(/iconStyles|374b616b|4a2b2f76|2b4c3642|32717463/.test(id))return {};
   if(id.includes('6a65685a'))return Object.assign;

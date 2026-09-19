@@ -1,11 +1,11 @@
 import React from 'react';
-import Modal from '../Modal.js';
-import { Button, Drawer } from '../ui.js';
-import { QRCode } from '../content.js';
-import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../siteHelpers.js';
-import { formatMessage } from '../i18n.js';
-import { push } from '../routerHistory.js';
-import { subscribeStyles as styles } from '../subscribeStyles.js';
+import Modal from '../vendor/Modal.js';
+import { Button, Drawer } from '../vendor/ui.js';
+import { QRCode } from '../vendor/content.js';
+import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../vendor/siteHelpers.js';
+import { formatMessage } from '../vendor/i18n.js';
+import { push } from '../vendor/routerHistory.js';
+import { subscribeStyles as styles } from '../vendor/subscribeStyles.js';
 
 export default class SubscribeImporter extends React.Component {
   state = { showSubscribe: false, showQrSubscribe: false };

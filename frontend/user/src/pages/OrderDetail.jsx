@@ -20,7 +20,6 @@ import { Spin } from "../vendor/ui.js";
 import { router } from "../vendor/appRuntime.js";
 import "../vendor/iconStyles.js";
 
-import "../vendor/features.js";
 const StripeForm = loadable({
     loader: () => import("../vendor/payment.js"),
     loading: () => null,

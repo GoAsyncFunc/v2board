@@ -1,7 +1,7 @@
 import React from 'react';
+import Result from 'antd/lib/result';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
-import { Result } from '../vendor/features.js';
 import { Button } from '../vendor/ui.js';
 import { Modal } from '../vendor/Modal.js';
 import { formatMessage } from '../vendor/i18n.js';
