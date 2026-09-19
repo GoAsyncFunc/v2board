@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Table } from '../vendor/ui.js';

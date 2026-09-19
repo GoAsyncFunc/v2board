@@ -6,7 +6,7 @@ import { Input } from '../vendor/ui.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { Divider } from '../vendor/Divider.js';
 import { Tag } from '../vendor/ui.js';
 import { message } from '../vendor/ui.js';

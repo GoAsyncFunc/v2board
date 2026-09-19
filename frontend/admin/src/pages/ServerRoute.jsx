@@ -5,7 +5,7 @@ import { Button } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Divider } from '../vendor/Divider.js';
 import { LoadingContainer } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';

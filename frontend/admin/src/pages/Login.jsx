@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "../vendor/reactRedux.js";
-import { a as Modal } from "../vendor/Modal.js";
+import { Modal } from "../vendor/Modal.js";
 import { Icon } from "../vendor/Icon.js";
 
 import "../vendor/iconStyles.js";

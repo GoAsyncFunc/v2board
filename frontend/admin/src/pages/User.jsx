@@ -6,7 +6,7 @@ import { Menu } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Tag } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { SendMailEditor } from '../vendor/features.js';
 import { AssignOrderEditor } from '../vendor/features.js';
 import { ButtonGroup } from '../vendor/ui.js';

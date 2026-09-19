@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from '../vendor/reactRedux.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { Divider } from '../vendor/Divider.js';
 import { Switch } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';

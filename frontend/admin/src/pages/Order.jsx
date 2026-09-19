@@ -7,7 +7,7 @@ import { Badge } from '../vendor/ui.js';
 import { Menu } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import { a as Modal } from '../vendor/Modal.js';
+import { Modal } from '../vendor/Modal.js';
 import { settings } from '../vendor/adminSettings.js';
 import { AssignOrderEditor } from '../vendor/features.js';
 import { ButtonGroup } from '../vendor/ui.js';
