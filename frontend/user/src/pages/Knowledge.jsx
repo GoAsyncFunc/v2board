@@ -1,169 +1,137 @@
 import React from 'react';
 import { formatDate } from '../components/DateTimeDisplay.jsx';
-import { Input } from '../vendor/ui.js';
+import { Input, Modal, notification } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
-import { Modal } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
-import { notification } from '../vendor/ui.js';
 import { MarkdownIt } from '../vendor/utilities.js';
 import { copyToClipboard } from '../vendor/siteHelpers.js';
 import '../vendor/dateTime.js';
 
-const markdownRenderer = new MarkdownIt({
-    html: !0,
-    linkify: !0,
-    typographer: !0
-  });
+const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
+
 export class KnowledgeDetailModal extends React.Component {
-  constructor(e) {
-    super(e), this.state = {
-      visible: !1
-    };
-  }
+  state = { visible: false };
+
   componentDidMount() {
-    this.props.autoOpen && this.show();
+    if (this.props.autoOpen) this.show();
   }
+
   getKnowledge(id) {
-    this.props.dispatch({
-      type: "knowledge/fetchById",
-      id: id,
-      language: getLocale()
-    });
+    this.props.dispatch({ type: 'knowledge/fetchById', id, language: getLocale() });
   }
+
   show() {
-    this.getKnowledge(this.props.id), this.setState({
-      visible: !0
-    }), window.copy = copied => {
-      copyToClipboard(copied), notification.success(formatMessage({
-        id: "复制成功"
-      }));
-    }, window.jump = targetId => {
-      this.getKnowledge(targetId);
+    this.getKnowledge(this.props.id);
+    this.setState({ visible: true });
+    window.copy = text => {
+      copyToClipboard(text);
+      notification.success(formatMessage({ id: '复制成功' }));
     };
+    window.jump = id => this.getKnowledge(id);
   }
+
   hide() {
-    this.props.dispatch({
-      type: "knowledge/setState",
-      payload: {
-        knowledge: {}
-      }
-    }), this.setState({
-      visible: !1
-    }), window.copy = void 0, window.jump = void 0;
+    this.props.dispatch({ type: 'knowledge/setState', payload: { knowledge: {} } });
+    this.setState({ visible: false });
+    window.copy = undefined;
+    window.jump = undefined;
   }
+
   render() {
-    var visible = this.state.visible,
-      knowledgeState = this.props.knowledge,
-      knowledge = knowledgeState.knowledge,
-      fetchByIdLoading = knowledgeState.fetchByIdLoading;
-    return React.createElement(React.Fragment, null, React.cloneElement(this.props.children, {
-      onClick: () => this.show()
-    }), React.createElement(Modal, {
-      visible: visible,
-      title: knowledge.title || "Loading...",
-      width: "80%",
-      onClose: this.hide.bind(this)
-    }, fetchByIdLoading ? React.createElement(Icon, {
-      type: "loading"
-    }) : <div className={"custom-html-style"} dangerouslySetInnerHTML={{
-      __html: markdownRenderer.render(knowledge.body || "")
-    }}></div>));
+    const { visible } = this.state;
+    const { knowledge, fetchByIdLoading } = this.props.knowledge;
+    return (
+      <>
+        {React.cloneElement(this.props.children, { onClick: () => this.show() })}
+        <Modal visible={visible} title={knowledge.title || 'Loading...'} width="80%" onClose={() => this.hide()}>
+          {fetchByIdLoading ? <Icon type="loading" /> : (
+            <div
+              className="custom-html-style"
+              dangerouslySetInnerHTML={{ __html: markdownRenderer.render(knowledge.body || '') }}
+            />
+          )}
+        </Modal>
+      </>
+    );
   }
 }
-const ConnectedKnowledgeDetailModal = connect(state => {
-  var knowledge = state.knowledge;
-  return {
-    knowledge: knowledge
-  };
-})(KnowledgeDetailModal);
+
+const ConnectedKnowledgeDetailModal = connect(state => ({ knowledge: state.knowledge }))(KnowledgeDetailModal);
+
 export class KnowledgePage extends React.Component {
   componentDidMount() {
-    this.props.dispatch({
-      type: "knowledge/fetch",
-      language: getLocale()
-    }), this.inputDelayTimer = void 0;
+    this.props.dispatch({ type: 'knowledge/fetch', language: getLocale() });
+    this.inputDelayTimer = undefined;
   }
+
   onSearch(keyword) {
-    this.inputDelayTimer && clearTimeout(this.inputDelayTimer), this.inputDelayTimer = setTimeout(function () {
-      this.inputDelayTimer = void 0, this.props.dispatch({
-        type: "knowledge/fetch",
+    if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
+    this.inputDelayTimer = setTimeout(() => {
+      this.inputDelayTimer = undefined;
+      this.props.dispatch({
+        type: 'knowledge/fetch',
         language: getLocale(),
-        keyword: keyword || void 0
+        keyword: keyword || undefined,
       });
-    }.bind(this), 300);
+    }, 300);
   }
+
   render() {
-    var knowledgeState = this.props.knowledge,
-      knowledges = knowledgeState.knowledges,
-      fetchLoading = knowledgeState.fetchLoading,
-      queryId = this.props.location.query.id;
-    return React.createElement(MainLayout, {
-      ...this.props,
-      title: formatMessage({
-        id: "使用文档"
-      })
-    }, <main id={"main-container"}>
-                <div className={"content content-full"}>
-                    <div className={"v2board-knowledge-search-bar"}>
-                        {React.createElement(Input.Search, {
-            onChange: event => {
-              this.onSearch(event.target.value);
-            },
-            className: "mb-3",
-            size: "large",
-            enterButton: !0,
-            placeholder: formatMessage({
-              id: "搜索文档"
-            })
-          })}
+    const { knowledges: articlesByCategory, fetchLoading } = this.props.knowledge;
+    const queryId = this.props.location.query.id;
+    return (
+      <MainLayout {...this.props} title={formatMessage({ id: '使用文档' })}>
+        <main id="main-container">
+          <div className="content content-full">
+            <div className="v2board-knowledge-search-bar">
+              <Input.Search
+                onChange={event => this.onSearch(event.target.value)}
+                className="mb-3"
+                size="large"
+                enterButton
+                placeholder={formatMessage({ id: '搜索文档' })}
+              />
+            </div>
+            {fetchLoading ? (
+              <div className="spinner-grow text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : Object.keys(articlesByCategory).map(category => (
+              <div className="row mb-3 mb-md-0">
+                <div className="col-md-12">
+                  <div className="block block-rounded ">
+                    <div className="block-header block-header-default">
+                      <h3 className="block-title">{category}</h3>
                     </div>
-                    {fetchLoading ? <div className={"spinner-grow text-primary"} role={"status"}>
-                            <span className={"sr-only"}>{"Loading..."}</span>
-                        </div> : Object.keys(knowledges).map(category => {
-          return <div className={"row mb-3 mb-md-0"}>
-                                    <div className={"col-md-12"}>
-                                        <div className={"block block-rounded "}>
-                                            <div className={"block-header block-header-default"}>
-                                                <h3 className={"block-title"}>
-                                                    {category}
-                                                </h3>
-                                            </div>
-                                            <div className={"list-group"}>
-                                                {knowledges[category] && knowledges[category].map(knowledgeItem => {
-                    return React.createElement(ConnectedKnowledgeDetailModal, {
-                      autoOpen: parseInt(queryId) === parseInt(knowledgeItem.id),
-                      id: knowledgeItem.id
-                    }, <a className={"list-group-item list-group-item-action"} style={{
-                      borderRadius: "unset",
-                      border: "unset",
-                      borderBottom: "1px solid #e2e8f2"
-                    }}>
-                                                                <h5 className={"font-size-base mb-1"}>
-                                                                    {knowledgeItem.title}
-                                                                </h5>
-                                                                <small>
-                        {formatMessage({
-                          id: "最后更新: {date}"
-                        }, {
-                          date: formatDate(knowledgeItem.updated_at)
-                        })}
-                                                                </small>
-                                                            </a>);
-                  })}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>;
-        })}
+                    <div className="list-group">
+                      {articlesByCategory[category] && articlesByCategory[category].map(article => (
+                        <ConnectedKnowledgeDetailModal
+                          autoOpen={parseInt(queryId) === parseInt(article.id)}
+                          id={article.id}
+                        >
+                          <a
+                            className="list-group-item list-group-item-action"
+                            style={{ borderRadius: 'unset', border: 'unset', borderBottom: '1px solid #e2e8f2' }}
+                          >
+                            <h5 className="font-size-base mb-1">{article.title}</h5>
+                            <small>
+                              {formatMessage({ id: '最后更新: {date}' }, { date: formatDate(article.updated_at) })}
+                            </small>
+                          </a>
+                        </ConnectedKnowledgeDetailModal>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-            </main>);
+              </div>
+            ))}
+          </div>
+        </main>
+      </MainLayout>
+    );
   }
 }
-export default connect(state => {
-  var knowledge = state.knowledge;
-  return {
-    knowledge
-  };
-})(KnowledgePage);
+
+export default connect(state => ({ knowledge: state.knowledge }))(KnowledgePage);
