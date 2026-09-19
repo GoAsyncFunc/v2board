@@ -4,7 +4,7 @@ import { connect } from '../vendor/reactRedux.js';
 import { Table, Input, Radio, Badge, LoadingContainer } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { assignProps as mergeProps } from '../vendor/utilities.js';
-import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.jsx';
+import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.ts';
 import '../vendor/dateTime.js';
 
 export class TicketPage extends React.Component {

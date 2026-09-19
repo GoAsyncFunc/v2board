@@ -460,10 +460,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/TicketDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
     "from": "components/TrafficPanel.jsx",
     "to": "services/request.js"
   },
@@ -1625,7 +1621,7 @@
   },
   {
     "from": "pages/Ticket.jsx",
-    "to": "components/TicketDisplayColumns.jsx"
+    "to": "components/TicketDisplayColumns.ts"
   },
   {
     "from": "pages/Ticket.jsx",

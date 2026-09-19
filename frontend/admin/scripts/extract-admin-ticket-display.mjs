@@ -16,5 +16,5 @@ traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpressio
  }p.skip();}});
 if(columns.length!==5)throw Error('Expected 5 readonly columns');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-ticket-display.cjs',import.meta.url),'// Original readonly columns, extracted unchanged; write menus deliberately excluded.\nmodule.exports = function(f,v){return '+generate(t.arrayExpression(columns)).code+';};\n');
-ast.program.body.unshift(...parse("const { createReadonlyTicketColumns } = require('../components/TicketDisplayColumns.jsx');",{sourceType:'script'}).program.body);
+ast.program.body.unshift(...parse("const { createReadonlyTicketColumns } = require('../components/TicketDisplayColumns.ts');",{sourceType:'script'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');
