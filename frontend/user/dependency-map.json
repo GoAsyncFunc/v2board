@@ -1664,6 +1664,46 @@
     "to": "vendor/modules/reactRuntime.js"
   },
   {
+    "from": "vendor/modules/AntdMenuItem.js",
+    "to": "vendor/modules/MenuItem.js"
+  },
+  {
+    "from": "vendor/modules/AntdMenuItem.js",
+    "to": "vendor/modules/antdMenuContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdMenuItem.js",
+    "to": "vendor/modules/antdSiderContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdMenuItem.js",
+    "to": "vendor/modules/antdTooltip.js"
+  },
+  {
+    "from": "vendor/modules/AntdMenuItem.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdSubMenu.js",
+    "to": "vendor/modules/SubMenu.js"
+  },
+  {
+    "from": "vendor/modules/AntdSubMenu.js",
+    "to": "vendor/modules/antdMenuContext.js"
+  },
+  {
+    "from": "vendor/modules/AntdSubMenu.js",
+    "to": "vendor/modules/classNames.js"
+  },
+  {
+    "from": "vendor/modules/AntdSubMenu.js",
+    "to": "vendor/modules/propTypesRuntime.js"
+  },
+  {
+    "from": "vendor/modules/AntdSubMenu.js",
+    "to": "vendor/modules/reactRuntime.js"
+  },
+  {
     "from": "vendor/modules/BaseTable.js",
     "to": "vendor/modules/ColGroup.js"
   },
@@ -2965,11 +3005,11 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "app/moduleInterop.js"
+    "to": "vendor/modules/AntdMenuItem.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/Icon.js"
+    "to": "vendor/modules/AntdSubMenu.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
@@ -2981,10 +3021,6 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/MenuItem.js"
-  },
-  {
-    "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/MenuItemGroup.js"
   },
   {
@@ -2993,11 +3029,15 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/SubMenu.js"
+    "to": "vendor/modules/antdCollapseMotion.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/antdTooltip.js"
+    "to": "vendor/modules/antdMenuContext.js"
+  },
+  {
+    "from": "vendor/modules/antdMenu.js",
+    "to": "vendor/modules/antdSiderContext.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
@@ -3009,15 +3049,7 @@
   },
   {
     "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/createReactContext.js"
-  },
-  {
-    "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/omitProps.js"
-  },
-  {
-    "from": "vendor/modules/antdMenu.js",
-    "to": "vendor/modules/propTypesRuntime.js"
   },
   {
     "from": "vendor/modules/antdMenu.js",
@@ -3030,6 +3062,10 @@
   {
     "from": "vendor/modules/antdMenu.js",
     "to": "vendor/modules/requestAnimationFrame.js"
+  },
+  {
+    "from": "vendor/modules/antdMenuContext.js",
+    "to": "vendor/modules/createReactContext.js"
   },
   {
     "from": "vendor/modules/antdRadio.js",
@@ -3106,6 +3142,10 @@
   {
     "from": "vendor/modules/antdSelect.js",
     "to": "vendor/modules/tuple.js"
+  },
+  {
+    "from": "vendor/modules/antdSiderContext.js",
+    "to": "vendor/modules/createReactContext.js"
   },
   {
     "from": "vendor/modules/antdTable.js",

@@ -1049,7 +1049,7 @@ var Xe = function (e, t) {
       }
     }]), c;
   }(n["Component"]),
-  Je = require("./antdMenu.js");
+  AntdMenu = require("./antdMenu.js").default;
 function $e(e) {
   "@babel/helpers - typeof";
 
@@ -1244,7 +1244,7 @@ var mt = function (e) {
     value: function (e) {
       var t = this;
       return e.map(function (e, c) {
-        return n["createElement"](Je["a"].Item, {
+        return n["createElement"](AntdMenu.Item, {
           key: e.key || c
         }, n["createElement"]("div", {
           onClick: function () {
@@ -1268,7 +1268,7 @@ var mt = function (e) {
         h = null;
       if (r) {
         var f = Array.isArray(r) ? this.defaultSelections.concat(r) : this.defaultSelections,
-          v = n["createElement"](Je["a"], {
+          v = n["createElement"](AntdMenu, {
             className: "".concat(s, "-menu"),
             selectedKeys: []
           }, this.renderMenus(f));
