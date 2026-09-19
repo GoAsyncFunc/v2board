@@ -11,7 +11,6 @@ import { JsonEditor } from '../vendor/ui.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/codeEditorRuntime.js';
 const NETWORK_PRESETS = {
   tcp: '',
   ws: JSON.stringify({ path: '/', headers: { Host: 'v2ray.com' } }, null, 4),

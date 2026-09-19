@@ -10,7 +10,6 @@ import { PermissionGroupEditor } from '../vendor/ui.js';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/codeEditorRuntime.js';
 export class TuicEditor extends React.Component {
   constructor(props) {
     super(props);

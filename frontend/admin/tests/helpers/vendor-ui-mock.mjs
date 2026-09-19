@@ -75,7 +75,7 @@ export function expandVendorUiImports(source) {
     .replace(/from\s+(['"])([^'"]*vendor\/)theme\.js\1/g, 'from $1$2modules/6e444349.js$1')
     .replace(/import\s+\{\s*chineseLocale\s*\}\s+from\s+(['"])([^'"]*vendor\/)content\.js\1;?/g, 'import { a as chineseLocale } from $1$2modules/antdZhCnLocale.js$1;')
     .replace(/import\s+\{\s*withLocale\s*\}\s+from\s+(['"])([^'"]*vendor\/)content\.js\1;?/g, 'import withLocale from $1$2modules/withLocaleRuntime.js$1;')
-    .replace(/import\s+(['"])([^'"]*vendor\/)(?:features|codeEditorRuntime|featureRuntime)\.js\1;?/g, '');
+    .replace(/import\s+(['"])([^'"]*vendor\/)(?:features|featureRuntime)\.js\1;?/g, '');
 }
 
 const NAMED_COMPONENTS = new Set([

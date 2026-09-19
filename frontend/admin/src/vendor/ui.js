@@ -23,7 +23,7 @@ import Tooltip from 'antd/lib/tooltip';
 
 export { default as PermissionGroupEditor, default as GroupEditor } from './ui/GroupEditor.jsx';
 export { default as Sortable } from './sortable.js';
-export { default as JsonEditor } from './jsonEditor.js';
+export { default as JsonEditor } from '../components/JsonEditor.jsx';
 
 class LoadingContainer extends React.Component {
   render() {

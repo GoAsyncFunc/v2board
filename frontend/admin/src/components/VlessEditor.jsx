@@ -13,7 +13,6 @@ import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';
 
 import '../vendor/iconStyles.js';
 
-import '../vendor/codeEditorRuntime.js';
 const NETWORK_PRESETS = {
   tcp: JSON.stringify({ header: { type: 'http', request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } }, response: {} } }, null, 4),
   ws: JSON.stringify({ security: 'auto', path: '/', headers: { Host: 'xtls.github.io' } }, null, 4),

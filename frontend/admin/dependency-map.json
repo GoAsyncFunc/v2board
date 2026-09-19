@@ -233,10 +233,6 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/AnyTlsEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -298,10 +294,6 @@
   {
     "from": "components/HysteriaEditor.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/HysteriaEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
   },
   {
     "from": "components/HysteriaEditor.jsx",
@@ -401,10 +393,6 @@
   },
   {
     "from": "components/ShadowsocksEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/ShadowsocksEditor.jsx",
     "to": "vendor/featureRuntime.js"
   },
   {
@@ -425,10 +413,6 @@
   },
   {
     "from": "components/TrojanEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/TrojanEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -442,10 +426,6 @@
   {
     "from": "components/TuicEditor.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/TuicEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
   },
   {
     "from": "components/TuicEditor.jsx",
@@ -497,10 +477,6 @@
   },
   {
     "from": "components/V2NodeEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
-  },
-  {
-    "from": "components/V2NodeEditor.jsx",
     "to": "vendor/iconStyles.js"
   },
   {
@@ -518,10 +494,6 @@
   {
     "from": "components/VlessEditor.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -546,10 +518,6 @@
   {
     "from": "components/VmessEditor.jsx",
     "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/codeEditorRuntime.js"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -1592,14 +1560,6 @@
     "to": "vendor/rootRuntime.js"
   },
   {
-    "from": "vendor/codeEditorRuntime.js",
-    "to": "vendor/modules/aceGithubTheme.js"
-  },
-  {
-    "from": "vendor/codeEditorRuntime.js",
-    "to": "vendor/modules/aceJsonMode.js"
-  },
-  {
     "from": "vendor/dva.js",
     "to": "runtime/routerBindings.js"
   },
@@ -1610,10 +1570,6 @@
   {
     "from": "vendor/featureRuntime.js",
     "to": "vendor/modules/httpRequestPolyfill.js"
-  },
-  {
-    "from": "vendor/featureRuntime.js",
-    "to": "vendor/modules/jsonEditorRuntime.js"
   },
   {
     "from": "vendor/features.js",
@@ -1692,36 +1648,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "vendor/jsonEditor.js",
-    "to": "vendor/modules/jsonEditorRuntime.js"
-  },
-  {
     "from": "vendor/markdownEditor.js",
     "to": "vendor/modules/markdownEditorRuntime.js"
-  },
-  {
-    "from": "vendor/modules/aceCoreRuntime.js",
-    "to": "vendor/modules/defineIndirect.js"
-  },
-  {
-    "from": "vendor/modules/aceCoreRuntime.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/aceEditorOptions.js",
-    "to": "vendor/modules/aceCoreRuntime.js"
-  },
-  {
-    "from": "vendor/modules/aceGithubTheme.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/aceJsonMode.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/aceSplitRuntime.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
   },
   {
     "from": "vendor/modules/browserTransportFeatures.js",
@@ -1792,50 +1720,6 @@
     "to": "vendor/modules/streamRuntime.js"
   },
   {
-    "from": "vendor/modules/codeEditorDiff.js",
-    "to": "vendor/modules/codeEditorSplit.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorDiff.js",
-    "to": "vendor/modules/diffMatchPatch.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorDiff.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorDiff.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/aceCoreRuntime.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/aceEditorOptions.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/aceSplitRuntime.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/getPathValue.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/isEqual.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/codeEditorSplit.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
     "from": "vendor/modules/createClassHelper.js",
     "to": "vendor/modules/toPropertyKey.js"
   },
@@ -1866,10 +1750,6 @@
   {
     "from": "vendor/modules/eventEmitter.js",
     "to": "vendor/modules/eventEmitterRuntime.js"
-  },
-  {
-    "from": "vendor/modules/getPathValue.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
   },
   {
     "from": "vendor/modules/httpRequestPolyfill.js",
@@ -1922,26 +1802,6 @@
   {
     "from": "vendor/modules/inherits.js",
     "to": "vendor/modules/setPrototypeOfCompat.js"
-  },
-  {
-    "from": "vendor/modules/isEqual.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/isEqual.js",
-    "to": "vendor/modules/moduleObjectPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/jsonEditorRuntime.js",
-    "to": "vendor/modules/codeEditorDiff.js"
-  },
-  {
-    "from": "vendor/modules/jsonEditorRuntime.js",
-    "to": "vendor/modules/codeEditorSplit.js"
-  },
-  {
-    "from": "vendor/modules/jsonEditorRuntime.js",
-    "to": "vendor/modules/reactAceEditor.js"
   },
   {
     "from": "vendor/modules/markdownEditorRuntime.js",
@@ -2014,30 +1874,6 @@
   {
     "from": "vendor/modules/processRuntime.js",
     "to": "vendor/modules/pathRuntime.js"
-  },
-  {
-    "from": "vendor/modules/propTypesFactory.js",
-    "to": "vendor/modules/propTypesSecretLegacy.js"
-  },
-  {
-    "from": "vendor/modules/propTypesRuntime.js",
-    "to": "vendor/modules/propTypesFactory.js"
-  },
-  {
-    "from": "vendor/modules/reactAceEditor.js",
-    "to": "vendor/modules/aceEditorOptions.js"
-  },
-  {
-    "from": "vendor/modules/reactAceEditor.js",
-    "to": "vendor/modules/isEqual.js"
-  },
-  {
-    "from": "vendor/modules/reactAceEditor.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/reactAceEditor.js",
-    "to": "vendor/modules/reactRuntime.js"
   },
   {
     "from": "vendor/modules/readableStream.js",
@@ -2217,7 +2053,7 @@
   },
   {
     "from": "vendor/ui.js",
-    "to": "vendor/jsonEditor.js"
+    "to": "components/JsonEditor.jsx"
   },
   {
     "from": "vendor/ui.js",
