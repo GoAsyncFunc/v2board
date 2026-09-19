@@ -1,6 +1,6 @@
 // Prices arrive in display units from the plan model. Do not coerce or default:
 // the original render throws for undefined/string values, and only null means '-'.
-export function formatPlanPrice(value) {
+export function formatPlanPrice(value: number | null): string {
   return value !== null ? value.toFixed(2) : '-';
 }
 export function createReadonlyPlanPriceColumns() {

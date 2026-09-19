@@ -18,9 +18,9 @@ import PermissionGroupEditor from '../components/PermissionGroupEditor.jsx';
 import { LoadingContainer } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import ContextMenuTable from '../components/ContextMenuTable.jsx';
-import { createPlanGroupColumn } from '../components/PlanGroupColumn.jsx';
+import { createPlanGroupColumn } from '../components/PlanGroupColumn.tsx';
 import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns.tsx';
-import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns.jsx';
+import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns.ts';
 
 import '../vendor/iconStyles.js';
 

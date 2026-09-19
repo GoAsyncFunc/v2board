@@ -7,8 +7,8 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original,groups){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-plan-group.cjs':'../src/components/PlanGroupColumn.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTag'))return {a:'Tag'};
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-plan-group.cjs':'../src/components/PlanGroupColumn.tsx',import.meta.url);
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};
         throw Error(id);}});
  return original?module.exports(groups,{a:React},{a:'Tag'}):module.exports.createPlanGroupColumn(groups);
 }

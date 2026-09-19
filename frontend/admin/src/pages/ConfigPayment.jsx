@@ -11,7 +11,7 @@ import { Input } from '../vendor/ui.js';
 import { LoadingContainer } from '../vendor/ui.js';
 import { Sortable } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.jsx';
+import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.tsx';
 import { createReadonlyPaymentColumns } from '../components/PaymentDisplayColumns.ts';
 
 import '../vendor/iconStyles.js';

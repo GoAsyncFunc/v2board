@@ -7,9 +7,9 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-plan-price.cjs' : '../src/components/PlanPriceColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-plan-price.cjs' : '../src/components/PlanPriceColumns.ts', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs' })).code, { module, exports: module.exports });
+  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports });
   return original ? module.exports() : Object.values(module.exports.createReadonlyPlanPriceColumns());
 }
 const fields = ['month_price','quarter_price','half_year_price','year_price','two_year_price','three_year_price','onetime_price','reset_price'];

@@ -5,7 +5,7 @@ import { Table, Button, LoadingContainer } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { Icon } from '../vendor/Icon.js';
 import PermissionGroupEditor from '../components/PermissionGroupEditor.jsx';
-import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.jsx';
+import { createReadonlyServerGroupColumns } from '../components/ServerGroupDisplayColumns.tsx';
 import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyServerGroupColumns();

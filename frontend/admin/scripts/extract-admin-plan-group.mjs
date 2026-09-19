@@ -13,5 +13,5 @@ traverse(ast,{ArrayExpression(p){for(let index=0;index<p.node.elements.length;in
 }}});
 if(count!==1)throw Error('Expected exactly one rate column, found '+count);
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-plan-group.cjs',import.meta.url),'// Original readonly column unchanged, dependencies injected.\nmodule.exports = function(f,m,l){return '+generate(original).code+';};\n');
-ast.program.body.unshift(...parse("const { createPlanGroupColumn } = require('../components/PlanGroupColumn.jsx');").program.body);
+ast.program.body.unshift(...parse("const { createPlanGroupColumn } = require('../components/PlanGroupColumn.tsx');").program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

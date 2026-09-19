@@ -16,5 +16,5 @@ traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpressio
  }p.skip();}});
 if(columns.length!==8)throw Error('Expected 8 readonly columns');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-plan-price.cjs',import.meta.url),'// Original readonly columns, extracted unchanged; write menus deliberately excluded.\nmodule.exports = function(){return '+generate(t.arrayExpression(columns)).code+';};\n');
-ast.program.body.unshift(...parse("const { createReadonlyPlanPriceColumns } = require('../components/PlanPriceColumns.jsx'); const readonlyColumns = createReadonlyPlanPriceColumns();",{sourceType:'script'}).program.body);
+ast.program.body.unshift(...parse("const { createReadonlyPlanPriceColumns } = require('../components/PlanPriceColumns.ts'); const readonlyColumns = createReadonlyPlanPriceColumns();",{sourceType:'script'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

@@ -10,8 +10,8 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { createRouteActionColumn } from '../components/RouteActionColumn.jsx';
-import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns.jsx';
+import { createRouteActionColumn } from '../components/RouteActionColumn.ts';
+import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns.ts';
 
 import '../vendor/iconStyles.js';
 

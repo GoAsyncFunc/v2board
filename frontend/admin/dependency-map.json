@@ -352,14 +352,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/PaymentNotifyColumn.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/PaymentNotifyColumn.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/PermissionGroupEditor.jsx",
     "to": "vendor/Icon.js"
   },
@@ -376,10 +368,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/PlanGroupColumn.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/SendMailEditor.jsx",
     "to": "vendor/Modal.js"
   },
@@ -390,10 +378,6 @@
   {
     "from": "components/SendMailEditor.jsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ServerGroupDisplayColumns.jsx",
-    "to": "vendor/Icon.js"
   },
   {
     "from": "components/ServerNameColumn.jsx",
@@ -965,7 +949,7 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
-    "to": "components/PaymentNotifyColumn.jsx"
+    "to": "components/PaymentNotifyColumn.tsx"
   },
   {
     "from": "pages/ConfigPayment.jsx",
@@ -1345,11 +1329,11 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "components/PlanGroupColumn.jsx"
+    "to": "components/PlanGroupColumn.tsx"
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "components/PlanPriceColumns.jsx"
+    "to": "components/PlanPriceColumns.ts"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1433,7 +1417,7 @@
   },
   {
     "from": "pages/ServerGroup.jsx",
-    "to": "components/ServerGroupDisplayColumns.jsx"
+    "to": "components/ServerGroupDisplayColumns.tsx"
   },
   {
     "from": "pages/ServerGroup.jsx",
@@ -1545,11 +1529,11 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "components/RouteActionColumn.jsx"
+    "to": "components/RouteActionColumn.ts"
   },
   {
     "from": "pages/ServerRoute.jsx",
-    "to": "components/ServerRouteDisplayColumns.jsx"
+    "to": "components/ServerRouteDisplayColumns.ts"
   },
   {
     "from": "pages/ServerRoute.jsx",

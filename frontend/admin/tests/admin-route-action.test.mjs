@@ -6,8 +6,8 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original,mapping){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-route-action.cjs':'../src/components/RouteActionColumn.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs'})).code,{module,exports:module.exports});
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-route-action.cjs':'../src/components/RouteActionColumn.ts',import.meta.url);
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports});
  return original?module.exports({a:{routeActionText:mapping}}):module.exports.createRouteActionColumn(mapping);
 }
 for(const value of ['block','dns','unknown','',null,undefined,0])for(const mapping of [{block:'禁止访问',dns:'指定DNS'},null])test(`route action text ${value}/${mapping===null?'null':'map'}`,async()=>{

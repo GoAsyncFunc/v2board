@@ -1,5 +1,7 @@
 // Preserve the original length access before type checking (null/undefined throw).
-export function formatRouteMatchCount(match) {
+export type RouteMatch = string | unknown[] | { length: number | string };
+
+export function formatRouteMatchCount(match: RouteMatch): string {
   if (match.length == 0) return '无规则时默认';
   const count = typeof match === 'string' ? match.split(',').filter(value => !!value).length : match.length;
   return `匹配 ${count} 条规则`;
