@@ -3,9 +3,9 @@ import { Row } from '../vendor/ui.js';
 import { Col } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';
 import moment from '../vendor/dateTime.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { Divider } from '../vendor/Divider.js';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 
 // Keep JavaScript coercion: null becomes 0.00, undefined becomes NaN.
 export function formatOrderAmount(amount) {

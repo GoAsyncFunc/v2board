@@ -1,5 +1,5 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Drawer } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';

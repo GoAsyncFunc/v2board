@@ -1,10 +1,10 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Table } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Radio } from '../vendor/ui.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { Divider } from '../vendor/Divider.js';
 import { Badge } from '../vendor/ui.js';
 import { LoadingContainer } from '../vendor/ui.js';
 import { assignProps as mergeProps } from '../vendor/utilities.js';

@@ -17,7 +17,7 @@ async function load(target,name,original,trace,response){
  const get=request('GET'),post=request('POST');
  const history={push:route=>{trace.push(['navigate',route]);}};
  const saveToken=token=>trace.push(['token',token]);
- const helpers={p:saveToken,h:saveToken,r:(...args)=>trace.push(['notify',...args])};
+ const helpers={p:saveToken,h:saveToken,r:(...args)=>trace.push(['notify',...args]),setToken:saveToken};
  const require=id=>{
   if(id.includes('moduleInterop'))return {
    markEsModule:exports=>Object.defineProperty(exports,'__esModule',{value:true}),

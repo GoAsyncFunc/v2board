@@ -1,13 +1,13 @@
 import React from "react";
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import {
     enable as enableDarkMode,
     disable as disableDarkMode,
 } from "../vendor/theme.js";
 import {
-    d as getPreference,
-    i as setPreference,
-    g as clearToken,
+    getPreference,
+    setPreference,
+    clearToken,
 } from "../vendor/siteHelpers.js";
 import history from "../vendor/routerHistory.js";
 import "../services/request.js";

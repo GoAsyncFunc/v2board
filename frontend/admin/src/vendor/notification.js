@@ -1,4 +1,4 @@
 import notification from 'antd/lib/notification';
 
-export { notification, notification as a };
+export { notification };
 export default notification;

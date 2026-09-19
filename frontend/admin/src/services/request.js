@@ -1,7 +1,7 @@
-import { b as fetchResponse } from "../vendor/dva.js";
-import { a as notification } from "../vendor/notification.js";
-import { a as settings } from "../vendor/siteSettings.js";
-import { c as getToken, g as clearToken } from "../vendor/siteHelpers.js";
+import { fetchResponse } from "../vendor/dva.js";
+import { notification } from "../vendor/notification.js";
+import { siteSettings } from "../vendor/siteSettings.js";
+import { getToken, clearToken } from "../vendor/siteHelpers.js";
 
 import '../vendor/componentStyles.js';
 export function encodeForm(data) {
@@ -26,7 +26,7 @@ export async function request(endpoint, options = {}) {
   options.credentials = 'include';
   const token = getToken();
   if (token) options.headers.authorization = token;
-  const url = endpoint.includes('http') ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') : settings.serviceHost + endpoint;
+  const url = endpoint.includes('http') ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') : siteSettings.serviceHost + endpoint;
   const response = await fetchResponse(url, options);
   // Keep exact content-type handling for parity; widening this is a separate behavior change.
   const data = response.headers.get('content-type') === 'application/json' ? await response.json() : {

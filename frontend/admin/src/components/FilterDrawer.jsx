@@ -4,9 +4,9 @@ import { Button } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { DatePicker } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
-import { a as Divider } from '../vendor/Divider.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { a as notification } from '../vendor/notification.js';
+import { Divider } from '../vendor/Divider.js';
+import { Icon } from '../vendor/Icon.js';
+import { notification } from '../vendor/notification.js';
 import moment from '../vendor/dateTime.js';
 
 import '../vendor/iconStyles.js';

@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original, factoryOnly=false){
  const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-rate.cjs':'../src/components/ServerRateColumn.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('Icon'))return {a:'Icon'};if(id.includes('antdTag'))return {a:'Tag'};
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'jsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('Icon'))return {a:'Icon',Icon:'Icon'};if(id.includes('antdTag'))return {a:'Tag'};
         throw Error(id);}});
  const factory=original?()=>module.exports({a:React},{a:'Tooltip'},{a:'Icon'},{a:'Tag'}):module.exports.createServerRateColumn;
  return factoryOnly?factory:factory();

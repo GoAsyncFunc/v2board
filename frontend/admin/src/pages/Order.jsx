@@ -1,12 +1,12 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Dropdown } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
 import { Menu } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { settings } from '../vendor/adminSettings.js';
 import { AssignOrderEditor } from '../vendor/features.js';

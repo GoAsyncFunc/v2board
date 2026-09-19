@@ -11,7 +11,7 @@ const moment=value=>({format:format=>`${value}:${format}`});
 async function render(original,data){
  const trace=[],module={exports:{}};
  const file=new URL(original?'./fixtures/pages/admin-order-detail-body.cjs':'../src/components/OrderDetailBody.jsx',import.meta.url);
- const text=await fs.readFile(file,'utf8');vm.runInNewContext((await transform(text,{loader:'jsx',format:'cjs'})).code,{React,module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('adminSettingsRuntime'))return {a:settings};if(id.includes('77642f52'))return moment;for(const [key,label]of [['antdRow','Row'],['antdCol','Col'],['Divider','Divider'],['antdTooltip','Tooltip'],['Icon','Icon']])if(id.includes(key))return {a:label};
+ const text=await fs.readFile(file,'utf8');vm.runInNewContext((await transform(text,{loader:'jsx',format:'cjs'})).code,{React,module,exports:module.exports,require(id){if(id==='react')return React;if(id.includes('adminSettingsRuntime'))return {a:settings};if(id.includes('77642f52'))return moment;for(const [key,label]of [['antdRow','Row'],['antdCol','Col'],['Divider','Divider'],['antdTooltip','Tooltip'],['Icon','Icon']])if(id.includes(key))return {a:label,[label]:label};
         throw Error(id);}});
  const onUserFilter=(...args)=>trace.push(args);
  let tree,error;

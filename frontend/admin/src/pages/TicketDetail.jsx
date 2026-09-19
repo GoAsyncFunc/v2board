@@ -1,8 +1,8 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { connect } from '../vendor/reactRedux.js';
+import { Divider } from '../vendor/Divider.js';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { ticketDetailStyles as styles } from '../vendor/content.js';
 import UserEditor from '../components/UserEditor.jsx';
 import { TrafficPanel } from '../vendor/features.js';

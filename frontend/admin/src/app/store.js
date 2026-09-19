@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as createDva } from '../vendor/dva.js';
+import { createDva } from '../vendor/dva.js';
 import { loadingPlugin } from '../vendor/appRuntime.js';
 import { mergeConfig } from '../vendor/appRuntime.js';
 import history from './history.js';

@@ -1,13 +1,13 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { Icon } from '../vendor/Icon.js';
+import { Divider } from '../vendor/Divider.js';
 import { Switch } from '../vendor/ui.js';
 import { LoadingContainer } from '../vendor/ui.js';
 import { mergeProps } from '../vendor/utilities.js';

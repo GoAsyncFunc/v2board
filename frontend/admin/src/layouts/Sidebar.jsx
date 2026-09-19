@@ -1,6 +1,6 @@
 import { createNavigation } from "../config/navigation.jsx";
 import React from "react";
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import history from "../vendor/routerHistory.js";
 import "../vendor/siteSettings.js";
 export class Sidebar extends React.Component {

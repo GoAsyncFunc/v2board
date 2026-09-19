@@ -7,5 +7,4 @@ export const siteSettings = {
   serviceHost: `${siteOrigin}/api/v1`,
 };
 
-export { siteSettings as a };
 export default siteSettings;

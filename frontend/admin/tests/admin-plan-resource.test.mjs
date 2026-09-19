@@ -12,7 +12,7 @@ async function load(original) {
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
-    if (id.includes('Icon')) return { a: 'Icon' };
+    if (id.includes('Icon')) return { a: 'Icon', Icon: 'Icon' };
         throw Error(id);
   } });
   return original ? module.exports({ a: React }, { a: 'Icon' }) : Object.values(module.exports.createReadonlyPlanResourceColumns());

@@ -1,11 +1,11 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { a as Modal } from '../vendor/Modal.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { Divider } from '../vendor/Divider.js';
 import { Switch } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { Sortable } from '../vendor/ui.js';
 import { Drawer } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';

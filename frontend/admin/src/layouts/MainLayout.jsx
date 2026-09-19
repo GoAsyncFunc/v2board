@@ -1,5 +1,5 @@
 import React from "react";
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import ConnectedSidebar from "./Sidebar.jsx";
 import ConnectedHeader from "./Header.jsx";
 import { ConfigProvider } from "../vendor/ui.js";

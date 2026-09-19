@@ -13,7 +13,7 @@ async function run(target,original,scenario){
  const token=()=>{trace.push(['token']);return scenario.token;};
  const clear=()=>trace.push(['clear']);
  const api={a:(...args)=>{trace.push(['get',...args]);return 'request';}};api.get=api.a;
- const helpers={d:token,c:token,o:clear};
+ const helpers={d:token,c:token,o:clear,getToken:token,clearToken:clear};
  const history={push:route=>trace.push(['navigate',route])};
  const window=scenario.chat?{Tawk_API:{},$crisp:{push:value=>trace.push(['crisp',value])}}:{};
  const module={exports:{}};

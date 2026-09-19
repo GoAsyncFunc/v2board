@@ -1,6 +1,6 @@
 import { get } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { c as getToken } from '../vendor/siteHelpers.js';
+import { getToken } from '../vendor/siteHelpers.js';
 
 export function* checkLogin({ redirect }, { put }) {
   if (!getToken()) return;

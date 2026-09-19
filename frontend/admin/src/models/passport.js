@@ -1,6 +1,6 @@
 import { post } from '../services/request.js';
 import history from '../vendor/routerHistory.js';
-import { h as saveToken } from '../vendor/siteHelpers.js';
+import { setToken } from '../vendor/siteHelpers.js';
 
 export default {
   name: 'passport',
@@ -15,7 +15,7 @@ export default {
       yield put({ type: 'save', payload: { loginLoading: false } });
       if (response.code !== 200) return;
       // Preserve original ordering: token storage precedes the admin flag check.
-      saveToken(response.data.auth_data);
+      setToken(response.data.auth_data);
       if (!response.data.is_admin) return;
       history.push('/dashboard');
       yield put({ type: 'user/getUserInfo' });

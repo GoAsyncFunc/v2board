@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 
 // Synchronous construction keeps the original child order and fresh elements.
 export function renderServerStatusLegend() {

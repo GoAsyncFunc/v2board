@@ -1,12 +1,12 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Drawer } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { a as notification } from '../vendor/notification.js';
+import { Icon } from '../vendor/Icon.js';
+import { notification } from '../vendor/notification.js';
 import { PermissionGroupEditor } from '../vendor/ui.js';
 import { JsonEditor } from '../vendor/ui.js';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings.jsx';

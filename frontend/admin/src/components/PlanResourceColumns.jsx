@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 
 // Keep raw children: concatenating/interpolating would change null, objects and arrays.
 export function renderPlanCount(count) {

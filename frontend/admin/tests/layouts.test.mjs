@@ -25,15 +25,18 @@ async function load(target,original){
   const code=compiled.get(file);
   const require=id=>{
    if(id==='react'||id.includes('reactRuntime'))return React;
-   if(id.includes('reactRedux'))return {c:connect};
+   if(id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
    if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
    if(id.includes('LanguageSelector'))return {a:'LanguageSelector'};
-   if(id.includes('siteHelpers'))return {e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken'])};
+   if(id.includes('siteHelpers'))return {
+    e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken']),
+    getPreference:()=> '0',getCookie:()=> '0',setPreference:(...a)=>trace.push(['pref',...a]),clearToken:()=>trace.push(['clearToken'])
+   };
    if(id.includes('6e444349'))return {enable:options=>trace.push(['dark',options]),disable:()=>trace.push(['light'])};
    if(id.includes('withLocaleRuntime'))return cls=>cls;
-   if(id.includes('/Icon'))return {a:'Icon'};
+   if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
    if(id.includes('antdConfigProvider'))return {a:'ConfigProvider'};
    if(id.includes('antdZhCnLocale'))return {a:'zh-CN'};
    if(id==='./Sidebar.jsx'||id==='./Header.jsx')return evaluate(path.join(home,'src/layouts',id.slice(2)));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 
 // A synchronous element helper, not a wrapper component. Preserve the Fragment,
 // icon style and uncoerced child (including null/undefined or invalid children).

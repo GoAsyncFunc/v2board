@@ -1,7 +1,7 @@
 import React from 'react';
-import { c as connect } from "../vendor/reactRedux.js";
+import { connect } from "../vendor/reactRedux.js";
 import { a as Modal } from "../vendor/Modal.js";
-import { a as Icon } from "../vendor/Icon.js";
+import { Icon } from "../vendor/Icon.js";
 
 import "../vendor/iconStyles.js";
 import '../vendor/componentStyles.js';

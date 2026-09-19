@@ -1,6 +1,6 @@
 import React from 'react';
 import { routeRenderer } from '../vendor/appRuntime.js';
-import { c as routerBindings } from '../vendor/dva.js';
+import { routerBindings } from '../vendor/dva.js';
 import * as plugins from '../vendor/appRuntime.js';
 import history from './history.js';
 import appRoutes from './routes.js';

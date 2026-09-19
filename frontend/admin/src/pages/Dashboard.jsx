@@ -1,9 +1,9 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import history from '../vendor/routerHistory.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { get } from '../services/request.js';
-import { a as siteSettings } from '../vendor/siteSettings.js';
+import { siteSettings } from '../vendor/siteSettings.js';
 import {
   BarChart,
   DatasetComponent,

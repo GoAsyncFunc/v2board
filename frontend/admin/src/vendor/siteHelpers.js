@@ -68,16 +68,3 @@ export function clearToken() {
 export function getToken() {
   return window.localStorage.getItem('authorization');
 }
-
-export {
-  copyToClipboard as a,
-  formatBytes as b,
-  getToken as c,
-  getCookie as d,
-  getPreference as e,
-  isMobile as f,
-  clearToken as g,
-  setToken as h,
-  setCookie as i,
-  setPreference as j,
-};

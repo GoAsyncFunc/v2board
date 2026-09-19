@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { Tag } from '../vendor/ui.js';
 
 // Preserve addition's default-hint coercion. String(value), interpolation or

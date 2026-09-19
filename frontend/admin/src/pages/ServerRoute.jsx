@@ -1,9 +1,9 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
-import { a as Divider } from '../vendor/Divider.js';
+import { Icon } from '../vendor/Icon.js';
+import { Divider } from '../vendor/Divider.js';
 import { LoadingContainer } from '../vendor/ui.js';
 import { a as Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';

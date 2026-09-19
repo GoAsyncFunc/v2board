@@ -1,9 +1,9 @@
 import React from 'react';
-import { c as connect } from '../vendor/reactRedux.js';
+import { connect } from '../vendor/reactRedux.js';
 import { Button } from '../vendor/ui.js';
 import { Dropdown } from '../vendor/ui.js';
 import { Menu } from '../vendor/ui.js';
-import { a as Icon } from '../vendor/Icon.js';
+import { Icon } from '../vendor/Icon.js';
 import { Tag } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
 import { a as Modal } from '../vendor/Modal.js';
@@ -15,7 +15,7 @@ import { LoadingContainer } from '../vendor/ui.js';
 import { TrafficPanel } from '../vendor/features.js';
 import moment from '../vendor/dateTime.js';
 import history from '../vendor/routerHistory.js';
-import { a as copy, j as setPreference } from '../vendor/siteHelpers.js';
+import { copyToClipboard, setPreference } from '../vendor/siteHelpers.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import UserEditor from '../components/UserEditor.jsx';
 import FilterDrawer from '../components/FilterDrawer.jsx';
@@ -108,7 +108,7 @@ export class UserPage extends React.Component {
     return <Menu>
       <Menu.Item onContextMenu={event => event.stopPropagation()}><UserEditor userId={user.id} key={user.id}><a><Icon type="edit" /> 编辑</a></UserEditor></Menu.Item>
       <Menu.Item onContextMenu={event => event.stopPropagation()}><AssignOrderEditor email={user.email} key={user.email}><a><Icon type="plus" /> 分配订单</a></AssignOrderEditor></Menu.Item>
-      <Menu.Item><a onClick={() => copy(user.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></Menu.Item>
+      <Menu.Item><a onClick={() => copyToClipboard(user.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></Menu.Item>
       <Menu.Item><a onClick={() => this.resetSecret(user)}><Icon type="reload" /> 重置UUID及订阅URL</a></Menu.Item>
       <Menu.Item onClick={() => this.orderFilter('user_id', '=', user.id)}><a><Icon type="account-book" /> TA的订单</a></Menu.Item>
       <Menu.Item onClick={() => this.userFilter('invite_user_id', '=', user.id, true)}><a><Icon type="usergroup-add" /> TA的邀请</a></Menu.Item>
@@ -141,7 +141,7 @@ export class UserPage extends React.Component {
     return <ul className="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical">
       <li className="ant-dropdown-menu-item"><UserEditor userId={user?.id} key={user?.id}><a><Icon type="edit" /> 编辑</a></UserEditor></li>
       <li className="ant-dropdown-menu-item"><AssignOrderEditor email={user?.email} key={user?.email}><a><Icon type="plus" /> 分配订单</a></AssignOrderEditor></li>
-      <li className="ant-dropdown-menu-item"><a onClick={() => copy(user?.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></li>
+      <li className="ant-dropdown-menu-item"><a onClick={() => copyToClipboard(user?.subscribe_url)}><Icon type="copy" /> 复制订阅URL</a></li>
       <li className="ant-dropdown-menu-item"><a style={{ color: '#ff4d4f' }} onClick={() => this.resetSecret(user)}><Icon type="reload" /> 重置UUID及订阅URL</a></li>
       <li className="ant-dropdown-menu-item" onClick={() => this.orderFilter('user_id', '=', user?.id)}><a><Icon type="account-book" /> TA的订单</a></li>
       <li className="ant-dropdown-menu-item" onClick={() => this.userFilter('invite_user_id', '=', user?.id, true)}><a><Icon type="usergroup-add" /> TA的邀请</a></li>
