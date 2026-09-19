@@ -13,6 +13,7 @@ import DepositConfigTab from "../components/config/DepositConfigTab.jsx";
 import TicketConfigTab from "../components/config/TicketConfigTab.jsx";
 import InviteConfigTab from "../components/config/InviteConfigTab.jsx";
 import FrontendConfigTab from "../components/config/FrontendConfigTab.jsx";
+import AppConfigTab from "../components/config/AppConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -588,129 +589,11 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "APP",
-                                key: "app",
-                            },
-                            <div className={"block-content"}>
-                                <div className={"row"}>
-                                    <div className={"col-lg-12"}>
-                                        <div
-                                            className={"alert alert-warning"}
-                                            role={"alert"}
-                                        >
-                                            <p className={"mb-0"}>
-                                                {
-                                                    "用于自有客户端(APP)的版本管理及更新"
-                                                }
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "Windows",
-                                        description:
-                                            "Windows端版本号及下载地址",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"1.0.0"}
-                                        defaultValue={app.windows_version}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "windows_version",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                    <input
-                                        type={"text"}
-                                        className={"form-control mt-1"}
-                                        placeholder={"https://xxxx.com/xxx.exe"}
-                                        defaultValue={app.windows_download_url}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "windows_download_url",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "macOS",
-                                        description: "macOS端版本号及下载地址",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"1.0.0"}
-                                        defaultValue={app.macos_version}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "macos_version",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                    <input
-                                        type={"text"}
-                                        className={"form-control mt-1"}
-                                        placeholder={"https://xxxx.com/xxx.dmg"}
-                                        defaultValue={app.macos_download_url}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "macos_download_url",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "Android",
-                                        description:
-                                            "Android端版本号及下载地址",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={"1.0.0"}
-                                        defaultValue={app.android_version}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "android_version",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                    <input
-                                        type={"text"}
-                                        className={"form-control mt-1"}
-                                        placeholder={"https://xxxx.com/xxx.apk"}
-                                        defaultValue={app.android_download_url}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "app",
-                                                "android_download_url",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                            </div>,
+                            { tab: "APP", key: "app" },
+                            <AppConfigTab
+                                app={app}
+                                onChange={(field, value) => this.set("app", field, value)}
+                            />,
                         ),
                     )}
                 </div>

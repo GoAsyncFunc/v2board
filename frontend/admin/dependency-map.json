@@ -640,6 +640,10 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "components/config/AppConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
+  },
+  {
     "from": "components/config/DepositConfigTab.jsx",
     "to": "components/config/ConfigRow.jsx"
   },
@@ -990,6 +994,10 @@
   {
     "from": "pages/ConfigPayment.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/AppConfigTab.jsx"
   },
   {
     "from": "pages/ConfigSystem.jsx",

@@ -21,6 +21,7 @@ async function loadConfig() {
     ['ticket', '../src/components/config/TicketConfigTab.jsx'],
     ['invite', '../src/components/config/InviteConfigTab.jsx'],
     ['frontend', '../src/components/config/FrontendConfigTab.jsx'],
+    ['app', '../src/components/config/AppConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -40,6 +41,7 @@ async function loadConfig() {
         if (id.includes('TicketConfigTab')) return components.ticket;
         if (id.includes('InviteConfigTab')) return components.invite;
         if (id.includes('FrontendConfigTab')) return components.frontend;
+        if (id.includes('AppConfigTab')) return components.app;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -58,6 +60,7 @@ async function loadConfig() {
     TicketConfigTab: components.ticket.default,
     InviteConfigTab: components.invite.default,
     FrontendConfigTab: components.frontend.default,
+    AppConfigTab: components.app.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -323,5 +326,40 @@ test('Frontend config tab maps theme switches, color and background settings', a
     ['frontend_theme_header', 'dark'],
     ['frontend_theme_color', 'black'],
     ['frontend_background_url', '/new.png'],
+  ]);
+});
+
+test('App config tab maps platform versions and download URLs to app fields', async () => {
+  const { AppConfigTab } = await loadConfig();
+  const changes = [];
+  const tree = AppConfigTab({
+    app: {
+      windows_version: '1.0.0', windows_download_url: '/win.exe',
+      macos_version: '1.0.0', macos_download_url: '/mac.dmg',
+      android_version: '1.0.0', android_download_url: '/app.apk',
+    },
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  assert.match(JSON.stringify(tree), /用于自有客户端/);
+  controls.find(control => control.props.defaultValue === '1.0.0')
+    .props.onChange({ target: { value: '2.0.0' } });
+  controls.find(control => control.props.defaultValue === '/win.exe')
+    .props.onChange({ target: { value: '/new.exe' } });
+  assert.deepEqual(changes, [
+    ['windows_version', '2.0.0'],
+    ['windows_download_url', '/new.exe'],
   ]);
 });
