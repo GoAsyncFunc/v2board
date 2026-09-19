@@ -1,5 +1,3 @@
-export * as intl from './modules/intlRuntime.js';
-
 export const enMessages = window.settings.i18n['en-US'];
 export const faMessages = window.settings.i18n['fa-IR'];
 export const jaMessages = window.settings.i18n['ja-JP'];

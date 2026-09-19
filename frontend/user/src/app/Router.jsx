@@ -3,10 +3,18 @@ import { routeRenderer } from '../vendor/appRuntime.js';
 import { routerBindings } from '../vendor/dva.js';
 import { ConfigProvider } from '../vendor/ui.js';
 import {
-  enAntd, enData, enMessages, faAntd, faData, faMessages, intl,
+  enAntd, enData, enMessages, faAntd, faData, faMessages,
   jaAntd, jaData, jaMessages, koAntd, koData, koMessages,
   twAntd, viAntd, viData, viMessages, zhAntd, zhData, zhMessages,
 } from '../vendor/locales.js';
+import {
+  _setIntlObject,
+  _setLocaleContext,
+  addLocaleData,
+  injectIntl,
+  IntlProvider,
+  LangContext,
+} from '../vendor/i18n.js';
 import { mergeConfig } from '../vendor/appRuntime.js';
 import * as plugins from '../vendor/appRuntime.js';
 import history from './history.js';
@@ -29,15 +37,24 @@ export const routes = appRoutes;
 window.g_routes = routes;
 plugins.applyForEach('patchRoutes', { initialValue: routes });
 
-class LocaleBridge extends React.Component {
+export class IntlApiBridge extends React.Component {
+  render() {
+    _setIntlObject(this.props.intl);
+    return this.props.children;
+  }
+}
+
+const ConnectedIntlApiBridge = injectIntl(IntlApiBridge);
+
+export class LocaleBridge extends React.Component {
   render() {
     return (
-      <intl.LangContext.Consumer>
+      <LangContext.Consumer>
         {context => {
-          intl._setLocaleContext(context);
+          _setLocaleContext(context);
           return this.props.children;
         }}
-      </intl.LangContext.Consumer>
+      </LangContext.Consumer>
     );
   }
 }
@@ -60,7 +77,7 @@ export class LocaleProvider extends React.Component {
       : localeData[configuredLocale] || localeData['zh-CN'] || fallback;
     window.g_lang = selected.locale;
     window.g_langSeparator = '-';
-    if (selected.data) intl.addLocaleData(selected.data);
+    if (selected.data) addLocaleData(selected.data);
     const configuredMessages = config.messages;
     const extraMessages = typeof configuredMessages === 'function'
       ? configuredMessages()[selected.locale]
@@ -74,11 +91,13 @@ export class LocaleProvider extends React.Component {
     const context = { locale: normalizedLocale, reloadAppLocale: this.reloadAppLocale };
     return (
       <ConfigProvider locale={locale.antd || zhAntd}>
-        <intl.IntlProvider locale={normalizedLocale} messages={locale.messages}>
-          <intl.LangContext.Provider value={context}>
-            <LocaleBridge>{this.props.children}</LocaleBridge>
-          </intl.LangContext.Provider>
-        </intl.IntlProvider>
+        <IntlProvider locale={normalizedLocale} messages={locale.messages}>
+          <ConnectedIntlApiBridge>
+            <LangContext.Provider value={context}>
+              <LocaleBridge>{this.props.children}</LocaleBridge>
+            </LangContext.Provider>
+          </ConnectedIntlApiBridge>
+        </IntlProvider>
       </ConfigProvider>
     );
   }

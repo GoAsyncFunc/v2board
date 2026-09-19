@@ -21,6 +21,10 @@
   },
   {
     "from": "app/Router.jsx",
+    "to": "vendor/i18n.js"
+  },
+  {
+    "from": "app/Router.jsx",
     "to": "vendor/locales.js"
   },
   {
@@ -1508,10 +1512,6 @@
     "to": "vendor/reactRedux.js"
   },
   {
-    "from": "vendor/i18n.js",
-    "to": "vendor/modules/intlRuntime.js"
-  },
-  {
     "from": "vendor/loadingIndicator.js",
     "to": "vendor/Icon.js"
   },
@@ -1522,42 +1522,6 @@
   {
     "from": "vendor/localeSettings.js",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/intlRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContext.js",
-    "to": "vendor/modules/antdCreateReactContextPolyfill.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContext.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/globalUniqueId.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/propTypesRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/reactRuntime.js"
-  },
-  {
-    "from": "vendor/modules/antdCreateReactContextPolyfill.js",
-    "to": "vendor/modules/warning.js"
-  },
-  {
-    "from": "vendor/modules/globalUniqueId.js",
-    "to": "vendor/modules/globalObjectLegacy.js"
-  },
-  {
-    "from": "vendor/modules/intlRuntime.js",
-    "to": "vendor/modules/antdCreateReactContext.js"
   },
   {
     "from": "vendor/modules/iterableToArray.js",
@@ -1574,14 +1538,6 @@
   {
     "from": "vendor/modules/objectWithoutPropertiesLoose.js",
     "to": "vendor/modules/objectWithoutProperties.js"
-  },
-  {
-    "from": "vendor/modules/propTypesFactory.js",
-    "to": "vendor/modules/propTypesSecretLegacy.js"
-  },
-  {
-    "from": "vendor/modules/propTypesRuntime.js",
-    "to": "vendor/modules/propTypesFactory.js"
   },
   {
     "from": "vendor/rootRuntime.js",
