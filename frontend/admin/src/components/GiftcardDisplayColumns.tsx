@@ -1,9 +1,21 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
+import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 
 export interface GiftcardPlan { id: number | string; name?: string | null; }
-export interface GiftcardRecord { type?: unknown; value?: unknown; started_at?: number | string | null; ended_at?: number | string | null; }
+export interface GiftcardRecord {
+  id?: string | number;
+  name?: string;
+  type?: 1 | 2 | 3 | 4 | 5;
+  value?: string | number;
+  code?: string;
+  plan_id?: string | number | null;
+  limit_use?: string | number | null;
+  generate_count?: string | number;
+  started_at?: number | string | null;
+  ended_at?: number | string | null;
+}
 
 export function giftcardTypeText(type: unknown): string {
   switch (type) {
@@ -35,7 +47,7 @@ export function formatGiftcardValidity(card: GiftcardRecord): string {
   return `${startsAt} ~ ${endsAt}`;
 }
 
-export function createReadonlyGiftcardColumns(plans: GiftcardPlan[] | null | undefined) {
+export function createReadonlyGiftcardColumns(plans: GiftcardPlan[] | null | undefined): Record<'id' | 'name' | 'type' | 'value' | 'plan_id' | 'limit_use' | 'started_at', ColumnProps<GiftcardRecord>> {
   return {
     id: { title: '#', dataIndex: 'id', key: 'id' },
     name: { title: '名称', dataIndex: 'name', key: 'name' },

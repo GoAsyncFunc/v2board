@@ -45,7 +45,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Coupon.jsx"
+    "to": "pages/Coupon.tsx"
   },
   {
     "from": "app/routes.js",
@@ -53,7 +53,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/Giftcard.jsx"
+    "to": "pages/Giftcard.tsx"
   },
   {
     "from": "app/routes.js",
@@ -888,52 +888,24 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "pages/Coupon.jsx",
+    "from": "pages/Coupon.tsx",
     "to": "components/CouponDisplayColumns.tsx"
   },
   {
-    "from": "pages/Coupon.jsx",
+    "from": "pages/Coupon.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Coupon.jsx",
+    "from": "pages/Coupon.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
+    "from": "pages/Coupon.tsx",
     "to": "vendor/adminSettings.js"
   },
   {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
+    "from": "pages/Coupon.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Coupon.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Dashboard.jsx",
@@ -964,48 +936,20 @@
     "to": "vendor/siteSettings.js"
   },
   {
-    "from": "pages/Giftcard.jsx",
+    "from": "pages/Giftcard.tsx",
     "to": "components/GiftcardDisplayColumns.tsx"
   },
   {
-    "from": "pages/Giftcard.jsx",
+    "from": "pages/Giftcard.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/Giftcard.jsx",
+    "from": "pages/Giftcard.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
+    "from": "pages/Giftcard.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/Giftcard.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Index.jsx",

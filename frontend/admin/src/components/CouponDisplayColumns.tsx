@@ -1,8 +1,20 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
+import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 
 export interface CouponRecord {
+  id?: string | number;
+  name?: string;
+  show?: boolean | number;
+  type?: 1 | 2;
+  code?: string;
+  value?: string | number;
+  limit_use?: string | number | null;
+  limit_use_with_user?: string | number | null;
+  limit_plan_ids?: string[] | null;
+  limit_period?: string[] | null;
+  generate_count?: string | number;
   started_at?: number | string | null;
   ended_at?: number | string | null;
 }
@@ -22,7 +34,7 @@ export function renderCouponLimit(limit: unknown) {
   return <Tag>{limit !== null ? limit : '无限'}</Tag>;
 }
 
-export function createReadonlyCouponColumns() {
+export function createReadonlyCouponColumns(): Record<'id' | 'name' | 'type' | 'limit_use' | 'started_at', ColumnProps<CouponRecord>> {
   return {
     id: { title: '#', dataIndex: 'id', key: 'id' },
     name: { title: '券名称', dataIndex: 'name', key: 'name' },
