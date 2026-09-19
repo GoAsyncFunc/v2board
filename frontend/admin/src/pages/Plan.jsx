@@ -19,7 +19,7 @@ import { LoadingContainer } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import ContextMenuTable from '../components/ContextMenuTable.jsx';
 import { createPlanGroupColumn } from '../components/PlanGroupColumn.jsx';
-import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns.jsx';
+import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns.tsx';
 import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns.jsx';
 
 import '../vendor/iconStyles.js';

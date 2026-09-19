@@ -16,7 +16,7 @@ import { LoadingContainer } from '../vendor/ui.js';
 import copy from '../vendor/clipboard.js';
 import moment from '../vendor/dateTime.js';
 import MainLayout from '../layouts/MainLayout.jsx';
-import { createReadonlyCouponColumns } from '../components/CouponDisplayColumns.jsx';
+import { createReadonlyCouponColumns } from '../components/CouponDisplayColumns.tsx';
 
 import '../vendor/iconStyles.js';
 

@@ -16,5 +16,5 @@ traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpressio
  }p.skip();}});
 if(columns.length!==4)throw Error('Expected 4 readonly columns');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-plan-resource.cjs',import.meta.url),'// Original readonly columns, extracted unchanged; write menus deliberately excluded.\nmodule.exports = function(m,h){return '+generate(t.arrayExpression(columns)).code+';};\n');
-ast.program.body.unshift(...parse("const { createReadonlyPlanResourceColumns } = require('../components/PlanResourceColumns.jsx'); const resourceColumns = createReadonlyPlanResourceColumns();",{sourceType:'script'}).program.body);
+ast.program.body.unshift(...parse("const { createReadonlyPlanResourceColumns } = require('../components/PlanResourceColumns.tsx'); const resourceColumns = createReadonlyPlanResourceColumns();",{sourceType:'script'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

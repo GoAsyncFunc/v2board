@@ -8,10 +8,11 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Fragment: 'Fragment', createElement: (type, props, ...children) => ({ type, props, children }) };
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-plan-resource.cjs' : '../src/components/PlanResourceColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-plan-resource.cjs' : '../src/components/PlanResourceColumns.tsx', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
+  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'tsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
+    if (id === 'antd/lib/icon') return 'Icon';
     if (id.includes('Icon')) return { a: 'Icon', Icon: 'Icon' };
         throw Error(id);
   } });

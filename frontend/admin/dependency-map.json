@@ -276,14 +276,6 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/CouponDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/CouponDisplayColumns.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/FilterDrawer.jsx",
     "to": "vendor/Divider.js"
   },
@@ -305,14 +297,6 @@
   },
   {
     "from": "components/FilterDrawer.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/GiftcardDisplayColumns.jsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/GiftcardDisplayColumns.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -394,10 +378,6 @@
   {
     "from": "components/PlanGroupColumn.jsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/PlanResourceColumns.jsx",
-    "to": "vendor/Icon.js"
   },
   {
     "from": "components/SendMailEditor.jsx",
@@ -1093,7 +1073,7 @@
   },
   {
     "from": "pages/Coupon.jsx",
-    "to": "components/CouponDisplayColumns.jsx"
+    "to": "components/CouponDisplayColumns.tsx"
   },
   {
     "from": "pages/Coupon.jsx",
@@ -1165,7 +1145,7 @@
   },
   {
     "from": "pages/Giftcard.jsx",
-    "to": "components/GiftcardDisplayColumns.jsx"
+    "to": "components/GiftcardDisplayColumns.tsx"
   },
   {
     "from": "pages/Giftcard.jsx",
@@ -1373,7 +1353,7 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "components/PlanResourceColumns.jsx"
+    "to": "components/PlanResourceColumns.tsx"
   },
   {
     "from": "pages/Plan.jsx",

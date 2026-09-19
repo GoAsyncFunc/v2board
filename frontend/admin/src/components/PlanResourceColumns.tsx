@@ -1,14 +1,14 @@
 import React from 'react';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 
 // Keep raw children: concatenating/interpolating would change null, objects and arrays.
-export function renderPlanCount(count) {
+export function renderPlanCount(count: unknown) {
   return <React.Fragment><Icon type="user" style={{ cursor: 'move' }} />{' '}{count}</React.Fragment>;
 }
-export function renderPlanTraffic(traffic) {
+export function renderPlanTraffic(traffic: unknown) {
   return <React.Fragment>{traffic}{' GB'}</React.Fragment>;
 }
-export function displayDeviceLimit(limit) {
+export function displayDeviceLimit(limit: unknown): unknown {
   return limit !== null ? limit : '-';
 }
 

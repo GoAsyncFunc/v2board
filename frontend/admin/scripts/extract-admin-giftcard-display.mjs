@@ -16,5 +16,5 @@ traverse(ast,{ArrayExpression(p){if(!p.node.elements.some(e=>t.isObjectExpressio
  }p.skip();}});
 if(columns.length!==7)throw Error('Expected 7 readonly columns');
 await fs.writeFile(new URL('../tests/fixtures/pages/admin-giftcard-display.cjs',import.meta.url),'// Original readonly columns, extracted unchanged; write menus deliberately excluded.\nmodule.exports = function(b,d,_,y){return '+generate(t.arrayExpression(columns)).code+';};\n');
-ast.program.body.unshift(...parse("const { createReadonlyGiftcardColumns } = require('../components/GiftcardDisplayColumns.jsx');",{sourceType:'script'}).program.body);
+ast.program.body.unshift(...parse("const { createReadonlyGiftcardColumns } = require('../components/GiftcardDisplayColumns.tsx');",{sourceType:'script'}).program.body);
 await fs.writeFile(file,generate(ast,{jsescOption:{minimal:true}}).code+'\n');

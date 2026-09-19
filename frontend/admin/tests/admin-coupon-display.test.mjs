@@ -6,15 +6,17 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React = { createElement: (type, props, ...children) => ({ type, props, children }) };
+const Tag = 'Tag';
 const moment = value => ({ format: pattern => `${value}:${pattern}` });
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-coupon-display.cjs' : '../src/components/CouponDisplayColumns.jsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-coupon-display.cjs' : '../src/components/CouponDisplayColumns.tsx', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'jsx' })).code, { module, exports: module.exports, require(id) {
+  vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'tsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
+    if (id === 'antd/lib/tag') return Tag;
     if (id.includes('antdTag')) return { a: 'Tag' };
-    if (id.includes('77642f52')) return moment;
+    if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
   } });
   return original ? module.exports({ a: React }, { a: 'Tag' }, () => moment) : Object.values(module.exports.createReadonlyCouponColumns());
