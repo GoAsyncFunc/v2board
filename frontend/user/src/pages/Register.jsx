@@ -11,70 +11,59 @@ import { localeSettings } from '../vendor/localeSettings.js';
 import '../vendor/iconStyles.js';
 
 class RegisterPage extends React.Component {
-  constructor(props) {
-    super(props), this.state = {
-      sendEmailVerifyTimeout: 60
-    };
-  }
+  state = { sendEmailVerifyTimeout: 60 };
   componentDidMount() {
     this.props.dispatch({
       type: "guest/getCommConfig"
     });
   }
   sendEmailVerify(recaptchaData) {
-    var page = this;
-    function startCountdown() {
+    const startCountdown = () => {
       setTimeout(() => {
-        0 !== page.state.sendEmailVerifyTimeout ? (page.setState({
-          sendEmailVerifyTimeout: page.state.sendEmailVerifyTimeout - 1
-        }), startCountdown()) : page.setState({
-          sendEmailVerifyTimeout: 60
-        });
-      }, 1e3);
-    }
+        if (this.state.sendEmailVerifyTimeout !== 0) {
+          this.setState({ sendEmailVerifyTimeout: this.state.sendEmailVerifyTimeout - 1 });
+          startCountdown();
+        } else {
+          this.setState({ sendEmailVerifyTimeout: 60 });
+        }
+      }, 1000);
+    };
     this.props.dispatch({
       type: "passport/sendEmailVerify",
       email: this.getEmail(),
       isforget: 0,
       recaptchaData,
-      callback: () => {
-        startCountdown();
-      }
+      callback: startCountdown,
     });
   }
   getEmail() {
-    var guest = this.props.guest,
-      commConfig = guest.commConfig,
-      emailSuffix = guest.selectEmailSuffix;
-    return commConfig.email_whitelist_suffix ? "".concat(this.refs.email.value, "@").concat(emailSuffix) : this.refs.email.value;
+    const { commConfig, selectEmailSuffix: emailSuffix } = this.props.guest;
+    return commConfig.email_whitelist_suffix
+      ? `${this.refs.email.value}@${emailSuffix}`
+      : this.refs.email.value;
   }
   register(recaptchaData) {
-    var commConfig = this.props.guest.commConfig;
-    !commConfig.tos_url || this.state.tosChecked ? this.refs.password.value === this.refs.repassword.value ? this.props.dispatch({
+    const { commConfig } = this.props.guest;
+    if (commConfig.tos_url && !this.state.tosChecked) {
+      notify('error', formatMessage({ id: '请求失败' }), formatMessage({ id: '请同意服务条款' }));
+      return;
+    }
+    if (this.refs.password.value !== this.refs.repassword.value) {
+      notify('error', formatMessage({ id: '请求失败' }), formatMessage({ id: '两次密码输入不同' }));
+      return;
+    }
+    this.props.dispatch({
       type: "passport/register",
       email: this.getEmail(),
       password: this.refs.password.value,
       inviteCode: this.refs.invite.value,
       emailCode: this.refs.email_code ? this.refs.email_code.value : "",
       recaptchaData
-    }) : notify("error", formatMessage({
-      id: "请求失败"
-    }), formatMessage({
-      id: "两次密码输入不同"
-    })) : notify("error", formatMessage({
-      id: "请求失败"
-    }), formatMessage({
-      id: "请同意服务条款"
-    }));
+    });
   }
   render() {
-    var passport = this.props.passport,
-      sendEmailVerifyLoading = passport.sendEmailVerifyLoading,
-      registerLoading = passport.registerLoading,
-      getCommConfigLoading = passport.getCommConfigLoading,
-      guest = this.props.guest,
-      commConfig = guest.commConfig,
-      emailSuffix = guest.selectEmailSuffix;
+    const { sendEmailVerifyLoading, registerLoading, getCommConfigLoading } = this.props.passport;
+    const { commConfig, selectEmailSuffix: emailSuffix } = this.props.guest;
     return <div id={"page-container"}>
                 <main id={"main-container"}>
                     <div className={"v2board-background"} style={{
