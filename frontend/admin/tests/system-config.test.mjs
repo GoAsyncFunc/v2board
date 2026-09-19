@@ -19,6 +19,7 @@ async function loadConfig() {
     ['subscribe', '../src/components/config/SubscribeConfigTab.jsx'],
     ['deposit', '../src/components/config/DepositConfigTab.jsx'],
     ['ticket', '../src/components/config/TicketConfigTab.jsx'],
+    ['invite', '../src/components/config/InviteConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -36,6 +37,7 @@ async function loadConfig() {
         if (id.includes('SubscribeConfigTab')) return components.subscribe;
         if (id.includes('DepositConfigTab')) return components.deposit;
         if (id.includes('TicketConfigTab')) return components.ticket;
+        if (id.includes('InviteConfigTab')) return components.invite;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -52,6 +54,7 @@ async function loadConfig() {
     SubscribeConfigTab: components.subscribe.default,
     DepositConfigTab: components.deposit.default,
     TicketConfigTab: components.ticket.default,
+    InviteConfigTab: components.invite.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -238,4 +241,45 @@ test('Ticket config tab preserves all ticket access options', async () => {
   assert.equal(select.children.length, 3);
   select.props.onChange({ target: { value: '2' } });
   assert.deepEqual(changes, [['ticket_status', '2']]);
+});
+
+test('Invite config tab preserves invitation, withdrawal and distribution controls', async () => {
+  const { InviteConfigTab } = await loadConfig();
+  const changes = [];
+  const invite = {
+    invite_force: 1, invite_commission: 10, invite_gen_limit: 5,
+    invite_never_expire: 0, commission_first_time_enable: 1,
+    commission_auto_check_enable: 0, commission_withdraw_limit: 100,
+    commission_withdraw_method: ['支付宝', 'USDT'], withdraw_close_enable: 0,
+    commission_distribution_enable: 1, commission_distribution_l1: 50,
+    commission_distribution_l2: 30, commission_distribution_l3: 20,
+  };
+  const tree = InviteConfigTab({
+    invite,
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const rendered = JSON.stringify(tree);
+  assert.match(rendered, /一级邀请人比例/);
+  assert.match(rendered, /三级邀请人比例/);
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  controls.find(control => control.props.defaultValue === 10)
+    .props.onChange({ target: { value: '20' } });
+  controls.find(control => Array.isArray(control.props.defaultValue))
+    .props.onChange({ target: { value: '支付宝,贝宝' } });
+  assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
+    ['invite_commission', 20],
+    ['commission_withdraw_method', ['支付宝', '贝宝']],
+  ]);
 });
