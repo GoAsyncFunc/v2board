@@ -5,7 +5,7 @@ import { ConfigProvider } from '../vendor/ui.js';
 import {
   enAntd, enData, enMessages, faAntd, faData, faMessages, intl,
   jaAntd, jaData, jaMessages, koAntd, koData, koMessages,
-  twAntd, twMessages, viAntd, viData, viMessages, zhAntd, zhData, zhMessages,
+  twAntd, viAntd, viData, viMessages, zhAntd, zhData, zhMessages,
 } from '../vendor/locales.js';
 import { mergeConfig } from '../vendor/appRuntime.js';
 import * as plugins from '../vendor/appRuntime.js';

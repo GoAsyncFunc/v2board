@@ -1,20 +1,19 @@
 export * as intl from './modules/intlRuntime.js';
 
-export { default as enMessages } from './modules/enMessages.js';
-export { default as faMessages } from './modules/faMessages.js';
-export { default as jaMessages } from './modules/jaMessages.js';
-export { default as koMessages } from './modules/koMessages.js';
-export { default as viMessages } from './modules/viMessages.js';
-export { default as zhMessages } from './modules/zhMessages.js';
-export { default as twMessages } from './modules/twMessages.js';
+export const enMessages = window.settings.i18n['en-US'];
+export const faMessages = window.settings.i18n['fa-IR'];
+export const jaMessages = window.settings.i18n['ja-JP'];
+export const koMessages = window.settings.i18n['ko-KR'];
+export const viMessages = window.settings.i18n['vi-VN'];
+export const zhMessages = window.settings.i18n['zh-CN'];
 
-export { default as enAntd } from './modules/enAntd.js';
-export { default as faAntd } from './modules/faAntd.js';
-export { default as jaAntd } from './modules/jaAntd.js';
-export { default as koAntd } from './modules/koAntd.js';
-export { default as viAntd } from './modules/viAntd.js';
-export { default as zhAntd } from './modules/zhAntd.js';
-export { default as twAntd } from './modules/twAntd.js';
+export { default as enAntd } from 'antd/lib/locale-provider/en_US';
+export { default as faAntd } from 'antd/lib/locale-provider/fa_IR';
+export { default as jaAntd } from 'antd/lib/locale-provider/ja_JP';
+export { default as koAntd } from 'antd/lib/locale-provider/ko_KR';
+export { default as viAntd } from 'antd/lib/locale-provider/vi_VN';
+export { default as zhAntd } from 'antd/lib/locale-provider/zh_CN';
+export { default as twAntd } from 'antd/lib/locale-provider/zh_TW';
 
 export { default as enData } from 'react-intl/locale-data/en';
 export { default as faData } from 'react-intl/locale-data/fa';

@@ -1525,63 +1525,7 @@
   },
   {
     "from": "vendor/locales.js",
-    "to": "vendor/modules/enAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/enMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/faAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/faMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
     "to": "vendor/modules/intlRuntime.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/jaAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/jaMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/koAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/koMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/twAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/twMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/viAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/viMessages.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/zhAntd.js"
-  },
-  {
-    "from": "vendor/locales.js",
-    "to": "vendor/modules/zhMessages.js"
   },
   {
     "from": "vendor/modules/antdCreateReactContext.js",
@@ -1608,42 +1552,6 @@
     "to": "vendor/modules/warning.js"
   },
   {
-    "from": "vendor/modules/antdEnglishLocale.js",
-    "to": "vendor/modules/antdDateLocaleEn.js"
-  },
-  {
-    "from": "vendor/modules/antdEnglishLocale.js",
-    "to": "vendor/modules/paginationLocaleEn.js"
-  },
-  {
-    "from": "vendor/modules/enAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/enAntd.js",
-    "to": "vendor/modules/antdEnglishLocale.js"
-  },
-  {
-    "from": "vendor/modules/enMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/faAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/faAntd.js",
-    "to": "vendor/modules/calendarLocaleFa.js"
-  },
-  {
-    "from": "vendor/modules/faAntd.js",
-    "to": "vendor/modules/paginationLocaleFa.js"
-  },
-  {
-    "from": "vendor/modules/faMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
     "from": "vendor/modules/globalUniqueId.js",
     "to": "vendor/modules/globalObjectLegacy.js"
   },
@@ -1664,38 +1572,6 @@
     "to": "vendor/modules/nonIterableRest.js"
   },
   {
-    "from": "vendor/modules/jaAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/jaAntd.js",
-    "to": "vendor/modules/calendarLocaleJa.js"
-  },
-  {
-    "from": "vendor/modules/jaAntd.js",
-    "to": "vendor/modules/paginationLocaleJa.js"
-  },
-  {
-    "from": "vendor/modules/jaMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/koAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/koAntd.js",
-    "to": "vendor/modules/calendarLocaleKo.js"
-  },
-  {
-    "from": "vendor/modules/koAntd.js",
-    "to": "vendor/modules/paginationLocaleKo.js"
-  },
-  {
-    "from": "vendor/modules/koMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
     "from": "vendor/modules/objectWithoutPropertiesLoose.js",
     "to": "vendor/modules/objectWithoutProperties.js"
   },
@@ -1706,54 +1582,6 @@
   {
     "from": "vendor/modules/propTypesRuntime.js",
     "to": "vendor/modules/propTypesFactory.js"
-  },
-  {
-    "from": "vendor/modules/twAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/twAntd.js",
-    "to": "vendor/modules/calendarLocaleZhHant.js"
-  },
-  {
-    "from": "vendor/modules/twAntd.js",
-    "to": "vendor/modules/paginationLocaleZhHant.js"
-  },
-  {
-    "from": "vendor/modules/twMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/viAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/viAntd.js",
-    "to": "vendor/modules/calendarLocaleVi.js"
-  },
-  {
-    "from": "vendor/modules/viAntd.js",
-    "to": "vendor/modules/paginationLocaleVi.js"
-  },
-  {
-    "from": "vendor/modules/viMessages.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/zhAntd.js",
-    "to": "app/moduleInterop.js"
-  },
-  {
-    "from": "vendor/modules/zhAntd.js",
-    "to": "vendor/modules/calendarLocaleZhHans.js"
-  },
-  {
-    "from": "vendor/modules/zhAntd.js",
-    "to": "vendor/modules/paginationLocaleZhHans.js"
-  },
-  {
-    "from": "vendor/modules/zhMessages.js",
-    "to": "app/moduleInterop.js"
   },
   {
     "from": "vendor/rootRuntime.js",
