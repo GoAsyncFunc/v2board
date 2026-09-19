@@ -23,7 +23,10 @@ class InvitePage extends React.Component {
   componentDidMount() {
     this.props.dispatch({
       type: "user/getUserInfo"
-    }), this.getCommissionDetails(), this.fetchData(), this.props.dispatch({
+    });
+    this.getCommissionDetails();
+    this.fetchData();
+    this.props.dispatch({
       type: "comm/config"
     });
   }
@@ -43,17 +46,18 @@ class InvitePage extends React.Component {
     });
   }
   render() {
-    var inviteState = this.props.invite,
-      stats = inviteStatinviteState.stat,
-      inviteCodes = inviteStatinviteCodes,
-      commissionRecords = inviteStatcommissionRecords,
-      detailsLoading = inviteState.detailsLoading,
-      fetchLoading = inviteState.fetchLoading,
-      saveLoading = inviteState.saveLoading,
-      detailsPagination = inviteState.detailsPagination,
-      config = this.props.comm.config,
-      userInfo = this.props.user.userInfo,
-      inviteCodeColumns = [{
+    const {
+      stat: stats,
+      codes: inviteCodes,
+      invites: commissionRecords,
+      detailsLoading,
+      fetchLoading,
+      saveLoading,
+      detailsPagination,
+    } = this.props.invite;
+    const { config } = this.props.comm;
+    const { userInfo } = this.props.user;
+    const inviteCodeColumns = [{
         title: formatMessage({
           id: "邀请码"
         }),
@@ -63,7 +67,8 @@ class InvitePage extends React.Component {
           return React.createElement(React.Fragment, null, <span>{e}</span>, <a style={{
             marginLeft: 5
           }} href={"javascript:void(0);"} onClick={() => {
-            copy()(window.location.origin + window.location.pathname + "#/register?code=" + e), message.success(formatMessage({
+            copy(window.location.origin + window.location.pathname + "#/register?code=" + e);
+            message.success(formatMessage({
               id: "复制成功"
             }));
           }}>
@@ -72,13 +77,13 @@ class InvitePage extends React.Component {
             })}
                             </a>);
         }
-      }, createInviteCodeDateColumn()],
-      commissionColumns = createReadonlyCommissionColumns();
-    return React.createElement(MainLayout, o()({}, this.props, {
+      }, createInviteCodeDateColumn()];
+    const commissionColumns = createReadonlyCommissionColumns();
+    return React.createElement(MainLayout, { ...this.props,
       title: formatMessage({
         id: "我的邀请"
       })
-    }), <main id={"main-container"}>
+    }, <main id={"main-container"}>
                 <div className={"content content-full"}>
                     <div className={"row mb-3 mb-md-0"}>
                         <div className={"col-md-12"}>
