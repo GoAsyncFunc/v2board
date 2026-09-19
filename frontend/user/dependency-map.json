@@ -993,6 +993,10 @@
   },
   {
     "from": "pages/Order.jsx",
+    "to": "components/MobileList.jsx"
+  },
+  {
+    "from": "pages/Order.jsx",
     "to": "components/MoneyDisplay.jsx"
   },
   {
@@ -1002,10 +1006,6 @@
   {
     "from": "pages/Order.jsx",
     "to": "layouts/MainLayout.jsx"
-  },
-  {
-    "from": "pages/Order.jsx",
-    "to": "vendor/MobileList.js"
   },
   {
     "from": "pages/Order.jsx",

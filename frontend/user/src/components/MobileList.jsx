@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
+// Recovered mobile order-list primitives.
 class Touchable extends React.Component {
   static defaultProps = { disabled: false };
 
