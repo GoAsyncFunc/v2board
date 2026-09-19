@@ -70,6 +70,7 @@ test('user i18n runtime delegates messages and reloads locale without refreshing
 
 test('user IntlApiBridge injects the react-intl API before rendering children', async () => {
   const injected = [];
+  const pluginCalls = [];
   class Component {
     constructor(props) { this.props = props; }
   }
@@ -91,7 +92,11 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
     require(id) {
       if (id === 'react') return React;
       if (id.includes('appRuntime')) {
-        return { routeRenderer() {}, mergeConfig: () => ({}), applyForEach() {} };
+        return {
+          routeRenderer() {},
+          mergeConfig: () => ({}),
+          applyForEach: key => pluginCalls.push(key),
+        };
       }
       if (id.includes('/dva')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
       if (id.includes('/ui')) return { ConfigProvider: 'ConfigProvider' };
@@ -112,6 +117,10 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
       throw new Error(`Unexpected dependency ${id}`);
     },
   });
+
+  assert.deepEqual(pluginCalls, [], 'Router module evaluation must not access plugins before bootstrap initializes them');
+  new routerModule.default({});
+  assert.deepEqual(pluginCalls, ['patchRoutes', 'onRouteChange']);
 
   const intl = { formatMessage: ({ id }) => id };
   const bridge = new routerModule.IntlApiBridge({ intl, children: 'page' });

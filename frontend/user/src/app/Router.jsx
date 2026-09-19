@@ -35,7 +35,6 @@ const localeData = {
 
 export const routes = appRoutes;
 window.g_routes = routes;
-plugins.applyForEach('patchRoutes', { initialValue: routes });
 
 export class IntlApiBridge extends React.Component {
   render() {
@@ -106,6 +105,7 @@ export class LocaleProvider extends React.Component {
 export default class Router extends React.Component {
   constructor(props) {
     super(props);
+    plugins.applyForEach('patchRoutes', { initialValue: routes });
     const onRouteChange = (location, action) => {
       plugins.applyForEach('onRouteChange', {
         initialValue: { routes, location, action },
