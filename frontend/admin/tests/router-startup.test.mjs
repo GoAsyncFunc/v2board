@@ -5,10 +5,10 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 test('admin Router accesses plugins only after bootstrap initializes them', async () => {
-  const source = await fs.readFile(new URL('../src/app/Router.jsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/app/Router.tsx', import.meta.url), 'utf8');
   const code = (await transform(source, {
     format: 'cjs',
-    loader: 'jsx',
+    loader: 'tsx',
     jsxFactory: 'React.createElement',
   })).code;
   const module = { exports: {} };

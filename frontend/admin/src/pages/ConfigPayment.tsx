@@ -11,7 +11,7 @@ import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../components/LoadingContainer';
 import Sortable from '../components/Sortable';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn';
 import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { AdminDispatch } from '../types/store';

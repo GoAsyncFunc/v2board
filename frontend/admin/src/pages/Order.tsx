@@ -13,7 +13,7 @@ import AssignOrderEditor from '../components/AssignOrderEditor';
 import LoadingContainer from '../components/LoadingContainer';
 import history from '../vendor/routerHistory.js';
 import { get, post } from '../services/request.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
 import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';
 import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';

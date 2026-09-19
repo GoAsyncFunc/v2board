@@ -8,7 +8,7 @@ import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { RadioChangeEvent } from 'antd/lib/radio/interface';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../components/TicketDisplayColumns';
 import type { AdminDispatch } from '../types/store';

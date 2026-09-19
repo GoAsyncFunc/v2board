@@ -1,23 +1,23 @@
 [
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "app/history.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "app/routes.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/Router.jsx",
+    "from": "app/Router.tsx",
     "to": "vendor/dva.js"
   },
   {
     "from": "app/bootstrap.js",
-    "to": "app/Router.jsx"
+    "to": "app/Router.tsx"
   },
   {
     "from": "app/bootstrap.js",
@@ -424,59 +424,39 @@
     "to": "components/config/ConfigRow.tsx"
   },
   {
-    "from": "layouts/Header.jsx",
+    "from": "layouts/Header.tsx",
+    "to": "app/history.js"
+  },
+  {
+    "from": "layouts/Header.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "layouts/Header.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "layouts/Header.jsx",
-    "to": "vendor/routerHistory.js"
-  },
-  {
-    "from": "layouts/Header.jsx",
+    "from": "layouts/Header.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "layouts/Header.jsx",
-    "to": "vendor/theme.js"
+    "from": "layouts/MainLayout.tsx",
+    "to": "app/history.js"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "layouts/Header.jsx"
+    "from": "layouts/MainLayout.tsx",
+    "to": "layouts/Header.tsx"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "layouts/Sidebar.jsx"
+    "from": "layouts/MainLayout.tsx",
+    "to": "layouts/Sidebar.tsx"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/content.js"
+    "from": "layouts/Sidebar.tsx",
+    "to": "app/history.js"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/reactRedux.js"
+    "from": "layouts/Sidebar.tsx",
+    "to": "config/navigation.tsx"
   },
   {
-    "from": "layouts/MainLayout.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
-    "to": "config/navigation.jsx"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
-    "to": "vendor/routerHistory.js"
-  },
-  {
-    "from": "layouts/Sidebar.jsx",
+    "from": "layouts/Sidebar.tsx",
     "to": "vendor/siteSettings.js"
   },
   {
@@ -709,7 +689,7 @@
   },
   {
     "from": "pages/ConfigPayment.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ConfigPayment.tsx",
@@ -761,11 +741,11 @@
   },
   {
     "from": "pages/ConfigSystem.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ConfigTheme.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ConfigTheme.tsx",
@@ -781,7 +761,7 @@
   },
   {
     "from": "pages/Coupon.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Coupon.tsx",
@@ -797,7 +777,7 @@
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Dashboard.tsx",
@@ -821,7 +801,7 @@
   },
   {
     "from": "pages/Giftcard.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Giftcard.tsx",
@@ -849,7 +829,7 @@
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Knowledge.tsx",
@@ -881,7 +861,7 @@
   },
   {
     "from": "pages/Notice.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Notice.tsx",
@@ -909,7 +889,7 @@
   },
   {
     "from": "pages/Order.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Order.tsx",
@@ -957,7 +937,7 @@
   },
   {
     "from": "pages/Plan.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Plan.tsx",
@@ -973,7 +953,7 @@
   },
   {
     "from": "pages/Queue.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ServerGroup.tsx",
@@ -989,7 +969,7 @@
   },
   {
     "from": "pages/ServerGroup.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ServerGroup.tsx",
@@ -1053,7 +1033,7 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
@@ -1077,7 +1057,7 @@
   },
   {
     "from": "pages/ServerRoute.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ServerRoute.tsx",
@@ -1097,7 +1077,7 @@
   },
   {
     "from": "pages/Ticket.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Ticket.tsx",
@@ -1161,7 +1141,7 @@
   },
   {
     "from": "pages/User.tsx",
-    "to": "layouts/MainLayout.jsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/User.tsx",

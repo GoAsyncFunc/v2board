@@ -17,7 +17,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import Sortable from '../components/Sortable';
 import PermissionGroupEditor from '../components/PermissionGroupEditor';
 import LoadingContainer from '../components/LoadingContainer';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import ContextMenuTable from '../components/ContextMenuTable';
 import { createPlanGroupColumn, type PlanGroup } from '../components/PlanGroupColumn';
 import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns';

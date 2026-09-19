@@ -8,7 +8,7 @@ import {
 } from '../vendor/appRuntime.js';
 import { appDvaConfig } from '../vendor/appRuntime.js';
 
-import Router from './Router.jsx';
+import Router from './Router';
 import { createApp } from './store.js';
 
 window.g_plugins = plugins;

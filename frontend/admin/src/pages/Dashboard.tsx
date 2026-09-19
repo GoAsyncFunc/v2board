@@ -13,7 +13,7 @@ import {
 import { LabelLayout } from 'echarts/features';
 import { SVGRenderer } from 'echarts/renderers';
 import history from '../vendor/routerHistory.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request.js';
 import { siteSettings } from '../vendor/siteSettings.js';
 import { formatIncome, formatLiveCount, type DisplayScalar } from '../components/MoneyDisplay';

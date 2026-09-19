@@ -16,7 +16,7 @@ import LoadingContainer from '../components/LoadingContainer';
 import TrafficPanel from '../components/TrafficPanel';
 import history from '../vendor/routerHistory.js';
 import { copyToClipboard, setPreference } from '../vendor/siteHelpers.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import UserEditor from '../components/UserEditor';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
 import ContextMenuTable from '../components/ContextMenuTable';

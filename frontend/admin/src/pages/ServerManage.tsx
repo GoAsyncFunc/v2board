@@ -18,7 +18,7 @@ import { Prompt } from 'react-router-dom';
 import Sortable from '../components/Sortable';
 import LoadingContainer from '../components/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../vendor/siteHelpers.js';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import ContextMenuTable from '../components/ContextMenuTable';
 import ShadowsocksEditor from '../components/ShadowsocksEditor';
 import VmessEditor from '../components/VmessEditor';

@@ -9,7 +9,7 @@ import Select from 'antd/lib/select';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../components/LoadingContainer';
-import MainLayout from '../layouts/MainLayout.jsx';
+import MainLayout from '../layouts/MainLayout';
 import { createRouteActionColumn } from '../components/RouteActionColumn';
 import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns';
 import { settings } from '../vendor/adminSettings.js';
