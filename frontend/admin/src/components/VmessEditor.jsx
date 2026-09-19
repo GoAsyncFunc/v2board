@@ -10,7 +10,7 @@ import { Divider } from '../vendor/Divider.js';
 import { Switch } from '../vendor/ui.js';
 import { notification } from '../vendor/notification.js';
 import PermissionGroupEditor from './PermissionGroupEditor.jsx';
-import JsonEditor from './JsonEditor.jsx';
+import JsonEditor from './JsonEditor.tsx';
 
 import '../vendor/iconStyles.js';
 

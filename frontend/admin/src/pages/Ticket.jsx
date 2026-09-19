@@ -1,7 +1,8 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
-import { Table, Input, Radio, Badge, LoadingContainer } from '../vendor/ui.js';
+import { Table, Input, Radio, Badge } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { Divider } from '../vendor/Divider.js';
 import { assignProps as mergeProps } from '../vendor/utilities.js';
 import { createReadonlyTicketColumns } from '../components/TicketDisplayColumns.ts';

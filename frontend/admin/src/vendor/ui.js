@@ -1,4 +1,3 @@
-import React from 'react';
 import Badge from 'antd/lib/badge';
 import Button from 'antd/lib/button';
 import Checkbox from 'antd/lib/checkbox';
@@ -13,7 +12,6 @@ import Menu from 'antd/lib/menu';
 import message from 'antd/lib/message';
 import Radio from 'antd/lib/radio';
 import Row from 'antd/lib/row';
-import AntSpin from 'antd/lib/spin';
 import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
@@ -23,22 +21,6 @@ import Tooltip from 'antd/lib/tooltip';
 
 export { default as Sortable } from './sortable.js';
 
-class LoadingContainer extends React.Component {
-  render() {
-    return React.createElement(
-      AntSpin,
-      {
-        spinning: this.props.loading,
-        indicator: React.createElement('div', { className: 'spinner-grow text-primary' }),
-      },
-      this.props.children,
-    );
-  }
-}
-
-// These aliases preserve the behavior of the recovered production bundle.
-const Spin = LoadingContainer;
-const LoadingIndicator = LoadingContainer;
 const notification = message;
 const Modal = Drawer;
 const ButtonGroup = Button.Group;
@@ -55,8 +37,6 @@ export {
   Dropdown,
   Input,
   List,
-  LoadingContainer,
-  LoadingIndicator,
   Menu,
   message,
   Modal,
@@ -64,7 +44,6 @@ export {
   Radio,
   Row,
   Select,
-  Spin,
   Switch,
   Table,
   Tabs,

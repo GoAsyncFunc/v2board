@@ -1,14 +1,15 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
-import { Table, LoadingContainer } from '../vendor/ui.js';
+import { Table } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { createReadonlyQueueColumns } from '../components/QueueDisplayColumns.ts';
 
 import '../vendor/dateTime.js';
 import '../vendor/siteHelpers.js';
 import '../components/UserEditor.jsx';
 import '../components/FilterDrawer.jsx';
-import '../components/ContextMenuTable.jsx';
+import '../components/ContextMenuTable.tsx';
 import '../components/ShadowsocksEditor.jsx';
 import '../components/VmessEditor.jsx';
 import '../components/TrojanEditor.jsx';

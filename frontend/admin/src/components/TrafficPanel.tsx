@@ -1,11 +1,38 @@
 import React from 'react';
 import moment from 'moment';
-import Modal from '../vendor/Modal.js';
-import { LoadingContainer, Table } from '../vendor/ui.js';
+import Modal from 'antd/lib/modal';
+import Table from 'antd/lib/table';
+import type { PaginationConfig } from 'antd/lib/pagination';
+import type { ColumnProps } from 'antd/lib/table/interface';
+import LoadingContainer from './LoadingContainer';
 import { get } from '../services/request.js';
 import { formatBytes } from '../vendor/siteHelpers.js';
 
-export default class TrafficPanel extends React.Component {
+export interface TrafficRecord {
+  record_at: number;
+  u: unknown;
+  d: unknown;
+  server_rate: React.ReactNode;
+  [key: string]: unknown;
+}
+
+export interface TrafficPanelProps {
+  userId: string | number;
+  children: React.ReactElement;
+}
+
+interface TrafficPanelState {
+  visible: boolean;
+  records: TrafficRecord[];
+  loading: boolean;
+  pagination: PaginationConfig & { page?: number };
+}
+
+export function formatTrafficDate(value: number): string {
+  return moment(1000 * value).format('YYYY-MM-DD');
+}
+
+export default class TrafficPanel extends React.Component<TrafficPanelProps, TrafficPanelState> {
   state = {
     visible: false,
     records: [],
@@ -18,10 +45,10 @@ export default class TrafficPanel extends React.Component {
     this.loadRecords();
   };
 
-  loadRecords = async () => {
+  loadRecords = async (): Promise<void> => {
     const { pagination } = this.state;
     this.setState({ loading: true });
-    const response = await get(`/${window.settings.secure_path}/stat/getStatUser`, {
+    const response = await get<TrafficRecord[]>(`/${window.settings.secure_path}/stat/getStatUser`, {
       user_id: this.props.userId,
       ...pagination,
     });
@@ -33,13 +60,13 @@ export default class TrafficPanel extends React.Component {
     });
   };
 
-  changePage = pagination => this.setState({ pagination }, this.loadRecords);
+  changePage = (pagination: PaginationConfig): void => this.setState({ pagination }, this.loadRecords);
 
   render() {
     const { children } = this.props;
     const { visible, records, pagination, loading } = this.state;
-    const columns = [
-      { title: '日期', dataIndex: 'record_at', key: 'record_at', render: value => moment(1000 * value).format('YYYY-MM-DD') },
+    const columns: ColumnProps<TrafficRecord>[] = [
+      { title: '日期', dataIndex: 'record_at', key: 'record_at', render: formatTrafficDate },
       { title: '上行', dataIndex: 'u', key: 'u', align: 'right', render: formatBytes },
       { title: '下行', dataIndex: 'd', key: 'd', align: 'right', render: formatBytes },
       { title: '倍率', dataIndex: 'server_rate', key: 'server_rate', align: 'right' },
@@ -58,7 +85,7 @@ export default class TrafficPanel extends React.Component {
           onCancel={() => this.setState({ visible: false })}
         >
           <LoadingContainer loading={loading}>
-            <Table
+            <Table<TrafficRecord>
               pagination={{ ...pagination, size: 'small' }}
               columns={columns}
               dataSource={records}

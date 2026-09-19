@@ -10,7 +10,7 @@ import { Modal } from '../vendor/Modal.js';
 import { Divider } from '../vendor/Divider.js';
 import { Tag } from '../vendor/ui.js';
 import { message } from '../vendor/ui.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import copy from '../vendor/clipboard.js';
 import moment from '../vendor/dateTime.js';
 import MainLayout from '../layouts/MainLayout.jsx';

@@ -25,9 +25,10 @@ async function loadPage(userAgent = 'desktop') {
       if (id === 'react') return React;
       if (id.includes('reactRedux')) return { connect: () => Page => Page };
       if (id.includes('MainLayout')) return 'Layout';
+      if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('ui.js')) return {
         Table: 'Table', Input: 'Input', Radio: { Group: 'RadioGroup', Button: 'RadioButton' },
-        Badge: 'Badge', LoadingContainer: 'LoadingContainer',
+        Badge: 'Badge',
       };
       if (id.includes('Divider.js')) return { Divider: 'Divider' };
       if (id.includes('utilities')) return { assignProps: Object.assign };

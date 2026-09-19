@@ -12,7 +12,7 @@ import { Tag } from '../vendor/ui.js';
 import { message } from '../vendor/ui.js';
 import { Switch } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import copy from '../vendor/clipboard.js';
 import moment from '../vendor/dateTime.js';
 import MainLayout from '../layouts/MainLayout.jsx';

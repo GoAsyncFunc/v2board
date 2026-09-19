@@ -26,6 +26,7 @@ async function loadPage() {
       if (id === 'react') return React;
       if (id.includes('reactRedux')) return { connect: () => Page => Page };
       if (id.includes('MainLayout')) return 'Layout';
+      if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('Modal')) return { Modal: 'Modal' };
       if (id.includes('ui.js')) return {
         Select: 'Select',
@@ -33,7 +34,6 @@ async function loadPage() {
         Table: 'Table',
         Button: 'Button',
         Switch: 'Switch',
-        LoadingContainer: 'LoadingContainer',
       };
       if (id.includes('Divider.js')) return { Divider: 'Divider' };
       if (id.includes('Icon.js')) return { Icon: 'Icon' };

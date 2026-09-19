@@ -1,7 +1,8 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
-import { Table, Button, LoadingContainer } from '../vendor/ui.js';
+import { Table, Button } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { Divider } from '../vendor/Divider.js';
 import { Icon } from '../vendor/Icon.js';
 import PermissionGroupEditor from '../components/PermissionGroupEditor.jsx';

@@ -1,7 +1,14 @@
 import React from 'react';
-import { Table } from '../vendor/ui.js';
+import Table from 'antd/lib/table';
+import type { TableEventListeners, TableProps } from 'antd/lib/table/interface';
 
-export class ContextMenuTable extends React.Component {
+export interface ContextMenuTableProps<RecordType> extends TableProps<RecordType> {
+  children?: React.ReactNode;
+  disableRightClick?: boolean;
+  onContextMenu?: (record: RecordType | undefined) => void;
+}
+
+export class ContextMenuTable<RecordType extends object = Record<string, unknown>> extends React.Component<ContextMenuTableProps<RecordType>> {
   getMenuElement() {
     return document.getElementById('v2board-table-dropdown');
   }
@@ -11,7 +18,7 @@ export class ContextMenuTable extends React.Component {
     if (menu) menu.style.display = 'none';
   }
 
-  showMenu(event, record) {
+  showMenu(event: React.MouseEvent<Element>, record: RecordType): void {
     if (!this.props.onContextMenu) return;
     event.preventDefault();
     this.props.onContextMenu(record);
@@ -22,21 +29,21 @@ export class ContextMenuTable extends React.Component {
     menu.style.display = 'unset';
   }
 
-  rowEvents(record) {
+  rowEvents(record: RecordType): TableEventListeners | undefined {
     if (this.props.disableRightClick) return undefined;
     return {
       onClick: () => {
         if (this.props.onContextMenu) this.props.onContextMenu(undefined);
         this.hideMenu();
       },
-      onContextMenu: event => this.showMenu(event, record),
+      onContextMenu: (event: React.MouseEvent<Element>) => this.showMenu(event, record),
     };
   }
 
   render() {
     const { children, disableRightClick, onContextMenu, ...tableProps } = this.props;
     return <>
-      <Table {...tableProps} onRow={record => this.rowEvents(record)} />
+      <Table<RecordType> {...tableProps} onRow={record => this.rowEvents(record) as TableEventListeners} />
       <div
         id="v2board-table-dropdown"
         className="ant-dropdown ant-dropdown-placement-bottomLeft"

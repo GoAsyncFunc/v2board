@@ -229,7 +229,7 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
-    "to": "components/JsonEditor.jsx"
+    "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/AnyTlsEditor.jsx",
@@ -269,10 +269,6 @@
   },
   {
     "from": "components/AssignOrderEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/ContextMenuTable.jsx",
     "to": "vendor/ui.js"
   },
   {
@@ -372,24 +368,20 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "components/TrafficPanel.jsx",
+    "from": "components/TrafficPanel.tsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "components/TrafficPanel.tsx",
     "to": "services/request.js"
   },
   {
-    "from": "components/TrafficPanel.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/TrafficPanel.jsx",
+    "from": "components/TrafficPanel.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "components/TrafficPanel.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "components/TrojanEditor.jsx",
-    "to": "components/JsonEditor.jsx"
+    "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/TrojanEditor.jsx",
@@ -465,7 +457,7 @@
   },
   {
     "from": "components/V2NodeEditor.jsx",
-    "to": "components/JsonEditor.jsx"
+    "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/V2NodeEditor.jsx",
@@ -493,7 +485,7 @@
   },
   {
     "from": "components/VlessEditor.jsx",
-    "to": "components/JsonEditor.jsx"
+    "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -525,7 +517,7 @@
   },
   {
     "from": "components/VmessEditor.jsx",
-    "to": "components/JsonEditor.jsx"
+    "to": "components/JsonEditor.tsx"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -901,6 +893,10 @@
   },
   {
     "from": "pages/ConfigPayment.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/ConfigPayment.jsx",
     "to": "components/PaymentDisplayColumns.ts"
   },
   {
@@ -1017,6 +1013,10 @@
   },
   {
     "from": "pages/Coupon.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/Coupon.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -1089,6 +1089,10 @@
   },
   {
     "from": "pages/Giftcard.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/Giftcard.jsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
@@ -1133,7 +1137,11 @@
   },
   {
     "from": "pages/Knowledge.jsx",
-    "to": "components/MarkdownEditor.jsx"
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/Knowledge.jsx",
+    "to": "components/MarkdownEditor.tsx"
   },
   {
     "from": "pages/Knowledge.jsx",
@@ -1189,6 +1197,10 @@
   },
   {
     "from": "pages/Notice.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/Notice.jsx",
     "to": "components/NoticeDisplayColumns.ts"
   },
   {
@@ -1230,6 +1242,10 @@
   {
     "from": "pages/Order.jsx",
     "to": "components/FilterDrawer.jsx"
+  },
+  {
+    "from": "pages/Order.jsx",
+    "to": "components/LoadingContainer.tsx"
   },
   {
     "from": "pages/Order.jsx",
@@ -1277,7 +1293,11 @@
   },
   {
     "from": "pages/Plan.jsx",
-    "to": "components/ContextMenuTable.jsx"
+    "to": "components/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/Plan.jsx",
+    "to": "components/LoadingContainer.tsx"
   },
   {
     "from": "pages/Plan.jsx",
@@ -1321,11 +1341,15 @@
   },
   {
     "from": "pages/Queue.jsx",
-    "to": "components/ContextMenuTable.jsx"
+    "to": "components/ContextMenuTable.tsx"
   },
   {
     "from": "pages/Queue.jsx",
     "to": "components/FilterDrawer.jsx"
+  },
+  {
+    "from": "pages/Queue.jsx",
+    "to": "components/LoadingContainer.tsx"
   },
   {
     "from": "pages/Queue.jsx",
@@ -1369,6 +1393,10 @@
   },
   {
     "from": "pages/ServerGroup.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/ServerGroup.jsx",
     "to": "components/PermissionGroupEditor.jsx"
   },
   {
@@ -1405,11 +1433,15 @@
   },
   {
     "from": "pages/ServerManage.jsx",
-    "to": "components/ContextMenuTable.jsx"
+    "to": "components/ContextMenuTable.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",
     "to": "components/HysteriaEditor.jsx"
+  },
+  {
+    "from": "pages/ServerManage.jsx",
+    "to": "components/LoadingContainer.tsx"
   },
   {
     "from": "pages/ServerManage.jsx",
@@ -1485,6 +1517,10 @@
   },
   {
     "from": "pages/ServerRoute.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/ServerRoute.jsx",
     "to": "components/RouteActionColumn.ts"
   },
   {
@@ -1525,6 +1561,10 @@
   },
   {
     "from": "pages/Ticket.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/Ticket.jsx",
     "to": "components/TicketDisplayColumns.ts"
   },
   {
@@ -1557,7 +1597,7 @@
   },
   {
     "from": "pages/TicketDetail.jsx",
-    "to": "components/TrafficPanel.jsx"
+    "to": "components/TrafficPanel.tsx"
   },
   {
     "from": "pages/TicketDetail.jsx",
@@ -1593,7 +1633,7 @@
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/ContextMenuTable.jsx"
+    "to": "components/ContextMenuTable.tsx"
   },
   {
     "from": "pages/User.jsx",
@@ -1601,11 +1641,15 @@
   },
   {
     "from": "pages/User.jsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/User.jsx",
     "to": "components/SendMailEditor.jsx"
   },
   {
     "from": "pages/User.jsx",
-    "to": "components/TrafficPanel.jsx"
+    "to": "components/TrafficPanel.tsx"
   },
   {
     "from": "pages/User.jsx",

@@ -6,7 +6,7 @@ const packageJson = JSON.parse(
   await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
 );
 const editorSource = await fs.readFile(
-  new URL('../src/components/JsonEditor.jsx', import.meta.url),
+  new URL('../src/components/JsonEditor.tsx', import.meta.url),
   'utf8',
 );
 

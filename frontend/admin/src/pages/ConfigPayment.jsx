@@ -8,7 +8,7 @@ import { Switch } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { Sortable } from '../vendor/ui.js';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn.tsx';

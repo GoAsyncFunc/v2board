@@ -22,7 +22,8 @@ async function loadPage() {
       if (id === 'react') return React;
       if (id.includes('reactRedux')) return { connect: () => Page => Page };
       if (id.includes('MainLayout')) return 'Layout';
-      if (id.includes('ui.js')) return { Table: 'Table', LoadingContainer: 'LoadingContainer' };
+      if (id.includes('LoadingContainer')) return 'LoadingContainer';
+      if (id.includes('ui.js')) return { Table: 'Table' };
       if (id.includes('QueueDisplayColumns')) return { createReadonlyQueueColumns: () => [{ key: 'name' }] };
       if (/dateTime|siteHelpers|UserEditor|FilterDrawer|ContextMenuTable|ShadowsocksEditor|VmessEditor|TrojanEditor/.test(id)) return {};
       throw new Error(id);

@@ -2,10 +2,11 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { connect } from '../vendor/reactRedux.js';
 import { Modal } from '../vendor/Modal.js';
-import { Select, Input, Table, Button, Switch, LoadingContainer } from '../vendor/ui.js';
+import { Select, Input, Table, Button, Switch } from '../vendor/ui.js';
 import { Divider } from '../vendor/Divider.js';
 import { Icon } from '../vendor/Icon.js';
 import { createReadonlyNoticeColumns } from '../components/NoticeDisplayColumns.ts';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import '../vendor/iconStyles.js';
 import '../vendor/dateTime.js';
 

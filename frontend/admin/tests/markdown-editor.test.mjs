@@ -6,7 +6,7 @@ const packageJson = JSON.parse(
   await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
 );
 const componentSource = await fs.readFile(
-  new URL('../src/components/MarkdownEditor.jsx', import.meta.url),
+  new URL('../src/components/MarkdownEditor.tsx', import.meta.url),
   'utf8',
 );
 const componentStyles = await fs.readFile(

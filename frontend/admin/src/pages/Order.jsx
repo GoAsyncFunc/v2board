@@ -11,7 +11,7 @@ import { Modal } from '../vendor/Modal.js';
 import { settings } from '../vendor/adminSettings.js';
 import AssignOrderEditor from '../components/AssignOrderEditor.jsx';
 import { ButtonGroup } from '../vendor/ui.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import history from '../vendor/routerHistory.js';
 import { get, post } from '../services/request.js';
 import MainLayout from '../layouts/MainLayout.jsx';

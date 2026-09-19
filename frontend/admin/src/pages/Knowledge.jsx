@@ -12,7 +12,7 @@ import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { message } from '../vendor/ui.js';
 import { settings } from '../vendor/adminSettings.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { loadable, resolveDefaultExport } from '../vendor/utilities.js';
 import { MarkdownIt } from '../vendor/utilities.js';
 import MainLayout from '../layouts/MainLayout.jsx';
@@ -22,7 +22,7 @@ import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyKnowledgeColumns();
 const MarkdownEditor = loadable({
-  loader: () => import('../components/MarkdownEditor.jsx').then(resolveDefaultExport),
+  loader: () => import('../components/MarkdownEditor.tsx').then(resolveDefaultExport),
   loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });

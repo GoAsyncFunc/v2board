@@ -4,7 +4,7 @@ import { Table } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Divider } from '../vendor/Divider.js';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer.tsx';
 import { Modal } from '../vendor/Modal.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
