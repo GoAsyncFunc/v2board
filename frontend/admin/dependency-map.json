@@ -640,6 +640,10 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "components/config/DepositConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
+  },
+  {
     "from": "components/config/SafeConfigTab.jsx",
     "to": "components/config/ConfigRow.jsx"
   },
@@ -662,6 +666,10 @@
   {
     "from": "components/config/SubscribeConfigTab.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/config/TicketConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
   },
   {
     "from": "layouts/Header.jsx",
@@ -973,6 +981,10 @@
   },
   {
     "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/DepositConfigTab.jsx"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
     "to": "components/config/SafeConfigTab.jsx"
   },
   {
@@ -982,6 +994,10 @@
   {
     "from": "pages/ConfigSystem.jsx",
     "to": "components/config/SubscribeConfigTab.jsx"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/TicketConfigTab.jsx"
   },
   {
     "from": "pages/ConfigSystem.jsx",

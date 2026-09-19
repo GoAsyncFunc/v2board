@@ -17,6 +17,8 @@ async function loadConfig() {
     ['site', '../src/components/config/SiteConfigTab.jsx'],
     ['safe', '../src/components/config/SafeConfigTab.jsx'],
     ['subscribe', '../src/components/config/SubscribeConfigTab.jsx'],
+    ['deposit', '../src/components/config/DepositConfigTab.jsx'],
+    ['ticket', '../src/components/config/TicketConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -32,6 +34,8 @@ async function loadConfig() {
         if (id.includes('SiteConfigTab')) return components.site;
         if (id.includes('SafeConfigTab')) return components.safe;
         if (id.includes('SubscribeConfigTab')) return components.subscribe;
+        if (id.includes('DepositConfigTab')) return components.deposit;
+        if (id.includes('TicketConfigTab')) return components.ticket;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -46,6 +50,8 @@ async function loadConfig() {
     ConfigRow: components.row.default, SiteConfigTab: components.site.default,
     SafeConfigTab: components.safe.default,
     SubscribeConfigTab: components.subscribe.default,
+    DepositConfigTab: components.deposit.default,
+    TicketConfigTab: components.ticket.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -202,4 +208,34 @@ test('Subscribe config tab maps reset, event and link mode controls', async () =
     ['show_subscribe_method', '1'],
     ['show_subscribe_expire', '60'],
   ]);
+});
+
+test('Deposit config tab splits reward rules and saves them under deposit', async () => {
+  const { DepositConfigTab } = await loadConfig();
+  const changes = [];
+  const tree = DepositConfigTab({
+    deposit: { deposit_bounus: ['50:18', '100:38'] },
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const row = tree.children[0].type({ ...tree.children[0].props, children: tree.children[0].children });
+  const textarea = row.children[1].children[0][0];
+  textarea.props.onChange({ target: { value: '50:18,200:88' } });
+  assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
+    ['deposit_bounus', ['50:18', '200:88']],
+  ]);
+});
+
+test('Ticket config tab preserves all ticket access options', async () => {
+  const { TicketConfigTab } = await loadConfig();
+  const changes = [];
+  const tree = TicketConfigTab({
+    ticket: { ticket_status: 1 },
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const row = tree.children[0].type({ ...tree.children[0].props, children: tree.children[0].children });
+  const select = row.children[1].children[0][0];
+  assert.equal(select.props.value, 1);
+  assert.equal(select.children.length, 3);
+  select.props.onChange({ target: { value: '2' } });
+  assert.deepEqual(changes, [['ticket_status', '2']]);
 });

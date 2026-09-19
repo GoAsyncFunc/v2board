@@ -9,6 +9,8 @@ import ConfigRow from "../components/config/ConfigRow.jsx";
 import SiteConfigTab from "../components/config/SiteConfigTab.jsx";
 import SafeConfigTab from "../components/config/SafeConfigTab.jsx";
 import SubscribeConfigTab from "../components/config/SubscribeConfigTab.jsx";
+import DepositConfigTab from "../components/config/DepositConfigTab.jsx";
+import TicketConfigTab from "../components/config/TicketConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -87,73 +89,19 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "充值",
-                                key: "deposit",
-                            },
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "充值奖励",
-                                        description:
-                                            "充值一定金额可以获得的奖励。",
-                                    },
-                                    <textarea
-                                        rows={"2"}
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={
-                                            "请输入 充值金额:奖励金额,逗号分割\n如 50:18,100:38, 200:88"
-                                        }
-                                        defaultValue={this.props.config.deposit.deposit_bounus}
-                                        onChange={(e) =>
-                                            this.set(
-                                                "deposit",
-                                                "deposit_bounus",
-                                                e.target.value.split(","),
-                                            )
-                                        }
-                                    ></textarea>,
-                                )}
-                            </div>,
+                            { tab: "充值", key: "deposit" },
+                            <DepositConfigTab
+                                deposit={this.props.config.deposit}
+                                onChange={(field, value) => this.set("deposit", field, value)}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "工单",
-                                key: "ticket",
-                            },
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "工单设置",
-                                        description: "请选择工单的状态。",
-                                    },
-                                    <select
-                                        onChange={(e) =>
-                                            this.set(
-                                                "ticket",
-                                                "ticket_status",
-                                                e.target.value,
-                                            )
-                                        }
-                                        className={"form-control"}
-                                        value={this.props.config.ticket.ticket_status || 0}
-                                    >
-                                        <option value={0}>
-                                            {"完全开放工单"}
-                                        </option>
-                                        <option value={1}>
-                                            {"仅限有付费订单用户"}
-                                        </option>
-                                        <option value={2}>
-                                            {"完全禁止工单"}
-                                        </option>
-                                    </select>,
-                                )}
-                            </div>,
+                            { tab: "工单", key: "ticket" },
+                            <TicketConfigTab
+                                ticket={this.props.config.ticket}
+                                onChange={(field, value) => this.set("ticket", field, value)}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,
