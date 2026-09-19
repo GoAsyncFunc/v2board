@@ -21,7 +21,10 @@ import { createReadonlyKnowledgeColumns } from '../components/KnowledgeDisplayCo
 import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyKnowledgeColumns();
-const MarkdownEditor = loadable({ loader: () => import('../components/MarkdownEditor.jsx') });
+const MarkdownEditor = loadable({
+  loader: () => import('../components/MarkdownEditor.jsx'),
+  loading: () => null,
+});
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
 export class KnowledgeEditor extends React.Component {
