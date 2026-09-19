@@ -14,6 +14,7 @@ async function loadConfig() {
   const components = {};
   for (const [name, file] of [
     ['row', '../src/components/config/ConfigRow.jsx'],
+    ['site', '../src/components/config/SiteConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -26,15 +27,20 @@ async function loadConfig() {
         if (id === 'react') return React;
         if (id.includes('reactRedux')) return { connect: () => Page => Page };
         if (id.includes('ConfigRow')) return components.row;
+        if (id.includes('SiteConfigTab')) return components.site;
         if (id.includes('MainLayout')) return 'Layout';
-        if (id.includes('ui.js')) return { Button: 'Button', Input: 'Input', Tabs: { TabPane: 'TabPane' }, Switch: 'Switch' };
+        if (id.includes('ui.js')) return {
+          Button: 'Button', Input: 'Input', Switch: 'Switch',
+          Tabs: { TabPane: 'TabPane' },
+        };
         throw new Error(id);
       },
     });
     components[name] = module.exports;
   }
   return {
-    ConfigRow: components.row.default, Page: components.page.SystemConfigPage,
+    ConfigRow: components.row.default, SiteConfigTab: components.site.default,
+    Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
 }
@@ -79,4 +85,37 @@ test('Config row keeps its two-column layout, descriptions and nested-row stylin
     assert.equal(tree.children[1].props.className, 'col-lg-6 text-right');
     assert.equal(tree.children[1].children[0], control);
   }
+});
+
+test('Site config tab maps each control to its semantic setting key', async () => {
+  const { SiteConfigTab } = await loadConfig();
+  const changes = [];
+  const site = {
+    app_name: 'Demo', app_description: 'Description', app_url: 'https://example.test',
+    force_https: 0, logo: '', subscribe_url: '', subscribe_path: '/subscribe',
+    tos_url: '', stop_register: 0, try_out_plan_id: 1, try_out_hour: 24,
+    currency: 'CNY', currency_symbol: '¥',
+  };
+  const tree = SiteConfigTab({
+    site,
+    plans: [{ id: 1, name: 'Trial' }],
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  controls.find(control => control.props.defaultValue === 'Demo').props.onChange({ target: { value: 'New' } });
+  controls.find(control => control.props.defaultValue === '').props.onChange({ target: { value: 'logo' } });
+  controls.find(control => control.props.defaultValue === 24).props.onChange({ target: { value: '48' } });
+  assert.deepEqual(changes, [['app_name', 'New'], ['logo', 'logo'], ['try_out_hour', '48']]);
 });

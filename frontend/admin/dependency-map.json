@@ -640,6 +640,14 @@
     "to": "vendor/ui.js"
   },
   {
+    "from": "components/config/SiteConfigTab.jsx",
+    "to": "components/config/ConfigRow.jsx"
+  },
+  {
+    "from": "components/config/SiteConfigTab.jsx",
+    "to": "vendor/ui.js"
+  },
+  {
     "from": "layouts/Header.jsx",
     "to": "services/request.js"
   },
@@ -946,6 +954,10 @@
   {
     "from": "pages/ConfigSystem.jsx",
     "to": "components/config/ConfigRow.jsx"
+  },
+  {
+    "from": "pages/ConfigSystem.jsx",
+    "to": "components/config/SiteConfigTab.jsx"
   },
   {
     "from": "pages/ConfigSystem.jsx",
