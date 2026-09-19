@@ -1,36 +1,83 @@
 import React from 'react';
-import { connect } from '../vendor/reactRedux.js';
-import { Modal } from '../vendor/Modal.js';
-import { Input } from '../vendor/ui.js';
-import { Select } from '../vendor/ui.js';
-import { message } from '../vendor/ui.js';
+import { connect } from 'react-redux';
+import Input from 'antd/lib/input';
+import message from 'antd/lib/message';
+import Modal from 'antd/lib/modal';
+import Select from 'antd/lib/select';
 import MainLayout from '../layouts/MainLayout.jsx';
 import { post } from '../services/request.js';
+import type { AdminDispatch } from '../types/store';
 
-export class ThemeConfigEditor extends React.Component {
-  constructor(props) {
+type ThemeConfigValue = string | number | boolean | null | undefined;
+type ThemeConfigParams = Record<string, ThemeConfigValue>;
+
+function toInputValue(value: ThemeConfigValue): string | number | undefined {
+  if (value === null || value === undefined) return undefined;
+  return typeof value === 'boolean' ? String(value) : value;
+}
+
+interface ThemeField {
+  field_name: string;
+  field_type: 'select' | 'input' | 'textarea' | string;
+  label: string;
+  placeholder?: string;
+  select_options?: Record<string, string>;
+}
+
+interface ThemeDefinition {
+  name: string;
+  description?: string;
+  configs?: ThemeField[];
+}
+
+interface ThemeState {
+  themes: Record<string, ThemeDefinition>;
+  active?: string;
+  saveThemeConfigLoading?: boolean;
+}
+
+interface ThemeConfigEditorProps {
+  children: React.ReactElement;
+  configs?: ThemeField[];
+  dispatch: AdminDispatch;
+  theme: ThemeState;
+  themeKey: string;
+  themeName: string;
+}
+
+interface ThemeConfigEditorState {
+  params: ThemeConfigParams;
+  visible: boolean;
+}
+
+interface ThemeRootState {
+  theme: ThemeState;
+}
+
+export class ThemeConfigEditor extends React.Component<ThemeConfigEditorProps, ThemeConfigEditorState> {
+  constructor(props: ThemeConfigEditorProps) {
     super(props);
     this.state = { params: {}, visible: false };
   }
 
-  setParam(field, value) {
+  setParam(field: string, value: ThemeConfigValue): void {
     this.setState({ params: { ...this.state.params, [field]: value } });
   }
 
-  show() {
+  show(): void {
     this.setState({ visible: true });
     this.props.dispatch({
       type: 'theme/getThemeConfig',
       name: this.props.themeKey,
-      complete: params => this.setState({ params }),
+      complete: (params: ThemeConfigParams) => this.setState({ params }),
     });
   }
 
-  hide() {
+  hide(): void {
     this.setState({ visible: false, params: {} });
   }
 
-  save() {
+  save(): void {
     const config = window.btoa(unescape(encodeURIComponent(JSON.stringify(this.state.params))));
     this.props.dispatch({
       type: 'theme/saveThemeConfig',
@@ -40,18 +87,18 @@ export class ThemeConfigEditor extends React.Component {
     });
   }
 
-  renderField(field) {
+  renderField(field: ThemeField): React.ReactNode {
     const value = this.state.params[field.field_name];
     if (field.field_type === 'select') {
       return <Select style={{ width: '100%' }} placeholder={field.placeholder} value={value} onChange={nextValue => this.setParam(field.field_name, nextValue)}>
-        {Object.keys(field.select_options).map(option => <Select.Option key={option} value={option}>{field.select_options[option]}</Select.Option>)}
+        {Object.keys(field.select_options || {}).map(option => <Select.Option key={option} value={option}>{field.select_options?.[option]}</Select.Option>)}
       </Select>;
     }
     if (field.field_type === 'input') {
-      return <Input placeholder={field.placeholder} value={value} onChange={event => this.setParam(field.field_name, event.target.value)} />;
+      return <Input placeholder={field.placeholder} value={toInputValue(value)} onChange={event => this.setParam(field.field_name, event.target.value)} />;
     }
     if (field.field_type === 'textarea') {
-      return <Input.TextArea rows={5} placeholder={field.placeholder} value={value} onChange={event => this.setParam(field.field_name, event.target.value)} />;
+      return <Input.TextArea rows={5} placeholder={field.placeholder} value={toInputValue(value)} onChange={event => this.setParam(field.field_name, event.target.value)} />;
     }
     return null;
   }
@@ -66,14 +113,19 @@ export class ThemeConfigEditor extends React.Component {
   }
 }
 
-const ConnectedThemeConfigEditor = connect(state => ({ theme: state.theme }))(ThemeConfigEditor);
+const ConnectedThemeConfigEditor = connect((state: ThemeRootState) => ({ theme: state.theme }))(ThemeConfigEditor);
 
-export class ThemePage extends React.Component {
+interface ThemePageProps {
+  dispatch: AdminDispatch;
+  theme: ThemeState;
+}
+
+export class ThemePage extends React.Component<ThemePageProps> {
   componentDidMount() {
     this.props.dispatch({ type: 'theme/getThemes' });
   }
 
-  async activateTheme(themeKey) {
+  async activateTheme(themeKey: string): Promise<void> {
     const response = await post(`/${window.settings.secure_path}/config/save`, { frontend_theme: themeKey });
     if (response.code === 200) this.props.dispatch({ type: 'theme/getThemes' });
   }
@@ -98,4 +150,4 @@ export class ThemePage extends React.Component {
   }
 }
 
-export default connect(state => ({ theme: state.theme }))(ThemePage);
+export default connect((state: ThemeRootState) => ({ theme: state.theme }))(ThemePage);

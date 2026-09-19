@@ -33,7 +33,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ConfigPayment.jsx"
+    "to": "pages/ConfigPayment.tsx"
   },
   {
     "from": "app/routes.js",
@@ -41,7 +41,7 @@
   },
   {
     "from": "app/routes.js",
-    "to": "pages/ConfigTheme.jsx"
+    "to": "pages/ConfigTheme.tsx"
   },
   {
     "from": "app/routes.js",
@@ -780,48 +780,28 @@
     "to": "services/request.js"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "components/LoadingContainer.tsx"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "components/PaymentDisplayColumns.ts"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "components/PaymentNotifyColumn.tsx"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "components/Sortable.tsx"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
+    "from": "pages/ConfigPayment.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ConfigPayment.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/ConfigSystem.tsx",
@@ -872,24 +852,12 @@
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ConfigTheme.jsx",
+    "from": "pages/ConfigTheme.tsx",
     "to": "layouts/MainLayout.jsx"
   },
   {
-    "from": "pages/ConfigTheme.jsx",
+    "from": "pages/ConfigTheme.tsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/ConfigTheme.jsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/ConfigTheme.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "pages/ConfigTheme.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "pages/Coupon.tsx",
