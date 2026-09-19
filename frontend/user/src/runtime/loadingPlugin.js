@@ -56,7 +56,7 @@ export default function createLoadingPlugin(options = {}) {
 
     return {
         extraReducers,
-        onEffect(effect, { put }, model, _effects, effectName) {
+        onEffect(effect, { put }, model, effectContext, effectName) {
             if (!shouldTrack(effectName)) return effect;
             return function* trackedEffect(...args) {
                 yield put({
