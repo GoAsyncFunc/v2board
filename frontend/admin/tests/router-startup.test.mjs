@@ -43,7 +43,9 @@ test('admin Router accesses plugins only after bootstrap initializes them', asyn
   });
 
   assert.deepEqual(pluginCalls, [], 'Module evaluation must not access uninitialized plugins');
-  const router = new module.exports.default({});
+  const router = new module.exports.default({ store: 'fixture-store' });
   assert.deepEqual(pluginCalls, ['patchRoutes', 'onRouteChange']);
+  const tree = router.render();
+  assert.equal(tree.props.store, 'fixture-store');
   router.componentWillUnmount();
 });

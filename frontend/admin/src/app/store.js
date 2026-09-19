@@ -85,7 +85,7 @@ export function getApp() {
 export class _DvaContainer extends React.Component {
   render() {
     const app = getApp();
-    app.router(() => this.props.children);
+    app.router(() => React.cloneElement(this.props.children, { store: app._store }));
     return app.start()();
   }
 }
