@@ -61,5 +61,3 @@ export function get(endpoint, data) {
   const query = encodeForm(data);
   return request(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
 }
-// Existing models retain these names until their imports are normalized.
-export { get as a, post as b };
