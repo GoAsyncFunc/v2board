@@ -21,13 +21,13 @@ import { getPreference, isMobile, setPreference } from '../vendor/siteHelpers.js
 import MainLayout from '../layouts/MainLayout.jsx';
 import ContextMenuTable from '../components/ContextMenuTable';
 import ShadowsocksEditor from '../components/ShadowsocksEditor';
-import VmessEditor from '../components/VmessEditor.jsx';
+import VmessEditor from '../components/VmessEditor';
 import TrojanEditor from '../components/TrojanEditor';
 import HysteriaEditor from '../components/HysteriaEditor';
 import TuicEditor from '../components/TuicEditor';
-import VlessEditor from '../components/VlessEditor.jsx';
+import VlessEditor from '../components/VlessEditor';
 import AnyTlsEditor from '../components/AnyTlsEditor';
-import V2NodeEditor from '../components/V2NodeEditor.jsx';
+import V2NodeEditor from '../components/V2NodeEditor';
 import { renderServerTypeTag } from '../components/ServerTypeTag';
 import { createServerNameColumn } from '../components/ServerNameColumn';
 import { createServerRateColumn } from '../components/ServerRateColumn';

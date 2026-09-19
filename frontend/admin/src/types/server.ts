@@ -3,6 +3,11 @@ import type { AdminDispatch } from './store';
 
 export type ServerId = string | number;
 export type Scalar = string | number | null;
+export type SecuritySettingValue = string | number | null | undefined;
+
+export interface SecuritySettings {
+  [key: string]: SecuritySettingValue;
+}
 
 export interface ServerGroupOption {
   id: number;
@@ -40,9 +45,9 @@ export interface ServerRecord {
   cipher?: string;
   flow?: string | null;
   encryption?: string | null;
-  encryption_settings?: Record<string, unknown>;
-  tls_settings?: Record<string, unknown>;
-  tlsSettings?: Record<string, unknown>;
+  encryption_settings?: SecuritySettings;
+  tls_settings?: SecuritySettings;
+  tlsSettings?: SecuritySettings;
   ruleSettings?: RuleSettingsValue;
   dnsSettings?: DnsSettingsValue;
   obfs?: string | null;
@@ -107,4 +112,10 @@ export interface DnsSettingsValue {
 export interface RuleSettingsValue {
   domain: string[];
   protocol: string[];
+}
+
+export interface ChildDrawerState {
+  visible: boolean;
+  title: string;
+  type?: string;
 }

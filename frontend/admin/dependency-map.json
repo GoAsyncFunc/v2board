@@ -324,96 +324,60 @@
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
+    "from": "components/V2NodeEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/V2NodeEditor.tsx",
     "to": "components/JsonEditor.tsx"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
+    "from": "components/V2NodeEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
+    "from": "components/V2NodeEditor.tsx",
     "to": "components/ServerSecuritySettings.tsx"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/V2NodeEditor.jsx",
+    "from": "components/V2NodeEditor.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
-    "to": "vendor/reactRedux.js"
+    "from": "components/VlessEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
   },
   {
-    "from": "components/V2NodeEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/VlessEditor.jsx",
+    "from": "components/VlessEditor.tsx",
     "to": "components/JsonEditor.tsx"
   },
   {
-    "from": "components/VlessEditor.jsx",
+    "from": "components/VlessEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/VlessEditor.jsx",
+    "from": "components/VlessEditor.tsx",
     "to": "components/ServerSecuritySettings.tsx"
   },
   {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/VlessEditor.jsx",
+    "from": "components/VlessEditor.tsx",
     "to": "vendor/iconStyles.js"
   },
   {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/notification.js"
+    "from": "components/VmessEditor.tsx",
+    "to": "components/CompatibleDrawer.tsx"
   },
   {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/VlessEditor.jsx",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
+    "from": "components/VmessEditor.tsx",
     "to": "components/JsonEditor.tsx"
   },
   {
-    "from": "components/VmessEditor.jsx",
+    "from": "components/VmessEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
+    "from": "components/VmessEditor.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/notification.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "components/VmessEditor.jsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/config/AppConfigTab.tsx",
@@ -1077,15 +1041,15 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/V2NodeEditor.jsx"
+    "to": "components/V2NodeEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/VlessEditor.jsx"
+    "to": "components/VlessEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "components/VmessEditor.jsx"
+    "to": "components/VmessEditor.tsx"
   },
   {
     "from": "pages/ServerManage.tsx",
