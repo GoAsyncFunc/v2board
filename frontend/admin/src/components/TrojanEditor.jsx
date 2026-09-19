@@ -7,7 +7,7 @@ import { Icon } from '../vendor/Icon.js';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import PermissionGroupEditor from './PermissionGroupEditor.jsx';
-import { JsonEditor } from '../vendor/ui.js';
+import JsonEditor from './JsonEditor.jsx';
 
 import '../vendor/iconStyles.js';
 

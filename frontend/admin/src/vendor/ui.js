@@ -22,7 +22,6 @@ import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 
 export { default as Sortable } from './sortable.js';
-export { default as JsonEditor } from '../components/JsonEditor.jsx';
 
 class LoadingContainer extends React.Component {
   render() {

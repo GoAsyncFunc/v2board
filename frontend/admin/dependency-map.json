@@ -229,6 +229,10 @@
   },
   {
     "from": "components/AnyTlsEditor.jsx",
+    "to": "components/JsonEditor.jsx"
+  },
+  {
+    "from": "components/AnyTlsEditor.jsx",
     "to": "components/PermissionGroupEditor.jsx"
   },
   {
@@ -481,6 +485,10 @@
   },
   {
     "from": "components/TrojanEditor.jsx",
+    "to": "components/JsonEditor.jsx"
+  },
+  {
+    "from": "components/TrojanEditor.jsx",
     "to": "components/PermissionGroupEditor.jsx"
   },
   {
@@ -561,6 +569,10 @@
   },
   {
     "from": "components/V2NodeEditor.jsx",
+    "to": "components/JsonEditor.jsx"
+  },
+  {
+    "from": "components/V2NodeEditor.jsx",
     "to": "components/PermissionGroupEditor.jsx"
   },
   {
@@ -582,6 +594,10 @@
   {
     "from": "components/V2NodeEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/VlessEditor.jsx",
+    "to": "components/JsonEditor.jsx"
   },
   {
     "from": "components/VlessEditor.jsx",
@@ -610,6 +626,10 @@
   {
     "from": "components/VlessEditor.jsx",
     "to": "vendor/ui.js"
+  },
+  {
+    "from": "components/VmessEditor.jsx",
+    "to": "components/JsonEditor.jsx"
   },
   {
     "from": "components/VmessEditor.jsx",
@@ -1806,10 +1826,6 @@
   {
     "from": "vendor/siteHelpers.js",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "vendor/ui.js",
-    "to": "components/JsonEditor.jsx"
   },
   {
     "from": "vendor/ui.js",
