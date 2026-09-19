@@ -12,6 +12,7 @@ import SubscribeConfigTab from "../components/config/SubscribeConfigTab.jsx";
 import DepositConfigTab from "../components/config/DepositConfigTab.jsx";
 import TicketConfigTab from "../components/config/TicketConfigTab.jsx";
 import InviteConfigTab from "../components/config/InviteConfigTab.jsx";
+import FrontendConfigTab from "../components/config/FrontendConfigTab.jsx";
 export class SystemConfigPage extends React.Component {
     componentDidMount() {
         this.props.dispatch({ type: "config/fetch" });
@@ -114,136 +115,11 @@ export class SystemConfigPage extends React.Component {
                         ),
                         React.createElement(
                             Tabs.TabPane,
-                            {
-                                tab: "个性化",
-                                key: "frontend",
-                            },
-                            <div className={"block-content"}>
-                                <div className={"row"}>
-                                    <div className={"col-lg-12"}>
-                                        <div
-                                            className={"alert alert-warning"}
-                                            role={"alert"}
-                                        >
-                                            <p className={"mb-0"}>
-                                                {
-                                                    "如果你采用前后分离的方式部署V2board管理端，那么本页配置将不会生效。了解"
-                                                }
-                                                <setTelegramWebhookLoading>
-                                                    <a
-                                                        href={
-                                                            "https://docs.v2board.com/use/advanced.html#%E5%89%8D%E7%AB%AF%E5%88%86%E7%A6%BB"
-                                                        }
-                                                    >
-                                                        {"前后分离"}
-                                                    </a>
-                                                </setTelegramWebhookLoading>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>,
-                            <div className={""}>
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "边栏风格",
-                                    },
-                                    React.createElement(Switch, {
-                                        checkedChildren: "亮",
-                                        unCheckedChildren: "暗",
-                                        checked:
-                                            "light" ===
-                                            frontend.frontend_theme_sidebar
-                                                ? 1
-                                                : 0,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "site",
-                                                "frontend_theme_sidebar",
-                                                e ? "light" : "dark",
-                                            ),
-                                    }),
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "头部风格",
-                                    },
-                                    React.createElement(Switch, {
-                                        checkedChildren: "亮",
-                                        unCheckedChildren: "暗",
-                                        checked:
-                                            "light" ===
-                                            frontend.frontend_theme_header
-                                                ? 1
-                                                : 0,
-                                        onChange: (e) =>
-                                            this.set(
-                                                "site",
-                                                "frontend_theme_header",
-                                                e ? "light" : "dark",
-                                            ),
-                                    }),
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "主题色",
-                                    },
-                                    <select
-                                        className={"form-control"}
-                                        defaultValue={
-                                            frontend.frontend_theme_color
-                                        }
-                                        onChange={(e) =>
-                                            this.set(
-                                                "frontend",
-                                                "frontend_theme_color",
-                                                e.target.value,
-                                            )
-                                        }
-                                    >
-                                        <option value={"default"}>
-                                            {"默认"}
-                                        </option>
-                                        <option value={"black"}>
-                                            {"黑色"}
-                                        </option>
-                                        <option value={"darkblue"}>
-                                            {"暗蓝色"}
-                                        </option>
-                                        <option value={"green"}>
-                                            {"奶绿色"}
-                                        </option>
-                                    </select>,
-                                )}
-                                {React.createElement(
-                                    ConfigRow,
-                                    {
-                                        title: "背景",
-                                        description:
-                                            "将会在后台登录页面进行展示。",
-                                    },
-                                    <input
-                                        type={"text"}
-                                        className={"form-control"}
-                                        placeholder={
-                                            "https://xxxxx.com/wallpaper.png"
-                                        }
-                                        defaultValue={
-                                            frontend.frontend_background_url
-                                        }
-                                        onChange={(e) =>
-                                            this.set(
-                                                "frontend",
-                                                "frontend_background_url",
-                                                e.target.value,
-                                            )
-                                        }
-                                    ></input>,
-                                )}
-                            </div>,
+                            { tab: "个性化", key: "frontend" },
+                            <FrontendConfigTab
+                                frontend={frontend}
+                                onChange={(field, value) => this.set("frontend", field, value)}
+                            />,
                         ),
                         React.createElement(
                             Tabs.TabPane,

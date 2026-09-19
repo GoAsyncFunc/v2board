@@ -20,6 +20,7 @@ async function loadConfig() {
     ['deposit', '../src/components/config/DepositConfigTab.jsx'],
     ['ticket', '../src/components/config/TicketConfigTab.jsx'],
     ['invite', '../src/components/config/InviteConfigTab.jsx'],
+    ['frontend', '../src/components/config/FrontendConfigTab.jsx'],
     ['page', '../src/pages/ConfigSystem.jsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'jsx' });
@@ -38,6 +39,7 @@ async function loadConfig() {
         if (id.includes('DepositConfigTab')) return components.deposit;
         if (id.includes('TicketConfigTab')) return components.ticket;
         if (id.includes('InviteConfigTab')) return components.invite;
+        if (id.includes('FrontendConfigTab')) return components.frontend;
         if (id.includes('MainLayout')) return 'Layout';
         if (id.includes('ui.js')) return {
           Button: 'Button', Input: 'Input', Switch: 'Switch',
@@ -55,6 +57,7 @@ async function loadConfig() {
     DepositConfigTab: components.deposit.default,
     TicketConfigTab: components.ticket.default,
     InviteConfigTab: components.invite.default,
+    FrontendConfigTab: components.frontend.default,
     Page: components.page.SystemConfigPage,
     timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -281,5 +284,44 @@ test('Invite config tab preserves invitation, withdrawal and distribution contro
   assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
     ['invite_commission', 20],
     ['commission_withdraw_method', ['支付宝', '贝宝']],
+  ]);
+});
+
+test('Frontend config tab maps theme switches, color and background settings', async () => {
+  const { FrontendConfigTab } = await loadConfig();
+  const changes = [];
+  const tree = FrontendConfigTab({
+    frontend: {
+      frontend_theme_sidebar: 'dark',
+      frontend_theme_header: 'light',
+      frontend_theme_color: 'default',
+      frontend_background_url: '/background.png',
+    },
+    onChange: (field, value) => changes.push([field, value]),
+  });
+  const controls = [];
+  const collect = node => {
+    if (Array.isArray(node)) return node.forEach(collect);
+    if (!node || typeof node !== 'object') return;
+    if (typeof node.type === 'function') {
+      collect(node.type({ ...node.props, children: node.children }));
+      return;
+    }
+    if (node.props?.onChange) controls.push(node);
+    collect(node.children);
+    collect(node.props?.children);
+  };
+  collect(tree);
+  assert.match(JSON.stringify(tree), /前后分离/);
+  controls.filter(control => control.type === 'Switch')[0].props.onChange(true);
+  controls.filter(control => control.type === 'Switch')[1].props.onChange(false);
+  controls.find(control => control.type === 'select').props.onChange({ target: { value: 'black' } });
+  controls.find(control => control.props.defaultValue === '/background.png')
+    .props.onChange({ target: { value: '/new.png' } });
+  assert.deepEqual(changes, [
+    ['frontend_theme_sidebar', 'light'],
+    ['frontend_theme_header', 'dark'],
+    ['frontend_theme_color', 'black'],
+    ['frontend_background_url', '/new.png'],
   ]);
 });
