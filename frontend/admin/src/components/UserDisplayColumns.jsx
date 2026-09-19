@@ -4,7 +4,7 @@ import { Badge } from '../vendor/ui.js';
 import moment from '../vendor/dateTime.js';
 
 export function formatUserLastOnline(lastSeen) {
-  return lastSeen ? '最后在线'.concat(moment(1000 * lastSeen).format('YYYY-MM-DD HH:mm:ss')) : '从未在线';
+  return lastSeen ? `最后在线${moment(1000 * lastSeen).format('YYYY-MM-DD HH:mm:ss')}` : '从未在线';
 }
 
 export function renderUserOnlineStatus(lastSeen) {

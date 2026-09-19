@@ -97,10 +97,7 @@ class RegisterPage extends React.Component {
                         style={{
                             backgroundImage:
                                 window.settings.background_url &&
-                                "url(".concat(
-                                    window.settings.background_url,
-                                    ")",
-                                ),
+                                `url(${window.settings.background_url})`,
                         }}
                     />
                     <div className="no-gutters v2board-auth-box">
@@ -169,11 +166,11 @@ class RegisterPage extends React.Component {
                                                 ) : (
                                                     <div>
                                                         <div
-                                                            className={"form-group ".concat(
+                                                            className={`form-group ${
                                                                 commConfig.email_whitelist_suffix
                                                                     ? "v2board-email-whitelist-enable"
-                                                                    : "",
-                                                            )}
+                                                                    : ""
+                                                            }`}
                                                         >
                                                             <input
                                                                 type="text"
