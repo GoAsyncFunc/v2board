@@ -6,9 +6,9 @@ import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from '../../components/LoadingContainer';
-import PermissionGroupEditor from '../../components/PermissionGroupEditor';
-import { createReadonlyServerGroupColumns, type ServerGroupRecord } from '../../components/ServerGroupDisplayColumns';
+import LoadingContainer from '../../components/common/LoadingContainer';
+import PermissionGroupEditor from '../../components/common/PermissionGroupEditor';
+import { createReadonlyServerGroupColumns, type ServerGroupRecord } from '../../components/server/ServerGroupDisplayColumns';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 const readonlyColumns = createReadonlyServerGroupColumns();

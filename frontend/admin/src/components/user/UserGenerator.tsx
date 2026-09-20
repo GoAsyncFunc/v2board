@@ -5,8 +5,8 @@ import DatePicker from 'antd/lib/date-picker';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { UserModuleState } from '../types/user';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { UserModuleState } from '../../types/user';
 
 interface UserGenerationForm {
   email_prefix?: string;

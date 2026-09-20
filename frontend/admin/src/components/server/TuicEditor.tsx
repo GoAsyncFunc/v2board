@@ -6,9 +6,9 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import PermissionGroupEditor from './PermissionGroupEditor';
-import type { Scalar, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
-import type { AdminRootState } from '../types/store';
+import PermissionGroupEditor from '../common/PermissionGroupEditor';
+import type { Scalar, ServerEditorProps, ServerRecord, ServerSaveState } from '../../types/server';
+import type { AdminRootState } from '../../types/store';
 
 
 interface TuicEditorProps extends ServerEditorProps { serverTuic: ServerSaveState; }

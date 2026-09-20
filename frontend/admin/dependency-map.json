@@ -180,120 +180,16 @@
     "to": "runtime/pluginRuntime.ts"
   },
   {
-    "from": "components/AnyTlsEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/AnyTlsEditor.tsx",
-    "to": "components/JsonEditor.tsx"
-  },
-  {
-    "from": "components/AnyTlsEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/AssignOrderEditor.tsx",
+    "from": "components/commerce/AssignOrderEditor.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "components/HysteriaEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/HysteriaEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/OrderDetailBody.tsx",
+    "from": "components/commerce/OrderDetailBody.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "components/OrderDisplayColumns.tsx",
+    "from": "components/commerce/OrderDisplayColumns.tsx",
     "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "components/ShadowsocksEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/ShadowsocksEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/TrafficPanel.tsx",
-    "to": "components/LoadingContainer.tsx"
-  },
-  {
-    "from": "components/TrafficPanel.tsx",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "components/TrafficPanel.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "components/TrojanEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/TrojanEditor.tsx",
-    "to": "components/JsonEditor.tsx"
-  },
-  {
-    "from": "components/TrojanEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/TuicEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/TuicEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/V2NodeEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/V2NodeEditor.tsx",
-    "to": "components/JsonEditor.tsx"
-  },
-  {
-    "from": "components/V2NodeEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/V2NodeEditor.tsx",
-    "to": "components/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "components/VlessEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/VlessEditor.tsx",
-    "to": "components/JsonEditor.tsx"
-  },
-  {
-    "from": "components/VlessEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/VlessEditor.tsx",
-    "to": "components/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "components/VmessEditor.tsx",
-    "to": "components/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/VmessEditor.tsx",
-    "to": "components/JsonEditor.tsx"
-  },
-  {
-    "from": "components/VmessEditor.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
   },
   {
     "from": "components/config/AppConfigTab.tsx",
@@ -338,6 +234,110 @@
   {
     "from": "components/config/TicketConfigTab.tsx",
     "to": "components/config/ConfigRow.tsx"
+  },
+  {
+    "from": "components/server/AnyTlsEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "components/server/AnyTlsEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/AnyTlsEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/HysteriaEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/HysteriaEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/ShadowsocksEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/ShadowsocksEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/TrojanEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "components/server/TrojanEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/TrojanEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/TuicEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/TuicEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/V2NodeEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "components/server/V2NodeEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/V2NodeEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/V2NodeEditor.tsx",
+    "to": "components/server/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "components/server/VlessEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "components/server/VlessEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/VlessEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/server/VlessEditor.tsx",
+    "to": "components/server/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "components/server/VmessEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "components/server/VmessEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "components/server/VmessEditor.tsx",
+    "to": "components/server/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "components/user/TrafficPanel.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "components/user/TrafficPanel.tsx",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "components/user/TrafficPanel.tsx",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "layouts/Header.tsx",
@@ -577,23 +577,23 @@
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/AssignOrderEditor.tsx"
+    "to": "components/commerce/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/FilterDrawer.tsx"
+    "to": "components/commerce/OrderDetailBody.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/commerce/OrderDisplayColumns.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/OrderDetailBody.tsx"
+    "to": "components/common/FilterDrawer.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/OrderDisplayColumns.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
@@ -609,31 +609,31 @@
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/ContextMenuTable.tsx"
+    "to": "components/commerce/PlanGroupColumn.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/commerce/PlanPriceColumns.ts"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
+    "to": "components/commerce/PlanResourceColumns.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/PlanGroupColumn.tsx"
+    "to": "components/common/ContextMenuTable.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/PlanPriceColumns.ts"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/PlanResourceColumns.tsx"
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
-    "to": "components/Sortable.tsx"
+    "to": "components/common/Sortable.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",
@@ -641,19 +641,19 @@
   },
   {
     "from": "pages/config/Payment.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/config/Payment.tsx",
-    "to": "components/PaymentDisplayColumns.ts"
+    "to": "components/common/Sortable.tsx"
   },
   {
     "from": "pages/config/Payment.tsx",
-    "to": "components/PaymentNotifyColumn.tsx"
+    "to": "components/config/PaymentDisplayColumns.ts"
   },
   {
     "from": "pages/config/Payment.tsx",
-    "to": "components/Sortable.tsx"
+    "to": "components/config/PaymentNotifyColumn.tsx"
   },
   {
     "from": "pages/config/Payment.tsx",
@@ -717,19 +717,19 @@
   },
   {
     "from": "pages/content/Knowledge.tsx",
-    "to": "components/KnowledgeDisplayColumns.ts"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/content/Knowledge.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/MarkdownEditor.tsx"
   },
   {
     "from": "pages/content/Knowledge.tsx",
-    "to": "components/MarkdownEditor.tsx"
+    "to": "components/common/Sortable.tsx"
   },
   {
     "from": "pages/content/Knowledge.tsx",
-    "to": "components/Sortable.tsx"
+    "to": "components/content/KnowledgeDisplayColumns.ts"
   },
   {
     "from": "pages/content/Knowledge.tsx",
@@ -741,11 +741,11 @@
   },
   {
     "from": "pages/content/Notice.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/content/Notice.tsx",
-    "to": "components/NoticeDisplayColumns.ts"
+    "to": "components/content/NoticeDisplayColumns.ts"
   },
   {
     "from": "pages/content/Notice.tsx",
@@ -753,11 +753,11 @@
   },
   {
     "from": "pages/content/Ticket.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/content/Ticket.tsx",
-    "to": "components/TicketDisplayColumns.ts"
+    "to": "components/content/TicketDisplayColumns.ts"
   },
   {
     "from": "pages/content/Ticket.tsx",
@@ -765,15 +765,15 @@
   },
   {
     "from": "pages/content/TicketDetail.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
     "from": "pages/content/TicketDetail.tsx",
-    "to": "components/TrafficPanel.tsx"
+    "to": "components/user/TrafficPanel.tsx"
   },
   {
     "from": "pages/content/TicketDetail.tsx",
-    "to": "components/UserEditor.tsx"
+    "to": "components/user/UserEditor.tsx"
   },
   {
     "from": "pages/content/TicketDetail.tsx",
@@ -785,7 +785,7 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
@@ -801,11 +801,11 @@
   },
   {
     "from": "pages/monitoring/Queue.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/monitoring/Queue.tsx",
-    "to": "components/QueueDisplayColumns.ts"
+    "to": "components/monitoring/QueueDisplayColumns.ts"
   },
   {
     "from": "pages/monitoring/Queue.tsx",
@@ -813,11 +813,11 @@
   },
   {
     "from": "pages/promotion/Coupon.tsx",
-    "to": "components/CouponDisplayColumns.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/promotion/Coupon.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/promotion/CouponDisplayColumns.tsx"
   },
   {
     "from": "pages/promotion/Coupon.tsx",
@@ -829,11 +829,11 @@
   },
   {
     "from": "pages/promotion/Giftcard.tsx",
-    "to": "components/GiftcardDisplayColumns.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/promotion/Giftcard.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/promotion/GiftcardDisplayColumns.tsx"
   },
   {
     "from": "pages/promotion/Giftcard.tsx",
@@ -841,15 +841,15 @@
   },
   {
     "from": "pages/server/Group.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/server/Group.tsx",
-    "to": "components/PermissionGroupEditor.tsx"
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/Group.tsx",
-    "to": "components/ServerGroupDisplayColumns.tsx"
+    "to": "components/server/ServerGroupDisplayColumns.tsx"
   },
   {
     "from": "pages/server/Group.tsx",
@@ -857,59 +857,59 @@
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/AnyTlsEditor.tsx"
+    "to": "components/common/ContextMenuTable.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/ContextMenuTable.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/HysteriaEditor.tsx"
+    "to": "components/common/Sortable.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/server/AnyTlsEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/ServerNameColumn.tsx"
+    "to": "components/server/HysteriaEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/ServerRateColumn.tsx"
+    "to": "components/server/ServerNameColumn.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/ServerTypeTag.tsx"
+    "to": "components/server/ServerRateColumn.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/ShadowsocksEditor.tsx"
+    "to": "components/server/ServerTypeTag.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/Sortable.tsx"
+    "to": "components/server/ShadowsocksEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/TrojanEditor.tsx"
+    "to": "components/server/TrojanEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/TuicEditor.tsx"
+    "to": "components/server/TuicEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/V2NodeEditor.tsx"
+    "to": "components/server/V2NodeEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/VlessEditor.tsx"
+    "to": "components/server/VlessEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/VmessEditor.tsx"
+    "to": "components/server/VmessEditor.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
@@ -921,15 +921,15 @@
   },
   {
     "from": "pages/server/Route.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/server/Route.tsx",
-    "to": "components/RouteActionColumn.ts"
+    "to": "components/server/RouteActionColumn.ts"
   },
   {
     "from": "pages/server/Route.tsx",
-    "to": "components/ServerRouteDisplayColumns.ts"
+    "to": "components/server/ServerRouteDisplayColumns.ts"
   },
   {
     "from": "pages/server/Route.tsx",
@@ -945,39 +945,39 @@
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/AssignOrderEditor.tsx"
+    "to": "components/commerce/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/ContextMenuTable.tsx"
+    "to": "components/common/ContextMenuTable.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/FilterDrawer.tsx"
+    "to": "components/common/FilterDrawer.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/SendMailEditor.tsx"
+    "to": "components/user/SendMailEditor.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/TrafficPanel.tsx"
+    "to": "components/user/TrafficPanel.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/UserDisplayColumns.tsx"
+    "to": "components/user/UserDisplayColumns.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/UserEditor.tsx"
+    "to": "components/user/UserEditor.tsx"
   },
   {
     "from": "pages/user/User.tsx",
-    "to": "components/UserGenerator.tsx"
+    "to": "components/user/UserGenerator.tsx"
   },
   {
     "from": "pages/user/User.tsx",

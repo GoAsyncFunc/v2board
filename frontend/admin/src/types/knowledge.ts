@@ -1,4 +1,4 @@
-import type { KnowledgeRecord } from '../components/KnowledgeDisplayColumns';
+import type { KnowledgeRecord } from '../components/content/KnowledgeDisplayColumns';
 
 export interface KnowledgeState {
   knowledges: KnowledgeRecord[];

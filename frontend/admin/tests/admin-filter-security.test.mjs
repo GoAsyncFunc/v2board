@@ -37,7 +37,7 @@ const normalize = value => JSON.parse(JSON.stringify(value));
 
 test('FilterDrawer preserves validation and field reset behavior', async () => {
   const errors = [];
-  const component = await load('../src/components/FilterDrawer.tsx', id => {
+  const component = await load('../src/components/common/FilterDrawer.tsx', id => {
     if (id === 'antd/lib/button') return 'Button';
     if (id === 'antd/lib/date-picker') return 'DatePicker';
     if (id === 'antd/lib/divider') return 'Divider';
@@ -72,7 +72,7 @@ test('FilterDrawer preserves validation and field reset behavior', async () => {
 });
 
 test('TLS and encryption settings retain defaults and emit complete updates', async () => {
-  const component = await load('../src/components/ServerSecuritySettings.tsx', id => {
+  const component = await load('../src/components/server/ServerSecuritySettings.tsx', id => {
     if (id === 'antd/lib/input') return 'Input';
     if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
     if (id === 'antd/lib/switch') return 'Switch';

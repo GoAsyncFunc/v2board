@@ -1,5 +1,5 @@
-import type { CouponRecord } from '../components/CouponDisplayColumns';
-import type { GiftcardRecord } from '../components/GiftcardDisplayColumns';
+import type { CouponRecord } from '../components/promotion/CouponDisplayColumns';
+import type { GiftcardRecord } from '../components/promotion/GiftcardDisplayColumns';
 
 export interface PromotionPagination {
   pageSize: number;

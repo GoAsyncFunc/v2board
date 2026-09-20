@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React={Fragment:'Fragment',createElement:(type,props,...children)=>({type,props,children})};
 const statuses={0:'error',1:'warning',2:'processing'};
 async function load(original, mapping = statuses){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-name.cjs':'../src/components/ServerNameColumn.tsx',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-name.cjs':'../src/components/server/ServerNameColumn.tsx',import.meta.url);
  const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'tsx'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tooltip')return 'Tooltip';if(id==='antd/lib/badge')return 'Badge';if(id==='antd/lib/icon')return 'Icon';if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('antdBadge'))return {a:'Badge'};if(id.includes('Icon'))return {a:'Icon',Icon:'Icon'};
         throw Error(id);}});

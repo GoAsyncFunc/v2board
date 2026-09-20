@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original){
- const file=new URL(original?'./fixtures/pages/admin-server-type-tag.cjs':'../src/components/ServerTypeTag.tsx',import.meta.url),module={exports:{}};
+ const file=new URL(original?'./fixtures/pages/admin-server-type-tag.cjs':'../src/components/server/ServerTypeTag.tsx',import.meta.url),module={exports:{}};
  const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};
         throw Error(id);}});
  return original?module.exports({a:React},{a:'Tag'}):module.exports.renderServerTypeTag;

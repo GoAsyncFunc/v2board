@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 export interface PermissionGroupRecord {
   id?: string | number;

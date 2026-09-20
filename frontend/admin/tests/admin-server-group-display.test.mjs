@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Fragment: 'Fragment', createElement: (type, props, ...children) => ({ type, props, children }) };
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-server-group-display.cjs' : '../src/components/ServerGroupDisplayColumns.tsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-server-group-display.cjs' : '../src/components/server/ServerGroupDisplayColumns.tsx', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'tsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;

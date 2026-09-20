@@ -4,9 +4,9 @@ import Modal from 'antd/lib/modal';
 import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from './LoadingContainer';
-import { get, isSuccessfulResponse } from '../services/request';
-import { formatBytes } from '../utils/siteHelpers';
+import LoadingContainer from '../common/LoadingContainer';
+import { get, isSuccessfulResponse } from '../../services/request';
+import { formatBytes } from '../../utils/siteHelpers';
 
 export interface TrafficRecord {
   record_at: number;

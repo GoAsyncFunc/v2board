@@ -18,7 +18,7 @@ const deps = { createElement: React.createElement, Tooltip, Badge, moment };
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-user-display.cjs' : '../src/components/UserDisplayColumns.tsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-user-display.cjs' : '../src/components/user/UserDisplayColumns.tsx', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'tsx' })).code, {
     module, exports: module.exports, Date: FakeDate, require(id) {

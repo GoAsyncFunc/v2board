@@ -2,9 +2,9 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
-import type { SecuritySettings, SecuritySettingValue } from '../types/server';
+import type { SecuritySettings, SecuritySettingValue } from '../../types/server';
 
-export type { SecuritySettings, SecuritySettingValue } from '../types/server';
+export type { SecuritySettings, SecuritySettingValue } from '../../types/server';
 
 export interface TlsSettingsProps {
   settings?: SecuritySettings | null;

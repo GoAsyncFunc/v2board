@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import { settings } from '../config/adminSettings';
+import { settings } from '../../config/adminSettings';
 
 export interface OrderDetailRecord {
   trade_no: React.ReactNode;

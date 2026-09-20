@@ -1,4 +1,4 @@
-import type { TicketRecord } from '../components/TicketDisplayColumns';
+import type { TicketRecord } from '../components/content/TicketDisplayColumns';
 
 export interface TicketPagination {
   pageSize: number;

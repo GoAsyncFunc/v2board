@@ -9,8 +9,8 @@ import type { PaginationConfig } from 'antd/lib/pagination';
 import type { RadioChangeEvent } from 'antd/lib/radio/interface';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import MainLayout from '../../layouts/MainLayout';
-import LoadingContainer from '../../components/LoadingContainer';
-import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../../components/TicketDisplayColumns';
+import LoadingContainer from '../../components/common/LoadingContainer';
+import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../../components/content/TicketDisplayColumns';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { TicketFilterState, TicketState } from '../../types/ticket';
 

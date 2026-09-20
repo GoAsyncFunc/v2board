@@ -151,23 +151,34 @@ test('admin pages select from the canonical root state', async () => {
   }
 });
 
-test('admin connected layouts and editors use the canonical root state', async () => {
+test('admin components use business domains and connected editors use the canonical root state', async () => {
+  const componentsDirectory = new URL('../src/components/', import.meta.url);
+  const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
+  const expectedDomains = ['commerce', 'common', 'config', 'content', 'monitoring', 'promotion', 'server', 'user'];
+  assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
+  assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
+
+  for (const domain of expectedDomains) {
+    const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
+    assert.ok(componentNames.some(name => /\.tsx?$/.test(name)), `${domain} should contain at least one component`);
+  }
+
   const connectedSources = [
     '../src/layouts/Header.tsx',
     '../src/layouts/MainLayout.tsx',
-    '../src/components/AnyTlsEditor.tsx',
-    '../src/components/AssignOrderEditor.tsx',
-    '../src/components/HysteriaEditor.tsx',
-    '../src/components/PermissionGroupEditor.tsx',
-    '../src/components/SendMailEditor.tsx',
-    '../src/components/ShadowsocksEditor.tsx',
-    '../src/components/TrojanEditor.tsx',
-    '../src/components/TuicEditor.tsx',
-    '../src/components/UserEditor.tsx',
-    '../src/components/UserGenerator.tsx',
-    '../src/components/V2NodeEditor.tsx',
-    '../src/components/VlessEditor.tsx',
-    '../src/components/VmessEditor.tsx',
+    '../src/components/server/AnyTlsEditor.tsx',
+    '../src/components/commerce/AssignOrderEditor.tsx',
+    '../src/components/server/HysteriaEditor.tsx',
+    '../src/components/common/PermissionGroupEditor.tsx',
+    '../src/components/user/SendMailEditor.tsx',
+    '../src/components/server/ShadowsocksEditor.tsx',
+    '../src/components/server/TrojanEditor.tsx',
+    '../src/components/server/TuicEditor.tsx',
+    '../src/components/user/UserEditor.tsx',
+    '../src/components/user/UserGenerator.tsx',
+    '../src/components/server/V2NodeEditor.tsx',
+    '../src/components/server/VlessEditor.tsx',
+    '../src/components/server/VmessEditor.tsx',
   ];
   for (const relativePath of connectedSources) {
     const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');

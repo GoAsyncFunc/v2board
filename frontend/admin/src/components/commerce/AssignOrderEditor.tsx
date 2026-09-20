@@ -4,8 +4,8 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import { settings } from '../config/adminSettings';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import { settings } from '../../config/adminSettings';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 interface AssignOrderForm {
   email?: string;

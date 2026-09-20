@@ -16,7 +16,7 @@ import history from '../../app/navigation';
 import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
-import { formatIncome, formatLiveCount } from '../../components/MoneyDisplay';
+import { formatIncome, formatLiveCount } from '../../components/common/MoneyDisplay';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 

@@ -1,4 +1,4 @@
-import type { NoticeRecord } from '../components/NoticeDisplayColumns';
+import type { NoticeRecord } from '../components/content/NoticeDisplayColumns';
 
 export interface NoticeState {
   notices: NoticeRecord[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
-import type { ServerProtocolType } from '../types/server';
+import type { ServerProtocolType } from '../../types/server';
 
 export function renderServerTypeTag(type: ServerProtocolType | string | null | undefined, label: React.ReactNode): React.ReactElement | undefined {
   // Strict switch retains unknown/non-string type behavior; no fallback tag.

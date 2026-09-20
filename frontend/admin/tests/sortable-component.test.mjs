@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadSortable() {
-  const source = await fs.readFile(new URL('../src/components/Sortable.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/components/common/Sortable.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const React = {
     Component: class {

@@ -1,5 +1,5 @@
-import type { FilterItem } from '../components/FilterDrawer';
-import type { OrderDetailRecord } from '../components/OrderDetailBody';
+import type { FilterItem } from '../components/common/FilterDrawer';
+import type { OrderDetailRecord } from '../components/commerce/OrderDetailBody';
 
 export interface OrderRecord extends OrderDetailRecord {
   id: number | string;

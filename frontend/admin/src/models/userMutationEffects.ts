@@ -1,6 +1,6 @@
 import message from 'antd/lib/message';
 import { isSuccessfulResponse, post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
-import type { FilterItem } from '../components/FilterDrawer';
+import type { FilterItem } from '../components/common/FilterDrawer';
 import type { UserModuleState, UserRecord } from '../types/user';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';

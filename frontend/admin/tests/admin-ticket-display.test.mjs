@@ -6,7 +6,7 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/components/TicketDisplayColumns.ts',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/components/content/TicketDisplayColumns.ts',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});

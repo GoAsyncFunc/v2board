@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { UserModuleState } from '../types/user';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { UserModuleState } from '../../types/user';
 
 interface MailForm {
   subject?: string;

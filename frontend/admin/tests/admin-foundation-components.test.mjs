@@ -35,7 +35,7 @@ async function load(relativePath, requireModule, globals = {}) {
 }
 
 test('LoadingContainer preserves the recovered spinner structure', async () => {
-  const component = await load('../src/components/LoadingContainer.tsx', id => {
+  const component = await load('../src/components/common/LoadingContainer.tsx', id => {
     if (id === 'antd/lib/spin') return 'Spin';
     throw new Error(id);
   });
@@ -51,7 +51,7 @@ test('LoadingContainer preserves the recovered spinner structure', async () => {
 test('ContextMenuTable keeps row callbacks and menu positioning behavior', async () => {
   const menu = { style: { display: 'none', top: '', left: '' } };
   const records = [];
-  const component = await load('../src/components/ContextMenuTable.tsx', id => {
+  const component = await load('../src/components/common/ContextMenuTable.tsx', id => {
     if (id === 'antd/lib/table') return 'Table';
     throw new Error(id);
   }, {
@@ -78,7 +78,7 @@ test('TrafficPanel requests the selected user and preserves pagination state', a
     data: [{ record_at: 1700000000, u: 1024, d: 2048, server_rate: 1 }],
     total: 17,
   };
-  const component = await load('../src/components/TrafficPanel.tsx', id => {
+  const component = await load('../src/components/user/TrafficPanel.tsx', id => {
     if (id === 'moment') return value => ({ format: pattern => `${value}:${pattern}` });
     if (id === 'antd/lib/modal') return 'Modal';
     if (id === 'antd/lib/table') return 'Table';

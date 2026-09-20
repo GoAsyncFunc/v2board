@@ -1,5 +1,5 @@
 import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
-import type { QueueWorkload } from '../components/QueueDisplayColumns';
+import type { QueueWorkload } from '../components/monitoring/QueueDisplayColumns';
 import type { QueueStats, SystemMonitoringState } from '../types/monitoring';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';

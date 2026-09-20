@@ -60,7 +60,7 @@ npm run build
 public/          独立静态资源和 settings.js
 scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
-src/components/  管理端组件与编辑器
+src/components/  按业务域组织的管理端组件与编辑器
 src/config/      导航等界面配置
 src/layouts/     管理端布局
 src/models/      管理端状态模型
@@ -78,6 +78,8 @@ dist/            本地构建产物，不提交 Git
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
 `src/pages/` 按职责分为 `auth`、`dashboard`、`config`、`server`、`commerce`、`promotion`、`content`、`user` 和 `monitoring`。新增页面应放入对应业务域，不再直接平铺到 `src/pages/` 根目录。
+
+`src/components/` 按职责分为 `common`、`config`、`server`、`commerce`、`promotion`、`content`、`user` 和 `monitoring`。新增组件应放入对应业务域，不再直接平铺到 `src/components/` 根目录。
 
 ## 测试服务器部署
 

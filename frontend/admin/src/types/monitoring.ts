@@ -1,5 +1,5 @@
-import type { DisplayScalar } from '../components/MoneyDisplay';
-import type { QueueWorkload } from '../components/QueueDisplayColumns';
+import type { DisplayScalar } from '../components/common/MoneyDisplay';
+import type { QueueWorkload } from '../components/monitoring/QueueDisplayColumns';
 
 export interface OrderChartRecord {
   type: string;

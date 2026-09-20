@@ -92,7 +92,7 @@ test('User search keeps the recovered 400ms debounce contract', async () => {
 });
 
 test('User editor fetches, updates, submits and clears its record on close', async () => {
-  const runtime = await loadSource('../src/components/UserEditor.tsx');
+  const runtime = await loadSource('../src/components/user/UserEditor.tsx');
   const actions = [];
   const editor = new runtime.UserEditor({
     userId: 7, children: { props: {} }, dispatch: action => actions.push(action),

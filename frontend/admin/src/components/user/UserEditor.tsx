@@ -9,8 +9,8 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { UserModuleState, UserPlanOption, UserRecord } from '../types/user';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { UserModuleState, UserPlanOption, UserRecord } from '../../types/user';
 
 
 interface FormGroupProps { label: React.ReactNode; children: React.ReactNode; }

@@ -1,6 +1,6 @@
 import dayjs from 'moment';
 import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
-import type { CouponRecord } from '../components/CouponDisplayColumns';
+import type { CouponRecord } from '../components/promotion/CouponDisplayColumns';
 import type { CouponState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';

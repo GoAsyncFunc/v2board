@@ -22,7 +22,13 @@ const Input = Object.assign('Input', { Group: 'Input.Group', TextArea: 'Input.Te
 const Select = Object.assign('Select', { Option: 'Select.Option' });
 
 async function load(componentName) {
-  const source = await fs.readFile(new URL(`../src/components/${componentName}.tsx`, import.meta.url), 'utf8');
+  const componentDomains = {
+    AssignOrderEditor: 'commerce',
+    PermissionGroupEditor: 'common',
+    SendMailEditor: 'user',
+    UserGenerator: 'user',
+  };
+  const source = await fs.readFile(new URL(`../src/components/${componentDomains[componentName]}/${componentName}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   vm.runInNewContext(code, {

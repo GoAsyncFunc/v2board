@@ -9,10 +9,10 @@ import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from './PermissionGroupEditor';
-import JsonEditor from './JsonEditor';
-import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, SecuritySettings, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
-import type { AdminRootState } from '../types/store';
+import PermissionGroupEditor from '../common/PermissionGroupEditor';
+import JsonEditor from '../common/JsonEditor';
+import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, SecuritySettings, ServerEditorProps, ServerRecord, ServerSaveState } from '../../types/server';
+import type { AdminRootState } from '../../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {

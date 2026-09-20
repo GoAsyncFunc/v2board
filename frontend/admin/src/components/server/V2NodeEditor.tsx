@@ -6,11 +6,11 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from './PermissionGroupEditor';
-import JsonEditor from './JsonEditor';
+import PermissionGroupEditor from '../common/PermissionGroupEditor';
+import JsonEditor from '../common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
-import type { ChildDrawerState, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
-import type { AdminRootState } from '../types/store';
+import type { ChildDrawerState, ServerEditorProps, ServerRecord, ServerSaveState } from '../../types/server';
+import type { AdminRootState } from '../../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {

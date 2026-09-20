@@ -1,4 +1,4 @@
-import type { PaymentConfigValue, PaymentRecord } from '../components/PaymentDisplayColumns';
+import type { PaymentConfigValue, PaymentRecord } from '../components/config/PaymentDisplayColumns';
 
 export interface PaymentFormField {
   label: string;
