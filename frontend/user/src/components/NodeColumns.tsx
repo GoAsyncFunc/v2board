@@ -1,7 +1,7 @@
 import React from 'react';
-import { Tag } from '../vendor/ui.js';
-import { Badge } from '../vendor/ui.js';
-import { Tooltip } from '../vendor/ui.js';
+import Badge from 'antd/lib/badge';
+import Tag from 'antd/lib/tag';
+import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NodeRecord, NumericValue } from '../types/commerce';

@@ -29,6 +29,8 @@ async function load(name, stateProps) {
       if (id.endsWith('/Modal.js') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal', Modal: 'Modal' };
       if (id.endsWith('/Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon' };
       if (id.endsWith('/ui.js')) return { Input: 'Input', Select: Object.assign('Select', { Option: 'Option' }) };
+      if (id === 'antd/lib/input') return { __esModule: true, default: 'Input' };
+      if (id === 'antd/lib/select') return { __esModule: true, default: Object.assign('Select', { Option: 'Option' }) };
       if (id.endsWith('/clipboard.js') || id === 'copy-to-clipboard') return value => copied.push(value);
       if (id.endsWith('/i18n.js')) return { formatMessage: ({ id }) => id };
       throw Error(id);

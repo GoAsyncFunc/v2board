@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from 'antd/lib/modal';
-import { QRCode } from "../../vendor/content.js";
+import QRCode from 'qrcode.react';
 import { formatMessage } from "../../vendor/i18n.js";
 
 interface PaymentQrModalProps {
@@ -25,7 +25,7 @@ export default function PaymentQrModal({ visible, payUrl, onCancel }: PaymentQrM
                 </div>
             }
         >
-            {payUrl && <QRCode renderAs="svg" size="250" value={payUrl} />}
+            {payUrl && <QRCode renderAs="svg" size={250} value={payUrl} />}
         </Modal>
     );
 }

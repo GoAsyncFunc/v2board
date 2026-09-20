@@ -3,7 +3,10 @@ import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../
 import { formatMoney } from '../components/MoneyDisplay';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
-import { Table, Button, Tooltip, message } from '../vendor/ui.js';
+import Button from 'antd/lib/button';
+import message from 'antd/lib/message';
+import Table from 'antd/lib/table';
+import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
 import copy from 'copy-to-clipboard';
 import { formatMessage } from '../vendor/i18n.js';

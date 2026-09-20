@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
-import { Input } from '../vendor/ui.js';
+import Input from 'antd/lib/input';
 import { formatMessage } from '../vendor/i18n.js';
 import type { UserDispatch } from '../types/store';
 

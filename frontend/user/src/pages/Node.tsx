@@ -1,8 +1,8 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import { Table } from '../vendor/ui.js';
+import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import { calculateUsage } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createNodeColumns } from '../components/NodeColumns';

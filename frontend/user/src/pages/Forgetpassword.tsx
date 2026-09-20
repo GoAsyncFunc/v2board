@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import Recaptcha from '../components/Recaptcha';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { LanguageSelector } from '../components/LanguageSelector';

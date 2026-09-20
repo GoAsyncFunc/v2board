@@ -1,6 +1,6 @@
 import copyText from 'copy-to-clipboard';
+import message from 'antd/lib/message';
 import { formatMessage } from './i18n.js';
-import { message } from './ui.js';
 import desktopNotification from 'antd/lib/notification';
 
 export function getCookie(name) {

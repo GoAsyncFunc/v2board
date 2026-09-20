@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch } from '../vendor/ui.js';
-import { Button } from '../vendor/ui.js';
+import Button from 'antd/lib/button';
+import Switch from 'antd/lib/switch';
 import Modal from 'antd/lib/modal';
-import { message } from '../vendor/ui.js';
+import message from 'antd/lib/message';
 import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request';

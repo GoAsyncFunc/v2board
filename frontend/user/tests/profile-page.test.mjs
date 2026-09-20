@@ -20,6 +20,11 @@ async function load(responseCode = 200) {
     if (id.includes('/ui.js')) return { Switch: 'Switch', Button: 'Button', message: {
       success: text => notices.push(['success', text]), error: text => notices.push(['error', text]),
     } };
+    if (id === 'antd/lib/button') return { __esModule: true, default: 'Button' };
+    if (id === 'antd/lib/switch') return { __esModule: true, default: 'Switch' };
+    if (id === 'antd/lib/message') return { __esModule: true, default: {
+      success: text => notices.push(['success', text]), error: text => notices.push(['error', text]),
+    } };
     if (id.includes('/Modal') || id === 'antd/lib/modal') {
       const Modal = { confirm: options => confirmations.push(options) };
       return { __esModule: true, default: Modal, Modal };

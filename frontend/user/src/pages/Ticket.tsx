@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
-import { Select } from '../vendor/ui.js';
-import { Input } from '../vendor/ui.js';
-import { Table } from '../vendor/ui.js';
+import Input from 'antd/lib/input';
+import Select from 'antd/lib/select';
+import Table from 'antd/lib/table';
 import Icon from 'antd/lib/icon';
 import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../vendor/i18n.js';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from '../../vendor/ui.js';
+import Radio from 'antd/lib/radio';
 import { localeSettings as settings } from '../../vendor/localeSettings.js';
 import { formatMessage } from '../../vendor/i18n.js';
 import { formatPrice } from '../MoneyDisplay';

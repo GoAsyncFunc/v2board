@@ -2,7 +2,7 @@ import React from 'react';
 import Result from 'antd/lib/result';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
-import { Button } from '../vendor/ui.js';
+import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import { formatMessage } from '../vendor/i18n.js';
 import { isExpired, parseJson } from '../vendor/siteHelpers.js';

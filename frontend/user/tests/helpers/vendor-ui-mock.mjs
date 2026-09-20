@@ -32,11 +32,31 @@ const MODULE_BY_EXPORT = {
   Carousel: 'antdCarousel.js',
 };
 
+const MODULE_BY_ANTD_PATH = {
+  badge: 'antdBadge.js',
+  button: 'antdButton.js',
+  carousel: 'antdCarousel.js',
+  drawer: 'antdDrawer.js',
+  input: 'antdInput.js',
+  message: 'antdMessage.js',
+  radio: 'antdRadio.js',
+  select: 'antdSelect.js',
+  switch: 'antdSwitch.js',
+  table: 'antdTable.js',
+  tag: 'antdTag.js',
+  tooltip: 'antdTooltip.js',
+};
+
 export function expandVendorUiImports(source) {
   return source
     .replace(/import\s+Icon\s+from\s+(['"])antd\/lib\/icon\1;?/g, "import { Icon } from '../vendor/Icon.js';")
     .replace(/import\s+Modal\s+from\s+(['"])antd\/lib\/modal\1;?/g, "import { Modal } from '../vendor/Modal.js';")
     .replace(/import\s+Divider\s+from\s+(['"])antd\/lib\/divider\1;?/g, "import { Divider } from '../vendor/Divider.js';")
+    .replace(/import\s+(\w+)\s+from\s+(['"])antd\/lib\/([\w-]+)\2;?/g, (statement, localName, quote, modulePath) => {
+      const moduleName = MODULE_BY_ANTD_PATH[modulePath];
+      if (!moduleName) return statement;
+      return `import { a as ${localName} } from ${quote}../vendor/modules/${moduleName}${quote};`;
+    })
     .replace(/import\s+moment\s+from\s+(['"])moment\1;?/g, "import moment from '../vendor/modules/77642f52.js';")
     .replace(/import\s+(\w+)\s+from\s+(['"])copy-to-clipboard\2;?/g, "import $1 from '../vendor/modules/clipboardRuntime.js';")
     .replace(
@@ -68,6 +88,7 @@ export function expandVendorUiImports(source) {
     .replace(/import\s+\{\s*routeRenderer\s*\}\s+from\s+(['"])([^'"]*vendor\/)appRuntime\.js\1;?/g, 'import routeRenderer from $1$2modules/43727734.js$1;')
     .replace(/import\s+\{\s*router\s*\}\s+from\s+(['"])([^'"]*vendor\/)appRuntime\.js\1;?/g, 'import { router } from $1$2modules/4172412b.js$1;')
     .replace(/import\s+\{\s*loadable\s*\}\s+from\s+(['"])([^'"]*vendor\/)utilities\.js\1;?/g, 'import loadable from $1$2modules/reactLoadableRuntime.js$1;')
+    .replace(/import\s+(\w+)\s+from\s+(['"])react-loadable\2;?/g, 'import $1 from $2../vendor/modules/reactLoadableRuntime.js$2;')
     .replace(/import\s+\{\s*MarkdownIt\s*\}\s+from\s+(['"])([^'"]*vendor\/)utilities\.js\1;?/g, 'import MarkdownIt from $1$2modules/markdownItRuntime.js$1;')
     .replace(/import\s+\{\s*(mergeProps|objectSpread)\s*\}\s+from\s+(['"])([^'"]*vendor\/)utilities\.js\2;?/g, 'import { a as $1 } from $2$3modules/70307045.js$2;')
     .replace(/import\s+\{\s*(AssignOrderEditor|TrafficPanel|SendMailEditor|UserGenerator)\s*\}\s+from\s+(['"])([^'"]*vendor\/)features\.js\2;?/g, (statement, exportName, quote, vendorPrefix) => {
@@ -81,6 +102,7 @@ export function expandVendorUiImports(source) {
     .replace(/from\s+(['"])([^'"]*vendor\/)theme\.js\1/g, 'from $1$2modules/6e444349.js$1')
     .replace(/import\s+\{\s*chineseLocale\s*\}\s+from\s+(['"])([^'"]*vendor\/)content\.js\1;?/g, 'import { a as chineseLocale } from $1$2modules/antdZhCnLocale.js$1;')
     .replace(/import\s+\{\s*withLocale\s*\}\s+from\s+(['"])([^'"]*vendor\/)content\.js\1;?/g, 'import withLocale from $1$2modules/withLocaleRuntime.js$1;')
+    .replace(/import\s+(\w+)\s+from\s+(['"])\.\.\/app\/routerHistory\2;?/g, 'import $1 from $2../vendor/routerHistory.js$2;')
     .replace(/import\s+(['"])([^'"]*vendor\/)(?:features|componentStyles|transpilerRuntime|codeEditorRuntime|featureRuntime)\.js\1;?/g, '');
 }
 

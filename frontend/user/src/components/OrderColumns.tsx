@@ -1,8 +1,8 @@
 import React from 'react';
 import Divider from 'antd/lib/divider';
-import { Badge } from '../vendor/ui.js';
-import { Tag } from '../vendor/ui.js';
-import history from '../vendor/routerHistory.js';
+import Badge from 'antd/lib/badge';
+import Tag from 'antd/lib/tag';
+import history from '../app/routerHistory';
 import { formatDateTime } from './DateTimeDisplay';
 import { formatPrice } from './MoneyDisplay';
 import { localeSettings as settings } from '../vendor/localeSettings.js';

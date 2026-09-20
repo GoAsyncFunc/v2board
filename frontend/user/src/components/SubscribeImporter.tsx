@@ -1,11 +1,12 @@
 import React from 'react';
 import Modal from 'antd/lib/modal';
-import { Button, Drawer } from '../vendor/ui.js';
-import { QRCode } from '../vendor/content.js';
+import Button from 'antd/lib/button';
+import Drawer from 'antd/lib/drawer';
+import QRCode from 'qrcode.react';
 import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
-import { push } from '../vendor/routerHistory.js';
-import { subscribeStyles as styles } from '../vendor/subscribeStyles.js';
+import history from '../app/routerHistory';
+import { subscribeImporterStyles as styles } from '../styles/subscribeImporter';
 
 interface SubscribeImporterProps {
   children: React.ReactElement;
@@ -61,7 +62,7 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
           </div>
         ))}
         <div style={{ padding: 10 }}>
-          <Button size="large" block type="primary" onClick={() => push('/knowledge')}>
+          <Button size="large" block type="primary" onClick={() => history.push('/knowledge')}>
             {formatMessage({ id: '不会使用，查看使用教程' })}
           </Button>
         </div>
@@ -70,7 +71,8 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
   }
 
   render() {
-    const { children, subscribeUrl } = this.props;
+    const { children } = this.props;
+    const subscribeUrl = this.props.subscribeUrl ?? '';
     const { showSubscribe, showQrSubscribe } = this.state;
     const qrModal = (
       <Modal closable={false} centered width={300} visible={showQrSubscribe} footer={false} style={{ textAlign: 'center' }} onCancel={() => this.setState({ showQrSubscribe: false })} zIndex={2000}>

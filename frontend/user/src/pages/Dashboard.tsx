@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from '../vendor/ui.js';
-import { Carousel } from '../vendor/ui.js';
+import Button from 'antd/lib/button';
+import Carousel from 'antd/lib/carousel';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import SubscribeImporter from '../components/SubscribeImporter';
 import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay';

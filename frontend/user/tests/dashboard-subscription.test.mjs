@@ -25,14 +25,19 @@ async function load(file, platform = {}) {
     if (id === 'react-redux') return { connect: () => Component => Component };
     if (id.includes('/Modal') || id === 'antd/lib/modal') return { __esModule: true, default: modal, Modal: modal };
     if (id.includes('/ui.js')) return { Button: 'Button', Carousel: 'Carousel', Drawer: 'Drawer' };
+    if (id === 'antd/lib/button') return { __esModule: true, default: 'Button' };
+    if (id === 'antd/lib/carousel') return { __esModule: true, default: 'Carousel' };
+    if (id === 'antd/lib/drawer') return { __esModule: true, default: 'Drawer' };
     if (id.includes('/LoadingContainer')) return 'Loading';
     if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
     if (id.includes('/content.js')) return { QRCode: 'QRCode' };
+    if (id === 'qrcode.react') return { __esModule: true, default: 'QRCode' };
     if (id.includes('SubscribeImporter')) return 'Importer';
     if (id.includes('MainLayout')) return 'Layout';
     if (id.includes('routerHistory')) return { push: route => routes.push(route) };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
     if (id.includes('subscribeStyles')) return { subscribeStyles: { item: 'item', oneClickSubscribe: 'subscribe' } };
+    if (id.includes('styles/subscribeImporter')) return { subscribeImporterStyles: { item: 'item', oneClickSubscribe: 'subscribe' } };
     if (id.includes('siteHelpers')) return {
       copyToClipboard: text => copied.push(text),
       isMobile: () => Boolean(platform.mobile), isAppleMobile: () => Boolean(platform.apple),

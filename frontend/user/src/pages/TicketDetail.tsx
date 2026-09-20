@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { formatMessage } from '../vendor/i18n.js';
-import { ticketDetailStyles as styles } from '../vendor/content.js';
+import { ticketDetailStyles as styles } from '../styles/ticketDetail';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketConversation, TicketMessage, TicketState } from '../types/ticket';
 import type { UserDispatch } from '../types/store';

@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 import MobileList from '../components/MobileList';
-import { Table } from '../vendor/ui.js';
-import { Badge } from '../vendor/ui.js';
+import Badge from 'antd/lib/badge';
+import Table from 'antd/lib/table';
 import Modal from 'antd/lib/modal';
 import { connect } from 'react-redux';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import { formatDateTimeSeconds } from '../components/DateTimeDisplay';
 import { formatPrice } from '../components/MoneyDisplay';
 import { localeSettings as settings } from '../vendor/localeSettings.js';

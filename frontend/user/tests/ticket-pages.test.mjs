@@ -25,12 +25,16 @@ async function load(name) {
       if (id === 'react-redux') return { connect: () => Component => Component };
       if (id.includes('/Modal') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal', Modal: 'Modal' };
       if (id.includes('/ui.js')) return { Table: 'Table', Input: Object.assign(function Input() {}, { TextArea: 'TextArea' }), Select: Object.assign(function Select() {}, { Option: 'Option' }) };
+      if (id === 'antd/lib/input') return { __esModule: true, default: Object.assign(function Input() {}, { TextArea: 'TextArea' }) };
+      if (id === 'antd/lib/select') return { __esModule: true, default: Object.assign(function Select() {}, { Option: 'Option' }) };
+      if (id === 'antd/lib/table') return { __esModule: true, default: 'Table' };
       if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       if (id.includes('TicketReadonlyColumns')) return { createReadonlyTicketColumns: () => [] };
       if (id.includes('DateTimeDisplay')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('/content.js')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input' } };
+      if (id.includes('styles/ticketDetail')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input', bubble: 'bubble', time: 'time' } };
       if (id.includes('iconStyles')) return {};
       throw Error(id);
     },

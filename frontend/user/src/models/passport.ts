@@ -1,5 +1,5 @@
 import { get, post } from '../services/request';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import { setToken, notify } from '../vendor/siteHelpers.js';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';

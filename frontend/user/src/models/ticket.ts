@@ -1,5 +1,5 @@
 import message from 'antd/lib/message';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import { get, post } from '../services/request';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';

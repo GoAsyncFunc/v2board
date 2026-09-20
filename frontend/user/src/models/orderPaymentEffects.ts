@@ -1,6 +1,6 @@
 import message from 'antd/lib/message';
 import { post } from '../services/request';
-import history from '../vendor/routerHistory.js';
+import history from '../app/routerHistory';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { OrderCheckoutResponse, OrderModelState, OrderSaveParams } from '../types/payment';

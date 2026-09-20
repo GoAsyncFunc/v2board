@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import { Tooltip } from '../vendor/ui.js';
-import { Tag } from '../vendor/ui.js';
+import Tag from 'antd/lib/tag';
+import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
 import { formatBytes } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';

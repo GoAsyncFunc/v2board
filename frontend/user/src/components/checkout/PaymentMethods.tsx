@@ -1,5 +1,5 @@
 import React from "react";
-import { Radio } from "../../vendor/ui.js";
+import Radio from 'antd/lib/radio';
 import type { PaymentMethod } from "../../types/commerce";
 
 interface PaymentMethodsProps {

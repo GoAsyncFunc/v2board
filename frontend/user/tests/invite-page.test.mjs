@@ -29,6 +29,10 @@ async function loadPage() {
         Table: 'Table', Button: 'Button', Tooltip: 'Tooltip',
         message: { success: text => trace.push(['success', text]) },
       };
+      if (id === 'antd/lib/button') return { __esModule: true, default: 'Button' };
+      if (id === 'antd/lib/table') return { __esModule: true, default: 'Table' };
+      if (id === 'antd/lib/tooltip') return { __esModule: true, default: 'Tooltip' };
+      if (id === 'antd/lib/message') return { __esModule: true, default: { success: text => trace.push(['success', text]) } };
       if (id.includes('Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       if (id.includes('clipboard') || id === 'copy-to-clipboard') return value => trace.push(['copy', value]);
