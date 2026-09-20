@@ -1,3 +1,3 @@
-export function calculateUsage(used: unknown, total: unknown): number {
-  return ((used as number) / (total as number)) * 100;
+export function calculateUsage(used: number, total: number): number {
+  return (used / total) * 100;
 }

@@ -16,7 +16,7 @@ interface MobileListBriefProps {
   style?: StyleValue;
 }
 
-interface MobileListItemProps {
+interface MobileListItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'onClick'> {
   prefixCls?: string;
   className?: string;
   activeStyle?: React.CSSProperties | false;
@@ -31,7 +31,6 @@ interface MobileListItemProps {
   arrow?: 'horizontal' | 'down' | 'up';
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   platform?: 'ios' | 'android';
-  [key: string]: unknown;
 }
 
 interface MobileListState {
@@ -177,10 +176,15 @@ export class MobileListItem extends React.Component<MobileListItemProps, MobileL
       platform,
       ...restProps
     } = this.props;
-    const touchHandlers: Record<string, unknown> = {};
-    Object.keys(restProps).forEach(key => {
-      if (/onTouch/i.test(key)) touchHandlers[key] = restProps[key];
-    });
+    const touchHandlers: React.DOMAttributes<HTMLDivElement> = {};
+    if ('onTouchStart' in restProps) touchHandlers.onTouchStart = restProps.onTouchStart;
+    if ('onTouchStartCapture' in restProps) touchHandlers.onTouchStartCapture = restProps.onTouchStartCapture;
+    if ('onTouchMove' in restProps) touchHandlers.onTouchMove = restProps.onTouchMove;
+    if ('onTouchMoveCapture' in restProps) touchHandlers.onTouchMoveCapture = restProps.onTouchMoveCapture;
+    if ('onTouchEnd' in restProps) touchHandlers.onTouchEnd = restProps.onTouchEnd;
+    if ('onTouchEndCapture' in restProps) touchHandlers.onTouchEndCapture = restProps.onTouchEndCapture;
+    if ('onTouchCancel' in restProps) touchHandlers.onTouchCancel = restProps.onTouchCancel;
+    if ('onTouchCancelCapture' in restProps) touchHandlers.onTouchCancelCapture = restProps.onTouchCancelCapture;
     const itemClassName = classNames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled,
       [`${prefixCls}-item-error`]: error,
