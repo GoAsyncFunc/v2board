@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import type { NumericValue } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 import type { CommissionRecord, InviteCode } from '../types/invite';

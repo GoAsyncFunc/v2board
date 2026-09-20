@@ -1,7 +1,7 @@
 import React from 'react';
 import Radio from 'antd/lib/radio';
 import { localeSettings as settings } from '../../config/localeSettings';
-import { formatMessage } from '../../vendor/i18n.js';
+import { formatMessage } from '../../locales/i18n';
 import { formatPrice } from '../MoneyDisplay';
 import type { CouponData, PlanData } from '../../types/commerce';
 

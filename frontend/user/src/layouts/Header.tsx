@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
 import { getCookie, setCookie } from '../utils/siteHelpers';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import LanguageSelector from '../components/LanguageSelector';
 import type { UserDispatch } from '../types/store';
 

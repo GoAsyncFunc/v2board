@@ -10,7 +10,7 @@ import { formatDateTimeSeconds } from '../components/DateTimeDisplay';
 import { formatPrice } from '../components/MoneyDisplay';
 import { localeSettings as settings } from '../config/localeSettings';
 import { isMobile } from '../utils/siteHelpers';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns';
 import type { OrderRecord } from '../types/commerce';
 import type { UserDispatch } from '../types/store';

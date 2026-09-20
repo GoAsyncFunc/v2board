@@ -1,4 +1,4 @@
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 
 const translate = (id: string) => (): string => formatMessage({ id });
 

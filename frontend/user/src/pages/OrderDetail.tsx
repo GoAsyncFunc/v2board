@@ -11,7 +11,7 @@ import MainLayout from "../layouts/MainLayout";
 import { connect } from "react-redux";
 import message from 'antd/lib/message';
 import loadable from 'react-loadable';
-import { formatMessage } from "../vendor/i18n.js";
+import { formatMessage } from '../locales/i18n';
 import type { CheckoutPaymentMethod, OrderDetailRootState, StripeCheckoutState, StripeToken } from "../types/payment";
 import type { PaymentMethod } from "../types/commerce";
 import type { UserDispatch } from "../types/store";

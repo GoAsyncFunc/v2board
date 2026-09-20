@@ -1,5 +1,5 @@
 import React from "react";
-import { formatMessage } from "../../vendor/i18n.js";
+import { formatMessage } from '../../locales/i18n';
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay";
 import { formatPrice } from "../../components/MoneyDisplay";
 import Modal from 'antd/lib/modal';

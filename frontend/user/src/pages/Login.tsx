@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import history from '../app/routerHistory';
-import { formatMessage, getLocale } from '../vendor/i18n.js';
+import { formatMessage, getLocale } from '../locales/i18n';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../config/localeSettings';
 import type { AuthRootState, LoginPageProps } from '../types/auth';

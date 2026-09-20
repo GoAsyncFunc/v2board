@@ -4,7 +4,7 @@ import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { isExpired, parseJson } from '../utils/siteHelpers';
 import { router } from '../vendor/appRuntime.js';
 import { PeriodSelector, couponDiscount, totalAmount } from '../components/checkout/Pricing';

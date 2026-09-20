@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatMessage } from '../../vendor/i18n.js';
+import { formatMessage } from '../../locales/i18n';
 import type { CheckoutOrder } from '../../types/checkout';
 import type { PaymentConfig } from '../../types/commerce';
 import type { UserDispatch } from '../../types/store';

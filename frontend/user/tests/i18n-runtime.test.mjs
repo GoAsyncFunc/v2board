@@ -39,7 +39,7 @@ test('user i18n runtime delegates messages and reloads locale without refreshing
     IntlProvider: 'IntlProvider',
     intlShape: {},
   };
-  const runtime = evaluate(await compile('../src/vendor/i18n.js'), {
+  const runtime = evaluate(await compile('../src/locales/i18n.ts', 'ts'), {
     window,
     localStorage: window.localStorage,
     navigator: { language: 'zh-CN' },
@@ -100,7 +100,7 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
       }
       if (id.includes('/dva')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
       if (id === 'antd/lib/config-provider') return { __esModule: true, default: 'ConfigProvider' };
-      if (id.includes('/locales')) return localeExports;
+      if (id.includes('/locales/catalog')) return localeExports;
       if (id.includes('/i18n')) {
         return {
           setIntlApi: value => injected.push(value),

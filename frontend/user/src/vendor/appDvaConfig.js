@@ -1,6 +1,6 @@
 import { enable } from "darkreader";
 import message from 'antd/lib/message';
-import { setLocale } from "./i18n.js";
+import { setLocale } from '../locales/i18n';
 import { getCookie } from '../utils/siteHelpers';
 
 message.config({ maxCount: 1 });

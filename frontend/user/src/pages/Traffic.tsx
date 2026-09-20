@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../layouts/MainLayout';
 import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { createTrafficColumns } from '../components/TrafficColumns';
 import type { TrafficState } from '../types/queryModels';
 import type { UserDispatch } from '../types/store';

@@ -2,7 +2,7 @@ import React from 'react';
 import history from '../app/routerHistory';
 import { localeSettings as settings } from '../config/localeSettings';
 import { parseJson } from '../utils/siteHelpers';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { formatPrice } from './MoneyDisplay';
 import type { CatalogPlan, PlanFeature, PlanPeriod, PlanTab, PlanUnitPrice } from '../types/plan';
 const message = (id: string): string => formatMessage({ id });

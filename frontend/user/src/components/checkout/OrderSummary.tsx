@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import { localeSettings as settings } from '../../config/localeSettings';
-import { formatMessage } from '../../vendor/i18n.js';
+import { formatMessage } from '../../locales/i18n';
 import { CouponDiscount } from './Coupon';
 import { totalAmount } from './Pricing';
 import { formatPrice } from '../MoneyDisplay';

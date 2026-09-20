@@ -5,7 +5,7 @@ import Drawer from 'antd/lib/drawer';
 import message from 'antd/lib/message';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
-import { formatMessage, getLocale } from '../vendor/i18n.js';
+import { formatMessage, getLocale } from '../locales/i18n';
 import Icon from 'antd/lib/icon';
 import MarkdownIt from 'markdown-it';
 import type { KnowledgeId, KnowledgeState } from '../types/knowledge';

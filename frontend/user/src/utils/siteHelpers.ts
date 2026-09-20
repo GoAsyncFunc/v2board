@@ -3,7 +3,7 @@ import desktopNotification from 'antd/lib/notification';
 import copyText from 'copy-to-clipboard';
 import type { NumericValue } from '../types/commerce';
 import type { UserSubscription } from '../types/subscription';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 
 export type NotificationType = 'success' | 'error' | 'info' | 'warning';
 export type CookieValue = string | number | boolean;

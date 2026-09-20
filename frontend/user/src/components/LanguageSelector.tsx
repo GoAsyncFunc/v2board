@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'antd/lib/dropdown';
 import Menu from 'antd/lib/menu';
-import { setLocale } from '../vendor/i18n.js';
+import { setLocale } from '../locales/i18n';
 import { localeSettings } from '../config/localeSettings';
 import { setCookie } from '../utils/siteHelpers';
 

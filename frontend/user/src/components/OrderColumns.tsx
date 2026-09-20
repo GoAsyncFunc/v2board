@@ -6,7 +6,7 @@ import history from '../app/routerHistory';
 import { formatDateTime } from './DateTimeDisplay';
 import { formatPrice } from './MoneyDisplay';
 import { localeSettings as settings } from '../config/localeSettings';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import type { NumericValue, OrderRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 

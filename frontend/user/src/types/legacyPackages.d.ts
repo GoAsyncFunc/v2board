@@ -49,3 +49,23 @@ declare module 'react-loadable' {
 
   export default function loadable<Props>(options: LoadableOptions<Props>): LoadableComponent<Props>;
 }
+
+declare module 'react-intl' {
+  import * as React from 'react';
+
+  export function addLocaleData(data: ReadonlyArray<object> | object): void;
+  export const IntlProvider: React.ComponentType<{
+    locale: string;
+    messages: Record<string, string>;
+    children?: React.ReactNode;
+  }>;
+  export const intlShape: object;
+  export function injectIntl<Props>(component: React.ComponentType<Props>): React.ComponentType<Props>;
+}
+
+declare module 'react-intl/locale-data/en' { const data: ReadonlyArray<object>; export default data; }
+declare module 'react-intl/locale-data/fa' { const data: ReadonlyArray<object>; export default data; }
+declare module 'react-intl/locale-data/ja' { const data: ReadonlyArray<object>; export default data; }
+declare module 'react-intl/locale-data/ko' { const data: ReadonlyArray<object>; export default data; }
+declare module 'react-intl/locale-data/vi' { const data: ReadonlyArray<object>; export default data; }
+declare module 'react-intl/locale-data/zh' { const data: ReadonlyArray<object>; export default data; }

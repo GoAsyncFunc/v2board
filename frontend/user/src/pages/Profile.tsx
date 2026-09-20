@@ -7,7 +7,7 @@ import message from 'antd/lib/message';
 import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { formatMoney } from '../components/MoneyDisplay';
 import type { ProfileConfig, ProfileInfo, ProfileSetting, ProfileUserState } from '../types/profile';
 import type { UserDispatch } from '../types/store';

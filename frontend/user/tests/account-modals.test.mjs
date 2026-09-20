@@ -32,7 +32,7 @@ async function load(name, stateProps) {
       if (id === 'antd/lib/input') return { __esModule: true, default: 'Input' };
       if (id === 'antd/lib/select') return { __esModule: true, default: Object.assign('Select', { Option: 'Option' }) };
       if (id.endsWith('/clipboard.js') || id === 'copy-to-clipboard') return value => copied.push(value);
-      if (id.endsWith('/i18n.js')) return { formatMessage: ({ id }) => id };
+      if (id.includes('/i18n')) return { formatMessage: ({ id }) => id };
       throw Error(id);
     },
   });

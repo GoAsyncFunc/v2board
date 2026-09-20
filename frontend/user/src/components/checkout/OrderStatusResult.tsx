@@ -1,7 +1,7 @@
 import React from "react";
 import Result from "antd/lib/result";
 import type { ResultProps } from "antd/lib/result";
-import { formatMessage } from "../../vendor/i18n.js";
+import { formatMessage } from '../../locales/i18n';
 import { router } from "../../vendor/appRuntime.js";
 export function orderResultProps(status: number): ResultProps | undefined {
     switch (status) {

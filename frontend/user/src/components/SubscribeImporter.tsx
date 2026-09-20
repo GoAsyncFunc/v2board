@@ -4,7 +4,7 @@ import Button from 'antd/lib/button';
 import Drawer from 'antd/lib/drawer';
 import QRCode from 'qrcode.react';
 import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../utils/siteHelpers';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import history from '../app/routerHistory';
 import { subscribeImporterStyles as styles } from '../styles/subscribeImporter';
 

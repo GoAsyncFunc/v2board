@@ -4,7 +4,7 @@ import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
 import history from '../app/routerHistory';
 import { calculateUsage } from '../utils/siteHelpers';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import { createNodeColumns } from '../components/NodeColumns';
 import type { OrderRecord } from '../types/commerce';
 import type { ServerState } from '../types/queryModels';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import type { UserDispatch } from '../types/store';
 
 interface WithdrawStateProps {

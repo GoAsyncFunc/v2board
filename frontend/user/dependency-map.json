@@ -9,19 +9,19 @@
   },
   {
     "from": "app/Router.tsx",
+    "to": "locales/catalog.ts"
+  },
+  {
+    "from": "app/Router.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "app/Router.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
     "from": "app/Router.tsx",
     "to": "vendor/dva.js"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "vendor/i18n.js"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "vendor/locales.js"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -185,7 +185,7 @@
   },
   {
     "from": "components/InviteDisplayColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/LanguageSelector.tsx",
@@ -193,15 +193,15 @@
   },
   {
     "from": "components/LanguageSelector.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/LanguageSelector.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "components/NodeColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/OrderColumns.tsx",
@@ -221,7 +221,7 @@
   },
   {
     "from": "components/OrderColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/PlanCard.tsx",
@@ -237,15 +237,19 @@
   },
   {
     "from": "components/PlanCard.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/PlanCard.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "components/SubscribeImporter.tsx",
     "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "components/SubscribeImporter.tsx",
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/SubscribeImporter.tsx",
@@ -256,36 +260,32 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "vendor/i18n.js"
-  },
-  {
     "from": "components/SubscribeUsage.ts",
     "to": "utils/subscription.ts"
   },
   {
     "from": "components/TelegramBindModal.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/TicketReadonlyColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/TrafficColumns.tsx",
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/TrafficColumns.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "components/TrafficColumns.tsx",
-    "to": "vendor/i18n.js"
-  },
-  {
     "from": "components/TransferCommissionModal.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/WithdrawModal.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/Coupon.tsx",
@@ -297,7 +297,7 @@
   },
   {
     "from": "components/checkout/Coupon.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/OrderInfo.tsx",
@@ -313,7 +313,7 @@
   },
   {
     "from": "components/checkout/OrderInfo.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
@@ -325,15 +325,15 @@
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/checkout/OrderStatusResult.tsx",
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/OrderStatusResult.tsx",
     "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "components/checkout/OrderStatusResult.tsx",
-    "to": "vendor/i18n.js"
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
@@ -353,11 +353,11 @@
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/PaymentQrModal.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/Pricing.tsx",
@@ -369,19 +369,19 @@
   },
   {
     "from": "components/checkout/Pricing.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/ProductInfo.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "config/localeSettings.ts",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "config/navigation.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "layouts/Header.tsx",
@@ -389,11 +389,11 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -565,11 +565,11 @@
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Forgetpassword.tsx",
@@ -589,11 +589,11 @@
   },
   {
     "from": "pages/Forgetpassword.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Forgetpassword.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Index.tsx",
@@ -621,7 +621,7 @@
   },
   {
     "from": "pages/Invite.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Knowledge.tsx",
@@ -633,11 +633,11 @@
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Login.tsx",
@@ -653,7 +653,7 @@
   },
   {
     "from": "pages/Login.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Node.tsx",
@@ -669,15 +669,15 @@
   },
   {
     "from": "pages/Node.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/Node.tsx",
     "to": "services/request.ts"
   },
   {
     "from": "pages/Node.tsx",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Order.tsx",
@@ -709,11 +709,11 @@
   },
   {
     "from": "pages/Order.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Order.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/OrderDetail.tsx",
@@ -749,7 +749,7 @@
   },
   {
     "from": "pages/OrderDetail.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Plan.tsx",
@@ -761,7 +761,7 @@
   },
   {
     "from": "pages/Plan.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/PlanDetail.tsx",
@@ -781,15 +781,15 @@
   },
   {
     "from": "pages/PlanDetail.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/PlanDetail.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/PlanDetail.tsx",
     "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Profile.tsx",
@@ -805,11 +805,11 @@
   },
   {
     "from": "pages/Profile.tsx",
-    "to": "services/request.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Profile.tsx",
-    "to": "vendor/i18n.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Register.tsx",
@@ -829,11 +829,11 @@
   },
   {
     "from": "pages/Register.tsx",
-    "to": "utils/siteHelpers.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/Register.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Ticket.tsx",
@@ -845,7 +845,7 @@
   },
   {
     "from": "pages/Ticket.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/TicketDetail.tsx",
@@ -853,11 +853,11 @@
   },
   {
     "from": "pages/TicketDetail.tsx",
-    "to": "styles/ticketDetail.ts"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "pages/TicketDetail.tsx",
-    "to": "vendor/i18n.js"
+    "to": "styles/ticketDetail.ts"
   },
   {
     "from": "pages/Traffic.tsx",
@@ -869,11 +869,15 @@
   },
   {
     "from": "pages/Traffic.tsx",
-    "to": "vendor/i18n.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "runtime/routeRenderer.tsx",
     "to": "runtime/pluginRuntime.ts"
+  },
+  {
+    "from": "services/request.ts",
+    "to": "locales/i18n.ts"
   },
   {
     "from": "services/request.ts",
@@ -884,20 +888,16 @@
     "to": "vendor/dva.js"
   },
   {
-    "from": "services/request.ts",
-    "to": "vendor/i18n.js"
+    "from": "utils/siteHelpers.ts",
+    "to": "locales/i18n.ts"
   },
   {
-    "from": "utils/siteHelpers.ts",
-    "to": "vendor/i18n.js"
+    "from": "vendor/appDvaConfig.js",
+    "to": "locales/i18n.ts"
   },
   {
     "from": "vendor/appDvaConfig.js",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "vendor/appDvaConfig.js",
-    "to": "vendor/i18n.js"
   },
   {
     "from": "vendor/appRuntime.js",

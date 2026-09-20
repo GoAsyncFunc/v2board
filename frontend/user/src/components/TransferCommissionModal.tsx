@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import Input from 'antd/lib/input';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import type { UserDispatch } from '../types/store';
 
 interface TransferStateProps {

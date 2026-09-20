@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatMessage } from '../../vendor/i18n.js';
+import { formatMessage } from '../../locales/i18n';
 import { couponDiscount } from './Pricing';
 import { formatPrice } from '../MoneyDisplay';
 import type { CouponData, NumericValue } from '../../types/commerce';

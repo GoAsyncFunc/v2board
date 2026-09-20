@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import history from '../app/routerHistory';
 import Recaptcha from '../components/Recaptcha';
-import { formatMessage, getLocale } from '../vendor/i18n.js';
+import { formatMessage, getLocale } from '../locales/i18n';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../config/localeSettings';
 import { notify } from '../utils/siteHelpers';

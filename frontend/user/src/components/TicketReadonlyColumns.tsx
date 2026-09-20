@@ -1,7 +1,7 @@
 import React from 'react';
 import Badge from 'antd/lib/badge';
 import moment from 'moment';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import type { NumericValue, TicketRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 const message = (id: string): string => formatMessage({ id });

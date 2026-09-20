@@ -8,12 +8,12 @@ import {
   enAntd, enData, enMessages, faAntd, faData, faMessages,
   jaAntd, jaData, jaMessages, koAntd, koData, koMessages,
   twAntd, viAntd, viData, viMessages, zhAntd, zhData, zhMessages,
-} from '../vendor/locales.js';
+} from '../locales/catalog';
 import {
   setIntlApi, setLocaleController, addLocaleData, injectIntl,
   IntlProvider, LangContext,
-} from '../vendor/i18n.js';
-import type { IntlApi, LanguageContextValue } from '../vendor/i18n.js';
+} from '../locales/i18n';
+import type { IntlApi, LanguageContextValue } from '../locales/i18n';
 import * as plugins from '../vendor/appRuntime.js';
 import history from './history';
 import appRoutes from './routes';

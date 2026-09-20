@@ -9,7 +9,7 @@ import Table from 'antd/lib/table';
 import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
 import copy from 'copy-to-clipboard';
-import { formatMessage } from '../vendor/i18n.js';
+import { formatMessage } from '../locales/i18n';
 import TransferModal from '../components/TransferCommissionModal';
 import WithdrawModal from '../components/WithdrawModal';
 import type { ColumnProps } from 'antd/lib/table';
