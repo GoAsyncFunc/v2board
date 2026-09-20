@@ -1,5 +1,15 @@
-import * as queries from './orderQueryEffects';
-import * as payments from './orderPaymentEffects';
+import {
+    check as checkOrder,
+    detail as fetchOrderDetail,
+    fetch as fetchOrders,
+    getPaymentMethod as fetchPaymentMethods,
+} from './orderQueryEffects';
+import {
+    cancel as cancelOrder,
+    checkout as checkoutOrder,
+    checkoutByStripe,
+    save as saveOrder,
+} from './orderPaymentEffects';
 import type { OrderModelState } from '../types/payment';
 import type { StateUpdate } from '../types/queryModels';
 
@@ -32,13 +42,13 @@ export default {
         },
     },
     effects: {
-        save: payments.save,
-        detail: queries.detail,
-        check: queries.check,
-        getPaymentMethod: queries.getPaymentMethod,
-        checkout: payments.checkout,
-        checkoutByStripe: payments.checkoutByStripe,
-        fetch: queries.fetch,
-        cancel: payments.cancel,
+        save: saveOrder,
+        detail: fetchOrderDetail,
+        check: checkOrder,
+        getPaymentMethod: fetchPaymentMethods,
+        checkout: checkoutOrder,
+        checkoutByStripe,
+        fetch: fetchOrders,
+        cancel: cancelOrder,
     },
 };

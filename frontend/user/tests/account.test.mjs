@@ -8,13 +8,20 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const typedEffectCode = Object.fromEntries(await Promise.all([
+ ['userAccountEffects', 'userAccountEffects.ts'],
+ ['userSubscriptionEffects', 'userSubscriptionEffects.ts'],
+].map(async ([name, file]) => [name, (await transform(await fs.readFile(path.join(home, 'src/models', file), 'utf8'), {format:'cjs',loader:'ts'})).code])));
 async function run(original,scenario){
  const trace=[];
  const request=method=>(url,data)=>{trace.push(['request',method,url,data]);return 'request';};
  const get=request('GET'),post=request('POST');
  const window=scenario.chat?{$crisp:{push:data=>trace.push(['crisp',data])}}:{};
+ const typedModules={};
  const require=id=>{
   if(id.includes('sessionEffects'))return {};
+  if(id.includes('userAccountEffects'))return typedModules.userAccountEffects;
+  if(id.includes('userSubscriptionEffects'))return typedModules.userSubscriptionEffects;
   if(id.includes('moduleInterop'))return {markEsModule:obj=>Object.defineProperty(obj,'__esModule',{value:true}),interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
   if(id.includes('70307045'))return Object.assign;
  if(id.includes('reactRuntime')||id.includes('6d69595a'))return {};
@@ -27,6 +34,11 @@ async function run(original,scenario){
   if(id.includes('siteHelpers'))return {b:value=>{trace.push(['traffic',value]);return 'bytes:'+value;},formatBytes:value=>{trace.push(['traffic',value]);return 'bytes:'+value;}};
         throw Error(id);
  };
+ if(!original)for(const [name,code]of Object.entries(typedEffectCode)){
+  const effectModule={exports:{}};
+  vm.runInNewContext(code,{module:effectModule,exports:effectModule.exports,require,window},{timeout:3000});
+  typedModules[name]=effectModule.exports;
+ }
  const file=original?path.join(home,'tests/fixtures/models/user-account.cjs'):path.join(home,'src/models/user.ts');
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,require,window},{timeout:3000});

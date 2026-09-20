@@ -577,22 +577,38 @@
   },
   {
     "from": "models/user.ts",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "models/user.ts",
     "to": "models/sessionEffects.ts"
   },
   {
     "from": "models/user.ts",
+    "to": "models/userAccountEffects.ts"
+  },
+  {
+    "from": "models/user.ts",
+    "to": "models/userSubscriptionEffects.ts"
+  },
+  {
+    "from": "models/userAccountEffects.ts",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "models/userAccountEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/user.ts",
+    "from": "models/userAccountEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/user.ts",
+    "from": "models/userSubscriptionEffects.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/userSubscriptionEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/userSubscriptionEffects.ts",
     "to": "utils/siteHelpers.ts"
   },
   {

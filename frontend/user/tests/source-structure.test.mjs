@@ -91,6 +91,25 @@ test('user pages are grouped by business domain without migration scripts', asyn
   }
 });
 
+test('user model composition uses named business effects instead of module aliases', async () => {
+  const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
+  const orderModel = await fs.readFile(new URL('../src/models/order.ts', import.meta.url), 'utf8');
+  const accountEffects = await fs.readFile(new URL('../src/models/userAccountEffects.ts', import.meta.url), 'utf8');
+  const subscriptionEffects = await fs.readFile(new URL('../src/models/userSubscriptionEffects.ts', import.meta.url), 'utf8');
+
+  for (const source of [userModel, orderModel]) {
+    assert.doesNotMatch(source, /import \* as /);
+    assert.doesNotMatch(source, /\bexports\./);
+  }
+  for (const effect of ['update', 'changePassword', 'newPeriod', 'redeemGiftcard', 'resetSecurity', 'transfer']) {
+    assert.match(accountEffects, new RegExp(`export function\\* ${effect}\\b`));
+  }
+  for (const effect of ['getSubscribe', 'getStat']) {
+    assert.match(subscriptionEffects, new RegExp(`export function\\* ${effect}\\b`));
+  }
+  assert.doesNotMatch(userModel, /\b(?:get|post)\(|window\.|history\./);
+});
+
 test('user application runtime is implemented as typed TSX components', async () => {
   const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
   const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
