@@ -5,7 +5,7 @@ import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from './LoadingContainer';
-import { get } from '../services/request';
+import { get, isSuccessfulResponse } from '../services/request';
 import { formatBytes } from '../utils/siteHelpers';
 
 export interface TrafficRecord {
@@ -52,7 +52,7 @@ export default class TrafficPanel extends React.Component<TrafficPanelProps, Tra
       ...pagination,
     });
     this.setState({ loading: false });
-    if (response.code !== 200) return;
+    if (!isSuccessfulResponse(response)) return;
     this.setState({
       records: response.data,
       pagination: { ...pagination, total: response.total },

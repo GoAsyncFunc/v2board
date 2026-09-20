@@ -23,7 +23,7 @@ async function loadModel(name) {
         builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
         builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({
           loader: 'js',
-          contents: `exports.get = url => globalThis.recordRequest(url);`,
+          contents: `exports.get = url => globalThis.recordRequest(url);exports.isSuccessfulResponse=response=>response.code===200;`,
         }));
       },
     }],

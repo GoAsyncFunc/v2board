@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import '../config/adminSettings';
 import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
 import type { AdminAction } from '../types/store';
@@ -24,7 +24,7 @@ export default {
       yield put({ type: 'setState', payload: { getThemesLoading: true } });
       const response = yield get<ThemeListResponse>(`/${window.settings.secure_path}/theme/getThemes`);
       yield put({ type: 'setState', payload: { getThemesLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { themes: response.data.themes, active: response.data.active } });
     },
     *getThemeConfig(
@@ -34,7 +34,7 @@ export default {
       yield put({ type: 'setState', payload: { getThemeConfigLoading: true } });
       const response = yield post<ThemeConfigParams>(`/${window.settings.secure_path}/theme/getThemeConfig`, { name });
       yield put({ type: 'setState', payload: { getThemeConfigLoading: false } });
-      if (response.code === 200) complete?.(response.data);
+      if (isSuccessfulResponse(response)) complete?.(response.data);
     },
     *saveThemeConfig(
       { config, name, complete }: SaveThemeAction,
@@ -43,7 +43,7 @@ export default {
       yield put({ type: 'setState', payload: { saveThemeConfigLoading: true } });
       const response = yield post<ThemeConfigParams>(`/${window.settings.secure_path}/theme/saveThemeConfig`, { config, name });
       yield put({ type: 'setState', payload: { saveThemeConfigLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'getThemes' });
       complete?.(response.data);
     },

@@ -1,5 +1,5 @@
 import dayjs from 'moment';
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type { GiftcardRecord } from '../components/GiftcardDisplayColumns';
 import type { GiftcardState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -42,7 +42,7 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<GiftcardRecord[]>(`/${window.settings.secure_path}/giftcard/fetch`, { ...giftcardState.pagination, ...giftcardState.sort })) as GiftcardResponse;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       response.data.forEach(giftcard => { if (giftcard.type === 1) giftcard.value = (giftcard.value as number) / 100; });
       yield put({ type: 'setState', payload: { giftcards: response.data, pagination: { ...giftcardState.pagination, total: response.total } } });
     },
@@ -51,14 +51,14 @@ export default {
       if (params.type === 1) params.value = (params.value as number) * 100;
       const response = (yield post(`/${window.settings.secure_path}/giftcard/generate`, params)) as GiftcardGenerateResponse;
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       if (params.generate_count) downloadGiftcardCsv(response.buffer as BlobPart);
       yield put({ type: 'fetch' });
       if (typeof callback === 'function') callback();
     },
     *drop({ id }: GiftcardIdAction, { put }: GiftcardTools): GiftcardEffect {
       const response = (yield post(`/${window.settings.secure_path}/giftcard/drop`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *changeTable({ pagination, sort }: GiftcardTableAction, { put, select }: GiftcardTools): GiftcardEffect {
       const giftcardState = (yield select(state => state.giftcard)) as GiftcardState;

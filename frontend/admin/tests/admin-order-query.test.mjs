@@ -9,7 +9,10 @@ async function run(original, scenario) {
   const trace = [], module = { exports: {} };
   const state = { filter: [{ key: 'status', condition: '=', value: 0 }], pagination: { current: 4, pageSize: 20, total: 100 } };
   const response = structuredClone(scenario.response);
-  const api = { get: (...args) => { trace.push(['get', ...structuredClone(args)]); return 'request'; } }; api.a = api.get;
+  const api = {
+    get: (...args) => { trace.push(['get', ...structuredClone(args)]); return 'request'; },
+    isSuccessfulResponse: value => value.code === 200,
+  }; api.a = api.get;
   const file = new URL(original ? './fixtures/models/admin-order-query.cjs' : '../src/models/orderQueryEffects.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {

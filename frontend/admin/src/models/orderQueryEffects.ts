@@ -1,4 +1,4 @@
-import { get, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
 import type { FilterItem, FilterValue } from '../components/FilterDrawer';
 import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
@@ -27,7 +27,7 @@ export function* fetch(_action: AdminAction, { put, select }: QueryEffectTools):
     ...orderState.pagination,
   })) as ApiResponse<OrderRecord[]>;
   yield put({ type: 'setState', payload: { fetchLoading: false } });
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   yield put({ type: 'setState', payload: { orders: response.data } });
   yield put({ type: 'setState', payload: { pagination: { ...orderState.pagination, total: response.total } } });
 }

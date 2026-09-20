@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type { KnowledgeRecord } from '../components/KnowledgeDisplayColumns';
 import type { KnowledgeState } from '../types/knowledge';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -27,30 +27,30 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<KnowledgeRecord[]>(`/${window.settings.secure_path}/knowledge/fetch`)) as ApiResponse<KnowledgeRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { knowledges: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { knowledges: response.data } });
     },
     *fetchById({ id }: KnowledgeIdAction, { put }: KnowledgeTools): KnowledgeEffect {
       yield put({ type: 'setState', payload: { fetchByIdLoading: true } });
       const response = (yield get<KnowledgeRecord>(`/${window.settings.secure_path}/knowledge/fetch`, { id })) as ApiResponse<KnowledgeRecord>;
       yield put({ type: 'setState', payload: { fetchByIdLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { knowledge: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { knowledge: response.data } });
     },
     *save({ callback }: KnowledgeSaveAction, { put, select }: KnowledgeTools): KnowledgeEffect {
       const knowledgeState = (yield select(state => state.knowledge)) as KnowledgeState;
       yield put({ type: 'setState', payload: { saveLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/knowledge/save`, { ...knowledgeState.knowledge })) as ApiResponse;
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
       if (typeof callback === 'function') callback();
     },
     *drop({ id }: KnowledgeIdAction, { put }: KnowledgeTools): KnowledgeEffect {
       const response = (yield post(`/${window.settings.secure_path}/knowledge/drop`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *show({ id }: KnowledgeIdAction, { put }: KnowledgeTools): KnowledgeEffect {
       const response = (yield post(`/${window.settings.secure_path}/knowledge/show`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *sort({ fromIndex, toIndex }: KnowledgeSortAction, { select, put }: KnowledgeTools): KnowledgeEffect {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
@@ -65,11 +65,11 @@ export default {
       }
       yield put({ type: 'setState', payload: { knowledges } });
       const response = (yield post(`/${window.settings.secure_path}/knowledge/sort`, { knowledge_ids: knowledges.map(knowledge => knowledge.id) })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *getCategory(_: AdminAction, { put }: KnowledgeTools): KnowledgeEffect {
       const response = (yield get<string[]>(`/${window.settings.secure_path}/knowledge/getCategory`)) as ApiResponse<string[]>;
-      if (response.code === 200) yield put({ type: 'setState', payload: { categorys: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { categorys: response.data } });
     },
   },
 };

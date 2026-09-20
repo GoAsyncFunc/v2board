@@ -23,7 +23,7 @@ async function load() {
         builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
         builder.onResolve({ filter: /^antd\/lib\/message$/ }, () => ({ path: 'message', namespace: 'test' }));
         builder.onResolve({ filter: /MailTestResult$/ }, () => ({ path: 'mail-result', namespace: 'test' }));
-        builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);` }));
+        builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
         builder.onLoad({ filter: /^message$/, namespace: 'test' }, () => ({ loader: 'js', contents: `module.exports={success:value=>globalThis.notify('success',value),error:value=>globalThis.notify('error',value)};` }));
         builder.onLoad({ filter: /^mail-result$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.showMailTestResult=log=>globalThis.notify(log.error?'error':'success',log.error?'发送失败':'发送成功');` }));
       },

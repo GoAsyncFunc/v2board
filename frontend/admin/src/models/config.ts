@@ -1,6 +1,6 @@
 import notification from 'antd/lib/message';
 import { showMailTestResult } from '../components/config/MailTestResult';
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type {
   AdminConfigState,
   ConfigGroupKey,
@@ -65,7 +65,7 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<ConfigFetchData>(`/${window.settings.secure_path}/config/fetch`, { key })) as ApiResponse<ConfigFetchData>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       const data = response.data;
       if (typeof data.invite?.commission_withdraw_method === 'string') data.invite.commission_withdraw_method = data.invite.commission_withdraw_method.split(',');
       if (typeof data.site?.email_whitelist_suffix === 'string') data.site.email_whitelist_suffix = data.site.email_whitelist_suffix.split(',');
@@ -75,29 +75,29 @@ export default {
     *save({ parentKey }: SaveConfigAction, { put, select }: ConfigTools): ConfigEffect {
       const configState = (yield select(state => state.config)) as AdminConfigState;
       const response = (yield post(`/${window.settings.secure_path}/config/save`, { ...configState[parentKey] })) as ApiResponse;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       notification.success('保存成功');
       yield put({ type: 'fetch' });
     },
     *getEmailTemplate(_: AdminAction, { put }: ConfigTools): ConfigEffect {
       const response = (yield get<string[]>(`/${window.settings.secure_path}/config/getEmailTemplate`)) as ApiResponse<string[]>;
-      if (response.code === 200) yield put({ type: 'setState', payload: { emailTemplate: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { emailTemplate: response.data } });
     },
     *getThemeTemplate(_: AdminAction, { put }: ConfigTools): ConfigEffect {
       const response = (yield get<string[]>(`/${window.settings.secure_path}/config/getThemeTemplate`)) as ApiResponse<string[]>;
-      if (response.code === 200) yield put({ type: 'setState', payload: { themeTemplate: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { themeTemplate: response.data } });
     },
     *setTelegramWebhook({ token }: TelegramWebhookAction, { put }: ConfigTools): ConfigEffect {
       yield put({ type: 'setState', payload: { setTelegramWebhookLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/config/setTelegramWebhook`, { telegram_bot_token: token })) as ApiResponse;
       yield put({ type: 'setState', payload: { setTelegramWebhookLoading: false } });
-      if (response.code === 200) notification.success('webhook 设置成功');
+      if (isSuccessfulResponse(response)) notification.success('webhook 设置成功');
     },
     *testSendMail(_: AdminAction, { put }: ConfigTools): ConfigEffect {
       yield put({ type: 'setState', payload: { testSendMailLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/config/testSendMail`)) as MailTestResponse;
       yield put({ type: 'setState', payload: { testSendMailLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       const log = response.log || {};
       showMailTestResult(log);
       console.log(response);

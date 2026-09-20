@@ -12,10 +12,21 @@ export type JsonValue = string | number | boolean | null | JsonValue[] | { [key:
 
 export interface ApiResponse<Data = JsonValue> {
   code: number;
-  data: Data;
-  total: number;
+  data?: Data;
+  total?: number;
   msg?: string;
   status?: string;
+}
+
+export interface SuccessfulApiResponse<Data = JsonValue> extends ApiResponse<Data> {
+  code: 200;
+  data: Data;
+}
+
+export function isSuccessfulResponse<Response extends ApiResponse<unknown>>(
+  response: Response,
+): response is Response & SuccessfulApiResponse<Exclude<Response['data'], undefined>> {
+  return response.code === 200;
 }
 
 interface ApiPayload<Data = JsonValue> {

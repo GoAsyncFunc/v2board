@@ -11,7 +11,7 @@ const clone = value => structuredClone(value);
 async function loadModel(name) {
   const output = await build({ absWorkingDir: root, entryPoints: [`src/models/${name}.ts`], bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent', plugins: [{ name: 'request', setup(builder) {
     builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
-    builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);` }));
+    builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
   } }] });
   const requests = [];
   const context = { module: { exports: {} }, exports: {}, window: { settings: { secure_path: 'admin' } }, request(method, url, data) { requests.push([method, url, clone(data)]); return { request: true }; } };

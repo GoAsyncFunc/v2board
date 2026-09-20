@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { NoticeRecord } from '../components/NoticeDisplayColumns';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
@@ -25,23 +25,23 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = yield get<NoticeRecord[]>(`/${window.settings.secure_path}/notice/fetch`);
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { notices: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { notices: response.data } });
     },
     *save({ params, callback }: SaveNoticeAction, { put }: NoticeEffectTools): NoticeEffect {
       yield put({ type: 'setState', payload: { saveLoading: true } });
       const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/save`, params);
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
       callback?.();
     },
     *drop({ id }: NoticeIdAction, { put }: NoticeEffectTools): NoticeEffect {
       const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/drop`, { id });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *show({ id }: NoticeIdAction, { put }: NoticeEffectTools): NoticeEffect {
       const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/show`, { id });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
   },
 };

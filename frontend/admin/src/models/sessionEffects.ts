@@ -1,4 +1,4 @@
-import { get, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
 import history from '../app/navigation';
 import { getToken } from '../utils/siteHelpers';
 import type { AdminLoginData, AdminUserInfo } from '../types/session';
@@ -18,7 +18,7 @@ export function* checkLogin(
   if (!getToken()) return;
   const response = yield get<AdminLoginData>('/user/checkLogin');
   // A logged-in ordinary user must not be redirected into the admin dashboard.
-  if (response.code !== 200 || !response.data.is_admin) return;
+  if (!isSuccessfulResponse(response) || !response.data.is_admin) return;
   yield put({ type: 'user/getUserInfo' });
   history.push(redirect || 'dashboard');
 }
@@ -30,6 +30,6 @@ export function* getUserInfo(
   yield put({ type: 'setState', payload: { getUserInfoLoading: true } });
   const response = yield get<AdminUserInfo>('/user/info');
   yield put({ type: 'setState', payload: { getUserInfoLoading: false } });
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   yield put({ type: 'setState', payload: { userInfo: response.data } });
 }

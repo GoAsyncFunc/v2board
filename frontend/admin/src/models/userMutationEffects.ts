@@ -1,5 +1,5 @@
 import message from 'antd/lib/message';
-import { post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
+import { isSuccessfulResponse, post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserRecord } from '../types/user';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -29,7 +29,7 @@ export function* update({ params, callback }: UpdateAction, { put }: UserTools):
   }, {});
   const response = (yield post(endpoint('update'), updateForm)) as ApiResponse;
   yield put({ type: 'setState', payload: { updateLoading: false } });
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   yield put({ type: 'fetch' });
   if (typeof callback === 'function') callback();
 }
@@ -39,7 +39,7 @@ export function* sendMail({ params, callback }: SendMailAction, { put, select }:
   yield put({ type: 'setState', payload: { sendMailLoading: true } });
   const response = (yield post(endpoint('sendMail'), { filter: userState.filter, ...params })) as ApiResponse;
   yield put({ type: 'setState', payload: { sendMailLoading: false } });
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   message.success('已加入队列执行');
   if (typeof callback === 'function') callback();
 }
@@ -47,17 +47,17 @@ export function* sendMail({ params, callback }: SendMailAction, { put, select }:
 function* runBatchAction(action: 'ban' | 'allDel', { put, select }: UserTools): UserEffect {
   const { filter } = (yield select(state => state.user)) as UserModuleState;
   const response = (yield post(endpoint(action), { filter })) as ApiResponse;
-  if (response.code === 200) yield put({ type: 'fetch' });
+  if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
 }
 export function* ban(_: AdminAction, tools: UserTools): UserEffect { yield* runBatchAction('ban', tools); }
 export function* allDel(_: AdminAction, tools: UserTools): UserEffect { yield* runBatchAction('allDel', tools); }
 export function* resetSecret({ id }: UserIdAction, { put }: UserTools): UserEffect {
   const response = (yield post(endpoint('resetSecret'), { id })) as ApiResponse;
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   message.success('重置成功'); yield put({ type: 'fetch' });
 }
 export function* delUser({ id }: UserIdAction, { put }: UserTools): UserEffect {
   const response = (yield post(endpoint('delUser'), { id })) as ApiResponse;
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   message.success('删除成功'); yield put({ type: 'fetch' });
 }

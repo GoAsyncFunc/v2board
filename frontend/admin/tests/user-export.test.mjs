@@ -13,7 +13,10 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
   vm.runInNewContext(code, {
     module, exports: module.exports, window: { settings: { secure_path: 'fixture-admin' } },
     require(id) {
-      if (id.includes('request')) return { post(url, data) { trace.push(['post', url, structuredClone(data)]); return 'request'; } };
+      if (id.includes('request')) return {
+        post(url, data) { trace.push(['post', url, structuredClone(data)]); return 'request'; },
+        isSuccessfulResponse: value => value.code === 200,
+      };
       if (id.includes('antdMessage')) return { a: { loading: text => trace.push(['loading', text]), destroy: () => trace.push(['destroy']) } };
       if (id === 'antd/lib/message') return { loading: text => trace.push(['loading', text]), destroy: () => trace.push(['destroy']) };
       if (id.includes('77642f52')) return () => ({ format: () => '2026-01-02 03:04:05' });

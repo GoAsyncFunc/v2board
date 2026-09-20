@@ -5,7 +5,7 @@ import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
 import MainLayout from '../layouts/MainLayout';
-import { post } from '../services/request';
+import { isSuccessfulResponse, post } from '../services/request';
 import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../types/theme';
 
@@ -101,7 +101,7 @@ export class ThemePage extends React.Component<ThemePageProps> {
 
   async activateTheme(themeKey: string): Promise<void> {
     const response = await post(`/${window.settings.secure_path}/config/save`, { frontend_theme: themeKey });
-    if (response.code === 200) this.props.dispatch({ type: 'theme/getThemes' });
+    if (isSuccessfulResponse(response)) this.props.dispatch({ type: 'theme/getThemes' });
   }
 
   render() {

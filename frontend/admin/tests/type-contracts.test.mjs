@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
+
+const sourceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../src');
+
+async function sourceFiles(directory) {
+  const files = [];
+  for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+    const absolutePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...await sourceFiles(absolutePath));
+    else if (/\.tsx?$/.test(entry.name)) files.push(absolutePath);
+  }
+  return files;
+}
+
+test('admin source uses explicit nullable and successful-response contracts', async () => {
+  const nonNullAssertions = [];
+  const directStatusChecks = [];
+  for (const file of await sourceFiles(sourceRoot)) {
+    const source = await fs.readFile(file, 'utf8');
+    const relativePath = path.relative(sourceRoot, file);
+    if (relativePath !== path.join('services', 'request.ts') && /response\.code\s*[!=]==?\s*200/.test(source)) {
+      directStatusChecks.push(relativePath);
+    }
+    const sourceFile = ts.createSourceFile(
+      file,
+      source,
+      ts.ScriptTarget.Latest,
+      true,
+      file.endsWith('.tsx') ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
+    );
+    function visit(node) {
+      if (ts.isNonNullExpression(node)) {
+        const location = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile));
+        nonNullAssertions.push(`${relativePath}:${location.line + 1}:${location.character + 1}`);
+      }
+      ts.forEachChild(node, visit);
+    }
+    visit(sourceFile);
+  }
+  assert.deepEqual(nonNullAssertions, []);
+  assert.deepEqual(directStatusChecks, []);
+});

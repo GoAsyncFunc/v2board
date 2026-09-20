@@ -1,5 +1,5 @@
 import dayjs from 'moment';
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type { CouponRecord } from '../components/CouponDisplayColumns';
 import type { CouponState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -42,7 +42,7 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<CouponRecord[]>(`/${window.settings.secure_path}/coupon/fetch`, { ...couponState.pagination, ...couponState.sort })) as CouponResponse;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       response.data.forEach(coupon => { if (coupon.type === 1) coupon.value = (coupon.value as number) / 100; });
       yield put({ type: 'setState', payload: { coupons: response.data, pagination: { ...couponState.pagination, total: response.total } } });
     },
@@ -51,18 +51,18 @@ export default {
       if (params.type === 1) params.value = (params.value as number) * 100;
       const response = (yield post(`/${window.settings.secure_path}/coupon/generate`, params)) as CouponGenerateResponse;
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       if (params.generate_count) downloadCouponCsv(response.buffer as BlobPart);
       yield put({ type: 'fetch' });
       if (typeof callback === 'function') callback();
     },
     *drop({ id }: CouponIdAction, { put }: CouponTools): CouponEffect {
       const response = (yield post(`/${window.settings.secure_path}/coupon/drop`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *show({ id }: CouponIdAction, { put }: CouponTools): CouponEffect {
       const response = (yield post(`/${window.settings.secure_path}/coupon/show`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *changeTable({ pagination, sort }: CouponTableAction, { put, select }: CouponTools): CouponEffect {
       const couponState = (yield select(state => state.coupon)) as CouponState;

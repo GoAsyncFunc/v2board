@@ -12,7 +12,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import AssignOrderEditor from '../components/AssignOrderEditor';
 import LoadingContainer from '../components/LoadingContainer';
 import history from '../app/navigation';
-import { get, post } from '../services/request';
+import { get, isSuccessfulResponse, post } from '../services/request';
 import MainLayout from '../layouts/MainLayout';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
 import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';
@@ -53,13 +53,13 @@ export class OrderDetailModal extends React.Component<OrderDetailModalProps, Ord
   async getOrderInfo(): Promise<void> {
     this.setState({ visible: true });
     const orderResponse = await post<OrderDetailRecord>(`/${window.settings.secure_path}/order/detail`, { id: this.props.orderId });
-    if (orderResponse.code !== 200) return;
+    if (!isSuccessfulResponse(orderResponse)) return;
     const userResponse = await get<OrderDetailUser>(`/${window.settings.secure_path}/user/getUserInfoById`, { id: orderResponse.data.user_id });
-    if (userResponse.code !== 200) return;
+    if (!isSuccessfulResponse(userResponse)) return;
     let inviteUser = { email: '' };
     if (orderResponse.data.invite_user_id) {
       const inviteResponse = await get<OrderDetailUser>(`/${window.settings.secure_path}/user/getUserInfoById`, { id: orderResponse.data.invite_user_id });
-      if (inviteResponse.code !== 200) return;
+      if (!isSuccessfulResponse(inviteResponse)) return;
       inviteUser = inviteResponse.data;
     }
     this.setState({ order: orderResponse.data, user: userResponse.data, inviteUser });

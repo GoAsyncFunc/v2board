@@ -1,4 +1,4 @@
-import { post, type ApiResponse } from '../services/request';
+import { isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
 import type { AdminLoginData, PassportState } from '../types/session';
@@ -31,7 +31,7 @@ export default {
       yield put({ type: 'save', payload: { loginLoading: true } });
       const response = yield post<AdminLoginData>('/passport/auth/login', { email, password });
       yield put({ type: 'save', payload: { loginLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       // Preserve original ordering: token storage precedes the admin flag check.
       setToken(response.data.auth_data);
       if (!response.data.is_admin) return;

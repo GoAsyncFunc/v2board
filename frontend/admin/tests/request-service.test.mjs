@@ -47,6 +47,8 @@ function jsonResponse(status, payload, contentType = 'application/json') {
 
 test('admin request encodes nested form values with the recovered ordering and null behavior', () => {
   const runtime = loadRequest();
+  assert.equal(runtime.request.isSuccessfulResponse({ code: 200 }), true);
+  assert.equal(runtime.request.isSuccessfulResponse({ code: 422, data: {} }), false);
   assert.equal(runtime.request.encodeForm({
     email: 'fixture user@example.com',
     nested: { count: 2, empty: null, skipped: undefined },

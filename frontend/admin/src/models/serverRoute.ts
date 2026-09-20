@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ServerId, ServerRouteOption, ServerRouteState } from '../types/server';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
@@ -35,19 +35,19 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = yield get<ServerRouteOption[]>(`/${window.settings.secure_path}/server/route/fetch`);
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { routes: response.data } });
     },
     *drop({ id }: ServerRouteAction, { put }: ServerRouteEffectTools): ServerRouteEffect {
       const response = yield post<ServerRouteOption[]>(`/${window.settings.secure_path}/server/route/drop`, { id });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *save(
       { params, callback }: SaveServerRouteAction,
       { put }: ServerRouteEffectTools,
     ): ServerRouteEffect {
       const response = yield post<ServerRouteOption[]>(`/${window.settings.secure_path}/server/route/save`, params);
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
       callback?.();
     },

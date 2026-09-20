@@ -1,4 +1,4 @@
-import { get, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/user';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -27,7 +27,7 @@ export function formatUser(user: UserRecord, includeTotal = false): UserRecord {
 
 export function* getUserInfoById({ id }: UserIdAction, { put }: UserTools): UserEffect {
   const response = (yield get<UserRecord>(userEndpoint('getUserInfoById'), { id })) as ApiResponse<UserRecord>;
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   const user = formatUser(response.data);
   if (user.invite_user) user.invite_user_email = (user.invite_user as { email?: string }).email;
   yield put({ type: 'setState', payload: { user } });
@@ -38,7 +38,7 @@ export function* fetch(_: AdminAction, { put, select }: UserTools): UserEffect {
   yield put({ type: 'setState', payload: { fetchLoading: true } });
   const response = (yield get<UserRecord[]>(userEndpoint('fetch'), { filter: userState.filter, ...userState.pagination, ...userState.sort })) as ApiResponse<UserRecord[]>;
   yield put({ type: 'setState', payload: { fetchLoading: false } });
-  if (response.code !== 200) return;
+  if (!isSuccessfulResponse(response)) return;
   response.data.forEach(user => formatUser(user, true));
   yield put({ type: 'setState', payload: { users: response.data, pagination: { ...userState.pagination, total: response.total } } });
 }

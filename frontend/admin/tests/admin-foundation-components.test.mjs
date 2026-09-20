@@ -83,7 +83,7 @@ test('TrafficPanel requests the selected user and preserves pagination state', a
     if (id === 'antd/lib/modal') return 'Modal';
     if (id === 'antd/lib/table') return 'Table';
     if (id.includes('LoadingContainer')) return 'LoadingContainer';
-    if (id.includes('services/request')) return { get: async (...args) => { calls.push(args); return response; } };
+    if (id.includes('services/request')) return { get: async (...args) => { calls.push(args); return response; }, isSuccessfulResponse: value => value.code === 200 };
     if (id.includes('siteHelpers')) return { formatBytes: value => value };
     throw new Error(id);
   }, {

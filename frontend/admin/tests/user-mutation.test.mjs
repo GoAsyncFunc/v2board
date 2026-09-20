@@ -12,7 +12,7 @@ async function run(original,scenario){
  const trace=[],action=structuredClone(scenario.action||{});
  if(scenario.callback)action.callback=()=>trace.push(['callback']);
  const state={filter:[{key:'email',condition:'like',value:'fixture'}]};
- const api={post:(url,data)=>{trace.push(['post',url,structuredClone(data)]);return 'request';}};api.b=api.post;
+ const api={post:(url,data)=>{trace.push(['post',url,structuredClone(data)]);return 'request';},isSuccessfulResponse:value=>value.code===200};api.b=api.post;
  const message={success:value=>trace.push(['success',value])};
  const file=original?path.join(home,'tests/fixtures/models/admin-user-mutation.cjs'):path.join(home,'src/models/userMutationEffects.ts');
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;

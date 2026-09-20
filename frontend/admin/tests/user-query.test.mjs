@@ -12,7 +12,7 @@ async function run(original,scenario){
  const trace=[];
  const state={filter:[{key:'email',condition:'like',value:'test'}],pagination:{current:4,pageSize:20,total:100},sort:{sort:'id',sort_type:'DESC'}};
  const response=structuredClone(scenario.response);
- const api={get:(...args)=>{trace.push(['get',...args]);return 'request';}};api.a=api.get;
+ const api={get:(...args)=>{trace.push(['get',...args]);return 'request';},isSuccessfulResponse:value=>value.code===200};api.a=api.get;
  const file=original?path.join(home,'tests/fixtures/models/admin-user-query.cjs'):path.join(home,'src/models/userQueryEffects.ts');
  const source=await fs.readFile(file,'utf8');
  const code=original?source:(await transform(source,{format:'cjs',loader:'ts'})).code;

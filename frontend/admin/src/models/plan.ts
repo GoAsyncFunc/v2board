@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import { settings } from '../config/adminSettings';
 import type { PlanFieldValue, PlanListRecord, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -38,7 +38,7 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<PlanListRecord[]>(endpoint('fetch'))) as ApiResponse<PlanListRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       response.data.forEach(plan => convertPrices(plan, false));
       yield put({ type: 'setState', payload: { plans: response.data } });
     },
@@ -47,18 +47,18 @@ export default {
       convertPrices(params, true);
       const response = (yield post(endpoint('save'), params)) as ApiResponse;
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
       if (typeof callback === 'function') callback();
     },
     *drop({ id }: PlanIdAction, { put }: PlanTools): PlanEffect {
       const response = (yield post(endpoint('drop'), { id })) as ApiResponse;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
     },
     *update({ id, key, value }: PlanUpdateAction, { put }: PlanTools): PlanEffect {
       const response = (yield post(endpoint('update'), { id, [key]: value })) as ApiResponse;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
     },
     *sort({ fromIndex, toIndex }: PlanSortAction, { select, put }: PlanTools): PlanEffect {
@@ -73,7 +73,7 @@ export default {
       }
       yield put({ type: 'setState', payload: { plans } });
       const response = (yield post(endpoint('sort'), { plan_ids: plans.map(plan => plan.id) })) as ApiResponse;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
     },
   },

@@ -27,6 +27,7 @@ async function loadModel(modelName) {
           contents: `
             exports.get = (url, data) => globalThis.recordRequest('GET', url, data);
             exports.post = (url, data) => globalThis.recordRequest('POST', url, data);
+            exports.isSuccessfulResponse = response => response.code === 200;
           `,
         }));
       },

@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
 import history from '../app/navigation';
 import type { AdminLoginData, AuthState } from '../types/session';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
@@ -29,7 +29,7 @@ export default {
       yield put({ type: 'save', payload: { loginLoading: true } });
       const response = yield post<AdminLoginData>('/passport/auth/login', action);
       yield put({ type: 'save', payload: { loginLoading: false } });
-      if (response.code !== 200 || !response.data.is_admin) return;
+      if (!isSuccessfulResponse(response) || !response.data.is_admin) return;
       history.push('/dashboard');
     },
     *register({ action, complete }: AuthRegisterAction): AuthEffect {

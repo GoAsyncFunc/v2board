@@ -1,5 +1,5 @@
 import notification from 'antd/lib/message';
-import { get, post, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type { TicketId, TicketRecord } from '../components/TicketDisplayColumns';
 import type { TicketFilterState, TicketPagination, TicketState } from '../types/ticket';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -30,19 +30,19 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<TicketRecord[]>(`/${window.settings.secure_path}/ticket/fetch`, { ...pagination, ...filter })) as ApiResponse<TicketRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { tickets: response.data, pagination: { ...pagination, total: response.total } } });
     },
     *fetchById({ id }: TicketIdAction, { put, select }: TicketTools): TicketEffect {
       const response = (yield get<TicketRecord>(`/${window.settings.secure_path}/ticket/fetch`, { id })) as ApiResponse<TicketRecord>;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { ticket: response.data } });
       const userState = (yield select(state => state.user)) as TicketRootState['user'];
       if (!userState.user.id) yield put({ type: 'user/getUserInfoById', id: response.data.user_id });
     },
     *close({ id }: TicketIdAction, { put }: TicketTools): TicketEffect {
       const response = (yield post(`/${window.settings.secure_path}/ticket/close`, { id })) as ApiResponse;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *reply({ id, msg, callback }: TicketReplyAction, { put }: TicketTools): TicketEffect {
       notification.loading('发送中');
@@ -50,7 +50,7 @@ export default {
       const response = (yield post(`/${window.settings.secure_path}/ticket/reply`, { id, message: msg })) as ApiResponse;
       yield put({ type: 'setState', payload: { replyLoading: false } });
       notification.destroy();
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetchById', id });
       if (typeof callback === 'function') callback();
     },

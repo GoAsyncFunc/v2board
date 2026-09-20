@@ -37,6 +37,9 @@ interface UserGeneratorState {
   submit: UserGenerationForm;
 }
 
+// Ant Design v3 accepts null at runtime to represent an empty option, but its legacy declaration omits it.
+const EMPTY_PLAN_VALUE = null as unknown as string | number;
+
 export class UserGenerator extends React.Component<UserGeneratorProps, UserGeneratorState> {
   state: UserGeneratorState = { visible: false, submit: {} };
 
@@ -78,7 +81,7 @@ export class UserGenerator extends React.Component<UserGeneratorProps, UserGener
           <div className="form-group">
             <label htmlFor="user-plan">订阅计划</label>
             <Select id="user-plan" style={{ width: '100%' }} placeholder="请选择用户订阅计划" value={submit.plan_id || null} onChange={(value: string | number | null) => this.update('plan_id', value)}>
-              <Select.Option value={null!}>无</Select.Option>
+              <Select.Option value={EMPTY_PLAN_VALUE}>无</Select.Option>
               {(plan.plans || []).map(item => <Select.Option key={item.id} value={item.id}>{item.name}</Select.Option>)}
             </Select>
           </div>

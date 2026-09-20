@@ -12,7 +12,7 @@ async function run(target,original,scenario){
  const trace=[];
  const token=()=>{trace.push(['token']);return scenario.token;};
  const clear=()=>trace.push(['clear']);
- const api={a:(...args)=>{trace.push(['get',...args]);return 'request';}};api.get=api.a;
+ const api={a:(...args)=>{trace.push(['get',...args]);return 'request';},isSuccessfulResponse:value=>value.code===200};api.get=api.a;
  const helpers={d:token,c:token,o:clear,getToken:token,clearToken:clear};
  const history={push:route=>trace.push(['navigate',route])};
  const window=scenario.chat?{Tawk_API:{},$crisp:{push:value=>trace.push(['crisp',value])}}:{};

@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ManagedServerRecord, ServerManageState } from '../types/server';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
@@ -36,7 +36,7 @@ export default {
         `/${window.settings.secure_path}/server/manage/getNodes`,
       )) as ApiResponse<ManagedServerRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { servers: response.data, sortMode: false } });
     },
     *sort(
@@ -68,7 +68,7 @@ export default {
         sort,
       )) as ApiResponse<ManagedServerRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'getNodes' });
     },
   },

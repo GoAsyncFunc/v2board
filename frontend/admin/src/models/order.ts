@@ -1,4 +1,4 @@
-import { post, type ApiResponse, type FormValue } from '../services/request';
+import { isSuccessfulResponse, post, type ApiResponse, type FormValue } from '../services/request';
 import * as orderQueries from './orderQueryEffects';
 import type { AssignOrderParams, OrderState } from '../types/order';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
@@ -32,15 +32,15 @@ export default {
     addFilter: orderQueries.addFilter,
     *update({ tradeNo, key, value }: UpdateOrderAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/update`, { trade_no: tradeNo, [key]: value });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *paid({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/paid`, { trade_no: tradeNo });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *cancel({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/cancel`, { trade_no: tradeNo });
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *assign({ params, callback }: AssignOrderAction, { put }: OrderEffectTools): OrderEffect {
       yield put({ type: 'setState', payload: { assignLoading: true } });
@@ -49,7 +49,7 @@ export default {
         total_amount: 100 * params.total_amount,
       });
       yield put({ type: 'setState', payload: { assignLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetch' });
       callback?.();
     },

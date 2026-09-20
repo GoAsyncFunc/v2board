@@ -1,4 +1,4 @@
-import { get, type ApiResponse } from '../services/request';
+import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
@@ -26,27 +26,27 @@ export default {
   effects: {
     *getOverride(_: AdminAction, { put }: StatEffectTools): StatEffect<DashboardStats> {
       const response = yield get<DashboardStats>(statEndpoint('getOverride'));
-      if (response.code === 200) yield put({ type: 'save', payload: { ...response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'save', payload: { ...response.data } });
     },
     *getOrder({ complete }: CompleteAction<OrderChartRecord[]>): StatEffect<OrderChartRecord[]> {
       const response = yield get<OrderChartRecord[]>(statEndpoint('getOrder'));
-      if (response.code === 200) complete(response.data);
+      if (isSuccessfulResponse(response)) complete(response.data);
     },
     *getServerLastRank({ complete }: CompleteAction<RankChartRecord[]>): StatEffect<RankChartRecord[]> {
       const response = yield get<RankChartRecord[]>(statEndpoint('getServerLastRank'));
-      if (response.code === 200) complete(response.data);
+      if (isSuccessfulResponse(response)) complete(response.data);
     },
     *getServerTodayRank({ complete }: CompleteAction<RankChartRecord[]>): StatEffect<RankChartRecord[]> {
       const response = yield get<RankChartRecord[]>(statEndpoint('getServerTodayRank'));
-      if (response.code === 200) complete(response.data);
+      if (isSuccessfulResponse(response)) complete(response.data);
     },
     *getUserTodayRank({ complete }: CompleteAction<RankChartRecord[]>): StatEffect<RankChartRecord[]> {
       const response = yield get<RankChartRecord[]>(statEndpoint('getUserTodayRank'));
-      if (response.code === 200) complete(response.data);
+      if (isSuccessfulResponse(response)) complete(response.data);
     },
     *getUserLastRank({ complete }: CompleteAction<RankChartRecord[]>): StatEffect<RankChartRecord[]> {
       const response = yield get<RankChartRecord[]>(statEndpoint('getUserLastRank'));
-      if (response.code === 200) complete(response.data);
+      if (isSuccessfulResponse(response)) complete(response.data);
     },
   },
 };
