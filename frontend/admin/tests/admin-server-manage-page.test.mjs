@@ -28,7 +28,7 @@ async function loadPage() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
-      if (id === 'copy-to-clipboard') return () => true;
+      if (id.includes('utils/clipboard')) return { copyText: () => true };
       if (id === 'react-router-dom') return { Prompt: 'Prompt' };
       if (id === 'antd/lib/list') return Object.assign('List', { Item: Object.assign('List.Item', { Meta: 'List.Item.Meta' }) });
       if (id === 'antd/lib/menu') return Object.assign('Menu', { Item: 'Menu.Item' });

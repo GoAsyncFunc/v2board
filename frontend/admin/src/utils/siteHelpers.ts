@@ -1,5 +1,5 @@
-import copyText from 'copy-to-clipboard';
 import message from 'antd/lib/message';
+import { copyOptionalText } from './clipboard';
 
 export type PreferenceValue = string | number | boolean | null | undefined;
 
@@ -64,7 +64,7 @@ export function formatBytes(value: string | number = 0): string | number {
 }
 
 export function copyToClipboard(value?: string): boolean {
-  const copied = copyText(value);
+  const copied = copyOptionalText(value);
   message.success('复制成功');
   return copied;
 }

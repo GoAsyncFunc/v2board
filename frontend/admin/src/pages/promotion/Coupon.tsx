@@ -14,7 +14,6 @@ import Tag from 'antd/lib/tag';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { RangePickerValue } from 'antd/lib/date-picker/interface';
-import copy from 'copy-to-clipboard';
 import moment from 'moment';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import { createReadonlyCouponColumns, type CouponRecord } from '../../components/promotion/CouponDisplayColumns';
@@ -23,6 +22,7 @@ import { settings } from '../../config/adminSettings';
 import type { PlanSummary } from '../../types/config';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { CouponState } from '../../types/promotion';
+import { copyText } from '../../utils/clipboard';
 
 const defaultCoupon: CouponRecord = { type: 1 };
 const readonlyColumns = createReadonlyCouponColumns();
@@ -102,7 +102,7 @@ export class CouponPage extends React.Component<CouponPageProps, CouponPageState
       {
         title: '券码', dataIndex: 'code', key: 'code',
         render: (code: string) => (
-          <Tag style={{ cursor: 'pointer' }} onClick={() => { copy(code); message.success('复制成功'); }}>{code}</Tag>
+          <Tag style={{ cursor: 'pointer' }} onClick={() => { copyText(code); message.success('复制成功'); }}>{code}</Tag>
         ),
       },
       readonlyColumns.limit_use,

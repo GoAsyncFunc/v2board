@@ -22,8 +22,8 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/services/download.ts',
     '../src/routes/index.ts',
     '../src/routes/types.ts',
-    '../src/types/copyToClipboard.d.ts',
     '../src/types/dvaCore.d.ts',
+    '../src/utils/clipboard.ts',
   ];
   for (const relativePath of typedRuntimePaths) {
     const stat = await fs.stat(new URL(relativePath, import.meta.url));
@@ -53,6 +53,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/vendor/routerHistory.js',
     '../src/vendor/routerHistory.d.ts',
     '../src/types/legacyPackages.d.ts',
+    '../src/types/copyToClipboard.d.ts',
   ];
   for (const relativePath of removedPaths) {
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
@@ -112,10 +113,19 @@ test('admin scripts exclude one-time reverse-engineering extractors', async () =
 test('admin application runtime is implemented as typed TSX components', async () => {
   const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
   const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
+  const packageJson = JSON.parse(await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'));
   assert.match(runtimeSource, /function createApplicationProvider/);
   assert.match(runtimeSource, /<ApplicationProvider \/>/);
   assert.doesNotMatch(runtimeSource, /React\.createElement/);
   assert.equal(tsconfig.compilerOptions.allowJs, false);
+  assert.deepEqual(
+    Object.fromEntries(['@types/markdown-it', '@types/react-loadable', '@types/react-router-dom'].map(name => [name, packageJson.devDependencies[name]])),
+    {
+      '@types/markdown-it': '10.0.3',
+      '@types/react-loadable': '5.5.11',
+      '@types/react-router-dom': '5.3.3',
+    },
+  );
 });
 
 test('admin root state names every registered business model', async () => {

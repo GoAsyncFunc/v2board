@@ -840,6 +840,10 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
+    "from": "pages/promotion/Coupon.tsx",
+    "to": "utils/clipboard.ts"
+  },
+  {
     "from": "pages/promotion/Giftcard.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -850,6 +854,10 @@
   {
     "from": "pages/promotion/Giftcard.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/promotion/Giftcard.tsx",
+    "to": "utils/clipboard.ts"
   },
   {
     "from": "pages/server/Group.tsx",
@@ -926,6 +934,10 @@
   {
     "from": "pages/server/Manage.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/Manage.tsx",
+    "to": "utils/clipboard.ts"
   },
   {
     "from": "pages/server/Manage.tsx",
@@ -1094,5 +1106,9 @@
   {
     "from": "services/request.ts",
     "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "utils/siteHelpers.ts",
+    "to": "utils/clipboard.ts"
   }
 ]

@@ -43,7 +43,7 @@ async function loadPage(pageName) {
       if (id === 'antd/lib/switch') return 'Switch';
       if (id === 'antd/lib/table') return 'Table';
       if (id === 'antd/lib/tag') return 'Tag';
-      if (id === 'copy-to-clipboard') return () => true;
+      if (id.includes('utils/clipboard')) return { copyText: () => true };
       if (id === 'moment') return value => ({ value, format: () => String(value) });
       if (id.includes('CouponDisplayColumns')) {
         return { createReadonlyCouponColumns: () => Object.fromEntries(['id', 'name', 'type', 'limit_use', 'started_at'].map(key => [key, readonlyColumn(key)])) };
