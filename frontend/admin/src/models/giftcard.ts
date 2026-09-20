@@ -1,5 +1,6 @@
 import dayjs from 'moment';
-import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { GiftcardRecord, GiftcardState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';

@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
+import { get } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { FilterItem } from '../types/filter';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/user';
 import type { AdminAction, AdminRootState } from '../types/store';

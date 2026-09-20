@@ -87,8 +87,8 @@ async function loadThemePage() {
       if (id.includes('MainLayout')) return 'MainLayout';
       if (id.includes('services/request')) return {
         post: async (endpoint, data) => { requests.push({ endpoint, data }); return { code: 200 }; },
-        isSuccessfulResponse: response => response.code === 200,
       };
+      if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
       throw new Error(id);
     },
   });

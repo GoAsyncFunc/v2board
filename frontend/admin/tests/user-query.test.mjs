@@ -18,6 +18,7 @@ async function run(original,scenario){
  const code=original?source:(await transform(source,{format:'cjs',loader:'ts'})).code;
  const module={exports:{}};
  vm.runInNewContext(code,{module,exports:module.exports,api,window:{settings:{secure_path:'test-admin'}},require:id=>{if(id.includes('request'))return api;
+        if(id.includes('types/api'))return api;
         throw Error(id);}},{timeout:2000});
  const iterator=module.exports[scenario.effect](structuredClone(scenario.action||{}),{
   put:value=>{trace.push(['put',structuredClone(value)]);return 'put';},

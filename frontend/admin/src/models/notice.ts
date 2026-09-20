@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
 import type { NoticeRecord, NoticeState } from '../types/notice';

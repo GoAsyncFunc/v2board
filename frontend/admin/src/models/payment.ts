@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord, type JsonValue } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord, type JsonValue } from '../types/api';
 import '../config/adminSettings';
 import type { PaymentForm, PaymentRecord, PaymentState } from '../types/payment';
 import type { AdminAction, AdminRootState } from '../types/store';

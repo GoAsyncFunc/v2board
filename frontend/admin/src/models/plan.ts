@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import { settings } from '../config/adminSettings';
 import type { PlanFieldValue, PlanListRecord, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
 import type { AdminAction, AdminRootState } from '../types/store';

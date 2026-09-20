@@ -345,6 +345,10 @@
   },
   {
     "from": "components/user/TrafficPanel.tsx",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "components/user/TrafficPanel.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
@@ -400,28 +404,56 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/auth.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/config.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/config.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/coupon.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/coupon.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/createServerProtocolModel.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/createServerProtocolModel.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/giftcard.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/giftcard.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/knowledge.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/knowledge.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/notice.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/notice.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/order.ts",
@@ -432,8 +464,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/order.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/orderQueryEffects.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/orderQueryEffects.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/passport.ts",
@@ -442,6 +482,10 @@
   {
     "from": "models/passport.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/passport.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/passport.ts",
@@ -456,12 +500,20 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/payment.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/plan.ts",
     "to": "config/adminSettings.ts"
   },
   {
     "from": "models/plan.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/plan.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/serverAnyTLS.ts",
@@ -472,6 +524,10 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/serverGroup.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/serverHysteria.ts",
     "to": "models/createServerProtocolModel.ts"
   },
@@ -480,8 +536,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/serverManage.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/serverRoute.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/serverShadowsocks.ts",
@@ -517,6 +581,10 @@
   },
   {
     "from": "models/sessionEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/sessionEffects.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
@@ -524,8 +592,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/stat.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/system.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/system.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/theme.ts",
@@ -536,8 +612,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/theme.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/ticket.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/ticket.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/user.ts",
@@ -568,12 +652,24 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/userExportEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/userMutationEffects.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/userMutationEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/userQueryEffects.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/userQueryEffects.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "pages/auth/Index.tsx",
@@ -614,6 +710,10 @@
   {
     "from": "pages/commerce/Order.tsx",
     "to": "services/request.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "types/api.ts"
   },
   {
     "from": "pages/commerce/Plan.tsx",
@@ -730,6 +830,10 @@
   {
     "from": "pages/config/Theme.tsx",
     "to": "services/request.ts"
+  },
+  {
+    "from": "pages/config/Theme.tsx",
+    "to": "types/api.ts"
   },
   {
     "from": "pages/content/Knowledge.tsx",

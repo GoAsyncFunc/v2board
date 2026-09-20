@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type {
   AdminConfigState,
   ConfigGroupKey,

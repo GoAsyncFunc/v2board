@@ -1,5 +1,6 @@
 import moment from 'moment';
-import { isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
+import { post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
 import { downloadCsv } from '../services/download';
 import type { UserModuleState } from '../types/user';
 import type { AdminRootState } from '../types/store';

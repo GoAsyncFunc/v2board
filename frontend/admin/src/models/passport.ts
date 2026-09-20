@@ -1,4 +1,5 @@
-import { isSuccessfulResponse, post, type ApiResponse } from '../services/request';
+import { post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
 import type { AdminLoginData, PassportState } from '../types/session';

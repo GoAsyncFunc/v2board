@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import '../config/adminSettings';
 import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
 import type { AdminAction } from '../types/store';

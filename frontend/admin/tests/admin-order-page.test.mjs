@@ -39,8 +39,8 @@ async function loadOrderPage(responses = []) {
       if (id.includes('services/request')) return {
         post: async (endpoint, data) => { requests.push({ method: 'post', endpoint, data }); return responses.shift(); },
         get: async (endpoint, data) => { requests.push({ method: 'get', endpoint, data }); return responses.shift(); },
-        isSuccessfulResponse: response => response.code === 200,
       };
+      if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
       if (id.includes('OrderDisplayColumns')) return { createReadonlyOrderColumns: () => ({ type: {}, period: {}, total_amount: {}, commission_balance: {}, created_at: {} }) };
       if (id.includes('adminSettings')) return { settings: { orderStatusText: ['未支付'], commissionStatusText: ['待确认'] } };
       return { __esModule: true, default: id };

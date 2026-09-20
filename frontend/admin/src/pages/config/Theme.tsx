@@ -5,7 +5,8 @@ import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
 import MainLayout from '../../layouts/MainLayout';
-import { isSuccessfulResponse, post } from '../../services/request';
+import { post } from '../../services/request';
+import { isSuccessfulResponse } from '../../types/api';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../../types/theme';
 

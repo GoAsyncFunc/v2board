@@ -1,4 +1,5 @@
-import { isSuccessfulResponse, post, type ApiResponse, type FormValue } from '../services/request';
+import { post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/api';
 import * as orderQueries from './orderQueryEffects';
 import type { AssignOrderParams, OrderState } from '../types/order';
 import type { ModelEffect, PutEffectTools } from '../types/effects';

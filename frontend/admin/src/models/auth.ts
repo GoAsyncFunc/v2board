@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
 import history from '../app/navigation';
 import type { AdminLoginData, AuthState } from '../types/session';
 import type { ModelEffect, PutEffectTools } from '../types/effects';

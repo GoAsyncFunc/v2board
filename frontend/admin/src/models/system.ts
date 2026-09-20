@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
+import { get } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { QueueStats, QueueWorkload, SystemMonitoringState } from '../types/monitoring';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';

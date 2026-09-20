@@ -23,6 +23,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/services/download.ts',
     '../src/routes/index.ts',
     '../src/routes/types.ts',
+    '../src/types/api.ts',
     '../src/types/dvaCore.d.ts',
     '../src/utils/clipboard.ts',
   ];
@@ -170,6 +171,27 @@ test('admin request transport does not depend on the rendering library', async (
   assert.doesNotMatch(headerSource, /import ['"]\.\.\/services\/request['"]/);
   assert.match(presentationSource, /setRequestFailurePresenter/);
   assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
+});
+
+test('admin models depend on API contracts separately from request transport', async () => {
+  const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
+  const requestSource = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
+  assert.match(apiSource, /export interface ApiResponse/);
+  assert.match(apiSource, /export interface FormRecord/);
+  assert.match(apiSource, /export function isSuccessfulResponse/);
+  assert.doesNotMatch(requestSource, /export interface ApiResponse/);
+  assert.doesNotMatch(requestSource, /export type FormValue/);
+
+  const modelsDirectory = new URL('../src/models/', import.meta.url);
+  const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
+  for (const modelName of modelNames) {
+    const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+    assert.doesNotMatch(
+      source,
+      /import\s*\{[^}]*\b(?:ApiResponse|FormRecord|FormValue|JsonValue|isSuccessfulResponse)\b[^}]*\}\s*from ['"]\.\.\/services\/request['"]/s,
+      `${modelName} imports API contracts from request transport`,
+    );
+  }
 });
 
 test('admin root state names every registered business model', async () => {

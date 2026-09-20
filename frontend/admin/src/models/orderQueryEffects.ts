@@ -1,4 +1,5 @@
-import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
+import { get } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { FilterItem, FilterValue } from '../types/filter';
 import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';

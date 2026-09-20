@@ -1,4 +1,5 @@
-import { isSuccessfulResponse, post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
+import { post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord, type FormValue } from '../types/api';
 import type { ServerId, ServerProtocolState } from '../types/server';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
 

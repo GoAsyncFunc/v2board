@@ -1,32 +1,13 @@
 import { siteSettings } from '../config/siteSettings';
+import type {
+  AdminRequestOptions,
+  ApiResponse,
+  FormRecord,
+  FormValue,
+  JsonValue,
+} from '../types/api';
 import { clearToken, getToken } from '../utils/siteHelpers';
 import { fetchResponse } from './fetchResponse';
-
-export type FormValue = string | number | boolean | bigint | null | undefined | FormValue[] | FormRecord;
-export interface FormRecord {
-  [key: string]: FormValue;
-}
-
-export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
-
-export interface ApiResponse<Data = JsonValue> {
-  code: number;
-  data?: Data;
-  total?: number;
-  msg?: string;
-  status?: string;
-}
-
-export interface SuccessfulApiResponse<Data = JsonValue> extends ApiResponse<Data> {
-  code: 200;
-  data: Data;
-}
-
-export function isSuccessfulResponse<Response extends ApiResponse<unknown>>(
-  response: Response,
-): response is Response & SuccessfulApiResponse<Exclude<Response['data'], undefined>> {
-  return response.code === 200;
-}
 
 interface ApiPayload<Data = JsonValue> {
   data?: Data;
@@ -36,10 +17,6 @@ interface ApiPayload<Data = JsonValue> {
   errors?: Record<string, string[]>;
   buffer?: ArrayBuffer;
   [key: string]: Data | JsonValue | ArrayBuffer | undefined;
-}
-
-export interface AdminRequestOptions extends Omit<RequestInit, 'headers'> {
-  headers?: Record<string, string>;
 }
 
 export interface RequestFailurePresentation {

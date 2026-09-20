@@ -17,6 +17,7 @@ async function run(original,scenario){
  const file=original?path.join(home,'tests/fixtures/models/admin-user-mutation.cjs'):path.join(home,'src/models/userMutationEffects.ts');
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,api,message,window:{settings:{secure_path:'fixture-admin'}},require:id=>{if(id.includes('request'))return api;if(id.includes('antdMessage'))return {a:message};if(id==='antd/lib/message')return message;
+        if(id.includes('types/api'))return api;
         throw Error(id);}},{timeout:2000});
  if(!original){
   if(scenario.effect==='sendMail')action.complete=()=>trace.push(['success','已加入队列执行']);

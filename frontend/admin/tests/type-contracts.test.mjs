@@ -24,7 +24,7 @@ test('admin source uses explicit nullable and successful-response contracts', as
   for (const file of await sourceFiles(sourceRoot)) {
     const source = await fs.readFile(file, 'utf8');
     const relativePath = path.relative(sourceRoot, file);
-    if (relativePath !== path.join('services', 'request.ts') && /response\.code\s*[!=]==?\s*200/.test(source)) {
+    if (relativePath !== path.join('types', 'api.ts') && /response\.code\s*[!=]==?\s*200/.test(source)) {
       directStatusChecks.push(relativePath);
     }
     if (/\bas\s+unknown\s+as\b|\bas\s+never\b/.test(source)) {

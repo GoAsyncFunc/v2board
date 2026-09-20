@@ -18,6 +18,7 @@ async function run(original, scenario) {
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {
     module, exports: module.exports, api, window: { settings: { secure_path: 'fixture-admin' } },
     require(id) { if (id.includes('request')) return api;
+        if (id.includes('types/api')) return api;
         throw Error(id); },
   }, { timeout: 2000 });
   const iterator = module.exports[scenario.effect](structuredClone(scenario.action || {}), {
