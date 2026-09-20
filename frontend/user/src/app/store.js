@@ -6,7 +6,7 @@ import history from './history.js';
 import comm from '../models/comm.js';
 import coupon from '../models/coupon';
 import guest from '../models/guest.js';
-import invite from '../models/invite.js';
+import invite from '../models/invite';
 import knowledge from '../models/knowledge';
 import layout from '../models/layout';
 import notice from '../models/notice';

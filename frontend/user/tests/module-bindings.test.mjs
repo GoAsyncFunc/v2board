@@ -27,7 +27,7 @@ async function sourceFiles(dir, out = []) {
     if (entry.isDirectory()) {
       if (entry.name === 'vendor' || entry.name === 'node_modules') continue;
       await sourceFiles(full, out);
-    } else if (/\.(jsx|js)$/.test(entry.name)) {
+    } else if (/\.[jt]sx?$/.test(entry.name) && !entry.name.endsWith('.d.ts')) {
       out.push(full);
     }
   }
@@ -88,7 +88,7 @@ function referencedHelpers(ast) {
 }
 
 function droppedBindings(source) {
-  const ast = parser.parse(source, {sourceType: 'module', plugins: ['jsx']});
+  const ast = parser.parse(source, {sourceType: 'module', plugins: ['jsx', 'typescript']});
   const bound = boundNames(ast);
   return [...referencedHelpers(ast)].filter(name => !bound.has(name));
 }
@@ -98,10 +98,17 @@ test('restored pages bind every referenced helper alias', async () => {
     ...await sourceFiles(path.join(root, 'src')),
   ];
   assert.ok(files.length > 20, `expected source files, got ${files.length}`);
+  assert.ok(files.some(file => file.endsWith('.tsx')), 'TSX pages must remain in the binding audit');
+  assert.ok(files.some(file => file.endsWith('.ts')), 'TypeScript models must remain in the binding audit');
   const failures = [];
   for (const file of files) {
     const missing = droppedBindings(await fs.readFile(file, 'utf8'));
     if (missing.length) failures.push(`${path.relative(root, file)}: ${missing.join(', ')}`);
   }
   assert.deepEqual(failures, [], `undeclared helper bindings:\n${failures.join('\n')}`);
+});
+
+test('binding audit detects missing helpers in typed source', () => {
+  assert.deepEqual(droppedBindings('const value: number = Object(missing["read"])();'), ['missing']);
+  assert.deepEqual(droppedBindings('import helper from "./helper"; const view = <div>{Object(helper["read"])()}</div>;'), []);
 });
