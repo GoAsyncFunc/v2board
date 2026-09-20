@@ -1,23 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'antd/lib/button';
-import Switch from 'antd/lib/switch';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import TelegramBindModal from '../../components/account/TelegramBindModal';
+import ProfileGiftcard from '../../components/account/profile/ProfileGiftcard';
+import ProfileNotificationSettings from '../../components/account/profile/ProfileNotificationSettings';
+import ProfilePasswordForm from '../../components/account/profile/ProfilePasswordForm';
+import ProfileSecurityReset from '../../components/account/profile/ProfileSecurityReset';
+import ProfileTelegram, {
+    ProfileTelegramCommunity,
+} from '../../components/account/profile/ProfileTelegram';
+import ProfileWallet from '../../components/account/profile/ProfileWallet';
 import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/request';
 import { isSuccessfulResponse } from '../../types/api';
 import { formatMessage } from '../../locales/i18n';
-import { formatMoney } from '../../components/common/MoneyDisplay';
 import { describeGiftcardRedemption } from '../../utils/giftcard';
-import type { UserCommunicationConfig } from '../../types/commonModels';
-import type {
-    GiftcardRedemptionResponse,
-    UserInfo,
-    UserSetting,
-    UserState,
-} from '../../types/user';
+import type { GiftcardRedemptionResponse, UserSetting } from '../../types/user';
 import type { UserDispatch, UserRootState } from '../../types/store';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
@@ -139,218 +137,6 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
         });
     }
 
-    renderWallet(
-        userInfo: Partial<UserInfo>,
-        userState: UserState,
-        config: UserCommunicationConfig,
-    ) {
-        return (
-            <div className="row mb-3 mb-md-0">
-                <div className="col-lg-12">
-                    <div className="block">
-                        <div className="block-content pb-3">
-                            <i className="fa fa-wallet fa-2x text-gray-light float-right" />
-                            <div className="pb-sm-3">
-                                <p className="text-muted w-75">
-                                    {formatMessage({ id: '我的钱包(仅消费)' })}
-                                </p>
-                                <p className="display-4 text-black font-w300 mb-2">
-                                    {formatMoney(userInfo.balance)}
-                                    <span className="font-size-h5 text-muted ml-4">
-                                        {config.currency}
-                                    </span>
-                                </p>
-                                <span className="text-muted" style={{ cursor: 'pointer' }}>
-                                    {formatMessage({ id: '自动续费' })}{' '}
-                                    <Switch
-                                        loading={userState.auto_renewal_loading}
-                                        checked={Boolean(userInfo.auto_renewal)}
-                                        onChange={(enabled) =>
-                                            this.update('auto_renewal', enabled ? 1 : 0)
-                                        }
-                                    />
-                                </span>
-                                <div className="pt-3">
-                                    <Button type="primary" onClick={() => this.deposit()}>
-                                        {formatMessage({ id: '充值' })}
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    renderGiftcard(userState: UserState) {
-        return (
-            <div className="row mb-3 mb-md-0">
-                <div className="col-md-12">
-                    <div className="block block-rounded">
-                        <div className="block-header block-header-default">
-                            <h3 className="block-title">{formatMessage({ id: '礼品卡' })}</h3>
-                        </div>
-                        <div className="block-content">
-                            <div className="row push">
-                                <div className="col-lg-8 col-xl-5">
-                                    <div className="form-group">
-                                        <input
-                                            ref={this.giftcardRef}
-                                            className="form-control"
-                                            placeholder={formatMessage({ id: '请输入礼品卡' })}
-                                            autoComplete="one-time-code"
-                                        />
-                                    </div>
-                                    <Button
-                                        type="primary"
-                                        onClick={() => this.redeemGiftcard()}
-                                        loading={userState.redeemgiftcardLoading}
-                                    >
-                                        {formatMessage({ id: '兑换' })}
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    renderPassword(userState: UserState) {
-        return (
-            <div className="row mb-3 mb-md-0">
-                <div className="col-md-12">
-                    <div className="block block-rounded">
-                        <div className="block-header block-header-default">
-                            <h3 className="block-title">{formatMessage({ id: '修改密码' })}</h3>
-                        </div>
-                        <div className="block-content">
-                            <div className="row push">
-                                <div className="col-lg-8 col-xl-5">
-                                    <div className="form-group">
-                                        <label>{formatMessage({ id: '旧密码' })}</label>
-                                        <input
-                                            ref={this.oldPasswordRef}
-                                            type="password"
-                                            className="form-control"
-                                            placeholder={formatMessage({ id: '请输入旧密码' })}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>{formatMessage({ id: '新密码' })}</label>
-                                        <input
-                                            ref={this.newPasswordRef}
-                                            type="password"
-                                            className="form-control"
-                                            placeholder={formatMessage({ id: '请输入新密码' })}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>{formatMessage({ id: '新密码' })}</label>
-                                        <input
-                                            ref={this.repeatPasswordRef}
-                                            type="password"
-                                            className="form-control"
-                                            placeholder={formatMessage({ id: '请输入新密码' })}
-                                        />
-                                    </div>
-                                    <Button
-                                        type="primary"
-                                        onClick={() => this.changePassword()}
-                                        loading={userState.changePasswordLoading}
-                                    >
-                                        {formatMessage({ id: '保存' })}
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    renderNotifications(userInfo: Partial<UserInfo>, userState: UserState) {
-        return (
-            <div className="row mb-3 mb-md-0">
-                <div className="col-md-12">
-                    <div className="block block-rounded">
-                        <div className="block-header block-header-default">
-                            <h3 className="block-title">{formatMessage({ id: '通知' })}</h3>
-                        </div>
-                        <div className="block-content">
-                            <div className="row">
-                                <div className="col-lg-8 col-xl-5">
-                                    <div className="form-group">
-                                        <label>{formatMessage({ id: '到期邮件提醒' })}</label>
-                                        <div>
-                                            <Switch
-                                                loading={userState.remind_expire_loading}
-                                                checked={Boolean(userInfo.remind_expire)}
-                                                onChange={(enabled) =>
-                                                    this.update('remind_expire', enabled ? 1 : 0)
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <label>{formatMessage({ id: '流量邮件提醒' })}</label>
-                                        <div>
-                                            <Switch
-                                                loading={userState.remind_traffic_loading}
-                                                checked={Boolean(userInfo.remind_traffic)}
-                                                onChange={(enabled) =>
-                                                    this.update('remind_traffic', enabled ? 1 : 0)
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    renderTelegram(userInfo: Partial<UserInfo>, config: UserCommunicationConfig) {
-        if (!config.is_telegram) return null;
-        return userInfo.telegram_id ? (
-            <div className="block block-rounded unbind_telegram">
-                <div className="block-header block-header-default">
-                    <h3 className="block-title">{formatMessage({ id: '绑定Telegram' })}</h3>
-                    <div className="block-options">
-                        <Button type="danger" onClick={() => this.unbindTelegram()}>
-                            {formatMessage({ id: '解除绑定' })}
-                        </Button>
-                    </div>
-                </div>
-                <div className="block-options">
-                    {formatMessage({ id: `Telegram ID: ${String(userInfo.telegram_id)}` })}
-                </div>
-            </div>
-        ) : (
-            <div className="block block-rounded bind_telegram">
-                <div className="block-header block-header-default">
-                    <h3 className="block-title">{formatMessage({ id: '绑定Telegram' })}</h3>
-                    <div className="block-options">
-                        <TelegramBindModal>
-                            <button
-                                type="button"
-                                className="btn btn-primary btn-sm btn-primary btn-rounded px-3"
-                            >
-                                {formatMessage({ id: '立即开始' })}
-                            </button>
-                        </TelegramBindModal>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
     render() {
         const userState = this.props.user;
         const { userInfo } = userState;
@@ -359,57 +145,39 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
             <MainLayout {...this.props} title={formatMessage({ id: '个人中心' })}>
                 <main id="main-container">
                     <div className="content content-full">
-                        {this.renderWallet(userInfo, userState, config)}
-                        {this.renderGiftcard(userState)}
-                        {this.renderPassword(userState)}
-                        {this.renderNotifications(userInfo, userState)}
+                        <ProfileWallet
+                            config={config}
+                            userInfo={userInfo}
+                            userState={userState}
+                            onDeposit={() => this.deposit()}
+                            onSettingChange={(key, value) => this.update(key, value)}
+                        />
+                        <ProfileGiftcard
+                            giftcardRef={this.giftcardRef}
+                            loading={userState.redeemgiftcardLoading}
+                            onRedeem={() => this.redeemGiftcard()}
+                        />
+                        <ProfilePasswordForm
+                            oldPasswordRef={this.oldPasswordRef}
+                            newPasswordRef={this.newPasswordRef}
+                            repeatPasswordRef={this.repeatPasswordRef}
+                            loading={userState.changePasswordLoading}
+                            onSubmit={() => this.changePassword()}
+                        />
+                        <ProfileNotificationSettings
+                            userInfo={userInfo}
+                            userState={userState}
+                            onSettingChange={(key, value) => this.update(key, value)}
+                        />
                         <div className="row mb-3 mb-md-0">
                             <div className="col-md-12">
-                                {this.renderTelegram(userInfo, config)}
-                                {config.telegram_discuss_link && (
-                                    <div className="block block-rounded join_telegram_disscuss">
-                                        <div className="block-header block-header-default">
-                                            <h3 className="block-title">
-                                                {formatMessage({ id: 'Telegram 讨论组' })}
-                                            </h3>
-                                            <div className="block-options">
-                                                <a
-                                                    href={config.telegram_discuss_link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="btn btn-primary btn-sm btn-primary btn-rounded px-3"
-                                                >
-                                                    {formatMessage({ id: '立即加入' })}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                <div className="block block-rounded">
-                                    <div className="block-header block-header-default">
-                                        <h3 className="block-title">
-                                            {formatMessage({ id: '重置订阅信息' })}
-                                        </h3>
-                                    </div>
-                                    <div className="block-content">
-                                        <div className="row push">
-                                            <div className="col-md-12">
-                                                <div
-                                                    className="alert alert-warning mb-3"
-                                                    role="alert"
-                                                >
-                                                    {formatMessage({ id: '重置订阅提示信息' })}
-                                                </div>
-                                                <Button
-                                                    type="danger"
-                                                    onClick={() => this.resetSecurity()}
-                                                >
-                                                    {formatMessage({ id: '重置' })}
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProfileTelegram
+                                    userInfo={userInfo}
+                                    config={config}
+                                    onUnbind={() => this.unbindTelegram()}
+                                />
+                                <ProfileTelegramCommunity config={config} />
+                                <ProfileSecurityReset onReset={() => this.resetSecurity()} />
                             </div>
                         </div>
                     </div>

@@ -196,6 +196,38 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/account/profile/ProfileGiftcard.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/profile/ProfileNotificationSettings.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/profile/ProfilePasswordForm.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/profile/ProfileSecurityReset.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/profile/ProfileTelegram.tsx",
+    "to": "components/account/TelegramBindModal.tsx"
+  },
+  {
+    "from": "components/account/profile/ProfileTelegram.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/profile/ProfileWallet.tsx",
+    "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "components/account/profile/ProfileWallet.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
     "from": "components/commerce/OrderColumns.tsx",
     "to": "app/routerHistory.ts"
   },
@@ -685,11 +717,27 @@
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "components/account/TelegramBindModal.tsx"
+    "to": "components/account/profile/ProfileGiftcard.tsx"
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "components/common/MoneyDisplay.ts"
+    "to": "components/account/profile/ProfileNotificationSettings.tsx"
+  },
+  {
+    "from": "pages/account/Profile.tsx",
+    "to": "components/account/profile/ProfilePasswordForm.tsx"
+  },
+  {
+    "from": "pages/account/Profile.tsx",
+    "to": "components/account/profile/ProfileSecurityReset.tsx"
+  },
+  {
+    "from": "pages/account/Profile.tsx",
+    "to": "components/account/profile/ProfileTelegram.tsx"
+  },
+  {
+    "from": "pages/account/Profile.tsx",
+    "to": "components/account/profile/ProfileWallet.tsx"
   },
   {
     "from": "pages/account/Profile.tsx",

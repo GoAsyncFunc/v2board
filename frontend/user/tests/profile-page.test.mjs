@@ -17,6 +17,15 @@ async function load(responseCode = 200) {
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
     if (id === 'react-redux') return { connect: () => Component => Component };
+    if (id.endsWith('/profile/ProfileTelegram')) return {
+      __esModule: true,
+      default: 'ProfileTelegram',
+      ProfileTelegramCommunity: 'ProfileTelegramCommunity',
+    };
+    if (id.includes('/profile/')) return {
+      __esModule: true,
+      default: id.split('/').at(-1),
+    };
     if (id.includes('/ui.js')) return { Switch: 'Switch', Button: 'Button', message: {
       success: text => notices.push(['success', text]), error: text => notices.push(['error', text]),
     } };
@@ -30,7 +39,6 @@ async function load(responseCode = 200) {
       return { __esModule: true, default: Modal, Modal };
     }
     if (id.includes('MainLayout')) return 'Layout';
-    if (id.includes('TelegramBindModal')) return 'TelegramBindModal';
     if (id.includes('/request')) return { get: async path => { requests.push(path); return { code: responseCode }; } };
     if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
@@ -44,6 +52,25 @@ async function load(responseCode = 200) {
     comm: { config: { currency: 'CNY' } },
   });
   return { page, actions, confirmations, notices, requests };
+}
+
+async function loadProfileComponent(fileName) {
+  const source = await fs.readFile(new URL(`../src/components/account/profile/${fileName}.tsx`, import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+  const React = {
+    createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+  };
+  const module = { exports: {} };
+  vm.runInNewContext(code, { module, exports: module.exports, require(id) {
+    if (id === 'react') return React;
+    if (id === 'antd/lib/button') return { __esModule: true, default: 'Button' };
+    if (id === 'antd/lib/switch') return { __esModule: true, default: 'Switch' };
+    if (id.includes('TelegramBindModal')) return { __esModule: true, default: 'TelegramBindModal' };
+    if (id.includes('MoneyDisplay')) return { formatMoney: amount => (amount / 100).toFixed(2) };
+    if (id.includes('i18n')) return { formatMessage: ({ id: messageId }) => messageId };
+    throw Error(id);
+  } });
+  return module.exports;
 }
 
 function nodes(tree, predicate) {
@@ -106,9 +133,33 @@ test('Deposit confirmation converts yuan to cents and preserves the order payloa
   });
 });
 
+test('Profile page composes the account presentation sections', async () => {
+  const { page } = await load();
+  const sectionNames = nodes(page.render(), node => typeof node.type === 'string' && node.type.startsWith('Profile'))
+    .map(node => node.type);
+  assert.deepEqual(sectionNames, [
+    'ProfileWallet',
+    'ProfileGiftcard',
+    'ProfilePasswordForm',
+    'ProfileNotificationSettings',
+    'ProfileTelegram',
+    'ProfileTelegramCommunity',
+    'ProfileSecurityReset',
+  ]);
+});
+
 test('Profile switches retain boolean display and numeric setting updates', async () => {
-  const { page, actions } = await load();
-  const switches = nodes(page.render(), node => node.type === 'Switch');
+  const walletModule = await loadProfileComponent('ProfileWallet');
+  const notificationModule = await loadProfileComponent('ProfileNotificationSettings');
+  const actions = [];
+  const userInfo = { balance: 1250, auto_renewal: 1, remind_expire: 1, remind_traffic: 0 };
+  const userState = { auto_renewal_loading: false, remind_expire_loading: false, remind_traffic_loading: false };
+  const onSettingChange = (key, value) => actions.push({ type: 'user/update', key, value });
+  const wallet = walletModule.default({
+    config: { currency: 'CNY' }, userInfo, userState, onDeposit() {}, onSettingChange,
+  });
+  const notifications = notificationModule.default({ userInfo, userState, onSettingChange });
+  const switches = nodes([wallet, notifications], node => node.type === 'Switch');
   assert.deepEqual(switches.map(node => node.props.checked), [true, true, false]);
   switches[0].props.onChange(false);
   switches[1].props.onChange(false);
@@ -121,11 +172,19 @@ test('Profile switches retain boolean display and numeric setting updates', asyn
 });
 
 test('Telegram section preserves disabled, unbound and bound states', async () => {
-  const { page } = await load();
-  assert.equal(page.renderTelegram({}, {}), null);
-  const unbound = page.renderTelegram({}, { is_telegram: 1 });
+  const telegramModule = await loadProfileComponent('ProfileTelegram');
+  assert.equal(telegramModule.default({ userInfo: {}, config: {}, onUnbind() {} }), null);
+  const unbound = telegramModule.default({
+    userInfo: {}, config: { is_telegram: 1 }, onUnbind() {},
+  });
   assert.equal(nodes(unbound, node => node.type === 'TelegramBindModal').length, 1);
-  const bound = page.renderTelegram({ telegram_id: 1234 }, { is_telegram: 1 });
+  const bound = telegramModule.default({
+    userInfo: { telegram_id: 1234 }, config: { is_telegram: 1 }, onUnbind() {},
+  });
   assert.match(JSON.stringify(bound), /Telegram ID: 1234/);
   assert.equal(nodes(bound, node => node.type === 'TelegramBindModal').length, 0);
+  const community = telegramModule.ProfileTelegramCommunity({
+    config: { telegram_discuss_link: 'https://t.me/example' },
+  });
+  assert.equal(nodes(community, node => node.type === 'a')[0].props.href, 'https://t.me/example');
 });
