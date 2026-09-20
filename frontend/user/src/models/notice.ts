@@ -1,4 +1,5 @@
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { UserNotice } from '../types/subscription';
 import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../types/queryModels';
 
@@ -13,8 +14,8 @@ export default {
   effects: {
     *fetch({ complete }: { complete?: () => void }, { put }: QueryEffects<NoticeState>): QueryGenerator<NoticeState, UserNotice[]> {
       const response = yield get<UserNotice[]>('/user/notice/fetch');
-      if (response.code !== 200) return;
-      yield put({ type: 'setState', payload: { notices: response.data! } });
+      if (!isSuccessfulResponse(response)) return;
+      yield put({ type: 'setState', payload: { notices: response.data } });
       if (typeof complete === 'function') complete();
     },
   },

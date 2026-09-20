@@ -392,24 +392,48 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/comm.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/coupon.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/coupon.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/guest.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/guest.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/invite.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/invite.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/knowledge.ts",
     "to": "services/request.ts"
   },
   {
+    "from": "models/knowledge.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/notice.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/notice.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/order.ts",
@@ -428,8 +452,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/orderPaymentEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/orderQueryEffects.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/orderQueryEffects.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/passport.ts",
@@ -438,6 +470,10 @@
   {
     "from": "models/passport.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/passport.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/passport.ts",
@@ -456,8 +492,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/plan.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/server.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/server.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/sessionEffects.ts",
@@ -466,6 +510,10 @@
   {
     "from": "models/sessionEffects.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/sessionEffects.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/sessionEffects.ts",
@@ -476,8 +524,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/stat.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/telegram.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/telegram.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/ticket.ts",
@@ -488,8 +544,16 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/ticket.ts",
+    "to": "types/api.ts"
+  },
+  {
     "from": "models/tutorial.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/tutorial.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/user.ts",
@@ -502,6 +566,10 @@
   {
     "from": "models/user.ts",
     "to": "services/request.ts"
+  },
+  {
+    "from": "models/user.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/user.ts",

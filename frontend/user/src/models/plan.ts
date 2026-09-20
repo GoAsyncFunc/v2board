@@ -1,6 +1,7 @@
 import { get } from '../services/request';
 import { localeSettings } from '../config/localeSettings';
 import { router } from '../app/navigation';
+import { isSuccessfulResponse } from '../types/api';
 import type { ApiResponse } from '../types/api';
 import type { PlanEffects, PlanGenerator, PlanRecord, PlanState } from '../types/commonModels';
 import type { PlanPeriod } from '../types/plan';
@@ -31,8 +32,8 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<PlanState['plans']>('/user/plan/fetch')) as ApiResponse<PlanState['plans']>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) return;
-      yield put({ type: 'setState', payload: { plans: response.data! } });
+      if (!isSuccessfulResponse(response)) return;
+      yield put({ type: 'setState', payload: { plans: response.data } });
     },
     *fetchById({ id }: { id: number }, { put, select }: PlanEffects): PlanGenerator<PlanRecord> {
       const planState = (yield select(state => state.plan)) as PlanState;
@@ -40,9 +41,9 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<PlanRecord>('/user/plan/fetch', { id })) as ApiResponse<PlanRecord>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code !== 200) { router.push('/plan'); return; }
+      if (!isSuccessfulResponse(response)) { router.push('/plan'); return; }
       yield put({ type: 'setState', payload: {
-        plan: response.data!, selectPeriod: choosePeriod(response.data!, currentPeriod),
+        plan: response.data, selectPeriod: choosePeriod(response.data, currentPeriod),
       } });
     },
   },

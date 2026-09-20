@@ -12,6 +12,7 @@ async function run(original, scenario) {
   const text = await fs.readFile(file, 'utf8');
   const code = original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code;
   vm.runInNewContext(code, { module, exports: module.exports, api, require(id) {
+    if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('request')) return api;
         throw Error(id);
   } }, { timeout: 2000 });

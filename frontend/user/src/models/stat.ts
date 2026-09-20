@@ -1,4 +1,5 @@
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { TrafficRecord } from '../types/commerce';
 import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '../types/queryModels';
 
@@ -15,7 +16,7 @@ export default {
       yield put({ type: 'setState', payload: { getTrafficLogLoading: true } });
       const response = yield get<TrafficRecord[]>('/user/stat/getTrafficLog');
       yield put({ type: 'setState', payload: { getTrafficLogLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { traffics: response.data! } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { traffics: response.data } });
     },
   },
 };

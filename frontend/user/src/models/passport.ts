@@ -1,6 +1,7 @@
 import { get, post } from '../services/request';
 import history from '../app/routerHistory';
 import { setToken, notify } from '../utils/siteHelpers';
+import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type {
@@ -40,7 +41,7 @@ export default {
   effects: {
     *token2Login({ verify, redirect }: TokenLoginAction): PassportGenerator<AuthTokenData> {
       const response = yield get<AuthTokenData>('/passport/auth/token2Login', { verify, redirect });
-      if (response.code !== 200 || !response.data) return;
+      if (!isSuccessfulResponse(response) || !response.data) return;
       setToken(response.data.auth_data);
       history.push(redirect || 'dashboard');
     },
@@ -48,8 +49,8 @@ export default {
       yield put({ type: 'setState', payload: { loginLoading: true } });
       const response = yield post<AuthTokenData>('/passport/auth/login', { email, password });
       yield put({ type: 'setState', payload: { loginLoading: false } });
-      if (response.code !== 200) return;
-      setToken(response.data!.auth_data);
+      if (!isSuccessfulResponse(response)) return;
+      setToken(response.data.auth_data);
       yield put({ type: 'user/getUserInfo' });
       history.push(redirect || 'dashboard');
     },
@@ -67,7 +68,7 @@ export default {
       };
       const response = yield post<boolean>('/passport/auth/register', data);
       yield put({ type: 'setState', payload: { registerLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       history.push('/login');
     },
     *sendEmailVerify(
@@ -78,7 +79,7 @@ export default {
       const data = { email, ...(recaptchaData ? { recaptcha_data: recaptchaData } : {}), isforget };
       const response = yield post<boolean>('/passport/comm/sendEmailVerify', data);
       yield put({ type: 'setState', payload: { sendEmailVerifyLoading: false } });
-      if (response.code !== 200 || !response.data) return;
+      if (!isSuccessfulResponse(response) || !response.data) return;
       notify('success', '发送成功', '如果没有收到验证码请检查垃圾箱。');
       if (typeof callback === 'function') callback();
     },
@@ -89,7 +90,7 @@ export default {
       yield put({ type: 'setState', payload: { forgetLoading: true } });
       const response = yield post<boolean>('/passport/auth/forget', { email, password, email_code: emailCode });
       yield put({ type: 'setState', payload: { forgetLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       history.push('/login');
     },
   },

@@ -1,6 +1,7 @@
 import message from 'antd/lib/message';
 import history from '../app/routerHistory';
 import { get, post } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { TicketRecord } from '../types/commerce';
@@ -47,20 +48,20 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = (yield get<TicketRecord[]>('/user/ticket/fetch')) as ApiResponse<TicketRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { tickets: response.data! } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { tickets: response.data } });
     },
     *fetchById({ id }: { id: TicketId }, { put }: TicketEffects): TicketGenerator<TicketConversation> {
       const response = (yield get<TicketConversation>('/user/ticket/fetch', { id })) as ApiResponse<TicketConversation>;
-      if (response.code === 200) yield put({ type: 'setState', payload: { ticket: response.data! } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { ticket: response.data } });
     },
     *close({ id }: { id: TicketId }, { put }: TicketEffects): TicketGenerator<boolean> {
       const response = (yield post<boolean>('/user/ticket/close', { id })) as ApiResponse<boolean>;
-      if (response.code === 200) yield put({ type: 'fetch' });
+      if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
     *save(_action: { type?: string }, { put, select }: TicketEffects): TicketGenerator<boolean> {
       const ticketState = (yield select(state => state.ticket)) as TicketState;
       const response = (yield post<boolean>('/user/ticket/save', { ...ticketState.saveData })) as ApiResponse<boolean>;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'setState', payload: { saveData: {}, newTicketModalVisible: false } });
       yield put({ type: 'fetch' });
     },
@@ -71,7 +72,7 @@ export default {
       const response = (yield post<boolean>('/user/ticket/reply', { id, ...ticketState.replyData })) as ApiResponse<boolean>;
       message.destroy();
       yield put({ type: 'setState', payload: { replyLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       message.success('发送成功');
       yield put({ type: 'setState', payload: { replyData: {} } });
       complete();
@@ -81,7 +82,7 @@ export default {
         withdraw_account: withdrawAccount,
         withdraw_method: withdrawMethod,
       })) as ApiResponse<boolean>;
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       history.push('/ticket');
       if (typeof callback === 'function') callback();
     },

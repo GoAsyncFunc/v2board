@@ -1,4 +1,5 @@
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
 import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryModels';
 
@@ -15,13 +16,13 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = yield get<KnowledgeState['knowledges']>('/user/knowledge/fetch', { language, keyword });
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { knowledges: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { knowledges: response.data } });
     },
     *fetchById({ id, language }: { id: KnowledgeId; language?: string }, { put }: QueryEffects<KnowledgeState>): QueryGenerator<KnowledgeState, KnowledgeState['knowledge']> {
       yield put({ type: 'setState', payload: { fetchByIdLoading: true } });
       const response = yield get<KnowledgeState['knowledge']>('/user/knowledge/fetch', { id, language });
       yield put({ type: 'setState', payload: { fetchByIdLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { knowledge: response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { knowledge: response.data } });
     },
   },
 };

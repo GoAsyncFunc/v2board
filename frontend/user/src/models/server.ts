@@ -1,4 +1,5 @@
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { NodeRecord } from '../types/commerce';
 import type { QueryEffects, QueryGenerator, ServerState, StateUpdate } from '../types/queryModels';
 
@@ -15,7 +16,7 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = yield get<NodeRecord[]>('/user/server/fetch');
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { servers: response.data! } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { servers: response.data } });
     },
   },
 };

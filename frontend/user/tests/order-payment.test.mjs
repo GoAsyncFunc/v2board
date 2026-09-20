@@ -16,6 +16,7 @@ async function run(original, scenario) {
   const message = { info: (...args) => trace.push(['info', ...args]), loading: (...args) => trace.push(['loading', ...args]) };
   const require = id => {
     if (id === 'p0pE') return Object.assign;
+    if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id === 't3Un' || id.includes('request')) return { b: post, post };
     if (id === '3a4m' || id.includes('routerHistory')) return history;
     if (id === 'antd/lib/message') return { __esModule: true, default: message };

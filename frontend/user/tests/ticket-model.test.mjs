@@ -23,6 +23,7 @@ async function loadModel(trace) {
     module,
     exports: module.exports,
     require(id) {
+      if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
       if (id === 'antd/lib/message') return { __esModule: true, default: message };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('request')) return { get: request('GET'), post: request('POST') };

@@ -1,4 +1,5 @@
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { CommunicationConfig } from '../types/auth';
 import type { GuestState, ModelEffects, ModelGenerator } from '../types/commonModels';
 import type { StateUpdate } from '../types/queryModels';
@@ -20,12 +21,12 @@ export default {
       yield put({ type: 'setState', payload: { getCommConfigLoading: true } });
       const response = yield get<CommunicationConfig>('/guest/comm/config');
       yield put({ type: 'setState', payload: { getCommConfigLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({
         type: 'setState',
         payload: {
-          commConfig: response.data!,
-          selectEmailSuffix: response.data!.email_whitelist_suffix ? response.data!.email_whitelist_suffix[0] : '',
+          commConfig: response.data,
+          selectEmailSuffix: response.data.email_whitelist_suffix ? response.data.email_whitelist_suffix[0] : '',
         },
       });
     },

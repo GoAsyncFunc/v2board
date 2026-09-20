@@ -1,6 +1,7 @@
 import { get } from '../services/request';
 import history from '../app/routerHistory';
 import { getToken, clearToken } from '../utils/siteHelpers';
+import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { LoginSessionData } from '../types/auth';
@@ -21,7 +22,7 @@ export function* checkLogin(
 ): SessionGenerator<LoginSessionData> {
   if (!getToken()) return;
   const response = yield get<LoginSessionData>('/user/checkLogin');
-  if (response.code !== 200 || !response.data!.is_login) return;
+  if (!isSuccessfulResponse(response) || !response.data.is_login) return;
   yield put({ type: 'user/getUserInfo' });
   history.push(redirect || 'dashboard');
 }
@@ -33,14 +34,14 @@ export function* getUserInfo(
   yield put({ type: 'setState', payload: { getUserInfoLoading: true } });
   const response = yield get<UserInfo>('/user/info');
   yield put({ type: 'setState', payload: { getUserInfoLoading: false } });
-  if (response.code !== 200) return;
-  yield put({ type: 'setState', payload: { userInfo: response.data! } });
+  if (!isSuccessfulResponse(response)) return;
+  yield put({ type: 'setState', payload: { userInfo: response.data } });
   if (window.Tawk_API) {
-    window.Tawk_API.visitor = { name: response.data!.email, email: response.data!.email };
+    window.Tawk_API.visitor = { name: response.data.email, email: response.data.email };
   }
   if (window.$crisp) {
-    window.$crisp.push(['set', 'user:email', response.data!.email]);
-    window.$crisp.push(['set', 'session:data', [[['Balance', response.data!.balance / 100]]]]);
+    window.$crisp.push(['set', 'user:email', response.data.email]);
+    window.$crisp.push(['set', 'session:data', [[['Balance', response.data.balance / 100]]]]);
   }
 }
 

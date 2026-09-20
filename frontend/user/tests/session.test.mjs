@@ -21,6 +21,7 @@ async function run(target,original,scenario){
  const text=await fs.readFile(file,'utf8');
  const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,api,helpers,history,window,require:id=>{
+  if(id.includes('types/api'))return {isSuccessfulResponse:value=>value.code===200};
   if(id.includes('request'))return api;
   if(id.includes('routerHistory'))return history;
   if(id.includes('siteHelpers'))return helpers;

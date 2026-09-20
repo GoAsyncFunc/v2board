@@ -4,6 +4,7 @@ import history from '../app/routerHistory';
 import moment from 'moment';
 import { formatBytes } from '../utils/siteHelpers';
 import * as sessionEffects from './sessionEffects';
+import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { StateUpdate } from '../types/queryModels';
@@ -51,10 +52,10 @@ export default {
     ...sessionEffects,
     *getSubscribe(_action: { type?: string }, { put }: UserEffects): UserGenerator<UserSubscription> {
       const response = yield get<UserSubscription>('/user/getSubscribe');
-      if (response.code !== 200) return;
-      yield put({ type: 'setState', payload: { subscribe: response.data! } });
+      if (!isSuccessfulResponse(response)) return;
+      yield put({ type: 'setState', payload: { subscribe: response.data } });
       if (window.$crisp) {
-        const subscription = response.data!;
+        const subscription = response.data;
         window.$crisp.push(['set', 'session:data', [[
           ['Plan', subscription.plan?.name || '-'],
           ['ExpireTime', moment(1000 * subscription.expired_at!).format('YYYY-MM-DD')],
@@ -65,14 +66,14 @@ export default {
     },
     *getStat(_action: { type?: string }, { put }: UserEffects): UserGenerator<number[]> {
       const response = yield get<number[]>('/user/getStat');
-      if (response.code !== 200) return;
-      yield put({ type: 'setState', payload: { stat: response.data! } });
+      if (!isSuccessfulResponse(response)) return;
+      yield put({ type: 'setState', payload: { stat: response.data } });
     },
     *update({ key, value }: { key: UserSetting; value: 0 | 1 }, { put }: UserEffects): UserGenerator<boolean> {
       yield put({ type: 'setState', payload: { [`${key}_loading`]: true } });
       const response = yield post<boolean>('/user/update', { [key]: value });
       yield put({ type: 'setState', payload: { [`${key}_loading`]: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'getUserInfo' });
     },
     *changePassword(
@@ -82,7 +83,7 @@ export default {
       yield put({ type: 'setState', payload: { changePasswordLoading: true } });
       const response = yield post<boolean>('/user/changePassword', { old_password: oldPassword, new_password: newPassword });
       yield put({ type: 'setState', payload: { changePasswordLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       message.success('修改成功，请重新登陆');
       history.push('/login');
     },
@@ -90,7 +91,7 @@ export default {
       yield put({ type: 'setState', payload: { newPeriodLoading: true } });
       const response = yield post<boolean>('/user/newPeriod');
       yield put({ type: 'setState', payload: { newPeriodLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'user/getSubscribe' });
       message.success('提前开启流量周期成功');
       history.push('/dashboard');
@@ -99,7 +100,7 @@ export default {
       yield put({ type: 'setState', payload: { redeemgiftcardLoading: true } });
       const response = (yield post<boolean>('/user/redeemgiftcard', { giftcard })) as ApiResponse<boolean> & GiftcardRedemptionResponse;
       yield put({ type: 'setState', payload: { redeemgiftcardLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'user/getUserInfo' });
       message.success('兑换成功: ' + describeGiftcard(response.type, response.value));
     },
@@ -107,7 +108,7 @@ export default {
       yield put({ type: 'setState', payload: { resetSecurityLoading: true } });
       const response = yield get<string>('/user/resetSecurity');
       yield put({ type: 'setState', payload: { resetSecurityLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       message.success('重置成功');
     },
     *transfer(
@@ -115,7 +116,7 @@ export default {
       { put }: UserEffects,
     ): UserGenerator<boolean> {
       const response = yield post<boolean>('/user/transfer', { transfer_amount: 100 * transferAmount });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       if (typeof callback === 'function') callback();
       yield put({ type: 'user/getUserInfo' });
     },

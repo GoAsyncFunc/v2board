@@ -1,5 +1,6 @@
 import message from 'antd/lib/message';
 import { get, post } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { CommissionRecord, InviteState } from '../types/invite';
@@ -30,8 +31,8 @@ export default {
       yield put({ type: 'setState', payload: { detailsLoading: true } });
       const response = yield get<CommissionRecord[]>('/user/invite/details', { current, page_size: pageSize });
       yield put({ type: 'setState', payload: { detailsLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: {
-        invites: response.data!,
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: {
+        invites: response.data,
         detailsPagination: { current, page_size: pageSize, total: response.total! },
       } });
     },
@@ -39,13 +40,13 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
       const response = yield get<Pick<InviteState, 'codes' | 'stat'>>('/user/invite/fetch');
       yield put({ type: 'setState', payload: { fetchLoading: false } });
-      if (response.code === 200) yield put({ type: 'setState', payload: { ...response.data } });
+      if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { ...response.data } });
     },
     *save(_action: { type?: string }, { put }: InviteEffects): InviteGenerator<boolean> {
       yield put({ type: 'setState', payload: { saveLoading: true } });
       const response = yield post<boolean>('/user/invite/save');
       yield put({ type: 'setState', payload: { saveLoading: false } });
-      if (response.code !== 200) return;
+      if (!isSuccessfulResponse(response)) return;
       message.success('已生成');
       yield put({ type: 'fetch' });
     },
