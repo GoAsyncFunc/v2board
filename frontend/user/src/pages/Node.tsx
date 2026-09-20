@@ -6,7 +6,8 @@ import history from '../vendor/routerHistory.js';
 import { calculateUsage } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import { createNodeColumns } from '../components/NodeColumns';
-import type { NodeRecord, OrderRecord } from '../types/commerce';
+import type { OrderRecord } from '../types/commerce';
+import type { ServerState } from '../types/queryModels';
 import type { UserDispatch } from '../types/store';
 
 import '../services/request';
@@ -14,7 +15,7 @@ import '../vendor/dateTime.js';
 const message = (id: string): string => formatMessage({ id });
 
 interface NodePageStateProps {
-  server: { servers: NodeRecord[]; fetchLoading: boolean };
+  server: ServerState;
   user: { subscribe: { u: number; d: number; transfer_enable: number; plan_id?: number | null } };
   order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };
 }

@@ -4,11 +4,11 @@ import { Table } from '../vendor/ui.js';
 import { connect } from 'react-redux';
 import { formatMessage } from '../vendor/i18n.js';
 import { createTrafficColumns } from '../components/TrafficColumns';
-import type { TrafficRecord } from '../types/commerce';
+import type { TrafficState } from '../types/queryModels';
 import type { UserDispatch } from '../types/store';
 
 interface TrafficStateProps {
-  stat: { traffics: TrafficRecord[]; getTrafficLogLoading: boolean };
+  stat: TrafficState;
 }
 
 export class TrafficPage extends React.Component<TrafficStateProps & { dispatch: UserDispatch }> {

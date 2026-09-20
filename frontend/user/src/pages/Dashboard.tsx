@@ -14,12 +14,13 @@ import { formatDate, formatDateDash, formatDaysRemaining } from '../components/D
 import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage';
 import type { UserNotice, UserSubscription } from '../types/subscription';
 import type { UserDispatch } from '../types/store';
+import type { NoticeState } from '../types/queryModels';
 
 import '../vendor/iconStyles.js';
 
 interface DashboardStateProps {
   user: { subscribe: UserSubscription; stat: number[] };
-  notice: { notices: UserNotice[] };
+  notice: NoticeState;
   order: { saveLoading: boolean };
 }
 interface DashboardState { visible: boolean; notice?: Partial<UserNotice>; }

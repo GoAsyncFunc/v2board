@@ -5,9 +5,10 @@ import Icon from '../vendor/Icon.js';
 import copyText from '../vendor/clipboard.js';
 import { formatMessage } from '../vendor/i18n.js';
 import type { UserDispatch } from '../types/store';
+import type { TelegramBot } from '../types/queryModels';
 
 interface TelegramStateProps {
-  telegram: { botInfo?: { username?: string } | null };
+  telegram: { botInfo?: TelegramBot | null };
   user: { subscribe?: { subscribe_url?: string } };
 }
 type TelegramModalProps = TelegramStateProps & { children: React.ReactElement; dispatch: UserDispatch };
