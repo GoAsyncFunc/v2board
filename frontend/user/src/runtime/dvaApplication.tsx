@@ -28,7 +28,7 @@ type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
 
 interface DvaOptions {
   history?: History;
-  [key: string]: unknown;
+  [key: string]: PluginValue;
 }
 
 function assert(condition: unknown, message: string): asserts condition {

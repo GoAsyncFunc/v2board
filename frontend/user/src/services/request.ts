@@ -1,7 +1,7 @@
 import { fetchResponse } from './fetchResponse';
 import { getLocale, formatMessage } from '../locales/i18n';
 import { getToken, clearToken, notify } from '../utils/siteHelpers';
-import type { ApiResponse, FormValue, RequestOptions } from '../types/api';
+import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/api';
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
 document.title = window.settings.title!;
 export function encodeForm(data?: FormValue): string {
@@ -18,7 +18,7 @@ export function encodeForm(data?: FormValue): string {
   for (const key in data) append(key, data[key]);
   return fields.join('&');
 }
-export async function request<Data = unknown>(endpoint: string, options: RequestOptions | null = {}): Promise<ApiResponse<Data>> {
+export async function request<Data = JsonValue>(endpoint: string, options: RequestOptions | null = {}): Promise<ApiResponse<Data>> {
   options = options || {};
   options.headers = options.headers || {};
   const token = getToken();
@@ -51,7 +51,7 @@ export async function request<Data = unknown>(endpoint: string, options: Request
     code: response.status
   }, data);
 }
-export function post<Data = unknown>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
+export function post<Data = JsonValue>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
   return request<Data>(endpoint, {
     method: 'POST',
     headers: {
@@ -60,7 +60,7 @@ export function post<Data = unknown>(endpoint: string, data?: FormValue): Promis
     body: encodeForm(data)
   });
 }
-export function get<Data = unknown>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
+export function get<Data = JsonValue>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
   const query = encodeForm(data);
   return request<Data>(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
 }
