@@ -19,6 +19,7 @@ import history from './history';
 import appRoutes from './routes';
 import '../vendor/dateTime.js';
 import type { UserStore } from '../types/store';
+import type { PluginValue } from '../runtime/pluginRuntime';
 
 const { ConnectedRouter } = routerBindings;
 
@@ -44,7 +45,7 @@ const localeData: Record<SupportedLocale, AppLocale> = {
 interface IntlApiBridgeProps { intl: IntlApi; children?: React.ReactNode; }
 interface LocaleChildrenProps { children?: React.ReactNode; }
 interface LocaleProviderState { locale: string; }
-interface RouterProps { store?: UserStore; [key: string]: unknown; }
+interface RouterProps { store?: UserStore; [key: string]: PluginValue; }
 
 export const routes = appRoutes;
 window.g_routes = routes;

@@ -1,9 +1,9 @@
 import { createHashHistory } from "history";
 
-export * from '../runtime/pluginRuntime.js';
+export * from '../runtime/pluginRuntime';
 export { default as appDvaConfig } from "./appDvaConfig.js";
 export { default as loadingPlugin } from '../runtime/loadingPlugin';
-export { default as routeRenderer } from '../runtime/routeRenderer.js';
+export { default as routeRenderer } from '../runtime/routeRenderer';
 export { router } from './routerRuntime.js';
 export { initialProps, modifyInitialProps, rootContainer } from './rootRuntime.js';
 

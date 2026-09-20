@@ -1140,8 +1140,8 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "runtime/routeRenderer.js",
-    "to": "runtime/pluginRuntime.js"
+    "from": "runtime/routeRenderer.tsx",
+    "to": "runtime/pluginRuntime.ts"
   },
   {
     "from": "services/request.ts",
@@ -1173,11 +1173,11 @@
   },
   {
     "from": "vendor/appRuntime.js",
-    "to": "runtime/pluginRuntime.js"
+    "to": "runtime/pluginRuntime.ts"
   },
   {
     "from": "vendor/appRuntime.js",
-    "to": "runtime/routeRenderer.js"
+    "to": "runtime/routeRenderer.tsx"
   },
   {
     "from": "vendor/appRuntime.js",
