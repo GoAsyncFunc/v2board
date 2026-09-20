@@ -4,8 +4,16 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
+function nodes(tree, predicate) {
+  if (Array.isArray(tree)) return tree.flatMap(node => nodes(node, predicate));
+  if (!tree || typeof tree !== 'object') return [];
+  return [...(predicate(tree) ? [tree] : []), ...nodes(tree.children, predicate), ...nodes(tree.props?.children, predicate)];
+}
+
 async function loadConfig() {
   const actions = [], timers = new Map();
+  const mailTestLogs = [];
+  const messages = [];
   let nextTimer = 0;
   const React = {
     Component: class {
@@ -44,6 +52,7 @@ async function loadConfig() {
         if (id === 'react-redux') return { connect: () => Page => Page };
         if (id === 'antd/lib/button') return 'Button';
         if (id === 'antd/lib/input') return 'Input';
+        if (id === 'antd/lib/message') return { success: value => messages.push(value) };
         if (id === 'antd/lib/switch') return 'Switch';
         if (id === 'antd/lib/tabs') return { TabPane: 'TabPane' };
         if (id.includes('ConfigRow')) return components.row;
@@ -57,6 +66,7 @@ async function loadConfig() {
         if (id.includes('AppConfigTab')) return components.app;
         if (id.includes('TelegramConfigTab')) return components.telegram;
         if (id.includes('EmailConfigTab')) return components.email;
+        if (id.includes('MailTestResult')) return { showMailTestResult: log => mailTestLogs.push(log) };
         if (id.includes('ServerConfigTab')) return components.server;
         if (id.includes('MainLayout')) return 'Layout';
         throw new Error(id);
@@ -77,7 +87,7 @@ async function loadConfig() {
     EmailConfigTab: components.email.default,
     ServerConfigTab: components.server.default,
     Page: components.page.SystemConfigPage,
-    timers, actions, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
+    timers, actions, mailTestLogs, messages, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
 }
 
@@ -123,6 +133,41 @@ test('System config keeps tab selection local to the page', async () => {
   tabs.props.onChange('email');
   assert.equal(page.state.tabs, 'email');
   assert.deepEqual(actions, []);
+});
+
+test('System config owns completion presentation', async () => {
+  const { Page, EmailConfigTab, TelegramConfigTab, mailTestLogs, messages, timers } = await loadConfig();
+  const actions = [];
+  const page = new Page({
+    dispatch: action => actions.push(action),
+    config: {
+      site: {}, safe: {}, subscribe: {}, deposit: {}, ticket: {}, invite: {}, frontend: {},
+      server: {}, email: {}, telegram: {}, app: {}, tabs: 'email', fetchLoading: false,
+      emailTemplate: [], themeTemplate: [], setTelegramWebhookLoading: false, testSendMailLoading: false,
+    },
+    plan: { plans: [] },
+  });
+  page.set('site', 'app_name', 'Updated');
+  [...timers.values()][0].callback();
+  const saveAction = actions.find(action => action.type === 'config/save');
+  saveAction.complete();
+
+  const tree = page.render();
+  const emailTab = nodes(tree, node => node.type === EmailConfigTab)[0];
+  emailTab.props.onTestSendMail();
+  const mailAction = actions.find(action => action.type === 'config/testSendMail');
+  assert.equal(typeof mailAction.complete, 'function');
+  const log = { error: 'connection failed', email: 'admin@example.com' };
+  mailAction.complete(log);
+
+  const telegramTab = nodes(tree, node => node.type === TelegramConfigTab)[0];
+  telegramTab.props.onSetWebhook();
+  const webhookAction = actions.find(action => action.type === 'config/setTelegramWebhook');
+  assert.equal(typeof webhookAction.complete, 'function');
+  webhookAction.complete();
+
+  assert.deepEqual(mailTestLogs, [log]);
+  assert.deepEqual(messages, ['保存成功', 'webhook 设置成功']);
 });
 
 test('Config row keeps its two-column layout, descriptions and nested-row styling', async () => {

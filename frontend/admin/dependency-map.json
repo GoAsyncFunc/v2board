@@ -397,10 +397,6 @@
   },
   {
     "from": "models/config.ts",
-    "to": "components/config/MailTestResult.tsx"
-  },
-  {
-    "from": "models/config.ts",
     "to": "services/request.ts"
   },
   {
@@ -690,6 +686,10 @@
   {
     "from": "pages/config/System.tsx",
     "to": "components/config/InviteConfigTab.tsx"
+  },
+  {
+    "from": "pages/config/System.tsx",
+    "to": "components/config/MailTestResult.tsx"
   },
   {
     "from": "pages/config/System.tsx",

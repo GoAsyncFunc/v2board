@@ -141,7 +141,7 @@ test('admin business contracts do not depend on rendering components', async () 
   const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
   for (const modelName of modelNames) {
     const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
-    assert.doesNotMatch(source, /import type .* from ['"]\.\.\/components\//, `${modelName} imports a contract from a component`);
+    assert.doesNotMatch(source, /from ['"]\.\.\/components\//, `${modelName} depends on a component`);
   }
 
   const contractSources = {

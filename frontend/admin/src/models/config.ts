@@ -1,5 +1,3 @@
-import notification from 'antd/lib/message';
-import { showMailTestResult } from '../components/config/MailTestResult';
 import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type {
   AdminConfigState,
@@ -21,10 +19,16 @@ interface FetchConfigAction {
 
 interface SaveConfigAction {
   parentKey: ConfigGroupKey;
+  complete?: () => void;
 }
 
 interface TelegramWebhookAction {
   token?: string;
+  complete?: () => void;
+}
+
+interface MailTestAction {
+  complete?: (log: MailTestLog) => void;
 }
 
 type RawInviteConfig = Omit<InviteConfig, 'commission_withdraw_method'> & {
@@ -72,11 +76,11 @@ export default {
       if (typeof data.deposit?.deposit_bounus === 'string') data.deposit.deposit_bounus = data.deposit.deposit_bounus.split(',');
       yield put({ type: 'setState', payload: { ...data } as Partial<AdminConfigState> });
     },
-    *save({ parentKey }: SaveConfigAction, { put, select }: ConfigTools): ConfigEffect {
+    *save({ parentKey, complete }: SaveConfigAction, { put, select }: ConfigTools): ConfigEffect {
       const configState = (yield select(state => state.config)) as AdminConfigState;
       const response = (yield post(`/${window.settings.secure_path}/config/save`, { ...configState[parentKey] })) as ApiResponse;
       if (!isSuccessfulResponse(response)) return;
-      notification.success('保存成功');
+      complete?.();
       yield put({ type: 'fetch' });
     },
     *getEmailTemplate(_: AdminAction, { put }: ConfigTools): ConfigEffect {
@@ -87,19 +91,19 @@ export default {
       const response = (yield get<string[]>(`/${window.settings.secure_path}/config/getThemeTemplate`)) as ApiResponse<string[]>;
       if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { themeTemplate: response.data } });
     },
-    *setTelegramWebhook({ token }: TelegramWebhookAction, { put }: ConfigTools): ConfigEffect {
+    *setTelegramWebhook({ token, complete }: TelegramWebhookAction, { put }: ConfigTools): ConfigEffect {
       yield put({ type: 'setState', payload: { setTelegramWebhookLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/config/setTelegramWebhook`, { telegram_bot_token: token })) as ApiResponse;
       yield put({ type: 'setState', payload: { setTelegramWebhookLoading: false } });
-      if (isSuccessfulResponse(response)) notification.success('webhook 设置成功');
+      if (isSuccessfulResponse(response)) complete?.();
     },
-    *testSendMail(_: AdminAction, { put }: ConfigTools): ConfigEffect {
+    *testSendMail({ complete }: MailTestAction, { put }: ConfigTools): ConfigEffect {
       yield put({ type: 'setState', payload: { testSendMailLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/config/testSendMail`)) as MailTestResponse;
       yield put({ type: 'setState', payload: { testSendMailLoading: false } });
       if (!isSuccessfulResponse(response)) return;
       const log = response.log || {};
-      showMailTestResult(log);
+      complete?.(log);
       console.log(response);
     },
   },

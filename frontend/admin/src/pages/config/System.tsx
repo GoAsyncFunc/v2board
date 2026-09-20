@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Tabs from 'antd/lib/tabs';
+import message from 'antd/lib/message';
 import MainLayout from '../../layouts/MainLayout';
 import SiteConfigTab from '../../components/config/SiteConfigTab';
 import SafeConfigTab from '../../components/config/SafeConfigTab';
@@ -11,6 +12,7 @@ import InviteConfigTab from '../../components/config/InviteConfigTab';
 import FrontendConfigTab from '../../components/config/FrontendConfigTab';
 import ServerConfigTab from '../../components/config/ServerConfigTab';
 import EmailConfigTab from '../../components/config/EmailConfigTab';
+import { showMailTestResult } from '../../components/config/MailTestResult';
 import TelegramConfigTab from '../../components/config/TelegramConfigTab';
 import AppConfigTab from '../../components/config/AppConfigTab';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
@@ -45,7 +47,7 @@ export class SystemConfigPage extends React.Component<SystemConfigPageProps, Sys
     if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
     this.inputDelayTimer = setTimeout(() => {
       this.inputDelayTimer = null;
-      this.props.dispatch({ type: 'config/save', parentKey });
+      this.props.dispatch({ type: 'config/save', parentKey, complete: () => message.success('保存成功') });
     }, 1500);
   }
 
@@ -95,7 +97,7 @@ export class SystemConfigPage extends React.Component<SystemConfigPageProps, Sys
                 templates={emailTemplate}
                 testSendMailLoading={testSendMailLoading}
                 onChange={(field, value) => update('email', field, value)}
-                onTestSendMail={() => this.props.dispatch({ type: 'config/testSendMail' })}
+                onTestSendMail={() => this.props.dispatch({ type: 'config/testSendMail', complete: showMailTestResult })}
               />
             </Tabs.TabPane>
             <Tabs.TabPane tab="Telegram" key="telegram">
@@ -103,7 +105,10 @@ export class SystemConfigPage extends React.Component<SystemConfigPageProps, Sys
                 telegram={telegram}
                 webhookLoading={setTelegramWebhookLoading}
                 onChange={(field, value) => update('telegram', field, value)}
-                onSetWebhook={() => this.props.dispatch({ type: 'config/setTelegramWebhook' })}
+                onSetWebhook={() => this.props.dispatch({
+                  type: 'config/setTelegramWebhook',
+                  complete: () => message.success('webhook 设置成功'),
+                })}
               />
             </Tabs.TabPane>
             <Tabs.TabPane tab="APP" key="app">

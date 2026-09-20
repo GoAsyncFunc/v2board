@@ -22,10 +22,8 @@ async function load() {
       setup(builder) {
         builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
         builder.onResolve({ filter: /^antd\/lib\/message$/ }, () => ({ path: 'message', namespace: 'test' }));
-        builder.onResolve({ filter: /MailTestResult$/ }, () => ({ path: 'mail-result', namespace: 'test' }));
         builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
         builder.onLoad({ filter: /^message$/, namespace: 'test' }, () => ({ loader: 'js', contents: `module.exports={success:value=>globalThis.notify('success',value),error:value=>globalThis.notify('error',value)};` }));
-        builder.onLoad({ filter: /^mail-result$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.showMailTestResult=log=>globalThis.notify(log.error?'error':'success',log.error?'发送失败':'发送成功');` }));
       },
     }],
   });
@@ -73,17 +71,35 @@ test('config fetch normalizes comma-separated list fields', async () => {
 
 test('config save posts only the selected group and refreshes', async () => {
   const runtime = await load();
-  const puts = run(runtime.model, 'save', { parentKey: 'email' }, { code: 200 }, {
+  const completed = [];
+  const puts = run(runtime.model, 'save', { parentKey: 'email', complete: () => completed.push('saved') }, { code: 200 }, {
     config: { email: { email_host: 'smtp.example.com', email_port: 465 } },
   });
   assert.deepEqual(runtime.requests, [['POST', '/admin/config/save', { email_host: 'smtp.example.com', email_port: 465 }]]);
-  assert.deepEqual(runtime.notifications, [['success', '保存成功']]);
+  assert.deepEqual(completed, ['saved']);
+  assert.deepEqual(runtime.notifications, []);
   assert.deepEqual(puts, [{ type: 'fetch' }]);
 });
 
-test('mail test preserves loading and result notification behavior', async () => {
+test('telegram webhook completes only after a successful response', async () => {
   const runtime = await load();
-  const puts = run(runtime.model, 'testSendMail', {}, {
+  const completed = [];
+  const puts = run(runtime.model, 'setTelegramWebhook', {
+    token: 'fixture-token',
+    complete: () => completed.push('done'),
+  }, { code: 200 });
+  assert.deepEqual(runtime.requests, [['POST', '/admin/config/setTelegramWebhook', { telegram_bot_token: 'fixture-token' }]]);
+  assert.deepEqual(puts, [
+    { type: 'setState', payload: { setTelegramWebhookLoading: true } },
+    { type: 'setState', payload: { setTelegramWebhookLoading: false } },
+  ]);
+  assert.deepEqual(completed, ['done']);
+});
+
+test('mail test preserves loading and returns the result after success', async () => {
+  const runtime = await load();
+  const completed = [];
+  const puts = run(runtime.model, 'testSendMail', { complete: log => completed.push(clone(log)) }, {
     code: 200,
     log: { error: 'connection failed', email: 'admin@example.com' },
   });
@@ -92,5 +108,6 @@ test('mail test preserves loading and result notification behavior', async () =>
     { type: 'setState', payload: { testSendMailLoading: true } },
     { type: 'setState', payload: { testSendMailLoading: false } },
   ]);
-  assert.deepEqual(runtime.notifications, [['error', '发送失败']]);
+  assert.deepEqual(completed, [{ error: 'connection failed', email: 'admin@example.com' }]);
+  assert.deepEqual(runtime.notifications, []);
 });
