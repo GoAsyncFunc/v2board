@@ -7,33 +7,11 @@ import Select from 'antd/lib/select';
 import MainLayout from '../layouts/MainLayout';
 import { post } from '../services/request';
 import type { AdminDispatch } from '../types/store';
-
-type ThemeConfigValue = string | number | boolean | null | undefined;
-type ThemeConfigParams = Record<string, ThemeConfigValue>;
+import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../types/theme';
 
 function toInputValue(value: ThemeConfigValue): string | number | undefined {
   if (value === null || value === undefined) return undefined;
   return typeof value === 'boolean' ? String(value) : value;
-}
-
-interface ThemeField {
-  field_name: string;
-  field_type: 'select' | 'input' | 'textarea' | string;
-  label: string;
-  placeholder?: string;
-  select_options?: Record<string, string>;
-}
-
-interface ThemeDefinition {
-  name: string;
-  description?: string;
-  configs?: ThemeField[];
-}
-
-interface ThemeState {
-  themes: Record<string, ThemeDefinition>;
-  active?: string;
-  saveThemeConfigLoading?: boolean;
 }
 
 interface ThemeConfigEditorProps {

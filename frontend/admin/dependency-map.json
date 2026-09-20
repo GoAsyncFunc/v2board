@@ -161,7 +161,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/notice.js"
+    "to": "models/notice.ts"
   },
   {
     "from": "app/store.tsx",
@@ -233,7 +233,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/theme.js"
+    "to": "models/theme.ts"
   },
   {
     "from": "app/store.tsx",
@@ -484,7 +484,7 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/notice.js",
+    "from": "models/notice.ts",
     "to": "services/request.ts"
   },
   {
@@ -592,11 +592,11 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/theme.js",
+    "from": "models/theme.ts",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "models/theme.js",
+    "from": "models/theme.ts",
     "to": "services/request.ts"
   },
   {

@@ -1,0 +1,53 @@
+import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import type { NoticeRecord } from '../components/NoticeDisplayColumns';
+import type { AdminAction } from '../types/store';
+
+interface NoticeState {
+  notices: NoticeRecord[];
+  fetchLoading: boolean;
+  saveLoading?: boolean;
+}
+
+interface NoticeEffectTools {
+  put(action: AdminAction): unknown;
+}
+
+interface NoticeIdAction { id: string | number; }
+interface SaveNoticeAction { params: FormRecord; callback?: () => void; }
+type NoticeEffect = Generator<unknown, void, ApiResponse<NoticeRecord[]>>;
+
+const initialState: NoticeState = { notices: [], fetchLoading: false };
+
+export default {
+  name: 'notice',
+  state: { ...initialState },
+  reducers: {
+    setState(state: NoticeState, { payload }: { payload: Partial<NoticeState> }) {
+      return { ...state, ...payload };
+    },
+  },
+  effects: {
+    *fetch(_: AdminAction, { put }: NoticeEffectTools): NoticeEffect {
+      yield put({ type: 'setState', payload: { fetchLoading: true } });
+      const response = yield get<NoticeRecord[]>(`/${window.settings.secure_path}/notice/fetch`);
+      yield put({ type: 'setState', payload: { fetchLoading: false } });
+      if (response.code === 200) yield put({ type: 'setState', payload: { notices: response.data } });
+    },
+    *save({ params, callback }: SaveNoticeAction, { put }: NoticeEffectTools): NoticeEffect {
+      yield put({ type: 'setState', payload: { saveLoading: true } });
+      const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/save`, params);
+      yield put({ type: 'setState', payload: { saveLoading: false } });
+      if (response.code !== 200) return;
+      yield put({ type: 'fetch' });
+      callback?.();
+    },
+    *drop({ id }: NoticeIdAction, { put }: NoticeEffectTools): NoticeEffect {
+      const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/drop`, { id });
+      if (response.code === 200) yield put({ type: 'fetch' });
+    },
+    *show({ id }: NoticeIdAction, { put }: NoticeEffectTools): NoticeEffect {
+      const response = yield post<NoticeRecord[]>(`/${window.settings.secure_path}/notice/show`, { id });
+      if (response.code === 200) yield put({ type: 'fetch' });
+    },
+  },
+};
