@@ -17,15 +17,18 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
         post(url, data) { trace.push(['post', url, structuredClone(data)]); return 'request'; },
         isSuccessfulResponse: value => value.code === 200,
       };
-      if (id.includes('antdMessage')) return { a: { loading: text => trace.push(['loading', text]), destroy: () => trace.push(['destroy']) } };
-      if (id === 'antd/lib/message') return { loading: text => trace.push(['loading', text]), destroy: () => trace.push(['destroy']) };
       if (id.includes('77642f52')) return () => ({ format: () => '2026-01-02 03:04:05' });
       if (id === 'moment') return () => ({ format: () => '2026-01-02 03:04:05' });
       if (id.includes('download')) return { downloadCsv: (...args) => trace.push(['download', ...args]) };
         throw Error(id);
     },
   }, { timeout: 2000 });
-  const iterator = module.exports[effect]({ params, callback: callback ? () => trace.push(['callback']) : undefined }, {
+  const action = { params, callback: callback ? () => trace.push(['callback']) : undefined };
+  if (effect === 'dumpCSV') {
+    action.start = () => trace.push(['loading', '导出中']);
+    action.finish = () => trace.push(['destroy']);
+  }
+  const iterator = module.exports[effect](action, {
     put: action => { trace.push(['put', structuredClone(action)]); return 'put'; },
     select: select => { trace.push(['select']); return { selected: select({ user: { filter } }) }; },
   });

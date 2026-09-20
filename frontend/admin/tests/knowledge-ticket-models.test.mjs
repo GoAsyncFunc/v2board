@@ -11,9 +11,7 @@ const clone = value => structuredClone(value);
 async function load(name) {
   const output = await build({ absWorkingDir: root, entryPoints: [`src/models/${name}.ts`], bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent', plugins: [{ name: 'model-dependencies', setup(builder) {
     builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
-    builder.onResolve({ filter: /^antd\/lib\/message$/ }, () => ({ path: 'message', namespace: 'test' }));
     builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
-    builder.onLoad({ filter: /^message$/, namespace: 'test' }, () => ({ loader: 'js', contents: `module.exports={loading:value=>globalThis.notify('loading',value),destroy:()=>globalThis.notify('destroy')};` }));
   } }] });
   const requests = [], notifications = [];
   const context = { module: { exports: {} }, exports: {}, window: { settings: { secure_path: 'admin' } }, request(method, url, data) { requests.push([method, url, clone(data)]); return { request: true }; }, notify(...args) { notifications.push(args); } };
@@ -55,7 +53,12 @@ test('ticket detail loads its user only when no user is selected', async () => {
 
 test('ticket reply brackets loading, refreshes detail, and completes', async () => {
   const runtime = await load('ticket');
-  const result = run(runtime.model, 'reply', { id: 42, msg: 'Resolved' }, { code: 200 });
+  const result = run(runtime.model, 'reply', {
+    id: 42,
+    msg: 'Resolved',
+    start: () => runtime.notifications.push(['loading', '发送中']),
+    finish: () => runtime.notifications.push(['destroy']),
+  }, { code: 200 });
   assert.deepEqual(runtime.requests, [['POST', '/admin/ticket/reply', { id: 42, message: 'Resolved' }]]);
   assert.deepEqual(runtime.notifications, [['loading', '发送中'], ['destroy']]);
   assert.deepEqual(result.puts.at(-1), { type: 'fetchById', id: 42 });

@@ -27,6 +27,7 @@ async function loadSource(path, extra = {}) {
   const confirmations = [];
   const routes = [];
   const preferences = [];
+  const messages = [];
   const Menu = Object.assign('Menu', { Item: 'Menu.Item' });
   const Button = Object.assign('Button', { Group: 'Button.Group' });
   vm.runInNewContext(code, {
@@ -38,6 +39,11 @@ async function loadSource(path, extra = {}) {
       if (id === 'antd/lib/button') return Button;
       if (id === 'antd/lib/menu') return Menu;
       if (id === 'antd/lib/modal') return Object.assign('Modal', { confirm: options => confirmations.push(options) });
+      if (id === 'antd/lib/message') return { __esModule: true, default: {
+        loading: value => messages.push(['loading', value]),
+        destroy: () => messages.push(['destroy']),
+        success: value => messages.push(['success', value]),
+      } };
       if (id === 'antd/lib/input') return Object.assign('Input', { TextArea: 'Input.TextArea' });
       if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Select.Option' });
       if (id.startsWith('antd/')) return id;
@@ -48,7 +54,7 @@ async function loadSource(path, extra = {}) {
       return extra[id] || { __esModule: true, default: id };
     },
   });
-  return { ...module.exports, confirmations, routes, preferences };
+  return { ...module.exports, confirmations, routes, preferences, messages };
 }
 
 test('User page preserves lifecycle, sorting, filters, navigation and confirmations', async () => {
@@ -63,10 +69,15 @@ test('User page preserves lifecycle, sorting, filters, navigation and confirmati
   page.tableOnChange({ current: 2, pageSize: 50 }, { order: 'ascend', columnKey: 'email' });
   page.userFilter('id', '=', 7, true);
   page.orderFilter('user_id', '=', 7);
+  page.dumpCsv();
+  actions.at(-1).start();
+  actions.at(-1).finish();
   page.resetSecret({ id: 7, email: 'user@example.com' });
   runtime.confirmations[0].onOk();
+  actions.at(-1).complete();
   page.deleteUser({ id: 7, email: 'user@example.com' });
   runtime.confirmations[1].onOk();
+  actions.at(-1).complete();
   page.componentWillUnmount();
   assert.equal(page.filterFields().length, 13);
   assert.deepEqual(runtime.preferences, [{ key: 'user_manage_page_size', value: 50 }]);
@@ -76,8 +87,12 @@ test('User page preserves lifecycle, sorting, filters, navigation and confirmati
     { type: 'user/changeTable', pagination: { current: 2, pageSize: 50 }, sort: { sort_type: 'ASC', sort: 'email' } },
     { type: 'user/addFilter', key: 'id', condition: '=', value: 7, clear: true },
     { type: 'order/addFilter', key: 'user_id', condition: '=', value: 7 },
+    { type: 'user/dumpCSV' },
     { type: 'user/resetSecret', id: 7 }, { type: 'user/delUser', id: 7 },
     { type: 'user/empty' }, { type: 'user/setState', payload: { filter: [] } },
+  ]);
+  assert.deepEqual(runtime.messages, [
+    ['loading', '导出中'], ['destroy'], ['success', '重置成功'], ['success', '删除成功'],
   ]);
 });
 

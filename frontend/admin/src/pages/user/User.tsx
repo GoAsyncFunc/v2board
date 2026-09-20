@@ -5,6 +5,7 @@ import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
 import Modal from 'antd/lib/modal';
+import message from 'antd/lib/message';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
@@ -80,12 +81,20 @@ export class UserPage extends React.Component<UserPageProps> {
     Modal.confirm({ title: '提醒', content, onOk: () => this.props.dispatch({ type: `user/${action}` }) });
   }
 
+  dumpCsv(): void {
+    this.props.dispatch({
+      type: 'user/dumpCSV',
+      start: () => message.loading('导出中'),
+      finish: () => message.destroy(),
+    });
+  }
+
   resetSecret(user?: UserRecord): void {
     if (!user) return;
     Modal.confirm({
       title: '重置安全信息',
       content: `确定要重置${user.email}的安全信息吗？`,
-      onOk: () => this.props.dispatch({ type: 'user/resetSecret', id: user.id }),
+      onOk: () => this.props.dispatch({ type: 'user/resetSecret', id: user.id, complete: () => message.success('重置成功') }),
       okText: '确定', cancelText: '取消',
     });
   }
@@ -95,7 +104,7 @@ export class UserPage extends React.Component<UserPageProps> {
     Modal.confirm({
       title: '删除用户',
       content: `确定要删除${user.email}的用户信息吗？`,
-      onOk: () => this.props.dispatch({ type: 'user/delUser', id: user.id }),
+      onOk: () => this.props.dispatch({ type: 'user/delUser', id: user.id, complete: () => message.success('删除成功') }),
       okText: '确定', cancelText: '取消',
     });
   }
@@ -173,7 +182,7 @@ export class UserPage extends React.Component<UserPageProps> {
             <Tooltip title="Tips：可以使用过滤器过滤后再使用操作对过滤的用户进行操作。" placement="right">
               <Button.Group>
                 <FilterDrawer key={filter.length} value={filter} onOk={(nextFilter: FilterItem[]) => this.props.dispatch({ type: 'user/filter', filter: nextFilter })} keys={this.filterFields()}><Button type={filter.length > 0 ? 'primary' : undefined}><Icon type="filter" /> 过滤器</Button></FilterDrawer>
-                <Dropdown overlay={<Menu><Menu.Item><a onClick={() => this.props.dispatch({ type: 'user/dumpCSV' })}><Icon type="file-excel" /> 导出CSV</a></Menu.Item><Menu.Item><SendMailEditor><a><Icon type="mail" /> 发送邮件</a></SendMailEditor></Menu.Item><Menu.Item disabled={!filter.length}><a onClick={() => this.confirmBatch('ban', '确定要进行封禁吗？')}><Icon type="stop" /> 批量封禁</a></Menu.Item><Menu.Item disabled={!filter.length}><a onClick={() => this.confirmBatch('allDel', '确定要进行删除吗？')}><Icon type="delete" /> 批量删除</a></Menu.Item></Menu>}><Button><Icon type="select" />操作</Button></Dropdown>
+                <Dropdown overlay={<Menu><Menu.Item><a onClick={() => this.dumpCsv()}><Icon type="file-excel" /> 导出CSV</a></Menu.Item><Menu.Item><SendMailEditor><a><Icon type="mail" /> 发送邮件</a></SendMailEditor></Menu.Item><Menu.Item disabled={!filter.length}><a onClick={() => this.confirmBatch('ban', '确定要进行封禁吗？')}><Icon type="stop" /> 批量封禁</a></Menu.Item><Menu.Item disabled={!filter.length}><a onClick={() => this.confirmBatch('allDel', '确定要进行删除吗？')}><Icon type="delete" /> 批量删除</a></Menu.Item></Menu>}><Button><Icon type="select" />操作</Button></Dropdown>
               </Button.Group>
             </Tooltip>
             <UserGenerator><Button className="ml-2"><Icon type="user-add" /></Button></UserGenerator>

@@ -1,14 +1,14 @@
-import message from 'antd/lib/message';
 import moment from 'moment';
 import { isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
 import { downloadCsv } from '../services/download';
 import type { UserModuleState } from '../types/user';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 type UserRootState = Pick<AdminRootState, 'user'>;
 interface UserTools extends ModelEffectTools<UserRootState> {}
 interface GenerateAction { params: FormRecord; callback?: () => void; }
+interface DumpCsvAction { start?: () => void; finish?: () => void; }
 type ExportResponse = ApiResponse & { buffer?: BlobPart };
 type UserYield = UserModuleState | ApiResponse;
 type UserEffect = ModelEffect<UserYield>;
@@ -23,11 +23,11 @@ export function* generate({ params, callback }: GenerateAction, { put }: UserToo
   yield put({ type: 'fetch' });
   if (typeof callback === 'function') callback();
 }
-export function* dumpCSV(_: AdminAction, { select }: UserTools): UserEffect {
+export function* dumpCSV({ start, finish }: DumpCsvAction, { select }: UserTools): UserEffect {
   const { filter } = (yield select(state => state.user)) as UserModuleState;
-  message.loading('导出中');
+  start?.();
   const response = (yield post(endpoint('dumpCSV'), { filter })) as ExportResponse;
-  message.destroy();
+  finish?.();
   if (!isSuccessfulResponse(response)) return;
   downloadCsv(response.buffer as BlobPart, moment().format('YYYY-MM-DD HH:mm:ss') + '.csv');
 }

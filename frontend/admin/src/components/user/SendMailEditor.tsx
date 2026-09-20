@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
+import message from 'antd/lib/message';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { UserModuleState } from '../../types/user';
 
@@ -31,7 +32,12 @@ export class SendMailEditor extends React.Component<SendMailEditorProps, SendMai
   hide = () => this.setState({ visible: false });
 
   send = () => {
-    this.props.dispatch({ type: 'user/sendMail', params: this.state.submit, callback: this.hide });
+    this.props.dispatch({
+      type: 'user/sendMail',
+      params: this.state.submit,
+      complete: () => message.success('已加入队列执行'),
+      callback: this.hide,
+    });
   };
 
   update = <Field extends keyof MailForm>(field: Field, value: MailForm[Field]): void => {

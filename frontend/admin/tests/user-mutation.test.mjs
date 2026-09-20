@@ -18,13 +18,18 @@ async function run(original,scenario){
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,api,message,window:{settings:{secure_path:'fixture-admin'}},require:id=>{if(id.includes('request'))return api;if(id.includes('antdMessage'))return {a:message};if(id==='antd/lib/message')return message;
         throw Error(id);}},{timeout:2000});
+ if(!original){
+  if(scenario.effect==='sendMail')action.complete=()=>trace.push(['success','已加入队列执行']);
+  if(scenario.effect==='resetSecret')action.complete=()=>trace.push(['success','重置成功']);
+  if(scenario.effect==='delUser')action.complete=()=>trace.push(['success','删除成功']);
+ }
  const iterator=module.exports[scenario.effect](action,{put:value=>{trace.push(['put',structuredClone(value)]);return 'put';},select:fn=>{trace.push(['select']);return {selected:fn({user:state})};}});
  let step=iterator.next(),count=0;
  while(!step.done){if(++count>20)throw Error('Unterminated effect');
   if(step.value==='request'&&scenario.reject){try{step=iterator.throw(Error('Network failure'));}catch(e){trace.push(['error',e.message]);break;}}
   else step=iterator.next(step.value==='request'?{code:scenario.code}:step.value?.selected);
  }
- delete action.callback;trace.push(['action',action],['state',state]);return structuredClone(trace);
+ delete action.callback;delete action.complete;trace.push(['action',action],['state',state]);return structuredClone(trace);
 }
 const scenarios=[];
 const params={transfer_enable:1.25,u:0.000001,d:0.125,balance:1.235,commission_balance:2.345,invite_user:{email:'fixture'}};

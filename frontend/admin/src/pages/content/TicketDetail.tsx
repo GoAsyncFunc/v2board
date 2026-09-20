@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
+import message from 'antd/lib/message';
 import { ticketDetailClassNames as styles } from '../../styles/ticketDetail';
 import UserEditor from '../../components/user/UserEditor';
 import TrafficPanel from '../../components/user/TrafficPanel';
@@ -124,6 +125,8 @@ export class TicketDetailPage extends React.Component<TicketDetailPageProps, Tic
       type: 'ticket/reply',
       id: this.props.match.params.ticket_id,
       msg: this.state.message,
+      start: () => message.loading('发送中'),
+      finish: () => message.destroy(),
       callback: clearMessage,
     });
   }

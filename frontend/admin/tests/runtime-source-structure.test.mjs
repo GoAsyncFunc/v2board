@@ -142,6 +142,7 @@ test('admin business contracts do not depend on rendering components', async () 
   for (const modelName of modelNames) {
     const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
     assert.doesNotMatch(source, /from ['"]\.\.\/components\//, `${modelName} depends on a component`);
+    assert.doesNotMatch(source, /from ['"]antd\/lib\/(?:message|notification|modal)['"]/, `${modelName} imports a rendering notification`);
   }
 
   const contractSources = {

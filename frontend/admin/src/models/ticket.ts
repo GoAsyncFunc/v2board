@@ -1,4 +1,3 @@
-import notification from 'antd/lib/message';
 import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
 import type { TicketFilterState, TicketId, TicketPagination, TicketRecord, TicketState } from '../types/ticket';
 import type { AdminAction, AdminRootState } from '../types/store';
@@ -7,7 +6,12 @@ import type { ModelEffect, ModelEffectTools } from '../types/effects';
 type TicketRootState = Pick<AdminRootState, 'ticket' | 'user'>;
 interface TicketTools extends ModelEffectTools<TicketRootState> {}
 interface TicketIdAction { id?: TicketId; }
-interface TicketReplyAction extends TicketIdAction { msg?: string; callback?: () => void; }
+interface TicketReplyAction extends TicketIdAction {
+  msg?: string;
+  start?: () => void;
+  finish?: () => void;
+  callback?: () => void;
+}
 interface TicketFilterAction { pagination?: Partial<TicketPagination>; filter?: Partial<TicketFilterState>; }
 type TicketYield = TicketState | TicketRootState['user'] | ApiResponse;
 type TicketEffect = ModelEffect<TicketYield>;
@@ -43,12 +47,12 @@ export default {
       const response = (yield post(`/${window.settings.secure_path}/ticket/close`, { id })) as ApiResponse;
       if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
     },
-    *reply({ id, msg, callback }: TicketReplyAction, { put }: TicketTools): TicketEffect {
-      notification.loading('发送中');
+    *reply({ id, msg, start, finish, callback }: TicketReplyAction, { put }: TicketTools): TicketEffect {
+      start?.();
       yield put({ type: 'setState', payload: { replyLoading: true } });
       const response = (yield post(`/${window.settings.secure_path}/ticket/reply`, { id, message: msg })) as ApiResponse;
       yield put({ type: 'setState', payload: { replyLoading: false } });
-      notification.destroy();
+      finish?.();
       if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'fetchById', id });
       if (typeof callback === 'function') callback();

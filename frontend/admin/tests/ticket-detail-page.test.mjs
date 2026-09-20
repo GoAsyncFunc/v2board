@@ -23,6 +23,7 @@ async function loadPage() {
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const timers = [];
   const clearedTimers = [];
+  const messages = [];
   const module = { exports: {} };
   vm.runInNewContext(code, {
     module,
@@ -39,6 +40,10 @@ async function loadPage() {
       if (id === 'antd/lib/divider') return 'Divider';
       if (id === 'antd/lib/icon') return 'Icon';
       if (id === 'antd/lib/tooltip') return 'Tooltip';
+      if (id === 'antd/lib/message') return { __esModule: true, default: {
+        loading: value => messages.push(['loading', value]),
+        destroy: () => messages.push(['destroy']),
+      } };
       if (id.includes('styles/ticketDetail')) return { ticketDetailClassNames: { tag: 'tag', controls: 'ctrl', content: 'content', input: 'input' } };
       if (id.includes('UserEditor')) return 'UserEditor';
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
@@ -47,7 +52,7 @@ async function loadPage() {
       throw new Error(id);
     },
   });
-  return { ...module.exports, timers, clearedTimers };
+  return { ...module.exports, timers, clearedTimers, messages };
 }
 
 function nodes(tree, predicate) {
@@ -85,6 +90,9 @@ test('Ticket detail fetches, refreshes, replies and clears its timer', async () 
   assert.equal(actions[3].id, '42');
   assert.equal(actions[3].msg, 'Reply text');
   assert.equal(actions[3].callback, clearMessage);
+  actions[3].start();
+  actions[3].finish();
+  assert.deepEqual(runtime.messages, [['loading', '发送中'], ['destroy']]);
 
   page.componentWillUnmount();
   assert.deepEqual(runtime.clearedTimers, [2]);

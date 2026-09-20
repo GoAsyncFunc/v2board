@@ -31,6 +31,7 @@ async function load(componentName) {
   const source = await fs.readFile(new URL(`../src/components/${componentDomains[componentName]}/${componentName}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
+  const messages = [];
   vm.runInNewContext(code, {
     module,
     exports: module.exports,
@@ -40,6 +41,7 @@ async function load(componentName) {
       if (id === 'antd/lib/date-picker') return 'DatePicker';
       if (id === 'antd/lib/icon') return 'Icon';
       if (id === 'antd/lib/input') return Input;
+      if (id === 'antd/lib/message') return { __esModule: true, default: { success: value => messages.push(value) } };
       if (id === 'antd/lib/modal') return 'Modal';
       if (id === 'antd/lib/select') return Select;
       if (id === 'moment') return { default: { unix: value => ({ value }) } };
@@ -48,7 +50,7 @@ async function load(componentName) {
       throw new Error(id);
     },
   });
-  return module.exports;
+  return { ...module.exports, messages };
 }
 
 const normalize = value => JSON.parse(JSON.stringify(value));
@@ -68,8 +70,10 @@ test('SendMailEditor updates fields and dispatches the current message', async (
   editor.send();
   assert.equal(editor.state.visible, true);
   assert.deepEqual(normalize(actions[0].params), { subject: 'Service notice', content: 'Maintenance completed' });
+  actions[0].complete();
   actions[0].callback();
   assert.equal(editor.state.visible, false);
+  assert.deepEqual(component.messages, ['已加入队列执行']);
 });
 
 test('PermissionGroupEditor retains record data and disables save while loading', async () => {
