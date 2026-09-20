@@ -1,5 +1,9 @@
 export type ConfigValue = string | number | string[] | null | undefined;
 
+interface ConfigFields {
+  [field: string]: ConfigValue;
+}
+
 export type ConfigChangeHandler<Config> = (
   field: Extract<keyof Config, string>,
   value: ConfigValue,
@@ -10,7 +14,7 @@ export interface PlanSummary {
   name: string;
 }
 
-export interface SiteConfig {
+export interface SiteConfig extends ConfigFields {
   app_name?: string;
   app_description?: string;
   app_url?: string;
@@ -26,7 +30,7 @@ export interface SiteConfig {
   currency_symbol?: string;
 }
 
-export interface SafeConfig {
+export interface SafeConfig extends ConfigFields {
   email_verify?: string | number;
   email_gmail_limit_enable?: string | number;
   safe_mode_enable?: string | number;
@@ -44,7 +48,7 @@ export interface SafeConfig {
   password_limit_expire?: string | number;
 }
 
-export interface SubscribeConfig {
+export interface SubscribeConfig extends ConfigFields {
   plan_change_enable?: string | number;
   reset_traffic_method?: string | number;
   surplus_enable?: string | number;
@@ -57,15 +61,15 @@ export interface SubscribeConfig {
   show_subscribe_expire?: string | number;
 }
 
-export interface DepositConfig {
+export interface DepositConfig extends ConfigFields {
   deposit_bounus?: string[];
 }
 
-export interface TicketConfig {
+export interface TicketConfig extends ConfigFields {
   ticket_status?: string | number;
 }
 
-export interface InviteConfig {
+export interface InviteConfig extends ConfigFields {
   invite_force?: string | number;
   invite_commission?: string | number;
   invite_gen_limit?: string | number;
@@ -81,14 +85,14 @@ export interface InviteConfig {
   commission_distribution_l3?: string | number;
 }
 
-export interface FrontendConfig {
+export interface FrontendConfig extends ConfigFields {
   frontend_theme_sidebar?: string;
   frontend_theme_header?: string;
   frontend_theme_color?: string;
   frontend_background_url?: string;
 }
 
-export interface ServerConfig {
+export interface ServerConfig extends ConfigFields {
   server_api_url?: string;
   server_token?: string;
   server_pull_interval?: string | number;
@@ -98,7 +102,7 @@ export interface ServerConfig {
   device_limit_mode?: string | number;
 }
 
-export interface EmailConfig {
+export interface EmailConfig extends ConfigFields {
   email_host?: string;
   email_port?: string | number;
   email_encryption?: string;
@@ -108,13 +112,13 @@ export interface EmailConfig {
   email_template?: string;
 }
 
-export interface TelegramConfig {
+export interface TelegramConfig extends ConfigFields {
   telegram_bot_token?: string;
   telegram_bot_enable?: string | number;
   telegram_discuss_link?: string;
 }
 
-export interface AppConfig {
+export interface AppConfig extends ConfigFields {
   windows_version?: string;
   windows_download_url?: string;
   macos_version?: string;
@@ -148,3 +152,16 @@ export type ConfigGroupKey = Exclude<
   'tabs' | 'fetchLoading' | 'emailTemplate' | 'themeTemplate' |
   'setTelegramWebhookLoading' | 'testSendMailLoading'
 >;
+
+export interface MailServerSnapshot {
+  host?: string;
+  port?: string | number;
+  encryption?: string;
+  username?: string;
+}
+
+export interface MailTestLog {
+  error?: string;
+  email?: string;
+  config?: MailServerSnapshot;
+}

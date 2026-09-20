@@ -141,7 +141,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/config.js"
+    "to": "models/config.ts"
   },
   {
     "from": "app/store.tsx",
@@ -464,7 +464,11 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/config.js",
+    "from": "models/config.ts",
+    "to": "components/config/MailTestResult.tsx"
+  },
+  {
+    "from": "models/config.ts",
     "to": "services/request.ts"
   },
   {
