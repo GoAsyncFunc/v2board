@@ -60,3 +60,12 @@ test('user route definitions live in the dedicated routes directory', async () =
   assert.match(routeSource, /path: '\/order\/:trade_no'/);
   await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
 });
+
+test('user application runtime is implemented as typed TSX components', async () => {
+  const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
+  const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
+  assert.match(runtimeSource, /function createApplicationProvider/);
+  assert.match(runtimeSource, /<ApplicationProvider \/>/);
+  assert.doesNotMatch(runtimeSource, /React\.createElement/);
+  assert.equal(tsconfig.compilerOptions.allowJs, false);
+});

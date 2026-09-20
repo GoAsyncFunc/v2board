@@ -10,7 +10,7 @@ import type { UserRootState, UserStore, UserValue } from '../types/store';
 
 export type DvaRouterProps = Record<string, UserValue>;
 export type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
-export type DvaProvider = (props?: DvaRouterProps) => React.ReactElement;
+export type DvaProvider = React.ComponentType<DvaRouterProps>;
 type DvaStartResult = DvaProvider | void;
 
 export interface DvaCoreApplication {
@@ -43,16 +43,18 @@ function isDomElement(value: unknown): value is Element {
   return typeof value === 'object' && value !== null && 'nodeType' in value && 'nodeName' in value;
 }
 
-function createProvider(store: UserStore, app: DvaCoreApplication, router: DvaRouter) {
-  return (props: DvaRouterProps = {}): React.ReactElement => (
+function createApplicationProvider(store: UserStore, app: DvaCoreApplication, router: DvaRouter): DvaProvider {
+  const ApplicationProvider = (props: DvaRouterProps = {}): React.ReactElement => (
     <Provider store={store as React.ComponentProps<typeof Provider>['store']}>
       {router({ app, history: app._history, ...props })}
     </Provider>
   );
+  return ApplicationProvider;
 }
 
 function renderApplication(container: Element, store: UserStore, app: DvaCoreApplication, router: DvaRouter): void {
-  ReactDOM.render(React.createElement(createProvider(store, app, router)), container);
+  const ApplicationProvider = createApplicationProvider(store, app, router);
+  ReactDOM.render(<ApplicationProvider />, container);
 }
 
 function patchHistory(history: History): History {
@@ -104,8 +106,8 @@ export function createDva(options: DvaOptions = {}): DvaApplication {
     assert(app._router, '[app.start] router must be registered before app.start()');
     if (!app._store) startCore.call(app);
     const store = app._store as UserStore;
-    app._getProvider = createProvider.bind(null, store, app);
-    if (!target) return createProvider(store, app, app._router);
+    app._getProvider = createApplicationProvider.bind(null, store, app);
+    if (!target) return createApplicationProvider(store, app, app._router);
     renderApplication(target, store, app, app._router);
     app._plugin.apply('onHmr')(renderApplication.bind(null, target, store, app));
     return undefined;
