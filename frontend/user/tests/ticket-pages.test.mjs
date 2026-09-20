@@ -7,7 +7,7 @@ import { transform } from 'esbuild';
 async function load(name) {
   const source = await fs.readFile(new URL(`../src/pages/support/${name}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { loader: 'tsx', format: 'cjs' });
-  const actions = [], opened = [], timers = new Map();
+  const actions = [], opened = [], messages = [], timers = new Map();
   let timerId = 0;
   const window = { location: { origin: 'https://example.test', pathname: '/', href: '' }, navigator: { userAgent: 'desktop' }, open: (...args) => opened.push(args) };
   const React = {
@@ -23,6 +23,11 @@ async function load(name) {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
+      if (id === 'antd/lib/message') return { __esModule: true, default: {
+        loading: value => messages.push(['loading', value]),
+        destroy: () => messages.push(['destroy']),
+        success: value => messages.push(['success', value]),
+      } };
       if (id.includes('/Modal') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal', Modal: 'Modal' };
       if (id.includes('/ui.js')) return { Table: 'Table', Input: Object.assign(function Input() {}, { TextArea: 'TextArea' }), Select: Object.assign(function Select() {}, { Option: 'Option' }) };
       if (id === 'antd/lib/input') return { __esModule: true, default: Object.assign(function Input() {}, { TextArea: 'TextArea' }) };
@@ -39,7 +44,7 @@ async function load(name) {
       throw Error(id);
     },
   });
-  return { ...module.exports, actions, opened, timers, window, dispatch: action => actions.push(action) };
+  return { ...module.exports, actions, opened, messages, timers, window, dispatch: action => actions.push(action) };
 }
 
 function nodes(tree, predicate) {
@@ -121,8 +126,12 @@ test('Ticket replies wait for Enter and completion before clearing the input', a
   body.props.onKeyDown({ keyCode: 13 }, () => { cleared = true; });
   assert.equal(runtime.actions.at(-1).type, 'ticket/reply');
   assert.equal(cleared, false);
+  runtime.actions.at(-1).start();
+  runtime.actions.at(-1).finish();
+  runtime.actions.at(-1).succeed();
   runtime.actions.at(-1).complete();
   assert.equal(cleared, true);
+  assert.deepEqual(runtime.messages, [['loading', '发送中'], ['destroy'], ['success', '发送成功']]);
   page.props.ticket.replyLoading = true;
   page.render().props.onKeyDown({ keyCode: 13 }, () => {});
   assert.equal(runtime.actions.length, 2);

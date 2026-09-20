@@ -624,6 +624,10 @@
     "to": "types/api.ts"
   },
   {
+    "from": "pages/account/Profile.tsx",
+    "to": "utils/giftcard.ts"
+  },
+  {
     "from": "pages/account/Traffic.tsx",
     "to": "components/account/TrafficColumns.tsx"
   },

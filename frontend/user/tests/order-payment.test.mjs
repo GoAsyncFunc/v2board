@@ -32,6 +32,8 @@ async function run(original, scenario) {
   if (original) { const result = { exports: {} }; module.exports(result, result.exports, require); effects = result.exports.default.effects; }
   const action = { tradeNo: 'FIXTURE', method: scenario.method, token: scenario.token, params: { plan_id: 7, period: 'month_price' } };
   if (scenario.callback) action.complete = () => trace.push(['complete']);
+  if (!original && scenario.effect === 'checkout') action.complete = () => trace.push(['info', '正在前往收银台']);
+  if (!original && scenario.effect === 'checkoutByStripe') action.complete = () => trace.push(['loading', '请稍等，我们正在验证该笔支付', 5]);
   const iterator = effects[scenario.effect](action, { put: value => { trace.push(['put', structuredClone(value)]); return 'put'; } });
   try {
     let step = iterator.next(), count = 0;

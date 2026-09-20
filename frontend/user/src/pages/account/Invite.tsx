@@ -42,7 +42,7 @@ export class InvitePage extends React.Component<InviteStateProps & { dispatch: U
   }
 
   save() {
-    this.props.dispatch({ type: 'invite/save' });
+    this.props.dispatch({ type: 'invite/save', complete: () => message.success(translate('已生成')) });
   }
 
   copyInviteLink(code: string) {

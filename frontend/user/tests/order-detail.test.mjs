@@ -29,6 +29,7 @@ async function setup(original){
   if(id.includes('/Modal')){const Modal={confirm:options=>options};return {a:Modal,Modal};}
   if(id.includes('localeSettings')){const localeSettings={periodText:{},orderStatusText:{}};return {a:localeSettings,localeSettings};}
   if(id.includes('antdMessage'))return {a:{error:msg=>trace.push(['error',msg])}};
+  if(id==='antd/lib/message')return {__esModule:true,default:{error:msg=>trace.push(['error',msg]),info:msg=>trace.push(['info',msg]),loading:(msg,duration)=>trace.push(['loading',msg,duration])}};
   if(id.includes('4172412b'))return {router:{push:url=>trace.push(['navigate',url])}};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};
   return {};
@@ -37,7 +38,7 @@ async function setup(original){
  props.dispatch=action=>trace.push(['dispatch',action]);
  return {page:new module.exports.default(props),trace,timers};
 }
-const clean=x=>JSON.parse(JSON.stringify(x,(k,v)=>typeof v==='function'?'[callback]':v));
+const clean=x=>JSON.parse(JSON.stringify(x,(k,v)=>k==='complete'?undefined:typeof v==='function'?'[callback]':v));
 for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing','stripe-token','poll-pending','poll-complete','unmount','status','late-poll','late-detail','missing-free','missing-paid','checkout-missing','close-before-complete','complete-before-close','empty-response','late-complete','repeat-pending','double-check'])test(`OrderDetail original/new ${scenario}`,async()=>{
  const results=[];for(const original of [true,false]){
   const {page,trace,timers}=await setup(original);

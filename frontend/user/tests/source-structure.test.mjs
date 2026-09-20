@@ -154,3 +154,12 @@ test('user Redux selectors share the canonical root state contract', async () =>
   assert.match(routerTypes, /export interface RouterState/);
   assert.match(routerBindings, /state: UserRootState/);
 });
+
+test('user model layer does not import rendering notifications', async () => {
+  const modelsDirectory = new URL('../src/models/', import.meta.url);
+  const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
+  for (const modelName of modelNames) {
+    const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+    assert.doesNotMatch(source, /from ['"]antd\/lib\/(?:message|notification|modal)['"]/, `${modelName} imports a rendering notification`);
+  }
+});

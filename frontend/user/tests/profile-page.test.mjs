@@ -35,6 +35,7 @@ async function load(responseCode = 200) {
     if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
     if (id.includes('MoneyDisplay')) return { formatMoney: amount => (amount / 100).toFixed(2) };
+    if (id.includes('utils/giftcard')) return { describeGiftcardRedemption: ({ type, value }) => type === 1 ? `账户余额 ${(value / 100).toFixed(2)}` : '未知类型' };
     throw Error(id);
   } });
   const page = new module.exports.ProfilePage({
@@ -64,6 +65,8 @@ test('Profile startup and password validation preserve request fields', async ()
   page.repeatPasswordRef.current.value = 'new';
   page.changePassword();
   assert.deepEqual(JSON.parse(JSON.stringify(actions.at(-1))), { type: 'user/changePassword', oldPassword: 'old', newPassword: 'new' });
+  actions.at(-1).complete();
+  assert.deepEqual(notices.at(-1), ['success', '修改成功，请重新登陆']);
 });
 
 test('Giftcard rejects empty input and submits the original entered code', async () => {
@@ -76,6 +79,8 @@ test('Giftcard rejects empty input and submits the original entered code', async
   page.redeemGiftcard();
   assert.equal(actions[0].type, 'user/redeemgiftcard');
   assert.equal(actions[0].giftcard, 'CARD-123');
+  actions[0].complete({ type: 1, value: 1234 });
+  assert.deepEqual(notices.at(-1), ['success', '兑换成功: 账户余额 12.34']);
 });
 
 for (const [method, endpoint] of [['resetSecurity', '/user/resetSecurity'], ['unbindTelegram', '/user/unbindTelegram']]) {

@@ -13,18 +13,12 @@ async function loadModel(trace) {
     trace.push(['request', method, url, copy(data)]);
     return { request: true };
   };
-  const message = {
-    loading: value => trace.push(['message', 'loading', value]),
-    destroy: () => trace.push(['message', 'destroy']),
-    success: value => trace.push(['message', 'success', value]),
-  };
   const module = { exports: {} };
   vm.runInNewContext(code, {
     module,
     exports: module.exports,
     require(id) {
       if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
-      if (id === 'antd/lib/message') return { __esModule: true, default: message };
       if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('request')) return { get: request('GET'), post: request('POST') };
       throw new Error(`Unexpected dependency ${id}`);
@@ -45,6 +39,9 @@ async function run(effect, response, options = {}) {
     id: options.id ?? 7,
     withdrawAccount: 'demo-account',
     withdrawMethod: 'Bank',
+    start: () => trace.push(['message', 'loading', '发送中']),
+    finish: () => trace.push(['message', 'destroy']),
+    succeed: () => trace.push(['message', 'success', '发送成功']),
     complete: () => trace.push(['complete']),
     callback: () => trace.push(['callback']),
   };

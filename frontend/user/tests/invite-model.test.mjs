@@ -11,7 +11,6 @@ async function run(effect, action, response, reject = false) {
   const events = [], module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
     if (id.includes('types/api')) return { isSuccessfulResponse: value => value.code === 200 };
-    if (id === 'antd/lib/message') return { success: text => events.push(['message', text]) };
     if (id.includes('services/request')) {
       const request = method => async (url, params) => {
         events.push([method, url, structuredClone(params)]);
@@ -23,7 +22,8 @@ async function run(effect, action, response, reject = false) {
     throw Error(id);
   } });
   const model = module.exports.default;
-  const iterator = model.effects[effect](action, { put: update => ({ update }) });
+  const effectAction = effect === 'save' ? { ...action, complete: () => events.push(['complete']) } : action;
+  const iterator = model.effects[effect](effectAction, { put: update => ({ update }) });
   let state = model.state, error;
   try {
     let step = iterator.next();
@@ -77,7 +77,7 @@ for (const status of [200, 422, 500]) {
       ['POST', '/user/invite/save', undefined],
       ['put', { type: 'setState', payload: { saveLoading: false } }],
     ]);
-    assert.deepEqual(result.events.slice(3), status === 200 ? [['message', '已生成'], ['put', { type: 'fetch' }]] : []);
+    assert.deepEqual(result.events.slice(3), status === 200 ? [['complete'], ['put', { type: 'fetch' }]] : []);
   });
 }
 

@@ -1,4 +1,3 @@
-import message from 'antd/lib/message';
 import history from '../app/routerHistory';
 import { get, post } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
@@ -65,15 +64,15 @@ export default {
       yield put({ type: 'setState', payload: { saveData: {}, newTicketModalVisible: false } });
       yield put({ type: 'fetch' });
     },
-    *reply({ id, complete }: TicketReplyAction, { put, select }: TicketEffects): TicketGenerator<boolean> {
+    *reply({ id, start, finish, succeed, complete }: TicketReplyAction, { put, select }: TicketEffects): TicketGenerator<boolean> {
       const ticketState = (yield select(state => state.ticket)) as TicketState;
       yield put({ type: 'setState', payload: { replyLoading: true } });
-      message.loading('发送中');
+      start?.();
       const response = (yield post<boolean>('/user/ticket/reply', { id, ...ticketState.replyData })) as ApiResponse<boolean>;
-      message.destroy();
+      finish?.();
       yield put({ type: 'setState', payload: { replyLoading: false } });
       if (!isSuccessfulResponse(response)) return;
-      message.success('发送成功');
+      succeed?.();
       yield put({ type: 'setState', payload: { replyData: {} } });
       complete();
     },

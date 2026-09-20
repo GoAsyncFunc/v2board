@@ -33,6 +33,9 @@ export type TicketId = number | string;
 
 export interface TicketReplyAction {
   id: TicketId;
+  start?: () => void;
+  finish?: () => void;
+  succeed?: () => void;
   complete: () => void;
 }
 

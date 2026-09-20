@@ -77,6 +77,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                 tradeNo: this.props.match.params.trade_no,
                 method: methodId,
                 token: stripe.token.id,
+                complete: () => message.loading(formatMessage({ id: '请稍等，我们正在验证该笔支付' }), 5),
             });
             return;
         }
@@ -84,6 +85,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
             type: "order/checkout",
             tradeNo: this.props.match.params.trade_no,
             method: methodId,
+            complete: () => message.info(formatMessage({ id: '正在前往收银台' })),
         });
     }
     check() {

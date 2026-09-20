@@ -1,4 +1,3 @@
-import message from 'antd/lib/message';
 import { get, post } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
@@ -42,12 +41,12 @@ export default {
       yield put({ type: 'setState', payload: { fetchLoading: false } });
       if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: { ...response.data } });
     },
-    *save(_action: { type?: string }, { put }: InviteEffects): InviteGenerator<boolean> {
+    *save({ complete }: { complete?: () => void }, { put }: InviteEffects): InviteGenerator<boolean> {
       yield put({ type: 'setState', payload: { saveLoading: true } });
       const response = yield post<boolean>('/user/invite/save');
       yield put({ type: 'setState', payload: { saveLoading: false } });
       if (!isSuccessfulResponse(response)) return;
-      message.success('已生成');
+      complete?.();
       yield put({ type: 'fetch' });
     },
   },

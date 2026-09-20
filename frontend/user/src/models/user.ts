@@ -1,4 +1,3 @@
-import message from 'antd/lib/message';
 import { get, post } from '../services/request';
 import history from '../app/routerHistory';
 import moment from 'moment';
@@ -18,17 +17,6 @@ type UserGenerator<Data> = Generator<
   void,
   ApiResponse<Data>
 >;
-
-export function describeGiftcard(type: number | undefined, value: number | undefined): string {
-  switch (type) {
-    case 1: return '账户余额 ' + (Number(value) / 100).toFixed(2);
-    case 2: return '订阅时长 ' + value + ' 天';
-    case 3: return '套餐流量 ' + value + ' GB';
-    case 4: return '流量已重置';
-    case 5: return '订阅套餐 ' + value + ' 天';
-    default: return '未知类型';
-  }
-}
 
 const initialState: UserState = {
   subscribe: {},
@@ -77,39 +65,42 @@ export default {
       yield put({ type: 'getUserInfo' });
     },
     *changePassword(
-      { oldPassword, newPassword }: { oldPassword: string; newPassword: string },
+      { oldPassword, newPassword, complete }: { oldPassword: string; newPassword: string; complete?: () => void },
       { put }: UserEffects,
     ): UserGenerator<boolean> {
       yield put({ type: 'setState', payload: { changePasswordLoading: true } });
       const response = yield post<boolean>('/user/changePassword', { old_password: oldPassword, new_password: newPassword });
       yield put({ type: 'setState', payload: { changePasswordLoading: false } });
       if (!isSuccessfulResponse(response)) return;
-      message.success('修改成功，请重新登陆');
+      complete?.();
       history.push('/login');
     },
-    *newPeriod(_action: { type?: string }, { put }: UserEffects): UserGenerator<boolean> {
+    *newPeriod({ complete }: { complete?: () => void }, { put }: UserEffects): UserGenerator<boolean> {
       yield put({ type: 'setState', payload: { newPeriodLoading: true } });
       const response = yield post<boolean>('/user/newPeriod');
       yield put({ type: 'setState', payload: { newPeriodLoading: false } });
       if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'user/getSubscribe' });
-      message.success('提前开启流量周期成功');
+      complete?.();
       history.push('/dashboard');
     },
-    *redeemgiftcard({ giftcard }: { giftcard: string }, { put }: UserEffects): UserGenerator<boolean> {
+    *redeemgiftcard(
+      { giftcard, complete }: { giftcard: string; complete?: (redemption: GiftcardRedemptionResponse) => void },
+      { put }: UserEffects,
+    ): UserGenerator<boolean> {
       yield put({ type: 'setState', payload: { redeemgiftcardLoading: true } });
       const response = (yield post<boolean>('/user/redeemgiftcard', { giftcard })) as ApiResponse<boolean> & GiftcardRedemptionResponse;
       yield put({ type: 'setState', payload: { redeemgiftcardLoading: false } });
       if (!isSuccessfulResponse(response)) return;
       yield put({ type: 'user/getUserInfo' });
-      message.success('兑换成功: ' + describeGiftcard(response.type, response.value));
+      complete?.({ type: response.type, value: response.value });
     },
-    *resetSecurity(_action: { type?: string }, { put }: UserEffects): UserGenerator<string> {
+    *resetSecurity({ complete }: { complete?: () => void }, { put }: UserEffects): UserGenerator<string> {
       yield put({ type: 'setState', payload: { resetSecurityLoading: true } });
       const response = yield get<string>('/user/resetSecurity');
       yield put({ type: 'setState', payload: { resetSecurityLoading: false } });
       if (!isSuccessfulResponse(response)) return;
-      message.success('重置成功');
+      complete?.();
     },
     *transfer(
       { transferAmount, callback }: { transferAmount: number; callback?: () => void },

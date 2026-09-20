@@ -91,7 +91,11 @@ for (const loading of [true, false]) for (const distributionEnabled of [true, fa
     const beforeSave = trace.length;
     generateButton.props.onClick();
     assert.equal(trace.length, beforeSave + (loading ? 0 : 1));
-    if (!loading) assert.equal(trace.at(-1)[1].type, 'invite/save');
+    if (!loading) {
+      assert.equal(trace.at(-1)[1].type, 'invite/save');
+      trace.at(-1)[1].complete();
+      assert.deepEqual(trace.at(-1), ['success', '已生成']);
+    }
     const tables = findNodes(tree, node => node.type === 'Table');
     assert.equal(tables.length, 2);
     assert.equal(tables[0].props.dataSource, codes);

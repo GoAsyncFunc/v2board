@@ -4,6 +4,7 @@ import Button from 'antd/lib/button';
 import Carousel from 'antd/lib/carousel';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
+import message from 'antd/lib/message';
 import SubscribeImporter from '../../components/subscription/SubscribeImporter';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
@@ -81,7 +82,10 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
       maskClosable: true,
       title: formatMessage({ id: '确定开启下一个流量周期？' }),
       content: formatMessage({ id: '点击「确定」将会扣除当前流量周期剩余订阅时长（按月重置时扣除本周期剩余订阅时长，每月1号重置时扣除整月时间30天，年周期同理），系统将会重置您的已使用流量。' }),
-      onOk: () => this.props.dispatch({ type: 'user/newPeriod' }),
+      onOk: () => this.props.dispatch({
+        type: 'user/newPeriod',
+        complete: () => message.success(formatMessage({ id: '提前开启流量周期成功' })),
+      }),
       okText: formatMessage({ id: '确定' }),
       cancelText: formatMessage({ id: '取消' }),
     });

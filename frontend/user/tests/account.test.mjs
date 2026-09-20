@@ -32,6 +32,12 @@ async function run(original,scenario){
  const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,require,window},{timeout:3000});
  const model=module.exports.default;
  const action={...scenario.action};if(scenario.callback)action.callback=()=>trace.push(['callback']);
+ if(!original){
+  if(scenario.effect==='changePassword')action.complete=()=>trace.push(['success','修改成功，请重新登陆']);
+  if(scenario.effect==='newPeriod')action.complete=()=>trace.push(['success','提前开启流量周期成功']);
+  if(scenario.effect==='redeemgiftcard')action.complete=({type,value})=>trace.push(['success','兑换成功: '+({1:'账户余额 '+(Number(value)/100).toFixed(2),2:'订阅时长 '+value+' 天',3:'套餐流量 '+value+' GB',4:'流量已重置',5:'订阅套餐 '+value+' 天'}[type]||'未知类型')]);
+  if(scenario.effect==='resetSecurity')action.complete=()=>trace.push(['success','重置成功']);
+ }
  const iterator=model.effects[scenario.effect](action,{put:value=>{trace.push(['put',value]);return 'put';}});
  let step=iterator.next(),count=0;
  while(!step.done){if(++count>20)throw Error('Unterminated effect');

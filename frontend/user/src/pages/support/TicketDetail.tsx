@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import message from 'antd/lib/message';
 import { formatMessage } from '../../locales/i18n';
 import { ticketDetailStyles as styles } from '../../styles/ticketDetail';
 import { formatDateTime } from '../../components/common/DateTimeDisplay';
@@ -111,6 +112,9 @@ export class TicketDetailPage extends React.Component<TicketDetailProps> {
     this.props.dispatch({
       type: 'ticket/reply',
       id: this.props.match.params.ticket_id,
+      start: () => message.loading(formatMessage({ id: '发送中' })),
+      finish: () => message.destroy(),
+      succeed: () => message.success(formatMessage({ id: '发送成功' })),
       complete: clearMessage,
     });
   }

@@ -1,4 +1,3 @@
-import message from 'antd/lib/message';
 import { post } from '../services/request';
 import history from '../app/routerHistory';
 import { isSuccessfulResponse } from '../types/api';
@@ -27,7 +26,7 @@ export function* save(
 }
 
 export function* checkout(
-  { tradeNo, method }: { tradeNo: string; method?: number | string | null },
+  { tradeNo, method, complete }: { tradeNo: string; method?: number | string | null; complete?: () => void },
   { put }: OrderPaymentEffects,
 ): Generator<Promise<ApiResponse<string | boolean>> | PutEffect<OrderPaymentAction>, void, OrderCheckoutResponse> {
   yield put({ type: 'setState', payload: { checkoutLoading: true } });
@@ -41,20 +40,20 @@ export function* checkout(
     case 1:
       // The API contract guarantees a URL for redirect payments; assignment preserves legacy coercion.
       window.location.href = response.data as string;
-      message.info('正在前往收银台');
+      complete?.();
       break;
   }
 }
 
 export function* checkoutByStripe(
-  { tradeNo, method, token }: { tradeNo: string; method?: number | string; token?: string },
+  { tradeNo, method, token, complete }: { tradeNo: string; method?: number | string; token?: string; complete?: () => void },
   { put }: OrderPaymentEffects,
 ): OrderPaymentGenerator<string | boolean> {
   yield put({ type: 'setState', payload: { checkoutLoading: true } });
   const response = yield post<string | boolean>('/user/order/checkout', { trade_no: tradeNo, method, token });
   yield put({ type: 'setState', payload: { checkoutLoading: false } });
   if (!isSuccessfulResponse(response)) return;
-  message.loading('请稍等，我们正在验证该笔支付', 5);
+  complete?.();
 }
 
 export function* cancel(

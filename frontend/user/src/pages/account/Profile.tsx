@@ -10,8 +10,9 @@ import { get } from '../../services/request';
 import { isSuccessfulResponse } from '../../types/api';
 import { formatMessage } from '../../locales/i18n';
 import { formatMoney } from '../../components/common/MoneyDisplay';
+import { describeGiftcardRedemption } from '../../utils/giftcard';
 import type { UserCommunicationConfig } from '../../types/commonModels';
-import type { UserInfo, UserSetting, UserState } from '../../types/user';
+import type { GiftcardRedemptionResponse, UserInfo, UserSetting, UserState } from '../../types/user';
 import type { UserDispatch, UserRootState } from '../../types/store';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
@@ -45,7 +46,12 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
       message.error(formatMessage({ id: '两次新密码输入不同' }));
       return;
     }
-    this.props.dispatch({ type: 'user/changePassword', oldPassword, newPassword });
+    this.props.dispatch({
+      type: 'user/changePassword',
+      oldPassword,
+      newPassword,
+      complete: () => message.success(formatMessage({ id: '修改成功，请重新登陆' })),
+    });
   }
 
   redeemGiftcard() {
@@ -54,7 +60,11 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
       message.error(formatMessage({ id: '请输入礼品卡' }));
       return;
     }
-    this.props.dispatch({ type: 'user/redeemgiftcard', giftcard });
+    this.props.dispatch({
+      type: 'user/redeemgiftcard',
+      giftcard,
+      complete: (redemption: GiftcardRedemptionResponse) => message.success(`${formatMessage({ id: '兑换成功' })}: ${describeGiftcardRedemption(redemption)}`),
+    });
   }
 
   update(key: UserSetting, value: 0 | 1) {

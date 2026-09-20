@@ -7,7 +7,7 @@ import { transform } from 'esbuild';
 async function load(file, platform = {}) {
   const source = await fs.readFile(new URL(`../src/${file}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
-  const actions = [], confirmations = [], routes = [], copied = [];
+  const actions = [], confirmations = [], routes = [], copied = [], messages = [];
   const React = {
     Fragment: 'Fragment',
     Component: class {
@@ -24,6 +24,7 @@ async function load(file, platform = {}) {
     if (id === 'react') return React;
     if (id === 'react-redux') return { connect: () => Component => Component };
     if (id.includes('/Modal') || id === 'antd/lib/modal') return { __esModule: true, default: modal, Modal: modal };
+    if (id === 'antd/lib/message') return { __esModule: true, default: { success: value => messages.push(value) } };
     if (id.includes('/ui.js')) return { Button: 'Button', Carousel: 'Carousel', Drawer: 'Drawer' };
     if (id === 'antd/lib/button') return { __esModule: true, default: 'Button' };
     if (id === 'antd/lib/carousel') return { __esModule: true, default: 'Carousel' };
@@ -56,7 +57,7 @@ async function load(file, platform = {}) {
     if (id.includes('iconStyles')) return {};
     throw Error(id);
   } });
-  return { ...module.exports, actions, confirmations, routes, copied, modal, window, dispatch: action => actions.push(action) };
+  return { ...module.exports, actions, confirmations, routes, copied, messages, modal, window, dispatch: action => actions.push(action) };
 }
 
 function nodes(tree, predicate) {
@@ -126,6 +127,8 @@ test('Dashboard startup, notices and reset actions preserve confirmation boundar
   page.newPeriod();
   runtime.confirmations[1].onOk();
   assert.equal(runtime.actions.at(-1).type, 'user/newPeriod');
+  runtime.actions.at(-1).complete();
+  assert.deepEqual(runtime.messages, ['提前开启流量周期成功']);
 });
 
 test('Dashboard subscription loading, empty and active states retain their actions', async () => {
