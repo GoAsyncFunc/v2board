@@ -9,13 +9,11 @@ import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request';
 import { formatMessage } from '../locales/i18n';
 import { formatMoney } from '../components/MoneyDisplay';
-import type { ProfileConfig, ProfileInfo, ProfileSetting, ProfileUserState } from '../types/profile';
-import type { UserDispatch } from '../types/store';
+import type { UserCommunicationConfig } from '../types/commonModels';
+import type { UserInfo, UserSetting, UserState } from '../types/user';
+import type { UserDispatch, UserRootState } from '../types/store';
 
-interface ProfileStateProps {
-  user: ProfileUserState;
-  comm: { config: ProfileConfig };
-}
+type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
 
 export class ProfilePage extends React.Component<ProfileStateProps & { dispatch: UserDispatch }> {
   giftcardRef = React.createRef<HTMLInputElement>();
@@ -53,7 +51,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     this.props.dispatch({ type: 'user/redeemgiftcard', giftcard });
   }
 
-  update(key: ProfileSetting, value: 0 | 1) {
+  update(key: UserSetting, value: 0 | 1) {
     this.props.dispatch({ type: 'user/update', key, value });
   }
 
@@ -108,7 +106,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     });
   }
 
-  renderWallet(userInfo: ProfileInfo, userState: ProfileUserState, config: ProfileConfig) {
+  renderWallet(userInfo: Partial<UserInfo>, userState: UserState, config: UserCommunicationConfig) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-lg-12">
@@ -138,7 +136,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     );
   }
 
-  renderGiftcard(userState: ProfileUserState) {
+  renderGiftcard(userState: UserState) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-md-12">
@@ -158,7 +156,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     );
   }
 
-  renderPassword(userState: ProfileUserState) {
+  renderPassword(userState: UserState) {
     return (
       <div className="row mb-3 mb-md-0">
         <div className="col-md-12"><div className="block block-rounded">
@@ -174,7 +172,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     );
   }
 
-  renderNotifications(userInfo: ProfileInfo, userState: ProfileUserState) {
+  renderNotifications(userInfo: Partial<UserInfo>, userState: UserState) {
     return (
       <div className="row mb-3 mb-md-0"><div className="col-md-12"><div className="block block-rounded">
         <div className="block-header block-header-default"><h3 className="block-title">{formatMessage({ id: '通知' })}</h3></div>
@@ -186,7 +184,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
     );
   }
 
-  renderTelegram(userInfo: ProfileInfo, config: ProfileConfig) {
+  renderTelegram(userInfo: Partial<UserInfo>, config: UserCommunicationConfig) {
     if (!config.is_telegram) return null;
     return userInfo.telegram_id ? (
       <div className="block block-rounded unbind_telegram">
@@ -239,4 +237,4 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
   }
 }
 
-export default connect((state: ProfileStateProps) => ({ user: state.user, comm: state.comm }))(ProfilePage);
+export default connect((state: UserRootState) => ({ user: state.user, comm: state.comm }))(ProfilePage);

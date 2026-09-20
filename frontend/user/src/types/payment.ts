@@ -1,4 +1,4 @@
-import type { PaymentMethod, PaymentConfig } from './commerce';
+import type { PaymentMethod } from './commerce';
 import type { CheckoutOrder, CheckoutPlan } from './checkout';
 import type { FormValue } from './api';
 
@@ -16,27 +16,9 @@ export interface StripeCheckoutState {
   token?: StripeToken | null;
 }
 
-export interface OrderDetailState {
-  order: CheckoutOrder;
-  selectMethod?: PaymentMethod['id'];
-  paymentMethod: CheckoutPaymentMethod[];
-  qrcodeModalVisible?: boolean;
-  payUrl?: string;
-  checkoutLoading?: boolean;
-  detailsLoading?: boolean;
-  cancelLoading?: boolean;
-}
-
-export interface OrderDetailRootState {
-  order: OrderDetailState;
-  comm: { config: PaymentConfig };
-}
-
-export interface UnloadedOrder {
+export type OrderModelRecord = Partial<Omit<CheckoutOrder, 'plan'>> & {
   plan: Partial<CheckoutPlan>;
-}
-
-export type OrderModelRecord = CheckoutOrder | UnloadedOrder;
+};
 
 export interface OrderModelState {
   fetchLoading: boolean;

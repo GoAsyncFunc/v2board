@@ -7,6 +7,7 @@ import type { OrderModelState } from './payment';
 import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryModels';
 import type { TicketState } from './ticket';
 import type { UserState } from './user';
+import type { RouterState } from './router';
 
 export type UserValue = object | string | number | boolean | symbol | bigint | null | undefined;
 
@@ -30,6 +31,7 @@ export interface UserRootState {
   order: OrderModelState;
   passport: PassportState;
   plan: PlanState;
+  router?: RouterState;
   server: ServerState;
   stat: TrafficState;
   telegram: TelegramState;

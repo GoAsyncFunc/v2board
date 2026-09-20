@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import Input from 'antd/lib/input';
 import { formatMessage } from '../locales/i18n';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
-interface TransferStateProps {
-  user: { userInfo: { commission_balance: number } };
-}
+type TransferStateProps = Pick<UserRootState, 'user'>;
 interface TransferModalState { visible: boolean; transferAmount?: string; }
 type TransferModalProps = TransferStateProps & { children: React.ReactElement; dispatch: UserDispatch };
 
@@ -48,7 +46,7 @@ export class TransferCommissionModal extends React.Component<TransferModalProps,
           </div>
           <div className="form-group">
             <label>{formatMessage({ id: '当前推广佣金余额' })}</label>
-            <Input disabled type="text" className="form-control" value={userInfo.commission_balance / 100} />
+            <Input disabled type="text" className="form-control" value={(userInfo.commission_balance || 0) / 100} />
           </div>
           <div className="form-group">
             <label>{formatMessage({ id: '划转金额' })}</label>
@@ -65,5 +63,5 @@ export class TransferCommissionModal extends React.Component<TransferModalProps,
   }
 }
 
-const ConnectedTransferCommissionModal = connect((state: TransferStateProps) => ({ user: state.user }))(TransferCommissionModal);
+const ConnectedTransferCommissionModal = connect((state: UserRootState) => ({ user: state.user }))(TransferCommissionModal);
 export default ConnectedTransferCommissionModal;

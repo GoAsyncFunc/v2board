@@ -4,7 +4,7 @@ import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader
 import { getCookie, setCookie } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import LanguageSelector from '../components/LanguageSelector';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 export interface HeaderSearchConfig {
   placeholder: string;
@@ -16,7 +16,6 @@ interface HeaderOwnProps { title?: React.ReactNode; search?: HeaderSearchConfig;
 interface HeaderStateProps { user: { userInfo: { email?: string } }; }
 interface HeaderDispatchProps { dispatch: UserDispatch; }
 type HeaderProps = HeaderOwnProps & HeaderStateProps & HeaderDispatchProps;
-interface HeaderRootState { user: HeaderStateProps['user']; }
 type HeaderMenuKey = 'showAvatarMenu' | 'showLangMenu';
 interface HeaderState {
   loading: boolean;
@@ -111,6 +110,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 }
 
-export default connect<HeaderStateProps, HeaderDispatchProps, HeaderOwnProps, HeaderRootState>(
+export default connect<HeaderStateProps, HeaderDispatchProps, HeaderOwnProps, UserRootState>(
   state => ({ user: state.user }),
 )(Header);

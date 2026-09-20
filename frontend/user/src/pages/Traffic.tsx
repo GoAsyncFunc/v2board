@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { formatMessage } from '../locales/i18n';
 import { createTrafficColumns } from '../components/TrafficColumns';
 import type { TrafficState } from '../types/queryModels';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 interface TrafficStateProps {
   stat: TrafficState;
@@ -41,4 +41,4 @@ export class TrafficPage extends React.Component<TrafficStateProps & { dispatch:
     );
   }
 }
-export default connect(({ stat }: TrafficStateProps) => ({ stat }))(TrafficPage);
+export default connect(({ stat }: UserRootState) => ({ stat }))(TrafficPage);

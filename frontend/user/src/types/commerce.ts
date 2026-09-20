@@ -12,8 +12,8 @@ export interface PlanData {
 }
 
 export interface PaymentConfig {
-  currency: string;
-  currency_symbol: string;
+  currency?: string;
+  currency_symbol?: string;
 }
 
 export interface PaymentMethod {

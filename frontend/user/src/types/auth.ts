@@ -77,11 +77,6 @@ export interface GuestState {
   selectEmailSuffix?: string;
 }
 
-export interface AuthRootState {
-  guest: GuestState;
-  passport: PassportState;
-}
-
 export interface LoginPageProps {
   dispatch: UserDispatch;
   location: AuthLocation;

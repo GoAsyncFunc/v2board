@@ -14,7 +14,7 @@ import TransferModal from '../components/TransferCommissionModal';
 import WithdrawModal from '../components/WithdrawModal';
 import type { ColumnProps } from 'antd/lib/table';
 import type { InviteCode, InviteConfig, InviteState } from '../types/invite';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 
 const translate = (id: string): string => formatMessage({ id });
@@ -227,4 +227,4 @@ export class InvitePage extends React.Component<InviteStateProps & { dispatch: U
   }
 }
 
-export default connect((state: InviteStateProps) => ({ invite: state.invite, comm: state.comm, user: state.user }))(InvitePage);
+export default connect((state: UserRootState) => ({ invite: state.invite, comm: state.comm, user: state.user }))(InvitePage);

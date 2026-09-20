@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
-import type { AuthRootState, GuestState, RecaptchaToken } from '../types/auth';
+import type { GuestState, RecaptchaToken } from '../types/auth';
+import type { UserRootState } from '../types/store';
 
 interface RecaptchaApi {
   render(container: HTMLElement, options: RecaptchaRenderOptions): number;
@@ -101,4 +102,4 @@ export class Recaptcha extends React.Component<RecaptchaProps, RecaptchaState> {
   }
 }
 
-export default connect((state: AuthRootState) => ({ guest: state.guest }))(Recaptcha);
+export default connect((state: UserRootState) => ({ guest: state.guest }))(Recaptcha);

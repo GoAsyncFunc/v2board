@@ -1,6 +1,7 @@
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
-import type { ApiResponse, JsonValue } from './api';
+import type { ApiResponse } from './api';
 import type { CommunicationConfig } from './auth';
+import type { NumericValue } from './commerce';
 import type { CatalogPlan, PlanPeriod } from './plan';
 import type { StateUpdate } from './queryModels';
 
@@ -27,7 +28,7 @@ export interface GuestState {
   selectEmailSuffix?: string;
 }
 
-export type PlanRecord = Partial<CatalogPlan> & Record<string, JsonValue | undefined>;
+export type PlanRecord = Partial<CatalogPlan> & Record<string, NumericValue>;
 
 export interface PlanState {
   plans: CatalogPlan[];

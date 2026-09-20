@@ -7,7 +7,8 @@ import { formatMessage, getLocale } from '../locales/i18n';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../config/localeSettings';
 import { notify } from '../utils/siteHelpers';
-import type { AuthRootState, RecaptchaToken, RegistrationPageProps } from '../types/auth';
+import type { RecaptchaToken, RegistrationPageProps } from '../types/auth';
+import type { UserRootState } from '../types/store';
 
 interface RegistrationPageState {
   sendEmailVerifyTimeout: number;
@@ -219,4 +220,4 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
   }
 }
 
-export default connect((state: AuthRootState) => ({ passport: state.passport, guest: state.guest }))(RegisterPage);
+export default connect((state: UserRootState) => ({ passport: state.passport, guest: state.guest }))(RegisterPage);

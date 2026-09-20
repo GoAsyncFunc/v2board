@@ -12,7 +12,10 @@ import {
   routerActions,
   routerMiddleware,
 } from 'react-router-redux';
-import type { UserStore } from '../types/store';
+import type { RouterState } from '../types/router';
+import type { UserRootState, UserStore } from '../types/store';
+
+export type { RouterState } from '../types/router';
 
 export { routerMiddleware };
 export {
@@ -39,15 +42,6 @@ interface LocationChangeAction {
     action?: Action;
     isFirstRendering?: boolean;
   };
-}
-
-export interface RouterState {
-  location: Location | null | undefined;
-  action: Action | null | undefined;
-}
-
-interface RouterRootState {
-  router?: RouterState;
 }
 
 export class ConnectedRouter extends React.Component<ConnectedRouterProps> {
@@ -88,7 +82,7 @@ export function connectRouter() {
   };
 }
 
-export const getLocation = (state: RouterRootState): Location | null | undefined => state.router?.location;
-export const getAction = (state: RouterRootState): Action | null | undefined => state.router?.action;
-export const getSearch = (state: RouterRootState): string | undefined => getLocation(state)?.search;
-export const getHash = (state: RouterRootState): string | undefined => getLocation(state)?.hash;
+export const getLocation = (state: UserRootState): Location | null | undefined => state.router?.location;
+export const getAction = (state: UserRootState): Action | null | undefined => state.router?.action;
+export const getSearch = (state: UserRootState): string | undefined => getLocation(state)?.search;
+export const getHash = (state: UserRootState): string | undefined => getLocation(state)?.hash;

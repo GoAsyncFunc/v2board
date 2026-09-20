@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { formatMessage } from '../locales/i18n';
 import PlanCard, { getUnitPriceTag, matchesPlanTab } from '../components/PlanCard';
 import type { CatalogPlan, PlanTab } from '../types/plan';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 const message = (id: string): string => formatMessage({ id });
 
 interface PlanStateProps {
@@ -44,4 +44,4 @@ export class PlanPage extends React.Component<PlanStateProps & { dispatch: UserD
     );
   }
 }
-export default connect(({ plan, comm }: PlanStateProps) => ({ plan, comm }))(PlanPage);
+export default connect(({ plan, comm }: UserRootState) => ({ plan, comm }))(PlanPage);

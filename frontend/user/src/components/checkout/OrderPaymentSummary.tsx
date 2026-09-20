@@ -3,12 +3,11 @@ import Icon from 'antd/lib/icon';
 import { localeSettings as settings } from '../../config/localeSettings';
 import { formatMessage } from '../../locales/i18n';
 import { formatPrice } from "../MoneyDisplay";
-import type { CheckoutOrder } from "../../types/checkout";
 import type { PaymentConfig } from "../../types/commerce";
-import type { StripeCheckoutState } from "../../types/payment";
+import type { OrderModelRecord, StripeCheckoutState } from "../../types/payment";
 
 interface OrderPaymentSummaryProps {
-    order: CheckoutOrder;
+    order: OrderModelRecord;
     config: PaymentConfig;
     checkoutLoading?: boolean;
     selectedPayment: { payment?: string };
@@ -25,6 +24,7 @@ export default function OrderPaymentSummary({
     stripe,
     onCheckout,
 }: OrderPaymentSummaryProps) {
+    const period = order.period || '';
     return (
         <div className={"col-md-4 col-sm-12"}>
             <div
@@ -82,12 +82,12 @@ export default function OrderPaymentSummary({
                         <div className={"col-8"}>
                             {order.plan.name}
                             {" x "}
-                            {periodLabels[order.period] &&
-                                periodLabels[order.period]!()}
+                            {periodLabels[period] &&
+                                periodLabels[period]!()}
                         </div>
                         <div className={"col-4 text-right"}>
                             {config.currency_symbol}
-                            {formatPrice(order.plan[order.period])}
+                            {formatPrice(order.plan[period])}
                         </div>
                     </div>
                 )}
@@ -216,7 +216,7 @@ export default function OrderPaymentSummary({
                 </div>
                 <h1 className={"text-light mt-3 mb-3"}>
                     {config.currency_symbol}{" "}
-                    {formatPrice(order.total_amount +
+                    {formatPrice(Number(order.total_amount) +
                             (order.pre_handling_amount || 0))}{" "}
                     {config.currency}
                 </h1>

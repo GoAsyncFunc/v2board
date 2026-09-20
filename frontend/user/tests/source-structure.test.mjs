@@ -79,6 +79,36 @@ test('user root state names every registered business model', async () => {
     assert.match(storeTypes, new RegExp(`\\b${model}:`));
   }
   assert.doesNotMatch(storeTypes, /UserRootState = Record<string, object>/);
+  assert.match(storeTypes, /router\?: RouterState/);
   assert.match(rootRuntime, /Partial<UserRootState>/);
   assert.match(dashboard, /Pick<UserRootState/);
+});
+
+test('user Redux selectors share the canonical root state contract', async () => {
+  const sourceRoot = new URL('../src/', import.meta.url);
+  const sourceFiles = [];
+  const visit = async directory => {
+    for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+      const entryUrl = new URL(entry.name, directory.href.endsWith('/') ? directory : new URL(`${directory.href}/`));
+      if (entry.isDirectory()) await visit(new URL(`${entryUrl.href}/`));
+      else if (/\.tsx?$/.test(entry.name)) sourceFiles.push(entryUrl);
+    }
+  };
+  await visit(sourceRoot);
+
+  for (const fileUrl of sourceFiles) {
+    const source = await fs.readFile(fileUrl, 'utf8');
+    if (!fileUrl.pathname.endsWith('/types/store.ts')) {
+      assert.doesNotMatch(source, /(?:interface|type)\s+\w*RootState\b/, fileUrl.pathname);
+    }
+    if (!source.includes('connect(') || fileUrl.pathname.endsWith('/layouts/Sidebar.tsx')) continue;
+    for (const selector of source.matchAll(/connect(?:<[^;]+?>)?\(\s*\(?([^=]*?)\)?\s*=>/gs)) {
+      assert.match(selector[1], /UserRootState/, fileUrl.pathname);
+    }
+  }
+
+  const routerTypes = await fs.readFile(new URL('../src/types/router.ts', import.meta.url), 'utf8');
+  const routerBindings = await fs.readFile(new URL('../src/runtime/routerBindings.tsx', import.meta.url), 'utf8');
+  assert.match(routerTypes, /export interface RouterState/);
+  assert.match(routerBindings, /state: UserRootState/);
 });

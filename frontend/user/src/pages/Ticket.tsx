@@ -9,7 +9,7 @@ import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../locales/i18n';
 import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns';
 import type { TicketDraft, TicketState } from '../types/ticket';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 
 interface TicketStateProps { ticket: TicketState; }
@@ -137,4 +137,4 @@ export class TicketPage extends React.Component<TicketStateProps & { dispatch: U
   }
 }
 
-export default connect((state: TicketStateProps) => ({ ticket: state.ticket }))(TicketPage);
+export default connect((state: UserRootState) => ({ ticket: state.ticket }))(TicketPage);

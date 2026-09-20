@@ -7,7 +7,8 @@ import { formatMessage, getLocale } from '../locales/i18n';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../config/localeSettings';
 import { notify } from '../utils/siteHelpers';
-import type { AuthRootState, RecaptchaToken, RegistrationPageProps } from '../types/auth';
+import type { RecaptchaToken, RegistrationPageProps } from '../types/auth';
+import type { UserRootState } from '../types/store';
 
 interface ForgetPasswordState {
   sendEmailVerifyTimeout: number;
@@ -144,4 +145,4 @@ export class ForgetPasswordPage extends React.Component<RegistrationPageProps, F
   }
 }
 
-export default connect((state: AuthRootState) => ({ passport: state.passport, guest: state.guest }))(ForgetPasswordPage);
+export default connect((state: UserRootState) => ({ passport: state.passport, guest: state.guest }))(ForgetPasswordPage);

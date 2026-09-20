@@ -164,7 +164,7 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
   }
 }
 
-export default connect((state: DashboardStateProps) => ({
+export default connect((state: UserRootState) => ({
   notice: state.notice,
   user: state.user,
   comm: state.comm,

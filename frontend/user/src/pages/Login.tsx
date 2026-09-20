@@ -6,7 +6,8 @@ import history from '../app/routerHistory';
 import { formatMessage, getLocale } from '../locales/i18n';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../config/localeSettings';
-import type { AuthRootState, LoginPageProps } from '../types/auth';
+import type { LoginPageProps } from '../types/auth';
+import type { UserRootState } from '../types/store';
 
 const translate = (id: string): string => formatMessage({ id });
 
@@ -101,4 +102,4 @@ export class UserLogin extends React.Component<LoginPageProps> {
   }
 }
 
-export default connect((state: AuthRootState) => ({ passport: state.passport }))(UserLogin);
+export default connect((state: UserRootState) => ({ passport: state.passport }))(UserLogin);

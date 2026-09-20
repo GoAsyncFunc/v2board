@@ -12,9 +12,9 @@ import { connect } from "react-redux";
 import message from 'antd/lib/message';
 import loadable from 'react-loadable';
 import { formatMessage } from '../locales/i18n';
-import type { CheckoutPaymentMethod, OrderDetailRootState, StripeCheckoutState, StripeToken } from "../types/payment";
+import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from "../types/payment";
 import type { PaymentMethod } from "../types/commerce";
-import type { UserDispatch } from "../types/store";
+import type { UserDispatch, UserRootState } from "../types/store";
 
 const StripeForm = loadable({
     loader: () => import("../components/checkout/StripePaymentForm"),
@@ -22,7 +22,8 @@ const StripeForm = loadable({
 });
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
 
-type OrderDetailProps = OrderDetailRootState & {
+type OrderDetailStateProps = Pick<UserRootState, 'order' | 'comm'>;
+type OrderDetailProps = OrderDetailStateProps & {
     dispatch: UserDispatch;
     match: { params: { trade_no: string } };
 };
@@ -121,9 +122,9 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                 },
             });
         }
-        if (order.total_amount > 0 && (payment!.handling_fee_fixed || payment!.handling_fee_percent)) {
+        if (Number(order.total_amount) > 0 && (payment!.handling_fee_fixed || payment!.handling_fee_percent)) {
             order.pre_handling_amount =
-                order.total_amount * (payment!.handling_fee_percent / 100) + payment!.handling_fee_fixed;
+                Number(order.total_amount) * (payment!.handling_fee_percent / 100) + payment!.handling_fee_fixed;
         } else {
             order.pre_handling_amount = 0;
         }
@@ -305,7 +306,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                 </main>
                 <PaymentQrModal
                     visible={qrVisible}
-                    payUrl={payUrl}
+                    payUrl={typeof payUrl === 'string' ? payUrl : undefined}
                     onCancel={() =>
                         this.props.dispatch({
                             type: "order/setState",
@@ -320,7 +321,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
         );
     }
 }
-export default connect(({ order, comm }: OrderDetailRootState) => ({
+export default connect(({ order, comm }: UserRootState) => ({
     order,
     comm,
 }))(OrderDetailPage);

@@ -13,7 +13,7 @@ import { isMobile } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns';
 import type { OrderRecord } from '../types/commerce';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 interface OrderStateProps {
   order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };
@@ -51,4 +51,4 @@ export class OrderPage extends React.Component<OrderStateProps & { dispatch: Use
     </MainLayout>;
   }
 }
-export default connect(({ order }: OrderStateProps) => ({ order }))(OrderPage);
+export default connect(({ order }: UserRootState) => ({ order }))(OrderPage);

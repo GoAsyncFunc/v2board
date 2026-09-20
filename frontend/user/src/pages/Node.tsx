@@ -6,18 +6,12 @@ import history from '../app/routerHistory';
 import { calculateUsage } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import { createNodeColumns } from '../components/NodeColumns';
-import type { OrderRecord } from '../types/commerce';
-import type { ServerState } from '../types/queryModels';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 import '../services/request';
 const message = (id: string): string => formatMessage({ id });
 
-interface NodePageStateProps {
-  server: ServerState;
-  user: { subscribe: { u: number; d: number; transfer_enable: number; plan_id?: number | null } };
-  order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };
-}
+type NodePageStateProps = Pick<UserRootState, 'server' | 'user' | 'order'>;
 
 type NodePageProps = NodePageStateProps & { dispatch: UserDispatch };
 
@@ -31,7 +25,7 @@ export class NodePage extends React.Component<NodePageProps> {
     const { servers, fetchLoading } = this.props.server;
     const subscription = this.props.user.subscribe;
     // Retain this call while migrating; its return was unused in the original page.
-    calculateUsage(subscription.u + subscription.d, subscription.transfer_enable);
+    calculateUsage((subscription.u || 0) + (subscription.d || 0), subscription.transfer_enable || 0);
     return (
       <MainLayout {...this.props} title={message('节点状态')}>
         <main id="main-container">
@@ -67,4 +61,4 @@ export class NodePage extends React.Component<NodePageProps> {
     );
   }
 }
-export default connect(({ user, server, order }: NodePageStateProps) => ({ user, server, order }))(NodePage);
+export default connect(({ user, server, order }: UserRootState) => ({ user, server, order }))(NodePage);

@@ -9,7 +9,7 @@ import { formatMessage, getLocale } from '../locales/i18n';
 import Icon from 'antd/lib/icon';
 import MarkdownIt from 'markdown-it';
 import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 import { copyToClipboard } from '../utils/siteHelpers';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
@@ -69,7 +69,7 @@ export class KnowledgeDetailDrawer extends React.Component<KnowledgeDetailProps,
   }
 }
 
-const ConnectedKnowledgeDetailDrawer = connect((state: KnowledgeStateProps) => ({ knowledge: state.knowledge }))(KnowledgeDetailDrawer);
+const ConnectedKnowledgeDetailDrawer = connect((state: UserRootState) => ({ knowledge: state.knowledge }))(KnowledgeDetailDrawer);
 
 interface KnowledgePageProps extends KnowledgeStateProps {
   dispatch: UserDispatch;
@@ -151,4 +151,4 @@ export class KnowledgePage extends React.Component<KnowledgePageProps> {
   }
 }
 
-export default connect((state: KnowledgeStateProps) => ({ knowledge: state.knowledge }))(KnowledgePage);
+export default connect((state: UserRootState) => ({ knowledge: state.knowledge }))(KnowledgePage);

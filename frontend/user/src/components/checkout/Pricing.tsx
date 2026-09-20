@@ -3,13 +3,15 @@ import Radio from 'antd/lib/radio';
 import { localeSettings as settings } from '../../config/localeSettings';
 import { formatMessage } from '../../locales/i18n';
 import { formatPrice } from '../MoneyDisplay';
-import type { CouponData, PlanData } from '../../types/commerce';
+import type { CouponData } from '../../types/commerce';
+import type { PlanRecord } from '../../types/commonModels';
+import type { PlanPeriod } from '../../types/plan';
 
 interface PeriodSelectorProps {
-  currencySymbol: string;
-  onSelect: (period: string) => void;
-  period: string;
-  plan: PlanData;
+  currencySymbol?: string;
+  onSelect: (period: PlanPeriod) => void;
+  period?: PlanPeriod;
+  plan: PlanRecord;
 }
 
 export function PeriodSelector({ plan, period, currencySymbol, onSelect }: PeriodSelectorProps) {
@@ -18,7 +20,8 @@ export function PeriodSelector({ plan, period, currencySymbol, onSelect }: Perio
     <div className="block-content p-0">{Object.keys(settings.periodText).map(key => {
       if (key === 'reset_price' || plan[key] === null) return undefined;
       const periodText: (() => string) | undefined = Reflect.get(settings.periodText, key);
-      return <div key={key} onClick={() => onSelect(key)} className={'v2board-select ' + (period === key && 'active border-primary')}>
+      const planPeriod = key as PlanPeriod;
+      return <div key={key} onClick={() => onSelect(planPeriod)} className={'v2board-select ' + (period === key && 'active border-primary')}>
         <div style={{ flex: 1 }}><Radio className="v2board-select-radio" checked={period === key} />{periodText?.()}</div>
         <div style={{ flex: 1, textAlign: 'right' }}><span className="price">{currencySymbol}{formatPrice(plan[key])}</span></div>
       </div>;

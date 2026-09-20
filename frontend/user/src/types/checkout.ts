@@ -1,4 +1,4 @@
-import type { PlanData, CouponData, PaymentConfig } from './commerce';
+import type { PlanData } from './commerce';
 
 export interface CheckoutPlan extends PlanData {
   id: number;
@@ -21,12 +21,4 @@ export interface CheckoutOrder {
   pre_handling_amount?: number;
   bounus?: number;
   get_amount?: number;
-}
-
-export interface PlanCheckoutState {
-  plan: { plan: CheckoutPlan; selectPeriod: string; fetchLoading: boolean };
-  coupon: { coupon: CouponData & { code?: string } };
-  order: { orders: Array<{ status: number; trade_no: string }>; cancelLoading: boolean; saveLoading: boolean };
-  comm: { config: PaymentConfig };
-  user: { userInfo: { plan_id?: number | null }; subscribe: { expired_at?: number | null } };
 }

@@ -4,7 +4,7 @@ import { formatMessage } from '../locales/i18n';
 import { ticketDetailStyles as styles } from '../styles/ticketDetail';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketConversation, TicketMessage, TicketState } from '../types/ticket';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/store';
 
 interface TicketDetailBodyProps {
   ticket?: TicketConversation;
@@ -80,7 +80,6 @@ export class TicketDetailBody extends React.Component<TicketDetailBodyProps> {
 
 interface TicketDetailStateProps {
   ticket: TicketState;
-  header?: object;
 }
 interface TicketDetailProps extends TicketDetailStateProps {
   dispatch: UserDispatch;
@@ -133,4 +132,4 @@ export class TicketDetailPage extends React.Component<TicketDetailProps> {
   }
 }
 
-export default connect((state: TicketDetailStateProps) => ({ header: state.header, ticket: state.ticket }))(TicketDetailPage);
+export default connect((state: UserRootState) => ({ ticket: state.ticket }))(TicketDetailPage);
