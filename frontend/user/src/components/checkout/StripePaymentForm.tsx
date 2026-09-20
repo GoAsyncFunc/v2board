@@ -6,8 +6,18 @@ import {
     useStripe,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import type { StripeCardElementOptions, StripeCardElementChangeEvent, Token } from "@stripe/stripe-js";
 
-const cardElementOptions = {
+interface StripeCardFormProps {
+    callback?: (error: string | null | undefined, token?: Token) => void;
+    children?: React.ReactNode;
+}
+
+interface StripePaymentFormProps extends StripeCardFormProps {
+    pk: string;
+}
+
+const cardElementOptions: StripeCardElementOptions = {
     style: {
         base: {
             color: "#32325d",
@@ -25,11 +35,11 @@ const cardElementOptions = {
     },
 };
 
-function CardField({ onChange }) {
+function CardField({ onChange }: { onChange: (event: StripeCardElementChangeEvent) => void }) {
     return <CardElement onChange={onChange} options={cardElementOptions} />;
 }
 
-function CardForm({ callback, children }) {
+export function StripeCardForm({ callback, children }: StripeCardFormProps) {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -39,7 +49,7 @@ function CardForm({ callback, children }) {
         }
 
         const card = elements.getElement(CardElement);
-        const result = await stripe.createToken(card);
+        const result = await stripe.createToken(card!);
 
         if (result.error) {
             if (typeof callback === "function") {
@@ -61,15 +71,15 @@ function CardForm({ callback, children }) {
     );
 }
 
-export default class StripePaymentForm extends React.Component {
+export default class StripePaymentForm extends React.Component<StripePaymentFormProps> {
     render() {
         const stripePromise = loadStripe(this.props.pk);
 
         return (
             <Elements stripe={stripePromise}>
-                <CardForm callback={this.props.callback}>
+                <StripeCardForm callback={this.props.callback}>
                     {this.props.children}
-                </CardForm>
+                </StripeCardForm>
             </Elements>
         );
     }

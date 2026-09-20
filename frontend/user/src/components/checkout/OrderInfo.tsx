@@ -3,7 +3,7 @@ import { formatMessage } from "../../vendor/i18n.js";
 import { formatDateTimeSeconds } from "../../components/DateTimeDisplay";
 import { formatPrice } from "../../components/MoneyDisplay";
 import { Modal } from "../../vendor/Modal.js";
-import { LoadingContainer } from "../../vendor/ui.js";
+import LoadingContainer from "../LoadingContainer";
 import type { CheckoutOrder } from "../../types/checkout";
 import type { PaymentConfig } from "../../types/commerce";
 import type { UserDispatch } from "../../types/store";

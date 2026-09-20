@@ -16,7 +16,7 @@ async function load(name) {
     if (id.includes('DateTimeDisplay')) return { formatDateTimeSeconds: value => `date:${value}` };
     if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
     if (id.includes('/Modal')) return { Modal: { confirm: options => confirmations.push(options) } };
-    if (id.includes('/ui.js')) return { LoadingContainer: 'Loading' };
+    if (id.includes('/LoadingContainer')) return 'Loading';
     if (id.includes('/Icon')) return { Icon: 'Icon' };
     throw Error(id);
   } });

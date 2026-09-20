@@ -5,7 +5,7 @@ import { Carousel } from '../vendor/ui.js';
 import { Icon } from '../vendor/Icon.js';
 import { Modal } from '../vendor/Modal.js';
 import SubscribeImporter from '../components/SubscribeImporter';
-import { LoadingContainer } from '../vendor/ui.js';
+import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
 import history from '../vendor/routerHistory.js';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';

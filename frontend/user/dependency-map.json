@@ -397,6 +397,10 @@
   },
   {
     "from": "components/checkout/OrderInfo.tsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "components/checkout/OrderInfo.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
@@ -406,10 +410,6 @@
   {
     "from": "components/checkout/OrderInfo.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
-    "to": "vendor/ui.js"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
@@ -682,6 +682,10 @@
   {
     "from": "pages/Dashboard.tsx",
     "to": "components/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/Dashboard.tsx",
+    "to": "components/LoadingContainer.tsx"
   },
   {
     "from": "pages/Dashboard.tsx",
@@ -961,6 +965,10 @@
   },
   {
     "from": "pages/OrderDetail.tsx",
+    "to": "components/checkout/StripePaymentForm.tsx"
+  },
+  {
+    "from": "pages/OrderDetail.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
@@ -970,10 +978,6 @@
   {
     "from": "pages/OrderDetail.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "vendor/payment.js"
   },
   {
     "from": "pages/OrderDetail.tsx",

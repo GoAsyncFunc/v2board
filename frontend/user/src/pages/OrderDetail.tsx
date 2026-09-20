@@ -18,7 +18,7 @@ import type { UserDispatch } from "../types/store";
 import "../vendor/iconStyles.js";
 
 const StripeForm = loadable({
-    loader: () => import("../vendor/payment.js"),
+    loader: () => import("../components/checkout/StripePaymentForm"),
     loading: () => null,
 });
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.

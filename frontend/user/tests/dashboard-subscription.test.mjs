@@ -24,7 +24,8 @@ async function load(file, platform = {}) {
     if (id === 'react') return React;
     if (id === 'react-redux') return { connect: () => Component => Component };
     if (id.includes('/Modal')) return { __esModule: true, default: modal, Modal: modal };
-    if (id.includes('/ui.js')) return { Button: 'Button', Carousel: 'Carousel', Drawer: 'Drawer', LoadingContainer: 'Loading' };
+    if (id.includes('/ui.js')) return { Button: 'Button', Carousel: 'Carousel', Drawer: 'Drawer' };
+    if (id.includes('/LoadingContainer')) return 'Loading';
     if (id.includes('/Icon')) return { Icon: 'Icon' };
     if (id.includes('/content.js')) return { QRCode: 'QRCode' };
     if (id.includes('SubscribeImporter')) return 'Importer';
