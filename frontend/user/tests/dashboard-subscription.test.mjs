@@ -47,7 +47,12 @@ async function load(file, platform = {}) {
       calculateUsage: (used, total) => used / total * 100, formatBytes: value => String(value),
     };
     if (id.includes('DateTimeDisplay')) return { formatDate: String, formatDateDash: String, formatDaysRemaining: () => 5 };
-    if (id.includes('SubscribeUsage')) return { subscribePercent: () => 90, progressBarColor: () => 'warning', formatDeviceLimit: String };
+    if (id.includes('SubscribeUsage')) return {
+      subscribePercent: () => 90,
+      hasSubscriptionUsage: value => ['u', 'd', 'transfer_enable'].every(field => typeof value[field] === 'number'),
+      progressBarColor: () => 'warning',
+      formatDeviceLimit: String,
+    };
     if (id.includes('iconStyles')) return {};
     throw Error(id);
   } });

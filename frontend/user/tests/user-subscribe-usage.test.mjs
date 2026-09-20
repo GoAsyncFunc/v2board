@@ -22,7 +22,12 @@ async function load(original) {
     const fixture = module.exports(percentOf);
     return { subscribePercent: fixture.percent, progressBarColor: fixture.color, formatDeviceLimit: fixture.deviceLimit };
   }
-  return { subscribePercent: module.exports.subscribePercent, progressBarColor: module.exports.progressBarColor, formatDeviceLimit: module.exports.formatDeviceLimit };
+  return {
+    subscribePercent: module.exports.subscribePercent,
+    progressBarColor: module.exports.progressBarColor,
+    formatDeviceLimit: module.exports.formatDeviceLimit,
+    hasSubscriptionUsage: module.exports.hasSubscriptionUsage,
+  };
 }
 
 const subscribes = [
@@ -69,4 +74,11 @@ test('progress color thresholds match original', async () => {
   assert.equal(current.progressBarColor(79.9), 'success');
   assert.equal(current.subscribePercent({ u: 799, d: 1, transfer_enable: 1000 }), 80);
   assert.equal(current.formatDeviceLimit(null), '∞');
+});
+
+test('subscription usage guard accepts only complete numeric usage data', async () => {
+  const { hasSubscriptionUsage } = await load(false);
+  assert.equal(hasSubscriptionUsage({ u: 1, d: 2, transfer_enable: 3 }), true);
+  assert.equal(hasSubscriptionUsage({ email: 'user@example.com' }), false);
+  assert.equal(hasSubscriptionUsage({ u: 1, d: 2, transfer_enable: undefined }), false);
 });

@@ -29,7 +29,7 @@ declare global {
     g_routes: UserRoute[];
     g_app: UserDvaApplication;
     g_history: UserHistory;
-    g_initialData: UserRootState;
+    g_initialData: Partial<UserRootState>;
     g_isBrowser: boolean;
     g_plugins: typeof import('../runtime/pluginRuntime');
     g_useSSR: boolean;

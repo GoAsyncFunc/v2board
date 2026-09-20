@@ -69,3 +69,16 @@ test('user application runtime is implemented as typed TSX components', async ()
   assert.doesNotMatch(runtimeSource, /React\.createElement/);
   assert.equal(tsconfig.compilerOptions.allowJs, false);
 });
+
+test('user root state names every registered business model', async () => {
+  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+  const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
+  const dashboard = await fs.readFile(new URL('../src/pages/Dashboard.tsx', import.meta.url), 'utf8');
+  assert.match(storeTypes, /export interface UserRootState/);
+  for (const model of ['comm', 'coupon', 'guest', 'invite', 'knowledge', 'layout', 'notice', 'order', 'passport', 'plan', 'server', 'stat', 'telegram', 'ticket', 'tutorial', 'user']) {
+    assert.match(storeTypes, new RegExp(`\\b${model}:`));
+  }
+  assert.doesNotMatch(storeTypes, /UserRootState = Record<string, object>/);
+  assert.match(rootRuntime, /Partial<UserRootState>/);
+  assert.match(dashboard, /Pick<UserRootState/);
+});

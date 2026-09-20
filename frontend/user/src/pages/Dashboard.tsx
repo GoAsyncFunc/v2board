@@ -11,17 +11,16 @@ import history from '../app/routerHistory';
 import { formatBytes, calculateUsage, isExpired, canRenew } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay';
-import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage';
+import {
+  formatDeviceLimit,
+  hasSubscriptionUsage,
+  progressBarColor,
+  subscribePercent,
+} from '../components/SubscribeUsage';
 import type { UserNotice, UserSubscription } from '../types/subscription';
-import type { UserDispatch } from '../types/store';
-import type { NoticeState } from '../types/queryModels';
+import type { UserDispatch, UserRootState } from '../types/store';
 
-
-interface DashboardStateProps {
-  user: { subscribe: UserSubscription; stat: number[] };
-  notice: NoticeState;
-  order: { saveLoading: boolean };
-}
+type DashboardStateProps = Pick<UserRootState, 'user' | 'notice' | 'order' | 'comm' | 'knowledge'>;
 interface DashboardState { visible: boolean; notice?: Partial<UserNotice>; }
 
 export class DashboardPage extends React.Component<DashboardStateProps & { dispatch: UserDispatch }, DashboardState> {
@@ -83,7 +82,7 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
     });
   }
 
-  renderAlerts(subscribe: UserSubscription, usagePercent: number) {
+  renderAlerts(subscribe: Partial<UserSubscription>, usagePercent: number) {
     const { stat } = this.props.user;
     const alerts = [];
     if (stat[0]) {
@@ -98,11 +97,12 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
     return alerts;
   }
 
-  renderSubscription(subscribe: UserSubscription, usagePercent: number) {
+  renderSubscription(subscribe: Partial<UserSubscription>, usagePercent: number) {
     if (!subscribe.email) return <LoadingContainer className="font-size-h3 mb-3" />;
     if (!subscribe.plan_id) {
       return <a onClick={() => history.push('/plan')}><div className="text-center"><div><i className="fa fa-plus fa-2x" /></div><div className="font-size-sm text-uppercase text-muted pt-2 pb-3">{formatMessage({ id: '购买订阅' })}</div></div></a>;
     }
+    if (!hasSubscriptionUsage(subscribe)) return <LoadingContainer className="font-size-h3 mb-3" />;
     const expired = isExpired(subscribe.expired_at);
     const renewalPath = canRenew(subscribe) ? `/plan/${subscribe.plan_id}` : '/plan';
     return (
@@ -134,7 +134,7 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
     );
   }
 
-  renderShortcuts(subscribe: UserSubscription) {
+  renderShortcuts(subscribe: Partial<UserSubscription>) {
     const renewal = canRenew(subscribe);
     return (
       <div className="mb-3">
@@ -149,7 +149,7 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
   render() {
     const { subscribe } = this.props.user;
     const notices = this.props.notice.notices;
-    const usagePercent = subscribePercent(subscribe);
+    const usagePercent = hasSubscriptionUsage(subscribe) ? subscribePercent(subscribe) : 0;
     return (
       <MainLayout {...this.props} title={formatMessage({ id: '仪表盘' })}>
         <main id="main-container"><div className="content content-full">
@@ -164,7 +164,10 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
   }
 }
 
-export default connect((state: DashboardStateProps & {
-  comm: { config: object };
-  knowledge: { knowledges: object };
-}) => ({ notice: state.notice, user: state.user, comm: state.comm, knowledge: state.knowledge, order: state.order }))(DashboardPage);
+export default connect((state: DashboardStateProps) => ({
+  notice: state.notice,
+  user: state.user,
+  comm: state.comm,
+  knowledge: state.knowledge,
+  order: state.order,
+}))(DashboardPage);
