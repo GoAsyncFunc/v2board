@@ -26,7 +26,7 @@ const initialState: InviteState = {
 };
 
 export default {
-    name: 'invite',
+    namespace: 'invite',
     state: initialState,
     reducers: {
         setState(state: InviteState, { payload }: StateUpdate<InviteState>): InviteState {

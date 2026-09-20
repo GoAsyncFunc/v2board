@@ -12,7 +12,7 @@ const initialState: KnowledgeState = {
 };
 
 export default {
-    name: '使用文档',
+    namespace: 'knowledge',
     state: initialState,
     reducers: {
         setState(state: KnowledgeState, { payload }: StateUpdate<KnowledgeState>): KnowledgeState {

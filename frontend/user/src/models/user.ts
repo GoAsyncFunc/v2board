@@ -27,7 +27,7 @@ const initialState: UserState = {
 };
 
 export default {
-    name: 'user',
+    namespace: 'user',
     state: initialState,
     reducers: {
         setState(state: UserState, { payload }: StateUpdate<UserState>): UserState {

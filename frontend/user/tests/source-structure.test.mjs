@@ -108,6 +108,22 @@ test('user model composition uses named business effects instead of module alias
     assert.match(subscriptionEffects, new RegExp(`export function\\* ${effect}\\b`));
   }
   assert.doesNotMatch(userModel, /\b(?:get|post)\(|window\.|history\./);
+
+  const modelDirectory = new URL('../src/models/', import.meta.url);
+  const modelNamespaces = [
+    'comm', 'coupon', 'guest', 'invite', 'knowledge', 'layout', 'notice', 'order',
+    'passport', 'plan', 'server', 'stat', 'telegram', 'ticket', 'tutorial', 'user',
+  ];
+  for (const namespace of modelNamespaces) {
+    const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+    assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
+    assert.doesNotMatch(source, /export default\s*{\s*name:/);
+  }
+
+  const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
+  assert.match(store, /model\.namespace !== registeredNamespace/);
+  assert.match(store, /appInstance\?\.model\(model\)/);
+  assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
 });
 
 test('user application runtime is implemented as typed TSX components', async () => {

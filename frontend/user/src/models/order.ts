@@ -28,7 +28,7 @@ const initialState: OrderModelState = {
 };
 
 export default {
-    name: 'order',
+    namespace: 'order',
     state: { ...initialState },
     reducers: {
         setState(

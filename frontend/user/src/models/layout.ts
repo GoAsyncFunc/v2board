@@ -11,7 +11,7 @@ interface LayoutEffects {
 }
 
 export default {
-    name: 'layout',
+    namespace: 'layout',
     state: { showNav: false },
     reducers: {
         save(state: LayoutState, { payload }: LayoutSave): LayoutState {

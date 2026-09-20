@@ -6,7 +6,7 @@ import type { QueryEffects, QueryGenerator, ServerState, StateUpdate } from '../
 const initialState: ServerState = { servers: [], fetchLoading: false };
 
 export default {
-    name: 'server',
+    namespace: 'server',
     state: initialState,
     reducers: {
         setState(state: ServerState, { payload }: StateUpdate<ServerState>): ServerState {

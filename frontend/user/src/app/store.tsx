@@ -60,8 +60,13 @@ export function createApp(): UserDvaApplication {
     });
     appInstance.use(loadingPlugin());
     (dvaConfig.plugins || []).forEach((plugin) => appInstance?.use(plugin));
-    Object.entries(models).forEach(([namespace, model]) => {
-        appInstance?.model({ namespace, ...model });
+    Object.entries(models).forEach(([registeredNamespace, model]) => {
+        if (model.namespace !== registeredNamespace) {
+            throw new Error(
+                `User model registry mismatch: expected ${registeredNamespace}, received ${model.namespace}`,
+            );
+        }
+        appInstance?.model(model);
     });
     return appInstance;
 }

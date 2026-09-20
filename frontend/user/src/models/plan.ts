@@ -27,7 +27,7 @@ export function choosePeriod(plan: PlanRecord, currentPeriod?: PlanPeriod): Plan
 }
 
 export default {
-    name: 'plan',
+    namespace: 'plan',
     state: { ...initialState },
     reducers: {
         setState(state: PlanState, { payload }: StateUpdate<PlanState>): PlanState {

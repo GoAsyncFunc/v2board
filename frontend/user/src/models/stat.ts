@@ -6,7 +6,7 @@ import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '..
 const initialState: TrafficState = { traffics: [], getTrafficLogLoading: false };
 
 export default {
-    name: 'stat',
+    namespace: 'stat',
     state: initialState,
     reducers: {
         setState(state: TrafficState, { payload }: StateUpdate<TrafficState>): TrafficState {

@@ -5,7 +5,7 @@ import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryMo
 
 const initialState: CouponState = { coupon: {}, checkLoading: false };
 export default {
-    name: 'coupon',
+    namespace: 'coupon',
     state: { ...initialState },
     reducers: {
         setState(state: CouponState, { payload }: StateUpdate<CouponState>): CouponState {

@@ -17,7 +17,7 @@ const initialState: TutorialState = {
 };
 
 export default {
-    name: 'tutorial',
+    namespace: 'tutorial',
     state: initialState,
     reducers: {
         setState(state: TutorialState, { payload }: StateUpdate<TutorialState>): TutorialState {

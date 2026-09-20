@@ -11,7 +11,7 @@ const initialState: GuestState = {
 };
 
 export default {
-    name: 'guest',
+    namespace: 'guest',
     state: initialState,
     reducers: {
         setState(state: GuestState, { payload }: StateUpdate<GuestState>): GuestState {

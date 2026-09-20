@@ -36,7 +36,7 @@ const initialState: TicketState = {
 };
 
 export default {
-    name: 'ticket',
+    namespace: 'ticket',
     state: { ...initialState },
     reducers: {
         setState(state: TicketState, { payload }: StateUpdate<TicketState>): TicketState {

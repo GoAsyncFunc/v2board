@@ -6,7 +6,7 @@ import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../
 const initialState: NoticeState = { notices: [] };
 
 export default {
-    name: 'notice',
+    namespace: 'notice',
     state: initialState,
     reducers: {
         setState(state: NoticeState, { payload }: StateUpdate<NoticeState>): NoticeState {

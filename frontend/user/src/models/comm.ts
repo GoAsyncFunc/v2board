@@ -12,7 +12,7 @@ import type { StateUpdate } from '../types/queryModels';
 const initialState: CommunicationState = { config: {} };
 
 export default {
-    name: 'comm',
+    namespace: 'comm',
     state: initialState,
     reducers: {
         setState(

@@ -35,7 +35,7 @@ const initialState: PassportState = {
 };
 
 export default {
-    name: 'passport',
+    namespace: 'passport',
     state: initialState,
     reducers: {
         setState(state: PassportState, { payload }: StateUpdate<PassportState>): PassportState {

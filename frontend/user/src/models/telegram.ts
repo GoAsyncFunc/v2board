@@ -11,7 +11,7 @@ import type {
 const initialState: TelegramState = { botInfo: {} };
 
 export default {
-    name: 'telegram',
+    namespace: 'telegram',
     state: initialState,
     reducers: {
         setState(state: TelegramState, { payload }: StateUpdate<TelegramState>): TelegramState {
