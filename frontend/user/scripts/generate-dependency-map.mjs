@@ -7,7 +7,7 @@ const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const checkOnly = process.argv.includes('--check');
 const result = await build({
   absWorkingDir: appRoot,
-  entryPoints: ['src/main.js'],
+  entryPoints: ['src/main.ts'],
   bundle: true,
   write: false,
   metafile: true,

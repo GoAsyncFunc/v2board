@@ -1,11 +1,11 @@
 [
   {
     "from": "app/Router.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "app/Router.tsx",
-    "to": "app/routes.js"
+    "to": "app/routes.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -28,159 +28,159 @@
     "to": "vendor/locales.js"
   },
   {
-    "from": "app/bootstrap.js",
+    "from": "app/bootstrap.tsx",
     "to": "app/Router.tsx"
   },
   {
-    "from": "app/bootstrap.js",
-    "to": "app/store.js"
+    "from": "app/bootstrap.tsx",
+    "to": "app/store.tsx"
   },
   {
-    "from": "app/bootstrap.js",
+    "from": "app/bootstrap.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/history.js",
+    "from": "app/history.ts",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Dashboard.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Forgetpassword.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Index.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Invite.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Knowledge.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Login.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Node.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Order.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/OrderDetail.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Plan.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/PlanDetail.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Profile.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Register.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Ticket.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/TicketDetail.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Traffic.tsx"
   },
   {
-    "from": "app/store.js",
-    "to": "app/history.js"
+    "from": "app/store.tsx",
+    "to": "app/history.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/comm.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/coupon.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/guest.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/invite.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/knowledge.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/layout.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/notice.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/order.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/passport.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/plan.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/server.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/stat.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/telegram.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/ticket.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/tutorial.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/user.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "vendor/dva.js"
   },
   {
@@ -513,7 +513,7 @@
   },
   {
     "from": "layouts/MainLayout.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -529,15 +529,15 @@
   },
   {
     "from": "layouts/Sidebar.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "layouts/Sidebar.tsx",
     "to": "config/navigation.tsx"
   },
   {
-    "from": "main.js",
-    "to": "app/bootstrap.js"
+    "from": "main.ts",
+    "to": "app/bootstrap.tsx"
   },
   {
     "from": "models/comm.ts",
@@ -1209,15 +1209,15 @@
   },
   {
     "from": "vendor/rootRuntime.js",
-    "to": "app/store.js"
+    "to": "app/store.tsx"
   },
   {
     "from": "vendor/routerHistory.js",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "vendor/routerRuntime.js",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "vendor/siteHelpers.js",

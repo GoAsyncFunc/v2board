@@ -1,5 +1,8 @@
 export {};
 
+import type { UserHistory } from '../app/history';
+import type { UserDvaApplication } from '../app/store';
+
 declare global {
   type SupportChatValue = string | number | SupportChatValue[];
 
@@ -20,6 +23,12 @@ declare global {
       [key: string]: unknown;
     };
     g_routes: unknown;
+    g_app: UserDvaApplication;
+    g_history: UserHistory;
+    g_initialData: Record<string, object>;
+    g_isBrowser: boolean;
+    g_plugins: typeof import('../vendor/appRuntime.js');
+    g_useSSR: boolean;
     g_lang?: string;
     g_langSeparator?: string;
     grecaptcha?: {

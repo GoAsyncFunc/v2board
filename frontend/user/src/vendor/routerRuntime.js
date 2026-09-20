@@ -1,4 +1,4 @@
-import history from '../app/history.js';
+import history from '../app/history';
 
 export const router = {
   push: (...args) => history.push(...args),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DvaContainer, getApp } from '../app/store.js';
+import { DvaContainer, getApp } from '../app/store';
 
 export function rootContainer(children) {
   return <DvaContainer>{children}</DvaContainer>;

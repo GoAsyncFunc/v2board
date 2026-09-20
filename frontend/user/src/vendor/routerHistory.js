@@ -1,4 +1,4 @@
-import appHistory from '../app/history.js';
+import appHistory from '../app/history';
 
 export const push = (...args) => appHistory.push(...args);
 export const replace = (...args) => appHistory.replace(...args);

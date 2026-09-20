@@ -27,7 +27,7 @@ async function load(target,original){
    if(id==='react'||id.includes('reactRuntime'))return React;
    if(id==='react-redux'||id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
-   if(id==='../app/history.js')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
+   if(id==='../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
    if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
    if(id==='../components/LanguageSelector'||id.includes('LanguageSelector'))return {__esModule:true,default:'LanguageSelector',a:'LanguageSelector',LanguageSelector:'LanguageSelector'};

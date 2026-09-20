@@ -14,7 +14,7 @@ export async function buildApp() {
 
   const result = await build({
     absWorkingDir: appRoot,
-    entryPoints: ['src/main.js'],
+    entryPoints: ['src/main.ts'],
     outfile: path.join(destination, 'app.js'),
     bundle: true,
     sourcemap: true,

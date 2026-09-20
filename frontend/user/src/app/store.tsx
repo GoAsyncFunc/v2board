@@ -1,8 +1,7 @@
 import React from 'react';
 import { createDva } from '../vendor/dva.js';
-import { loadingPlugin } from '../vendor/appRuntime.js';
-import { mergeConfig } from '../vendor/appRuntime.js';
-import history from './history.js';
+import { loadingPlugin, mergeConfig } from '../vendor/appRuntime.js';
+import history from './history';
 import comm from '../models/comm';
 import coupon from '../models/coupon';
 import guest from '../models/guest';
@@ -19,6 +18,23 @@ import telegram from '../models/telegram';
 import ticket from '../models/ticket';
 import tutorial from '../models/tutorial';
 import user from '../models/user';
+
+interface DvaStore {
+  getState(): Record<string, object>;
+}
+
+export interface UserDvaApplication {
+  _store: DvaStore;
+  use(plugin: object): void;
+  model(model: object): void;
+  router(render: () => React.ReactElement): void;
+  start(): () => React.ReactElement;
+}
+
+interface DvaConfig {
+  config?: Record<string, object>;
+  plugins?: object[];
+}
 
 const models = {
   comm,
@@ -39,29 +55,33 @@ const models = {
   user,
 };
 
-let appInstance = null;
+let appInstance: UserDvaApplication | null = null;
 
-export function createApp() {
-  const dvaConfig = mergeConfig('dva');
+export function createApp(): UserDvaApplication {
+  const dvaConfig = mergeConfig('dva') as DvaConfig;
   appInstance = createDva({
     history,
     ...(dvaConfig.config || {}),
     ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
-  });
+  }) as UserDvaApplication;
   appInstance.use(loadingPlugin());
-  (dvaConfig.plugins || []).forEach(plugin => appInstance.use(plugin));
+  (dvaConfig.plugins || []).forEach(plugin => appInstance?.use(plugin));
   Object.entries(models).forEach(([namespace, model]) => {
-    appInstance.model({ namespace, ...model });
+    appInstance?.model({ namespace, ...model });
   });
   return appInstance;
 }
 
-export function getApp() {
-  return appInstance;
+export function getApp(): UserDvaApplication {
+  return appInstance as UserDvaApplication;
 }
 
-export class DvaContainer extends React.Component {
-  render() {
+interface DvaContainerProps {
+  children: React.ReactElement;
+}
+
+export class DvaContainer extends React.Component<DvaContainerProps> {
+  render(): React.ReactElement {
     const app = getApp();
     app.router(() => React.cloneElement(this.props.children, { store: app._store }));
     return app.start()();

@@ -15,8 +15,8 @@ import {
 } from '../vendor/i18n.js';
 import type { IntlApi, LanguageContextValue } from '../vendor/i18n.js';
 import * as plugins from '../vendor/appRuntime.js';
-import history from './history.js';
-import appRoutes from './routes.js';
+import history from './history';
+import appRoutes from './routes';
 import '../vendor/dateTime.js';
 
 const { ConnectedRouter } = routerBindings;

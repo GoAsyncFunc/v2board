@@ -111,8 +111,8 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
           LangContext,
         };
       }
-      if (id === './history.js') return { __esModule: true, default: history };
-      if (id === './routes.js') return { __esModule: true, default: [] };
+      if (id === './history') return { __esModule: true, default: history };
+      if (id === './routes') return { __esModule: true, default: [] };
       if (id.includes('dateTime')) return {};
       throw new Error(`Unexpected dependency ${id}`);
     },

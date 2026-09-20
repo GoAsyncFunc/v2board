@@ -6,7 +6,7 @@ import Icon from 'antd/lib/icon';
 import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
-import history from '../app/history.js';
+import history from '../app/history';
 import type { UserDispatch } from '../types/store';
 import '../vendor/iconStyles.js';
 
