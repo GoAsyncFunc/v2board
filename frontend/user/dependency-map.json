@@ -145,7 +145,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/passport.js"
+    "to": "models/passport.ts"
   },
   {
     "from": "app/store.js",
@@ -588,15 +588,15 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "vendor/siteHelpers.js"
   },
   {
@@ -616,15 +616,15 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "vendor/siteHelpers.js"
   },
   {
@@ -653,7 +653,7 @@
   },
   {
     "from": "models/user.js",
-    "to": "models/sessionEffects.js"
+    "to": "models/sessionEffects.ts"
   },
   {
     "from": "models/user.js",

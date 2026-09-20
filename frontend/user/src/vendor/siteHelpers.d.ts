@@ -1,5 +1,6 @@
 export function getCookie(name: string): string;
-export function getToken(): string | undefined;
+export function getToken(): string | null;
+export function setToken(token: string): void;
 export function clearToken(): void;
 export function setCookie(name: string, value: unknown, minutes?: number, path?: string, domain?: string): void;
 export function notify(type: string, title: string, message: string): void;

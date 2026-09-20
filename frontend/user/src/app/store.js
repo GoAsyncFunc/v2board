@@ -11,7 +11,7 @@ import knowledge from '../models/knowledge';
 import layout from '../models/layout';
 import notice from '../models/notice';
 import order from '../models/order.js';
-import passport from '../models/passport.js';
+import passport from '../models/passport';
 import plan from '../models/plan';
 import server from '../models/server';
 import stat from '../models/stat';

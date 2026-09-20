@@ -1,7 +1,11 @@
 export {};
 
 declare global {
+  type SupportChatValue = string | number | SupportChatValue[];
+
   interface Window {
+    $crisp?: { push(command: SupportChatValue[]): void };
+    Tawk_API?: { visitor?: { name: string; email: string } };
     copy?: (text: string) => void;
     jump?: (id: string | number) => void;
     settings: {

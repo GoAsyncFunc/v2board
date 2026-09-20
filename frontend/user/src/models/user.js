@@ -3,7 +3,7 @@ import history from '../vendor/routerHistory.js';
 import { message } from '../vendor/ui.js';
 import moment from '../vendor/dateTime.js';
 import { formatBytes } from '../vendor/siteHelpers.js';
-import * as sessionEffects from './sessionEffects.js';
+import * as sessionEffects from './sessionEffects';
 
 export function describeGiftcard(type, value) {
   switch (type) {

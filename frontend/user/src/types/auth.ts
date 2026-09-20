@@ -13,11 +13,51 @@ export interface AuthLocation {
 }
 
 export interface PassportState {
-  forgetLoading?: boolean;
-  getCommConfigLoading?: boolean;
-  loginLoading?: boolean;
-  registerLoading?: boolean;
-  sendEmailVerifyLoading?: boolean;
+  loginLoading: boolean;
+  commConfig: {
+    emailWhitelistSuffix: string[];
+    isEmailVerify?: boolean;
+    isInviteForce?: boolean;
+  };
+  getCommConfigLoading: boolean;
+  sendEmailVerifyLoading: boolean;
+  registerLoading: boolean;
+  forgetLoading: boolean;
+}
+
+export interface AuthTokenData { auth_data: string; }
+export interface LoginSessionData { is_login: boolean; is_admin?: boolean; }
+
+export interface TokenLoginAction {
+  verify?: string;
+  redirect?: string;
+}
+
+export interface LoginAction {
+  email: string;
+  password: string;
+  redirect?: string;
+}
+
+export interface RegisterAction {
+  email: string;
+  password: string;
+  inviteCode: string;
+  emailCode: string;
+  recaptchaData?: RecaptchaToken;
+}
+
+export interface SendEmailVerificationAction {
+  email: string;
+  callback?: () => void;
+  recaptchaData?: RecaptchaToken;
+  isforget?: number;
+}
+
+export interface ForgetPasswordAction {
+  email: string;
+  password: string;
+  emailCode: string;
 }
 
 export interface CommunicationConfig {
