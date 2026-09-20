@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {build} from 'esbuild';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/commerce/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
+const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/commerce/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';import {setRequestFailurePresenter} from './src/services/request';globalThis.integration={OrderDetailPage,order,comm,setRequestFailurePresenter};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
   if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('routerHistory')||args.path.includes('siteHelpers')||args.path.includes('fetchResponse')||args.path.includes('/locales/i18n')||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
  });
@@ -39,7 +39,7 @@ function setup(mode){
   if(id.includes('70307045'))return Object.assign;
   if(id.includes('fetchResponse'))return {b:fetchResponse,fetchResponse};
   if(id.includes('i18n'))return {formatMessage:({id})=>id,getLocale:()=> 'zh-CN'};
-  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args]),getToken:()=> 'fixture-token',clearToken:()=>events.push(['clear-token']),notify:(...args)=>events.push(['notify',...args])};
+  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),getToken:()=> 'fixture-token',clearToken:()=>events.push(['clear-token'])};
   if(id.includes('routerHistory'))return {push:value=>events.push(['navigate',value])};
   if(id.endsWith('/vendor/utilities.js'))return {loadable:()=>null};
   if(id.includes('reactLoadableRuntime'))return ()=>null;
@@ -48,7 +48,7 @@ function setup(mode){
   if(id==='antd/lib/message')return {info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])};
   return {};
  }});
- vm.runInContext(bundle,context,{timeout:3000});const {OrderDetailPage,order,comm}=context.integration;const models={order,comm};
+ vm.runInContext(bundle,context,{timeout:3000});const {OrderDetailPage,order,comm,setRequestFailurePresenter}=context.integration;setRequestFailurePresenter(failure=>events.push(['notify','error',failure.titleMessageId,failure.description]));const models={order,comm};
  state.order={...order.state,order:{...record},paymentMethod:methods,selectMethod:1};state.comm={...comm.state};
  let page;
  async function dispatch(action,namespace){

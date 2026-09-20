@@ -1,6 +1,6 @@
 import { get, post } from '../services/request';
 import history from '../app/routerHistory';
-import { setToken, notify } from '../utils/siteHelpers';
+import { setToken } from '../utils/siteHelpers';
 import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
@@ -72,7 +72,7 @@ export default {
       history.push('/login');
     },
     *sendEmailVerify(
-      { email, callback, recaptchaData, isforget }: SendEmailVerificationAction,
+      { email, callback, succeed, recaptchaData, isforget }: SendEmailVerificationAction,
       { put }: PassportEffects,
     ): PassportGenerator<boolean> {
       yield put({ type: 'setState', payload: { sendEmailVerifyLoading: true } });
@@ -80,7 +80,7 @@ export default {
       const response = yield post<boolean>('/passport/comm/sendEmailVerify', data);
       yield put({ type: 'setState', payload: { sendEmailVerifyLoading: false } });
       if (!isSuccessfulResponse(response) || !response.data) return;
-      notify('success', '发送成功', '如果没有收到验证码请检查垃圾箱。');
+      if (typeof succeed === 'function') succeed();
       if (typeof callback === 'function') callback();
     },
     *forget(

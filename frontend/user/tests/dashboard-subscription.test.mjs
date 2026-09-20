@@ -94,6 +94,7 @@ for (const mobile of [true, false]) test(`Subscription copy, QR and close mobile
   const box = importer.renderSubscribeBox();
   nodes(box, node => node.props.className?.includes('subsrcibe-for-link'))[0].props.onClick();
   assert.deepEqual(runtime.copied, ['test-subscription']);
+  assert.deepEqual(runtime.messages, ['复制成功']);
   nodes(box, node => node.props.className?.includes('subscribe-for-qrcode'))[0].props.onClick();
   assert.equal(importer.state.showQrSubscribe, true);
   const qr = nodes(importer.render(), node => node.type === runtime.modal && node.props.zIndex === 2000)[0];

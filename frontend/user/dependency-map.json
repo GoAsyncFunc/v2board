@@ -37,6 +37,10 @@
   },
   {
     "from": "app/bootstrap.tsx",
+    "to": "app/requestPresentation.ts"
+  },
+  {
+    "from": "app/bootstrap.tsx",
     "to": "app/rootRuntime.tsx"
   },
   {
@@ -62,6 +66,22 @@
   {
     "from": "app/navigation.ts",
     "to": "app/history.ts"
+  },
+  {
+    "from": "app/notifications.ts",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "app/requestPresentation.ts",
+    "to": "app/notifications.ts"
+  },
+  {
+    "from": "app/requestPresentation.ts",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "app/requestPresentation.ts",
+    "to": "services/request.ts"
   },
   {
     "from": "app/rootRuntime.tsx",
@@ -641,6 +661,10 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
+    "to": "app/notifications.ts"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
     "to": "app/routerHistory.ts"
   },
   {
@@ -658,10 +682,6 @@
   {
     "from": "pages/auth/ForgetPassword.tsx",
     "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/auth/ForgetPassword.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/auth/Index.tsx",
@@ -685,6 +705,10 @@
   },
   {
     "from": "pages/auth/Register.tsx",
+    "to": "app/notifications.ts"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
     "to": "app/routerHistory.ts"
   },
   {
@@ -702,10 +726,6 @@
   {
     "from": "pages/auth/Register.tsx",
     "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/auth/Register.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/commerce/Order.tsx",
@@ -998,9 +1018,5 @@
   {
     "from": "services/request.ts",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "utils/siteHelpers.ts",
-    "to": "locales/i18n.ts"
   }
 ]

@@ -161,5 +161,19 @@ test('user model layer does not import rendering notifications', async () => {
   for (const modelName of modelNames) {
     const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
     assert.doesNotMatch(source, /from ['"]antd\/lib\/(?:message|notification|modal)['"]/, `${modelName} imports a rendering notification`);
+    assert.doesNotMatch(source, /from ['"]\.\.\/app\/notifications['"]/, `${modelName} imports the application notification presenter`);
   }
+});
+
+test('user transport and utility layers are presentation independent', async () => {
+  const requestSource = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
+  const helperSource = await fs.readFile(new URL('../src/utils/siteHelpers.ts', import.meta.url), 'utf8');
+  const notificationSource = await fs.readFile(new URL('../src/app/notifications.ts', import.meta.url), 'utf8');
+  const requestPresentationSource = await fs.readFile(new URL('../src/app/requestPresentation.ts', import.meta.url), 'utf8');
+  assert.doesNotMatch(requestSource, /from ['"]antd\//);
+  assert.doesNotMatch(requestSource, /\bnotify\(/);
+  assert.doesNotMatch(helperSource, /from ['"]antd\//);
+  assert.doesNotMatch(helperSource, /export function notify/);
+  assert.match(notificationSource, /from ['"]antd\/lib\/notification['"]/);
+  assert.match(requestPresentationSource, /setRequestFailurePresenter/);
 });

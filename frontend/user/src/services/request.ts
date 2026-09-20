@@ -1,7 +1,21 @@
 import { fetchResponse } from './fetchResponse';
-import { getLocale, formatMessage } from '../locales/i18n';
-import { getToken, clearToken, notify } from '../utils/siteHelpers';
+import { getLocale } from '../locales/i18n';
+import { getToken, clearToken } from '../utils/siteHelpers';
 import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/api';
+
+export interface RequestFailurePresentation {
+  titleMessageId: string;
+  description?: string;
+}
+
+export type RequestFailurePresenter = (failure: RequestFailurePresentation) => void;
+
+let presentRequestFailure: RequestFailurePresenter = () => {};
+
+export function setRequestFailurePresenter(presenter: RequestFailurePresenter): void {
+  presentRequestFailure = presenter;
+}
+
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
 document.title = window.settings.title;
 export function encodeForm(data?: FormValue): string {
@@ -39,9 +53,7 @@ export async function request<Data = JsonValue>(endpoint: string, options: Reque
   }
   if (response.status !== 200) {
     const message = data.errors ? Object.values(data.errors)[0][0] : data.message;
-    notify('error', formatMessage({
-      id: '请求失败'
-    }), message);
+    presentRequestFailure({ titleMessageId: '请求失败', description: message });
     return {
       code: response.status,
       msg: message

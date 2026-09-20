@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
 import Drawer from 'antd/lib/drawer';
+import message from 'antd/lib/message';
 import QRCode from 'qrcode.react';
 import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
@@ -15,6 +16,11 @@ interface SubscribeImporterProps {
 
 export default class SubscribeImporter extends React.Component<SubscribeImporterProps> {
   state = { showSubscribe: false, showQrSubscribe: false };
+
+  copySubscribeUrl(): void {
+    copyToClipboard(this.props.subscribeUrl ?? '');
+    message.success(formatMessage({ id: '复制成功' }));
+  }
 
   getImportLinks() {
     const subscribeUrl = String(this.props.subscribeUrl);
@@ -47,7 +53,7 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
     const subscribeUrl = this.props.subscribeUrl ?? '';
     return (
       <div className={styles.oneClickSubscribe}>
-        <div className={`${styles.item} subsrcibe-for-link`} onClick={() => copyToClipboard(subscribeUrl)}>
+        <div className={`${styles.item} subsrcibe-for-link`} onClick={() => this.copySubscribeUrl()}>
           <div><i className="fa fa-copy mr-2" /></div>
           <div>{formatMessage({ id: '复制订阅地址' })}</div>
         </div>

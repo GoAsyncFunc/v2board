@@ -29,7 +29,7 @@ async function loadPage() {
       if (id.includes('Recaptcha')) return 'Recaptcha';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id, getLocale: () => 'zh-CN' };
       if (id.includes('LanguageSelector')) return { LanguageSelector: 'LanguageSelector' };
-      if (id.includes('siteHelpers')) return { notify: (...args) => notices.push(args) };
+      if (id.includes('app/notifications')) return { notify: (...args) => notices.push(args) };
       if (id.includes('localeSettings')) return { localeSettings: { i18nText: { 'zh-CN': '中文' } } };
       if (id.includes('iconStyles')) return {};
       throw new Error(id);
@@ -68,8 +68,8 @@ test('Forgot password validates matching passwords and preserves request fields'
   });
 });
 
-test('Verification starts its original countdown only after successful dispatch callback', async () => {
-  const { page, actions, timers } = await loadPage();
+test('Verification presents success and starts its countdown only after successful callbacks', async () => {
+  const { page, actions, notices, timers } = await loadPage();
   const recaptcha = nodes(page.render(), node => node.type === 'Recaptcha')[0];
   assert.equal(recaptcha.props.visible, true);
   recaptcha.props.callback('captcha-token');
@@ -78,6 +78,8 @@ test('Verification starts its original countdown only after successful dispatch 
   assert.equal(actions[0].isforget, 1);
   assert.equal(actions[0].email, 'test@example.com');
   assert.equal(timers.length, 0);
+  actions[0].succeed();
+  assert.deepEqual(notices, [['success', '发送成功', '如果没有收到验证码请检查垃圾箱。']]);
   actions[0].callback();
   for (let seconds = 59; seconds >= 0; seconds--) {
     const timer = timers.shift();

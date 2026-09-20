@@ -1,11 +1,7 @@
-import message from 'antd/lib/message';
-import desktopNotification from 'antd/lib/notification';
 import copyText from 'copy-to-clipboard';
 import type { NumericValue } from '../types/commerce';
 import type { UserSubscription } from '../types/subscription';
-import { formatMessage } from '../locales/i18n';
 
-export type NotificationType = 'success' | 'error' | 'info' | 'warning';
 export type CookieValue = string | number | boolean;
 
 export function getCookie(name: string): string {
@@ -68,17 +64,8 @@ export function canRenew(subscription: Partial<UserSubscription>): boolean {
   return Boolean(subscription.plan?.renew && (subscription.plan?.show || !isExpired(subscription.expired_at)));
 }
 
-export function notify(type: NotificationType = 'success', title = '', description?: string): void {
-  if (isMobile()) {
-    message[type](description);
-    return;
-  }
-  desktopNotification[type]({ message: title, description, duration: 1.5 });
-}
-
-export function copyToClipboard(value: string): void {
-  copyText(value);
-  message.success(formatMessage({ id: '复制成功' }));
+export function copyToClipboard(value: string): boolean {
+  return copyText(value);
 }
 
 export function parseJson<T>(value: string): T | string {

@@ -50,6 +50,7 @@ export interface RegisterAction {
 export interface SendEmailVerificationAction {
   email: string;
   callback?: () => void;
+  succeed?: () => void;
   recaptchaData?: RecaptchaToken;
   isforget?: number;
 }

@@ -10,10 +10,11 @@ for(const kind of ['validation','server','forbidden','transport','invalid-json']
  const events=[],module={exports:{}};const window={settings:{title:'Fixture'},location:{href:'http://ui.test/'}};
  vm.runInNewContext(code,{module,exports:module.exports,window,document:{},URL,require(id){
   if(id.includes('fetchResponse')){const fetchResponse=async()=>{if(kind==='transport')throw Error('Network offline');return {status:kind==='forbidden'?403:kind==='validation'?422:500,json:async()=>{if(kind==='invalid-json')throw Error('Invalid JSON');return kind==='validation'?{errors:{method:['Invalid payment method']}}:{message:'Payment unavailable'};}};};return {b:fetchResponse,fetchResponse};}
-  if(id.includes('i18n'))return {getLocale:()=> 'zh-CN',formatMessage:({id})=>id};
-  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push('clear-token'),r:(...args)=>events.push(args),getToken:()=> 'fixture-token',clearToken:()=>events.push('clear-token'),notify:(...args)=>events.push(args)};
+ if(id.includes('i18n'))return {getLocale:()=> 'zh-CN',formatMessage:({id})=>id};
+  if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push('clear-token'),getToken:()=> 'fixture-token',clearToken:()=>events.push('clear-token')};
         throw Error(id);
  }});
+ module.exports.setRequestFailurePresenter(failure => events.push(['error', failure.titleMessageId, failure.description]));
  if(['transport','invalid-json'].includes(kind)){
   await assert.rejects(()=>module.exports.post('/user/order/checkout',{}));
   assert.equal(events.length,0,'Inherited transport/parse errors have no notification');

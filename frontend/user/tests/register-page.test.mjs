@@ -28,7 +28,7 @@ async function loadPage() {
       if (id.includes('Recaptcha')) return 'Recaptcha';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id, getLocale: () => 'zh-CN' };
       if (id.includes('LanguageSelector')) return { LanguageSelector: 'LanguageSelector' };
-      if (id.includes('siteHelpers')) return { notify: (...args) => notices.push(args) };
+      if (id.includes('app/notifications')) return { notify: (...args) => notices.push(args) };
       if (id.includes('localeSettings')) return { localeSettings: { i18nText: { 'zh-CN': '中文' } } };
       if (id.includes('iconStyles')) return {};
       throw new Error(id);
@@ -72,8 +72,8 @@ test('Registration validates terms before password and preserves the submitted p
   assert.equal(actions[1].emailCode, '654321');
 });
 
-test('Registration verification sends the resolved email and preserves countdown timing', async () => {
-  const { page, actions, timers } = await loadPage();
+test('Registration verification presents success before preserving countdown timing', async () => {
+  const { page, actions, notices, timers } = await loadPage();
   page.componentDidMount();
   assert.equal(actions[0].type, 'guest/getCommConfig');
   page.props.guest.commConfig.email_whitelist_suffix = ['example.com'];
@@ -82,6 +82,8 @@ test('Registration verification sends the resolved email and preserves countdown
   assert.equal(actions[1].isforget, 0);
   assert.equal(actions[1].recaptchaData, 'captcha');
   assert.equal(timers.length, 0);
+  actions[1].succeed();
+  assert.deepEqual(notices, [['success', '发送成功', '如果没有收到验证码请检查垃圾箱。']]);
   actions[1].callback();
   for (let seconds = 59; seconds >= 0; seconds--) {
     const timer = timers.shift();

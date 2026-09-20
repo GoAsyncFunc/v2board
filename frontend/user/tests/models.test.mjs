@@ -41,6 +41,7 @@ async function run(target,name,original,scenario){
  const model=await load(target,name,original,trace,scenario.response);
  const action={...(scenario.action||{})};
  if(scenario.callback)action.callback=()=>trace.push(['callback']);
+ if(scenario.effect==='sendEmailVerify')action.succeed=()=>trace.push(['notify','success','发送成功','如果没有收到验证码请检查垃圾箱。']);
  if(scenario.complete)action.complete=value=>trace.push(['complete',copy(value)]);
  const api={
   put:value=>{trace.push(['put',copy(value)]);return {put:true};},

@@ -6,7 +6,7 @@ import Recaptcha from '../../components/common/Recaptcha';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
-import { notify } from '../../utils/siteHelpers';
+import { notify } from '../../app/notifications';
 import type { RecaptchaToken, RegistrationPageProps } from '../../types/auth';
 import type { UserRootState } from '../../types/store';
 
@@ -47,6 +47,7 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
       email: this.getEmail(),
       isforget: 0,
       recaptchaData,
+      succeed: () => notify('success', '发送成功', '如果没有收到验证码请检查垃圾箱。'),
       callback: startCountdown,
     });
   }

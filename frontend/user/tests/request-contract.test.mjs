@@ -8,7 +8,7 @@ const source = await fs.readFile(new URL('../src/services/request.ts', import.me
 const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 
 function setup({ token = 'test-token', host, status = 200, body = { data: { id: 7 } } } = {}) {
-  const requests = [], notices = [];
+  const requests = [], notices = [], session = [];
   const window = { settings: { title: 'Test', host }, location: { href: 'https://ui.test/path' } };
   const document = {};
   const module = { exports: {} };
@@ -17,11 +17,12 @@ function setup({ token = 'test-token', host, status = 200, body = { data: { id: 
       requests.push({ url, options });
       return { status, json: async () => body };
     } };
-    if (id.includes('i18n')) return { getLocale: () => 'zh-CN', formatMessage: ({ id }) => id };
-    if (id.includes('siteHelpers')) return { getToken: () => token, clearToken() {}, notify: (...args) => notices.push(args) };
+    if (id.includes('i18n')) return { getLocale: () => 'zh-CN' };
+    if (id.includes('siteHelpers')) return { getToken: () => token, clearToken: () => session.push('clear-token') };
     throw Error(id);
   } });
-  return { ...module.exports, requests, notices, document };
+  module.exports.setRequestFailurePresenter(failure => notices.push(failure));
+  return { ...module.exports, requests, notices, session, document, window };
 }
 
 test('Form encoding preserves nested arrays, null omission, inherited keys and value escaping', () => {
@@ -75,4 +76,25 @@ test('Successful response fields retain their original override order', async ()
   assert.equal(response.code, 201);
   assert.equal(response.total, 12);
   assert.equal(response.extra, 'kept');
+});
+
+test('Forbidden responses clear the session and redirect to the public root', async () => {
+  const runtime = setup({ status: 403, body: { message: 'Forbidden' } });
+  const response = await runtime.get('/user/info');
+  assert.deepEqual(runtime.session, ['clear-token']);
+  assert.equal(runtime.window.location.href, '/');
+  assert.equal(response.code, 403);
+  assert.equal(response.msg, 'Forbidden');
+  assert.deepEqual(runtime.notices, []);
+});
+
+test('Failed responses expose presentation-neutral request failure details', async () => {
+  const runtime = setup({ status: 422, body: { errors: { email: ['Invalid email'] } } });
+  const response = await runtime.post('/passport/auth/register', { email: 'invalid' });
+  assert.equal(response.code, 422);
+  assert.equal(response.msg, 'Invalid email');
+  assert.deepEqual(JSON.parse(JSON.stringify(runtime.notices)), [{
+    titleMessageId: '请求失败',
+    description: 'Invalid email',
+  }]);
 });

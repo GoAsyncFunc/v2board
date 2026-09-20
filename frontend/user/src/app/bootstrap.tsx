@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import * as plugins from '../runtime/pluginRuntime';
 import appDvaConfig from './dvaConfig';
 import { initialProps, modifyInitialProps, rootContainer } from './rootRuntime';
+import { configureRequestPresentation } from './requestPresentation';
 import Router from './Router';
 import { createApp } from './store';
+
+configureRequestPresentation();
 
 window.g_plugins = plugins;
 plugins.init({
