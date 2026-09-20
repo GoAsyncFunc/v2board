@@ -1,5 +1,5 @@
 import message from 'antd/lib/message';
-import { post, type ApiResponse, type FormRecord } from '../services/request';
+import { post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserRecord } from '../types/user';
 import type { AdminAction } from '../types/store';
@@ -23,7 +23,11 @@ export function* update({ params, callback }: UpdateAction, { put }: UserTools):
   params.balance = Math.round(100 * (params.balance as number));
   params.commission_balance = Math.round(100 * (params.commission_balance as number));
   if (params.invite_user) delete params.invite_user;
-  const response = (yield post(endpoint('update'), params as FormRecord)) as ApiResponse;
+  const updateForm = Object.entries(params).reduce<FormRecord>((form, [field, value]) => {
+    form[field] = value as FormValue;
+    return form;
+  }, {});
+  const response = (yield post(endpoint('update'), updateForm)) as ApiResponse;
   yield put({ type: 'setState', payload: { updateLoading: false } });
   if (response.code !== 200) return;
   yield put({ type: 'fetch' });

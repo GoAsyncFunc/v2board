@@ -15,7 +15,7 @@ export interface UserRecord {
   alive_ip?: number | null;
   device_limit?: number | string | null;
   ips?: string | null;
-  expired_at?: number | null;
+  expired_at?: string | number | null;
   balance?: string | number;
   commission_balance?: string | number;
   commission_type?: string | number;
@@ -31,7 +31,6 @@ export interface UserRecord {
   is_admin?: number | boolean;
   is_staff?: number | boolean;
   remarks?: string;
-  [key: string]: unknown;
 }
 
 export interface UserPlanOption { id: string | number; name: string; }

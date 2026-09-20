@@ -14,13 +14,13 @@ const QUEUE_NAME_LABELS: Record<string, string> = {
 // Direct property lookup: unknown names return undefined, as in the original.
 export type QueueName = string | number | symbol | null | undefined;
 export type QueueWait = string | number | object | null | undefined;
+export type QueueMetric = string | number | null | undefined;
 
 export interface QueueWorkload {
   name: QueueName;
-  processes?: unknown;
-  length?: unknown;
+  processes?: QueueMetric;
+  length?: QueueMetric;
   wait?: QueueWait;
-  [key: string]: unknown;
 }
 
 export function formatQueueName(value: QueueName): string | undefined {

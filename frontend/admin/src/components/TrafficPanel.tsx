@@ -13,7 +13,6 @@ export interface TrafficRecord {
   u: string | number;
   d: string | number;
   server_rate: React.ReactNode;
-  [key: string]: unknown;
 }
 
 export interface TrafficPanelProps {

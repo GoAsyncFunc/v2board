@@ -100,7 +100,7 @@ export class ServerManagePage extends React.Component<ServerManagePageProps, Ser
     this.props.dispatch({ type: 'serverRoute/fetch' });
   }
 
-  dispatchServerAction(server: ServerRecord, action: string, extra: Record<string, unknown> = {}): void {
+  dispatchServerAction(server: ServerRecord, action: string, extra: object = {}): void {
     if (!server.type) return;
     const model = MODEL_BY_TYPE[server.type as keyof typeof MODEL_BY_TYPE];
     if (model) this.props.dispatch({ type: `${model}/${action}`, id: server.id, ...extra });
@@ -108,7 +108,9 @@ export class ServerManagePage extends React.Component<ServerManagePageProps, Ser
 
   copy(server: ServerRecord): void { this.dispatchServerAction(server, 'copy'); }
   drop(server: ServerRecord): void { this.dispatchServerAction(server, 'drop'); }
-  update(server: ServerRecord, key: string, value: unknown): void { this.dispatchServerAction(server, 'update', { key, value }); }
+  update<Key extends keyof ServerRecord>(server: ServerRecord, key: Key, value: ServerRecord[Key]): void {
+    this.dispatchServerAction(server, 'update', { key, value });
+  }
 
   actionMenu(server: ServerRecord): React.ReactElement {
     return <Menu>

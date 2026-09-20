@@ -43,7 +43,7 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
     this.setState({ visible: !this.state.visible });
   }
 
-  updateServer(field: string, value: unknown): void {
+  updateServer<Key extends keyof ServerRecord>(field: Key, value: ServerRecord[Key]): void {
     this.setState({ server: { ...this.state.server, [field]: value } });
   }
 

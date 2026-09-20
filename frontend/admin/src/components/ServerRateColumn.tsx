@@ -2,10 +2,11 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
+import type { Scalar } from '../types/server';
 
 // Preserve addition's default-hint coercion. String(value), interpolation or
 // numeric formatting can invoke a different conversion or suppress exceptions.
-export function renderServerRate(value: unknown): React.ReactElement {
+export function renderServerRate(value: Scalar | undefined): React.ReactElement {
   return <Tag style={{ minWidth: 60 }}>{(value as string) + ' x'}</Tag>;
 }
 

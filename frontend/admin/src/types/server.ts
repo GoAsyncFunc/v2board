@@ -4,6 +4,8 @@ import type { AdminDispatch } from './store';
 export type ServerId = string | number;
 export type Scalar = string | number | null;
 export type SecuritySettingValue = string | number | null | undefined;
+export type ServerProtocolType = 'shadowsocks' | 'vmess' | 'trojan' | 'hysteria' | 'tuic' | 'vless' | 'anytls' | 'v2node';
+export type ServerJsonValue = string | number | boolean | null | ServerJsonValue[] | { [key: string]: ServerJsonValue };
 
 export interface SecuritySettings {
   [key: string]: SecuritySettingValue;
@@ -21,7 +23,7 @@ export interface ServerRouteOption {
 
 export interface ServerRecord {
   id?: ServerId;
-  type?: string;
+  type?: ServerProtocolType;
   name?: string;
   host?: string;
   port?: Scalar;
@@ -35,8 +37,8 @@ export interface ServerRecord {
   group_id?: Array<string | number>;
   route_id?: ServerId[] | null;
   network?: string;
-  network_settings?: string | Record<string, unknown> | null;
-  networkSettings?: string | Record<string, unknown> | null;
+  network_settings?: string | Record<string, ServerJsonValue> | null;
+  networkSettings?: string | Record<string, ServerJsonValue> | null;
   tls?: Scalar;
   insecure?: Scalar;
   allow_insecure?: Scalar;
@@ -64,12 +66,11 @@ export interface ServerRecord {
   trusted_x_forwarded_for?: string[] | null;
   listen_ip?: string;
   install_command?: string;
-  [key: string]: unknown;
 }
 
 export interface ManagedServerRecord extends ServerRecord {
   id: ServerId;
-  type: string;
+  type: ServerProtocolType;
   name: string;
   host: string;
   port: Scalar;

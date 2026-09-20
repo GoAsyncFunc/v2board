@@ -146,7 +146,7 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
   }
 
   toggle(): void { this.setState({ visible: !this.state.visible }); }
-  updateServer(field: string, value: unknown): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
+  updateServer<Key extends keyof ServerRecord>(field: Key, value: ServerRecord[Key]): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
   showChildDrawer(title: string, type: string): void { this.setState({ childDrawer: { visible: true, title, type } }); }
   hideChildDrawer(): void { this.setState({ childDrawer: { ...this.state.childDrawer, visible: false } }); }
 

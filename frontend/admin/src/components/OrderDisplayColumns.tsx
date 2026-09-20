@@ -9,6 +9,9 @@ export interface OrderDisplayRecord {
   period: PropertyKey;
 }
 
+type InheritedObjectMethod = (...args: never[]) => string;
+type OrderTypeLabel = string | InheritedObjectMethod | undefined;
+
 // Preserve status short-circuiting and value truthiness. Do not destructure status
 // or convert the amount before checking whether the order hides commission.
 export function formatOrderCommission(value: number | null | undefined, order: OrderDisplayRecord): string {
@@ -27,8 +30,8 @@ export function formatOrderCreatedAt(value: number): string {
 
 // Keep a fresh ordinary object and direct property lookup (including coercion
 // and inherited properties); a Map or strict switch would change semantics.
-export function formatOrderType(value: PropertyKey): unknown {
-  return ({1:'新购',2:'续费',3:'变更',4:'流量包',9:'充值'} as Record<PropertyKey, unknown>)[value];
+export function formatOrderType(value: PropertyKey): OrderTypeLabel {
+  return ({1:'新购',2:'续费',3:'变更',4:'流量包',9:'充值'} as Record<PropertyKey, OrderTypeLabel>)[value];
 }
 
 export function renderOrderPeriod(_value: OrderDisplayRecord['period'], order: OrderDisplayRecord): React.ReactElement {

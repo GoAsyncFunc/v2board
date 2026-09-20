@@ -27,10 +27,10 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
   }
 
   toggle(): void { this.setState({ visible: !this.state.visible }); }
-  updateServer(field: string, value: unknown): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
+  updateServer<Key extends keyof ServerRecord>(field: Key, value: ServerRecord[Key]): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
   save(): void { this.props.dispatch({ type: 'serverTuic/save', params: { ...this.state.server }, callback: () => this.toggle() }); }
 
-  yesNoSelect(field: string, value: Scalar | undefined): React.ReactElement {
+  yesNoSelect(field: 'disable_sni' | 'zero_rtt_handshake' | 'insecure', value: Scalar | undefined): React.ReactElement {
     return <Select value={parseInt(String(value), 10) ? 1 : 0} style={{ width: '100%' }} onChange={nextValue => this.updateServer(field, nextValue)}><Select.Option value={0}>否</Select.Option><Select.Option value={1}>是</Select.Option></Select>;
   }
 

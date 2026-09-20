@@ -8,7 +8,7 @@ export interface ContextMenuTableProps<RecordType> extends TableProps<RecordType
   onContextMenu?: (record: RecordType | undefined) => void;
 }
 
-export class ContextMenuTable<RecordType extends object = Record<string, unknown>> extends React.Component<ContextMenuTableProps<RecordType>> {
+export class ContextMenuTable<RecordType extends object = object> extends React.Component<ContextMenuTableProps<RecordType>> {
   getMenuElement() {
     return document.getElementById('v2board-table-dropdown');
   }

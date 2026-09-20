@@ -24,7 +24,7 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
   }
 
   toggle(): void { this.setState({ visible: !this.state.visible }); }
-  updateServer(field: string, value: unknown): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
+  updateServer<Key extends keyof ServerRecord>(field: Key, value: ServerRecord[Key]): void { this.setState({ server: { ...this.state.server, [field]: value } }); }
 
   save(): void {
     this.props.dispatch({
