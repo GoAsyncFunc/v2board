@@ -26,7 +26,7 @@ export interface TicketRecord {
 }
 
 export function renderTicketLevel(levels: readonly React.ReactNode[], value: TicketLevel): React.ReactNode {
-  return (levels as unknown as Record<PropertyKey, React.ReactNode>)[value as PropertyKey];
+  return Reflect.get(levels, value as PropertyKey) as React.ReactNode;
 }
 
 export function formatTicketCreatedAt(value: TicketTimestamp): string {

@@ -28,10 +28,10 @@ export function formatCouponValidity(coupon: CouponRecord): string {
   return `${startsAt} ~ ${endsAt}`;
 }
 
-export function formatCouponType(type: unknown): string {
+export function formatCouponType(type: CouponRecord['type']): string {
   return type === 1 ? '金额' : '比例';
 }
-export function renderCouponLimit(limit: unknown) {
+export function renderCouponLimit(limit: CouponRecord['limit_use']) {
   return <Tag>{limit !== null ? limit : '无限'}</Tag>;
 }
 
@@ -43,7 +43,7 @@ export function createReadonlyCouponColumns(): Record<'id' | 'name' | 'type' | '
     limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: renderCouponLimit },
     started_at: {
       title: '有效期', dataIndex: 'started_at', key: 'started_at', align: 'left',
-      render: (_value: unknown, coupon: CouponRecord) => formatCouponValidity(coupon),
+      render: (_value: CouponRecord['started_at'], coupon: CouponRecord) => formatCouponValidity(coupon),
     },
   };
 }

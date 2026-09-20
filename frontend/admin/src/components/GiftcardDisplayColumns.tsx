@@ -18,13 +18,13 @@ export interface GiftcardRecord {
   ended_at?: number | string | null;
 }
 
-export function giftcardTypeText(type: unknown): string {
+export function giftcardTypeText(type: GiftcardRecord['type']): string {
   switch (type) {
     case 1: return '金额'; case 2: return '时长'; case 3: return '流量';
     case 4: return '重置'; case 5: return '套餐'; default: return '';
   }
 }
-export function giftcardValueText(value: unknown, card: GiftcardRecord): string | unknown {
+export function giftcardValueText(value: GiftcardRecord['value'], card: GiftcardRecord): string | number | undefined {
   switch (card.type) {
     case 1: return (value as { toFixed: (digits: number) => string }).toFixed(2) + ' ¥';
     case 2: case 5: return value + ' 天';
@@ -33,12 +33,12 @@ export function giftcardValueText(value: unknown, card: GiftcardRecord): string 
     default: return value;
   }
 }
-export function findGiftcardPlanName(plans: GiftcardPlan[] | null | undefined, id: unknown): string | null | undefined {
+export function findGiftcardPlanName(plans: GiftcardPlan[] | null | undefined, id: GiftcardRecord['plan_id']): string | null | undefined {
   const plan = (plans as GiftcardPlan[]).find(candidate => (candidate as GiftcardPlan).id === id);
   return plan ? plan.name : '-';
 }
 
-export function renderGiftcardLimit(limit: unknown) {
+export function renderGiftcardLimit(limit: GiftcardRecord['limit_use']) {
   return <Tag>{limit !== null ? limit : '无限'}</Tag>;
 }
 
@@ -54,8 +54,8 @@ export function createReadonlyGiftcardColumns(plans: GiftcardPlan[] | null | und
     name: { title: '名称', dataIndex: 'name', key: 'name' },
     type: { title: '类型', dataIndex: 'type', key: 'type', render: giftcardTypeText },
     value: { title: '数值', dataIndex: 'value', key: 'value', render: giftcardValueText },
-    plan_id: { title: '套餐', dataIndex: 'plan_id', key: 'plan_id', render: (id: unknown) => findGiftcardPlanName(plans, id) },
+    plan_id: { title: '套餐', dataIndex: 'plan_id', key: 'plan_id', render: (id: GiftcardRecord['plan_id']) => findGiftcardPlanName(plans, id) },
     limit_use: { title: '剩余次数', dataIndex: 'limit_use', key: 'limit_use', render: renderGiftcardLimit },
-    started_at: { title: '有效期', dataIndex: 'started_at', key: 'started_at', align: 'left', render: (_value: unknown, card: GiftcardRecord) => formatGiftcardValidity(card) },
+    started_at: { title: '有效期', dataIndex: 'started_at', key: 'started_at', align: 'left', render: (_value: GiftcardRecord['started_at'], card: GiftcardRecord) => formatGiftcardValidity(card) },
   };
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
+import type { PlanRecord } from '../types/plan';
 
 // Keep raw children: concatenating/interpolating would change null, objects and arrays.
-export function renderPlanCount(count: unknown) {
+export function renderPlanCount(count: PlanRecord['count']) {
   return <React.Fragment><Icon type="user" style={{ cursor: 'move' }} />{' '}{count}</React.Fragment>;
 }
-export function renderPlanTraffic(traffic: unknown) {
+export function renderPlanTraffic(traffic: PlanRecord['transfer_enable']) {
   return <React.Fragment>{traffic}{' GB'}</React.Fragment>;
 }
-export function displayDeviceLimit(limit: unknown): unknown {
+export function displayDeviceLimit(limit: PlanRecord['device_limit']): React.ReactNode {
   return limit !== null ? limit : '-';
 }
 

@@ -31,7 +31,7 @@ export function formatOrderType(value: PropertyKey): unknown {
   return ({1:'新购',2:'续费',3:'变更',4:'流量包',9:'充值'} as Record<PropertyKey, unknown>)[value];
 }
 
-export function renderOrderPeriod(value: unknown, order: OrderDisplayRecord): React.ReactElement {
+export function renderOrderPeriod(_value: OrderDisplayRecord['period'], order: OrderDisplayRecord): React.ReactElement {
   return <Tag>{settings.periodText[order.period]}</Tag>;
 }
 
