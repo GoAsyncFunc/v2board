@@ -18,6 +18,7 @@ import * as plugins from '../vendor/appRuntime.js';
 import history from './history';
 import appRoutes from './routes';
 import '../vendor/dateTime.js';
+import type { UserStore } from '../types/store';
 
 const { ConnectedRouter } = routerBindings;
 
@@ -43,7 +44,7 @@ const localeData: Record<SupportedLocale, AppLocale> = {
 interface IntlApiBridgeProps { intl: IntlApi; children?: React.ReactNode; }
 interface LocaleChildrenProps { children?: React.ReactNode; }
 interface LocaleProviderState { locale: string; }
-interface RouterProps { store?: unknown; [key: string]: unknown; }
+interface RouterProps { store?: UserStore; [key: string]: unknown; }
 
 export const routes = appRoutes;
 window.g_routes = routes;
@@ -129,6 +130,7 @@ export default class Router extends React.Component<RouterProps> {
   componentWillUnmount(): void { this.unlisten(); }
 
   render(): React.ReactNode {
+    if (!this.props.store) throw new Error('Router store was not initialized');
     return (
       <LocaleProvider>
         <ConnectedRouter history={history} store={this.props.store}>

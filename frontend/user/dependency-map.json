@@ -1169,7 +1169,7 @@
   },
   {
     "from": "vendor/appRuntime.js",
-    "to": "runtime/loadingPlugin.js"
+    "to": "runtime/loadingPlugin.ts"
   },
   {
     "from": "vendor/appRuntime.js",
@@ -1197,7 +1197,7 @@
   },
   {
     "from": "vendor/dva.js",
-    "to": "runtime/routerBindings.js"
+    "to": "runtime/routerBindings.tsx"
   },
   {
     "from": "vendor/dva.js",

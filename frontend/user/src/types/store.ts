@@ -6,3 +6,8 @@ export interface UserAction<Result = void> {
 }
 
 export type UserDispatch = <Result = void>(action: UserAction<Result>) => unknown;
+
+export interface UserStore {
+  dispatch: UserDispatch;
+  getState(): Record<string, object>;
+}

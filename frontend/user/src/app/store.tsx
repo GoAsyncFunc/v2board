@@ -18,13 +18,10 @@ import telegram from '../models/telegram';
 import ticket from '../models/ticket';
 import tutorial from '../models/tutorial';
 import user from '../models/user';
-
-interface DvaStore {
-  getState(): Record<string, object>;
-}
+import type { UserStore } from '../types/store';
 
 export interface UserDvaApplication {
-  _store: DvaStore;
+  _store: UserStore;
   use(plugin: object): void;
   model(model: object): void;
   router(render: () => React.ReactElement): void;
