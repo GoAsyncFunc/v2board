@@ -1,6 +1,6 @@
 import React from 'react';
 import Radio from 'antd/lib/radio';
-import { localeSettings as settings } from '../../vendor/localeSettings.js';
+import { localeSettings as settings } from '../../config/localeSettings';
 import { formatMessage } from '../../vendor/i18n.js';
 import { formatPrice } from '../MoneyDisplay';
 import type { CouponData, PlanData } from '../../types/commerce';

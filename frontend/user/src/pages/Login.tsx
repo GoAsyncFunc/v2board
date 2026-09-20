@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import history from '../app/routerHistory';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { LanguageSelector } from '../components/LanguageSelector';
-import { localeSettings } from '../vendor/localeSettings.js';
+import { localeSettings } from '../config/localeSettings';
 import type { AuthRootState, LoginPageProps } from '../types/auth';
 
 const translate = (id: string): string => formatMessage({ id });

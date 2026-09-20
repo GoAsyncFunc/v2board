@@ -8,7 +8,7 @@ import SubscribeImporter from '../components/SubscribeImporter';
 import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
 import history from '../app/routerHistory';
-import { formatBytes, calculateUsage, isExpired, canRenew } from '../vendor/siteHelpers.js';
+import { formatBytes, calculateUsage, isExpired, canRenew } from '../utils/siteHelpers';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay';
 import { subscribePercent, progressBarColor, formatDeviceLimit } from '../components/SubscribeUsage';

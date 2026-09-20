@@ -10,7 +10,7 @@ import Icon from 'antd/lib/icon';
 import MarkdownIt from 'markdown-it';
 import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
 import type { UserDispatch } from '../types/store';
-import { copyToClipboard } from '../vendor/siteHelpers.js';
+import { copyToClipboard } from '../utils/siteHelpers';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 

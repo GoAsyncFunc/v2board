@@ -5,8 +5,8 @@ import history from '../app/routerHistory';
 import Recaptcha from '../components/Recaptcha';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { LanguageSelector } from '../components/LanguageSelector';
-import { notify } from '../vendor/siteHelpers.js';
-import { localeSettings } from '../vendor/localeSettings.js';
+import { localeSettings } from '../config/localeSettings';
+import { notify } from '../utils/siteHelpers';
 import type { AuthRootState, RecaptchaToken, RegistrationPageProps } from '../types/auth';
 
 interface ForgetPasswordState {

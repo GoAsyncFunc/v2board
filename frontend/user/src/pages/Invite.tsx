@@ -16,7 +16,6 @@ import type { ColumnProps } from 'antd/lib/table';
 import type { InviteCode, InviteConfig, InviteState } from '../types/invite';
 import type { UserDispatch } from '../types/store';
 
-import '../vendor/localeSettings.js';
 
 const translate = (id: string): string => formatMessage({ id });
 

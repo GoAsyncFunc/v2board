@@ -2,7 +2,7 @@ import message from 'antd/lib/message';
 import { get, post } from '../services/request';
 import history from '../app/routerHistory';
 import moment from 'moment';
-import { formatBytes } from '../vendor/siteHelpers.js';
+import { formatBytes } from '../utils/siteHelpers';
 import * as sessionEffects from './sessionEffects';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';

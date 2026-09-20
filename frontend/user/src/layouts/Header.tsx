@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
-import { getCookie, setCookie } from '../vendor/siteHelpers.js';
+import { getCookie, setCookie } from '../utils/siteHelpers';
 import { formatMessage } from '../vendor/i18n.js';
 import LanguageSelector from '../components/LanguageSelector';
 import type { UserDispatch } from '../types/store';

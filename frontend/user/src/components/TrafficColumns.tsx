@@ -3,7 +3,7 @@ import moment from 'moment';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
-import { formatBytes } from '../vendor/siteHelpers.js';
+import { formatBytes } from '../utils/siteHelpers';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, TrafficRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';

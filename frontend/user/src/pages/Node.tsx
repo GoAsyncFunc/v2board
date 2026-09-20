@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
 import history from '../app/routerHistory';
-import { calculateUsage } from '../vendor/siteHelpers.js';
+import { calculateUsage } from '../utils/siteHelpers';
 import { formatMessage } from '../vendor/i18n.js';
 import { createNodeColumns } from '../components/NodeColumns';
 import type { OrderRecord } from '../types/commerce';

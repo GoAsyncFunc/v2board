@@ -1,6 +1,6 @@
 import { fetchResponse } from "../vendor/dva.js";
 import { getLocale, formatMessage } from "../vendor/i18n.js";
-import { getToken, clearToken, notify } from "../vendor/siteHelpers.js";
+import { getToken, clearToken, notify } from '../utils/siteHelpers';
 import type { ApiResponse, FormValue, RequestOptions } from '../types/api';
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
 document.title = window.settings.title!;

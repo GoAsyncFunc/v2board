@@ -1,6 +1,6 @@
 import { get } from '../services/request';
 import history from '../app/routerHistory';
-import { getToken, clearToken } from '../vendor/siteHelpers.js';
+import { getToken, clearToken } from '../utils/siteHelpers';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { LoginSessionData } from '../types/auth';

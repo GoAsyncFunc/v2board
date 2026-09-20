@@ -5,7 +5,7 @@ import Tag from 'antd/lib/tag';
 import history from '../app/routerHistory';
 import { formatDateTime } from './DateTimeDisplay';
 import { formatPrice } from './MoneyDisplay';
-import { localeSettings as settings } from '../vendor/localeSettings.js';
+import { localeSettings as settings } from '../config/localeSettings';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, OrderRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';

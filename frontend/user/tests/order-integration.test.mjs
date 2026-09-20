@@ -7,7 +7,7 @@ import {build} from 'esbuild';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
-  if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('routerHistory')||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
+  if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('routerHistory')||args.path.includes('siteHelpers')||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
  });
  b.onLoad({filter:/.*/,namespace:'mock'},args=>({contents:`module.exports=globalThis.dependency(${JSON.stringify(args.path)});`,loader:'js'}));
 }}]})).outputFiles[0].text;

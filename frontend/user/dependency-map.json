@@ -189,15 +189,15 @@
   },
   {
     "from": "components/LanguageSelector.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "components/LanguageSelector.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/LanguageSelector.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/LanguageSelector.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "components/LanguageSelector.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "components/NodeColumns.tsx",
@@ -217,11 +217,11 @@
   },
   {
     "from": "components/OrderColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "components/OrderColumns.tsx",
-    "to": "vendor/localeSettings.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/PlanCard.tsx",
@@ -233,15 +233,15 @@
   },
   {
     "from": "components/PlanCard.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "components/PlanCard.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/PlanCard.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/PlanCard.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "components/PlanCard.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "components/SubscribeImporter.tsx",
@@ -253,11 +253,11 @@
   },
   {
     "from": "components/SubscribeImporter.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "components/SubscribeImporter.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/SubscribeUsage.ts",
@@ -273,11 +273,11 @@
   },
   {
     "from": "components/TrafficColumns.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "components/TrafficColumns.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/TransferCommissionModal.tsx",
@@ -321,11 +321,11 @@
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "vendor/i18n.js"
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "vendor/localeSettings.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/checkout/OrderStatusResult.tsx",
@@ -349,11 +349,11 @@
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
-    "to": "vendor/i18n.js"
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
-    "to": "vendor/localeSettings.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/checkout/PaymentQrModal.tsx",
@@ -365,14 +365,18 @@
   },
   {
     "from": "components/checkout/Pricing.tsx",
-    "to": "vendor/i18n.js"
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "components/checkout/Pricing.tsx",
-    "to": "vendor/localeSettings.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "components/checkout/ProductInfo.tsx",
+    "to": "vendor/i18n.js"
+  },
+  {
+    "from": "config/localeSettings.ts",
     "to": "vendor/i18n.js"
   },
   {
@@ -385,11 +389,11 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -469,7 +473,11 @@
   },
   {
     "from": "models/passport.ts",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "models/plan.ts",
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "models/plan.ts",
@@ -478,10 +486,6 @@
   {
     "from": "models/plan.ts",
     "to": "vendor/appRuntime.js"
-  },
-  {
-    "from": "models/plan.ts",
-    "to": "vendor/localeSettings.js"
   },
   {
     "from": "models/server.ts",
@@ -497,7 +501,7 @@
   },
   {
     "from": "models/sessionEffects.ts",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/stat.ts",
@@ -533,7 +537,7 @@
   },
   {
     "from": "models/user.ts",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Dashboard.tsx",
@@ -561,11 +565,11 @@
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Forgetpassword.tsx",
@@ -581,15 +585,15 @@
   },
   {
     "from": "pages/Forgetpassword.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/Forgetpassword.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "pages/Index.tsx",
@@ -620,10 +624,6 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "pages/Invite.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
     "from": "pages/Knowledge.tsx",
     "to": "components/DateTimeDisplay.ts"
   },
@@ -633,11 +633,11 @@
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Login.tsx",
@@ -649,11 +649,11 @@
   },
   {
     "from": "pages/Login.tsx",
-    "to": "vendor/i18n.js"
+    "to": "config/localeSettings.ts"
   },
   {
     "from": "pages/Login.tsx",
-    "to": "vendor/localeSettings.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Node.tsx",
@@ -673,11 +673,11 @@
   },
   {
     "from": "pages/Node.tsx",
-    "to": "vendor/i18n.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/Node.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/i18n.js"
   },
   {
     "from": "pages/Order.tsx",
@@ -701,19 +701,19 @@
   },
   {
     "from": "pages/Order.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/Order.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Order.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/Order.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "pages/OrderDetail.tsx",
@@ -781,15 +781,15 @@
   },
   {
     "from": "pages/PlanDetail.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/PlanDetail.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
     "from": "pages/PlanDetail.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "pages/Profile.tsx",
@@ -825,15 +825,15 @@
   },
   {
     "from": "pages/Register.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/Register.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/Register.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "vendor/localeSettings.js"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "vendor/siteHelpers.js"
   },
   {
     "from": "pages/Ticket.tsx",
@@ -877,6 +877,10 @@
   },
   {
     "from": "services/request.ts",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "services/request.ts",
     "to": "vendor/dva.js"
   },
   {
@@ -884,16 +888,16 @@
     "to": "vendor/i18n.js"
   },
   {
-    "from": "services/request.ts",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "vendor/appDvaConfig.js",
+    "from": "utils/siteHelpers.ts",
     "to": "vendor/i18n.js"
   },
   {
     "from": "vendor/appDvaConfig.js",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "vendor/appDvaConfig.js",
+    "to": "vendor/i18n.js"
   },
   {
     "from": "vendor/appRuntime.js",
@@ -924,19 +928,11 @@
     "to": "runtime/routerBindings.tsx"
   },
   {
-    "from": "vendor/localeSettings.js",
-    "to": "vendor/i18n.js"
-  },
-  {
     "from": "vendor/rootRuntime.js",
     "to": "app/store.tsx"
   },
   {
     "from": "vendor/routerRuntime.js",
     "to": "app/history.ts"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
-    "to": "vendor/i18n.js"
   }
 ]

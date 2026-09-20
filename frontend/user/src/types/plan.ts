@@ -1,4 +1,4 @@
-import type { localeSettings } from '../vendor/localeSettings.js';
+import type { localeSettings } from '../config/localeSettings';
 import type { NumericValue } from './commerce';
 
 export type PlanPeriod = keyof typeof localeSettings.periodText;

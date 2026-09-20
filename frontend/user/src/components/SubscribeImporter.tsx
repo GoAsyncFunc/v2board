@@ -3,7 +3,7 @@ import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
 import Drawer from 'antd/lib/drawer';
 import QRCode from 'qrcode.react';
-import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../vendor/siteHelpers.js';
+import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../utils/siteHelpers';
 import { formatMessage } from '../vendor/i18n.js';
 import history from '../app/routerHistory';
 import { subscribeImporterStyles as styles } from '../styles/subscribeImporter';
@@ -44,7 +44,7 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
   }
 
   renderSubscribeBox() {
-    const { subscribeUrl } = this.props;
+    const subscribeUrl = this.props.subscribeUrl ?? '';
     return (
       <div className={styles.oneClickSubscribe}>
         <div className={`${styles.item} subsrcibe-for-link`} onClick={() => copyToClipboard(subscribeUrl)}>
