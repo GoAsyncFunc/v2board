@@ -2,13 +2,12 @@ import { get, type ApiResponse } from '../services/request';
 import type { QueueWorkload } from '../components/QueueDisplayColumns';
 import type { QueueStats, SystemMonitoringState } from '../types/monitoring';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
-interface SystemEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface SystemEffectTools extends PutEffectTools {}
 
-type QueueStatsEffect = Generator<unknown, void, ApiResponse<QueueStats>>;
-type QueueWorkloadEffect = Generator<unknown, void, ApiResponse<QueueWorkload[]>>;
+type QueueStatsEffect = ModelEffect<ApiResponse<QueueStats>>;
+type QueueWorkloadEffect = ModelEffect<ApiResponse<QueueWorkload[]>>;
 
 export default {
   name: 'system',

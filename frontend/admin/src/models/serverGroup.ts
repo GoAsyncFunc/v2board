@@ -1,6 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ServerGroupOption, ServerId } from '../types/server';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface ServerGroupModelState {
   groups: ServerGroupOption[];
@@ -9,9 +10,7 @@ interface ServerGroupModelState {
   fetchLoading: boolean;
 }
 
-interface ServerGroupEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface ServerGroupEffectTools extends PutEffectTools {}
 
 interface ServerGroupAction {
   id: ServerId;
@@ -22,7 +21,7 @@ interface SaveServerGroupAction {
   callback?: () => void;
 }
 
-type ServerGroupEffect = Generator<unknown, void, ApiResponse<ServerGroupOption[]>>;
+type ServerGroupEffect = ModelEffect<ApiResponse<ServerGroupOption[]>>;
 
 const initialState: ServerGroupModelState = {
   groups: [],

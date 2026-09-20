@@ -1,6 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ServerId, ServerRouteOption } from '../types/server';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface ServerRouteModelState {
   routes: ServerRouteOption[];
@@ -8,9 +9,7 @@ interface ServerRouteModelState {
   fetchLoading: boolean;
 }
 
-interface ServerRouteEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface ServerRouteEffectTools extends PutEffectTools {}
 
 interface ServerRouteAction {
   id: ServerId;
@@ -21,7 +20,7 @@ interface SaveServerRouteAction {
   callback?: () => void;
 }
 
-type ServerRouteEffect = Generator<unknown, void, ApiResponse<ServerRouteOption[]>>;
+type ServerRouteEffect = ModelEffect<ApiResponse<ServerRouteOption[]>>;
 
 const initialState: ServerRouteModelState = {
   routes: [],

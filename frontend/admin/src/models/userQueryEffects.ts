@@ -2,14 +2,16 @@ import { get, type ApiResponse } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/user';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface UserTools { put(action: AdminAction): unknown; select(selector: (state: { user: UserModuleState }) => UserModuleState): unknown; }
+interface UserRootState { user: UserModuleState; }
+interface UserTools extends ModelEffectTools<UserRootState> {}
 interface UserIdAction { id?: string | number; }
 interface UserFilterAction { filter: FilterItem[]; }
 interface UserTableAction { pagination: Partial<UserPagination>; sort: UserSort; }
 interface AddFilterAction { key: string; condition: string; value: FilterItem['value']; clear?: boolean; }
-type UserYield = UserModuleState | ApiResponse<unknown>;
-type UserEffect = Generator<unknown, void, UserYield>;
+type UserYield = UserModuleState | ApiResponse<UserRecord> | ApiResponse<UserRecord[]>;
+type UserEffect = ModelEffect<UserYield>;
 
 const userEndpoint = (action: string): string => `/${window.settings.secure_path}/user/${action}`;
 

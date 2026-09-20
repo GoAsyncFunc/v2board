@@ -3,14 +3,16 @@ import { post, type ApiResponse, type FormRecord } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserRecord } from '../types/user';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface UserTools { put(action: AdminAction): unknown; select(selector: (state: { user: UserModuleState }) => UserModuleState): unknown; }
+interface UserRootState { user: UserModuleState; }
+interface UserTools extends ModelEffectTools<UserRootState> {}
 interface CallbackAction { callback?: () => void; }
 interface UpdateAction extends CallbackAction { params: UserRecord; }
 interface SendMailAction extends CallbackAction { params: FormRecord; }
 interface UserIdAction { id?: string | number; }
-type UserYield = UserModuleState | ApiResponse<unknown>;
-type UserEffect = Generator<unknown, void, UserYield>;
+type UserYield = UserModuleState | ApiResponse;
+type UserEffect = ModelEffect<UserYield>;
 const endpoint = (action: string): string => `/${window.settings.secure_path}/user/${action}`;
 
 export function* update({ params, callback }: UpdateAction, { put }: UserTools): UserEffect {

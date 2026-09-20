@@ -1,15 +1,13 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ManagedServerRecord, ServerManageState } from '../types/server';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 interface ServerManageStoreState {
   serverManage: ServerManageState;
 }
 
-interface ServerManageEffectTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: ServerManageStoreState) => ServerManageState): unknown;
-}
+interface ServerManageEffectTools extends ModelEffectTools<ServerManageStoreState> {}
 
 interface SortServerAction {
   fromIndex: number;
@@ -17,7 +15,7 @@ interface SortServerAction {
 }
 
 type ServerManageEffectResult = ApiResponse<ManagedServerRecord[]> | ServerManageState;
-type ServerManageEffect = Generator<unknown, void, ServerManageEffectResult>;
+type ServerManageEffect = ModelEffect<ServerManageEffectResult>;
 
 const initialState: ServerManageState = {
   servers: [],
