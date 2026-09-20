@@ -62,7 +62,7 @@ npm run check:types
 npm run build
 ```
 
-当前用户端回归基线为 746 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
+当前用户端回归基线为 747 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
 
 ## 目录结构
 

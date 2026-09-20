@@ -52,7 +52,7 @@ const models = {
 let appInstance: UserDvaApplication | null = null;
 
 export function createApp(): UserDvaApplication {
-    const dvaConfig = mergeConfig('dva') as DvaConfig;
+    const dvaConfig = mergeConfig<DvaConfig>('dva');
     appInstance = createDva({
         history,
         ...(dvaConfig.config || {}),

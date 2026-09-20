@@ -1,15 +1,28 @@
-export type PluginValue = object | string | number | boolean | symbol | bigint | null | undefined;
-export type PluginHandler<
-    Value extends PluginValue = PluginValue,
-    Args extends PluginValue = PluginValue,
-> = (value: Value, args?: Args) => Value;
-export type RuntimePlugin = Record<string, PluginValue>;
+export type PluginCallback = (...args: never[]) => void;
+export type PluginConfigurationValue =
+    | string
+    | number
+    | boolean
+    | symbol
+    | bigint
+    | null
+    | undefined
+    | PluginConfigurationValue[]
+    | PluginConfiguration
+    | PluginCallback;
+
+export interface PluginConfiguration {
+    [key: string]: PluginConfigurationValue;
+}
+
+export type PluginHandler<Value, Args = undefined> = (value: Value, args?: Args) => Value;
+export type RuntimePlugin = Record<string, PluginConfigurationValue>;
 
 interface PluginRuntimeOptions {
     validKeys?: string[];
 }
 
-interface ValueOptions<Value extends PluginValue, Args extends PluginValue = undefined> {
+interface ValueOptions<Value, Args = undefined> {
     initialValue: Value;
     args?: Args;
 }
@@ -21,18 +34,18 @@ function assert(condition: boolean, message: string): asserts condition {
     if (!condition) throw new Error(message);
 }
 
-function isPlainObject(value: PluginValue): value is RuntimePlugin {
+function isPlainObject<Value>(value: Value): value is Value & PluginConfiguration {
     if (value === null || typeof value !== 'object') return false;
     const prototype = Object.getPrototypeOf(value);
     return prototype === Object.prototype || prototype === null;
 }
 
-function pluginValues(key: string): PluginValue[] {
+function pluginValues(key: string): PluginConfigurationValue[] {
     assert(validKeys.includes(key), `Invalid key ${key}`);
     return (plugins || []).filter((plugin) => key in plugin).map((plugin) => plugin[key]);
 }
 
-function pluginHandlers<Value extends PluginValue, Args extends PluginValue>(
+function pluginHandlers<Value, Args>(
     items: string | PluginHandler<Value, Args>[],
 ): PluginHandler<Value, Args>[] {
     const values = typeof items === 'string' ? pluginValues(items) : items;
@@ -55,12 +68,12 @@ export function use(plugin: RuntimePlugin): void {
     plugins?.push(plugin);
 }
 
-export function getItem(key: string): PluginValue[] {
+export function getItem(key: string): PluginConfigurationValue[] {
     if (!plugins) init();
     return pluginValues(key);
 }
 
-export function compose<Value extends PluginValue>(
+export function compose<Value>(
     items: string | PluginHandler<Value>[],
     { initialValue }: ValueOptions<Value>,
 ): Value {
@@ -69,37 +82,35 @@ export function compose<Value extends PluginValue>(
     return handlers.reduceRight<Value>((next, current) => current(next), initialValue);
 }
 
-export function apply<Value extends PluginValue, Args extends PluginValue = undefined>(
+export function apply<Value, Args = undefined>(
     items: string | PluginHandler<Value, Args>[],
     { initialValue, args }: ValueOptions<Value, Args>,
 ): Value {
     return pluginHandlers(items).reduce((value, current) => current(value, args), initialValue);
 }
 
-export function applyForEach<Value extends PluginValue>(
+export function applyForEach<Value>(
     items: string | PluginHandler<Value>[],
     { initialValue }: ValueOptions<Value>,
 ): void {
     pluginHandlers(items).forEach((current) => current(initialValue));
 }
 
-export function mergeConfig<Config extends RuntimePlugin = RuntimePlugin>(
-    items: string | Config[],
-): Config {
+export function mergeConfig<Config = PluginConfiguration>(items: string | Config[]): Config {
     const configs = typeof items === 'string' ? pluginValues(items) : items;
     return configs.reduce<Config>((result, config) => {
         assert(isPlainObject(config), 'Config is not plain object');
-        return { ...result, ...config };
+        return Object.assign({}, result, config) as Config;
     }, {} as Config);
 }
 
-export async function mergeConfigAsync<Config extends RuntimePlugin = RuntimePlugin>(
+export async function mergeConfigAsync<Config = PluginConfiguration>(
     items: string | Array<Config | Promise<Config>>,
 ): Promise<Config> {
     const configs = typeof items === 'string' ? pluginValues(items) : items;
     const resolved = await Promise.all(configs);
     return resolved.reduce<Config>((result, config) => {
         assert(isPlainObject(config), 'Config is not plain object');
-        return { ...result, ...config };
+        return Object.assign({}, result, config) as Config;
     }, {} as Config);
 }

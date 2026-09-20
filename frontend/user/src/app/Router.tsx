@@ -39,7 +39,7 @@ import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
 import userRoutes from '../routes';
 import type { UserStore } from '../types/store';
-import type { PluginValue } from '../runtime/pluginRuntime';
+import type { RouteRendererProps } from '../runtime/routeRenderer';
 
 const { ConnectedRouter } = routerBindings;
 type LocaleData = Parameters<typeof addLocaleData>[0];
@@ -115,9 +115,14 @@ interface LocaleChildrenProps {
 interface LocaleProviderState {
     locale: string;
 }
-interface RouterProps {
+interface RouterProps extends RouteRendererProps {
     store?: UserStore;
-    [key: string]: PluginValue;
+}
+
+interface LocalePluginConfig {
+    default?: string | (() => string);
+    messages?:
+        Record<string, Record<string, string>> | (() => Record<string, Record<string, string>>);
 }
 
 export const routes = userRoutes;
@@ -157,12 +162,7 @@ export class LocaleProvider extends React.Component<LocaleChildrenProps, LocaleP
             antd: zhAntd,
             momentLocale: 'zh-cn',
         };
-        const config = (mergeConfig('locale') || {}) as {
-            default?: string | (() => string);
-            messages?:
-                | Record<string, Record<string, string>>
-                | (() => Record<string, Record<string, string>>);
-        };
+        const config = mergeConfig<LocalePluginConfig>('locale');
         const configuredLocale =
             typeof config.default === 'function' ? config.default() : config.default;
         const storedLocale =

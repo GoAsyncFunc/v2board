@@ -133,6 +133,18 @@ test('user DVA runtime uses named contracts instead of broad object placeholders
   assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
 });
 
+test('user plugin runtime separates callable hooks from configuration values', async () => {
+  const pluginRuntime = await fs.readFile(new URL('../src/runtime/pluginRuntime.ts', import.meta.url), 'utf8');
+  const routerRuntime = await fs.readFile(new URL('../src/runtime/routeRenderer.tsx', import.meta.url), 'utf8');
+  const bootstrap = await fs.readFile(new URL('../src/app/bootstrap.tsx', import.meta.url), 'utf8');
+  assert.match(pluginRuntime, /export type PluginCallback/);
+  assert.match(pluginRuntime, /export interface PluginConfiguration/);
+  assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
+  assert.doesNotMatch(routerRuntime, /Record<string, PluginValue>/);
+  assert.match(bootstrap, /apply<React\.ReactElement>/);
+  assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);
+});
+
 test('user root state names every registered business model', async () => {
   const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
   const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
