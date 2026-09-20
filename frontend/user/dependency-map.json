@@ -117,7 +117,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/coupon.js"
+    "to": "models/coupon.ts"
   },
   {
     "from": "app/store.js",
@@ -129,11 +129,11 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/knowledge.js"
+    "to": "models/knowledge.ts"
   },
   {
     "from": "app/store.js",
-    "to": "models/layout.js"
+    "to": "models/layout.ts"
   },
   {
     "from": "app/store.js",
@@ -169,7 +169,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/tutorial.js"
+    "to": "models/tutorial.ts"
   },
   {
     "from": "app/store.js",
@@ -544,7 +544,7 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/coupon.js",
+    "from": "models/coupon.ts",
     "to": "services/request.ts"
   },
   {
@@ -560,7 +560,7 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "models/knowledge.js",
+    "from": "models/knowledge.ts",
     "to": "services/request.ts"
   },
   {
@@ -652,7 +652,7 @@
     "to": "vendor/ui.js"
   },
   {
-    "from": "models/tutorial.js",
+    "from": "models/tutorial.ts",
     "to": "services/request.ts"
   },
   {

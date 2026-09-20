@@ -10,9 +10,10 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const copy=value=>structuredClone(value);
 async function load(target,name,original,trace,response){
- const file=original?path.join(home,'tests/fixtures/models',`${target}-${name}.cjs`):path.join(home,'src/models',name+'.js');
+ const extension=name==='layout'?'ts':'js';
+ const file=original?path.join(home,'tests/fixtures/models',`${target}-${name}.cjs`):path.join(home,'src/models',name+'.'+extension);
  const text=await fs.readFile(file,'utf8');
- const code=original?text:(await transform(text,{format:'cjs',loader:'js',target:'es2018'})).code;
+ const code=original?text:(await transform(text,{format:'cjs',loader:extension,target:'es2018'})).code;
  const request=method=>(url,data)=>{trace.push(['request',method,url,copy(data)]);return {request:true};};
  const get=request('GET'),post=request('POST');
  const history={push:route=>{trace.push(['navigate',route]);}};

@@ -4,11 +4,11 @@ import { loadingPlugin } from '../vendor/appRuntime.js';
 import { mergeConfig } from '../vendor/appRuntime.js';
 import history from './history.js';
 import comm from '../models/comm.js';
-import coupon from '../models/coupon.js';
+import coupon from '../models/coupon';
 import guest from '../models/guest.js';
 import invite from '../models/invite.js';
-import knowledge from '../models/knowledge.js';
-import layout from '../models/layout.js';
+import knowledge from '../models/knowledge';
+import layout from '../models/layout';
 import notice from '../models/notice';
 import order from '../models/order.js';
 import passport from '../models/passport.js';
@@ -17,7 +17,7 @@ import server from '../models/server';
 import stat from '../models/stat';
 import telegram from '../models/telegram';
 import ticket from '../models/ticket.js';
-import tutorial from '../models/tutorial.js';
+import tutorial from '../models/tutorial';
 import user from '../models/user.js';
 
 const models = {

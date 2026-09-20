@@ -7,6 +7,7 @@ export interface KnowledgeArticle {
 }
 
 export interface KnowledgeState {
+  categorys: string[];
   knowledges: Record<string, KnowledgeArticle[]>;
   knowledge: { title?: string; body?: string };
   fetchLoading: boolean;

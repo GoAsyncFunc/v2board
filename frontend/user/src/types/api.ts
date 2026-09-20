@@ -1,4 +1,5 @@
 export type FormValue = string | number | boolean | null | undefined | FormValue[] | { [key: string]: FormValue };
+export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 
 export interface ApiResponse<Data = unknown> {
   code: number;
