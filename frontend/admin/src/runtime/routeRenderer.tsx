@@ -2,21 +2,22 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteComponentProps, RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
+import type { AdminValue } from '../types/store';
 
-type DynamicProps = Record<string, unknown>;
+export type DynamicRouteProps = Record<string, AdminValue>;
 type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;
 
-export interface InitialRoutePropsContext extends DynamicProps {
+export interface InitialRoutePropsContext extends DynamicRouteProps {
   isServer: false;
   route: RouteMatchProps['match'];
   location: RouteMatchProps['location'];
-  prevInitialProps: DynamicProps;
+  prevInitialProps: DynamicRouteProps;
 }
 
 export type AdminRouteComponent = React.ElementType;
 
 interface RouteComponentStatics {
-  getInitialProps?: (context: InitialRoutePropsContext) => Promise<DynamicProps | null | undefined>;
+  getInitialProps?: (context: InitialRoutePropsContext) => Promise<DynamicRouteProps | null | undefined>;
   wrappedWithInitialProps?: boolean;
 }
 
@@ -32,9 +33,9 @@ export interface AdminRouteConfig {
   Routes?: React.ElementType[];
 }
 
-type RouteRenderProps = RouteMatchProps & DynamicProps;
+export type RouteRenderProps = RouteMatchProps & DynamicRouteProps;
 type RouteRenderFunction = (props: RouteRenderProps) => React.ReactNode;
-type RenderRouteProps = Omit<RouteProps, 'render'> & DynamicProps & {
+type RenderRouteProps = Omit<RouteProps, 'render'> & DynamicRouteProps & {
   render: RouteRenderFunction;
 };
 
@@ -78,13 +79,13 @@ function createNestedRouteComponent(route: AdminRouteConfig): React.ElementType 
 }
 
 interface InitialPropsRouteState {
-  extraProps: DynamicProps & { fetchingProps?: boolean };
+  extraProps: DynamicRouteProps & { fetchingProps?: boolean };
 }
 
 function withInitialProps(
   Component: AdminRouteComponent,
-  extraProps: DynamicProps,
-  routeProps: DynamicProps,
+  extraProps: DynamicRouteProps,
+  routeProps: DynamicRouteProps,
 ): AdminRouteComponent {
   const componentStatics = Component as RouteComponentStatics;
   if (componentStatics.wrappedWithInitialProps) return Component;
@@ -137,7 +138,7 @@ function withInitialProps(
 
 export default function routeRenderer(
   routes: AdminRouteConfig[] | null | undefined,
-  incomingRouteProps: DynamicProps = {},
+  incomingRouteProps: DynamicRouteProps = {},
   switchProps: SwitchProps = {},
 ): React.ReactNode {
   if (!routes) return null;
@@ -179,7 +180,7 @@ export default function routeRenderer(
               let Component = route.component;
               const componentStatics = Component as RouteComponentStatics;
               if (componentStatics.getInitialProps) {
-                const modifiedInitialProps = apply<DynamicProps>('modifyInitialProps', { initialValue: {} });
+                const modifiedInitialProps = apply<DynamicRouteProps>('modifyInitialProps', { initialValue: {} });
                 Component = withInitialProps(Component, modifiedInitialProps, routeProps);
                 route.component = Component;
               }

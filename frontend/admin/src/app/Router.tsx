@@ -6,12 +6,12 @@ import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
 import appRoutes from './routes';
 import type { AdminStore } from '../types/store';
+import type { DynamicRouteProps } from '../runtime/routeRenderer';
 
 const { ConnectedRouter } = routerBindings;
 
-interface RouterProps {
+interface RouterProps extends DynamicRouteProps {
   store?: AdminStore;
-  [key: string]: unknown;
 }
 
 interface RouteChangePayload {

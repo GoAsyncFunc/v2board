@@ -1,5 +1,6 @@
 import React from 'react';
 import { createDva } from '../runtime/dvaApplication';
+import type { DvaApplication } from '../runtime/dvaApplication';
 import loadingPlugin from '../runtime/loadingPlugin';
 import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
@@ -32,13 +33,7 @@ import ticket from '../models/ticket';
 import user from '../models/user';
 import type { AdminStore } from '../types/store';
 
-export interface AdminDvaApplication {
-  _store: AdminStore;
-  use(plugin: object): void;
-  model(model: object): void;
-  router(render: () => React.ReactElement): void;
-  start(): () => React.ReactElement;
-}
+export interface AdminDvaApplication extends DvaApplication {}
 
 interface DvaConfig { config?: Record<string, object>; plugins?: object[]; }
 
@@ -56,7 +51,7 @@ export function createApp(): AdminDvaApplication {
     history,
     ...(dvaConfig.config || {}),
     ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
-  }) as AdminDvaApplication;
+  });
   appInstance.use(loadingPlugin());
   (dvaConfig.plugins || []).forEach(plugin => appInstance?.use(plugin));
   Object.entries(models).forEach(([namespace, model]) => {
@@ -66,7 +61,13 @@ export function createApp(): AdminDvaApplication {
 }
 
 export function getApp(): AdminDvaApplication {
-  return appInstance as AdminDvaApplication;
+  if (!appInstance) throw new Error('Admin application has not been created');
+  return appInstance;
+}
+
+export function getAdminStore(app: AdminDvaApplication = getApp()): AdminStore {
+  if (!app._store) throw new Error('Admin store has not been initialized');
+  return app._store;
 }
 
 interface DvaContainerProps { children: React.ReactElement; }
@@ -74,7 +75,9 @@ interface DvaContainerProps { children: React.ReactElement; }
 export class DvaContainer extends React.Component<DvaContainerProps> {
   render(): React.ReactElement {
     const app = getApp();
-    app.router(() => React.cloneElement(this.props.children, { store: app._store }));
-    return app.start()();
+    app.router(() => React.cloneElement(this.props.children, { store: getAdminStore(app) }));
+    const Provider = app.start();
+    if (!Provider) throw new Error('Admin application did not create a provider');
+    return <Provider />;
   }
 }

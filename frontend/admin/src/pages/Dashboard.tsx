@@ -56,7 +56,7 @@ interface RankChartProps {
   extraClass?: string;
 }
 
-interface RankChartOption {
+interface RankChartOption extends EChartsCoreOption {
   tooltip: { trigger: string; formatter: (values: Array<{ value: string | number }>) => string };
   grid: { top: string; left: string; right: string; bottom: string; containLabel: boolean };
   xAxis: { type: string };
@@ -71,7 +71,7 @@ interface OrderChartSeries {
   data: number[];
 }
 
-interface OrderChartOption {
+interface OrderChartOption extends EChartsCoreOption {
   tooltip: { trigger: string };
   legend: { data: string[]; left: string; z: number };
   grid: { left: string; right: string; bottom: string; containLabel: boolean };
@@ -144,13 +144,13 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
       if (series) series.data.push(item.value);
       else option.series.push({ name: item.type, type: 'line', smooth: true, data: [item.value] });
     });
-    this.orderChartObject.setOption(option as unknown as EChartsCoreOption);
+    this.orderChartObject.setOption(option);
   }
 
   renderRankChart(ref: React.RefObject<HTMLDivElement>, propertyName: 'serverLastRankChartObject' | 'serverTodayRankChartObject' | 'userTodayRankChartObject' | 'userLastRankChartObject', data: RankChartRecord[], getLabel: (item: RankChartRecord) => string | undefined): void {
     const chart = echarts.init(ref.current);
     this[propertyName] = chart;
-    chart.setOption(rankChartOption(data, getLabel) as unknown as EChartsCoreOption);
+    chart.setOption(rankChartOption(data, getLabel));
   }
 
   chartResize(): void {

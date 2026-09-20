@@ -2,6 +2,8 @@ export {};
 
 import type { AdminHistory } from '../app/history';
 import type { AdminDvaApplication } from '../app/store';
+import type { AdminRouteConfig } from '../runtime/routeRenderer';
+import type { AdminValue } from './store';
 
 declare global {
   interface Window {
@@ -14,9 +16,9 @@ declare global {
         header?: string;
         sidebar?: string;
       };
-      [key: string]: unknown;
+      [key: string]: AdminValue;
     };
-    g_routes: unknown;
+    g_routes: AdminRouteConfig[];
     g_app: AdminDvaApplication;
     g_history: AdminHistory;
     g_initialData: Record<string, object>;

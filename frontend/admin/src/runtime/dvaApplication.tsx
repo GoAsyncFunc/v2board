@@ -4,25 +4,36 @@ import { create as createDvaCore } from 'dva-core';
 import { createHashHistory } from 'history';
 import type { History } from 'history';
 import { Provider } from 'react-redux';
-import type { AdminStore } from '../types/store';
+import type { AdminRootState, AdminStore, AdminValue } from '../types/store';
 import * as routerBindings from './routerBindings';
 import { routerMiddleware } from './routerBindings';
 
-interface DvaCoreApplication {
+export type DvaRouterProps = Record<string, AdminValue>;
+export type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
+export type DvaProvider = (props?: DvaRouterProps) => React.ReactElement;
+type DvaStartResult = DvaProvider | void;
+
+export interface DvaCoreApplication {
   _history: History;
-  _getProvider?: (router: DvaRouter) => (props: Record<string, unknown>) => React.ReactElement;
+  _getProvider?: (router: DvaRouter) => DvaProvider;
   _plugin: { apply(name: string): (render: (router: DvaRouter) => void) => void };
   _router?: DvaRouter;
   _store?: AdminStore;
   model(model: object): void;
   router?: (router: DvaRouter) => void;
-  start: (container?: string | Element) => unknown;
+  start: (container?: string | Element) => DvaStartResult;
   use(plugin: object): void;
-  [key: string]: unknown;
 }
 
-type DvaRouter = (props: Record<string, unknown>) => React.ReactElement;
-interface DvaOptions { history?: History; [key: string]: unknown; }
+export interface DvaApplication extends DvaCoreApplication {
+  router(router: DvaRouter): void;
+}
+
+interface DvaOptions {
+  history?: History;
+  initialState?: AdminRootState;
+  [key: string]: AdminValue;
+}
 
 function assert(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(message);
@@ -31,7 +42,7 @@ function isDomElement(value: unknown): value is Element {
   return typeof value === 'object' && value !== null && 'nodeType' in value && 'nodeName' in value;
 }
 function createProvider(store: AdminStore, app: DvaCoreApplication, router: DvaRouter) {
-  return (props: Record<string, unknown>): React.ReactElement => (
+  return (props: DvaRouterProps = {}): React.ReactElement => (
     <Provider store={store as React.ComponentProps<typeof Provider>['store']}>
       {router({ app, history: app._history, ...props })}
     </Provider>
@@ -57,14 +68,14 @@ function patchHistory(history: History): History {
   return history;
 }
 
-export function createDva(options: DvaOptions = {}): DvaCoreApplication {
+export function createDva(options: DvaOptions = {}): DvaApplication {
   const history = options.history || createHashHistory();
   const createOptions = {
     initialReducer: { router: routerBindings.connectRouter() },
     setupMiddlewares(middlewares: object[]) { return [routerMiddleware(history), ...middlewares]; },
     setupApp(app: DvaCoreApplication) { app._history = patchHistory(history); },
   };
-  const app = createDvaCore(options, createOptions) as DvaCoreApplication;
+  const app = createDvaCore<DvaCoreApplication>(options, createOptions);
   const startCore = app.start;
   app.router = router => {
     assert(typeof router === 'function', `[app.router] router should be function, but got ${typeof router}`);
@@ -86,7 +97,7 @@ export function createDva(options: DvaOptions = {}): DvaCoreApplication {
     app._plugin.apply('onHmr')(renderApplication.bind(null, target, store, app));
     return undefined;
   };
-  return app;
+  return app as DvaApplication;
 }
 
 export { routerBindings };

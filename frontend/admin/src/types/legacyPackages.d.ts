@@ -1,5 +1,5 @@
 declare module 'dva-core' {
-  export function create(options?: object, createOptions?: object): unknown;
+  export function create<Application extends object = object>(options?: object, createOptions?: object): Application;
 }
 
 declare module 'copy-to-clipboard' {

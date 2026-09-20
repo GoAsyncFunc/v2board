@@ -24,7 +24,7 @@ interface LegacyMessageApi {
   success(options: { title: string; content: React.ReactNode }): void;
 }
 
-const message = notification as unknown as LegacyMessageApi;
+const message = notification as LegacyMessageApi;
 
 export function showMailTestResult(log: MailTestLog): void {
   const error = log.error;
