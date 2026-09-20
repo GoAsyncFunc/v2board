@@ -316,6 +316,54 @@
     "to": "utils/siteHelpers.ts"
   },
   {
+    "from": "components/dashboard/DashboardAlerts.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardAlerts.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardNoticeCard.tsx",
+    "to": "components/common/DateTimeDisplay.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardNoticeCard.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardShortcuts.tsx",
+    "to": "components/subscription/SubscribeImporter.tsx"
+  },
+  {
+    "from": "components/dashboard/DashboardShortcuts.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardShortcuts.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardSubscription.tsx",
+    "to": "components/common/DateTimeDisplay.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardSubscription.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "components/dashboard/DashboardSubscription.tsx",
+    "to": "components/subscription/SubscribeUsage.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardSubscription.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/dashboard/DashboardSubscription.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
     "from": "components/subscription/NodeColumns.tsx",
     "to": "locales/i18n.ts"
   },
@@ -821,15 +869,19 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/common/DateTimeDisplay.ts"
+    "to": "components/dashboard/DashboardAlerts.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "to": "components/dashboard/DashboardNoticeCard.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/subscription/SubscribeImporter.tsx"
+    "to": "components/dashboard/DashboardShortcuts.tsx"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "components/dashboard/DashboardSubscription.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
@@ -842,10 +894,6 @@
   {
     "from": "pages/dashboard/Dashboard.tsx",
     "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/dashboard/Dashboard.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/subscription/Node.tsx",

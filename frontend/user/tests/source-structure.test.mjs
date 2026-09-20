@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 test('user business components live outside the vendor compatibility layer', async () => {
   const componentsDirectory = new URL('../src/components/', import.meta.url);
   const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-  const expectedDomains = ['account', 'commerce', 'common', 'subscription', 'support'];
+  const expectedDomains = ['account', 'commerce', 'common', 'dashboard', 'subscription', 'support'];
   assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
 
@@ -19,6 +19,7 @@ test('user business components live outside the vendor compatibility layer', asy
     '../src/components/common/Recaptcha.tsx',
     '../src/components/subscription/SubscribeImporter.tsx',
     '../src/components/account/TelegramBindModal.tsx',
+    '../src/components/dashboard/DashboardSubscription.tsx',
     '../src/components/common/LoadingContainer.tsx',
     '../src/components/commerce/checkout/StripePaymentForm.tsx',
   ];
@@ -196,6 +197,11 @@ test('user root state names every registered business model', async () => {
   assert.match(storeTypes, /router\?: RouterState/);
   assert.match(rootRuntime, /Partial<UserRootState>/);
   assert.match(dashboard, /Pick<UserRootState/);
+  for (const component of ['DashboardAlerts', 'DashboardNoticeCard', 'DashboardShortcuts', 'DashboardSubscription']) {
+    assert.match(dashboard, new RegExp(`components/dashboard/${component}`));
+  }
+  assert.doesNotMatch(dashboard, /components\/subscription\/SubscribeImporter/);
+  assert.doesNotMatch(dashboard, /antd\/lib\/button/);
 });
 
 test('user Redux selectors share the canonical root state contract', async () => {

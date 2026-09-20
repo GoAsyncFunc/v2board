@@ -31,6 +31,7 @@ async function load(file, platform = {}) {
     if (id === 'antd/lib/drawer') return { __esModule: true, default: 'Drawer' };
     if (id.includes('/LoadingContainer')) return 'Loading';
     if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
+    if (id.includes('/components/dashboard/')) return { __esModule: true, default: id.split('/').at(-1) };
     if (id.includes('/content.js')) return { QRCode: 'QRCode' };
     if (id === 'qrcode.react') return { __esModule: true, default: 'QRCode' };
     if (id.includes('SubscribeImporter')) return 'Importer';
@@ -133,14 +134,51 @@ test('Dashboard startup, notices and reset actions preserve confirmation boundar
 });
 
 test('Dashboard subscription loading, empty and active states retain their actions', async () => {
-  const runtime = await load('pages/dashboard/Dashboard');
-  const page = new runtime.DashboardPage({ user: { stat: [] } });
-  assert.equal(page.renderSubscription({}, 0).type, 'Loading');
-  nodes(page.renderSubscription({ email: 'test@example.com' }, 0), node => node.type === 'a')[0].props.onClick();
+  const runtime = await load('components/dashboard/DashboardSubscription');
+  const render = (subscribe, usagePercent) => runtime.default({
+    subscribe, usagePercent,
+    onNavigate: path => runtime.routes.push(path),
+    onNewPeriod() {}, onResetPackage() {},
+  });
+  assert.equal(render({}, 0).type, 'Loading');
+  nodes(render({ email: 'test@example.com' }, 0), node => node.type === 'a')[0].props.onClick();
   assert.deepEqual(runtime.routes, ['/plan']);
   const subscribe = { email: 'test@example.com', plan_id: 7, plan: { name: 'Plan', renew: 1, reset_price: 100 }, expired_at: null, u: 9, d: 0, transfer_enable: 10 };
-  const tree = page.renderSubscription(subscribe, 90);
+  const tree = render(subscribe, 90);
   assert.match(JSON.stringify(tree), /该订阅长期有效/);
   assert.equal(nodes(tree, node => node.props.role === 'progressbar')[0].props.style.width, '90%');
   assert.equal(nodes(tree, node => node.type === 'Button').length, 1);
+});
+
+test('Dashboard notice, alert and shortcut components preserve user actions', async () => {
+  const noticeRuntime = await load('components/dashboard/DashboardNoticeCard');
+  const opened = [];
+  const notice = { id: 1, title: 'Notice', created_at: 123, img_url: '/notice.png', tags: [] };
+  const noticeTree = noticeRuntime.default({ notice, onOpen: value => opened.push(value) });
+  assert.equal(noticeTree.props.style.backgroundImage, 'url(/notice.png)');
+  noticeTree.props.onClick();
+  assert.deepEqual(opened, [notice]);
+
+  const alertRuntime = await load('components/dashboard/DashboardAlerts');
+  const alertRoutes = [], resets = [];
+  const alertTree = alertRuntime.default({
+    stat: [1, 2],
+    subscribe: { expired_at: null, plan: { reset_price: 100 } },
+    usagePercent: 90,
+    onNavigate: path => alertRoutes.push(path),
+    onResetPackage: () => resets.push(true),
+  });
+  nodes(alertTree, node => node.type === 'a').forEach(link => link.props.onClick());
+  assert.deepEqual(alertRoutes, ['/order', '/ticket']);
+  assert.deepEqual(resets, [true]);
+
+  const shortcutRuntime = await load('components/dashboard/DashboardShortcuts');
+  const shortcutRoutes = [];
+  const shortcutTree = shortcutRuntime.default({
+    subscribe: { plan_id: 7, plan: { renew: 1, show: 1 } },
+    onNavigate: path => shortcutRoutes.push(path),
+  });
+  nodes(shortcutTree, node => node.props.className === 'v2board-shortcuts-item' && node.props.onClick)
+    .forEach(shortcut => shortcut.props.onClick());
+  assert.deepEqual(shortcutRoutes, ['/knowledge', '/plan/7', '/ticket']);
 });
