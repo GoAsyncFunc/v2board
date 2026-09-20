@@ -1,4 +1,4 @@
-import { fetchResponse } from "../vendor/dva.js";
+import { fetchResponse } from './fetchResponse';
 import { notification } from "../vendor/notification.js";
 import { siteSettings } from "../vendor/siteSettings.js";
 import { getToken, clearToken } from "../vendor/siteHelpers.js";

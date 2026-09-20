@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { apply } from './pluginRuntime.js';
+import { apply } from './pluginRuntime';
 
 const routeComponentCache = new WeakMap();
 let initialPropsLoaded = false;

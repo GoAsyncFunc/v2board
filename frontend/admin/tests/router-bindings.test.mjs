@@ -6,10 +6,10 @@ import { transform } from 'esbuild';
 
 async function loadRouterBindings() {
   const source = await fs.readFile(
-    new URL('../src/runtime/routerBindings.js', import.meta.url),
+    new URL('../src/runtime/routerBindings.tsx', import.meta.url),
     'utf8',
   );
-  const code = (await transform(source, { format: 'cjs', loader: 'jsx' })).code;
+  const code = (await transform(source, { format: 'cjs', loader: 'tsx' })).code;
   const module = { exports: {} };
 
   class Component {

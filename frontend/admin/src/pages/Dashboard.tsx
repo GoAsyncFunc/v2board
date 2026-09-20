@@ -12,7 +12,7 @@ import {
 } from 'echarts/components';
 import { LabelLayout } from 'echarts/features';
 import { SVGRenderer } from 'echarts/renderers';
-import history from '../vendor/routerHistory.js';
+import history from '../app/navigation';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request.js';
 import { siteSettings } from '../vendor/siteSettings.js';

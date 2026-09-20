@@ -11,7 +11,7 @@ import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
 import AssignOrderEditor from '../components/AssignOrderEditor';
 import LoadingContainer from '../components/LoadingContainer';
-import history from '../vendor/routerHistory.js';
+import history from '../app/navigation';
 import { get, post } from '../services/request.js';
 import MainLayout from '../layouts/MainLayout';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';

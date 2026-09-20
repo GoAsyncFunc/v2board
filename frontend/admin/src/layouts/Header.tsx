@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
 import { clearToken, getPreference, setPreference } from '../vendor/siteHelpers.js';
-import history from '../app/history.js';
+import history from '../app/history';
 import type { AdminDispatch } from '../types/store';
 import '../services/request.js';
 

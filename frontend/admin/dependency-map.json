@@ -1,7 +1,7 @@
 [
   {
     "from": "app/Router.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -9,27 +9,51 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "vendor/appRuntime.js"
+    "to": "runtime/dvaApplication.tsx"
   },
   {
     "from": "app/Router.tsx",
-    "to": "vendor/dva.js"
+    "to": "runtime/pluginRuntime.ts"
   },
   {
-    "from": "app/bootstrap.js",
+    "from": "app/Router.tsx",
+    "to": "runtime/routeRenderer.js"
+  },
+  {
+    "from": "app/bootstrap.tsx",
     "to": "app/Router.tsx"
   },
   {
-    "from": "app/bootstrap.js",
-    "to": "app/store.js"
+    "from": "app/bootstrap.tsx",
+    "to": "app/dvaConfig.ts"
   },
   {
-    "from": "app/bootstrap.js",
-    "to": "vendor/appRuntime.js"
+    "from": "app/bootstrap.tsx",
+    "to": "app/rootRuntime.tsx"
   },
   {
-    "from": "app/history.js",
-    "to": "vendor/appRuntime.js"
+    "from": "app/bootstrap.tsx",
+    "to": "app/store.tsx"
+  },
+  {
+    "from": "app/bootstrap.tsx",
+    "to": "runtime/pluginRuntime.ts"
+  },
+  {
+    "from": "app/dvaConfig.ts",
+    "to": "vendor/siteHelpers.js"
+  },
+  {
+    "from": "app/history.ts",
+    "to": "app/historyFactory.ts"
+  },
+  {
+    "from": "app/navigation.ts",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "app/rootRuntime.tsx",
+    "to": "app/store.tsx"
   },
   {
     "from": "app/routes.js",
@@ -108,124 +132,128 @@
     "to": "pages/User.tsx"
   },
   {
-    "from": "app/store.js",
-    "to": "app/history.js"
+    "from": "app/store.tsx",
+    "to": "app/history.ts"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/auth.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/config.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/coupon.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/giftcard.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/knowledge.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/layout.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/notice.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/order.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/passport.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/payment.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/plan.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverAnyTLS.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverGroup.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverHysteria.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverManage.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverRoute.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverShadowsocks.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverTrojan.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverTuic.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverV2node.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverVless.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/serverVmess.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/stat.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/system.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/theme.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/ticket.js"
   },
   {
-    "from": "app/store.js",
+    "from": "app/store.tsx",
     "to": "models/user.js"
   },
   {
-    "from": "app/store.js",
-    "to": "vendor/appRuntime.js"
+    "from": "app/store.tsx",
+    "to": "runtime/dvaApplication.tsx"
   },
   {
-    "from": "app/store.js",
-    "to": "vendor/dva.js"
+    "from": "app/store.tsx",
+    "to": "runtime/loadingPlugin.ts"
+  },
+  {
+    "from": "app/store.tsx",
+    "to": "runtime/pluginRuntime.ts"
   },
   {
     "from": "components/AnyTlsEditor.tsx",
@@ -425,7 +453,7 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "layouts/Header.tsx",
@@ -437,7 +465,7 @@
   },
   {
     "from": "layouts/MainLayout.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -449,7 +477,7 @@
   },
   {
     "from": "layouts/Sidebar.tsx",
-    "to": "app/history.js"
+    "to": "app/history.ts"
   },
   {
     "from": "layouts/Sidebar.tsx",
@@ -460,16 +488,16 @@
     "to": "vendor/siteSettings.js"
   },
   {
-    "from": "main.js",
-    "to": "app/bootstrap.js"
+    "from": "main.ts",
+    "to": "app/bootstrap.tsx"
+  },
+  {
+    "from": "models/auth.js",
+    "to": "app/navigation.ts"
   },
   {
     "from": "models/auth.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/auth.js",
-    "to": "vendor/routerHistory.js"
   },
   {
     "from": "models/config.js",
@@ -517,11 +545,11 @@
   },
   {
     "from": "models/passport.js",
-    "to": "services/request.js"
+    "to": "app/navigation.ts"
   },
   {
     "from": "models/passport.js",
-    "to": "vendor/routerHistory.js"
+    "to": "services/request.js"
   },
   {
     "from": "models/passport.js",
@@ -589,11 +617,11 @@
   },
   {
     "from": "models/sessionEffects.js",
-    "to": "services/request.js"
+    "to": "app/navigation.ts"
   },
   {
     "from": "models/sessionEffects.js",
-    "to": "vendor/routerHistory.js"
+    "to": "services/request.js"
   },
   {
     "from": "models/sessionEffects.js",
@@ -773,6 +801,10 @@
   },
   {
     "from": "pages/Dashboard.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/Dashboard.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
@@ -782,10 +814,6 @@
   {
     "from": "pages/Dashboard.tsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "vendor/routerHistory.js"
   },
   {
     "from": "pages/Dashboard.tsx",
@@ -809,7 +837,7 @@
   },
   {
     "from": "pages/Index.tsx",
-    "to": "vendor/routerHistory.js"
+    "to": "app/navigation.ts"
   },
   {
     "from": "pages/Knowledge.tsx",
@@ -869,6 +897,10 @@
   },
   {
     "from": "pages/Order.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/Order.tsx",
     "to": "components/AssignOrderEditor.tsx"
   },
   {
@@ -902,10 +934,6 @@
   {
     "from": "pages/Order.tsx",
     "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "vendor/routerHistory.js"
   },
   {
     "from": "pages/Plan.tsx",
@@ -1105,6 +1133,10 @@
   },
   {
     "from": "pages/User.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/User.tsx",
     "to": "components/AssignOrderEditor.tsx"
   },
   {
@@ -1149,19 +1181,19 @@
   },
   {
     "from": "pages/User.tsx",
-    "to": "vendor/routerHistory.js"
-  },
-  {
-    "from": "pages/User.tsx",
     "to": "vendor/siteHelpers.js"
   },
   {
+    "from": "runtime/dvaApplication.tsx",
+    "to": "runtime/routerBindings.tsx"
+  },
+  {
     "from": "runtime/routeRenderer.js",
-    "to": "runtime/pluginRuntime.js"
+    "to": "runtime/pluginRuntime.ts"
   },
   {
     "from": "services/request.js",
-    "to": "vendor/dva.js"
+    "to": "services/fetchResponse.ts"
   },
   {
     "from": "services/request.js",
@@ -1174,46 +1206,6 @@
   {
     "from": "services/request.js",
     "to": "vendor/siteSettings.js"
-  },
-  {
-    "from": "vendor/appDvaConfig.js",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/loadingPlugin.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/pluginRuntime.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/routeRenderer.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "vendor/appDvaConfig.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "vendor/rootRuntime.js"
-  },
-  {
-    "from": "vendor/dva.js",
-    "to": "runtime/routerBindings.js"
-  },
-  {
-    "from": "vendor/dva.js",
-    "to": "vendor/reactRedux.js"
-  },
-  {
-    "from": "vendor/rootRuntime.js",
-    "to": "app/store.js"
-  },
-  {
-    "from": "vendor/routerHistory.js",
-    "to": "app/history.js"
   },
   {
     "from": "vendor/siteHelpers.js",

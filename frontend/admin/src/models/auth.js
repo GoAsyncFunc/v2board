@@ -1,5 +1,5 @@
 import { get, post } from '../services/request.js';
-import history from '../vendor/routerHistory.js';
+import history from '../app/navigation';
 
 // Retained separate from passport: existing callers use the action/complete contract.
 export default {

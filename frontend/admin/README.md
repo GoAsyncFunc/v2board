@@ -51,7 +51,7 @@ npm run build
 npm test -- --runInBand
 ```
 
-当前管理端回归基线为 777 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 863 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -87,7 +87,7 @@ DEPLOY_HOST=root@5.104.86.24 npm run deploy:test
 - `DEPLOY_SITE_URL`：服务器本机健康检查地址，默认 `http://127.0.0.1:7003`
 - `ADMIN_PATH`：后台入口，默认 `/4434144c`
 
-成功后终端会输出 `RELEASE`、`BACKUP` 和 `ROLLBACK`。发生模板、缓存或 HTTP 检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
+成功后终端会输出 `RELEASE`、`BACKUP`、`ROLLBACK`、`GIT_COMMIT` 和 `APP_SHA256`，并在版本目录写入 `deployment.json`。发生模板、缓存或 HTTP 检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
 
 部署后检查登录页：
 

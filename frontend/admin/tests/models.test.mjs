@@ -26,7 +26,7 @@ async function load(target,name,original,trace,response){
   if(id.includes('70307045'))return Object.assign;
   if(id.includes('reactRuntime'))return {};
   if(id.includes('request'))return {a:get,b:post,get,post};
-  if(id.includes('routerHistory'))return history;
+  if(id.includes('routerHistory')||id.includes('app/navigation'))return history;
   if(id.includes('siteHelpers'))return helpers;
   throw Error('Unexpected dependency '+id);
  };

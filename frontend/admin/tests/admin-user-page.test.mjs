@@ -42,7 +42,7 @@ async function loadSource(path, extra = {}) {
       if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Select.Option' });
       if (id.startsWith('antd/')) return id;
       if (id === 'moment') return value => ({ format: pattern => `${pattern}:${value}` });
-      if (id.includes('routerHistory')) return { __esModule: true, default: { push: path => routes.push(path) } };
+      if (id.includes('routerHistory') || id.includes('app/navigation')) return { __esModule: true, default: { push: path => routes.push(path) } };
       if (id.includes('siteHelpers')) return { copyToClipboard() { return true; }, setPreference: (key, value) => preferences.push({ key, value }) };
       if (id.includes('UserDisplayColumns')) return { createReadonlyUserEmailColumn: () => ({ key: 'email' }) };
       return extra[id] || { __esModule: true, default: id };

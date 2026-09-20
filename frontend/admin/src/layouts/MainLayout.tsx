@@ -5,7 +5,7 @@ import chineseLocale from 'antd/lib/locale-provider/zh_CN';
 import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
-import history from '../app/history.js';
+import history from '../app/history';
 import type { AdminDispatch } from '../types/store';
 
 interface LayoutState {

@@ -14,7 +14,7 @@ import AssignOrderEditor from '../components/AssignOrderEditor';
 import UserGenerator from '../components/UserGenerator';
 import LoadingContainer from '../components/LoadingContainer';
 import TrafficPanel from '../components/TrafficPanel';
-import history from '../vendor/routerHistory.js';
+import history from '../app/navigation';
 import { copyToClipboard, setPreference } from '../vendor/siteHelpers.js';
 import MainLayout from '../layouts/MainLayout';
 import UserEditor from '../components/UserEditor';

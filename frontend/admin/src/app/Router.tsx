@@ -1,15 +1,16 @@
 import React from 'react';
 import type { Action, Location, UnregisterCallback } from 'history';
-import { routeRenderer } from '../vendor/appRuntime.js';
-import { routerBindings } from '../vendor/dva.js';
-import * as plugins from '../vendor/appRuntime.js';
-import history from './history.js';
+import routeRenderer from '../runtime/routeRenderer';
+import { routerBindings } from '../runtime/dvaApplication';
+import * as plugins from '../runtime/pluginRuntime';
+import history from './history';
 import appRoutes from './routes.js';
+import type { AdminStore } from '../types/store';
 
 const { ConnectedRouter } = routerBindings;
 
 interface RouterProps {
-  store?: unknown;
+  store?: AdminStore;
   [key: string]: unknown;
 }
 
@@ -46,6 +47,7 @@ export default class Router extends React.Component<RouterProps> {
   }
 
   render(): React.ReactNode {
+    if (!this.props.store) throw new Error('Router store was not initialized');
     return (
       <ConnectedRouter history={history} store={this.props.store}>
         {routeRenderer(routes, this.props)}

@@ -6,3 +6,8 @@ export interface AdminAction {
 }
 
 export type AdminDispatch = (action: AdminAction) => unknown;
+
+export interface AdminStore {
+  dispatch: AdminDispatch;
+  getState(): Record<string, object>;
+}

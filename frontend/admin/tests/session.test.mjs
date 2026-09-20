@@ -22,7 +22,7 @@ async function run(target,original,scenario){
  const code=original?text:(await transform(text,{format:'cjs'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,api,helpers,history,window,require:id=>{
   if(id.includes('request'))return api;
-  if(id.includes('routerHistory'))return history;
+  if(id.includes('routerHistory')||id.includes('app/navigation'))return history;
   if(id.includes('siteHelpers'))return helpers;
         throw Error(id);
  }},{filename:file,timeout:2000});

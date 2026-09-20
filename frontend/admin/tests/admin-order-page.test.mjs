@@ -35,7 +35,7 @@ async function loadOrderPage(responses = []) {
       if (id === 'antd/lib/button') return Button;
       if (id === 'antd/lib/menu') return Menu;
       if (id.startsWith('antd/')) return id;
-      if (id.includes('routerHistory')) return { __esModule: true, default: { push: route => routes.push(route) } };
+      if (id.includes('routerHistory') || id.includes('app/navigation')) return { __esModule: true, default: { push: route => routes.push(route) } };
       if (id.includes('services/request')) return {
         post: async (endpoint, data) => { requests.push({ method: 'post', endpoint, data }); return responses.shift(); },
         get: async (endpoint, data) => { requests.push({ method: 'get', endpoint, data }); return responses.shift(); },

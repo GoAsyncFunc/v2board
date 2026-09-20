@@ -1,5 +1,5 @@
 import { get } from '../services/request.js';
-import history from '../vendor/routerHistory.js';
+import history from '../app/navigation';
 import { getToken } from '../vendor/siteHelpers.js';
 
 export function* checkLogin({ redirect }, { put }) {
