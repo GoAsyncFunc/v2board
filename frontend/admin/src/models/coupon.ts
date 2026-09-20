@@ -3,18 +3,17 @@ import { get, post, type ApiResponse } from '../services/request';
 import type { CouponRecord } from '../components/CouponDisplayColumns';
 import type { CouponState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface CouponTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { coupon: CouponState }) => CouponState): unknown;
-}
+interface CouponRootState { coupon: CouponState; }
+interface CouponTools extends ModelEffectTools<CouponRootState> {}
 interface CouponGenerateAction { params: CouponRecord; callback?: () => void; }
 interface CouponIdAction { id?: string | number; }
 interface CouponTableAction { pagination: Partial<PromotionPagination>; sort: PromotionSort; }
 type CouponResponse = ApiResponse<CouponRecord[]>;
 type CouponGenerateResponse = ApiResponse & { buffer?: BlobPart };
 type CouponYield = CouponState | ApiResponse;
-type CouponEffect = Generator<unknown, void, CouponYield>;
+type CouponEffect = ModelEffect<CouponYield>;
 
 const initialState: CouponState = {
   coupons: [], fetchLoading: false, saveLoading: false,

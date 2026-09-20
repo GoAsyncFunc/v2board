@@ -1,6 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { NoticeRecord } from '../components/NoticeDisplayColumns';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface NoticeState {
   notices: NoticeRecord[];
@@ -8,13 +9,11 @@ interface NoticeState {
   saveLoading?: boolean;
 }
 
-interface NoticeEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface NoticeEffectTools extends PutEffectTools {}
 
 interface NoticeIdAction { id: string | number; }
 interface SaveNoticeAction { params: FormRecord; callback?: () => void; }
-type NoticeEffect = Generator<unknown, void, ApiResponse<NoticeRecord[]>>;
+type NoticeEffect = ModelEffect<ApiResponse<NoticeRecord[]>>;
 
 const initialState: NoticeState = { notices: [], fetchLoading: false };
 

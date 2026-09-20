@@ -1,6 +1,6 @@
 import { post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
 import type { ServerId } from '../types/server';
-import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface ServerProtocolState {
   switchLoading: Record<string, boolean>;
@@ -27,11 +27,9 @@ interface ServerSaveAction {
   callback?: () => void;
 }
 
-interface ServerProtocolEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface ServerProtocolEffectTools extends PutEffectTools {}
 
-type ServerProtocolEffect = Generator<unknown, void, ApiResponse>;
+type ServerProtocolEffect = ModelEffect<ApiResponse>;
 
 const initialState: ServerProtocolState = {
   switchLoading: {},

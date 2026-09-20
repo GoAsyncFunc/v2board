@@ -1,7 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import history from '../app/navigation';
 import type { AdminLoginData } from '../types/session';
-import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface AuthState {
   loginLoading?: boolean;
@@ -16,11 +16,9 @@ interface AuthRegisterAction {
   complete(response: ApiResponse<AdminLoginData>): void;
 }
 
-interface AuthEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface AuthEffectTools extends PutEffectTools {}
 
-type AuthEffect = Generator<unknown, void, ApiResponse<AdminLoginData>>;
+type AuthEffect = ModelEffect<ApiResponse<AdminLoginData>>;
 
 export default {
   name: 'auth',

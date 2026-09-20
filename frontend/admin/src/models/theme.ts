@@ -2,11 +2,12 @@ import { get, post, type ApiResponse } from '../services/request';
 import '../config/adminSettings';
 import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
-interface ThemeEffectTools { put(action: AdminAction): unknown; }
+interface ThemeEffectTools extends PutEffectTools {}
 interface ThemeNameAction { name: string; complete?: (config: ThemeConfigParams) => void; }
 interface SaveThemeAction extends ThemeNameAction { config: string; }
-type ThemeEffect<Data> = Generator<unknown, void, ApiResponse<Data>>;
+type ThemeEffect<Data> = ModelEffect<ApiResponse<Data>>;
 
 const initialState: ThemeState = { themes: {}, active: undefined };
 

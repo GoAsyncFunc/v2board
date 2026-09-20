@@ -2,17 +2,16 @@ import { get, post, type ApiResponse } from '../services/request';
 import { settings } from '../config/adminSettings';
 import type { PlanFieldValue, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface PlanTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { plan: PlanState }) => PlanState): unknown;
-}
+interface PlanRootState { plan: PlanState; }
+interface PlanTools extends ModelEffectTools<PlanRootState> {}
 interface PlanSaveAction { params: PlanRecord; callback?: () => void; }
 interface PlanIdAction { id?: string | number; }
 interface PlanUpdateAction extends PlanIdAction { key: string; value: PlanFieldValue; }
 interface PlanSortAction { fromIndex: number; toIndex: number; }
 type PlanYield = PlanState | ApiResponse;
-type PlanEffect = Generator<unknown, void, PlanYield>;
+type PlanEffect = ModelEffect<PlanYield>;
 
 const endpoint = (action: string): string => `/${window.settings.secure_path}/plan/${action}`;
 const initialState: PlanState = { plans: [], fetchLoading: false };

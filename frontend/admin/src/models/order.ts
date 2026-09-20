@@ -1,13 +1,13 @@
 import { post, type ApiResponse, type FormValue } from '../services/request';
 import * as orderQueries from './orderQueryEffects';
 import type { AssignOrderParams, OrderState } from '../types/order';
-import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
-interface OrderEffectTools { put(action: AdminAction): unknown; }
+interface OrderEffectTools extends PutEffectTools {}
 interface UpdateOrderAction { tradeNo: string | number; key: string; value: FormValue; }
 interface TradeNumberAction { tradeNo: string | number; }
 interface AssignOrderAction { params: AssignOrderParams; callback?: () => void; }
-type OrderEffect = Generator<unknown, void, ApiResponse>;
+type OrderEffect = ModelEffect<ApiResponse>;
 
 const initialState: OrderState = {
   orders: [],

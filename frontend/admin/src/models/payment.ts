@@ -3,11 +3,10 @@ import '../config/adminSettings';
 import type { PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { PaymentForm, PaymentState } from '../types/payment';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface PaymentTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { payment: PaymentState }) => PaymentState): unknown;
-}
+interface PaymentRootState { payment: PaymentState; }
+interface PaymentTools extends ModelEffectTools<PaymentRootState> {}
 interface CompleteAction<Data> { complete(data: Data): void; }
 interface PaymentFormAction extends CompleteAction<PaymentForm> { payment: string; id?: string | number; }
 interface SavePaymentAction { params: FormRecord; complete?: (data: JsonValue) => void; }
@@ -19,7 +18,7 @@ type PaymentYield =
   | ApiResponse<PaymentRecord[]>
   | ApiResponse<string[]>
   | PaymentState;
-type PaymentEffect = Generator<unknown, void, PaymentYield>;
+type PaymentEffect = ModelEffect<PaymentYield>;
 
 const initialState: PaymentState = { payments: [], fetchLoading: false };
 

@@ -3,18 +3,17 @@ import { get, post, type ApiResponse } from '../services/request';
 import type { GiftcardRecord } from '../components/GiftcardDisplayColumns';
 import type { GiftcardState, PromotionPagination, PromotionSort } from '../types/promotion';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface GiftcardTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { giftcard: GiftcardState }) => GiftcardState): unknown;
-}
+interface GiftcardRootState { giftcard: GiftcardState; }
+interface GiftcardTools extends ModelEffectTools<GiftcardRootState> {}
 interface GiftcardGenerateAction { params: GiftcardRecord; callback?: () => void; }
 interface GiftcardIdAction { id?: string | number; }
 interface GiftcardTableAction { pagination: Partial<PromotionPagination>; sort: PromotionSort; }
 type GiftcardResponse = ApiResponse<GiftcardRecord[]>;
 type GiftcardGenerateResponse = ApiResponse & { buffer?: BlobPart };
 type GiftcardYield = GiftcardState | ApiResponse;
-type GiftcardEffect = Generator<unknown, void, GiftcardYield>;
+type GiftcardEffect = ModelEffect<GiftcardYield>;
 
 const initialState: GiftcardState = {
   giftcards: [], fetchLoading: false, saveLoading: false,

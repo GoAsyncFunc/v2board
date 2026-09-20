@@ -10,11 +10,10 @@ import type {
   SiteConfig,
 } from '../types/config';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface ConfigTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { config: AdminConfigState }) => AdminConfigState): unknown;
-}
+interface ConfigRootState { config: AdminConfigState; }
+interface ConfigTools extends ModelEffectTools<ConfigRootState> {}
 
 interface FetchConfigAction {
   key?: ConfigGroupKey;
@@ -44,7 +43,7 @@ type ConfigFetchData = Partial<Omit<AdminConfigState, 'invite' | 'site' | 'depos
 };
 type MailTestResponse = ApiResponse & { log?: MailTestLog };
 type ConfigYield = ApiResponse | AdminConfigState;
-type ConfigEffect = Generator<unknown, void, ConfigYield>;
+type ConfigEffect = ModelEffect<ConfigYield>;
 
 const initialState = {
   ticket: {}, deposit: {}, invite: {}, site: {}, subscribe: {}, frontend: {},

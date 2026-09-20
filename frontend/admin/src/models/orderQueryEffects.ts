@@ -1,13 +1,12 @@
 import { get, type ApiResponse } from '../services/request';
 import type { FilterItem, FilterValue } from '../components/FilterDrawer';
 import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { AdminAction } from '../types/store';
 
 interface OrderStoreState { order: OrderState; }
-interface QueryEffectAction { type?: string; payload?: unknown; [key: string]: unknown; }
-interface QueryEffectTools {
-  put(action: QueryEffectAction): unknown;
-  select(selector: (state: OrderStoreState) => OrderState): unknown;
-}
+type OrderQueryAction = AdminAction | { filter: FilterItem[] };
+interface QueryEffectTools extends ModelEffectTools<OrderStoreState, OrderQueryAction> {}
 
 interface FilterAction { filter: FilterItem[]; }
 interface AddFilterAction {
@@ -18,9 +17,9 @@ interface AddFilterAction {
 }
 interface ChangeTableAction { pagination: Partial<OrderPagination>; }
 type OrderQueryYield = ApiResponse<OrderRecord[]> | OrderState;
-type OrderQueryEffect = Generator<unknown, void, OrderQueryYield>;
+type OrderQueryEffect = ModelEffect<OrderQueryYield>;
 
-export function* fetch(_action: QueryEffectAction, { put, select }: QueryEffectTools): OrderQueryEffect {
+export function* fetch(_action: AdminAction, { put, select }: QueryEffectTools): OrderQueryEffect {
   const orderState = (yield select(state => state.order)) as OrderState;
   yield put({ type: 'setState', payload: { fetchLoading: true } });
   const response = (yield get<OrderRecord[]>(`/${window.settings.secure_path}/order/fetch`, {

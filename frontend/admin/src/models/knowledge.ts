@@ -2,16 +2,15 @@ import { get, post, type ApiResponse } from '../services/request';
 import type { KnowledgeRecord } from '../components/KnowledgeDisplayColumns';
 import type { KnowledgeState } from '../types/knowledge';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface KnowledgeTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: { knowledge: KnowledgeState }) => KnowledgeState): unknown;
-}
+interface KnowledgeRootState { knowledge: KnowledgeState; }
+interface KnowledgeTools extends ModelEffectTools<KnowledgeRootState> {}
 interface KnowledgeIdAction { id?: string | number; }
 interface KnowledgeSaveAction { callback?: () => void; }
 interface KnowledgeSortAction { fromIndex: number; toIndex: number; }
 type KnowledgeYield = KnowledgeState | ApiResponse;
-type KnowledgeEffect = Generator<unknown, void, KnowledgeYield>;
+type KnowledgeEffect = ModelEffect<KnowledgeYield>;
 
 const initialState: KnowledgeState = {
   knowledges: [], fetchLoading: false, categorys: [], knowledge: {},

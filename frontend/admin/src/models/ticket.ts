@@ -3,20 +3,18 @@ import { get, post, type ApiResponse } from '../services/request';
 import type { TicketId, TicketRecord } from '../components/TicketDisplayColumns';
 import type { TicketFilterState, TicketPagination, TicketState } from '../types/ticket';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 interface TicketRootState {
   ticket: TicketState;
   user: { user: { id?: TicketId } };
 }
-interface TicketTools {
-  put(action: AdminAction): unknown;
-  select<Result>(selector: (state: TicketRootState) => Result): unknown;
-}
+interface TicketTools extends ModelEffectTools<TicketRootState> {}
 interface TicketIdAction { id?: TicketId; }
 interface TicketReplyAction extends TicketIdAction { msg?: string; callback?: () => void; }
 interface TicketFilterAction { pagination?: Partial<TicketPagination>; filter?: Partial<TicketFilterState>; }
 type TicketYield = TicketState | TicketRootState['user'] | ApiResponse;
-type TicketEffect = Generator<unknown, void, TicketYield>;
+type TicketEffect = ModelEffect<TicketYield>;
 
 const initialState: TicketState = {
   tickets: [], fetchLoading: false, ticket: { message: [] },

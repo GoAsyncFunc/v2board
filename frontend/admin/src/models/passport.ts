@@ -2,18 +2,16 @@ import { post, type ApiResponse } from '../services/request';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
 import type { AdminLoginData, PassportState } from '../types/session';
-import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface PassportLoginAction {
   email: string;
   password: string;
 }
 
-interface PassportEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface PassportEffectTools extends PutEffectTools {}
 
-type PassportEffect = Generator<unknown, void, ApiResponse<AdminLoginData>>;
+type PassportEffect = ModelEffect<ApiResponse<AdminLoginData>>;
 
 const initialState: PassportState = { loginLoading: false };
 

@@ -1,5 +1,5 @@
 import type { LayoutState } from '../types/session';
-import type { AdminAction } from '../types/store';
+import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 interface ShowNavigationAction {
   show?: boolean;
@@ -9,12 +9,9 @@ interface LayoutStoreState {
   layout: LayoutState;
 }
 
-interface LayoutEffectTools {
-  put(action: AdminAction): unknown;
-  select(selector: (state: LayoutStoreState) => LayoutState): unknown;
-}
+interface LayoutEffectTools extends ModelEffectTools<LayoutStoreState> {}
 
-type LayoutEffect = Generator<unknown, void, LayoutState>;
+type LayoutEffect = ModelEffect<LayoutState>;
 
 const initialState: LayoutState = { showNav: false };
 

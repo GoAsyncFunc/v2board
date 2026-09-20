@@ -1,16 +1,15 @@
 import { get, type ApiResponse } from '../services/request';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
 import type { AdminAction } from '../types/store';
+import type { ModelEffect, PutEffectTools } from '../types/effects';
 
-interface StatEffectTools {
-  put(action: AdminAction): unknown;
-}
+interface StatEffectTools extends PutEffectTools {}
 
 interface CompleteAction<Data> {
   complete(data: Data): void;
 }
 
-type StatEffect<Data> = Generator<unknown, void, ApiResponse<Data>>;
+type StatEffect<Data> = ModelEffect<ApiResponse<Data>>;
 
 function statEndpoint(action: string): string {
   return `/${window.settings.secure_path}/stat/${action}`;
