@@ -1,5 +1,5 @@
 import { getPreference } from '../utils/siteHelpers';
-import * as session from './sessionEffects.js';
+import * as session from './sessionEffects';
 import * as queries from './userQueryEffects.js';
 import * as mutations from './userMutationEffects.js';
 import * as exports from './userExportEffects.js';

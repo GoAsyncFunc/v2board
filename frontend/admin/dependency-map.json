@@ -137,7 +137,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/auth.js"
+    "to": "models/auth.ts"
   },
   {
     "from": "app/store.tsx",
@@ -157,7 +157,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/layout.js"
+    "to": "models/layout.ts"
   },
   {
     "from": "app/store.tsx",
@@ -169,7 +169,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/passport.js"
+    "to": "models/passport.ts"
   },
   {
     "from": "app/store.tsx",
@@ -456,11 +456,11 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/auth.js",
+    "from": "models/auth.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/auth.js",
+    "from": "models/auth.ts",
     "to": "services/request.ts"
   },
   {
@@ -500,15 +500,15 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/passport.js",
+    "from": "models/passport.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
@@ -572,15 +572,15 @@
     "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/sessionEffects.js",
+    "from": "models/sessionEffects.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
@@ -605,7 +605,7 @@
   },
   {
     "from": "models/user.js",
-    "to": "models/sessionEffects.js"
+    "to": "models/sessionEffects.ts"
   },
   {
     "from": "models/user.js",

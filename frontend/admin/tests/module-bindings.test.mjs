@@ -27,7 +27,7 @@ async function sourceFiles(dir, out = []) {
     if (entry.isDirectory()) {
       if (entry.name === 'vendor' || entry.name === 'node_modules') continue;
       await sourceFiles(full, out);
-    } else if (/\.(jsx|js)$/.test(entry.name)) {
+    } else if (/\.(jsx|js|tsx|ts)$/.test(entry.name) && !entry.name.endsWith('.d.ts')) {
       out.push(full);
     }
   }
@@ -88,7 +88,7 @@ function referencedHelpers(ast) {
 }
 
 function droppedBindings(source) {
-  const ast = parser.parse(source, {sourceType: 'module', plugins: ['jsx']});
+  const ast = parser.parse(source, {sourceType: 'module', plugins: ['jsx', 'typescript']});
   const bound = boundNames(ast);
   return [...referencedHelpers(ast)].filter(name => !bound.has(name));
 }
@@ -97,7 +97,7 @@ test('restored pages bind every referenced helper alias', async () => {
   const files = [
     ...await sourceFiles(path.join(root, 'src')),
   ];
-  assert.ok(files.length > 20, `expected source files, got ${files.length}`);
+  assert.ok(files.length > 100, `expected restored source files, got ${files.length}`);
   const failures = [];
   for (const file of files) {
     const missing = droppedBindings(await fs.readFile(file, 'utf8'));

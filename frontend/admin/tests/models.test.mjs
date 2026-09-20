@@ -10,9 +10,12 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const copy=value=>structuredClone(value);
 async function load(target,name,original,trace,response){
- const file=original?path.join(home,'tests/fixtures/models',`${target}-${name}.cjs`):path.join(home,'src/models',name+'.js');
+ const fixture=path.join(home,'tests/fixtures/models',`${target}-${name}.cjs`);
+ const typedSource=path.join(home,'src/models',name+'.ts');
+ const file=original?fixture:await fs.access(typedSource).then(()=>typedSource,()=>path.join(home,'src/models',name+'.js'));
  const text=await fs.readFile(file,'utf8');
- const code=original?text:(await transform(text,{format:'cjs',loader:'js',target:'es2018'})).code;
+ const loader=file.endsWith('.ts')?'ts':'js';
+ const code=original?text:(await transform(text,{format:'cjs',loader,target:'es2018'})).code;
  const request=method=>(url,data)=>{trace.push(['request',method,url,copy(data)]);return {request:true};};
  const get=request('GET'),post=request('POST');
  const history={push:route=>{trace.push(['navigate',route]);}};
