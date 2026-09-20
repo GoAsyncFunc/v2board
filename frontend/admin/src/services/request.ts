@@ -3,7 +3,7 @@ import { siteSettings } from '../config/siteSettings';
 import { clearToken, getToken } from '../utils/siteHelpers';
 import { fetchResponse } from './fetchResponse';
 
-export type FormValue = string | number | boolean | bigint | null | undefined | FormRecord;
+export type FormValue = string | number | boolean | bigint | null | undefined | FormValue[] | FormRecord;
 export interface FormRecord {
   [key: string]: FormValue;
 }
@@ -37,7 +37,11 @@ export function encodeForm(data?: FormRecord | null): string {
     }
     if (value === undefined) return;
     if (typeof value === 'object') {
-      for (const child in value) append(`${key}[${child}]`, value[child]);
+      if (Array.isArray(value)) {
+        value.forEach((childValue, index) => append(`${key}[${index}]`, childValue));
+      } else {
+        for (const child in value) append(`${key}[${child}]`, value[child]);
+      }
       return;
     }
     fields.push(`${key}=${encodeURIComponent(String(value))}`);

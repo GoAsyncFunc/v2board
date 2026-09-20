@@ -1,7 +1,15 @@
-import { get, post } from '../services/request';
-import * as orderQueries from './orderQueryEffects.js';
+import { post, type ApiResponse, type FormValue } from '../services/request';
+import * as orderQueries from './orderQueryEffects';
+import type { AssignOrderParams, OrderState } from '../types/order';
+import type { AdminAction } from '../types/store';
 
-const initialState = {
+interface OrderEffectTools { put(action: AdminAction): unknown; }
+interface UpdateOrderAction { tradeNo: string | number; key: string; value: FormValue; }
+interface TradeNumberAction { tradeNo: string | number; }
+interface AssignOrderAction { params: AssignOrderParams; callback?: () => void; }
+type OrderEffect = Generator<unknown, void, ApiResponse>;
+
+const initialState: OrderState = {
   orders: [],
   fetchLoading: false,
   assignLoading: false,
@@ -13,26 +21,28 @@ export default {
   name: 'order',
   state: { ...initialState },
   reducers: {
-    setState(state, { payload }) { return { ...state, ...payload }; },
+    setState(state: OrderState, { payload }: { payload: Partial<OrderState> }) {
+      return { ...state, ...payload };
+    },
     empty() { return { ...initialState }; },
   },
   effects: {
     fetch: orderQueries.fetch,
     filter: orderQueries.filter,
     addFilter: orderQueries.addFilter,
-    *update({ tradeNo, key, value }, { put }) {
+    *update({ tradeNo, key, value }: UpdateOrderAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/update`, { trade_no: tradeNo, [key]: value });
       if (response.code === 200) yield put({ type: 'fetch' });
     },
-    *paid({ tradeNo }, { put }) {
+    *paid({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/paid`, { trade_no: tradeNo });
       if (response.code === 200) yield put({ type: 'fetch' });
     },
-    *cancel({ tradeNo }, { put }) {
+    *cancel({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
       const response = yield post(`/${window.settings.secure_path}/order/cancel`, { trade_no: tradeNo });
       if (response.code === 200) yield put({ type: 'fetch' });
     },
-    *assign({ params, callback }, { put }) {
+    *assign({ params, callback }: AssignOrderAction, { put }: OrderEffectTools): OrderEffect {
       yield put({ type: 'setState', payload: { assignLoading: true } });
       const response = yield post(`/${window.settings.secure_path}/order/assign`, {
         ...params,
@@ -41,7 +51,7 @@ export default {
       yield put({ type: 'setState', payload: { assignLoading: false } });
       if (response.code !== 200) return;
       yield put({ type: 'fetch' });
-      if (typeof callback === 'function') callback();
+      callback?.();
     },
     changeTable: orderQueries.changeTable,
   },

@@ -18,6 +18,7 @@ export interface FilterItem {
   key: string;
   condition: string;
   value: FilterValue;
+  [key: string]: FilterValue;
 }
 
 export interface FilterOption {

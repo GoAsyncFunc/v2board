@@ -8,7 +8,7 @@ import Menu from 'antd/lib/menu';
 import Modal from 'antd/lib/modal';
 import Table from 'antd/lib/table';
 import Tooltip from 'antd/lib/tooltip';
-import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
+import type { ColumnProps } from 'antd/lib/table/interface';
 import AssignOrderEditor from '../components/AssignOrderEditor';
 import LoadingContainer from '../components/LoadingContainer';
 import history from '../app/navigation';
@@ -19,20 +19,7 @@ import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type Ord
 import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';
 import { settings } from '../config/adminSettings';
 import type { AdminDispatch } from '../types/store';
-
-
-export interface OrderRecord extends OrderDetailRecord {
-  id: number | string;
-  type: PropertyKey;
-  plan_name?: React.ReactNode;
-}
-
-interface OrderState {
-  orders: OrderRecord[];
-  fetchLoading: boolean;
-  pagination: PaginationConfig;
-  filter: FilterItem[];
-}
+import type { OrderRecord, OrderState } from '../types/order';
 
 interface OrderPageProps { dispatch: AdminDispatch; order: OrderState; }
 interface OrderRootState { order: OrderState; plan: { plans: OrderDetailPlan[] }; }

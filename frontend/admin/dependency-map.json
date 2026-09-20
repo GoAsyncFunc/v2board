@@ -165,7 +165,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/order.js"
+    "to": "models/order.ts"
   },
   {
     "from": "app/store.tsx",
@@ -488,15 +488,15 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/order.js",
-    "to": "models/orderQueryEffects.js"
+    "from": "models/order.ts",
+    "to": "models/orderQueryEffects.ts"
   },
   {
-    "from": "models/order.js",
+    "from": "models/order.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderQueryEffects.js",
+    "from": "models/orderQueryEffects.ts",
     "to": "services/request.ts"
   },
   {
