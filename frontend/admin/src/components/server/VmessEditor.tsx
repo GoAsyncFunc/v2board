@@ -11,7 +11,7 @@ import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
 import PermissionGroupEditor from '../common/PermissionGroupEditor';
 import JsonEditor from '../common/JsonEditor';
-import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, SecuritySettings, ServerEditorProps, ServerRecord, ServerSaveState } from '../../types/server';
+import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, ServerEditorProps, ServerRecord, ServerSaveState, VmessTlsSettings } from '../../types/server';
 import type { AdminRootState } from '../../types/store';
 
 
@@ -107,8 +107,8 @@ export class RuleSettings extends React.Component<RuleSettingsProps, RuleSetting
   }
 }
 
-interface VmessTlsSettingsProps { settings?: SecuritySettings; onChange: (settings: SecuritySettings) => void; }
-interface VmessTlsSettingsState { settings: SecuritySettings; }
+interface VmessTlsSettingsProps { settings?: VmessTlsSettings; onChange: (settings: VmessTlsSettings) => void; }
+interface VmessTlsSettingsState { settings: VmessTlsSettings; }
 
 export class TlsSettings extends React.Component<VmessTlsSettingsProps, VmessTlsSettingsState> {
   constructor(props: VmessTlsSettingsProps) {
@@ -117,7 +117,7 @@ export class TlsSettings extends React.Component<VmessTlsSettingsProps, VmessTls
     this.state = { settings };
   }
 
-  change(field: string, value: string): void {
+  change<Field extends keyof VmessTlsSettings>(field: Field, value: VmessTlsSettings[Field]): void {
     const settings = { ...this.state.settings, [field]: value };
     this.setState({ settings });
     this.props.onChange(settings);

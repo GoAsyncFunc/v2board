@@ -50,3 +50,22 @@ test('admin source uses explicit nullable and successful-response contracts', as
   assert.deepEqual(directStatusChecks, []);
   assert.deepEqual(unsafeCompatibilityAssertions, []);
 });
+
+test('server security settings use protocol-specific fields instead of a generic string index', async () => {
+  const typeSource = await fs.readFile(path.join(sourceRoot, 'types', 'server.ts'), 'utf8');
+  const componentSource = await fs.readFile(
+    path.join(sourceRoot, 'components', 'server', 'ServerSecuritySettings.tsx'),
+    'utf8',
+  );
+
+  assert.doesNotMatch(typeSource, /interface (?:NodeTlsSettings|EncryptionSecuritySettings|VmessTlsSettings)\s*{[^}]*\[key:\s*string\]/s);
+  for (const contract of ['NodeTlsSettings', 'EncryptionSecuritySettings', 'VmessTlsSettings']) {
+    assert.match(typeSource, new RegExp(`interface ${contract}\\b`));
+  }
+  for (const field of ['cert_mode', 'fingerprint', 'ech', 'mode', 'rtt']) {
+    assert.match(typeSource, new RegExp(`\\b${field}\\?`));
+  }
+  assert.doesNotMatch(componentSource, /settings\.[A-Za-z_][A-Za-z0-9_]*\s+as\s+/);
+  assert.match(componentSource, /function inputValue\(/);
+  assert.match(componentSource, /function isEchMode\(/);
+});

@@ -3,12 +3,51 @@ import type { AdminDispatch } from './store';
 
 export type ServerId = string | number;
 export type Scalar = string | number | null;
-export type SecuritySettingValue = string | number | null | undefined;
 export type ServerProtocolType = 'shadowsocks' | 'vmess' | 'trojan' | 'hysteria' | 'tuic' | 'vless' | 'anytls' | 'v2node';
 export type ServerJsonValue = string | number | boolean | null | ServerJsonValue[] | { [key: string]: ServerJsonValue };
 
-export interface SecuritySettings {
-  [key: string]: SecuritySettingValue;
+export type CertificateMode = 'self' | 'remote' | 'http' | 'dns' | 'none';
+export type TlsFingerprint = 'chrome' | 'firefox' | 'safari' | 'ios' | 'android' | 'edge' | '360' | 'qq';
+export type EchMode = '' | 'cloudflare' | 'custom';
+export type EncryptionMode = 'native' | 'xorpub' | 'random';
+export type EncryptionRoundTripMode = '0rtt' | '1rtt';
+
+export interface NodeTlsSettings {
+  server_name?: string | number | null;
+  cert_mode?: CertificateMode | null;
+  provider?: string | number | null;
+  dns_env?: string | number | null;
+  reject_unknown_sni?: string | number | null;
+  allow_insecure?: string | number | null;
+  cert_file?: string | number | null;
+  key_file?: string | number | null;
+  pinned_peer_cert_sha256?: string | number | null;
+  dest?: string | number | null;
+  server_port?: string | number | null;
+  xver?: string | number | null;
+  private_key?: string | number | null;
+  public_key?: string | number | null;
+  short_id?: string | number | null;
+  fingerprint?: TlsFingerprint | null;
+  ech?: EchMode | null;
+  ech_server_name?: string | number | null;
+  ech_key?: string | number | null;
+  ech_config?: string | number | null;
+}
+
+export interface EncryptionSecuritySettings {
+  mode?: EncryptionMode | null;
+  rtt?: EncryptionRoundTripMode | null;
+  ticket?: string | number | null;
+  server_padding?: string | number | null;
+  client_padding?: string | number | null;
+  private_key?: string | number | null;
+  password?: string | number | null;
+}
+
+export interface VmessTlsSettings {
+  serverName?: string | number | null;
+  allowInsecure?: string | number | null;
 }
 
 export interface ServerGroupOption {
@@ -47,9 +86,9 @@ export interface ServerRecord {
   cipher?: string;
   flow?: string | null;
   encryption?: string | null;
-  encryption_settings?: SecuritySettings;
-  tls_settings?: SecuritySettings;
-  tlsSettings?: SecuritySettings;
+  encryption_settings?: EncryptionSecuritySettings;
+  tls_settings?: NodeTlsSettings;
+  tlsSettings?: VmessTlsSettings;
   ruleSettings?: RuleSettingsValue;
   dnsSettings?: DnsSettingsValue;
   obfs?: string | null;
