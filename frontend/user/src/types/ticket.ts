@@ -28,3 +28,16 @@ export interface TicketState {
   saveData: TicketDraft;
   replyData: { message?: string };
 }
+
+export type TicketId = number | string;
+
+export interface TicketReplyAction {
+  id: TicketId;
+  complete: () => void;
+}
+
+export interface TicketWithdrawAction {
+  withdrawAccount?: string;
+  withdrawMethod?: string;
+  callback?: () => void;
+}

@@ -16,9 +16,9 @@ import plan from '../models/plan';
 import server from '../models/server';
 import stat from '../models/stat';
 import telegram from '../models/telegram';
-import ticket from '../models/ticket.js';
+import ticket from '../models/ticket';
 import tutorial from '../models/tutorial';
-import user from '../models/user.js';
+import user from '../models/user';
 
 const models = {
   comm,
