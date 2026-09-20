@@ -1,4 +1,4 @@
-import { get, post, type ApiResponse, type FormRecord } from '../services/request';
+import { get, post, type ApiResponse, type FormRecord, type JsonValue } from '../services/request';
 import '../config/adminSettings';
 import type { PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { PaymentForm, PaymentState } from '../types/payment';
@@ -10,10 +10,15 @@ interface PaymentTools {
 }
 interface CompleteAction<Data> { complete(data: Data): void; }
 interface PaymentFormAction extends CompleteAction<PaymentForm> { payment: string; id?: string | number; }
-interface SavePaymentAction { params: FormRecord; complete?: (data: unknown) => void; }
+interface SavePaymentAction { params: FormRecord; complete?: (data: JsonValue) => void; }
 interface PaymentIdAction { id?: string | number; }
 interface SortPaymentAction { fromIndex: number; toIndex: number; }
-type PaymentYield = ApiResponse<unknown> | PaymentState;
+type PaymentYield =
+  | ApiResponse
+  | ApiResponse<PaymentForm>
+  | ApiResponse<PaymentRecord[]>
+  | ApiResponse<string[]>
+  | PaymentState;
 type PaymentEffect = Generator<unknown, void, PaymentYield>;
 
 const initialState: PaymentState = { payments: [], fetchLoading: false };

@@ -42,8 +42,8 @@ type ConfigFetchData = Partial<Omit<AdminConfigState, 'invite' | 'site' | 'depos
   site?: RawSiteConfig;
   deposit?: RawDepositConfig;
 };
-type MailTestResponse = ApiResponse<unknown> & { log?: MailTestLog };
-type ConfigYield = ApiResponse<unknown> | AdminConfigState;
+type MailTestResponse = ApiResponse & { log?: MailTestLog };
+type ConfigYield = ApiResponse | AdminConfigState;
 type ConfigEffect = Generator<unknown, void, ConfigYield>;
 
 const initialState = {

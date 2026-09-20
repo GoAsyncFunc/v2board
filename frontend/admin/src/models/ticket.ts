@@ -15,7 +15,7 @@ interface TicketTools {
 interface TicketIdAction { id?: TicketId; }
 interface TicketReplyAction extends TicketIdAction { msg?: string; callback?: () => void; }
 interface TicketFilterAction { pagination?: Partial<TicketPagination>; filter?: Partial<TicketFilterState>; }
-type TicketYield = TicketState | TicketRootState['user'] | ApiResponse<unknown>;
+type TicketYield = TicketState | TicketRootState['user'] | ApiResponse;
 type TicketEffect = Generator<unknown, void, TicketYield>;
 
 const initialState: TicketState = {

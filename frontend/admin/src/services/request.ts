@@ -8,18 +8,24 @@ export interface FormRecord {
   [key: string]: FormValue;
 }
 
-export interface ApiResponse<Data = unknown> {
+export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
+
+export interface ApiResponse<Data = JsonValue> {
   code: number;
   data: Data;
   total: number;
   msg?: string;
-  [key: string]: unknown;
+  status?: string;
 }
 
-interface ApiPayload {
+interface ApiPayload<Data = JsonValue> {
+  data?: Data;
+  total?: number;
+  status?: string;
   message?: string;
   errors?: Record<string, string[]>;
-  [key: string]: unknown;
+  buffer?: ArrayBuffer;
+  [key: string]: Data | JsonValue | ArrayBuffer | undefined;
 }
 
 export interface AdminRequestOptions extends Omit<RequestInit, 'headers'> {
@@ -51,7 +57,7 @@ export function encodeForm(data?: FormRecord | null): string {
   return fields.join('&');
 }
 
-export async function request<Data = unknown>(
+export async function request<Data = JsonValue>(
   endpoint: string,
   requestOptions: AdminRequestOptions | null = {},
 ): Promise<ApiResponse<Data>> {
@@ -65,8 +71,8 @@ export async function request<Data = unknown>(
     : siteSettings.serviceHost + endpoint;
   const response = await fetchResponse(url, options);
   // Keep exact content-type handling for parity; widening this is a separate behavior change.
-  const data: ApiPayload = response.headers.get('content-type') === 'application/json'
-    ? await response.json() as ApiPayload
+  const data: ApiPayload<Data> = response.headers.get('content-type') === 'application/json'
+    ? await response.json() as ApiPayload<Data>
     : { buffer: await response.arrayBuffer() };
 
   if (response.status === 403) {
@@ -86,7 +92,7 @@ export async function request<Data = unknown>(
   return Object.assign({ code: response.status }, data) as ApiResponse<Data>;
 }
 
-export function post<Data = unknown>(endpoint: string, data?: FormRecord): Promise<ApiResponse<Data>> {
+export function post<Data = JsonValue>(endpoint: string, data?: FormRecord): Promise<ApiResponse<Data>> {
   return request<Data>(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -94,7 +100,7 @@ export function post<Data = unknown>(endpoint: string, data?: FormRecord): Promi
   });
 }
 
-export function get<Data = unknown>(endpoint: string, data?: FormRecord): Promise<ApiResponse<Data>> {
+export function get<Data = JsonValue>(endpoint: string, data?: FormRecord): Promise<ApiResponse<Data>> {
   const query = encodeForm(data);
   return request<Data>(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
 }

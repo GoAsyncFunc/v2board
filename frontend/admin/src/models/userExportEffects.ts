@@ -7,8 +7,8 @@ import type { AdminAction } from '../types/store';
 
 interface UserTools { put(action: AdminAction): unknown; select(selector: (state: { user: UserModuleState }) => UserModuleState): unknown; }
 interface GenerateAction { params: FormRecord; callback?: () => void; }
-type ExportResponse = ApiResponse<unknown> & { buffer?: BlobPart };
-type UserYield = UserModuleState | ApiResponse<unknown>;
+type ExportResponse = ApiResponse & { buffer?: BlobPart };
+type UserYield = UserModuleState | ApiResponse;
 type UserEffect = Generator<unknown, void, UserYield>;
 const endpoint = (action: string): string => `/${window.settings.secure_path}/user/${action}`;
 

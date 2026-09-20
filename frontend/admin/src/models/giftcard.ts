@@ -12,8 +12,8 @@ interface GiftcardGenerateAction { params: GiftcardRecord; callback?: () => void
 interface GiftcardIdAction { id?: string | number; }
 interface GiftcardTableAction { pagination: Partial<PromotionPagination>; sort: PromotionSort; }
 type GiftcardResponse = ApiResponse<GiftcardRecord[]>;
-type GiftcardGenerateResponse = ApiResponse<unknown> & { buffer?: BlobPart };
-type GiftcardYield = GiftcardState | ApiResponse<unknown>;
+type GiftcardGenerateResponse = ApiResponse & { buffer?: BlobPart };
+type GiftcardYield = GiftcardState | ApiResponse;
 type GiftcardEffect = Generator<unknown, void, GiftcardYield>;
 
 const initialState: GiftcardState = {

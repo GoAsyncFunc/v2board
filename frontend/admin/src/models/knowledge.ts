@@ -10,7 +10,7 @@ interface KnowledgeTools {
 interface KnowledgeIdAction { id?: string | number; }
 interface KnowledgeSaveAction { callback?: () => void; }
 interface KnowledgeSortAction { fromIndex: number; toIndex: number; }
-type KnowledgeYield = KnowledgeState | ApiResponse<unknown>;
+type KnowledgeYield = KnowledgeState | ApiResponse;
 type KnowledgeEffect = Generator<unknown, void, KnowledgeYield>;
 
 const initialState: KnowledgeState = {

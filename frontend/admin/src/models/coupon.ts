@@ -12,8 +12,8 @@ interface CouponGenerateAction { params: CouponRecord; callback?: () => void; }
 interface CouponIdAction { id?: string | number; }
 interface CouponTableAction { pagination: Partial<PromotionPagination>; sort: PromotionSort; }
 type CouponResponse = ApiResponse<CouponRecord[]>;
-type CouponGenerateResponse = ApiResponse<unknown> & { buffer?: BlobPart };
-type CouponYield = CouponState | ApiResponse<unknown>;
+type CouponGenerateResponse = ApiResponse & { buffer?: BlobPart };
+type CouponYield = CouponState | ApiResponse;
 type CouponEffect = Generator<unknown, void, CouponYield>;
 
 const initialState: CouponState = {

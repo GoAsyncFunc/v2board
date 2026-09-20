@@ -11,7 +11,7 @@ interface PlanSaveAction { params: PlanRecord; callback?: () => void; }
 interface PlanIdAction { id?: string | number; }
 interface PlanUpdateAction extends PlanIdAction { key: string; value: PlanFieldValue; }
 interface PlanSortAction { fromIndex: number; toIndex: number; }
-type PlanYield = PlanState | ApiResponse<unknown>;
+type PlanYield = PlanState | ApiResponse;
 type PlanEffect = Generator<unknown, void, PlanYield>;
 
 const endpoint = (action: string): string => `/${window.settings.secure_path}/plan/${action}`;
