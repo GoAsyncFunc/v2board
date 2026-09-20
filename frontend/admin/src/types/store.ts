@@ -6,6 +6,7 @@ import type { OrderState } from './order';
 import type { PaymentState } from './payment';
 import type { PlanState } from './plan';
 import type { CouponState, GiftcardState } from './promotion';
+import type { RouterState } from './router';
 import type {
   ServerGroupState,
   ServerManageState,
@@ -56,6 +57,7 @@ export interface AdminRootState {
   theme: ThemeState;
   ticket: TicketState;
   user: UserModuleState;
+  router?: RouterState;
 }
 
 export interface AdminStore {

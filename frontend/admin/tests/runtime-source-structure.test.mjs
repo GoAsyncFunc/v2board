@@ -160,3 +160,13 @@ test('admin connected layouts and editors use the canonical root state', async (
     assert.match(source, /AdminRootState/, `${relativePath} must select from AdminRootState`);
   }
 });
+
+test('admin router selectors use the canonical root state', async () => {
+  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+  const routerTypes = await fs.readFile(new URL('../src/types/router.ts', import.meta.url), 'utf8');
+  const routerBindings = await fs.readFile(new URL('../src/runtime/routerBindings.tsx', import.meta.url), 'utf8');
+  assert.match(storeTypes, /router\?: RouterState/);
+  assert.match(routerTypes, /export interface RouterState/);
+  assert.doesNotMatch(routerBindings, /interface\s+RouterRootState\b/);
+  assert.match(routerBindings, /state: AdminRootState/);
+});

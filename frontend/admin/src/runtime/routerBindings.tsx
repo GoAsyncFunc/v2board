@@ -5,7 +5,10 @@ import {
   CALL_HISTORY_METHOD, LOCATION_CHANGE, go, goBack, goForward, push, replace,
   routerActions, routerMiddleware,
 } from 'react-router-redux';
-import type { AdminStore } from '../types/store';
+import type { RouterState } from '../types/router';
+import type { AdminRootState, AdminStore } from '../types/store';
+
+export type { RouterState } from '../types/router';
 
 export { routerMiddleware };
 export { CALL_HISTORY_METHOD, LOCATION_CHANGE, go, goBack, goForward, push, replace, routerActions };
@@ -15,8 +18,6 @@ interface LocationChangeAction {
   type?: string;
   payload?: { location?: Location; action?: Action; isFirstRendering?: boolean; };
 }
-export interface RouterState { location: Location | null | undefined; action: Action | null | undefined; }
-interface RouterRootState { router?: RouterState; }
 
 export class ConnectedRouter extends React.Component<ConnectedRouterProps> {
   private stopListening?: UnregisterCallback;
@@ -41,7 +42,7 @@ export function connectRouter() {
   };
 }
 
-export const getLocation = (state: RouterRootState): Location | null | undefined => state.router?.location;
-export const getAction = (state: RouterRootState): Action | null | undefined => state.router?.action;
-export const getSearch = (state: RouterRootState): string | undefined => getLocation(state)?.search;
-export const getHash = (state: RouterRootState): string | undefined => getLocation(state)?.hash;
+export const getLocation = (state: AdminRootState): Location | null | undefined => state.router?.location;
+export const getAction = (state: AdminRootState): Action | null | undefined => state.router?.action;
+export const getSearch = (state: AdminRootState): string | undefined => getLocation(state)?.search;
+export const getHash = (state: AdminRootState): string | undefined => getLocation(state)?.hash;
