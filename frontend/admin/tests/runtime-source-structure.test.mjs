@@ -100,3 +100,12 @@ test('admin source no longer contains a vendor compatibility directory', async (
   assert.equal(stat.isFile(), true, `${typedStylePath} should be a file`);
   await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
 });
+
+test('admin application runtime is implemented as typed TSX components', async () => {
+  const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
+  const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
+  assert.match(runtimeSource, /function createApplicationProvider/);
+  assert.match(runtimeSource, /<ApplicationProvider \/>/);
+  assert.doesNotMatch(runtimeSource, /React\.createElement/);
+  assert.equal(tsconfig.compilerOptions.allowJs, false);
+});
