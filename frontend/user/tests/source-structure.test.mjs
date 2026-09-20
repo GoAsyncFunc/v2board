@@ -52,3 +52,11 @@ test('user business components live outside the vendor compatibility layer', asy
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
   }
 });
+
+test('user route definitions live in the dedicated routes directory', async () => {
+  const routeSource = await fs.readFile(new URL('../src/routes/index.ts', import.meta.url), 'utf8');
+  assert.match(routeSource, /export interface UserRoute/);
+  assert.match(routeSource, /path: '\/dashboard'/);
+  assert.match(routeSource, /path: '\/order\/:trade_no'/);
+  await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
+});

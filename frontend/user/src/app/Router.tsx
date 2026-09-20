@@ -17,7 +17,7 @@ import {
 import type { IntlApi, LanguageContextValue } from '../locales/i18n';
 import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
-import appRoutes from './routes';
+import userRoutes from '../routes';
 import type { UserStore } from '../types/store';
 import type { PluginValue } from '../runtime/pluginRuntime';
 
@@ -47,7 +47,7 @@ interface LocaleChildrenProps { children?: React.ReactNode; }
 interface LocaleProviderState { locale: string; }
 interface RouterProps { store?: UserStore; [key: string]: PluginValue; }
 
-export const routes = appRoutes;
+export const routes = userRoutes;
 window.g_routes = routes;
 
 export class IntlApiBridge extends React.Component<IntlApiBridgeProps> {

@@ -1,18 +1,18 @@
 import React from 'react';
 import type { RouteComponentProps } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
-import type { AppRoute } from '../app/routes';
+import type { UserRoute } from '../routes';
 import type { PluginValue } from './pluginRuntime';
 import { apply } from './pluginRuntime';
 
 export type RouteRendererProps = Record<string, PluginValue>;
 
 interface RenderedRouteProps extends RouteComponentProps, RouteRendererProps {
-  route: AppRoute;
+  route: UserRoute;
 }
 
 export default function routeRenderer(
-  routes: AppRoute[] | null | undefined,
+  routes: UserRoute[] | null | undefined,
   routeProps: RouteRendererProps = {},
 ): React.ReactElement | null {
   if (!routes) return null;

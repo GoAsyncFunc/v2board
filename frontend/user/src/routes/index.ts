@@ -15,7 +15,7 @@ import TicketDetail from '../pages/TicketDetail';
 import Ticket from '../pages/Ticket';
 import Traffic from '../pages/Traffic';
 
-type RouteComponent =
+type UserRouteComponent =
   | typeof Dashboard
   | typeof Forgetpassword
   | typeof Index
@@ -33,13 +33,13 @@ type RouteComponent =
   | typeof Ticket
   | typeof Traffic;
 
-export interface AppRoute {
+export interface UserRoute {
   path: string;
   exact: boolean;
-  component: RouteComponent;
+  component: UserRouteComponent;
 }
 
-const routes: AppRoute[] = [
+const routes: UserRoute[] = [
   { path: '/dashboard', exact: true, component: Dashboard },
   { path: '/forgetpassword', exact: true, component: Forgetpassword },
   { path: '/', exact: true, component: Index },

@@ -52,20 +52,21 @@ npm run check:types
 npm run build
 ```
 
-当前用户端回归基线为 724 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 和 `scripts/check-page-screenshots.mjs` 用于局部及页面视觉对照；部分脚本需要本机 Chrome。
+当前用户端回归基线为 725 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 和 `scripts/check-page-screenshots.mjs` 用于局部及页面视觉对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
 ```text
 public/          独立静态资源和 settings.js
 scripts/         构建、开发、恢复检查、部署和线上验证工具
-src/app/         启动、路由和状态容器
+src/app/         启动和状态容器
 src/components/  用户端组件
 src/config/      导航等界面配置
 src/layouts/     用户端布局
 src/locales/     翻译消息
 src/models/      用户端状态模型
 src/pages/       用户端页面
+src/routes/      用户端路由表和路由类型
 src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求服务
 src/styles/      页面级样式常量

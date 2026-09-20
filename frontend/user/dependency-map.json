@@ -5,15 +5,15 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "app/routes.ts"
-  },
-  {
-    "from": "app/Router.tsx",
     "to": "locales/catalog.ts"
   },
   {
     "from": "app/Router.tsx",
     "to": "locales/i18n.ts"
+  },
+  {
+    "from": "app/Router.tsx",
+    "to": "routes/index.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -70,70 +70,6 @@
   {
     "from": "app/routerHistory.ts",
     "to": "app/history.ts"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Dashboard.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Forgetpassword.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Index.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Invite.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Knowledge.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Login.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Node.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Order.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/OrderDetail.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Plan.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/PlanDetail.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Profile.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Register.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Ticket.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/TicketDetail.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Traffic.tsx"
   },
   {
     "from": "app/store.tsx",
@@ -902,6 +838,70 @@
   {
     "from": "pages/Traffic.tsx",
     "to": "locales/i18n.ts"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Dashboard.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Forgetpassword.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Index.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Invite.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Knowledge.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Login.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Node.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Order.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/OrderDetail.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Plan.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/PlanDetail.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Profile.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Register.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Ticket.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/TicketDetail.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Traffic.tsx"
   },
   {
     "from": "runtime/dvaApplication.tsx",
