@@ -181,47 +181,47 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverAnyTLS.js"
+    "to": "models/serverAnyTLS.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverGroup.js"
+    "to": "models/serverGroup.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverHysteria.js"
+    "to": "models/serverHysteria.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverManage.js"
+    "to": "models/serverManage.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverRoute.js"
+    "to": "models/serverRoute.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverShadowsocks.js"
+    "to": "models/serverShadowsocks.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverTrojan.js"
+    "to": "models/serverTrojan.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverTuic.js"
+    "to": "models/serverTuic.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverV2node.js"
+    "to": "models/serverV2node.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverVless.js"
+    "to": "models/serverVless.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverVmess.js"
+    "to": "models/serverVmess.ts"
   },
   {
     "from": "app/store.tsx",
@@ -472,6 +472,10 @@
     "to": "services/request.ts"
   },
   {
+    "from": "models/createServerProtocolModel.ts",
+    "to": "services/request.ts"
+  },
+  {
     "from": "models/giftcard.js",
     "to": "services/request.ts"
   },
@@ -524,48 +528,48 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverAnyTLS.js",
+    "from": "models/serverAnyTLS.ts",
+    "to": "models/createServerProtocolModel.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverGroup.js",
+    "from": "models/serverHysteria.ts",
+    "to": "models/createServerProtocolModel.ts"
+  },
+  {
+    "from": "models/serverManage.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverHysteria.js",
+    "from": "models/serverRoute.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverManage.js",
-    "to": "services/request.ts"
+    "from": "models/serverShadowsocks.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverRoute.js",
-    "to": "services/request.ts"
+    "from": "models/serverTrojan.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverShadowsocks.js",
-    "to": "services/request.ts"
+    "from": "models/serverTuic.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverTrojan.js",
-    "to": "services/request.ts"
+    "from": "models/serverV2node.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverTuic.js",
-    "to": "services/request.ts"
+    "from": "models/serverVless.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverV2node.js",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/serverVless.js",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/serverVmess.js",
-    "to": "services/request.ts"
+    "from": "models/serverVmess.ts",
+    "to": "models/createServerProtocolModel.ts"
   },
   {
     "from": "models/sessionEffects.js",
