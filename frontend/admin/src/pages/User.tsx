@@ -21,7 +21,7 @@ import UserEditor from '../components/UserEditor';
 import FilterDrawer, { type FilterField, type FilterItem, type FilterValue } from '../components/FilterDrawer';
 import ContextMenuTable from '../components/ContextMenuTable';
 import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { UserGroupOption, UserModuleState, UserPlanOption, UserRecord } from '../types/user';
 
 
@@ -31,7 +31,6 @@ interface UserPageProps {
   serverGroup: { groups: UserGroupOption[] };
   plan: { plans: UserPlanOption[] };
 }
-interface UserRootState { user: UserModuleState; serverGroup: UserPageProps['serverGroup']; plan: UserPageProps['plan']; }
 interface UserSorter { order?: 'ascend' | 'descend'; columnKey?: React.Key; }
 
 export class UserPage extends React.Component<UserPageProps> {
@@ -187,4 +186,4 @@ export class UserPage extends React.Component<UserPageProps> {
   }
 }
 
-export default connect((state: UserRootState) => ({ user: state.user, serverGroup: state.serverGroup, plan: state.plan }))(UserPage);
+export default connect((state: AdminRootState) => ({ user: state.user, serverGroup: state.serverGroup, plan: state.plan }))(UserPage);

@@ -8,7 +8,7 @@ import UserEditor from '../components/UserEditor';
 import TrafficPanel from '../components/TrafficPanel';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { TicketState } from '../types/ticket';
 
 interface TicketDetailChatProps {
@@ -91,10 +91,6 @@ interface TicketDetailPageProps {
   ticket: TicketState;
 }
 
-interface TicketDetailRootState {
-  ticket: TicketState;
-}
-
 export class TicketDetailPage extends React.Component<TicketDetailPageProps, TicketDetailState> {
   state: TicketDetailState = { message: undefined };
   refreshTimer?: ReturnType<typeof setTimeout>;
@@ -143,4 +139,4 @@ export class TicketDetailPage extends React.Component<TicketDetailPageProps, Tic
   }
 }
 
-export default connect((state: TicketDetailRootState) => ({ ticket: state.ticket }))(TicketDetailPage);
+export default connect((state: AdminRootState) => ({ ticket: state.ticket }))(TicketDetailPage);

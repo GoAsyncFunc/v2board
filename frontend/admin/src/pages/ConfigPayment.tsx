@@ -14,7 +14,7 @@ import Sortable from '../components/Sortable';
 import MainLayout from '../layouts/MainLayout';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn';
 import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../components/PaymentDisplayColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { PaymentForm, PaymentState } from '../types/payment';
 
 
@@ -39,10 +39,6 @@ interface PaymentEditorState {
   paymentMethods: string[];
   selectedPaymentMethod?: string;
   form: PaymentForm;
-}
-
-interface PaymentRootState {
-  payment: PaymentState;
 }
 
 export class PaymentEditor extends React.Component<PaymentEditorProps, PaymentEditorState> {
@@ -124,7 +120,7 @@ export class PaymentEditor extends React.Component<PaymentEditorProps, PaymentEd
   }
 }
 
-const ConnectedPaymentEditor = connect((state: PaymentRootState) => ({ payment: state.payment }))(PaymentEditor);
+const ConnectedPaymentEditor = connect((state: AdminRootState) => ({ payment: state.payment }))(PaymentEditor);
 
 interface PaymentPageProps {
   dispatch: AdminDispatch;
@@ -168,4 +164,4 @@ export class PaymentPage extends React.Component<PaymentPageProps> {
   }
 }
 
-export default connect((state: PaymentRootState) => ({ payment: state.payment }))(PaymentPage);
+export default connect((state: AdminRootState) => ({ payment: state.payment }))(PaymentPage);

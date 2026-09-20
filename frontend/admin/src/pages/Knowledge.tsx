@@ -18,7 +18,7 @@ import { createReadonlyKnowledgeColumns, type KnowledgeRecord } from '../compone
 import LoadingContainer from '../components/LoadingContainer';
 import Sortable from '../components/Sortable';
 import MainLayout from '../layouts/MainLayout';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { KnowledgeState } from '../types/knowledge';
 import { settings } from '../config/adminSettings';
 
@@ -40,10 +40,6 @@ interface KnowledgeEditorProps {
 
 interface KnowledgeEditorState {
   visible: boolean;
-}
-
-interface KnowledgeRootState {
-  knowledge: KnowledgeState;
 }
 
 export class KnowledgeEditor extends React.Component<KnowledgeEditorProps, KnowledgeEditorState> {
@@ -92,7 +88,7 @@ export class KnowledgeEditor extends React.Component<KnowledgeEditorProps, Knowl
   }
 }
 
-const ConnectedKnowledgeEditor = connect((state: KnowledgeRootState) => ({ knowledge: state.knowledge }))(KnowledgeEditor);
+const ConnectedKnowledgeEditor = connect((state: AdminRootState) => ({ knowledge: state.knowledge }))(KnowledgeEditor);
 
 interface KnowledgePageProps {
   dispatch: AdminDispatch;
@@ -145,4 +141,4 @@ export class KnowledgePage extends React.Component<KnowledgePageProps> {
   }
 }
 
-export default connect((state: KnowledgeRootState) => ({ knowledge: state.knowledge }))(KnowledgePage);
+export default connect((state: AdminRootState) => ({ knowledge: state.knowledge }))(KnowledgePage);

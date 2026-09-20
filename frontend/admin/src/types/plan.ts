@@ -36,8 +36,13 @@ export interface PlanRecord {
   [field: string]: PlanFieldValue;
 }
 
+export interface PlanListRecord extends PlanRecord {
+  id: string | number;
+  name: string;
+}
+
 export interface PlanState {
-  plans: PlanRecord[];
+  plans: PlanListRecord[];
   fetchLoading: boolean;
   saveLoading?: boolean;
 }

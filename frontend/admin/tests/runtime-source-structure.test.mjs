@@ -123,3 +123,15 @@ test('admin root state names every registered business model', async () => {
   assert.doesNotMatch(storeTypes, /AdminRootState = Record<string, object>/);
   assert.match(rootRuntime, /Partial<AdminRootState>/);
 });
+
+test('admin pages select from the canonical root state', async () => {
+  const pagesDirectory = new URL('../src/pages/', import.meta.url);
+  const pageNames = (await fs.readdir(pagesDirectory)).filter(name => name.endsWith('.tsx'));
+  for (const pageName of pageNames) {
+    const source = await fs.readFile(new URL(pageName, pagesDirectory), 'utf8');
+    assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${pageName} declares a duplicate root state`);
+    if (source.includes('connect(')) {
+      assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${pageName} must select from AdminRootState`);
+    }
+  }
+});

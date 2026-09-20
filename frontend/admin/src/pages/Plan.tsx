@@ -22,7 +22,7 @@ import ContextMenuTable from '../components/ContextMenuTable';
 import { createPlanGroupColumn, type PlanGroup } from '../components/PlanGroupColumn';
 import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns';
 import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { PlanFieldValue, PlanRecord, PlanState } from '../types/plan';
 
 interface ServerGroupState { groups: PlanGroup[]; }
@@ -39,7 +39,6 @@ interface PlanEditorProps {
 
 interface PlanEditorState { visible: boolean; record: PlanRecord; }
 interface PlanPageProps { dispatch: AdminDispatch; plan: PlanState; serverGroup: ServerGroupState; }
-interface PlanRootState { plan: PlanState; serverGroup: ServerGroupState; config: ConfigState; }
 
 const resourceColumns = createReadonlyPlanResourceColumns();
 const priceColumns = createReadonlyPlanPriceColumns();
@@ -104,7 +103,7 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
   }
 }
 
-const ConnectedPlanEditor = connect((state: PlanRootState) => ({ plan: state.plan, serverGroup: state.serverGroup, config: state.config }))(PlanEditor);
+const ConnectedPlanEditor = connect((state: AdminRootState) => ({ plan: state.plan, serverGroup: state.serverGroup, config: state.config }))(PlanEditor);
 
 export class PlanPage extends React.Component<PlanPageProps> {
   contextPlan?: PlanRecord;
@@ -127,4 +126,4 @@ export class PlanPage extends React.Component<PlanPageProps> {
   }
 }
 
-export default connect((state: PlanRootState) => ({ plan: state.plan, serverGroup: state.serverGroup }))(PlanPage);
+export default connect((state: AdminRootState) => ({ plan: state.plan, serverGroup: state.serverGroup }))(PlanPage);

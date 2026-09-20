@@ -12,7 +12,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import { createReadonlyNoticeColumns, type NoticeRecord } from '../components/NoticeDisplayColumns';
 import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 const readonlyColumns = createReadonlyNoticeColumns();
 
@@ -23,10 +23,6 @@ interface NoticePageProps {
     fetchLoading: boolean;
     saveLoading?: boolean;
   };
-}
-
-interface NoticeRootState {
-  notice: NoticePageProps['notice'];
 }
 
 interface NoticePageState {
@@ -155,4 +151,4 @@ export class NoticePage extends React.Component<NoticePageProps, NoticePageState
   }
 }
 
-export default connect((state: NoticeRootState) => ({ notice: state.notice }))(NoticePage);
+export default connect((state: AdminRootState) => ({ notice: state.notice }))(NoticePage);

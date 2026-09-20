@@ -1,6 +1,6 @@
 import { get, post, type ApiResponse } from '../services/request';
 import { settings } from '../config/adminSettings';
-import type { PlanFieldValue, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
+import type { PlanFieldValue, PlanListRecord, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
@@ -36,7 +36,7 @@ export default {
   effects: {
     *fetch(_: AdminAction, { put }: PlanTools): PlanEffect {
       yield put({ type: 'setState', payload: { fetchLoading: true } });
-      const response = (yield get<PlanRecord[]>(endpoint('fetch'))) as ApiResponse<PlanRecord[]>;
+      const response = (yield get<PlanListRecord[]>(endpoint('fetch'))) as ApiResponse<PlanListRecord[]>;
       yield put({ type: 'setState', payload: { fetchLoading: false } });
       if (response.code !== 200) return;
       response.data.forEach(plan => convertPrices(plan, false));

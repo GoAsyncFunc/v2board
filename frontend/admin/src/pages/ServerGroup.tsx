@@ -9,7 +9,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../components/LoadingContainer';
 import PermissionGroupEditor from '../components/PermissionGroupEditor';
 import { createReadonlyServerGroupColumns, type ServerGroupRecord } from '../components/ServerGroupDisplayColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 const readonlyColumns = createReadonlyServerGroupColumns();
 
@@ -19,10 +19,6 @@ interface ServerGroupPageProps {
     groups: ServerGroupRecord[];
     fetchLoading: boolean;
   };
-}
-
-interface ServerGroupRootState {
-  serverGroup: ServerGroupPageProps['serverGroup'];
 }
 
 export class ServerGroupPage extends React.Component<ServerGroupPageProps> {
@@ -79,4 +75,4 @@ export class ServerGroupPage extends React.Component<ServerGroupPageProps> {
   }
 }
 
-export default connect((state: ServerGroupRootState) => ({ serverGroup: state.serverGroup }))(ServerGroupPage);
+export default connect((state: AdminRootState) => ({ serverGroup: state.serverGroup }))(ServerGroupPage);

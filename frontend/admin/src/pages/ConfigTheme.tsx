@@ -6,7 +6,7 @@ import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
 import MainLayout from '../layouts/MainLayout';
 import { post } from '../services/request';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../types/theme';
 
 function toInputValue(value: ThemeConfigValue): string | number | undefined {
@@ -26,10 +26,6 @@ interface ThemeConfigEditorProps {
 interface ThemeConfigEditorState {
   params: ThemeConfigParams;
   visible: boolean;
-}
-
-interface ThemeRootState {
-  theme: ThemeState;
 }
 
 export class ThemeConfigEditor extends React.Component<ThemeConfigEditorProps, ThemeConfigEditorState> {
@@ -91,7 +87,7 @@ export class ThemeConfigEditor extends React.Component<ThemeConfigEditorProps, T
   }
 }
 
-const ConnectedThemeConfigEditor = connect((state: ThemeRootState) => ({ theme: state.theme }))(ThemeConfigEditor);
+const ConnectedThemeConfigEditor = connect((state: AdminRootState) => ({ theme: state.theme }))(ThemeConfigEditor);
 
 interface ThemePageProps {
   dispatch: AdminDispatch;
@@ -128,4 +124,4 @@ export class ThemePage extends React.Component<ThemePageProps> {
   }
 }
 
-export default connect((state: ThemeRootState) => ({ theme: state.theme }))(ThemePage);
+export default connect((state: AdminRootState) => ({ theme: state.theme }))(ThemePage);

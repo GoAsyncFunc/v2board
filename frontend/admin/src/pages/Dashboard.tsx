@@ -18,7 +18,7 @@ import { get } from '../services/request';
 import { siteSettings } from '../config/siteSettings';
 import { formatIncome, formatLiveCount } from '../components/MoneyDisplay';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 echarts.use([
   LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent,
@@ -31,11 +31,6 @@ interface DashboardConfig {
 
 interface DashboardProps {
   dispatch: AdminDispatch;
-  stat: DashboardStats;
-  config: DashboardConfig;
-}
-
-interface DashboardRootState {
   stat: DashboardStats;
   config: DashboardConfig;
 }
@@ -229,4 +224,4 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
   }
 }
 
-export default connect((state: DashboardRootState) => ({ stat: state.stat, config: state.config }))(DashboardPage);
+export default connect((state: AdminRootState) => ({ stat: state.stat, config: state.config }))(DashboardPage);

@@ -21,7 +21,7 @@ import { createReadonlyCouponColumns, type CouponRecord } from '../components/Co
 import MainLayout from '../layouts/MainLayout';
 import { settings } from '../config/adminSettings';
 import type { PlanSummary } from '../types/config';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { CouponState } from '../types/promotion';
 
 const defaultCoupon: CouponRecord = { type: 1 };
@@ -40,11 +40,6 @@ interface CouponPageProps {
   dispatch: AdminDispatch;
   coupon: CouponState;
   plan: { plans: PlanSummary[] };
-}
-
-interface CouponRootState {
-  coupon: CouponPageProps['coupon'];
-  plan: CouponPageProps['plan'];
 }
 
 interface CouponPageState {
@@ -146,4 +141,4 @@ export class CouponPage extends React.Component<CouponPageProps, CouponPageState
   }
 }
 
-export default connect((state: CouponRootState) => ({ coupon: state.coupon, plan: state.plan }))(CouponPage);
+export default connect((state: AdminRootState) => ({ coupon: state.coupon, plan: state.plan }))(CouponPage);

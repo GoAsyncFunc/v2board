@@ -13,7 +13,7 @@ import MainLayout from '../layouts/MainLayout';
 import { createRouteActionColumn } from '../components/RouteActionColumn';
 import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns';
 import { settings } from '../config/adminSettings';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 
 type RouteAction = 'block' | 'block_ip' | 'block_port' | 'protocol' | 'dns' | 'route' | 'route_ip' | 'default_out';
@@ -30,7 +30,6 @@ interface ServerRouteState { routes: ServerRouteRecord[]; saveLoading: boolean; 
 interface RouteEditorProps { children: React.ReactElement; dispatch: AdminDispatch; serverRoute: ServerRouteState; route?: ServerRouteRecord; }
 interface RouteEditorState { route: ServerRouteRecord; visible: boolean; }
 interface ServerRoutePageProps { dispatch: AdminDispatch; serverRoute: ServerRouteState; }
-interface ServerRouteRootState { serverRoute: ServerRouteState; }
 
 const readonlyColumns = createReadonlyServerRouteColumns<ServerRouteRecord>();
 const routeActions: RouteAction[] = ['block', 'block_ip', 'block_port', 'protocol', 'dns', 'route', 'route_ip', 'default_out'];
@@ -79,7 +78,7 @@ export class RouteEditor extends React.Component<RouteEditorProps, RouteEditorSt
   }
 }
 
-const ConnectedRouteEditor = connect((state: ServerRouteRootState) => ({ serverRoute: state.serverRoute }))(RouteEditor);
+const ConnectedRouteEditor = connect((state: AdminRootState) => ({ serverRoute: state.serverRoute }))(RouteEditor);
 
 export class ServerRoutePage extends React.Component<ServerRoutePageProps> {
   componentDidMount(): void { this.props.dispatch({ type: 'serverRoute/fetch' }); }
@@ -96,4 +95,4 @@ export class ServerRoutePage extends React.Component<ServerRoutePageProps> {
   }
 }
 
-export default connect((state: ServerRouteRootState) => ({ serverRoute: state.serverRoute }))(ServerRoutePage);
+export default connect((state: AdminRootState) => ({ serverRoute: state.serverRoute }))(ServerRoutePage);

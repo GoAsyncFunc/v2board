@@ -11,15 +11,11 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import MainLayout from '../layouts/MainLayout';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../components/TicketDisplayColumns';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { TicketFilterState, TicketState } from '../types/ticket';
 
 interface TicketPageProps {
   dispatch: AdminDispatch;
-  ticket: TicketState;
-}
-
-interface TicketRootState {
   ticket: TicketState;
 }
 
@@ -130,4 +126,4 @@ export class TicketPage extends React.Component<TicketPageProps> {
   }
 }
 
-export default connect((state: TicketRootState) => ({ ticket: state.ticket }))(TicketPage);
+export default connect((state: AdminRootState) => ({ ticket: state.ticket }))(TicketPage);

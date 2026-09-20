@@ -19,7 +19,7 @@ import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyGiftcardColumns, type GiftcardRecord } from '../components/GiftcardDisplayColumns';
 import MainLayout from '../layouts/MainLayout';
 import type { PlanSummary } from '../types/config';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { GiftcardState } from '../types/promotion';
 
 const defaultGiftcard: GiftcardRecord = { type: 1 };
@@ -37,11 +37,6 @@ interface GiftcardPageProps {
   dispatch: AdminDispatch;
   giftcard: GiftcardState;
   plan: { plans: PlanSummary[] };
-}
-
-interface GiftcardRootState {
-  giftcard: GiftcardPageProps['giftcard'];
-  plan: GiftcardPageProps['plan'];
 }
 
 interface GiftcardPageState {
@@ -137,4 +132,4 @@ export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPag
   }
 }
 
-export default connect((state: GiftcardRootState) => ({ giftcard: state.giftcard, plan: state.plan }))(GiftcardPage);
+export default connect((state: AdminRootState) => ({ giftcard: state.giftcard, plan: state.plan }))(GiftcardPage);

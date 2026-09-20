@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
+import type { PassportState } from '../types/session';
 
 interface LoginQuery {
   verify?: string;
@@ -11,10 +12,6 @@ interface LoginQuery {
 
 interface LoginLocation {
   query?: LoginQuery;
-}
-
-interface PassportState {
-  loginLoading: boolean;
 }
 
 interface AdminLoginProps {
@@ -116,8 +113,4 @@ export class AdminLogin extends React.Component<AdminLoginProps, AdminLoginState
   }
 }
 
-interface LoginRootState {
-  passport: PassportState;
-}
-
-export default connect((state: LoginRootState) => ({ passport: state.passport }))(AdminLogin);
+export default connect((state: AdminRootState) => ({ passport: state.passport }))(AdminLogin);

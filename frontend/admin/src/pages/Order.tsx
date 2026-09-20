@@ -18,11 +18,10 @@ import FilterDrawer, { type FilterField, type FilterItem } from '../components/F
 import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';
 import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';
 import { settings } from '../config/adminSettings';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { OrderRecord, OrderState } from '../types/order';
 
 interface OrderPageProps { dispatch: AdminDispatch; order: OrderState; }
-interface OrderRootState { order: OrderState; plan: { plans: OrderDetailPlan[] }; }
 interface OrderDetailModalProps {
   children: React.ReactNode;
   dispatch: AdminDispatch;
@@ -81,7 +80,7 @@ export class OrderDetailModal extends React.Component<OrderDetailModalProps, Ord
   }
 }
 
-const ConnectedOrderDetailModal = connect((state: OrderRootState) => ({ plan: state.plan }))(OrderDetailModal);
+const ConnectedOrderDetailModal = connect((state: AdminRootState) => ({ plan: state.plan }))(OrderDetailModal);
 
 export class OrderPage extends React.Component<OrderPageProps> {
   componentDidMount(): void {
@@ -137,4 +136,4 @@ export class OrderPage extends React.Component<OrderPageProps> {
   }
 }
 
-export default connect((state: OrderRootState) => ({ order: state.order }))(OrderPage);
+export default connect((state: AdminRootState) => ({ order: state.order }))(OrderPage);

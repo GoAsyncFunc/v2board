@@ -5,15 +5,11 @@ import Table from 'antd/lib/table';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyQueueColumns, type QueueWorkload } from '../components/QueueDisplayColumns';
 import type { SystemMonitoringState } from '../types/monitoring';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 interface QueuePageProps {
   dispatch: AdminDispatch;
-  system: Required<Pick<SystemMonitoringState, 'queueStats' | 'queueWorkload'>>;
-}
-
-interface QueueRootState {
-  system: QueuePageProps['system'];
+  system: SystemMonitoringState;
 }
 
 export class QueuePage extends React.Component<QueuePageProps> {
@@ -91,4 +87,4 @@ export class QueuePage extends React.Component<QueuePageProps> {
   }
 }
 
-export default connect((state: QueueRootState) => ({ system: state.system }))(QueuePage);
+export default connect((state: AdminRootState) => ({ system: state.system }))(QueuePage);

@@ -31,7 +31,7 @@ import V2NodeEditor from '../components/V2NodeEditor';
 import { renderServerTypeTag } from '../components/ServerTypeTag';
 import { createServerNameColumn } from '../components/ServerNameColumn';
 import { createServerRateColumn } from '../components/ServerRateColumn';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { ManagedServerRecord, ServerGroupOption, ServerGroupState, ServerManageState, ServerRecord } from '../types/server';
 
 
@@ -50,7 +50,6 @@ const MODEL_BY_TYPE = {
 
 interface ServerManagePageProps { dispatch: AdminDispatch; serverManage: ServerManageState; serverGroup: ServerGroupState; }
 interface ServerManagePageState { searchKey?: string; pageSize: number; }
-interface ServerManageRootState { serverManage: ServerManageState; serverGroup: ServerGroupState; }
 type EditorComponent = React.ComponentType<{ children: React.ReactElement; record?: ServerRecord }>;
 
 function editorFor(server: ServerRecord | undefined, trigger: React.ReactElement, key: React.Key = server?.id || 'new'): React.ReactElement | null {
@@ -238,4 +237,4 @@ export class ServerManagePage extends React.Component<ServerManagePageProps, Ser
   }
 }
 
-export default connect((state: ServerManageRootState) => ({ serverManage: state.serverManage, serverGroup: state.serverGroup }))(ServerManagePage);
+export default connect((state: AdminRootState) => ({ serverManage: state.serverManage, serverGroup: state.serverGroup }))(ServerManagePage);

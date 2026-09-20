@@ -13,18 +13,13 @@ import ServerConfigTab from '../components/config/ServerConfigTab';
 import EmailConfigTab from '../components/config/EmailConfigTab';
 import TelegramConfigTab from '../components/config/TelegramConfigTab';
 import AppConfigTab from '../components/config/AppConfigTab';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { AdminConfigState, ConfigGroupKey, ConfigValue, PlanSummary } from '../types/config';
 
 interface SystemConfigPageProps {
   dispatch: AdminDispatch;
   config: AdminConfigState;
   plan: { plans: PlanSummary[] };
-}
-
-interface SystemConfigRootState {
-  config: AdminConfigState;
-  plan: SystemConfigPageProps['plan'];
 }
 
 interface SystemConfigPageState {
@@ -121,4 +116,4 @@ export class SystemConfigPage extends React.Component<SystemConfigPageProps, Sys
   }
 }
 
-export default connect((state: SystemConfigRootState) => ({ plan: state.plan, config: state.config }))(SystemConfigPage);
+export default connect((state: AdminRootState) => ({ plan: state.plan, config: state.config }))(SystemConfigPage);
