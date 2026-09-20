@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function load(name, stateProps) {
-  const source = await fs.readFile(new URL(`../src/components/${name}.tsx`, import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL(`../src/components/account/${name}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { loader: 'tsx', format: 'cjs' });
   const actions = [], copied = [];
   const React = {

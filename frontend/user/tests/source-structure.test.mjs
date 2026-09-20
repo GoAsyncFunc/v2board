@@ -3,12 +3,24 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 
 test('user business components live outside the vendor compatibility layer', async () => {
+  const componentsDirectory = new URL('../src/components/', import.meta.url);
+  const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
+  const expectedDomains = ['account', 'commerce', 'common', 'subscription', 'support'];
+  assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
+  assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
+
+  for (const domain of expectedDomains) {
+    const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
+    assert.ok(componentNames.some(name => /\.tsx?$/.test(name)), `${domain} should contain at least one component`);
+  }
+  await fs.access(new URL('commerce/checkout/', componentsDirectory));
+
   const componentPaths = [
-    '../src/components/Recaptcha.tsx',
-    '../src/components/SubscribeImporter.tsx',
-    '../src/components/TelegramBindModal.tsx',
-    '../src/components/LoadingContainer.tsx',
-    '../src/components/checkout/StripePaymentForm.tsx',
+    '../src/components/common/Recaptcha.tsx',
+    '../src/components/subscription/SubscribeImporter.tsx',
+    '../src/components/account/TelegramBindModal.tsx',
+    '../src/components/common/LoadingContainer.tsx',
+    '../src/components/commerce/checkout/StripePaymentForm.tsx',
   ];
   for (const relativePath of componentPaths) {
     const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');

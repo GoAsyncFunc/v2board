@@ -3,8 +3,8 @@ import Badge from 'antd/lib/badge';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
-import { formatMessage } from '../locales/i18n';
-import type { NodeRecord, NumericValue } from '../types/commerce';
+import { formatMessage } from '../../locales/i18n';
+import type { NodeRecord, NumericValue } from '../../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 
 const message = (id: string): string => formatMessage({ id });

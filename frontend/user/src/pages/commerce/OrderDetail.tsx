@@ -1,11 +1,11 @@
-import OrderInfo from "../../components/checkout/OrderInfo";
-import ProductInfo from "../../components/checkout/ProductInfo";
-import OrderPaymentSummary from "../../components/checkout/OrderPaymentSummary";
+import OrderInfo from "../../components/commerce/checkout/OrderInfo";
+import ProductInfo from "../../components/commerce/checkout/ProductInfo";
+import OrderPaymentSummary from "../../components/commerce/checkout/OrderPaymentSummary";
 import OrderStatusResult, {
     orderResultProps,
-} from "../../components/checkout/OrderStatusResult";
-import PaymentMethods from "../../components/checkout/PaymentMethods";
-import PaymentQrModal from "../../components/checkout/PaymentQrModal";
+} from "../../components/commerce/checkout/OrderStatusResult";
+import PaymentMethods from "../../components/commerce/checkout/PaymentMethods";
+import PaymentQrModal from "../../components/commerce/checkout/PaymentQrModal";
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
 import { connect } from "react-redux";
@@ -17,7 +17,7 @@ import type { PaymentMethod } from "../../types/commerce";
 import type { UserDispatch, UserRootState } from "../../types/store";
 
 const StripeForm = loadable({
-    loader: () => import("../../components/checkout/StripePaymentForm"),
+    loader: () => import("../../components/commerce/checkout/StripePaymentForm"),
     loading: () => null,
 });
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.

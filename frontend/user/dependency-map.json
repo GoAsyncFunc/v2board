@@ -152,195 +152,195 @@
     "to": "runtime/pluginRuntime.ts"
   },
   {
-    "from": "components/InviteDisplayColumns.tsx",
+    "from": "components/account/InviteDisplayColumns.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/LanguageSelector.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "components/LanguageSelector.tsx",
+    "from": "components/account/TelegramBindModal.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/LanguageSelector.tsx",
+    "from": "components/account/TrafficColumns.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/TrafficColumns.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "components/NodeColumns.tsx",
+    "from": "components/account/TransferCommissionModal.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/OrderColumns.tsx",
+    "from": "components/account/WithdrawModal.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/commerce/OrderColumns.tsx",
     "to": "app/routerHistory.ts"
   },
   {
-    "from": "components/OrderColumns.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "from": "components/commerce/OrderColumns.tsx",
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
-    "from": "components/OrderColumns.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "from": "components/commerce/OrderColumns.tsx",
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
-    "from": "components/OrderColumns.tsx",
+    "from": "components/commerce/OrderColumns.tsx",
     "to": "config/localeSettings.ts"
   },
   {
-    "from": "components/OrderColumns.tsx",
+    "from": "components/commerce/OrderColumns.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/PlanCard.tsx",
-    "to": "app/routerHistory.ts"
+    "from": "components/commerce/checkout/Coupon.tsx",
+    "to": "components/commerce/checkout/Pricing.tsx"
   },
   {
-    "from": "components/PlanCard.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "from": "components/commerce/checkout/Coupon.tsx",
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
-    "from": "components/PlanCard.tsx",
+    "from": "components/commerce/checkout/Coupon.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/commerce/checkout/OrderInfo.tsx",
+    "to": "components/common/DateTimeDisplay.ts"
+  },
+  {
+    "from": "components/commerce/checkout/OrderInfo.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "components/commerce/checkout/OrderInfo.tsx",
+    "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "components/commerce/checkout/OrderInfo.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/commerce/checkout/OrderPaymentSummary.tsx",
+    "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "components/commerce/checkout/OrderPaymentSummary.tsx",
     "to": "config/localeSettings.ts"
   },
   {
-    "from": "components/PlanCard.tsx",
+    "from": "components/commerce/checkout/OrderPaymentSummary.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/PlanCard.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "styles/subscribeImporter.ts"
-  },
-  {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "components/SubscribeUsage.ts",
-    "to": "utils/subscription.ts"
-  },
-  {
-    "from": "components/TelegramBindModal.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/TicketReadonlyColumns.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/TrafficColumns.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/TrafficColumns.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "components/TransferCommissionModal.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/WithdrawModal.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/checkout/Coupon.tsx",
-    "to": "components/MoneyDisplay.ts"
-  },
-  {
-    "from": "components/checkout/Coupon.tsx",
-    "to": "components/checkout/Pricing.tsx"
-  },
-  {
-    "from": "components/checkout/Coupon.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
-    "to": "components/DateTimeDisplay.ts"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
-    "to": "components/LoadingContainer.tsx"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
-    "to": "components/MoneyDisplay.ts"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "components/MoneyDisplay.ts"
-  },
-  {
-    "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "components/checkout/OrderStatusResult.tsx",
+    "from": "components/commerce/checkout/OrderStatusResult.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "components/checkout/OrderStatusResult.tsx",
+    "from": "components/commerce/checkout/OrderStatusResult.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/checkout/OrderSummary.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "from": "components/commerce/checkout/OrderSummary.tsx",
+    "to": "components/commerce/checkout/Coupon.tsx"
   },
   {
-    "from": "components/checkout/OrderSummary.tsx",
-    "to": "components/checkout/Coupon.tsx"
+    "from": "components/commerce/checkout/OrderSummary.tsx",
+    "to": "components/commerce/checkout/Pricing.tsx"
   },
   {
-    "from": "components/checkout/OrderSummary.tsx",
-    "to": "components/checkout/Pricing.tsx"
+    "from": "components/commerce/checkout/OrderSummary.tsx",
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/OrderSummary.tsx",
+    "from": "components/commerce/checkout/OrderSummary.tsx",
     "to": "config/localeSettings.ts"
   },
   {
-    "from": "components/checkout/OrderSummary.tsx",
+    "from": "components/commerce/checkout/OrderSummary.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/checkout/PaymentQrModal.tsx",
+    "from": "components/commerce/checkout/PaymentQrModal.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/checkout/Pricing.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "from": "components/commerce/checkout/Pricing.tsx",
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
-    "from": "components/checkout/Pricing.tsx",
+    "from": "components/commerce/checkout/Pricing.tsx",
     "to": "config/localeSettings.ts"
   },
   {
-    "from": "components/checkout/Pricing.tsx",
+    "from": "components/commerce/checkout/Pricing.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/checkout/ProductInfo.tsx",
+    "from": "components/commerce/checkout/ProductInfo.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/common/LanguageSelector.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "components/common/LanguageSelector.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/common/LanguageSelector.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/subscription/NodeColumns.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/subscription/PlanCard.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "components/subscription/PlanCard.tsx",
+    "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "components/subscription/PlanCard.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "components/subscription/PlanCard.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/subscription/PlanCard.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/subscription/SubscribeImporter.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "components/subscription/SubscribeImporter.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/subscription/SubscribeImporter.tsx",
+    "to": "styles/subscribeImporter.ts"
+  },
+  {
+    "from": "components/subscription/SubscribeImporter.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/subscription/SubscribeUsage.ts",
+    "to": "utils/subscription.ts"
+  },
+  {
+    "from": "components/support/TicketReadonlyColumns.tsx",
     "to": "locales/i18n.ts"
   },
   {
@@ -353,7 +353,7 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "components/LanguageSelector.tsx"
+    "to": "components/common/LanguageSelector.tsx"
   },
   {
     "from": "layouts/Header.tsx",
@@ -577,19 +577,19 @@
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/InviteDisplayColumns.tsx"
+    "to": "components/account/InviteDisplayColumns.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "to": "components/account/TransferCommissionModal.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/TransferCommissionModal.tsx"
+    "to": "components/account/WithdrawModal.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/WithdrawModal.tsx"
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
     "from": "pages/account/Invite.tsx",
@@ -601,11 +601,11 @@
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "to": "components/account/TelegramBindModal.tsx"
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "components/TelegramBindModal.tsx"
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
     "from": "pages/account/Profile.tsx",
@@ -625,7 +625,7 @@
   },
   {
     "from": "pages/account/Traffic.tsx",
-    "to": "components/TrafficColumns.tsx"
+    "to": "components/account/TrafficColumns.tsx"
   },
   {
     "from": "pages/account/Traffic.tsx",
@@ -641,11 +641,11 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "components/LanguageSelector.tsx"
+    "to": "components/common/LanguageSelector.tsx"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "components/Recaptcha.tsx"
+    "to": "components/common/Recaptcha.tsx"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
@@ -669,7 +669,7 @@
   },
   {
     "from": "pages/auth/Login.tsx",
-    "to": "components/LanguageSelector.tsx"
+    "to": "components/common/LanguageSelector.tsx"
   },
   {
     "from": "pages/auth/Login.tsx",
@@ -685,11 +685,11 @@
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "components/LanguageSelector.tsx"
+    "to": "components/common/LanguageSelector.tsx"
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "components/Recaptcha.tsx"
+    "to": "components/common/Recaptcha.tsx"
   },
   {
     "from": "pages/auth/Register.tsx",
@@ -709,19 +709,19 @@
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "to": "components/commerce/OrderColumns.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/MobileList.tsx"
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/MoneyDisplay.ts"
+    "to": "components/common/MobileList.tsx"
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "components/OrderColumns.tsx"
+    "to": "components/common/MoneyDisplay.ts"
   },
   {
     "from": "pages/commerce/Order.tsx",
@@ -741,31 +741,31 @@
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/OrderInfo.tsx"
+    "to": "components/commerce/checkout/OrderInfo.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/OrderPaymentSummary.tsx"
+    "to": "components/commerce/checkout/OrderPaymentSummary.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/OrderStatusResult.tsx"
+    "to": "components/commerce/checkout/OrderStatusResult.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/PaymentMethods.tsx"
+    "to": "components/commerce/checkout/PaymentMethods.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/PaymentQrModal.tsx"
+    "to": "components/commerce/checkout/PaymentQrModal.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/ProductInfo.tsx"
+    "to": "components/commerce/checkout/ProductInfo.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/checkout/StripePaymentForm.tsx"
+    "to": "components/commerce/checkout/StripePaymentForm.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
@@ -781,19 +781,19 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/LoadingContainer.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/SubscribeImporter.tsx"
+    "to": "components/subscription/SubscribeImporter.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/SubscribeUsage.ts"
+    "to": "components/subscription/SubscribeUsage.ts"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
@@ -813,7 +813,7 @@
   },
   {
     "from": "pages/subscription/Node.tsx",
-    "to": "components/NodeColumns.tsx"
+    "to": "components/subscription/NodeColumns.tsx"
   },
   {
     "from": "pages/subscription/Node.tsx",
@@ -833,7 +833,7 @@
   },
   {
     "from": "pages/subscription/Plan.tsx",
-    "to": "components/PlanCard.tsx"
+    "to": "components/subscription/PlanCard.tsx"
   },
   {
     "from": "pages/subscription/Plan.tsx",
@@ -849,15 +849,15 @@
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "components/checkout/Coupon.tsx"
+    "to": "components/commerce/checkout/Coupon.tsx"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "components/checkout/OrderSummary.tsx"
+    "to": "components/commerce/checkout/OrderSummary.tsx"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "components/checkout/Pricing.tsx"
+    "to": "components/commerce/checkout/Pricing.tsx"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
@@ -873,7 +873,7 @@
   },
   {
     "from": "pages/support/Knowledge.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
     "from": "pages/support/Knowledge.tsx",
@@ -889,7 +889,7 @@
   },
   {
     "from": "pages/support/Ticket.tsx",
-    "to": "components/TicketReadonlyColumns.tsx"
+    "to": "components/support/TicketReadonlyColumns.tsx"
   },
   {
     "from": "pages/support/Ticket.tsx",
@@ -901,7 +901,7 @@
   },
   {
     "from": "pages/support/TicketDetail.tsx",
-    "to": "components/DateTimeDisplay.ts"
+    "to": "components/common/DateTimeDisplay.ts"
   },
   {
     "from": "pages/support/TicketDetail.tsx",

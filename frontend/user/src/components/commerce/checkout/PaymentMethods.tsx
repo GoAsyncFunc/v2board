@@ -1,6 +1,6 @@
 import React from "react";
 import Radio from 'antd/lib/radio';
-import type { PaymentMethod } from "../../types/commerce";
+import type { PaymentMethod } from "../../../types/commerce";
 
 interface PaymentMethodsProps {
     methods: PaymentMethod[];

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import { formatMessage } from '../locales/i18n';
-import type { UserDispatch, UserRootState } from '../types/store';
+import { formatMessage } from '../../locales/i18n';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 interface WithdrawStateProps {
   user: { userInfo: { commission_balance?: number } };

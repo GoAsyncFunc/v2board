@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '../../components/DateTimeDisplay';
+import { formatDate } from '../../components/common/DateTimeDisplay';
 import Input from 'antd/lib/input';
 import Drawer from 'antd/lib/drawer';
 import message from 'antd/lib/message';

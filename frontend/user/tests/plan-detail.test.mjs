@@ -10,7 +10,7 @@ async function load(original,trace,expired){
  const file=new URL(original?'./fixtures/pages/user-plan-detail.jsx':'../src/pages/subscription/PlanDetail.tsx',import.meta.url);
  const code=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:original?'jsx':'tsx'})).code;
  const components={};
- for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../src/components/checkout/'+name+'.tsx',import.meta.url),'utf8'),{format:'cjs',loader:'tsx'})).code;
+ for(const name of ['Pricing','Coupon','OrderSummary'])components[name]=(await transform(await fs.readFile(new URL('../src/components/commerce/checkout/'+name+'.tsx',import.meta.url),'utf8'),{format:'cjs',loader:'tsx'})).code;
  function evaluate(source){const module={exports:{}};
  vm.runInNewContext(source,{module,exports:module.exports,require(id){
   if(id==='react'||id.includes('reactRuntime'))return React;

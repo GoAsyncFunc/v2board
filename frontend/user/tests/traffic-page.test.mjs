@@ -10,7 +10,7 @@ async function load(original){
  const cache=new Map();
  const sources={
   page:new URL(original?'./fixtures/pages/user-traffic.jsx':'../src/pages/account/Traffic.tsx',import.meta.url),
-  columns:new URL('../src/components/TrafficColumns.tsx',import.meta.url),
+  columns:new URL('../src/components/account/TrafficColumns.tsx',import.meta.url),
  };
  const compiled={};for(const [name,file]of Object.entries(sources))compiled[name]=(await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:file.pathname.endsWith('.tsx')?'tsx':'jsx'})).code;
  function evaluate(name){

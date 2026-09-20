@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadComponents() {
-  const source = await fs.readFile(new URL('../src/components/MobileList.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/components/common/MobileList.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const React = {
     Component: class { constructor(props) { this.props = props; } setState(update) { this.state = { ...this.state, ...update }; } },

@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Component: class { constructor(props) { this.props = props; } }, createElement: (type, props, ...children) => ({ type, props: props || {}, children }) };
 async function load(original) {
   const trace = [], cache = new Map(), compiled = {};
-  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/subscription/Node.tsx', columns: '../src/components/NodeColumns.tsx' })) {
+  for (const [name, relative] of Object.entries({ page: original ? './fixtures/pages/user-node.jsx' : '../src/pages/subscription/Node.tsx', columns: '../src/components/subscription/NodeColumns.tsx' })) {
     compiled[name] = (await transform(await fs.readFile(new URL(relative, import.meta.url), 'utf8'), { format: 'cjs', loader: relative.endsWith('.tsx') ? 'tsx' : 'jsx' })).code;
   }
   function evaluate(name) {

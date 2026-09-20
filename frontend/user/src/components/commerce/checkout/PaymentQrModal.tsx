@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from 'antd/lib/modal';
 import QRCode from 'qrcode.react';
-import { formatMessage } from '../../locales/i18n';
+import { formatMessage } from '../../../locales/i18n';
 
 interface PaymentQrModalProps {
     onCancel: () => void;

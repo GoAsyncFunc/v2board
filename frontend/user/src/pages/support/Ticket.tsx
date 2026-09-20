@@ -7,7 +7,7 @@ import Table from 'antd/lib/table';
 import Icon from 'antd/lib/icon';
 import MainLayout from '../../layouts/MainLayout';
 import { formatMessage } from '../../locales/i18n';
-import { createReadonlyTicketColumns } from '../../components/TicketReadonlyColumns';
+import { createReadonlyTicketColumns } from '../../components/support/TicketReadonlyColumns';
 import type { TicketDraft, TicketState } from '../../types/ticket';
 import type { UserDispatch, UserRootState } from '../../types/store';
 

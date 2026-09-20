@@ -1,12 +1,12 @@
 import React from "react";
-import { formatMessage } from '../../locales/i18n';
-import { formatDateTimeSeconds } from "../../components/DateTimeDisplay";
-import { formatPrice } from "../../components/MoneyDisplay";
+import { formatMessage } from '../../../locales/i18n';
+import { formatDateTimeSeconds } from '../../common/DateTimeDisplay';
+import { formatPrice } from '../../common/MoneyDisplay';
 import Modal from 'antd/lib/modal';
-import LoadingContainer from "../LoadingContainer";
-import type { PaymentConfig } from "../../types/commerce";
-import type { OrderModelRecord } from "../../types/payment";
-import type { UserDispatch } from "../../types/store";
+import LoadingContainer from '../../common/LoadingContainer';
+import type { PaymentConfig } from "../../../types/commerce";
+import type { OrderModelRecord } from "../../../types/payment";
+import type { UserDispatch } from "../../../types/store";
 
 interface OrderInfoProps {
     order: OrderModelRecord;

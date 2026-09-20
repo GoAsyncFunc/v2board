@@ -30,7 +30,7 @@ async function load(target,original){
    if(id==='../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
    if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
-   if(id==='../components/LanguageSelector'||id.includes('LanguageSelector'))return {__esModule:true,default:'LanguageSelector',a:'LanguageSelector',LanguageSelector:'LanguageSelector'};
+   if(id==='../components/common/LanguageSelector'||id.includes('LanguageSelector'))return {__esModule:true,default:'LanguageSelector',a:'LanguageSelector',LanguageSelector:'LanguageSelector'};
    if(id.includes('siteHelpers'))return {e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken']),getCookie:()=> '0',setCookie:(...a)=>trace.push(['pref',...a])};
    if(id==='darkreader'||id.includes('6e444349'))return {enable:options=>trace.push(['dark',options]),disable:()=>trace.push(['light'])};
    if(id==='react-router-dom')return {withRouter:cls=>cls};

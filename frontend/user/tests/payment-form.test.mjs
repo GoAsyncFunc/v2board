@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function load({ ready = true, result = { token: { id: 'tok_test' } } } = {}) {
-  const source = await fs.readFile(new URL('../src/components/checkout/StripePaymentForm.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/components/commerce/checkout/StripePaymentForm.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const calls = [], tokens = [], card = {};
   const React = {
@@ -60,7 +60,7 @@ for (const failure of [false, true]) test(`Stripe token callback preserves SDK r
 });
 
 test('Loading container preserves its indicator and historical prop forwarding', async () => {
-  const source = await fs.readFile(new URL('../src/components/LoadingContainer.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/components/common/LoadingContainer.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {

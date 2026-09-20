@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadRecaptcha() {
-  const source = await fs.readFile(new URL('../src/components/Recaptcha.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/components/common/Recaptcha.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const timers = [];
   const React = {

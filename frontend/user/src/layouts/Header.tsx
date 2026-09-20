@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
 import { getCookie, setCookie } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
-import LanguageSelector from '../components/LanguageSelector';
+import LanguageSelector from '../components/common/LanguageSelector';
 import type { UserDispatch, UserRootState } from '../types/store';
 
 export interface HeaderSearchConfig {

@@ -7,9 +7,9 @@ import Modal from 'antd/lib/modal';
 import { formatMessage } from '../../locales/i18n';
 import { isExpired, parseJson } from '../../utils/siteHelpers';
 import { router } from '../../app/navigation';
-import { PeriodSelector, couponDiscount, totalAmount } from '../../components/checkout/Pricing';
-import { CouponInput, CouponDiscount } from '../../components/checkout/Coupon';
-import OrderSummary from '../../components/checkout/OrderSummary';
+import { PeriodSelector, couponDiscount, totalAmount } from '../../components/commerce/checkout/Pricing';
+import { CouponInput, CouponDiscount } from '../../components/commerce/checkout/Coupon';
+import OrderSummary from '../../components/commerce/checkout/OrderSummary';
 import type { PlanFeature, PlanPeriod } from '../../types/plan';
 import type { UserDispatch, UserRootState } from '../../types/store';
 

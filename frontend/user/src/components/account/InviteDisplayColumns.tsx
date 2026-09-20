@@ -1,8 +1,8 @@
 import moment from 'moment';
-import { formatMessage } from '../locales/i18n';
-import type { NumericValue } from '../types/commerce';
+import { formatMessage } from '../../locales/i18n';
+import type { NumericValue } from '../../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
-import type { CommissionRecord, InviteCode } from '../types/invite';
+import type { CommissionRecord, InviteCode } from '../../types/invite';
 const message = (id: string): string => formatMessage({ id });
 
 export function formatInviteCreatedAt(value: NumericValue): string {

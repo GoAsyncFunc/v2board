@@ -1,10 +1,10 @@
 import React from "react";
 import Icon from 'antd/lib/icon';
-import { localeSettings as settings } from '../../config/localeSettings';
-import { formatMessage } from '../../locales/i18n';
-import { formatPrice } from "../MoneyDisplay";
-import type { PaymentConfig } from "../../types/commerce";
-import type { OrderModelRecord, StripeCheckoutState } from "../../types/payment";
+import { localeSettings as settings } from '../../../config/localeSettings';
+import { formatMessage } from '../../../locales/i18n';
+import { formatPrice } from '../../common/MoneyDisplay';
+import type { PaymentConfig } from "../../../types/commerce";
+import type { OrderModelRecord, StripeCheckoutState } from "../../../types/payment";
 
 interface OrderPaymentSummaryProps {
     order: OrderModelRecord;

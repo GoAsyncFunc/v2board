@@ -60,7 +60,7 @@ npm run build
 public/          独立静态资源和 settings.js
 scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
-src/components/  用户端组件
+src/components/  按业务域组织的用户端组件
 src/config/      导航等界面配置
 src/layouts/     用户端布局
 src/locales/     翻译消息
@@ -79,6 +79,8 @@ dist/            本地构建产物，不提交 Git
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
 `src/pages/` 按职责分为 `auth`、`dashboard`、`subscription`、`commerce`、`support` 和 `account`。新增页面应放入对应业务域，不再直接平铺到 `src/pages/` 根目录。
+
+`src/components/` 按职责分为 `common`、`subscription`、`commerce`、`support` 和 `account`，结算流程组件集中在 `commerce/checkout`。新增组件应放入对应业务域，不再直接平铺到 `src/components/` 根目录。
 
 ## 测试服务器部署
 

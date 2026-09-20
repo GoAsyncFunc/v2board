@@ -73,7 +73,7 @@ for (const [platform, expected] of [
   [{ windows: true }, ['Hiddify', 'Sing-box', 'ClashMeta']],
   [{ android: true }, ['Hiddify', 'Sing-box', 'NekoBox For Android', 'ClashMeta For Android', 'Surfboard']],
 ]) test(`Subscription importer platform ${JSON.stringify(platform)}`, async () => {
-  const runtime = await load('components/SubscribeImporter', platform);
+  const runtime = await load('components/subscription/SubscribeImporter', platform);
   const url = 'https://example.test/sub?token=test';
   const importer = new runtime.default({ subscribeUrl: url, children: { type: 'button', props: {} } });
   const links = importer.getImportLinks();
@@ -86,7 +86,7 @@ for (const [platform, expected] of [
 });
 
 for (const mobile of [true, false]) test(`Subscription copy, QR and close mobile=${mobile}`, async () => {
-  const runtime = await load('components/SubscribeImporter', { mobile });
+  const runtime = await load('components/subscription/SubscribeImporter', { mobile });
   const importer = new runtime.default({ subscribeUrl: 'test-subscription', children: { type: 'button', props: {} } });
   importer.render().children[0].props.onClick();
   assert.equal(importer.state.showSubscribe, true);

@@ -4,7 +4,7 @@ import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import history from '../../app/routerHistory';
 import { formatMessage, getLocale } from '../../locales/i18n';
-import { LanguageSelector } from '../../components/LanguageSelector';
+import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
 import type { LoginPageProps } from '../../types/auth';
 import type { UserRootState } from '../../types/store';

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import Icon from 'antd/lib/icon';
 import copyText from 'copy-to-clipboard';
-import { formatMessage } from '../locales/i18n';
-import type { UserDispatch, UserRootState } from '../types/store';
-import type { TelegramBot } from '../types/queryModels';
+import { formatMessage } from '../../locales/i18n';
+import type { UserDispatch, UserRootState } from '../../types/store';
+import type { TelegramBot } from '../../types/queryModels';
 
 interface TelegramStateProps {
   telegram: { botInfo?: TelegramBot | null };
