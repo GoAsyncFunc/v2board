@@ -1,6 +1,7 @@
 import React from 'react';
-import { createDva } from '../vendor/dva.js';
-import { loadingPlugin, mergeConfig } from '../vendor/appRuntime.js';
+import { createDva } from '../runtime/dvaApplication';
+import loadingPlugin from '../runtime/loadingPlugin';
+import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
 import comm from '../models/comm';
 import coupon from '../models/coupon';

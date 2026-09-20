@@ -22,6 +22,7 @@ async function load(original,trace,expired){
   if(id.includes('i18n'))return {formatMessage:({id})=>id};
   if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value / 100).toFixed(2)};
   if(id.includes('siteHelpers'))return {h:()=>expired,c:content=>content,isExpired:()=>expired,parseJson:content=>content};
+  if(id.includes('app/navigation'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id==='antd/lib/result')return 'Result';
   for(const [key,name]of [['/Icon','Icon'],['antdRadio','Radio'],['4d6f5257','Result'],['antdButton','Button']])if(id.includes(key))return {a:name,[name]:name};

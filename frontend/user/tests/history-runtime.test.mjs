@@ -4,9 +4,9 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-async function loadAppRuntime(historyFixture) {
-  const source = await fs.readFile(new URL('../src/vendor/appRuntime.js', import.meta.url), 'utf8');
-  const code = (await transform(source, { format: 'cjs', loader: 'js' })).code;
+async function loadHistoryFactory(historyFixture) {
+  const source = await fs.readFile(new URL('../src/app/historyFactory.ts', import.meta.url), 'utf8');
+  const code = (await transform(source, { format: 'cjs', loader: 'ts' })).code;
   const module = { exports: {} };
 
   vm.runInNewContext(code, {
@@ -15,14 +15,6 @@ async function loadAppRuntime(historyFixture) {
     URLSearchParams,
     require(id) {
       if (id === 'history') return { createHashHistory: () => historyFixture };
-      if (id.includes('pluginRuntime')) return {};
-      if (id.includes('appDvaConfig')) return { __esModule: true, default: {} };
-      if (id.includes('loadingPlugin')) return { __esModule: true, default: () => {} };
-      if (id.includes('routeRenderer')) return { __esModule: true, default: () => null };
-      if (id.includes('routerRuntime')) return { router: {} };
-      if (id.includes('rootRuntime')) {
-        return { initialProps: {}, modifyInitialProps: {}, rootContainer: {} };
-      }
       throw new Error(`Unexpected dependency ${id}`);
     },
   });
@@ -43,7 +35,7 @@ test('user history restores the parsed location.query contract', async () => {
       return () => {};
     },
   };
-  const runtime = await loadAppRuntime(history);
+  const runtime = await loadHistoryFactory(history);
   const enhancedHistory = runtime.createHistory({ basename: '/' });
 
   assert.deepEqual(JSON.parse(JSON.stringify(enhancedHistory.location.query)), {

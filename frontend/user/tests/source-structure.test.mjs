@@ -42,6 +42,11 @@ test('user business components live outside the vendor compatibility layer', asy
     '../src/vendor/i18n.js',
     '../src/vendor/i18n.d.ts',
     '../src/vendor/locales.js',
+    '../src/vendor/appDvaConfig.js',
+    '../src/vendor/appRuntime.js',
+    '../src/vendor/dva.js',
+    '../src/vendor/rootRuntime.js',
+    '../src/vendor/routerRuntime.js',
   ];
   for (const relativePath of removedVendorPaths) {
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));

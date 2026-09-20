@@ -1,5 +1,5 @@
 import type { History, Location } from 'history';
-import { createHistory } from '../vendor/appRuntime.js';
+import { createHistory } from './historyFactory';
 
 export interface QueryLocation extends Location {
   query: Record<string, string | string[]>;

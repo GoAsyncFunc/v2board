@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as plugins from '../vendor/appRuntime.js';
-import {
-  appDvaConfig,
-  initialProps,
-  modifyInitialProps,
-  rootContainer,
-} from '../vendor/appRuntime.js';
+import * as plugins from '../runtime/pluginRuntime';
+import appDvaConfig from './dvaConfig';
+import { initialProps, modifyInitialProps, rootContainer } from './rootRuntime';
 import Router from './Router';
 import { createApp } from './store';
 

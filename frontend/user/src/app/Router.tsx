@@ -2,8 +2,9 @@ import React from 'react';
 import type { Action, Location, UnregisterCallback } from 'history';
 import ConfigProvider from 'antd/lib/config-provider';
 import type { Locale as AntdLocale } from 'antd/lib/locale-provider';
-import { routeRenderer, mergeConfig } from '../vendor/appRuntime.js';
-import { routerBindings } from '../vendor/dva.js';
+import routeRenderer from '../runtime/routeRenderer';
+import { mergeConfig } from '../runtime/pluginRuntime';
+import { routerBindings } from '../runtime/dvaApplication';
 import {
   enAntd, enData, enMessages, faAntd, faData, faMessages,
   jaAntd, jaData, jaMessages, koAntd, koData, koMessages,
@@ -14,7 +15,7 @@ import {
   IntlProvider, LangContext,
 } from '../locales/i18n';
 import type { IntlApi, LanguageContextValue } from '../locales/i18n';
-import * as plugins from '../vendor/appRuntime.js';
+import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
 import appRoutes from './routes';
 import type { UserStore } from '../types/store';

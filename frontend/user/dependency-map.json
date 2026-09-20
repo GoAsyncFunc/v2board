@@ -17,11 +17,15 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "vendor/appRuntime.js"
+    "to": "runtime/dvaApplication.tsx"
   },
   {
     "from": "app/Router.tsx",
-    "to": "vendor/dva.js"
+    "to": "runtime/pluginRuntime.ts"
+  },
+  {
+    "from": "app/Router.tsx",
+    "to": "runtime/routeRenderer.tsx"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -29,15 +33,39 @@
   },
   {
     "from": "app/bootstrap.tsx",
+    "to": "app/dvaConfig.ts"
+  },
+  {
+    "from": "app/bootstrap.tsx",
+    "to": "app/rootRuntime.tsx"
+  },
+  {
+    "from": "app/bootstrap.tsx",
     "to": "app/store.tsx"
   },
   {
     "from": "app/bootstrap.tsx",
-    "to": "vendor/appRuntime.js"
+    "to": "runtime/pluginRuntime.ts"
+  },
+  {
+    "from": "app/dvaConfig.ts",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "app/dvaConfig.ts",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "app/history.ts",
-    "to": "vendor/appRuntime.js"
+    "to": "app/historyFactory.ts"
+  },
+  {
+    "from": "app/navigation.ts",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "app/rootRuntime.tsx",
+    "to": "app/store.tsx"
   },
   {
     "from": "app/routerHistory.ts",
@@ -177,11 +205,15 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "vendor/appRuntime.js"
+    "to": "runtime/dvaApplication.tsx"
   },
   {
     "from": "app/store.tsx",
-    "to": "vendor/dva.js"
+    "to": "runtime/loadingPlugin.ts"
+  },
+  {
+    "from": "app/store.tsx",
+    "to": "runtime/pluginRuntime.ts"
   },
   {
     "from": "components/InviteDisplayColumns.tsx",
@@ -329,11 +361,11 @@
   },
   {
     "from": "components/checkout/OrderStatusResult.tsx",
-    "to": "locales/i18n.ts"
+    "to": "app/navigation.ts"
   },
   {
     "from": "components/checkout/OrderStatusResult.tsx",
-    "to": "vendor/appRuntime.js"
+    "to": "locales/i18n.ts"
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
@@ -477,15 +509,15 @@
   },
   {
     "from": "models/plan.ts",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "models/plan.ts",
     "to": "config/localeSettings.ts"
   },
   {
     "from": "models/plan.ts",
     "to": "services/request.ts"
-  },
-  {
-    "from": "models/plan.ts",
-    "to": "vendor/appRuntime.js"
   },
   {
     "from": "models/server.ts",
@@ -765,6 +797,10 @@
   },
   {
     "from": "pages/PlanDetail.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/PlanDetail.tsx",
     "to": "components/checkout/Coupon.tsx"
   },
   {
@@ -786,10 +822,6 @@
   {
     "from": "pages/PlanDetail.tsx",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "vendor/appRuntime.js"
   },
   {
     "from": "pages/Profile.tsx",
@@ -872,6 +904,10 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "runtime/dvaApplication.tsx",
+    "to": "runtime/routerBindings.tsx"
+  },
+  {
     "from": "runtime/routeRenderer.tsx",
     "to": "runtime/pluginRuntime.ts"
   },
@@ -881,58 +917,14 @@
   },
   {
     "from": "services/request.ts",
-    "to": "utils/siteHelpers.ts"
+    "to": "services/fetchResponse.ts"
   },
   {
     "from": "services/request.ts",
-    "to": "vendor/dva.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "utils/siteHelpers.ts",
     "to": "locales/i18n.ts"
-  },
-  {
-    "from": "vendor/appDvaConfig.js",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "vendor/appDvaConfig.js",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/loadingPlugin.ts"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "runtime/routeRenderer.tsx"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "vendor/appDvaConfig.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "vendor/rootRuntime.js"
-  },
-  {
-    "from": "vendor/appRuntime.js",
-    "to": "vendor/routerRuntime.js"
-  },
-  {
-    "from": "vendor/dva.js",
-    "to": "runtime/routerBindings.tsx"
-  },
-  {
-    "from": "vendor/rootRuntime.js",
-    "to": "app/store.tsx"
-  },
-  {
-    "from": "vendor/routerRuntime.js",
-    "to": "app/history.ts"
   }
 ]

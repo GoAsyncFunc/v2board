@@ -13,7 +13,7 @@ function setup({ token = 'test-token', host, status = 200, body = { data: { id: 
   const document = {};
   const module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, window, document, URL, require(id) {
-    if (id.includes('dva')) return { fetchResponse: async (url, options) => {
+    if (id.includes('fetchResponse')) return { fetchResponse: async (url, options) => {
       requests.push({ url, options });
       return { status, json: async () => body };
     } };

@@ -1,6 +1,6 @@
 import { get } from '../services/request';
 import { localeSettings } from '../config/localeSettings';
-import { router } from '../vendor/appRuntime.js';
+import { router } from '../app/navigation';
 import type { ApiResponse } from '../types/api';
 import type { PlanEffects, PlanGenerator, PlanRecord, PlanState } from '../types/commonModels';
 import type { PlanPeriod } from '../types/plan';

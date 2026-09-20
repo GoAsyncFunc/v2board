@@ -18,7 +18,8 @@ declare global {
       logo?: string;
       secure_path: string;
       title?: string;
-      theme: { header?: string; sidebar?: string };
+      theme: { color?: string; header?: string; sidebar?: string };
+      host?: string;
       i18n: string[] & Record<string, Record<string, string>>;
       [key: string]: unknown;
     };
@@ -27,7 +28,7 @@ declare global {
     g_history: UserHistory;
     g_initialData: Record<string, object>;
     g_isBrowser: boolean;
-    g_plugins: typeof import('../vendor/appRuntime.js');
+    g_plugins: typeof import('../runtime/pluginRuntime');
     g_useSSR: boolean;
     g_lang?: string;
     g_langSeparator?: string;

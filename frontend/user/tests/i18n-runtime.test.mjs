@@ -91,14 +91,14 @@ test('user IntlApiBridge injects the react-intl API before rendering children', 
     localStorage: { getItem: () => null },
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('appRuntime')) {
+      if (id.includes('pluginRuntime')) {
         return {
-          routeRenderer() {},
           mergeConfig: () => ({}),
           applyForEach: key => pluginCalls.push(key),
         };
       }
-      if (id.includes('/dva')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
+      if (id.includes('routeRenderer')) return { __esModule: true, default() {} };
+      if (id.includes('dvaApplication')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
       if (id === 'antd/lib/config-provider') return { __esModule: true, default: 'ConfigProvider' };
       if (id.includes('/locales/catalog')) return localeExports;
       if (id.includes('/i18n')) {

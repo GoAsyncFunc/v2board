@@ -7,7 +7,7 @@ import {build} from 'esbuild';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
-  if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('routerHistory')||args.path.includes('siteHelpers')||args.path.includes('/locales/i18n')||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
+  if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('routerHistory')||args.path.includes('siteHelpers')||args.path.includes('fetchResponse')||args.path.includes('/locales/i18n')||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
  });
  b.onLoad({filter:/.*/,namespace:'mock'},args=>({contents:`module.exports=globalThis.dependency(${JSON.stringify(args.path)});`,loader:'js'}));
 }}]})).outputFiles[0].text;
@@ -37,7 +37,7 @@ function setup(mode){
   if(id==='react-redux'||id.includes('reactRedux'))return {c:()=>cls=>cls,connect:()=>cls=>cls};
   if(id.includes('moduleInterop'))return {markEsModule:o=>Object.defineProperty(o,'__esModule',{value:true}),interopDefault:o=>{const f=()=>o;Object.defineProperty(f,'a',{get:f});return f;}};
   if(id.includes('70307045'))return Object.assign;
-  if(id.includes('dva'))return {b:fetchResponse,fetchResponse};
+  if(id.includes('fetchResponse'))return {b:fetchResponse,fetchResponse};
   if(id.includes('i18n'))return {formatMessage:({id})=>id,getLocale:()=> 'zh-CN'};
   if(id.includes('siteHelpers'))return {d:()=> 'fixture-token',o:()=>events.push(['clear-token']),r:(...args)=>events.push(['notify',...args]),getToken:()=> 'fixture-token',clearToken:()=>events.push(['clear-token']),notify:(...args)=>events.push(['notify',...args])};
   if(id.includes('routerHistory'))return {push:value=>events.push(['navigate',value])};

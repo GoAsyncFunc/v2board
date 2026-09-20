@@ -15,6 +15,7 @@ async function run(original,scenario){
  vm.runInNewContext(code,{module,exports:module.exports,require(id){
   if(id.includes('request'))return {a:get,get};
   if(id.includes('localeSettings'))return settings;
+  if(id.includes('app/navigation'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id.includes('70307045'))return Object.assign;
   if(id.includes('reactRuntime'))return {};

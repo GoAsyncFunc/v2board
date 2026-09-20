@@ -1,4 +1,4 @@
-import { fetchResponse } from "../vendor/dva.js";
+import { fetchResponse } from './fetchResponse';
 import { getLocale, formatMessage } from '../locales/i18n';
 import { getToken, clearToken, notify } from '../utils/siteHelpers';
 import type { ApiResponse, FormValue, RequestOptions } from '../types/api';
