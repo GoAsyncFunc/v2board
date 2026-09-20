@@ -46,7 +46,6 @@ test('admin loading effect preserves show, effect and hide ordering', async () =
     effect,
     { put: action => ({ dispatched: action }) },
     { namespace: 'serverManage' },
-    {},
     'serverManage/fetch',
   );
   const iterator = wrapped('active');
@@ -74,7 +73,7 @@ test('admin loading plugin rejects conflicting filters and skips excluded effect
   const effect = function* effect() { yield 'unchanged'; };
   const plugin = createLoadingPlugin({ except: ['serverManage/fetch'] });
   assert.equal(
-    plugin.onEffect(effect, { put() {} }, { namespace: 'serverManage' }, {}, 'serverManage/fetch'),
+    plugin.onEffect(effect, { put() {} }, { namespace: 'serverManage' }, 'serverManage/fetch'),
     effect,
   );
 });

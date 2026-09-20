@@ -1,24 +1,56 @@
 import type { History } from 'history';
 import type { Middleware, Reducer, StoreEnhancer } from 'redux';
-import type { AdminRootState, AdminStore } from './store';
+import type { Effect } from 'redux-saga/effects';
+import type { AdminAction, AdminDispatch, AdminRootState, AdminStore } from './store';
 
 export interface DvaRuntimeError extends Error {
     preventDefault(): void;
 }
 
-export type DvaHook = (...args: never[]) => unknown;
-export type DvaReducer = (...args: never[]) => unknown;
+export interface DvaErrorContext {
+    key: string;
+    effectArgs: AdminAction[];
+}
+
+export interface DvaEffectModel {
+    namespace: string;
+}
+
+export type DvaSagaEffects = typeof import('redux-saga/effects');
+export type DvaEffectArgument = AdminAction | DvaSagaEffects;
+export type DvaEffectYield = Effect | DvaEffectIterator;
+export interface DvaEffectIterator extends Iterator<DvaEffectYield, void, void> {}
+export type DvaEffect = (...args: DvaEffectArgument[]) => DvaEffectIterator;
+export type DvaEffectEnhancer = (
+    effect: DvaEffect,
+    effects: DvaSagaEffects,
+    model: DvaEffectModel,
+    effectName: string,
+) => DvaEffect;
+export type DvaErrorHandler = (
+    error: DvaRuntimeError,
+    dispatch: AdminDispatch,
+    context: DvaErrorContext,
+) => void;
+export type DvaStateChangeHandler = (state: AdminRootState) => void;
+export type DvaHotReloadHandler = <Render extends (...args: never[]) => void>(
+    render: Render,
+) => void;
+export type DvaHandleActions = <State>(
+    handlers: Record<string, Reducer<State, AdminAction>>,
+    initialState: State,
+) => Reducer<State, AdminAction>;
 
 export interface DvaPlugin {
-    onError?: DvaHook;
-    onStateChange?: DvaHook;
+    onError?: DvaErrorHandler;
+    onStateChange?: DvaStateChangeHandler;
     onAction?: Middleware | Middleware[];
-    onHmr?: DvaHook;
+    onHmr?: DvaHotReloadHandler;
     onReducer?: (reducer: Reducer) => Reducer;
-    onEffect?: DvaHook;
-    extraReducers?: Record<string, DvaReducer>;
+    onEffect?: DvaEffectEnhancer;
+    extraReducers?: Record<string, Reducer>;
     extraEnhancers?: StoreEnhancer[];
-    _handleActions?: DvaHook;
+    _handleActions?: DvaHandleActions;
 }
 
 export interface DvaOptions extends DvaPlugin {
@@ -38,7 +70,7 @@ export interface DvaCreateOptions<Application> {
 }
 
 export interface DvaPluginManager {
-    apply(name: 'onHmr'): (render: DvaHook) => void;
+    apply(name: 'onHmr'): <Render extends (...args: never[]) => void>(render: Render) => void;
 }
 
 export interface DvaCoreApplication {

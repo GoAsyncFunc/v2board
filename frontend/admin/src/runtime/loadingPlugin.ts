@@ -1,5 +1,12 @@
 import type { PutEffect } from 'redux-saga/effects';
-import type { DvaPlugin } from '../types/dva';
+import type {
+    DvaEffect,
+    DvaEffectArgument,
+    DvaEffectIterator,
+    DvaPlugin,
+    DvaSagaEffects,
+} from '../types/dva';
+import type { AdminAction } from '../types/store';
 
 const SHOW_LOADING = '@@DVA_LOADING/SHOW';
 const HIDE_LOADING = '@@DVA_LOADING/HIDE';
@@ -14,29 +21,20 @@ export interface LoadingState {
     models: Record<string, boolean>;
     effects: Record<string, boolean>;
 }
-interface LoadingAction {
+interface LoadingAction extends AdminAction {
     type: string;
     payload?: { namespace?: string; actionType?: string };
 }
-type EffectArgument = LoadingAction | EffectHelpers | EffectModel | string;
-type EffectResult = Generator<PutEffect<LoadingAction> | Iterator<unknown>, void, unknown>;
-type ModelEffect = (...args: EffectArgument[]) => Iterator<unknown>;
-interface EffectHelpers {
-    put(action: LoadingAction): PutEffect<LoadingAction>;
-}
-interface EffectModel {
-    namespace: string;
-}
+type LoadingEffectResult = Generator<PutEffect<LoadingAction> | DvaEffectIterator, void, void>;
 
 export default function createLoadingPlugin(options: LoadingPluginOptions = {}): DvaPlugin & {
     extraReducers: Record<string, typeof loadingReducer>;
     onEffect(
-        effect: ModelEffect,
-        helpers: EffectHelpers,
-        model: EffectModel,
-        effectContext: Readonly<Record<string, never>>,
+        effect: DvaEffect,
+        helpers: DvaSagaEffects,
+        model: { namespace: string },
         effectName: string,
-    ): ModelEffect;
+    ): DvaEffect;
 } {
     const namespace = options.namespace || 'loading';
     const only = options.only || [];
@@ -82,14 +80,13 @@ export default function createLoadingPlugin(options: LoadingPluginOptions = {}):
     return {
         extraReducers,
         onEffect(
-            effect: ModelEffect,
-            { put }: EffectHelpers,
-            model: EffectModel,
-            _effectContext: Readonly<Record<string, never>>,
+            effect: DvaEffect,
+            { put }: DvaSagaEffects,
+            model: { namespace: string },
             effectName: string,
-        ): ModelEffect {
+        ): DvaEffect {
             if (!shouldTrack(effectName)) return effect;
-            return function* trackedEffect(...args: EffectArgument[]): EffectResult {
+            return function* trackedEffect(...args: DvaEffectArgument[]): LoadingEffectResult {
                 yield put({
                     type: SHOW_LOADING,
                     payload: { namespace: model.namespace, actionType: effectName },
