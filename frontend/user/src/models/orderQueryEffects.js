@@ -1,4 +1,4 @@
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 
 export function* detail({ tradeNo, callback }, { put }) {
   yield put({ type: 'setState', payload: { detailsLoading: true } });

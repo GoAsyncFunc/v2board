@@ -6,7 +6,7 @@ import { Modal } from '../vendor/Modal.js';
 import { message } from '../vendor/ui.js';
 import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 import { formatMessage } from '../vendor/i18n.js';
 import { formatMoney } from '../components/MoneyDisplay';
 import type { ProfileConfig, ProfileInfo, ProfileSetting, ProfileUserState } from '../types/profile';

@@ -1,4 +1,4 @@
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 import { localeSettings as settings } from '../vendor/localeSettings.js';
 import { router } from '../vendor/appRuntime.js';
 

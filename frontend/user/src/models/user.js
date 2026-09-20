@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import history from '../vendor/routerHistory.js';
 import { message } from '../vendor/ui.js';
 import moment from '../vendor/dateTime.js';

@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
-const code=(await transform(await fs.readFile(new URL('../src/services/request.js',import.meta.url),'utf8'),{format:'cjs'})).code;
+const code=(await transform(await fs.readFile(new URL('../src/services/request.ts',import.meta.url),'utf8'),{format:'cjs',loader:'ts'})).code;
 for(const kind of ['validation','server','forbidden','transport','invalid-json'])test(`real request wrapper with mocked ${kind} failure`,async()=>{
  const events=[],module={exports:{}};const window={settings:{title:'Fixture'},location:{href:'http://ui.test/'}};
  vm.runInNewContext(code,{module,exports:module.exports,window,document:{},URL,require(id){

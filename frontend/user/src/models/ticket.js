@@ -1,6 +1,6 @@
 import { notification } from '../vendor/ui.js';
 import history from '../vendor/routerHistory.js';
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 
 const initialState = {
   tickets: [],

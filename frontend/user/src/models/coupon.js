@@ -1,4 +1,4 @@
-import { post } from '../services/request.js';
+import { post } from '../services/request';
 
 const initialState = { coupon: {}, checkLoading: false };
 export default {

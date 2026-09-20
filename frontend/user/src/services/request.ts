@@ -1,21 +1,24 @@
 import { fetchResponse } from "../vendor/dva.js";
 import { getLocale, formatMessage } from "../vendor/i18n.js";
 import { getToken, clearToken, notify } from "../vendor/siteHelpers.js";
+import type { ApiResponse, FormValue, RequestOptions } from '../types/api';
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
-document.title = window.settings.title;
-export function encodeForm(data) {
+document.title = window.settings.title!;
+export function encodeForm(data?: FormValue): string {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return '';
-  const fields = [];
-  function append(key, value) {
+  const fields: string[] = [];
+  function append(key: string, value: FormValue): void {
     if (value === undefined) return;
     if (typeof value === 'object') {
-      for (const child in value) append(`${key}[${child}]`, value[child]);
+      if (value === null) return;
+      const nested = value as Record<string, FormValue>;
+      for (const child in nested) append(`${key}[${child}]`, nested[child]);
     } else fields.push(`${key}=${encodeURIComponent(value)}`);
   }
   for (const key in data) append(key, data[key]);
   return fields.join('&');
 }
-export async function request(endpoint, options = {}) {
+export async function request<Data = unknown>(endpoint: string, options: RequestOptions | null = {}): Promise<ApiResponse<Data>> {
   options = options || {};
   options.headers = options.headers || {};
   const token = getToken();
@@ -24,8 +27,8 @@ export async function request(endpoint, options = {}) {
   options.headers['Content-Language'] = getLocale();
   // Retain original URL and response behavior during migration.
   const url = endpoint.includes('http') ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') : serviceHost + endpoint;
-  const response = await fetchResponse(url, options);
-  const data = await response.json();
+  const response: Response = await fetchResponse(url, options);
+  const data: ApiResponse<Data> = await response.json();
   if (response.status === 403) {
     clearToken();
     window.location.href = '/';
@@ -38,7 +41,7 @@ export async function request(endpoint, options = {}) {
     const message = data.errors ? Object.values(data.errors)[0][0] : data.message;
     notify('error', formatMessage({
       id: '请求失败'
-    }), message);
+    }), message!);
     return {
       code: response.status,
       msg: message
@@ -48,8 +51,8 @@ export async function request(endpoint, options = {}) {
     code: response.status
   }, data);
 }
-export function post(endpoint, data) {
-  return request(endpoint, {
+export function post<Data = unknown>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
+  return request<Data>(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -57,7 +60,7 @@ export function post(endpoint, data) {
     body: encodeForm(data)
   });
 }
-export function get(endpoint, data) {
+export function get<Data = unknown>(endpoint: string, data?: FormValue): Promise<ApiResponse<Data>> {
   const query = encodeForm(data);
-  return request(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
+  return request<Data>(query ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?') + query : endpoint);
 }

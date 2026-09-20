@@ -541,19 +541,19 @@
   },
   {
     "from": "models/comm.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/coupon.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/guest.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/invite.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/invite.js",
@@ -561,11 +561,11 @@
   },
   {
     "from": "models/knowledge.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/notice.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/order.js",
@@ -577,7 +577,7 @@
   },
   {
     "from": "models/orderPaymentEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/orderPaymentEffects.js",
@@ -589,11 +589,11 @@
   },
   {
     "from": "models/orderQueryEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/passport.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/passport.js",
@@ -605,7 +605,7 @@
   },
   {
     "from": "models/plan.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/plan.js",
@@ -617,11 +617,11 @@
   },
   {
     "from": "models/server.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/sessionEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/sessionEffects.js",
@@ -633,15 +633,15 @@
   },
   {
     "from": "models/stat.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/telegram.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/ticket.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/ticket.js",
@@ -653,7 +653,7 @@
   },
   {
     "from": "models/tutorial.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/user.js",
@@ -661,7 +661,7 @@
   },
   {
     "from": "models/user.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/user.js",
@@ -873,7 +873,7 @@
   },
   {
     "from": "pages/Node.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Node.tsx",
@@ -1053,7 +1053,7 @@
   },
   {
     "from": "pages/Profile.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Profile.tsx",
@@ -1160,15 +1160,15 @@
     "to": "runtime/pluginRuntime.js"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "vendor/dva.js"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "vendor/i18n.js"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "vendor/siteHelpers.js"
   },
   {

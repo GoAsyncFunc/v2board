@@ -9,7 +9,7 @@ import { createNodeColumns } from '../components/NodeColumns';
 import type { NodeRecord, OrderRecord } from '../types/commerce';
 import type { UserDispatch } from '../types/store';
 
-import '../services/request.js';
+import '../services/request';
 import '../vendor/dateTime.js';
 const message = (id: string): string => formatMessage({ id });
 

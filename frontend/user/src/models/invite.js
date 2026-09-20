@@ -1,5 +1,5 @@
 import { notification } from '../vendor/ui.js';
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 
 export default {
   name: 'invite',

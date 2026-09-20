@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import history from '../vendor/routerHistory.js';
 import { setToken, notify } from '../vendor/siteHelpers.js';
 
