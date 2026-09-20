@@ -10,7 +10,7 @@ type QueueStatsEffect = ModelEffect<ApiResponse<QueueStats>>;
 type QueueWorkloadEffect = ModelEffect<ApiResponse<QueueWorkload[]>>;
 
 export default {
-    name: 'system',
+    namespace: 'system',
     state: {},
     reducers: {
         save(

@@ -1,3 +1,3 @@
 import { createServerProtocolModel } from './createServerProtocolModel';
 
-export default createServerProtocolModel({ name: 'serverTrojan', protocol: 'trojan' });
+export default createServerProtocolModel({ namespace: 'serverTrojan', protocol: 'trojan' });

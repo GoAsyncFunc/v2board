@@ -24,7 +24,7 @@ const initialState: ServerRouteState = {
 };
 
 export default {
-    name: 'serverRoute',
+    namespace: 'serverRoute',
     state: { ...initialState },
     reducers: {
         setState(state: ServerRouteState, { payload }: { payload: Partial<ServerRouteState> }) {

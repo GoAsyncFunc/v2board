@@ -9,7 +9,7 @@ import type { ServerId, ServerProtocolState } from '../types/server';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
 
 interface ServerProtocolModelOptions {
-    name: string;
+    namespace: string;
     protocol: string;
 }
 
@@ -37,11 +37,11 @@ const initialState: ServerProtocolState = {
     saveLoading: false,
 };
 
-export function createServerProtocolModel({ name, protocol }: ServerProtocolModelOptions) {
+export function createServerProtocolModel({ namespace, protocol }: ServerProtocolModelOptions) {
     const endpoint = `/${window.settings.secure_path}/server/${protocol}`;
 
     return {
-        name,
+        namespace,
         state: { ...initialState },
         reducers: {
             setState(

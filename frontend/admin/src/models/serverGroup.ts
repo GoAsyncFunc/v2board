@@ -25,7 +25,7 @@ const initialState: ServerGroupState = {
 };
 
 export default {
-    name: 'serverGroup',
+    namespace: 'serverGroup',
     state: { ...initialState },
     reducers: {
         setState(state: ServerGroupState, { payload }: { payload: Partial<ServerGroupState> }) {

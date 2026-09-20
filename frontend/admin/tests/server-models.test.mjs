@@ -89,7 +89,7 @@ for (const [modelName, protocol] of protocols) {
   test(`${modelName} keeps its namespace and protocol endpoint`, async () => {
     const { model, requests } = await loadModel(modelName);
     const result = runEffect(model, 'update', { id: 7, key: 'show', value: 0 }, { code: 200 });
-    assert.equal(model.name, modelName);
+    assert.equal(model.namespace, modelName);
     assert.deepEqual(requests, [['POST', `/admin-path/server/${protocol}/update`, { id: 7, show: 0 }]]);
     assert.deepEqual(result.puts, [{ type: 'serverManage/getNodes' }]);
   });

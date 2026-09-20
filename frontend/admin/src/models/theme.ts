@@ -18,7 +18,7 @@ type ThemeEffect<Data> = ModelEffect<ApiResponse<Data>>;
 const initialState: ThemeState = { themes: {}, active: undefined };
 
 export default {
-    name: 'theme',
+    namespace: 'theme',
     state: { ...initialState },
     reducers: {
         setState(state: ThemeState, { payload }: { payload: Partial<ThemeState> }) {

@@ -1,3 +1,3 @@
 import { createServerProtocolModel } from './createServerProtocolModel';
 
-export default createServerProtocolModel({ name: 'serverVless', protocol: 'vless' });
+export default createServerProtocolModel({ namespace: 'serverVless', protocol: 'vless' });

@@ -21,7 +21,7 @@ const initialState: OrderState = {
 };
 
 export default {
-    name: 'order',
+    namespace: 'order',
     state: { ...initialState },
     reducers: {
         setState(state: OrderState, { payload }: { payload: Partial<OrderState> }) {

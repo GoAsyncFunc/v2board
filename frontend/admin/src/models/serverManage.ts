@@ -23,7 +23,7 @@ const initialState: ServerManageState = {
 };
 
 export default {
-    name: 'serverManage',
+    namespace: 'serverManage',
     state: { ...initialState },
     reducers: {
         setState(state: ServerManageState, { payload }: { payload: Partial<ServerManageState> }) {

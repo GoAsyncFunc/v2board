@@ -18,7 +18,7 @@ interface AuthEffectTools extends PutEffectTools {}
 type AuthEffect = ModelEffect<ApiResponse<AdminLoginData>>;
 
 export default {
-    name: 'auth',
+    namespace: 'auth',
     state: {},
     reducers: {
         save(state: AuthState, { payload }: { payload: Partial<AuthState> }) {

@@ -31,7 +31,7 @@ const initialState: UserModuleState = {
     sendMailLoading: false,
 };
 export default {
-    name: 'user',
+    namespace: 'user',
     state: { ...initialState },
     reducers: {
         setState(state: UserModuleState, { payload }: { payload: Partial<UserModuleState> }) {

@@ -18,7 +18,7 @@ type NoticeEffect = ModelEffect<ApiResponse<NoticeRecord[]>>;
 const initialState: NoticeState = { notices: [], fetchLoading: false };
 
 export default {
-    name: 'notice',
+    namespace: 'notice',
     state: { ...initialState },
     reducers: {
         setState(state: NoticeState, { payload }: { payload: Partial<NoticeState> }) {

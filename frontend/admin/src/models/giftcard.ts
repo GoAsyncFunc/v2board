@@ -48,7 +48,7 @@ function downloadGiftcardCsv(buffer: BlobPart): void {
 }
 
 export default {
-    name: 'giftcard',
+    namespace: 'giftcard',
     state: { ...initialState },
     reducers: {
         setState(state: GiftcardState, { payload }: { payload: Partial<GiftcardState> }) {

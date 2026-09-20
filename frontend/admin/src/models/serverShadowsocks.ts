@@ -1,3 +1,6 @@
 import { createServerProtocolModel } from './createServerProtocolModel';
 
-export default createServerProtocolModel({ name: 'serverShadowsocks', protocol: 'shadowsocks' });
+export default createServerProtocolModel({
+    namespace: 'serverShadowsocks',
+    protocol: 'shadowsocks',
+});

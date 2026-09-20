@@ -121,6 +121,38 @@ test('admin model composition uses named business effects instead of module alia
     assert.match(orderMutations, new RegExp(`export function\\* ${effect}\\b`));
   }
   assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
+
+  const modelDirectory = new URL('../src/models/', import.meta.url);
+  const directModelNamespaces = [
+    'auth', 'config', 'coupon', 'giftcard', 'knowledge', 'layout', 'notice', 'order',
+    'passport', 'payment', 'plan', 'serverGroup', 'serverManage', 'serverRoute',
+    'stat', 'system', 'theme', 'ticket', 'user',
+  ];
+  for (const namespace of directModelNamespaces) {
+    const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+    assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
+    assert.doesNotMatch(source, /export default\s*{\s*name:/);
+  }
+
+  const protocolModelNamespaces = [
+    'serverAnyTLS', 'serverHysteria', 'serverShadowsocks', 'serverTrojan',
+    'serverTuic', 'serverV2node', 'serverVless', 'serverVmess',
+  ];
+  for (const namespace of protocolModelNamespaces) {
+    const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+    assert.match(source, new RegExp(`namespace: ['"]${namespace}['"]`));
+    assert.doesNotMatch(source, /\bname:\s*['"]/);
+  }
+
+  const protocolFactory = await fs.readFile(new URL('createServerProtocolModel.ts', modelDirectory), 'utf8');
+  assert.match(protocolFactory, /interface ServerProtocolModelOptions\s*{\s*namespace: string;/);
+  assert.match(protocolFactory, /return\s*{\s*namespace,/);
+  assert.doesNotMatch(protocolFactory, /\bname:\s*string/);
+
+  const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
+  assert.match(store, /model\.namespace !== registeredNamespace/);
+  assert.match(store, /appInstance\?\.model\(model\)/);
+  assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
 });
 
 test('admin scripts exclude one-time reverse-engineering extractors', async () => {

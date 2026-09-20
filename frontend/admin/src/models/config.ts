@@ -70,7 +70,7 @@ const initialState = {
 };
 
 export default {
-    name: 'config',
+    namespace: 'config',
     state: { ...initialState },
     reducers: {
         setState(state: AdminConfigState, { payload }: { payload: Partial<AdminConfigState> }) {

@@ -48,7 +48,7 @@ function downloadCouponCsv(buffer: BlobPart): void {
 }
 
 export default {
-    name: 'coupon',
+    namespace: 'coupon',
     state: { ...initialState },
     reducers: {
         setState(state: CouponState, { payload }: { payload: Partial<CouponState> }) {

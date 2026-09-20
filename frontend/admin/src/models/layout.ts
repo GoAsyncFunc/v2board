@@ -15,7 +15,7 @@ type LayoutEffect = ModelEffect<LayoutState>;
 const initialState: LayoutState = { showNav: false };
 
 export default {
-    name: 'layout',
+    namespace: 'layout',
     state: initialState,
     reducers: {
         save(state: LayoutState, { payload }: { payload: Partial<LayoutState> }) {

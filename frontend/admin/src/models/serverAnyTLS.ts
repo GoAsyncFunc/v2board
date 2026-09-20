@@ -1,3 +1,3 @@
 import { createServerProtocolModel } from './createServerProtocolModel';
 
-export default createServerProtocolModel({ name: 'serverAnyTLS', protocol: 'anytls' });
+export default createServerProtocolModel({ namespace: 'serverAnyTLS', protocol: 'anytls' });

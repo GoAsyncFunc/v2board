@@ -47,7 +47,7 @@ export function convertPrices(plan: PlanRecord, toMinorUnits: boolean): PlanReco
 }
 
 export default {
-    name: 'plan',
+    namespace: 'plan',
     state: { ...initialState },
     reducers: {
         setState(state: PlanState, { payload }: { payload: Partial<PlanState> }) {

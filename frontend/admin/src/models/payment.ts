@@ -41,7 +41,7 @@ type PaymentEffect = ModelEffect<PaymentYield>;
 const initialState: PaymentState = { payments: [], fetchLoading: false };
 
 export default {
-    name: 'payment',
+    namespace: 'payment',
     state: { ...initialState },
     reducers: {
         setState(state: PaymentState, { payload }: { payload: Partial<PaymentState> }) {

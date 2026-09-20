@@ -29,7 +29,7 @@ const initialState: KnowledgeState = {
 };
 
 export default {
-    name: 'knowledge',
+    namespace: 'knowledge',
     state: { ...initialState },
     reducers: {
         setState(state: KnowledgeState, { payload }: { payload: Partial<KnowledgeState> }) {

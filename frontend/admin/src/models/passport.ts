@@ -17,7 +17,7 @@ type PassportEffect = ModelEffect<ApiResponse<AdminLoginData>>;
 const initialState: PassportState = { loginLoading: false };
 
 export default {
-    name: 'passport',
+    namespace: 'passport',
     state: initialState,
     reducers: {
         save(state: PassportState, { payload }: { payload: Partial<PassportState> }) {

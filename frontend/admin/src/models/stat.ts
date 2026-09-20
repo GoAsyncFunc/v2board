@@ -17,7 +17,7 @@ function statEndpoint(action: string): string {
 }
 
 export default {
-    name: 'stat',
+    namespace: 'stat',
     state: {},
     reducers: {
         save(state: DashboardStats, { payload }: { payload: Partial<DashboardStats> }) {
