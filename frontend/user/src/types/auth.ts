@@ -21,16 +21,19 @@ export interface PassportState {
 }
 
 export interface CommunicationConfig {
-  email_whitelist_suffix?: string[];
-  is_email_verify?: boolean;
-  is_invite_force?: boolean;
-  is_recaptcha?: boolean;
+  app_description?: string;
+  app_url?: string;
+  email_whitelist_suffix?: 0 | string[];
+  is_email_verify?: boolean | number;
+  is_invite_force?: boolean | number;
+  is_recaptcha?: boolean | number;
   recaptcha_site_key?: string;
-  tos_url?: string;
+  tos_url?: string | null;
 }
 
 export interface GuestState {
   commConfig: CommunicationConfig;
+  getCommConfigLoading?: boolean;
   selectEmailSuffix?: string;
 }
 

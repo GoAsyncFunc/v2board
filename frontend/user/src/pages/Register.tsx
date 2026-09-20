@@ -133,7 +133,7 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
                                   <input type="text" className="form-control form-control-alt" placeholder={formatMessage({ id: '邮箱验证码' })} ref={this.emailCodeInput} />
                                 </div>
                                 <div className="col-3">
-                                  <Recaptcha visible={commConfig.is_recaptcha} callback={data => this.sendEmailVerify(data)}>
+                                  <Recaptcha visible={Boolean(commConfig.is_recaptcha)} callback={data => this.sendEmailVerify(data)}>
                                     <button
                                       type="submit"
                                       disabled={this.state.sendEmailVerifyTimeout !== 60 || sendEmailVerifyLoading}
@@ -185,7 +185,7 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
                               </div>
                             )}
                             <div className="form-group mb-0">
-                              <Recaptcha visible={commConfig.is_recaptcha} callback={data => this.register(data)}>
+                              <Recaptcha visible={Boolean(commConfig.is_recaptcha)} callback={data => this.register(data)}>
                                 <button
                                   disabled={Boolean(registerLoading || (commConfig.tos_url && !this.state.tosChecked))}
                                   type="submit"

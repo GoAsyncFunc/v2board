@@ -113,7 +113,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/comm.js"
+    "to": "models/comm.ts"
   },
   {
     "from": "app/store.js",
@@ -121,7 +121,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/guest.js"
+    "to": "models/guest.ts"
   },
   {
     "from": "app/store.js",
@@ -149,7 +149,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/plan.js"
+    "to": "models/plan.ts"
   },
   {
     "from": "app/store.js",
@@ -540,7 +540,7 @@
     "to": "app/bootstrap.js"
   },
   {
-    "from": "models/comm.js",
+    "from": "models/comm.ts",
     "to": "services/request.ts"
   },
   {
@@ -548,7 +548,7 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/guest.js",
+    "from": "models/guest.ts",
     "to": "services/request.ts"
   },
   {
@@ -600,15 +600,15 @@
     "to": "vendor/siteHelpers.js"
   },
   {
-    "from": "models/plan.js",
+    "from": "models/plan.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/plan.js",
+    "from": "models/plan.ts",
     "to": "vendor/appRuntime.js"
   },
   {
-    "from": "models/plan.js",
+    "from": "models/plan.ts",
     "to": "vendor/localeSettings.js"
   },
   {

@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {build} from 'esbuild';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order.js';import comm from './src/models/comm.js';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
+const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order.js';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
   if(args.path==='react'||args.path==='react-redux'||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
  });

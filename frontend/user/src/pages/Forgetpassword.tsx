@@ -99,7 +99,7 @@ export class ForgetPasswordPage extends React.Component<RegistrationPageProps, F
                             <input type="text" className="form-control form-control-alt" placeholder={translate('邮箱验证码')} ref={this.emailCodeInput} />
                           </div>
                           <div className="col-3">
-                            <Recaptcha visible={commConfig.is_recaptcha} callback={data => this.sendEmailVerify(data)}>
+                            <Recaptcha visible={Boolean(commConfig.is_recaptcha)} callback={data => this.sendEmailVerify(data)}>
                               <button
                                 type="submit"
                                 disabled={sendEmailVerifyTimeout !== 60 || sendEmailVerifyLoading}
