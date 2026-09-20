@@ -264,6 +264,70 @@
     "to": "components/server/CompatibleDrawer.tsx"
   },
   {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/AnyTlsEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/HysteriaEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/ServerTypeTag.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/ShadowsocksEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/TrojanEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/TuicEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/V2NodeEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/VlessEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerEditorRegistry.tsx",
+    "to": "components/server/VmessEditor.tsx"
+  },
+  {
+    "from": "components/server/ServerManageColumns.tsx",
+    "to": "components/server/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "components/server/ServerManageColumns.tsx",
+    "to": "components/server/ServerNameColumn.tsx"
+  },
+  {
+    "from": "components/server/ServerManageColumns.tsx",
+    "to": "components/server/ServerRateColumn.tsx"
+  },
+  {
+    "from": "components/server/ServerManageColumns.tsx",
+    "to": "components/server/ServerTypeTag.tsx"
+  },
+  {
+    "from": "components/server/ServerManageColumns.tsx",
+    "to": "utils/clipboard.ts"
+  },
+  {
+    "from": "components/server/ServerManageMobileList.tsx",
+    "to": "components/server/ServerManageColumns.tsx"
+  },
+  {
+    "from": "components/server/ServerManageMobileList.tsx",
+    "to": "components/server/ServerTypeTag.tsx"
+  },
+  {
     "from": "components/server/ShadowsocksEditor.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
@@ -1001,55 +1065,19 @@
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/server/AnyTlsEditor.tsx"
+    "to": "components/server/ServerEditorRegistry.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/server/HysteriaEditor.tsx"
+    "to": "components/server/ServerManageColumns.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerNameColumn.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerRateColumn.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerTypeTag.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ShadowsocksEditor.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/TrojanEditor.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/TuicEditor.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/V2NodeEditor.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/VlessEditor.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/VmessEditor.tsx"
+    "to": "components/server/ServerManageMobileList.tsx"
   },
   {
     "from": "pages/server/Manage.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "utils/clipboard.ts"
   },
   {
     "from": "pages/server/Manage.tsx",

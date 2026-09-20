@@ -35,10 +35,36 @@ async function loadPage() {
       if (id === 'antd/lib/message') return { success() {} };
       if (id.startsWith('antd/')) return id;
       if (id.includes('siteHelpers')) return { getPreference: () => 50, isMobile: () => false, setPreference() {} };
+      if (id.includes('ServerEditorRegistry')) return {
+        createNewServerMenu: () => 'NewServerMenu',
+        renderServerEditor: (_server, trigger) => trigger,
+        serverModelNamespace: type => `server${type[0].toUpperCase()}${type.slice(1)}`,
+      };
+      if (id.includes('ServerManageColumns')) return {
+        createServerManageColumns: () => [{ key: 'manage' }],
+        createServerSortColumns: () => [{ key: 'sort' }],
+      };
       if (id.includes('ServerTypeTag')) return { renderServerTypeTag: (_type, label) => label };
       if (id.includes('ServerNameColumn')) return { createServerNameColumn: () => ({ key: 'name' }) };
       if (id.includes('ServerRateColumn')) return { createServerRateColumn: () => ({ key: 'rate' }) };
       return { __esModule: true, default: id };
+    },
+  });
+  return module.exports;
+}
+
+async function loadEditorRegistry() {
+  const source = await fs.readFile(new URL('../src/components/server/ServerEditorRegistry.tsx', import.meta.url), 'utf8');
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+  const module = { exports: {} };
+  const React = createReact();
+  vm.runInNewContext(code, {
+    module, exports: module.exports, React,
+    require(id) {
+      if (id === 'react') return React;
+      if (id === 'antd/lib/menu') return Object.assign('Menu', { Item: 'Menu.Item' });
+      if (id.includes('ServerTypeTag')) return { renderServerTypeTag: (_type, label) => label };
+      return { __esModule: true, default: id.split('/').at(-1) };
     },
   });
   return module.exports;
@@ -87,4 +113,27 @@ test('Server management dispatches typed node actions and table sorting', async 
   const tree = page.renderDesktopTable([server], page.props.serverGroup.groups, true);
   tree.props.onDragEnd(1, 3);
   assert.deepEqual(normalize(actions.at(-1)), { type: 'serverManage/sort', fromIndex: 1, toIndex: 3 });
+});
+
+test('Server editor registry owns protocol model and editor selection', async () => {
+  const registry = await loadEditorRegistry();
+  const expectedDefinitions = {
+    anytls: ['serverAnyTLS', 'AnyTlsEditor'],
+    hysteria: ['serverHysteria', 'HysteriaEditor'],
+    shadowsocks: ['serverShadowsocks', 'ShadowsocksEditor'],
+    trojan: ['serverTrojan', 'TrojanEditor'],
+    tuic: ['serverTuic', 'TuicEditor'],
+    v2node: ['serverV2node', 'V2NodeEditor'],
+    vless: ['serverVless', 'VlessEditor'],
+    vmess: ['serverVmess', 'VmessEditor'],
+  };
+  for (const [type, [namespace, editorName]] of Object.entries(expectedDefinitions)) {
+    assert.equal(registry.serverModelNamespace(type), namespace);
+    const editor = registry.renderServerEditor({ id: 3, type }, { type: 'Trigger' });
+    assert.equal(editor.type, editorName);
+    assert.equal(editor.props.record.id, 3);
+  }
+  assert.equal(registry.serverModelNamespace(undefined), undefined);
+  assert.equal(registry.renderServerEditor({ id: 4 }, { type: 'Trigger' }), null);
+  assert.equal(registry.SERVER_TYPE_FILTERS.length, 8);
 });

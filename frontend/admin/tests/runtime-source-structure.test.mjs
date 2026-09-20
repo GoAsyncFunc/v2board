@@ -326,6 +326,12 @@ test('admin components use business domains and connected editors use the canoni
   assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
 
+  const serverManagePage = await fs.readFile(new URL('../src/pages/server/Manage.tsx', import.meta.url), 'utf8');
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/);
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/);
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/);
+  assert.doesNotMatch(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/);
+
   for (const domain of expectedDomains) {
     const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
     assert.ok(componentNames.some(name => /\.tsx?$/.test(name)), `${domain} should contain at least one component`);
