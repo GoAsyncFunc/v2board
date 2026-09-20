@@ -10,8 +10,8 @@ import { formatBytes } from '../utils/siteHelpers';
 
 export interface TrafficRecord {
   record_at: number;
-  u: unknown;
-  d: unknown;
+  u: string | number;
+  d: string | number;
   server_rate: React.ReactNode;
   [key: string]: unknown;
 }

@@ -23,7 +23,6 @@ interface NoticePageProps {
     fetchLoading: boolean;
     saveLoading?: boolean;
   };
-  [key: string]: unknown;
 }
 
 interface NoticeRootState {

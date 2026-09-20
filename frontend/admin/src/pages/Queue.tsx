@@ -10,7 +10,6 @@ import type { AdminDispatch } from '../types/store';
 interface QueuePageProps {
   dispatch: AdminDispatch;
   system: Required<Pick<SystemMonitoringState, 'queueStats' | 'queueWorkload'>>;
-  [key: string]: unknown;
 }
 
 interface QueueRootState {

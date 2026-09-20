@@ -97,7 +97,6 @@ const ConnectedKnowledgeEditor = connect((state: KnowledgeRootState) => ({ knowl
 interface KnowledgePageProps {
   dispatch: AdminDispatch;
   knowledge: KnowledgeState;
-  [key: string]: unknown;
 }
 
 export class KnowledgePage extends React.Component<KnowledgePageProps> {

@@ -37,7 +37,6 @@ interface GiftcardPageProps {
   dispatch: AdminDispatch;
   giftcard: GiftcardState;
   plan: { plans: PlanSummary[] };
-  [key: string]: unknown;
 }
 
 interface GiftcardRootState {

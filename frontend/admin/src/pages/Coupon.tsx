@@ -40,7 +40,6 @@ interface CouponPageProps {
   dispatch: AdminDispatch;
   coupon: CouponState;
   plan: { plans: PlanSummary[] };
-  [key: string]: unknown;
 }
 
 interface CouponRootState {

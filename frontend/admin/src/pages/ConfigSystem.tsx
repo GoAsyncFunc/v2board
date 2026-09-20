@@ -20,7 +20,6 @@ interface SystemConfigPageProps {
   dispatch: AdminDispatch;
   config: AdminConfigState;
   plan: { plans: PlanSummary[] };
-  [key: string]: unknown;
 }
 
 interface SystemConfigRootState {

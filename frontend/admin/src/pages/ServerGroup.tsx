@@ -19,7 +19,6 @@ interface ServerGroupPageProps {
     groups: ServerGroupRecord[];
     fetchLoading: boolean;
   };
-  [key: string]: unknown;
 }
 
 interface ServerGroupRootState {

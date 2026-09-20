@@ -18,7 +18,7 @@ import history from '../app/navigation';
 import { copyToClipboard, setPreference } from '../utils/siteHelpers';
 import MainLayout from '../layouts/MainLayout';
 import UserEditor from '../components/UserEditor';
-import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
+import FilterDrawer, { type FilterField, type FilterItem, type FilterValue } from '../components/FilterDrawer';
 import ContextMenuTable from '../components/ContextMenuTable';
 import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns';
 import type { AdminDispatch } from '../types/store';
@@ -67,11 +67,11 @@ export class UserPage extends React.Component<UserPageProps> {
     }, 400);
   }
 
-  userFilter(key: string, condition: string, value: unknown, clear = false): void {
+  userFilter(key: string, condition: string, value: FilterValue, clear = false): void {
     this.props.dispatch({ type: 'user/addFilter', key, condition, value, clear });
   }
 
-  orderFilter(key: string, condition: string, value: unknown): void {
+  orderFilter(key: string, condition: string, value: FilterValue): void {
     this.props.dispatch({ type: 'order/addFilter', key, condition, value });
     history.push('/order');
   }
@@ -141,7 +141,7 @@ export class UserPage extends React.Component<UserPageProps> {
       { title: '权限组', dataIndex: 'group_id', key: 'group_id', sorter: true, render: (groupId: UserRecord['group_id']) => groups.find(group => group.id === groupId)?.name || '-' },
       { title: '已用(G)', dataIndex: 'total_used', key: 'total_used', sorter: true, render: (used: UserRecord['total_used'], user) => <Tag color={parseFloat(String(used)) > parseFloat(String(user.transfer_enable)) ? 'red' : 'green'}>{used}</Tag> },
       { title: '流量(G)', dataIndex: 'transfer_enable', key: 'transfer_enable', sorter: true },
-      { title: '设备数', dataIndex: 'device_limit', key: 'updated_at', sorter: (left, right) => (left.alive_ip || 0) - (right.alive_ip || 0), render: (_value: unknown, user) => { const text = `${user.alive_ip !== null ? user.alive_ip : 0} / ${user.device_limit !== null ? user.device_limit : '∞'}`; return user.ips ? <Tooltip placement="top" title={user.ips}>{text}</Tooltip> : text; } },
+      { title: '设备数', dataIndex: 'device_limit', key: 'updated_at', sorter: (left, right) => (left.alive_ip || 0) - (right.alive_ip || 0), render: (_value: UserRecord['device_limit'], user) => { const text = `${user.alive_ip !== null ? user.alive_ip : 0} / ${user.device_limit !== null ? user.device_limit : '∞'}`; return user.ips ? <Tooltip placement="top" title={user.ips}>{text}</Tooltip> : text; } },
       { title: '到期时间', dataIndex: 'expired_at', key: 'expired_at', sorter: true, render: (expiresAt: UserRecord['expired_at']) => <Tag color={expiresAt !== null && expiresAt !== undefined && expiresAt < Date.now() / 1000 ? 'red' : 'green'}>{expiresAt ? moment(1000 * expiresAt).format('YYYY/MM/DD HH:mm') : expiresAt === null ? '长期有效' : '-'}</Tag> },
       { title: '余额', dataIndex: 'balance', key: 'balance', sorter: true },
       { title: '佣金', dataIndex: 'commission_balance', key: 'commission_balance', sorter: true },
