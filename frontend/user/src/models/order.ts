@@ -1,7 +1,9 @@
-import * as queries from './orderQueryEffects.js';
-import * as payments from './orderPaymentEffects.js';
+import * as queries from './orderQueryEffects';
+import * as payments from './orderPaymentEffects';
+import type { OrderModelState } from '../types/payment';
+import type { StateUpdate } from '../types/queryModels';
 
-const initialState = {
+const initialState: OrderModelState = {
   fetchLoading: true,
   saveLoading: false,
   checkoutLoading: false,
@@ -14,12 +16,15 @@ const initialState = {
   cancelLoading: false,
   detailsLoading: false,
 };
+
 export default {
   name: 'order',
   state: { ...initialState },
   reducers: {
-    setState(state, { payload }) { return { ...state, ...payload }; },
-    empty(state) { return { ...state, ...initialState }; },
+    setState(state: OrderModelState, { payload }: StateUpdate<OrderModelState>): OrderModelState {
+      return { ...state, ...payload };
+    },
+    empty(state: OrderModelState): OrderModelState { return { ...state, ...initialState }; },
   },
   effects: {
     save: payments.save,

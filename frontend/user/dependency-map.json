@@ -141,7 +141,7 @@
   },
   {
     "from": "app/store.js",
-    "to": "models/order.js"
+    "to": "models/order.ts"
   },
   {
     "from": "app/store.js",
@@ -564,27 +564,23 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/order.js",
-    "to": "models/orderPaymentEffects.js"
+    "from": "models/order.ts",
+    "to": "models/orderPaymentEffects.ts"
   },
   {
-    "from": "models/order.js",
-    "to": "models/orderQueryEffects.js"
+    "from": "models/order.ts",
+    "to": "models/orderQueryEffects.ts"
   },
   {
-    "from": "models/orderPaymentEffects.js",
+    "from": "models/orderPaymentEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderPaymentEffects.js",
+    "from": "models/orderPaymentEffects.ts",
     "to": "vendor/routerHistory.js"
   },
   {
-    "from": "models/orderPaymentEffects.js",
-    "to": "vendor/ui.js"
-  },
-  {
-    "from": "models/orderQueryEffects.js",
+    "from": "models/orderQueryEffects.ts",
     "to": "services/request.ts"
   },
   {

@@ -10,7 +10,7 @@ import invite from '../models/invite';
 import knowledge from '../models/knowledge';
 import layout from '../models/layout';
 import notice from '../models/notice';
-import order from '../models/order.js';
+import order from '../models/order';
 import passport from '../models/passport';
 import plan from '../models/plan';
 import server from '../models/server';

@@ -6,7 +6,7 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const originalCode = await fs.readFile(new URL('./fixtures/models/recovered-order-factory.cjs', import.meta.url), 'utf8');
-const paymentCode = (await transform(await fs.readFile(new URL('../src/models/orderPaymentEffects.js', import.meta.url), 'utf8'), { format: 'cjs' })).code;
+const paymentCode = (await transform(await fs.readFile(new URL('../src/models/orderPaymentEffects.ts', import.meta.url), 'utf8'), { format: 'cjs', loader: 'ts' })).code;
 async function run(original, scenario) {
   const trace = [], module = { exports: {} };
   const location = {};
@@ -18,6 +18,7 @@ async function run(original, scenario) {
     if (id === 'p0pE') return Object.assign;
     if (id === 't3Un' || id.includes('request')) return { b: post, post };
     if (id === '3a4m' || id.includes('routerHistory')) return history;
+    if (id === 'antd/lib/message') return { __esModule: true, default: message };
     if (id === 'tsqr' || id.includes('antdMessage')) return { a: message };
     if (id === 'miYZ') return {};
     throw Error('Unexpected dependency ' + id);

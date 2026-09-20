@@ -8,9 +8,9 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 async function run(original, scenario) {
   const trace = [], module = { exports: {} };
   const api = { get: (...args) => { trace.push(['get', ...args]); return 'request'; } }; api.a = api.get;
-  const file = new URL(original ? './fixtures/models/user-order-query.cjs' : '../src/models/orderQueryEffects.js', import.meta.url);
+  const file = new URL(original ? './fixtures/models/user-order-query.cjs' : '../src/models/orderQueryEffects.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  const code = original ? text : (await transform(text, { format: 'cjs' })).code;
+  const code = original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code;
   vm.runInNewContext(code, { module, exports: module.exports, api, require(id) {
     if (id.includes('request')) return api;
         throw Error(id);

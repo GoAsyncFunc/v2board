@@ -5,9 +5,9 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {build} from 'esbuild';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order.js';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
+const bundle=(await build({absWorkingDir:home,stdin:{resolveDir:home,contents:`import {OrderDetailPage} from './src/pages/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';globalThis.integration={OrderDetailPage,order,comm};`},bundle:true,write:false,format:'iife',loader:{'.js':'jsx'},plugins:[{name:'integration-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
-  if(args.path==='react'||args.path==='react-redux'||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
+  if(args.path==='react'||args.path==='react-redux'||args.path==='antd/lib/message'||args.path.includes('/vendor/')||args.path.includes('/layouts/')||args.path.includes('/components/'))return {path:args.path,namespace:'mock'};
  });
  b.onLoad({filter:/.*/,namespace:'mock'},args=>({contents:`module.exports=globalThis.dependency(${JSON.stringify(args.path)});`,loader:'js'}));
 }}]})).outputFiles[0].text;
@@ -45,6 +45,7 @@ function setup(mode){
   if(id.includes('reactLoadableRuntime'))return ()=>null;
   if(id.endsWith('/vendor/ui.js'))return {message:{info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])},Spin:'Spin'};
   if(id.includes('antdMessage'))return {a:{info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])}};
+  if(id==='antd/lib/message')return {info:(...a)=>events.push(['info',...a]),loading:(...a)=>events.push(['loading',...a]),error:(...a)=>events.push(['error-message',...a])};
   return {};
  }});
  vm.runInContext(bundle,context,{timeout:3000});const {OrderDetailPage,order,comm}=context.integration;const models={order,comm};
