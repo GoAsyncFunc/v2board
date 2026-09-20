@@ -12,19 +12,7 @@ import MainLayout from '../layouts/MainLayout';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../components/TicketDisplayColumns';
 import type { AdminDispatch } from '../types/store';
-
-interface TicketFilterState {
-  status?: number;
-  email?: string;
-  reply_status?: string[];
-}
-
-interface TicketState {
-  tickets: TicketRecord[];
-  fetchLoading: boolean;
-  pagination: PaginationConfig;
-  filter: TicketFilterState;
-}
+import type { TicketFilterState, TicketState } from '../types/ticket';
 
 interface TicketPageProps {
   dispatch: AdminDispatch;

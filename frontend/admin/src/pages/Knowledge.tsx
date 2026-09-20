@@ -19,6 +19,7 @@ import LoadingContainer from '../components/LoadingContainer';
 import Sortable from '../components/Sortable';
 import MainLayout from '../layouts/MainLayout';
 import type { AdminDispatch } from '../types/store';
+import type { KnowledgeState } from '../types/knowledge';
 import { settings } from '../config/adminSettings';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;
@@ -29,15 +30,6 @@ const MarkdownEditor: React.ComponentType<MarkdownEditorProps> = Loadable({
   loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
-
-interface KnowledgeState {
-  knowledges: KnowledgeRecord[];
-  fetchLoading: boolean;
-  categorys: string[];
-  knowledge: KnowledgeRecord;
-  fetchByIdLoading: boolean;
-  saveLoading: boolean;
-}
 
 interface KnowledgeEditorProps {
   children: React.ReactElement;

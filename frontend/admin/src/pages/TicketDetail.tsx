@@ -9,6 +9,7 @@ import TrafficPanel from '../components/TrafficPanel';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';
 import type { AdminDispatch } from '../types/store';
+import type { TicketState } from '../types/ticket';
 
 interface TicketDetailChatProps {
   ticket?: TicketRecord;
@@ -84,19 +85,14 @@ interface TicketDetailState {
   message?: string;
 }
 
-interface TicketDetailStoreState {
-  ticket?: TicketRecord;
-  replyLoading: boolean;
-}
-
 interface TicketDetailPageProps {
   dispatch: AdminDispatch;
   match: { params: { ticket_id: string } };
-  ticket: TicketDetailStoreState;
+  ticket: TicketState;
 }
 
 interface TicketDetailRootState {
-  ticket: TicketDetailStoreState;
+  ticket: TicketState;
 }
 
 export class TicketDetailPage extends React.Component<TicketDetailPageProps, TicketDetailState> {

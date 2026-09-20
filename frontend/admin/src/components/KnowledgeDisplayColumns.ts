@@ -4,6 +4,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 export type KnowledgeTimestamp = number | string | null | undefined;
 
 export interface KnowledgeRecord {
+  [field: string]: string | number | boolean | null | undefined;
   id?: string | number;
   title?: string;
   category?: string;
