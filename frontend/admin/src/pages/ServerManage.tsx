@@ -34,7 +34,6 @@ import { createServerRateColumn } from '../components/ServerRateColumn';
 import type { AdminDispatch } from '../types/store';
 import type { ManagedServerRecord, ServerGroupOption, ServerGroupState, ServerManageState, ServerRecord } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 const STATUS_BADGE = { 0: 'error', 1: 'warning', 2: 'processing' } as const;
 const SERVER_TYPES = ['V2node', 'Shadowsocks', 'Vmess', 'Trojan', 'Hysteria', 'Tuic', 'Vless', 'AnyTLS'];

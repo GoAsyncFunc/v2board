@@ -10,7 +10,6 @@ import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 const NETWORK_PRESETS: Record<string, string> = {
   tcp: '',

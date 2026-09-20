@@ -71,3 +71,10 @@ test('admin configuration and browser helpers use typed source modules outside v
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
   }
 });
+
+test('admin source no longer contains a vendor compatibility directory', async () => {
+  const typedStylePath = '../src/styles/ticketDetail.ts';
+  const stat = await fs.stat(new URL(typedStylePath, import.meta.url));
+  assert.equal(stat.isFile(), true, `${typedStylePath} should be a file`);
+  await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
+});

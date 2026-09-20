@@ -13,7 +13,6 @@ import { createReadonlyNoticeColumns, type NoticeRecord } from '../components/No
 import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyNoticeColumns();
 

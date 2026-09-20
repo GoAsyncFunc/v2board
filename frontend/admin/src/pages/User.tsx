@@ -24,7 +24,6 @@ import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns'
 import type { AdminDispatch } from '../types/store';
 import type { UserGroupOption, UserModuleState, UserPlanOption, UserRecord } from '../types/user';
 
-import '../vendor/iconStyles.js';
 
 interface UserPageProps {
   dispatch: AdminDispatch;

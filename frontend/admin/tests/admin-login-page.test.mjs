@@ -35,8 +35,8 @@ async function loadLogin() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
-      if (id.includes('/Modal')) return { Modal: { info: options => modals.push(options) } };
-      if (id.includes('/Icon')) return { Icon: 'Icon' };
+      if (id === 'antd/lib/modal') return { info: options => modals.push(options) };
+      if (id === 'antd/lib/icon') return 'Icon';
       return {};
     },
   });

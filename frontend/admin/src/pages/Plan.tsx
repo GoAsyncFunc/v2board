@@ -24,7 +24,6 @@ import { createReadonlyPlanResourceColumns } from '../components/PlanResourceCol
 import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns';
 import type { AdminDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 
 export interface PlanRecord {
   id?: number | string;

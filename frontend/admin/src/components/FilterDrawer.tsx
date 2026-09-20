@@ -9,7 +9,6 @@ import notification from 'antd/lib/notification';
 import Select from 'antd/lib/select';
 import moment from 'moment';
 
-import '../vendor/iconStyles.js';
 
 const DrawerWithFooter = Drawer as React.ComponentType<React.ComponentProps<typeof Drawer> & { footer?: React.ReactNode }>;
 

@@ -22,7 +22,6 @@ import MainLayout from '../layouts/MainLayout';
 import { settings } from '../config/adminSettings';
 import type { PlanSummary } from '../types/config';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 const defaultCoupon: CouponRecord = { type: 1 };
 const readonlyColumns = createReadonlyCouponColumns();

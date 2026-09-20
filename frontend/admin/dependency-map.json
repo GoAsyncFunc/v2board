@@ -268,16 +268,8 @@
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/AnyTlsEditor.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "components/AssignOrderEditor.tsx",
     "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "components/FilterDrawer.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/HysteriaEditor.tsx",
@@ -286,10 +278,6 @@
   {
     "from": "components/HysteriaEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/HysteriaEditor.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/OrderDetailBody.tsx",
@@ -332,24 +320,12 @@
     "to": "components/PermissionGroupEditor.tsx"
   },
   {
-    "from": "components/TrojanEditor.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "components/TuicEditor.tsx",
     "to": "components/CompatibleDrawer.tsx"
   },
   {
     "from": "components/TuicEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/TuicEditor.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "components/UserEditor.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/V2NodeEditor.tsx",
@@ -368,10 +344,6 @@
     "to": "components/ServerSecuritySettings.tsx"
   },
   {
-    "from": "components/V2NodeEditor.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "components/VlessEditor.tsx",
     "to": "components/CompatibleDrawer.tsx"
   },
@@ -388,10 +360,6 @@
     "to": "components/ServerSecuritySettings.tsx"
   },
   {
-    "from": "components/VlessEditor.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "components/VmessEditor.tsx",
     "to": "components/CompatibleDrawer.tsx"
   },
@@ -402,10 +370,6 @@
   {
     "from": "components/VmessEditor.tsx",
     "to": "components/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/VmessEditor.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/config/AppConfigTab.tsx",
@@ -692,10 +656,6 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/ConfigPayment.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/ConfigSystem.tsx",
     "to": "components/config/AppConfigTab.tsx"
   },
@@ -768,10 +728,6 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Coupon.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/Dashboard.tsx",
     "to": "app/navigation.ts"
   },
@@ -804,10 +760,6 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Giftcard.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/Index.tsx",
     "to": "app/navigation.ts"
   },
@@ -836,22 +788,6 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Knowledge.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/Notice.tsx",
     "to": "components/LoadingContainer.tsx"
   },
@@ -862,10 +798,6 @@
   {
     "from": "pages/Notice.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Notice.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Order.tsx",
@@ -904,10 +836,6 @@
     "to": "services/request.js"
   },
   {
-    "from": "pages/Order.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/Plan.tsx",
     "to": "components/ContextMenuTable.tsx"
   },
@@ -940,10 +868,6 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Plan.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/Queue.tsx",
     "to": "components/LoadingContainer.tsx"
   },
@@ -970,10 +894,6 @@
   {
     "from": "pages/ServerGroup.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/ServerGroup.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/ServerManage.tsx",
@@ -1040,10 +960,6 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "pages/ServerManage.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
     "from": "pages/ServerRoute.tsx",
     "to": "components/LoadingContainer.tsx"
   },
@@ -1062,10 +978,6 @@
   {
     "from": "pages/ServerRoute.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/ServerRoute.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Ticket.tsx",
@@ -1093,11 +1005,7 @@
   },
   {
     "from": "pages/TicketDetail.tsx",
-    "to": "vendor/content.js"
-  },
-  {
-    "from": "pages/TicketDetail.tsx",
-    "to": "vendor/iconStyles.js"
+    "to": "styles/ticketDetail.ts"
   },
   {
     "from": "pages/User.tsx",
@@ -1146,10 +1054,6 @@
   {
     "from": "pages/User.tsx",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/User.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "runtime/dvaApplication.tsx",

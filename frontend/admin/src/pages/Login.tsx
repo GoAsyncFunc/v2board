@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from '../vendor/Modal.js';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
+import Modal from 'antd/lib/modal';
 import type { AdminDispatch } from '../types/store';
-
-import '../vendor/iconStyles.js';
 
 interface LoginQuery {
   verify?: string;

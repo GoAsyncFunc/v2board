@@ -12,7 +12,6 @@ import moment from 'moment';
 import type { AdminDispatch } from '../types/store';
 import type { UserModuleState, UserPlanOption, UserRecord } from '../types/user';
 
-import '../vendor/iconStyles.js';
 
 interface FormGroupProps { label: React.ReactNode; children: React.ReactNode; }
 function FormGroup({ label, children }: FormGroupProps) { return <div className="form-group"><label>{label}</label>{children}</div>; }

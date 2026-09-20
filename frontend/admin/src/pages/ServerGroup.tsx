@@ -10,7 +10,6 @@ import LoadingContainer from '../components/LoadingContainer';
 import PermissionGroupEditor from '../components/PermissionGroupEditor';
 import { createReadonlyServerGroupColumns, type ServerGroupRecord } from '../components/ServerGroupDisplayColumns';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyServerGroupColumns();
 

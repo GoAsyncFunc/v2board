@@ -9,7 +9,6 @@ import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 interface HysteriaEditorProps extends ServerEditorProps { serverHysteria: ServerSaveState; }
 interface HysteriaEditorState { server: ServerRecord; visible: boolean; }

@@ -20,7 +20,6 @@ import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';
 import { settings } from '../config/adminSettings';
 import type { AdminDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 
 export interface OrderRecord extends OrderDetailRecord {
   id: number | string;

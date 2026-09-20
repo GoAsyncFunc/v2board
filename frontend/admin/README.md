@@ -51,7 +51,7 @@ npm run build
 npm test -- --runInBand
 ```
 
-当前管理端回归基线为 866 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 867 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -65,7 +65,7 @@ src/layouts/     管理端布局
 src/models/      管理端状态模型
 src/pages/       管理端页面
 src/services/    API 请求与下载服务
-src/vendor/      尚待继续语义化或替换的恢复源码
+src/styles/      页面样式常量与样式入口
 tests/           独立回归测试与 fixture
 dist/            本地构建产物，不提交 Git
 ```

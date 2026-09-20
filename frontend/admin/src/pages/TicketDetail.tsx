@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
-import { ticketDetailStyles as styles } from '../vendor/content.js';
+import { ticketDetailClassNames as styles } from '../styles/ticketDetail';
 import UserEditor from '../components/UserEditor';
 import TrafficPanel from '../components/TrafficPanel';
 import { formatDateTime } from '../components/DateTimeDisplay';
 import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';
 import type { AdminDispatch } from '../types/store';
-
-import '../vendor/iconStyles.js';
 
 interface TicketDetailChatProps {
   ticket?: TicketRecord;
@@ -59,7 +57,7 @@ export class TicketDetailChat extends React.Component<TicketDetailChatProps> {
     return <div>
       <div className="block-content-full bg-gray-lighter p-3">
         <span className={styles.tag}>{ticket?.subject}</span>
-        <div className={styles.ctrl}>
+        <div className={styles.controls}>
           <UserEditor userId={ticket?.user_id}><Tooltip title="用户管理" placement="left"><Icon type="user" /></Tooltip></UserEditor>
           <Divider type="vertical" />
           <TrafficPanel userId={ticket?.user_id as TicketId} key={ticket?.user_id}><Tooltip title="TA的流量记录" placement="left"><Icon type="solution" /></Tooltip></TrafficPanel>

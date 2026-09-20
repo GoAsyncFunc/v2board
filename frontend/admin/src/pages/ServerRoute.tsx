@@ -15,7 +15,6 @@ import { createReadonlyServerRouteColumns } from '../components/ServerRouteDispl
 import { settings } from '../config/adminSettings';
 import type { AdminDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 
 type RouteAction = 'block' | 'block_ip' | 'block_port' | 'protocol' | 'dns' | 'route' | 'route_ip' | 'default_out';
 

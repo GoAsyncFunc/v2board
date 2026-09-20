@@ -13,7 +13,6 @@ import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, SecuritySettings, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 const NETWORK_PRESETS: Record<string, string> = {
   tcp: JSON.stringify({ header: { type: 'http', request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } }, response: {} } }, null, 4),

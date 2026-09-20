@@ -11,7 +11,6 @@ import JsonEditor from './JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import type { ChildDrawerState, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 const NETWORK_PRESETS: Record<string, string> = {
   tcp: JSON.stringify({ acceptProxyProtocol: false, header: { type: 'http', request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } }, response: {} } }, null, 4),

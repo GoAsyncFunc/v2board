@@ -16,7 +16,6 @@ import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn';
 import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { AdminDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 
 const readonlyColumns = createReadonlyPaymentColumns();
 

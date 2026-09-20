@@ -39,7 +39,7 @@ async function loadPage() {
       if (id === 'antd/lib/divider') return 'Divider';
       if (id === 'antd/lib/icon') return 'Icon';
       if (id === 'antd/lib/tooltip') return 'Tooltip';
-      if (id.includes('vendor/content')) return { ticketDetailStyles: { tag: 'tag', ctrl: 'ctrl', content: 'content', input: 'input' } };
+      if (id.includes('styles/ticketDetail')) return { ticketDetailClassNames: { tag: 'tag', controls: 'ctrl', content: 'content', input: 'input' } };
       if (id.includes('UserEditor')) return 'UserEditor';
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
       if (id.includes('DateTimeDisplay')) return { formatDateTime: value => `date:${value}` };

@@ -9,7 +9,6 @@ import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import type { Scalar, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
 
-import '../vendor/iconStyles.js';
 
 interface TuicEditorProps extends ServerEditorProps { serverTuic: ServerSaveState; }
 interface TuicEditorState { server: ServerRecord; visible: boolean; }

@@ -20,7 +20,6 @@ import { createReadonlyGiftcardColumns, type GiftcardRecord } from '../component
 import MainLayout from '../layouts/MainLayout';
 import type { PlanSummary } from '../types/config';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 const defaultGiftcard: GiftcardRecord = { type: 1 };
 
