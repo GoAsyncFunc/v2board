@@ -19,7 +19,7 @@ function createReact() {
 }
 
 async function loadDashboard() {
-  const source = await fs.readFile(new URL('../src/pages/Dashboard.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/dashboard/Dashboard.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const charts = [];
@@ -148,7 +148,7 @@ test('Dashboard alert area does not render stray zeros for empty pending counts'
 });
 
 test('Admin home redirects to login on mount', async () => {
-  const source = await fs.readFile(new URL('../src/pages/Index.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/auth/Index.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const module = { exports: {} };

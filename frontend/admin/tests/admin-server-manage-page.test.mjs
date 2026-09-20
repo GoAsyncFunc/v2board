@@ -19,7 +19,7 @@ function createReact() {
 }
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/ServerManage.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/server/Manage.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   const React = createReact();

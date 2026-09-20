@@ -9,13 +9,13 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from '../components/LoadingContainer';
-import Sortable from '../components/Sortable';
-import MainLayout from '../layouts/MainLayout';
-import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn';
-import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../components/PaymentDisplayColumns';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { PaymentForm, PaymentState } from '../types/payment';
+import LoadingContainer from '../../components/LoadingContainer';
+import Sortable from '../../components/Sortable';
+import MainLayout from '../../layouts/MainLayout';
+import { createPaymentNotifyColumn } from '../../components/PaymentNotifyColumn';
+import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../../components/PaymentDisplayColumns';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { PaymentForm, PaymentState } from '../../types/payment';
 
 
 const readonlyColumns = createReadonlyPaymentColumns();

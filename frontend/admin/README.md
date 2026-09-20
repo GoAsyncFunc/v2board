@@ -52,19 +52,19 @@ npm run check:types
 npm run build
 ```
 
-当前管理端回归基线为 910 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 911 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
 ```text
 public/          独立静态资源和 settings.js
-scripts/         构建、开发、恢复检查、部署和线上验证工具
+scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
 src/components/  管理端组件与编辑器
 src/config/      导航等界面配置
 src/layouts/     管理端布局
 src/models/      管理端状态模型
-src/pages/       管理端页面
+src/pages/       按业务域组织的管理端页面
 src/routes/      管理端路由表和路由类型
 src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求与下载服务
@@ -76,6 +76,8 @@ dist/            本地构建产物，不提交 Git
 ```
 
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
+
+`src/pages/` 按职责分为 `auth`、`dashboard`、`config`、`server`、`commerce`、`promotion`、`content`、`user` 和 `monitoring`。新增页面应放入对应业务域，不再直接平铺到 `src/pages/` 根目录。
 
 ## 测试服务器部署
 

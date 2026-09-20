@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage(userAgent = 'desktop') {
-  const source = await fs.readFile(new URL('../src/pages/Ticket.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/content/Ticket.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [];
   const timers = [];

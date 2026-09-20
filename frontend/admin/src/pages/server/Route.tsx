@@ -8,12 +8,12 @@ import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from '../components/LoadingContainer';
-import MainLayout from '../layouts/MainLayout';
-import { createRouteActionColumn } from '../components/RouteActionColumn';
-import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns';
-import { settings } from '../config/adminSettings';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import LoadingContainer from '../../components/LoadingContainer';
+import MainLayout from '../../layouts/MainLayout';
+import { createRouteActionColumn } from '../../components/RouteActionColumn';
+import { createReadonlyServerRouteColumns } from '../../components/ServerRouteDisplayColumns';
+import { settings } from '../../config/adminSettings';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 
 type RouteAction = 'block' | 'block_ip' | 'block_port' | 'protocol' | 'dns' | 'route' | 'route_ip' | 'default_out';

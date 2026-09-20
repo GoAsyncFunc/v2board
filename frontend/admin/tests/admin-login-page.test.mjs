@@ -16,7 +16,7 @@ function createReact() {
 }
 
 async function loadLogin() {
-  const source = await fs.readFile(new URL('../src/pages/Login.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/auth/Login.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   const actions = [];

@@ -9,20 +9,20 @@ import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
 import moment from 'moment';
-import SendMailEditor from '../components/SendMailEditor';
-import AssignOrderEditor from '../components/AssignOrderEditor';
-import UserGenerator from '../components/UserGenerator';
-import LoadingContainer from '../components/LoadingContainer';
-import TrafficPanel from '../components/TrafficPanel';
-import history from '../app/navigation';
-import { copyToClipboard, setPreference } from '../utils/siteHelpers';
-import MainLayout from '../layouts/MainLayout';
-import UserEditor from '../components/UserEditor';
-import FilterDrawer, { type FilterField, type FilterItem, type FilterValue } from '../components/FilterDrawer';
-import ContextMenuTable from '../components/ContextMenuTable';
-import { createReadonlyUserEmailColumn } from '../components/UserDisplayColumns';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { UserGroupOption, UserModuleState, UserPlanOption, UserRecord } from '../types/user';
+import SendMailEditor from '../../components/SendMailEditor';
+import AssignOrderEditor from '../../components/AssignOrderEditor';
+import UserGenerator from '../../components/UserGenerator';
+import LoadingContainer from '../../components/LoadingContainer';
+import TrafficPanel from '../../components/TrafficPanel';
+import history from '../../app/navigation';
+import { copyToClipboard, setPreference } from '../../utils/siteHelpers';
+import MainLayout from '../../layouts/MainLayout';
+import UserEditor from '../../components/UserEditor';
+import FilterDrawer, { type FilterField, type FilterItem, type FilterValue } from '../../components/FilterDrawer';
+import ContextMenuTable from '../../components/ContextMenuTable';
+import { createReadonlyUserEmailColumn } from '../../components/UserDisplayColumns';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { UserGroupOption, UserModuleState, UserPlanOption, UserRecord } from '../../types/user';
 
 
 interface UserPageProps {

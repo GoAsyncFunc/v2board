@@ -12,13 +12,13 @@ import {
 } from 'echarts/components';
 import { LabelLayout } from 'echarts/features';
 import { SVGRenderer } from 'echarts/renderers';
-import history from '../app/navigation';
-import MainLayout from '../layouts/MainLayout';
-import { get } from '../services/request';
-import { siteSettings } from '../config/siteSettings';
-import { formatIncome, formatLiveCount } from '../components/MoneyDisplay';
-import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import history from '../../app/navigation';
+import MainLayout from '../../layouts/MainLayout';
+import { get } from '../../services/request';
+import { siteSettings } from '../../config/siteSettings';
+import { formatIncome, formatLiveCount } from '../../components/MoneyDisplay';
+import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 echarts.use([
   LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent,

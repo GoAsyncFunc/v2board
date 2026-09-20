@@ -17,7 +17,7 @@ function createReact() {
 }
 
 async function loadOrderPage(responses = []) {
-  const source = await fs.readFile(new URL('../src/pages/Order.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/commerce/Order.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   const requests = [];

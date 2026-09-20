@@ -9,17 +9,17 @@ import Modal from 'antd/lib/modal';
 import Table from 'antd/lib/table';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import AssignOrderEditor from '../components/AssignOrderEditor';
-import LoadingContainer from '../components/LoadingContainer';
-import history from '../app/navigation';
-import { get, isSuccessfulResponse, post } from '../services/request';
-import MainLayout from '../layouts/MainLayout';
-import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
-import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';
-import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';
-import { settings } from '../config/adminSettings';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { OrderRecord, OrderState } from '../types/order';
+import AssignOrderEditor from '../../components/AssignOrderEditor';
+import LoadingContainer from '../../components/LoadingContainer';
+import history from '../../app/navigation';
+import { get, isSuccessfulResponse, post } from '../../services/request';
+import MainLayout from '../../layouts/MainLayout';
+import FilterDrawer, { type FilterField, type FilterItem } from '../../components/FilterDrawer';
+import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../../components/OrderDetailBody';
+import { createReadonlyOrderColumns } from '../../components/OrderDisplayColumns';
+import { settings } from '../../config/adminSettings';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { OrderRecord, OrderState } from '../../types/order';
 
 interface OrderPageProps { dispatch: AdminDispatch; order: OrderState; }
 interface OrderDetailModalProps {

@@ -15,12 +15,12 @@ import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import copy from 'copy-to-clipboard';
 import moment from 'moment';
-import LoadingContainer from '../components/LoadingContainer';
-import { createReadonlyGiftcardColumns, type GiftcardRecord } from '../components/GiftcardDisplayColumns';
-import MainLayout from '../layouts/MainLayout';
-import type { PlanSummary } from '../types/config';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { GiftcardState } from '../types/promotion';
+import LoadingContainer from '../../components/LoadingContainer';
+import { createReadonlyGiftcardColumns, type GiftcardRecord } from '../../components/GiftcardDisplayColumns';
+import MainLayout from '../../layouts/MainLayout';
+import type { PlanSummary } from '../../types/config';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { GiftcardState } from '../../types/promotion';
 
 const defaultGiftcard: GiftcardRecord = { type: 1 };
 

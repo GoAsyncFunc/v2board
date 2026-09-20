@@ -14,16 +14,16 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import Sortable from '../components/Sortable';
-import PermissionGroupEditor from '../components/PermissionGroupEditor';
-import LoadingContainer from '../components/LoadingContainer';
-import MainLayout from '../layouts/MainLayout';
-import ContextMenuTable from '../components/ContextMenuTable';
-import { createPlanGroupColumn, type PlanGroup } from '../components/PlanGroupColumn';
-import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns';
-import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { PlanFieldValue, PlanRecord, PlanState } from '../types/plan';
+import Sortable from '../../components/Sortable';
+import PermissionGroupEditor from '../../components/PermissionGroupEditor';
+import LoadingContainer from '../../components/LoadingContainer';
+import MainLayout from '../../layouts/MainLayout';
+import ContextMenuTable from '../../components/ContextMenuTable';
+import { createPlanGroupColumn, type PlanGroup } from '../../components/PlanGroupColumn';
+import { createReadonlyPlanResourceColumns } from '../../components/PlanResourceColumns';
+import { createReadonlyPlanPriceColumns } from '../../components/PlanPriceColumns';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { PlanFieldValue, PlanRecord, PlanState } from '../../types/plan';
 
 interface ServerGroupState { groups: PlanGroup[]; }
 interface ConfigState { site: { currency_symbol?: string }; }

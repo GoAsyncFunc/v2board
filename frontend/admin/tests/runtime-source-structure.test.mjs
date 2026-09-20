@@ -101,6 +101,11 @@ test('admin source no longer contains a vendor compatibility directory', async (
   await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
 });
 
+test('admin scripts exclude one-time reverse-engineering extractors', async () => {
+  const scriptNames = await fs.readdir(new URL('../scripts/', import.meta.url));
+  assert.deepEqual(scriptNames.filter(name => name.startsWith('extract-')), []);
+});
+
 test('admin application runtime is implemented as typed TSX components', async () => {
   const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
   const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
@@ -126,12 +131,22 @@ test('admin root state names every registered business model', async () => {
 
 test('admin pages select from the canonical root state', async () => {
   const pagesDirectory = new URL('../src/pages/', import.meta.url);
-  const pageNames = (await fs.readdir(pagesDirectory)).filter(name => name.endsWith('.tsx'));
-  for (const pageName of pageNames) {
-    const source = await fs.readFile(new URL(pageName, pagesDirectory), 'utf8');
-    assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${pageName} declares a duplicate root state`);
-    if (source.includes('connect(')) {
-      assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${pageName} must select from AdminRootState`);
+  const domainEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
+  const expectedDomains = ['auth', 'commerce', 'config', 'content', 'dashboard', 'monitoring', 'promotion', 'server', 'user'];
+  assert.deepEqual(domainEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
+  assert.deepEqual(domainEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')), []);
+
+  for (const domain of expectedDomains) {
+    const domainDirectory = new URL(`${domain}/`, pagesDirectory);
+    const pageNames = (await fs.readdir(domainDirectory)).filter(name => name.endsWith('.tsx'));
+    assert.ok(pageNames.length > 0, `${domain} should contain at least one page`);
+    for (const pageName of pageNames) {
+      const relativePageName = `${domain}/${pageName}`;
+      const source = await fs.readFile(new URL(pageName, domainDirectory), 'utf8');
+      assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${relativePageName} declares a duplicate root state`);
+      if (source.includes('connect(')) {
+        assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${relativePageName} must select from AdminRootState`);
+      }
     }
   }
 });

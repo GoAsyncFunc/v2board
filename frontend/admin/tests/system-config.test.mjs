@@ -31,7 +31,7 @@ async function loadConfig() {
     ['telegram', '../src/components/config/TelegramConfigTab.tsx'],
     ['email', '../src/components/config/EmailConfigTab.tsx'],
     ['server', '../src/components/config/ServerConfigTab.tsx'],
-    ['page', '../src/pages/ConfigSystem.tsx'],
+    ['page', '../src/pages/config/System.tsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'tsx' });
     const module = { exports: {} };

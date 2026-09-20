@@ -52,7 +52,7 @@ async function loadSource(path, extra = {}) {
 }
 
 test('User page preserves lifecycle, sorting, filters, navigation and confirmations', async () => {
-  const runtime = await loadSource('../src/pages/User.tsx');
+  const runtime = await loadSource('../src/pages/user/User.tsx');
   const actions = [];
   const page = new runtime.UserPage({
     dispatch: action => actions.push(action),
@@ -82,7 +82,7 @@ test('User page preserves lifecycle, sorting, filters, navigation and confirmati
 });
 
 test('User search keeps the recovered 400ms debounce contract', async () => {
-  const runtime = await loadSource('../src/pages/User.tsx');
+  const runtime = await loadSource('../src/pages/user/User.tsx');
   const actions = [];
   const page = new runtime.UserPage({ dispatch: action => actions.push(action), user: { users: [], user: {}, fetchLoading: false, pagination: {}, filter: [] }, serverGroup: { groups: [] }, plan: { plans: [] } });
   page.searchOnChange('first@example.com');

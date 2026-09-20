@@ -4,10 +4,10 @@ import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import MainLayout from '../layouts/MainLayout';
-import { isSuccessfulResponse, post } from '../services/request';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../types/theme';
+import MainLayout from '../../layouts/MainLayout';
+import { isSuccessfulResponse, post } from '../../services/request';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { ThemeConfigParams, ThemeConfigValue, ThemeField, ThemeState } from '../../types/theme';
 
 function toInputValue(value: ThemeConfigValue): string | number | undefined {
   if (value === null || value === undefined) return undefined;

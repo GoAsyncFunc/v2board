@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
-import { ticketDetailClassNames as styles } from '../styles/ticketDetail';
-import UserEditor from '../components/UserEditor';
-import TrafficPanel from '../components/TrafficPanel';
-import { formatDateTime } from '../components/DateTimeDisplay';
-import type { TicketId, TicketMessage, TicketRecord } from '../components/TicketDisplayColumns';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { TicketState } from '../types/ticket';
+import { ticketDetailClassNames as styles } from '../../styles/ticketDetail';
+import UserEditor from '../../components/UserEditor';
+import TrafficPanel from '../../components/TrafficPanel';
+import { formatDateTime } from '../../components/DateTimeDisplay';
+import type { TicketId, TicketMessage, TicketRecord } from '../../components/TicketDisplayColumns';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { TicketState } from '../../types/ticket';
 
 interface TicketDetailChatProps {
   ticket?: TicketRecord;

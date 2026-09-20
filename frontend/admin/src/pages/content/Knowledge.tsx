@@ -14,19 +14,19 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import MarkdownIt from 'markdown-it';
 import Loadable from 'react-loadable';
 import type MarkdownEditorComponent from 'react-markdown-editor-lite';
-import { createReadonlyKnowledgeColumns, type KnowledgeRecord } from '../components/KnowledgeDisplayColumns';
-import LoadingContainer from '../components/LoadingContainer';
-import Sortable from '../components/Sortable';
-import MainLayout from '../layouts/MainLayout';
-import type { AdminDispatch, AdminRootState } from '../types/store';
-import type { KnowledgeState } from '../types/knowledge';
-import { settings } from '../config/adminSettings';
+import { createReadonlyKnowledgeColumns, type KnowledgeRecord } from '../../components/KnowledgeDisplayColumns';
+import LoadingContainer from '../../components/LoadingContainer';
+import Sortable from '../../components/Sortable';
+import MainLayout from '../../layouts/MainLayout';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { KnowledgeState } from '../../types/knowledge';
+import { settings } from '../../config/adminSettings';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;
 
 const readonlyColumns = createReadonlyKnowledgeColumns();
 const MarkdownEditor: React.ComponentType<MarkdownEditorProps> = Loadable({
-  loader: () => import('../components/MarkdownEditor').then(module => module.default),
+  loader: () => import('../../components/MarkdownEditor').then(module => module.default),
   loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });

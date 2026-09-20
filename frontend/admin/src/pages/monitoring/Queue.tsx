@@ -1,11 +1,11 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
-import LoadingContainer from '../components/LoadingContainer';
-import { createReadonlyQueueColumns, type QueueWorkload } from '../components/QueueDisplayColumns';
-import type { SystemMonitoringState } from '../types/monitoring';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import LoadingContainer from '../../components/LoadingContainer';
+import { createReadonlyQueueColumns, type QueueWorkload } from '../../components/QueueDisplayColumns';
+import type { SystemMonitoringState } from '../../types/monitoring';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 interface QueuePageProps {
   dispatch: AdminDispatch;
