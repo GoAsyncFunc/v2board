@@ -4,30 +4,36 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import type { QueueName, QueueWait, QueueWorkload } from '../../types/monitoring';
 
 const QUEUE_NAME_LABELS: Record<string, string> = {
-  order_handle: '订单队列',
-  send_email: '邮件队列',
-  send_email_mass: '邮件群发队列',
-  send_telegram: 'Telegram消息队列',
-  stat: '统计队列',
-  traffic_fetch: '流量消费队列',
+    order_handle: '订单队列',
+    send_email: '邮件队列',
+    send_email_mass: '邮件群发队列',
+    send_telegram: 'Telegram消息队列',
+    stat: '统计队列',
+    traffic_fetch: '流量消费队列',
 };
 
 // Direct property lookup: unknown names return undefined, as in the original.
 export function formatQueueName(value: QueueName): string | undefined {
-  return QUEUE_NAME_LABELS[value as string];
+    return QUEUE_NAME_LABELS[value as string];
 }
 
 // Preserve the original implicit string coercion (`e + "s"`), including
 // undefined -> "undefineds" and object Symbol.toPrimitive/toString behaviour.
 export function formatQueueWait(value: QueueWait): string {
-  return value + 's';
+    return value + 's';
 }
 
 export function createReadonlyQueueColumns(): ColumnProps<QueueWorkload>[] {
-  return [
-    { title: '队列名称', dataIndex: 'name', key: 'name', render: formatQueueName },
-    { title: '作业量', dataIndex: 'processes', key: 'processes' },
-    { title: '任务量', dataIndex: 'length', key: 'length' },
-    { title: '占用时间', dataIndex: 'wait', key: 'wait', align: 'right', render: formatQueueWait },
-  ];
+    return [
+        { title: '队列名称', dataIndex: 'name', key: 'name', render: formatQueueName },
+        { title: '作业量', dataIndex: 'processes', key: 'processes' },
+        { title: '任务量', dataIndex: 'length', key: 'length' },
+        {
+            title: '占用时间',
+            dataIndex: 'wait',
+            key: 'wait',
+            align: 'right',
+            render: formatQueueWait,
+        },
+    ];
 }

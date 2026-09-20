@@ -7,9 +7,9 @@ type RecoveredClipboardCopy = (text?: string) => boolean;
 const copyRecoveredClipboardText = copyToClipboard as RecoveredClipboardCopy;
 
 export function copyText(text: string): boolean {
-  return copyToClipboard(text);
+    return copyToClipboard(text);
 }
 
 export function copyOptionalText(text?: string): boolean {
-  return copyRecoveredClipboardText(text);
+    return copyRecoveredClipboardText(text);
 }

@@ -10,25 +10,34 @@ type QueueStatsEffect = ModelEffect<ApiResponse<QueueStats>>;
 type QueueWorkloadEffect = ModelEffect<ApiResponse<QueueWorkload[]>>;
 
 export default {
-  name: 'system',
-  state: {},
-  reducers: {
-    save(state: SystemMonitoringState, { payload }: { payload: Partial<SystemMonitoringState> }) {
-      return { ...state, ...payload };
+    name: 'system',
+    state: {},
+    reducers: {
+        save(
+            state: SystemMonitoringState,
+            { payload }: { payload: Partial<SystemMonitoringState> },
+        ) {
+            return { ...state, ...payload };
+        },
     },
-  },
-  effects: {
-    *getQueueStats(_: AdminAction, { put }: SystemEffectTools): QueueStatsEffect {
-      yield put({ type: 'save', payload: { getQueueStatsLoading: true } });
-      const response = yield get<QueueStats>(`/${window.settings.secure_path}/system/getQueueStats`);
-      yield put({ type: 'save', payload: { getQueueStatsLoading: false } });
-      if (isSuccessfulResponse(response)) yield put({ type: 'save', payload: { queueStats: response.data } });
+    effects: {
+        *getQueueStats(_: AdminAction, { put }: SystemEffectTools): QueueStatsEffect {
+            yield put({ type: 'save', payload: { getQueueStatsLoading: true } });
+            const response = yield get<QueueStats>(
+                `/${window.settings.secure_path}/system/getQueueStats`,
+            );
+            yield put({ type: 'save', payload: { getQueueStatsLoading: false } });
+            if (isSuccessfulResponse(response))
+                yield put({ type: 'save', payload: { queueStats: response.data } });
+        },
+        *getQueueWorkload(_: AdminAction, { put }: SystemEffectTools): QueueWorkloadEffect {
+            yield put({ type: 'save', payload: { getQueueWorkloadLoading: true } });
+            const response = yield get<QueueWorkload[]>(
+                `/${window.settings.secure_path}/system/getQueueWorkload`,
+            );
+            yield put({ type: 'save', payload: { getQueueWorkloadLoading: false } });
+            if (isSuccessfulResponse(response))
+                yield put({ type: 'save', payload: { queueWorkload: response.data } });
+        },
     },
-    *getQueueWorkload(_: AdminAction, { put }: SystemEffectTools): QueueWorkloadEffect {
-      yield put({ type: 'save', payload: { getQueueWorkloadLoading: true } });
-      const response = yield get<QueueWorkload[]>(`/${window.settings.secure_path}/system/getQueueWorkload`);
-      yield put({ type: 'save', payload: { getQueueWorkloadLoading: false } });
-      if (isSuccessfulResponse(response)) yield put({ type: 'save', payload: { queueWorkload: response.data } });
-    },
-  },
 };

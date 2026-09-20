@@ -2,9 +2,9 @@
 import type { DisplayScalar } from '../../types/monitoring';
 
 export function formatIncome(value: DisplayScalar): string {
-  return value ? ((value as number) / 100).toFixed(2) : '0.00';
+    return value ? ((value as number) / 100).toFixed(2) : '0.00';
 }
 
 export function formatLiveCount(value: DisplayScalar): string | number | boolean {
-  return value ? value : '0';
+    return value ? value : '0';
 }

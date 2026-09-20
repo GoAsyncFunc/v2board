@@ -3,7 +3,7 @@ import type { AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 interface ShowNavigationAction {
-  show?: boolean;
+    show?: boolean;
 }
 
 type LayoutStoreState = Pick<AdminRootState, 'layout'>;
@@ -15,23 +15,20 @@ type LayoutEffect = ModelEffect<LayoutState>;
 const initialState: LayoutState = { showNav: false };
 
 export default {
-  name: 'layout',
-  state: initialState,
-  reducers: {
-    save(state: LayoutState, { payload }: { payload: Partial<LayoutState> }) {
-      return { ...state, ...payload };
+    name: 'layout',
+    state: initialState,
+    reducers: {
+        save(state: LayoutState, { payload }: { payload: Partial<LayoutState> }) {
+            return { ...state, ...payload };
+        },
     },
-  },
-  effects: {
-    *showNav(
-      { show }: ShowNavigationAction,
-      { put, select }: LayoutEffectTools,
-    ): LayoutEffect {
-      const layout = yield select(state => state.layout);
-      yield put({
-        type: 'save',
-        payload: { ...layout, showNav: show !== undefined ? show : !layout.showNav },
-      });
+    effects: {
+        *showNav({ show }: ShowNavigationAction, { put, select }: LayoutEffectTools): LayoutEffect {
+            const layout = yield select((state) => state.layout);
+            yield put({
+                type: 'save',
+                payload: { ...layout, showNav: show !== undefined ? show : !layout.showNav },
+            });
+        },
     },
-  },
 };

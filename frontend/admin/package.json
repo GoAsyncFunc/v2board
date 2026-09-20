@@ -6,7 +6,9 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
+    "check:format": "prettier --check \"src/**/*.{ts,tsx}\"",
     "check:types": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "test": "node --test tests/*.test.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
     "deploy:test": "bash scripts/deploy-test.sh"
@@ -47,6 +49,7 @@
     "@types/react-router-redux": "5.0.27",
     "esbuild": "0.25.9",
     "pngjs": "7.0.0",
+    "prettier": "3.9.8",
     "typescript": "5.9.2"
   }
 }

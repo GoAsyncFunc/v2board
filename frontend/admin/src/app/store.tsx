@@ -35,49 +35,78 @@ import type { AdminStore } from '../types/store';
 
 export interface AdminDvaApplication extends DvaApplication {}
 
-interface DvaConfig { config?: Record<string, object>; plugins?: object[]; }
+interface DvaConfig {
+    config?: Record<string, object>;
+    plugins?: object[];
+}
 
 const models = {
-  auth, config, coupon, giftcard, knowledge, layout, notice, order, passport, payment, plan,
-  serverGroup, serverHysteria, serverTuic, serverManage, serverRoute, serverShadowsocks,
-  serverTrojan, serverVless, serverVmess, serverAnyTLS, serverV2node, stat, system, theme, ticket, user,
+    auth,
+    config,
+    coupon,
+    giftcard,
+    knowledge,
+    layout,
+    notice,
+    order,
+    passport,
+    payment,
+    plan,
+    serverGroup,
+    serverHysteria,
+    serverTuic,
+    serverManage,
+    serverRoute,
+    serverShadowsocks,
+    serverTrojan,
+    serverVless,
+    serverVmess,
+    serverAnyTLS,
+    serverV2node,
+    stat,
+    system,
+    theme,
+    ticket,
+    user,
 };
 
 let appInstance: AdminDvaApplication | null = null;
 
 export function createApp(): AdminDvaApplication {
-  const dvaConfig = mergeConfig('dva') as DvaConfig;
-  appInstance = createDva({
-    history,
-    ...(dvaConfig.config || {}),
-    ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
-  });
-  appInstance.use(loadingPlugin());
-  (dvaConfig.plugins || []).forEach(plugin => appInstance?.use(plugin));
-  Object.entries(models).forEach(([namespace, model]) => {
-    appInstance?.model({ namespace, ...model });
-  });
-  return appInstance;
+    const dvaConfig = mergeConfig('dva') as DvaConfig;
+    appInstance = createDva({
+        history,
+        ...(dvaConfig.config || {}),
+        ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
+    });
+    appInstance.use(loadingPlugin());
+    (dvaConfig.plugins || []).forEach((plugin) => appInstance?.use(plugin));
+    Object.entries(models).forEach(([namespace, model]) => {
+        appInstance?.model({ namespace, ...model });
+    });
+    return appInstance;
 }
 
 export function getApp(): AdminDvaApplication {
-  if (!appInstance) throw new Error('Admin application has not been created');
-  return appInstance;
+    if (!appInstance) throw new Error('Admin application has not been created');
+    return appInstance;
 }
 
 export function getAdminStore(app: AdminDvaApplication = getApp()): AdminStore {
-  if (!app._store) throw new Error('Admin store has not been initialized');
-  return app._store;
+    if (!app._store) throw new Error('Admin store has not been initialized');
+    return app._store;
 }
 
-interface DvaContainerProps { children: React.ReactElement; }
+interface DvaContainerProps {
+    children: React.ReactElement;
+}
 
 export class DvaContainer extends React.Component<DvaContainerProps> {
-  render(): React.ReactElement {
-    const app = getApp();
-    app.router(() => React.cloneElement(this.props.children, { store: getAdminStore(app) }));
-    const Provider = app.start();
-    if (!Provider) throw new Error('Admin application did not create a provider');
-    return <Provider />;
-  }
+    render(): React.ReactElement {
+        const app = getApp();
+        app.router(() => React.cloneElement(this.props.children, { store: getAdminStore(app) }));
+        const Provider = app.start();
+        if (!Provider) throw new Error('Admin application did not create a provider');
+        return <Provider />;
+    }
 }

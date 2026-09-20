@@ -4,20 +4,39 @@ import type { PlanRecord } from '../../types/plan';
 
 // Keep raw children: concatenating/interpolating would change null, objects and arrays.
 export function renderPlanCount(count: PlanRecord['count']) {
-  return <React.Fragment><Icon type="user" style={{ cursor: 'move' }} />{' '}{count}</React.Fragment>;
+    return (
+        <React.Fragment>
+            <Icon type="user" style={{ cursor: 'move' }} /> {count}
+        </React.Fragment>
+    );
 }
 export function renderPlanTraffic(traffic: PlanRecord['transfer_enable']) {
-  return <React.Fragment>{traffic}{' GB'}</React.Fragment>;
+    return (
+        <React.Fragment>
+            {traffic}
+            {' GB'}
+        </React.Fragment>
+    );
 }
 export function displayDeviceLimit(limit: PlanRecord['device_limit']): React.ReactNode {
-  return limit !== null ? limit : '-';
+    return limit !== null ? limit : '-';
 }
 
 export function createReadonlyPlanResourceColumns() {
-  return {
-    name: { title: '名称', dataIndex: 'name', key: 'name' },
-    count: { title: '统计', dataIndex: 'count', key: 'count', render: renderPlanCount },
-    transfer_enable: { title: '流量', dataIndex: 'transfer_enable', key: 'transfer_enable', render: renderPlanTraffic },
-    device_limit: { title: '设备数限制', dataIndex: 'device_limit', key: 'device_limit', render: displayDeviceLimit },
-  };
+    return {
+        name: { title: '名称', dataIndex: 'name', key: 'name' },
+        count: { title: '统计', dataIndex: 'count', key: 'count', render: renderPlanCount },
+        transfer_enable: {
+            title: '流量',
+            dataIndex: 'transfer_enable',
+            key: 'transfer_enable',
+            render: renderPlanTraffic,
+        },
+        device_limit: {
+            title: '设备数限制',
+            dataIndex: 'device_limit',
+            key: 'device_limit',
+            render: displayDeviceLimit,
+        },
+    };
 }

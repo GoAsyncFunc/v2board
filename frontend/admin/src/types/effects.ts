@@ -4,11 +4,11 @@ import type { AdminAction } from './store';
 export type EffectInstruction = object;
 
 export interface PutEffectTools<Action = AdminAction> {
-  put(action: Action): EffectInstruction;
+    put(action: Action): EffectInstruction;
 }
 
 export interface ModelEffectTools<RootState, Action = AdminAction> extends PutEffectTools<Action> {
-  select<Result>(selector: (state: RootState) => Result): EffectInstruction;
+    select<Result>(selector: (state: RootState) => Result): EffectInstruction;
 }
 
 export type ModelEffect<NextValue> = Generator<EffectInstruction, void, NextValue>;
