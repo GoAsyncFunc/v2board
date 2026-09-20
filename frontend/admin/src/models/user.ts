@@ -1,8 +1,21 @@
 import { getPreference } from '../utils/siteHelpers';
-import * as session from './sessionEffects';
-import * as queries from './userQueryEffects';
-import * as mutations from './userMutationEffects';
-import * as exports from './userExportEffects';
+import { checkLogin, getUserInfo } from './sessionEffects';
+import {
+    addFilter as addUserFilter,
+    changeTable as changeUserTable,
+    fetch as fetchUsers,
+    filter as filterUsers,
+    getUserInfoById,
+} from './userQueryEffects';
+import {
+    allDel as deleteFilteredUsers,
+    ban as banFilteredUsers,
+    delUser as deleteUser,
+    resetSecret as resetUserSecret,
+    sendMail as sendMailToUsers,
+    update as updateUser,
+} from './userMutationEffects';
+import { dumpCSV as exportUsersCsv, generate as generateUsers } from './userExportEffects';
 import type { UserModuleState } from '../types/user';
 
 const initialState: UserModuleState = {
@@ -29,20 +42,20 @@ export default {
         },
     },
     effects: {
-        checkLogin: session.checkLogin,
-        getUserInfo: session.getUserInfo,
-        getUserInfoById: queries.getUserInfoById,
-        fetch: queries.fetch,
-        filter: queries.filter,
-        changeTable: queries.changeTable,
-        addFilter: queries.addFilter,
-        update: mutations.update,
-        sendMail: mutations.sendMail,
-        ban: mutations.ban,
-        resetSecret: mutations.resetSecret,
-        delUser: mutations.delUser,
-        allDel: mutations.allDel,
-        generate: exports.generate,
-        dumpCSV: exports.dumpCSV,
+        checkLogin,
+        getUserInfo,
+        getUserInfoById,
+        fetch: fetchUsers,
+        filter: filterUsers,
+        changeTable: changeUserTable,
+        addFilter: addUserFilter,
+        update: updateUser,
+        sendMail: sendMailToUsers,
+        ban: banFilteredUsers,
+        resetSecret: resetUserSecret,
+        delUser: deleteUser,
+        allDel: deleteFilteredUsers,
+        generate: generateUsers,
+        dumpCSV: exportUsersCsv,
     },
 };

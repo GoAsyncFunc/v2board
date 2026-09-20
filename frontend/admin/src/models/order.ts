@@ -1,23 +1,16 @@
-import { post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/api';
-import * as orderQueries from './orderQueryEffects';
-import type { AssignOrderParams, OrderState } from '../types/order';
-import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface OrderEffectTools extends PutEffectTools {}
-interface UpdateOrderAction {
-    tradeNo: string | number;
-    key: string;
-    value: FormValue;
-}
-interface TradeNumberAction {
-    tradeNo: string | number;
-}
-interface AssignOrderAction {
-    params: AssignOrderParams;
-    callback?: () => void;
-}
-type OrderEffect = ModelEffect<ApiResponse>;
+import {
+    addFilter as addOrderFilter,
+    changeTable as changeOrderTable,
+    fetch as fetchOrders,
+    filter as filterOrders,
+} from './orderQueryEffects';
+import {
+    assign as assignOrder,
+    cancel as cancelOrder,
+    paid as markOrderPaid,
+    update as updateOrder,
+} from './orderMutationEffects';
+import type { OrderState } from '../types/order';
 
 const initialState: OrderState = {
     orders: [],
@@ -39,42 +32,13 @@ export default {
         },
     },
     effects: {
-        fetch: orderQueries.fetch,
-        filter: orderQueries.filter,
-        addFilter: orderQueries.addFilter,
-        *update(
-            { tradeNo, key, value }: UpdateOrderAction,
-            { put }: OrderEffectTools,
-        ): OrderEffect {
-            const response = yield post(`/${window.settings.secure_path}/order/update`, {
-                trade_no: tradeNo,
-                [key]: value,
-            });
-            if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
-        },
-        *paid({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
-            const response = yield post(`/${window.settings.secure_path}/order/paid`, {
-                trade_no: tradeNo,
-            });
-            if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
-        },
-        *cancel({ tradeNo }: TradeNumberAction, { put }: OrderEffectTools): OrderEffect {
-            const response = yield post(`/${window.settings.secure_path}/order/cancel`, {
-                trade_no: tradeNo,
-            });
-            if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
-        },
-        *assign({ params, callback }: AssignOrderAction, { put }: OrderEffectTools): OrderEffect {
-            yield put({ type: 'setState', payload: { assignLoading: true } });
-            const response = yield post(`/${window.settings.secure_path}/order/assign`, {
-                ...params,
-                total_amount: 100 * params.total_amount,
-            });
-            yield put({ type: 'setState', payload: { assignLoading: false } });
-            if (!isSuccessfulResponse(response)) return;
-            yield put({ type: 'fetch' });
-            callback?.();
-        },
-        changeTable: orderQueries.changeTable,
+        fetch: fetchOrders,
+        filter: filterOrders,
+        addFilter: addOrderFilter,
+        update: updateOrder,
+        paid: markOrderPaid,
+        cancel: cancelOrder,
+        assign: assignOrder,
+        changeTable: changeOrderTable,
     },
 };

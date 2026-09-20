@@ -108,6 +108,21 @@ test('admin source no longer contains a vendor compatibility directory', async (
   await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
 });
 
+test('admin model composition uses named business effects instead of module aliases', async () => {
+  const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
+  const orderModel = await fs.readFile(new URL('../src/models/order.ts', import.meta.url), 'utf8');
+  const orderMutations = await fs.readFile(new URL('../src/models/orderMutationEffects.ts', import.meta.url), 'utf8');
+
+  for (const source of [userModel, orderModel]) {
+    assert.doesNotMatch(source, /import \* as /);
+    assert.doesNotMatch(source, /\bexports\./);
+  }
+  for (const effect of ['update', 'paid', 'cancel', 'assign']) {
+    assert.match(orderMutations, new RegExp(`export function\\* ${effect}\\b`));
+  }
+  assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
+});
+
 test('admin scripts exclude one-time reverse-engineering extractors', async () => {
   const scriptNames = await fs.readdir(new URL('../scripts/', import.meta.url));
   assert.deepEqual(scriptNames.filter(name => name.startsWith('extract-')), []);

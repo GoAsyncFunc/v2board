@@ -457,14 +457,18 @@
   },
   {
     "from": "models/order.ts",
+    "to": "models/orderMutationEffects.ts"
+  },
+  {
+    "from": "models/order.ts",
     "to": "models/orderQueryEffects.ts"
   },
   {
-    "from": "models/order.ts",
+    "from": "models/orderMutationEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/order.ts",
+    "from": "models/orderMutationEffects.ts",
     "to": "types/api.ts"
   },
   {
