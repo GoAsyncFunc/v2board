@@ -848,6 +848,10 @@
     "to": "services/request.ts"
   },
   {
+    "from": "pages/Profile.tsx",
+    "to": "types/api.ts"
+  },
+  {
     "from": "pages/Register.tsx",
     "to": "app/routerHistory.ts"
   },

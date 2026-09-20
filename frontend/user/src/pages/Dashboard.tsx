@@ -17,11 +17,16 @@ import {
   progressBarColor,
   subscribePercent,
 } from '../components/SubscribeUsage';
-import type { UserNotice, UserSubscription } from '../types/subscription';
+import type { SubscriptionPlan, UserNotice, UserSubscription } from '../types/subscription';
 import type { UserDispatch, UserRootState } from '../types/store';
 
 type DashboardStateProps = Pick<UserRootState, 'user' | 'notice' | 'order' | 'comm' | 'knowledge'>;
 interface DashboardState { visible: boolean; notice?: Partial<UserNotice>; }
+
+function requireSubscriptionPlan(subscription: Partial<UserSubscription>): SubscriptionPlan {
+  if (!subscription.plan) throw new TypeError('Active subscription plan was not provided');
+  return subscription.plan;
+}
 
 export class DashboardPage extends React.Component<DashboardStateProps & { dispatch: UserDispatch }, DashboardState> {
   state: DashboardState = { visible: false, notice: undefined };
@@ -103,11 +108,12 @@ export class DashboardPage extends React.Component<DashboardStateProps & { dispa
       return <a onClick={() => history.push('/plan')}><div className="text-center"><div><i className="fa fa-plus fa-2x" /></div><div className="font-size-sm text-uppercase text-muted pt-2 pb-3">{formatMessage({ id: '购买订阅' })}</div></div></a>;
     }
     if (!hasSubscriptionUsage(subscribe)) return <LoadingContainer className="font-size-h3 mb-3" />;
+    const plan = requireSubscriptionPlan(subscribe);
     const expired = isExpired(subscribe.expired_at);
     const renewalPath = canRenew(subscribe) ? `/plan/${subscribe.plan_id}` : '/plan';
     return (
       <div>
-        <h3 className="h4 mb-3">{subscribe.plan!.name}</h3>
+        <h3 className="h4 mb-3">{plan.name}</h3>
         {subscribe.expired_at === null ? (
           <p className="font-size-sm text-muted">{formatMessage({ id: '该订阅长期有效' })}</p>
         ) : (

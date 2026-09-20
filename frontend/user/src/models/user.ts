@@ -21,7 +21,7 @@ type UserGenerator<Data> = Generator<
 
 export function describeGiftcard(type: number | undefined, value: number | undefined): string {
   switch (type) {
-    case 1: return '账户余额 ' + (value! / 100).toFixed(2);
+    case 1: return '账户余额 ' + (Number(value) / 100).toFixed(2);
     case 2: return '订阅时长 ' + value + ' 天';
     case 3: return '套餐流量 ' + value + ' GB';
     case 4: return '流量已重置';
@@ -58,7 +58,7 @@ export default {
         const subscription = response.data;
         window.$crisp.push(['set', 'session:data', [[
           ['Plan', subscription.plan?.name || '-'],
-          ['ExpireTime', moment(1000 * subscription.expired_at!).format('YYYY-MM-DD')],
+          ['ExpireTime', moment(1000 * Number(subscription.expired_at)).format('YYYY-MM-DD')],
           ['UsedTraffic', formatBytes(subscription.u + subscription.d)],
           ['AllTraffic', formatBytes(subscription.transfer_enable)],
         ]]]);

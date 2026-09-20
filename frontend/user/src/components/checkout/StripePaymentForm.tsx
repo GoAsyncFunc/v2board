@@ -49,7 +49,10 @@ export function StripeCardForm({ callback, children }: StripeCardFormProps) {
         }
 
         const card = elements.getElement(CardElement);
-        const result = await stripe.createToken(card!);
+        if (!card) {
+            throw new TypeError("Stripe card element was not mounted");
+        }
+        const result = await stripe.createToken(card);
 
         if (result.error) {
             if (typeof callback === "function") {

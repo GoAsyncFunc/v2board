@@ -3,7 +3,7 @@ import Radio from 'antd/lib/radio';
 import { localeSettings as settings } from '../../config/localeSettings';
 import { formatMessage } from '../../locales/i18n';
 import { formatPrice } from '../MoneyDisplay';
-import type { CouponData } from '../../types/commerce';
+import type { AppliedCoupon, CouponData } from '../../types/commerce';
 import type { PlanRecord } from '../../types/commonModels';
 import type { PlanPeriod } from '../../types/plan';
 
@@ -35,9 +35,14 @@ export function couponDiscount(price: number, type: number, value: number): stri
     case 2: return (price * (value / 100)).toFixed(2);
   }
 }
+
+export function hasCouponDiscount(coupon: CouponData): coupon is AppliedCoupon {
+  return Boolean(coupon.name);
+}
+
 export function totalAmount(price: number, coupon: CouponData): string {
   let amount = price;
-  if (coupon.name) amount -= Number(couponDiscount(amount, coupon.type!, coupon.value!));
+  if (hasCouponDiscount(coupon)) amount -= Number(couponDiscount(amount, coupon.type, coupon.value));
   if (amount <= 0) amount = 0;
   return formatPrice(amount);
 }

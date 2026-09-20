@@ -18,7 +18,7 @@ export interface InviteState {
   detailsLoading: boolean;
   fetchLoading: boolean;
   saveLoading: boolean;
-  detailsPagination: { total: number; current?: number; page_size?: number };
+  detailsPagination: { total?: number; current?: number; page_size?: number };
 }
 
 export interface InviteConfig {

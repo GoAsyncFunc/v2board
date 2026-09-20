@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatMessage } from '../../locales/i18n';
-import { couponDiscount } from './Pricing';
+import { couponDiscount, hasCouponDiscount } from './Pricing';
 import { formatPrice } from '../MoneyDisplay';
 import type { CouponData, NumericValue } from '../../types/commerce';
 
@@ -24,11 +24,11 @@ export function CouponInput({ inputRef, onCheck }: CouponInputProps) {
   </div>;
 }
 export function CouponDiscount({ coupon, price, currencySymbol }: CouponDiscountProps) {
-  if (!coupon.name) return null;
+  if (!hasCouponDiscount(coupon)) return null;
   return <div>
     <div className="pt-3" style={{ color: '#646669' }}>{formatMessage({ id: '折扣' })}</div>
     <div className="row no-gutters py-3" style={{ borderBottom: '1px solid #646669' }}>
-      <div className="col-8">{coupon.name}</div><div className="col-4 text-right">{'-'}{currencySymbol}{formatPrice(couponDiscount(Number(price), coupon.type!, coupon.value!))}</div>
+      <div className="col-8">{coupon.name}</div><div className="col-4 text-right">{'-'}{currencySymbol}{formatPrice(couponDiscount(Number(price), coupon.type, coupon.value))}</div>
     </div>
   </div>;
 }

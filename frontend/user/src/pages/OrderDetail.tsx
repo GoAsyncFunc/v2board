@@ -29,6 +29,11 @@ type OrderDetailProps = OrderDetailStateProps & {
 };
 interface PaymentState { stripe: StripeCheckoutState; pk?: string; }
 
+function requirePaymentMethod(payment: CheckoutPaymentMethod | undefined): CheckoutPaymentMethod {
+    if (!payment) throw new TypeError("Selected payment method was not found");
+    return payment;
+}
+
 export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentState> {
     state: PaymentState = { stripe: {} };
 
@@ -122,9 +127,10 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                 },
             });
         }
-        if (Number(order.total_amount) > 0 && (payment!.handling_fee_fixed || payment!.handling_fee_percent)) {
+        const selectedPayment = Number(order.total_amount) > 0 ? requirePaymentMethod(payment) : payment;
+        if (selectedPayment && (selectedPayment.handling_fee_fixed || selectedPayment.handling_fee_percent)) {
             order.pre_handling_amount =
-                Number(order.total_amount) * (payment!.handling_fee_percent / 100) + payment!.handling_fee_fixed;
+                Number(order.total_amount) * (selectedPayment.handling_fee_percent / 100) + selectedPayment.handling_fee_fixed;
         } else {
             order.pre_handling_amount = 0;
         }

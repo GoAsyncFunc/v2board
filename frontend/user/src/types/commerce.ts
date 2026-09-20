@@ -1,10 +1,14 @@
 export type NumericValue = number | string | null | undefined;
 
-export interface CouponData {
-  name?: string;
-  type?: number;
-  value?: number;
+export interface AppliedCoupon {
+  name: string;
+  type: number;
+  value: number;
 }
+
+export type CouponData =
+  | { name?: undefined; type?: undefined; value?: undefined }
+  | AppliedCoupon;
 
 export interface PlanData {
   name: string;

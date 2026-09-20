@@ -20,7 +20,7 @@ declare global {
       homepage?: string;
       logo?: string;
       secure_path: string;
-      title?: string;
+      title: string;
       theme: { color?: string; header?: string; sidebar?: string };
       host?: string;
       i18n: string[] & Record<string, Record<string, string>>;

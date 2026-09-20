@@ -25,6 +25,7 @@ export default function OrderPaymentSummary({
     onCheckout,
 }: OrderPaymentSummaryProps) {
     const period = order.period || '';
+    const periodLabel = periodLabels[period];
     return (
         <div className={"col-md-4 col-sm-12"}>
             <div
@@ -82,8 +83,7 @@ export default function OrderPaymentSummary({
                         <div className={"col-8"}>
                             {order.plan.name}
                             {" x "}
-                            {periodLabels[period] &&
-                                periodLabels[period]!()}
+                            {periodLabel && periodLabel()}
                         </div>
                         <div className={"col-4 text-right"}>
                             {config.currency_symbol}

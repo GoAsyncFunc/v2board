@@ -3,7 +3,7 @@ import { getLocale, formatMessage } from '../locales/i18n';
 import { getToken, clearToken, notify } from '../utils/siteHelpers';
 import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/api';
 const serviceHost = (window.settings.host || new URL(window.location.href).origin) + '/api/v1';
-document.title = window.settings.title!;
+document.title = window.settings.title;
 export function encodeForm(data?: FormValue): string {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return '';
   const fields: string[] = [];
@@ -41,7 +41,7 @@ export async function request<Data = JsonValue>(endpoint: string, options: Reque
     const message = data.errors ? Object.values(data.errors)[0][0] : data.message;
     notify('error', formatMessage({
       id: '请求失败'
-    }), message!);
+    }), message);
     return {
       code: response.status,
       msg: message

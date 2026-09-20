@@ -33,7 +33,7 @@ export default {
       yield put({ type: 'setState', payload: { detailsLoading: false } });
       if (isSuccessfulResponse(response)) yield put({ type: 'setState', payload: {
         invites: response.data,
-        detailsPagination: { current, page_size: pageSize, total: response.total! },
+        detailsPagination: { current, page_size: pageSize, total: response.total },
       } });
     },
     *fetch(_action: { type?: string }, { put }: InviteEffects): InviteGenerator<Pick<InviteState, 'codes' | 'stat'>> {

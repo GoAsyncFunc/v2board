@@ -7,6 +7,7 @@ import message from 'antd/lib/message';
 import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request';
+import { isSuccessfulResponse } from '../types/api';
 import { formatMessage } from '../locales/i18n';
 import { formatMoney } from '../components/MoneyDisplay';
 import type { UserCommunicationConfig } from '../types/commonModels';
@@ -14,6 +15,11 @@ import type { UserInfo, UserSetting, UserState } from '../types/user';
 import type { UserDispatch, UserRootState } from '../types/store';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
+
+function readInputValue(ref: React.RefObject<HTMLInputElement>, fieldName: string): string {
+  if (!ref.current) throw new TypeError(`${fieldName} input was not mounted`);
+  return ref.current.value;
+}
 
 export class ProfilePage extends React.Component<ProfileStateProps & { dispatch: UserDispatch }> {
   giftcardRef = React.createRef<HTMLInputElement>();
@@ -32,9 +38,9 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
   }
 
   changePassword() {
-    const oldPassword = this.oldPasswordRef.current!.value;
-    const newPassword = this.newPasswordRef.current!.value;
-    const repeatPassword = this.repeatPasswordRef.current!.value;
+    const oldPassword = readInputValue(this.oldPasswordRef, 'Old password');
+    const newPassword = readInputValue(this.newPasswordRef, 'New password');
+    const repeatPassword = readInputValue(this.repeatPasswordRef, 'Repeated password');
     if (repeatPassword !== newPassword) {
       message.error(formatMessage({ id: '两次新密码输入不同' }));
       return;
@@ -43,7 +49,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
   }
 
   redeemGiftcard() {
-    const giftcard = this.giftcardRef.current!.value;
+    const giftcard = readInputValue(this.giftcardRef, 'Giftcard');
     if (!giftcard.length) {
       message.error(formatMessage({ id: '请输入礼品卡' }));
       return;
@@ -61,7 +67,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
       content: formatMessage({ id: '如果你的订阅地址或信息泄露可以进行此操作。重置后你的UUID及订阅将会变更，需要重新进行订阅。' }),
       onOk: async () => {
         const response = await get('/user/resetSecurity');
-        if (response.code !== 200) return;
+        if (!isSuccessfulResponse(response)) return;
         message.success(formatMessage({ id: '重置成功' }));
         this.props.dispatch({ type: 'user/getUserInfo' });
         this.props.dispatch({ type: 'user/getSubscribe' });
@@ -77,7 +83,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
       content: formatMessage({ id: '如果你的Telegram ID已失效可以进行此操作。重置后你需要重新进行绑定。' }),
       onOk: async () => {
         const response = await get('/user/unbindTelegram');
-        if (response.code !== 200) return;
+        if (!isSuccessfulResponse(response)) return;
         message.success(formatMessage({ id: '重置成功' }));
         this.props.dispatch({ type: 'user/getUserInfo' });
         this.props.dispatch({ type: 'user/getSubscribe' });

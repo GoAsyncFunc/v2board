@@ -68,7 +68,7 @@ export function canRenew(subscription: Partial<UserSubscription>): boolean {
   return Boolean(subscription.plan?.renew && (subscription.plan?.show || !isExpired(subscription.expired_at)));
 }
 
-export function notify(type: NotificationType = 'success', title = '', description = ''): void {
+export function notify(type: NotificationType = 'success', title = '', description?: string): void {
   if (isMobile()) {
     message[type](description);
     return;
