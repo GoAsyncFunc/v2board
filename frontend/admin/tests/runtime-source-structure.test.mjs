@@ -20,7 +20,8 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/services/fetchResponse.ts',
     '../src/services/request.ts',
     '../src/services/download.ts',
-    '../src/app/routes.ts',
+    '../src/routes/index.ts',
+    '../src/routes/types.ts',
   ];
   for (const relativePath of typedRuntimePaths) {
     const stat = await fs.stat(new URL(relativePath, import.meta.url));
@@ -40,6 +41,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/services/request.d.ts',
     '../src/services/download.js',
     '../src/app/routes.js',
+    '../src/app/routes.ts',
     '../src/app/moduleInterop.js',
     '../src/vendor/appDvaConfig.js',
     '../src/vendor/appRuntime.js',
@@ -52,6 +54,16 @@ test('admin application runtime uses typed source modules outside vendor', async
   for (const relativePath of removedPaths) {
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
   }
+});
+
+test('admin route definitions live in the dedicated routes directory', async () => {
+  const routeSource = await fs.readFile(new URL('../src/routes/index.ts', import.meta.url), 'utf8');
+  const routeTypeSource = await fs.readFile(new URL('../src/routes/types.ts', import.meta.url), 'utf8');
+  assert.match(routeSource, /const adminRoutes: AdminRouteConfig\[\]/);
+  assert.match(routeSource, /path: '\/dashboard'/);
+  assert.match(routeSource, /path: '\/ticket\/:ticket_id'/);
+  assert.match(routeTypeSource, /export interface AdminRouteConfig/);
+  await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
 });
 
 test('admin configuration and browser helpers use typed source modules outside vendor', async () => {

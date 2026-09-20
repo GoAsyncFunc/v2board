@@ -3,8 +3,8 @@ import type { Action, Location, UnregisterCallback } from 'history';
 import routeRenderer from '../runtime/routeRenderer';
 import { routerBindings } from '../runtime/dvaApplication';
 import * as plugins from '../runtime/pluginRuntime';
+import adminRoutes from '../routes';
 import history from './history';
-import appRoutes from './routes';
 import type { AdminStore } from '../types/store';
 import type { DynamicRouteProps } from '../runtime/routeRenderer';
 
@@ -15,12 +15,12 @@ interface RouterProps extends DynamicRouteProps {
 }
 
 interface RouteChangePayload {
-  routes: typeof appRoutes;
+  routes: typeof adminRoutes;
   location: Location;
   action?: Action;
 }
 
-export const routes = appRoutes;
+export const routes = adminRoutes;
 window.g_routes = routes;
 
 export default class Router extends React.Component<RouterProps> {

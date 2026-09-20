@@ -1,4 +1,3 @@
-import type { AdminRouteConfig } from '../runtime/routeRenderer';
 import ConfigPayment from '../pages/ConfigPayment';
 import ConfigSystem from '../pages/ConfigSystem';
 import ConfigTheme from '../pages/ConfigTheme';
@@ -18,9 +17,9 @@ import ServerRoute from '../pages/ServerRoute';
 import Ticket from '../pages/Ticket';
 import TicketDetail from '../pages/TicketDetail';
 import User from '../pages/User';
+import type { AdminRouteConfig } from './types';
 
-// Add or edit routes here. Every component is a typed source module.
-const routes: AdminRouteConfig[] = [
+const adminRoutes: AdminRouteConfig[] = [
   { path: '/config/payment', exact: true, component: ConfigPayment },
   { path: '/config/system', exact: true, component: ConfigSystem },
   { path: '/config/theme', exact: true, component: ConfigTheme },
@@ -42,4 +41,4 @@ const routes: AdminRouteConfig[] = [
   { path: '/user', exact: true, component: User },
 ];
 
-export default routes;
+export default adminRoutes;

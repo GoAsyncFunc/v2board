@@ -52,19 +52,20 @@ npm run check:types
 npm run build
 ```
 
-当前管理端回归基线为 903 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 904 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
 ```text
 public/          独立静态资源和 settings.js
 scripts/         构建、开发、恢复检查、部署和线上验证工具
-src/app/         启动、路由和状态容器
+src/app/         启动和状态容器
 src/components/  管理端组件与编辑器
 src/config/      导航等界面配置
 src/layouts/     管理端布局
 src/models/      管理端状态模型
 src/pages/       管理端页面
+src/routes/      管理端路由表和路由类型
 src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求与下载服务
 src/styles/      页面样式常量与样式入口

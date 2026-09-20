@@ -2,7 +2,7 @@ export {};
 
 import type { AdminHistory } from '../app/history';
 import type { AdminDvaApplication } from '../app/store';
-import type { AdminRouteConfig } from '../runtime/routeRenderer';
+import type { AdminRouteConfig } from '../routes/types';
 import type { AdminValue } from './store';
 
 declare global {

@@ -5,7 +5,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "app/routes.ts"
+    "to": "routes/index.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -54,82 +54,6 @@
   {
     "from": "app/rootRuntime.tsx",
     "to": "app/store.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ConfigPayment.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ConfigSystem.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ConfigTheme.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Coupon.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Dashboard.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Giftcard.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Index.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Knowledge.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Login.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Notice.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Order.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Plan.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Queue.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ServerGroup.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ServerManage.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/ServerRoute.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/Ticket.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/TicketDetail.tsx"
-  },
-  {
-    "from": "app/routes.ts",
-    "to": "pages/User.tsx"
   },
   {
     "from": "app/store.tsx",
@@ -1062,6 +986,82 @@
   {
     "from": "pages/User.tsx",
     "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ConfigPayment.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ConfigSystem.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ConfigTheme.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Coupon.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Dashboard.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Giftcard.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Index.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Knowledge.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Login.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Notice.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Order.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Plan.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Queue.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ServerGroup.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ServerManage.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ServerRoute.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/Ticket.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/TicketDetail.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/User.tsx"
   },
   {
     "from": "runtime/dvaApplication.tsx",

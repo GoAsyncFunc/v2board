@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteComponentProps, RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
+import type { AdminRouteComponent, AdminRouteConfig } from '../routes/types';
 import type { AdminValue } from '../types/store';
 
 export type DynamicRouteProps = Record<string, AdminValue>;
@@ -14,23 +15,9 @@ export interface InitialRoutePropsContext extends DynamicRouteProps {
   prevInitialProps: DynamicRouteProps;
 }
 
-export type AdminRouteComponent = React.ElementType;
-
 interface RouteComponentStatics {
   getInitialProps?: (context: InitialRoutePropsContext) => Promise<DynamicRouteProps | null | undefined>;
   wrappedWithInitialProps?: boolean;
-}
-
-export interface AdminRouteConfig {
-  key?: React.Key;
-  path?: string;
-  exact?: boolean;
-  strict?: boolean;
-  sensitive?: boolean;
-  redirect?: string;
-  component?: AdminRouteComponent;
-  routes?: AdminRouteConfig[];
-  Routes?: React.ElementType[];
 }
 
 export type RouteRenderProps = RouteMatchProps & DynamicRouteProps;
