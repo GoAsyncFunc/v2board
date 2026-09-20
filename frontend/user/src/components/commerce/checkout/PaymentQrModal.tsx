@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Modal from 'antd/lib/modal';
 import QRCode from 'qrcode.react';
 import { formatMessage } from '../../../locales/i18n';
@@ -20,9 +20,7 @@ export default function PaymentQrModal({ visible, payUrl, onCancel }: PaymentQrM
             width={300}
             visible={visible}
             footer={
-                <div style={{ textAlign: "center" }}>
-                    {formatMessage({ id: "等待支付中" })}
-                </div>
+                <div style={{ textAlign: 'center' }}>{formatMessage({ id: '等待支付中' })}</div>
             }
         >
             {payUrl && <QRCode renderAs="svg" size={250} value={payUrl} />}

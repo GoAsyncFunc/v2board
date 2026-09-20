@@ -43,16 +43,26 @@ npm run build
 
 构建器会拒绝读取本项目目录之外的输入。
 
+## 格式化
+
+```sh
+npm run format
+npm run check:format
+```
+
+格式化范围仅包含本项目的 `src/**/*.ts` 和 `src/**/*.tsx`，规则由 `.prettierrc.json` 固定。
+
 ## 测试
 
 ```sh
 npm run check:dependencies
+npm run check:format
 npm test
 npm run check:types
 npm run build
 ```
 
-当前用户端回归基线为 732 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
+当前用户端回归基线为 745 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
 
 ## 目录结构
 

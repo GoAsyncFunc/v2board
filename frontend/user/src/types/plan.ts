@@ -5,18 +5,18 @@ export type PlanPeriod = keyof typeof localeSettings.periodText;
 export type PlanTab = 0 | 1 | 2;
 
 export interface PlanFeature {
-  support: boolean;
-  feature: string;
+    support: boolean;
+    feature: string;
 }
 
 export type CatalogPlan = Partial<Record<PlanPeriod, NumericValue>> & {
-  id: number;
-  name: string;
-  content: string;
-  capacity_limit: number | null;
+    id: number;
+    name: string;
+    content: string;
+    capacity_limit: number | null;
 };
 
 export interface PlanUnitPrice {
-  tag?: string;
-  price?: NumericValue;
+    tag?: string;
+    price?: NumericValue;
 }

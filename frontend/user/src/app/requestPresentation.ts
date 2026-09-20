@@ -1,17 +1,14 @@
 import { formatMessage } from '../locales/i18n';
-import {
-  setRequestFailurePresenter,
-  type RequestFailurePresentation,
-} from '../services/request';
+import { setRequestFailurePresenter, type RequestFailurePresentation } from '../services/request';
 import { notify } from './notifications';
 
 export function presentRequestFailure({
-  titleMessageId,
-  description,
+    titleMessageId,
+    description,
 }: RequestFailurePresentation): void {
-  notify('error', formatMessage({ id: titleMessageId }), description);
+    notify('error', formatMessage({ id: titleMessageId }), description);
 }
 
 export function configureRequestPresentation(): void {
-  setRequestFailurePresenter(presentRequestFailure);
+    setRequestFailurePresenter(presentRequestFailure);
 }

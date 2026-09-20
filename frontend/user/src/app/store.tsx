@@ -25,66 +25,66 @@ import type { UserStore } from '../types/store';
 export interface UserDvaApplication extends DvaApplication {}
 
 interface DvaConfig {
-  config?: Record<string, object>;
-  plugins?: object[];
+    config?: Record<string, object>;
+    plugins?: object[];
 }
 
 const models = {
-  comm,
-  coupon,
-  guest,
-  invite,
-  knowledge,
-  layout,
-  notice,
-  order,
-  passport,
-  plan,
-  server,
-  stat,
-  telegram,
-  ticket,
-  tutorial,
-  user,
+    comm,
+    coupon,
+    guest,
+    invite,
+    knowledge,
+    layout,
+    notice,
+    order,
+    passport,
+    plan,
+    server,
+    stat,
+    telegram,
+    ticket,
+    tutorial,
+    user,
 };
 
 let appInstance: UserDvaApplication | null = null;
 
 export function createApp(): UserDvaApplication {
-  const dvaConfig = mergeConfig('dva') as DvaConfig;
-  appInstance = createDva({
-    history,
-    ...(dvaConfig.config || {}),
-    ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
-  });
-  appInstance.use(loadingPlugin());
-  (dvaConfig.plugins || []).forEach(plugin => appInstance?.use(plugin));
-  Object.entries(models).forEach(([namespace, model]) => {
-    appInstance?.model({ namespace, ...model });
-  });
-  return appInstance;
+    const dvaConfig = mergeConfig('dva') as DvaConfig;
+    appInstance = createDva({
+        history,
+        ...(dvaConfig.config || {}),
+        ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
+    });
+    appInstance.use(loadingPlugin());
+    (dvaConfig.plugins || []).forEach((plugin) => appInstance?.use(plugin));
+    Object.entries(models).forEach(([namespace, model]) => {
+        appInstance?.model({ namespace, ...model });
+    });
+    return appInstance;
 }
 
 export function getApp(): UserDvaApplication {
-  if (!appInstance) throw new Error('User application has not been created');
-  return appInstance;
+    if (!appInstance) throw new Error('User application has not been created');
+    return appInstance;
 }
 
 export function getUserStore(app: UserDvaApplication = getApp()): UserStore {
-  if (!app._store) throw new Error('User store has not been initialized');
-  return app._store;
+    if (!app._store) throw new Error('User store has not been initialized');
+    return app._store;
 }
 
 interface DvaContainerProps {
-  children: React.ReactElement;
+    children: React.ReactElement;
 }
 
 export class DvaContainer extends React.Component<DvaContainerProps> {
-  render(): React.ReactElement {
-    const app = getApp();
-    app.router(() => React.cloneElement(this.props.children, { store: getUserStore(app) }));
-    const Provider = app.start();
-    if (!Provider) throw new Error('User application did not create a provider');
-    return <Provider />;
-  }
+    render(): React.ReactElement {
+        const app = getApp();
+        app.router(() => React.cloneElement(this.props.children, { store: getUserStore(app) }));
+        const Provider = app.start();
+        if (!Provider) throw new Error('User application did not create a provider');
+        return <Provider />;
+    }
 }

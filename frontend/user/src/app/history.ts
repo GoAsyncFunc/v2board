@@ -2,7 +2,7 @@ import type { History, Location } from 'history';
 import { createHistory } from './historyFactory';
 
 export interface QueryLocation extends Location {
-  query: Record<string, string | string[]>;
+    query: Record<string, string | string[]>;
 }
 
 export type UserHistory = Omit<History, 'location'> & { location: QueryLocation };

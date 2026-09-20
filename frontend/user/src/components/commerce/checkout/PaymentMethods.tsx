@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import Radio from 'antd/lib/radio';
-import type { PaymentMethod } from "../../../types/commerce";
+import type { PaymentMethod } from '../../../types/commerce';
 
 interface PaymentMethodsProps {
     methods: PaymentMethod[];
@@ -16,9 +16,8 @@ export default function PaymentMethods({ methods, selectedMethod, onSelect }: Pa
                     key={method.id}
                     onClick={() => onSelect(method.id)}
                     className={
-                        "v2board-select " +
-                        (selectedMethod === method.id &&
-                            "active border-primary")
+                        'v2board-select ' +
+                        (selectedMethod === method.id && 'active border-primary')
                     }
                 >
                     <div style={{ flex: 1, paddingTop: 4 }}>
@@ -29,7 +28,7 @@ export default function PaymentMethods({ methods, selectedMethod, onSelect }: Pa
                         {method.name}
                     </div>
                     {method.icon && (
-                        <div style={{ flex: 1, textAlign: "right" }}>
+                        <div style={{ flex: 1, textAlign: 'right' }}>
                             <img height={30} src={method.icon} />
                         </div>
                     )}

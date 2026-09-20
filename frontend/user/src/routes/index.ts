@@ -16,46 +16,46 @@ import Ticket from '../pages/support/Ticket';
 import TicketDetail from '../pages/support/TicketDetail';
 
 type UserRouteComponent =
-  | typeof Dashboard
-  | typeof ForgetPassword
-  | typeof Index
-  | typeof Invite
-  | typeof Knowledge
-  | typeof Login
-  | typeof Node
-  | typeof OrderDetail
-  | typeof Order
-  | typeof PlanDetail
-  | typeof Plan
-  | typeof Profile
-  | typeof Register
-  | typeof TicketDetail
-  | typeof Ticket
-  | typeof Traffic;
+    | typeof Dashboard
+    | typeof ForgetPassword
+    | typeof Index
+    | typeof Invite
+    | typeof Knowledge
+    | typeof Login
+    | typeof Node
+    | typeof OrderDetail
+    | typeof Order
+    | typeof PlanDetail
+    | typeof Plan
+    | typeof Profile
+    | typeof Register
+    | typeof TicketDetail
+    | typeof Ticket
+    | typeof Traffic;
 
 export interface UserRoute {
-  path: string;
-  exact: boolean;
-  component: UserRouteComponent;
+    path: string;
+    exact: boolean;
+    component: UserRouteComponent;
 }
 
 const routes: UserRoute[] = [
-  { path: '/dashboard', exact: true, component: Dashboard },
-  { path: '/forgetpassword', exact: true, component: ForgetPassword },
-  { path: '/', exact: true, component: Index },
-  { path: '/invite', exact: true, component: Invite },
-  { path: '/knowledge', exact: true, component: Knowledge },
-  { path: '/login', exact: true, component: Login },
-  { path: '/node', exact: true, component: Node },
-  { path: '/order/:trade_no', exact: true, component: OrderDetail },
-  { path: '/order', exact: true, component: Order },
-  { path: '/plan/:plan_id', exact: true, component: PlanDetail },
-  { path: '/plan', exact: true, component: Plan },
-  { path: '/profile', exact: true, component: Profile },
-  { path: '/register', exact: true, component: Register },
-  { path: '/ticket/:ticket_id', exact: true, component: TicketDetail },
-  { path: '/ticket', exact: true, component: Ticket },
-  { path: '/traffic', exact: true, component: Traffic },
+    { path: '/dashboard', exact: true, component: Dashboard },
+    { path: '/forgetpassword', exact: true, component: ForgetPassword },
+    { path: '/', exact: true, component: Index },
+    { path: '/invite', exact: true, component: Invite },
+    { path: '/knowledge', exact: true, component: Knowledge },
+    { path: '/login', exact: true, component: Login },
+    { path: '/node', exact: true, component: Node },
+    { path: '/order/:trade_no', exact: true, component: OrderDetail },
+    { path: '/order', exact: true, component: Order },
+    { path: '/plan/:plan_id', exact: true, component: PlanDetail },
+    { path: '/plan', exact: true, component: Plan },
+    { path: '/profile', exact: true, component: Profile },
+    { path: '/register', exact: true, component: Register },
+    { path: '/ticket/:ticket_id', exact: true, component: TicketDetail },
+    { path: '/ticket', exact: true, component: Ticket },
+    { path: '/traffic', exact: true, component: Traffic },
 ];
 
 export default routes;

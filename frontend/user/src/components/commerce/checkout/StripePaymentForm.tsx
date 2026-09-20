@@ -1,12 +1,11 @@
-import React from "react";
-import {
-    CardElement,
-    Elements,
-    useElements,
-    useStripe,
-} from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import type { StripeCardElementOptions, StripeCardElementChangeEvent, Token } from "@stripe/stripe-js";
+import React from 'react';
+import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import type {
+    StripeCardElementOptions,
+    StripeCardElementChangeEvent,
+    Token,
+} from '@stripe/stripe-js';
 
 interface StripeCardFormProps {
     callback?: (error: string | null | undefined, token?: Token) => void;
@@ -20,17 +19,17 @@ interface StripePaymentFormProps extends StripeCardFormProps {
 const cardElementOptions: StripeCardElementOptions = {
     style: {
         base: {
-            color: "#32325d",
+            color: '#32325d',
             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: "antialiased",
-            fontSize: "16px",
-            "::placeholder": {
-                color: "#aab7c4",
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4',
             },
         },
         invalid: {
-            color: "#fa755a",
-            iconColor: "#fa755a",
+            color: '#fa755a',
+            iconColor: '#fa755a',
         },
     },
 };
@@ -50,18 +49,18 @@ export function StripeCardForm({ callback, children }: StripeCardFormProps) {
 
         const card = elements.getElement(CardElement);
         if (!card) {
-            throw new TypeError("Stripe card element was not mounted");
+            throw new TypeError('Stripe card element was not mounted');
         }
         const result = await stripe.createToken(card);
 
         if (result.error) {
-            if (typeof callback === "function") {
+            if (typeof callback === 'function') {
                 callback(result.error.message);
             }
             return;
         }
 
-        if (typeof callback === "function") {
+        if (typeof callback === 'function') {
             callback(null, result.token);
         }
     };

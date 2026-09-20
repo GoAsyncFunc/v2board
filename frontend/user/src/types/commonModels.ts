@@ -6,53 +6,53 @@ import type { CatalogPlan, PlanPeriod } from './plan';
 import type { StateUpdate } from './queryModels';
 
 export interface UserCommunicationConfig {
-  commission_distribution_enable?: boolean | number;
-  commission_distribution_l1?: number;
-  commission_distribution_l2?: number;
-  commission_distribution_l3?: number;
-  currency?: string;
-  currency_symbol?: string;
-  is_telegram?: boolean | number;
-  telegram_discuss_link?: string;
-  withdraw_close?: boolean | number;
-  withdraw_methods?: string[];
+    commission_distribution_enable?: boolean | number;
+    commission_distribution_l1?: number;
+    commission_distribution_l2?: number;
+    commission_distribution_l3?: number;
+    currency?: string;
+    currency_symbol?: string;
+    is_telegram?: boolean | number;
+    telegram_discuss_link?: string;
+    withdraw_close?: boolean | number;
+    withdraw_methods?: string[];
 }
 
 export interface CommunicationState {
-  config: UserCommunicationConfig;
+    config: UserCommunicationConfig;
 }
 
 export interface GuestState {
-  commConfig: CommunicationConfig;
-  getCommConfigLoading: boolean;
-  selectEmailSuffix?: string;
+    commConfig: CommunicationConfig;
+    getCommConfigLoading: boolean;
+    selectEmailSuffix?: string;
 }
 
 export type PlanRecord = Partial<CatalogPlan> & Record<string, NumericValue>;
 
 export interface PlanState {
-  plans: CatalogPlan[];
-  plan: PlanRecord;
-  selectPeriod?: PlanPeriod;
-  fetchLoading: boolean;
+    plans: CatalogPlan[];
+    plan: PlanRecord;
+    selectPeriod?: PlanPeriod;
+    fetchLoading: boolean;
 }
 
 export interface ModelEffects<State> {
-  put(action: StateUpdate<State>): PutEffect<StateUpdate<State>>;
+    put(action: StateUpdate<State>): PutEffect<StateUpdate<State>>;
 }
 
 export interface PlanEffects extends ModelEffects<PlanState> {
-  select(selector: (state: { plan: PlanState }) => PlanState): SelectEffect;
+    select(selector: (state: { plan: PlanState }) => PlanState): SelectEffect;
 }
 
 export type ModelGenerator<State, Data> = Generator<
-  Promise<ApiResponse<Data>> | PutEffect<StateUpdate<State>>,
-  void,
-  ApiResponse<Data>
+    Promise<ApiResponse<Data>> | PutEffect<StateUpdate<State>>,
+    void,
+    ApiResponse<Data>
 >;
 
 export type PlanGenerator<Data> = Generator<
-  Promise<ApiResponse<Data>> | PutEffect<StateUpdate<PlanState>> | SelectEffect,
-  void,
-  ApiResponse<Data> | PlanState
+    Promise<ApiResponse<Data>> | PutEffect<StateUpdate<PlanState>> | SelectEffect,
+    void,
+    ApiResponse<Data> | PlanState
 >;

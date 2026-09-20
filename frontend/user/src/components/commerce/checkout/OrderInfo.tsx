@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import { formatMessage } from '../../../locales/i18n';
 import { formatDateTimeSeconds } from '../../common/DateTimeDisplay';
 import { formatPrice } from '../../common/MoneyDisplay';
 import Modal from 'antd/lib/modal';
 import LoadingContainer from '../../common/LoadingContainer';
-import type { PaymentConfig } from "../../../types/commerce";
-import type { OrderModelRecord } from "../../../types/payment";
-import type { UserDispatch } from "../../../types/store";
+import type { PaymentConfig } from '../../../types/commerce';
+import type { OrderModelRecord } from '../../../types/payment';
+import type { UserDispatch } from '../../../types/store';
 
 interface OrderInfoProps {
     order: OrderModelRecord;
@@ -17,37 +17,35 @@ interface OrderInfoProps {
 
 export default function OrderInfo({ order, cancelLoading, dispatch }: OrderInfoProps) {
     return (
-        <div className={"block block-rounded"}>
-            <div className={"block-header block-header-default"}>
-                <h3 className={"block-title v2board-trade-no"}>
+        <div className={'block block-rounded'}>
+            <div className={'block-header block-header-default'}>
+                <h3 className={'block-title v2board-trade-no'}>
                     {formatMessage({
-                        id: "订单信息",
+                        id: '订单信息',
                     })}
                 </h3>
                 {0 === order.status && (
-                    <div className={"block-options"}>
+                    <div className={'block-options'}>
                         <button
                             disabled={cancelLoading}
-                            type={"button"}
-                            className={
-                                "btn btn-primary btn-sm btn-danger btn-rounded px-3"
-                            }
+                            type={'button'}
+                            className={'btn btn-primary btn-sm btn-danger btn-rounded px-3'}
                             onClick={() => {
                                 return Modal.confirm({
                                     title: formatMessage({
-                                        id: "注意",
+                                        id: '注意',
                                     }),
                                     content: formatMessage({
-                                        id: "如果你已经付款，取消订单可能会导致支付失败，确定取消订单吗？",
+                                        id: '如果你已经付款，取消订单可能会导致支付失败，确定取消订单吗？',
                                     }),
                                     onOk: () => {
                                         dispatch({
-                                            type: "order/cancel",
+                                            type: 'order/cancel',
                                             tradeNo: order.trade_no,
                                         });
                                     },
                                     okText: formatMessage({
-                                        id: "关闭订单",
+                                        id: '关闭订单',
                                     }),
                                     okButtonProps: {
                                         loading: cancelLoading,
@@ -58,26 +56,26 @@ export default function OrderInfo({ order, cancelLoading, dispatch }: OrderInfoP
                             {cancelLoading && (
                                 <LoadingContainer
                                     {...{
-                                        size: "sm",
-                                        type: "light",
+                                        size: 'sm',
+                                        type: 'light',
                                     }}
                                 ></LoadingContainer>
-                            )}{" "}
+                            )}{' '}
                             {formatMessage({
-                                id: "关闭订单",
+                                id: '关闭订单',
                             })}
                         </button>
                     </div>
                 )}
             </div>
-            <div className={"block-content pb-4"}>
-                <div className={"v2board-order-info"}>
+            <div className={'block-content pb-4'}>
+                <div className={'v2board-order-info'}>
                     <div>
                         <span>
                             {formatMessage({
-                                id: "订单号",
+                                id: '订单号',
                             })}
-                            {"："}
+                            {'：'}
                         </span>
                         <span>{order.trade_no}</span>
                     </div>
@@ -85,87 +83,75 @@ export default function OrderInfo({ order, cancelLoading, dispatch }: OrderInfoP
                         <div>
                             <span>
                                 {formatMessage({
-                                    id: "优惠金额",
+                                    id: '优惠金额',
                                 })}
-                                {"："}
+                                {'：'}
                             </span>
-                            <span>
-                                {formatPrice(order.discount_amount)}
-                            </span>
+                            <span>{formatPrice(order.discount_amount)}</span>
                         </div>
                     ) : (
-                        ""
+                        ''
                     )}
                     {order.surplus_amount ? (
                         <div>
                             <span>
                                 {formatMessage({
-                                    id: "旧订阅折抵金额",
+                                    id: '旧订阅折抵金额',
                                 })}
-                                {"："}
+                                {'：'}
                             </span>
-                            <span>
-                                {formatPrice(order.surplus_amount)}
-                            </span>
+                            <span>{formatPrice(order.surplus_amount)}</span>
                         </div>
                     ) : (
-                        ""
+                        ''
                     )}
                     {order.refund_amount ? (
                         <div>
                             <span>
                                 {formatMessage({
-                                    id: "退款金额",
+                                    id: '退款金额',
                                 })}
-                                {"："}
+                                {'：'}
                             </span>
-                            <span>
-                                {formatPrice(order.refund_amount)}
-                            </span>
+                            <span>{formatPrice(order.refund_amount)}</span>
                         </div>
                     ) : (
-                        ""
+                        ''
                     )}
                     {order.balance_amount ? (
                         <div>
                             <span>
                                 {formatMessage({
-                                    id: "余额支付",
+                                    id: '余额支付',
                                 })}
-                                {"："}
+                                {'：'}
                             </span>
-                            <span>
-                                {formatPrice(order.balance_amount)}
-                            </span>
+                            <span>{formatPrice(order.balance_amount)}</span>
                         </div>
                     ) : (
-                        ""
+                        ''
                     )}
                     {order.pre_handling_amount ? (
                         <div>
                             <span>
                                 {formatMessage({
-                                    id: "支付手续费",
+                                    id: '支付手续费',
                                 })}
-                                {"："}
+                                {'：'}
                             </span>
-                            <span>
-                                {formatPrice(order.pre_handling_amount)}
-                            </span>
+                            <span>{formatPrice(order.pre_handling_amount)}</span>
                         </div>
                     ) : (
-                        ""
+                        ''
                     )}
                     <div>
                         <span>
                             {formatMessage({
-                                id: "创建时间",
+                                id: '创建时间',
                             })}
-                            {"："}
+                            {'：'}
                         </span>
-                        <span>
-                            {formatDateTimeSeconds(order.created_at)}
-                        </span>
+                        <span>{formatDateTimeSeconds(order.created_at)}</span>
                     </div>
                 </div>
             </div>

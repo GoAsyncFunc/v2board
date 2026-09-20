@@ -12,35 +12,37 @@ import type { RouterState } from './router';
 export type UserValue = object | string | number | boolean | symbol | bigint | null | undefined;
 
 export interface UserAction<Result = void> {
-  type: string;
-  params?: object;
-  callback?: (result: Result) => void;
-  [key: string]: UserValue;
+    type: string;
+    params?: object;
+    callback?: (result: Result) => void;
+    [key: string]: UserValue;
 }
 
 export type UserDispatchResult<Result> = UserAction<Result> | Promise<Result> | undefined;
-export type UserDispatch = <Result = void>(action: UserAction<Result>) => UserDispatchResult<Result>;
+export type UserDispatch = <Result = void>(
+    action: UserAction<Result>,
+) => UserDispatchResult<Result>;
 export interface UserRootState {
-  comm: CommunicationState;
-  coupon: CouponState;
-  guest: GuestState;
-  invite: InviteState;
-  knowledge: KnowledgeState;
-  layout: LayoutState;
-  notice: NoticeState;
-  order: OrderModelState;
-  passport: PassportState;
-  plan: PlanState;
-  router?: RouterState;
-  server: ServerState;
-  stat: TrafficState;
-  telegram: TelegramState;
-  ticket: TicketState;
-  tutorial: TutorialState;
-  user: UserState;
+    comm: CommunicationState;
+    coupon: CouponState;
+    guest: GuestState;
+    invite: InviteState;
+    knowledge: KnowledgeState;
+    layout: LayoutState;
+    notice: NoticeState;
+    order: OrderModelState;
+    passport: PassportState;
+    plan: PlanState;
+    router?: RouterState;
+    server: ServerState;
+    stat: TrafficState;
+    telegram: TelegramState;
+    ticket: TicketState;
+    tutorial: TutorialState;
+    user: UserState;
 }
 
 export interface UserStore {
-  dispatch: UserDispatch;
-  getState(): UserRootState;
+    dispatch: UserDispatch;
+    getState(): UserRootState;
 }

@@ -1,23 +1,23 @@
-import OrderInfo from "../../components/commerce/checkout/OrderInfo";
-import ProductInfo from "../../components/commerce/checkout/ProductInfo";
-import OrderPaymentSummary from "../../components/commerce/checkout/OrderPaymentSummary";
+import OrderInfo from '../../components/commerce/checkout/OrderInfo';
+import ProductInfo from '../../components/commerce/checkout/ProductInfo';
+import OrderPaymentSummary from '../../components/commerce/checkout/OrderPaymentSummary';
 import OrderStatusResult, {
     orderResultProps,
-} from "../../components/commerce/checkout/OrderStatusResult";
-import PaymentMethods from "../../components/commerce/checkout/PaymentMethods";
-import PaymentQrModal from "../../components/commerce/checkout/PaymentQrModal";
-import React from "react";
-import MainLayout from "../../layouts/MainLayout";
-import { connect } from "react-redux";
+} from '../../components/commerce/checkout/OrderStatusResult';
+import PaymentMethods from '../../components/commerce/checkout/PaymentMethods';
+import PaymentQrModal from '../../components/commerce/checkout/PaymentQrModal';
+import React from 'react';
+import MainLayout from '../../layouts/MainLayout';
+import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import loadable from 'react-loadable';
 import { formatMessage } from '../../locales/i18n';
-import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from "../../types/payment";
-import type { PaymentMethod } from "../../types/commerce";
-import type { UserDispatch, UserRootState } from "../../types/store";
+import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from '../../types/payment';
+import type { PaymentMethod } from '../../types/commerce';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 const StripeForm = loadable({
-    loader: () => import("../../components/commerce/checkout/StripePaymentForm"),
+    loader: () => import('../../components/commerce/checkout/StripePaymentForm'),
     loading: () => null,
 });
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
@@ -27,10 +27,13 @@ type OrderDetailProps = OrderDetailStateProps & {
     dispatch: UserDispatch;
     match: { params: { trade_no: string } };
 };
-interface PaymentState { stripe: StripeCheckoutState; pk?: string; }
+interface PaymentState {
+    stripe: StripeCheckoutState;
+    pk?: string;
+}
 
 function requirePaymentMethod(payment: CheckoutPaymentMethod | undefined): CheckoutPaymentMethod {
-    if (!payment) throw new TypeError("Selected payment method was not found");
+    if (!payment) throw new TypeError('Selected payment method was not found');
     return payment;
 }
 
@@ -39,16 +42,16 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
 
     componentDidMount() {
         this.fetchData();
-        this.props.dispatch({ type: "user/getUserInfo" });
-        this.props.dispatch({ type: "comm/config" });
+        this.props.dispatch({ type: 'user/getUserInfo' });
+        this.props.dispatch({ type: 'comm/config' });
     }
     componentWillUnmount() {
         clearTimeout(orderPollingTimer);
-        this.props.dispatch({ type: "order/empty" });
+        this.props.dispatch({ type: 'order/empty' });
     }
     fetchData() {
         this.props.dispatch({
-            type: "order/detail",
+            type: 'order/detail',
             tradeNo: this.props.match.params.trade_no,
             callback: () => {
                 this.check();
@@ -58,7 +61,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
     }
     getPaymentMethod() {
         this.props.dispatch({
-            type: "order/getPaymentMethod",
+            type: 'order/getPaymentMethod',
             complete: (methods: CheckoutPaymentMethod[]) => {
                 if (methods.length) this.changePaymentMethod(methods[0].id);
             },
@@ -67,22 +70,23 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
     checkout() {
         const { selectMethod: methodId, paymentMethod: methods } = this.props.order;
         const { stripe } = this.state;
-        const payment = methods.find(method => method.id === methodId);
-        if (payment && payment.payment === "StripeCredit") {
+        const payment = methods.find((method) => method.id === methodId);
+        if (payment && payment.payment === 'StripeCredit') {
             if (!stripe.token) {
-                return message.error(formatMessage({ id: "请检查信用卡支付信息" }));
+                return message.error(formatMessage({ id: '请检查信用卡支付信息' }));
             }
             this.props.dispatch({
-                type: "order/checkoutByStripe",
+                type: 'order/checkoutByStripe',
                 tradeNo: this.props.match.params.trade_no,
                 method: methodId,
                 token: stripe.token.id,
-                complete: () => message.loading(formatMessage({ id: '请稍等，我们正在验证该笔支付' }), 5),
+                complete: () =>
+                    message.loading(formatMessage({ id: '请稍等，我们正在验证该笔支付' }), 5),
             });
             return;
         }
         this.props.dispatch({
-            type: "order/checkout",
+            type: 'order/checkout',
             tradeNo: this.props.match.params.trade_no,
             method: methodId,
             complete: () => message.info(formatMessage({ id: '正在前往收银台' })),
@@ -91,7 +95,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
     check() {
         orderPollingTimer = setTimeout(() => {
             this.props.dispatch({
-                type: "order/check",
+                type: 'order/check',
                 tradeNo: this.props.match.params.trade_no,
                 callback: (response: { data?: number | string | null }) => {
                     if (response.data === 0) {
@@ -100,11 +104,11 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                     }
                     clearTimeout(orderPollingTimer);
                     this.props.dispatch({
-                        type: "order/setState",
+                        type: 'order/setState',
                         payload: { qrcodeModalVisible: false },
                     });
                     this.props.dispatch({
-                        type: "order/detail",
+                        type: 'order/detail',
                         tradeNo: this.props.match.params.trade_no,
                     });
                 },
@@ -119,31 +123,36 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
     }
     changePaymentMethod(methodId: PaymentMethod['id']) {
         const { paymentMethod: methods, order } = this.props.order;
-        const payment = methods.find(method => method.id === methodId);
-        if (payment && payment.payment === "StripeCredit" && !this.state.pk) {
+        const payment = methods.find((method) => method.id === methodId);
+        if (payment && payment.payment === 'StripeCredit' && !this.state.pk) {
             this.props.dispatch({
-                type: "comm/getStripePublicKey",
+                type: 'comm/getStripePublicKey',
                 id: methodId,
                 complete: (publicKey: string) => {
                     this.setState({ pk: publicKey });
                 },
             });
         }
-        const selectedPayment = Number(order.total_amount) > 0 ? requirePaymentMethod(payment) : payment;
-        if (selectedPayment && (selectedPayment.handling_fee_fixed || selectedPayment.handling_fee_percent)) {
+        const selectedPayment =
+            Number(order.total_amount) > 0 ? requirePaymentMethod(payment) : payment;
+        if (
+            selectedPayment &&
+            (selectedPayment.handling_fee_fixed || selectedPayment.handling_fee_percent)
+        ) {
             order.pre_handling_amount =
-                Number(order.total_amount) * (selectedPayment.handling_fee_percent / 100) + selectedPayment.handling_fee_fixed;
+                Number(order.total_amount) * (selectedPayment.handling_fee_percent / 100) +
+                selectedPayment.handling_fee_fixed;
         } else {
             order.pre_handling_amount = 0;
         }
         this.props.dispatch({
-            type: "order/setState",
+            type: 'order/setState',
             payload: { selectMethod: methodId, order },
         });
     }
     checkImage(url: string) {
         const request = new XMLHttpRequest();
-        request.open("HEAD", url, false);
+        request.open('HEAD', url, false);
         request.send();
         return request.status !== 404;
     }
@@ -160,42 +169,25 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
         } = this.props.order;
         const { config } = this.props.comm;
         const { stripe } = this.state;
-        const selectedPayment: Partial<CheckoutPaymentMethod> = methods.find(method => method.id === selectedMethod) || {};
+        const selectedPayment: Partial<CheckoutPaymentMethod> =
+            methods.find((method) => method.id === selectedMethod) || {};
         return (
-            <MainLayout
-                {...this.props}
-                title={formatMessage({ id: "订单详情" })}
-            >
-                <main id={"main-container"}>
-                    <div className={"content content-full"}>
+            <MainLayout {...this.props} title={formatMessage({ id: '订单详情' })}>
+                <main id={'main-container'}>
+                    <div className={'content content-full'}>
                         {detailsLoading ? (
-                            <div
-                                className={"spinner-grow text-primary"}
-                                role={"status"}
-                            >
-                                <span className={"sr-only"}>
-                                    {"Loading..."}
-                                </span>
+                            <div className={'spinner-grow text-primary'} role={'status'}>
+                                <span className={'sr-only'}>{'Loading...'}</span>
                             </div>
                         ) : (
-                            <div className={"row"} id={"cashier"}>
+                            <div className={'row'} id={'cashier'}>
                                 <div
-                                    className={
-                                        0 === order.status
-                                            ? "col-md-8 col-sm-12"
-                                            : "col-12"
-                                    }
+                                    className={0 === order.status ? 'col-md-8 col-sm-12' : 'col-12'}
                                 >
                                     {0 !== order.status && (
-                                        <div className={"block block-rounded"}>
-                                            <div
-                                                className={"block-content pt-0"}
-                                            >
-                                                {
-                                                    <OrderStatusResult
-                                                        status={order.status}
-                                                    />
-                                                }
+                                        <div className={'block block-rounded'}>
+                                            <div className={'block-content pt-0'}>
+                                                {<OrderStatusResult status={order.status} />}
                                             </div>
                                         </div>
                                     )}
@@ -214,85 +206,58 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                                     {0 === order.status && (
                                         <React.Fragment>
                                             <div
-                                                className={
-                                                    "block block-rounded js-appear-enabled"
-                                                }
+                                                className={'block block-rounded js-appear-enabled'}
                                             >
                                                 <div
-                                                    className={
-                                                        "block-header block-header-default"
-                                                    }
+                                                    className={'block-header block-header-default'}
                                                 >
-                                                    <h3
-                                                        className={
-                                                            "block-title"
-                                                        }
-                                                    >
+                                                    <h3 className={'block-title'}>
                                                         {formatMessage({
-                                                            id: "支付方式",
+                                                            id: '支付方式',
                                                         })}
                                                     </h3>
-                                                    <div
-                                                        className={
-                                                            "block-options"
-                                                        }
-                                                    ></div>
+                                                    <div className={'block-options'}></div>
                                                 </div>
                                                 <PaymentMethods
                                                     methods={methods}
-                                                    selectedMethod={
-                                                        selectedMethod
-                                                    }
-                                                    onSelect={(id) =>
-                                                        this.changePaymentMethod(
-                                                            id,
-                                                        )
-                                                    }
+                                                    selectedMethod={selectedMethod}
+                                                    onSelect={(id) => this.changePaymentMethod(id)}
                                                 />
                                             </div>
                                         </React.Fragment>
                                     )}
                                     {0 === order.status &&
-                                        "StripeCredit" ===
-                                            selectedPayment.payment &&
+                                        'StripeCredit' === selectedPayment.payment &&
                                         this.state.pk && (
                                             <React.Fragment>
-                                                <h3
-                                                    className={
-                                                        "font-w300 mt-5 mb-3"
-                                                    }
-                                                >
+                                                <h3 className={'font-w300 mt-5 mb-3'}>
                                                     {formatMessage({
-                                                        id: "填写信用卡支付信息",
+                                                        id: '填写信用卡支付信息',
                                                     })}
                                                 </h3>
                                                 <StripeForm
                                                     key={this.state.pk}
                                                     pk={this.state.pk}
-                                                    callback={(error: string | null | undefined, token?: StripeToken | null) =>
-                                                        this.stripeCallback(
-                                                            error,
-                                                            token,
-                                                        )
-                                                    }
+                                                    callback={(
+                                                        error: string | null | undefined,
+                                                        token?: StripeToken | null,
+                                                    ) => this.stripeCallback(error, token)}
                                                 ></StripeForm>
                                                 <div
                                                     style={{
                                                         fontSize: 12,
                                                     }}
-                                                    className={"mt-3 mb-5"}
+                                                    className={'mt-3 mb-5'}
                                                 >
                                                     <i
-                                                        className={
-                                                            "fa fa-user-shield"
-                                                        }
+                                                        className={'fa fa-user-shield'}
                                                         style={{
                                                             marginRight: 5,
-                                                            color: "#7cb305",
+                                                            color: '#7cb305',
                                                         }}
                                                     ></i>
                                                     {formatMessage({
-                                                        id: "您的信用卡信息只会被用作当次扣款，系统并不会保存，这是我们认为最安全的。",
+                                                        id: '您的信用卡信息只会被用作当次扣款，系统并不会保存，这是我们认为最安全的。',
                                                     })}
                                                 </div>
                                             </React.Fragment>
@@ -317,7 +282,7 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                     payUrl={typeof payUrl === 'string' ? payUrl : undefined}
                     onCancel={() =>
                         this.props.dispatch({
-                            type: "order/setState",
+                            type: 'order/setState',
                             payload: {
                                 qrcodeModalVisible: false,
                                 payUrl: undefined,
