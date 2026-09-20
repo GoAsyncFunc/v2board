@@ -173,7 +173,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/payment.js"
+    "to": "models/payment.ts"
   },
   {
     "from": "app/store.tsx",
@@ -512,11 +512,11 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/payment.js",
+    "from": "models/payment.ts",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "models/payment.js",
+    "from": "models/payment.ts",
     "to": "services/request.ts"
   },
   {

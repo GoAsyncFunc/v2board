@@ -15,27 +15,14 @@ import MainLayout from '../layouts/MainLayout';
 import { createPaymentNotifyColumn } from '../components/PaymentNotifyColumn';
 import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { AdminDispatch } from '../types/store';
+import type { PaymentForm, PaymentState } from '../types/payment';
 
 
 const readonlyColumns = createReadonlyPaymentColumns();
 
-interface PaymentFormField {
-  label: string;
-  type?: string;
-  description?: string;
-  value?: PaymentConfigValue;
-}
-
-type PaymentForm = Record<string, PaymentFormField>;
-
 function toInputValue(value: PaymentConfigValue): string | number | undefined {
   if (value === null || value === undefined) return undefined;
   return typeof value === 'boolean' ? String(value) : value;
-}
-
-interface PaymentState {
-  payments: PaymentRecord[];
-  fetchLoading: boolean;
 }
 
 interface PaymentEditorProps {
