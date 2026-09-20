@@ -3,11 +3,13 @@ export {};
 import type { AdminHistory } from '../app/history';
 import type { AdminDvaApplication } from '../app/store';
 import type { AdminRouteConfig } from '../routes/types';
-import type { AdminRootState, AdminValue } from './store';
+import type { AdminRootState } from './store';
 
 declare global {
     interface Window {
         settings: {
+            background_url?: string;
+            logo?: string;
             secure_path: string;
             title?: string;
             host?: string;
@@ -16,7 +18,6 @@ declare global {
                 header?: string;
                 sidebar?: string;
             };
-            [key: string]: AdminValue;
         };
         g_routes: AdminRouteConfig[];
         g_app: AdminDvaApplication;

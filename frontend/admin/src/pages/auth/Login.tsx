@@ -25,7 +25,9 @@ interface AdminLoginState {
     password: string;
 }
 
-function getSettingString(name: string): string | undefined {
+type LoginBrandSetting = 'background_url' | 'logo' | 'title';
+
+function getSettingString(name: LoginBrandSetting): string | undefined {
     const value = window.settings[name];
     return typeof value === 'string' ? value : undefined;
 }

@@ -24,6 +24,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/routes/index.ts',
     '../src/routes/types.ts',
     '../src/types/api.ts',
+    '../src/types/dva.ts',
     '../src/types/dvaCore.d.ts',
     '../src/utils/clipboard.ts',
   ];
@@ -128,6 +129,27 @@ test('admin application runtime is implemented as typed TSX components', async (
       '@types/react-router-dom': '5.3.3',
     },
   );
+});
+
+test('admin DVA runtime uses named contracts instead of broad object placeholders', async () => {
+  const contractPaths = [
+    '../src/types/store.ts',
+    '../src/types/dva.ts',
+    '../src/types/dvaCore.d.ts',
+    '../src/runtime/dvaApplication.tsx',
+    '../src/runtime/loadingPlugin.ts',
+    '../src/app/store.tsx',
+  ];
+  for (const relativePath of contractPaths) {
+    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
+    assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
+  }
+
+  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+  const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+  assert.match(storeTypes, /Action extends AdminAction/);
+  assert.match(dvaTypes, /export interface DvaPlugin/);
+  assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
 });
 
 test('admin business contracts do not depend on rendering components', async () => {

@@ -2,10 +2,10 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteComponentProps, RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
+import type { PluginValue } from './pluginRuntime';
 import type { AdminRouteComponent, AdminRouteConfig } from '../routes/types';
-import type { AdminValue } from '../types/store';
 
-export type DynamicRouteProps = Record<string, AdminValue>;
+export type DynamicRouteProps = Record<string, PluginValue>;
 type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;
 
 export interface InitialRoutePropsContext extends DynamicRouteProps {

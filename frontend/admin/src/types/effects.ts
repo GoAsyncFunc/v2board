@@ -4,7 +4,7 @@ import type { AdminAction } from './store';
 export type EffectInstruction = object;
 
 export interface PutEffectTools<Action = AdminAction> {
-    put(action: Action): EffectInstruction;
+    put<EffectAction extends Action>(action: EffectAction): EffectInstruction;
 }
 
 export interface ModelEffectTools<RootState, Action = AdminAction> extends PutEffectTools<Action> {

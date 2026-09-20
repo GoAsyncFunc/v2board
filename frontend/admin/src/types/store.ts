@@ -18,17 +18,11 @@ import type { ThemeState } from './theme';
 import type { TicketState } from './ticket';
 import type { UserModuleState } from './user';
 
-export type AdminValue = object | string | number | boolean | symbol | bigint | null | undefined;
-
 export interface AdminAction {
     type: string;
-    params?: object;
-    callback?: () => void;
-    [key: string]: AdminValue;
 }
 
-export type AdminDispatchResult = AdminAction | Promise<AdminAction>;
-export type AdminDispatch = (action: AdminAction) => AdminDispatchResult;
+export type AdminDispatch = <Action extends AdminAction>(action: Action) => void;
 export interface AdminRootState {
     auth: AuthState;
     config: AdminConfigState;

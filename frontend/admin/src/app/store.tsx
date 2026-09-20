@@ -32,12 +32,13 @@ import theme from '../models/theme';
 import ticket from '../models/ticket';
 import user from '../models/user';
 import type { AdminStore } from '../types/store';
+import type { DvaOptions, DvaPlugin } from '../types/dva';
 
 export interface AdminDvaApplication extends DvaApplication {}
 
 interface DvaConfig {
-    config?: Record<string, object>;
-    plugins?: object[];
+    config?: DvaOptions;
+    plugins?: DvaPlugin[];
 }
 
 const models = {
