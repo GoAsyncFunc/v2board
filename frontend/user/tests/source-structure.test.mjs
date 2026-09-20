@@ -61,6 +61,24 @@ test('user route definitions live in the dedicated routes directory', async () =
   await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
 });
 
+test('user pages are grouped by business domain without migration scripts', async () => {
+  const pagesDirectory = new URL('../src/pages/', import.meta.url);
+  const pageEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
+  const expectedDomains = ['account', 'auth', 'commerce', 'dashboard', 'subscription', 'support'];
+  assert.deepEqual(pageEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
+  assert.deepEqual(pageEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')), []);
+
+  for (const domain of expectedDomains) {
+    const pageNames = await fs.readdir(new URL(`${domain}/`, pagesDirectory));
+    assert.ok(pageNames.some(name => name.endsWith('.tsx')), `${domain} should contain at least one page`);
+  }
+
+  const scriptNames = await fs.readdir(new URL('../scripts/', import.meta.url));
+  for (const removedScript of ['split-order-payment.mjs', 'check-page-screenshots.mjs']) {
+    assert.equal(scriptNames.includes(removedScript), false);
+  }
+});
+
 test('user application runtime is implemented as typed TSX components', async () => {
   const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
   const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
@@ -73,7 +91,7 @@ test('user application runtime is implemented as typed TSX components', async ()
 test('user root state names every registered business model', async () => {
   const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
   const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
-  const dashboard = await fs.readFile(new URL('../src/pages/Dashboard.tsx', import.meta.url), 'utf8');
+  const dashboard = await fs.readFile(new URL('../src/pages/dashboard/Dashboard.tsx', import.meta.url), 'utf8');
   assert.match(storeTypes, /export interface UserRootState/);
   for (const model of ['comm', 'coupon', 'guest', 'invite', 'knowledge', 'layout', 'notice', 'order', 'passport', 'plan', 'server', 'stat', 'telegram', 'ticket', 'tutorial', 'user']) {
     assert.match(storeTypes, new RegExp(`\\b${model}:`));

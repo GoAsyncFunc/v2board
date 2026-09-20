@@ -1,23 +1,23 @@
-import OrderInfo from "../components/checkout/OrderInfo";
-import ProductInfo from "../components/checkout/ProductInfo";
-import OrderPaymentSummary from "../components/checkout/OrderPaymentSummary";
+import OrderInfo from "../../components/checkout/OrderInfo";
+import ProductInfo from "../../components/checkout/ProductInfo";
+import OrderPaymentSummary from "../../components/checkout/OrderPaymentSummary";
 import OrderStatusResult, {
     orderResultProps,
-} from "../components/checkout/OrderStatusResult";
-import PaymentMethods from "../components/checkout/PaymentMethods";
-import PaymentQrModal from "../components/checkout/PaymentQrModal";
+} from "../../components/checkout/OrderStatusResult";
+import PaymentMethods from "../../components/checkout/PaymentMethods";
+import PaymentQrModal from "../../components/checkout/PaymentQrModal";
 import React from "react";
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
 import { connect } from "react-redux";
 import message from 'antd/lib/message';
 import loadable from 'react-loadable';
-import { formatMessage } from '../locales/i18n';
-import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from "../types/payment";
-import type { PaymentMethod } from "../types/commerce";
-import type { UserDispatch, UserRootState } from "../types/store";
+import { formatMessage } from '../../locales/i18n';
+import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from "../../types/payment";
+import type { PaymentMethod } from "../../types/commerce";
+import type { UserDispatch, UserRootState } from "../../types/store";
 
 const StripeForm = loadable({
-    loader: () => import("../components/checkout/StripePaymentForm"),
+    loader: () => import("../../components/checkout/StripePaymentForm"),
     loading: () => null,
 });
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.

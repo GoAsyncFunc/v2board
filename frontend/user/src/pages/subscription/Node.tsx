@@ -1,14 +1,14 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout';
 import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
-import history from '../app/routerHistory';
-import { calculateUsage } from '../utils/siteHelpers';
-import { formatMessage } from '../locales/i18n';
-import { createNodeColumns } from '../components/NodeColumns';
-import type { UserDispatch, UserRootState } from '../types/store';
+import history from '../../app/routerHistory';
+import { calculateUsage } from '../../utils/siteHelpers';
+import { formatMessage } from '../../locales/i18n';
+import { createNodeColumns } from '../../components/NodeColumns';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
-import '../services/request';
+import '../../services/request';
 const message = (id: string): string => formatMessage({ id });
 
 type NodePageStateProps = Pick<UserRootState, 'server' | 'user' | 'order'>;

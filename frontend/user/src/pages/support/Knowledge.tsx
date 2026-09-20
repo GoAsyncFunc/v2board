@@ -1,16 +1,16 @@
 import React from 'react';
-import { formatDate } from '../components/DateTimeDisplay';
+import { formatDate } from '../../components/DateTimeDisplay';
 import Input from 'antd/lib/input';
 import Drawer from 'antd/lib/drawer';
 import message from 'antd/lib/message';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
-import { formatMessage, getLocale } from '../locales/i18n';
+import { formatMessage, getLocale } from '../../locales/i18n';
 import Icon from 'antd/lib/icon';
 import MarkdownIt from 'markdown-it';
-import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
-import type { UserDispatch, UserRootState } from '../types/store';
-import { copyToClipboard } from '../utils/siteHelpers';
+import type { KnowledgeId, KnowledgeState } from '../../types/knowledge';
+import type { UserDispatch, UserRootState } from '../../types/store';
+import { copyToClipboard } from '../../utils/siteHelpers';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 

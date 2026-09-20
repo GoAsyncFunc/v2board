@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { formatMessage } from '../locales/i18n';
-import { ticketDetailStyles as styles } from '../styles/ticketDetail';
-import { formatDateTime } from '../components/DateTimeDisplay';
-import type { TicketConversation, TicketMessage, TicketState } from '../types/ticket';
-import type { UserDispatch, UserRootState } from '../types/store';
+import { formatMessage } from '../../locales/i18n';
+import { ticketDetailStyles as styles } from '../../styles/ticketDetail';
+import { formatDateTime } from '../../components/DateTimeDisplay';
+import type { TicketConversation, TicketMessage, TicketState } from '../../types/ticket';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 interface TicketDetailBodyProps {
   ticket?: TicketConversation;

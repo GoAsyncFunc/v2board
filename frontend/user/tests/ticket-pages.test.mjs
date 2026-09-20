@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function load(name) {
-  const source = await fs.readFile(new URL(`../src/pages/${name}.tsx`, import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL(`../src/pages/support/${name}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { loader: 'tsx', format: 'cjs' });
   const actions = [], opened = [], timers = new Map();
   let timerId = 0;

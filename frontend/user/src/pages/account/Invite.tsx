@@ -1,7 +1,7 @@
 import React from 'react';
-import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../components/InviteDisplayColumns';
-import { formatMoney } from '../components/MoneyDisplay';
-import MainLayout from '../layouts/MainLayout';
+import { createInviteCodeDateColumn, createReadonlyCommissionColumns } from '../../components/InviteDisplayColumns';
+import { formatMoney } from '../../components/MoneyDisplay';
+import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import message from 'antd/lib/message';
@@ -9,12 +9,12 @@ import Table from 'antd/lib/table';
 import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
 import copy from 'copy-to-clipboard';
-import { formatMessage } from '../locales/i18n';
-import TransferModal from '../components/TransferCommissionModal';
-import WithdrawModal from '../components/WithdrawModal';
+import { formatMessage } from '../../locales/i18n';
+import TransferModal from '../../components/TransferCommissionModal';
+import WithdrawModal from '../../components/WithdrawModal';
 import type { ColumnProps } from 'antd/lib/table';
-import type { InviteCode, InviteConfig, InviteState } from '../types/invite';
-import type { UserDispatch, UserRootState } from '../types/store';
+import type { InviteCode, InviteConfig, InviteState } from '../../types/invite';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 
 const translate = (id: string): string => formatMessage({ id });

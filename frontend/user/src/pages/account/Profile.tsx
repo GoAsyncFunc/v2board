@@ -4,15 +4,15 @@ import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import TelegramBindModal from '../components/TelegramBindModal';
-import MainLayout from '../layouts/MainLayout';
-import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
-import { formatMessage } from '../locales/i18n';
-import { formatMoney } from '../components/MoneyDisplay';
-import type { UserCommunicationConfig } from '../types/commonModels';
-import type { UserInfo, UserSetting, UserState } from '../types/user';
-import type { UserDispatch, UserRootState } from '../types/store';
+import TelegramBindModal from '../../components/TelegramBindModal';
+import MainLayout from '../../layouts/MainLayout';
+import { get } from '../../services/request';
+import { isSuccessfulResponse } from '../../types/api';
+import { formatMessage } from '../../locales/i18n';
+import { formatMoney } from '../../components/MoneyDisplay';
+import type { UserCommunicationConfig } from '../../types/commonModels';
+import type { UserInfo, UserSetting, UserState } from '../../types/user';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
 

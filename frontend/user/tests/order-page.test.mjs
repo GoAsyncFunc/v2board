@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
-const source=await fs.readFile(new URL('../src/pages/Order.tsx',import.meta.url),'utf8');
+const source=await fs.readFile(new URL('../src/pages/commerce/Order.tsx',import.meta.url),'utf8');
 const code=(await transform(source,{loader:'tsx',format:'cjs'})).code;
 function setup(cancelLoading, mobile=false){
  const trace=[],module={exports:{}};

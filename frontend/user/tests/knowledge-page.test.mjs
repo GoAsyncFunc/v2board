@@ -6,7 +6,7 @@ import { transform } from 'esbuild';
 import MarkdownIt from 'markdown-it';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Knowledge.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/support/Knowledge.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [], copied = [], notices = [], timers = new Map(), window = {};
   let nextTimer = 0;

@@ -1,11 +1,11 @@
 import React from 'react';
 import Empty from 'antd/lib/empty';
-import MainLayout from '../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
-import { formatMessage } from '../locales/i18n';
-import PlanCard, { getUnitPriceTag, matchesPlanTab } from '../components/PlanCard';
-import type { CatalogPlan, PlanTab } from '../types/plan';
-import type { UserDispatch, UserRootState } from '../types/store';
+import { formatMessage } from '../../locales/i18n';
+import PlanCard, { getUnitPriceTag, matchesPlanTab } from '../../components/PlanCard';
+import type { CatalogPlan, PlanTab } from '../../types/plan';
+import type { UserDispatch, UserRootState } from '../../types/store';
 const message = (id: string): string => formatMessage({ id });
 
 interface PlanStateProps {

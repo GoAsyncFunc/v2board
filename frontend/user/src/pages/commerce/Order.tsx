@@ -1,19 +1,19 @@
 import React from 'react';
-import MainLayout from '../layouts/MainLayout';
-import MobileList from '../components/MobileList';
+import MainLayout from '../../layouts/MainLayout';
+import MobileList from '../../components/MobileList';
 import Badge from 'antd/lib/badge';
 import Table from 'antd/lib/table';
 import Modal from 'antd/lib/modal';
 import { connect } from 'react-redux';
-import history from '../app/routerHistory';
-import { formatDateTimeSeconds } from '../components/DateTimeDisplay';
-import { formatPrice } from '../components/MoneyDisplay';
-import { localeSettings as settings } from '../config/localeSettings';
-import { isMobile } from '../utils/siteHelpers';
-import { formatMessage } from '../locales/i18n';
-import { createOrderColumns, orderBadgeStatuses } from '../components/OrderColumns';
-import type { OrderRecord } from '../types/commerce';
-import type { UserDispatch, UserRootState } from '../types/store';
+import history from '../../app/routerHistory';
+import { formatDateTimeSeconds } from '../../components/DateTimeDisplay';
+import { formatPrice } from '../../components/MoneyDisplay';
+import { localeSettings as settings } from '../../config/localeSettings';
+import { isMobile } from '../../utils/siteHelpers';
+import { formatMessage } from '../../locales/i18n';
+import { createOrderColumns, orderBadgeStatuses } from '../../components/OrderColumns';
+import type { OrderRecord } from '../../types/commerce';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 interface OrderStateProps {
   order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };

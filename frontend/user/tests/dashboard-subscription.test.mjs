@@ -105,7 +105,7 @@ for (const mobile of [true, false]) test(`Subscription copy, QR and close mobile
 });
 
 test('Dashboard startup, notices and reset actions preserve confirmation boundaries', async () => {
-  const runtime = await load('pages/Dashboard');
+  const runtime = await load('pages/dashboard/Dashboard');
   const notice = { id: 1, title: 'Notice', content: 'Body', tags: ['弹窗'] };
   const page = new runtime.DashboardPage({
     dispatch: runtime.dispatch, notice: { notices: [notice] }, order: { saveLoading: true },
@@ -129,7 +129,7 @@ test('Dashboard startup, notices and reset actions preserve confirmation boundar
 });
 
 test('Dashboard subscription loading, empty and active states retain their actions', async () => {
-  const runtime = await load('pages/Dashboard');
+  const runtime = await load('pages/dashboard/Dashboard');
   const page = new runtime.DashboardPage({ user: { stat: [] } });
   assert.equal(page.renderSubscription({}, 0).type, 'Loading');
   nodes(page.renderSubscription({ email: 'test@example.com' }, 0), node => node.type === 'a')[0].props.onClick();

@@ -4,21 +4,21 @@ import Button from 'antd/lib/button';
 import Carousel from 'antd/lib/carousel';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
-import SubscribeImporter from '../components/SubscribeImporter';
-import LoadingContainer from '../components/LoadingContainer';
-import MainLayout from '../layouts/MainLayout';
-import history from '../app/routerHistory';
-import { formatBytes, calculateUsage, isExpired, canRenew } from '../utils/siteHelpers';
-import { formatMessage } from '../locales/i18n';
-import { formatDate, formatDateDash, formatDaysRemaining } from '../components/DateTimeDisplay';
+import SubscribeImporter from '../../components/SubscribeImporter';
+import LoadingContainer from '../../components/LoadingContainer';
+import MainLayout from '../../layouts/MainLayout';
+import history from '../../app/routerHistory';
+import { formatBytes, calculateUsage, isExpired, canRenew } from '../../utils/siteHelpers';
+import { formatMessage } from '../../locales/i18n';
+import { formatDate, formatDateDash, formatDaysRemaining } from '../../components/DateTimeDisplay';
 import {
   formatDeviceLimit,
   hasSubscriptionUsage,
   progressBarColor,
   subscribePercent,
-} from '../components/SubscribeUsage';
-import type { SubscriptionPlan, UserNotice, UserSubscription } from '../types/subscription';
-import type { UserDispatch, UserRootState } from '../types/store';
+} from '../../components/SubscribeUsage';
+import type { SubscriptionPlan, UserNotice, UserSubscription } from '../../types/subscription';
+import type { UserDispatch, UserRootState } from '../../types/store';
 
 type DashboardStateProps = Pick<UserRootState, 'user' | 'notice' | 'order' | 'comm' | 'knowledge'>;
 interface DashboardState { visible: boolean; notice?: Partial<UserNotice>; }

@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const React = { Fragment: 'Fragment', Component: class { constructor(props) { this.props = props; } setState(value) { this.state = { ...this.state, ...value }; } }, createElement(type, props, ...children) { return typeof type === 'function' ? type(props) : { type, props: props || {}, children }; } };
 async function load(original) {
   const trace = [], cache = {}, compiled = {};
-  for (const [name, file] of Object.entries({ page: original ? './fixtures/pages/user-plan.jsx' : '../src/pages/Plan.tsx', card: '../src/components/PlanCard.tsx' })) compiled[name] = (await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: file.endsWith('.tsx') ? 'tsx' : 'jsx' })).code;
+  for (const [name, file] of Object.entries({ page: original ? './fixtures/pages/user-plan.jsx' : '../src/pages/subscription/Plan.tsx', card: '../src/components/PlanCard.tsx' })) compiled[name] = (await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: file.endsWith('.tsx') ? 'tsx' : 'jsx' })).code;
   function evaluate(name) {
     if (cache[name]) return cache[name];
     const module = { exports: {} };

@@ -576,404 +576,404 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "pages/Dashboard.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "components/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "components/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "components/SubscribeImporter.tsx"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "components/SubscribeUsage.ts"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "components/LanguageSelector.tsx"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "components/Recaptcha.tsx"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Index.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "components/InviteDisplayColumns.tsx"
   },
   {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "components/TransferCommissionModal.tsx"
   },
   {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "components/WithdrawModal.tsx"
   },
   {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Invite.tsx",
+    "from": "pages/account/Invite.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "pages/Knowledge.tsx",
-    "to": "components/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/Knowledge.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Knowledge.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Knowledge.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "components/LanguageSelector.tsx"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "components/NodeColumns.tsx"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "components/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "components/MobileList.tsx"
-  },
-  {
-    "from": "pages/Order.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "components/MoneyDisplay.ts"
   },
   {
-    "from": "pages/Order.tsx",
-    "to": "components/OrderColumns.tsx"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/OrderInfo.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/OrderPaymentSummary.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/OrderStatusResult.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/PaymentMethods.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/PaymentQrModal.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/ProductInfo.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "components/checkout/StripePaymentForm.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Plan.tsx",
-    "to": "components/PlanCard.tsx"
-  },
-  {
-    "from": "pages/Plan.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Plan.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "components/checkout/Coupon.tsx"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "components/checkout/OrderSummary.tsx"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "components/checkout/Pricing.tsx"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Profile.tsx",
-    "to": "components/MoneyDisplay.ts"
-  },
-  {
-    "from": "pages/Profile.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "components/TelegramBindModal.tsx"
   },
   {
-    "from": "pages/Profile.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Profile.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "pages/Profile.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "services/request.ts"
   },
   {
-    "from": "pages/Profile.tsx",
+    "from": "pages/account/Profile.tsx",
     "to": "types/api.ts"
   },
   {
-    "from": "pages/Register.tsx",
-    "to": "app/routerHistory.ts"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "components/LanguageSelector.tsx"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "components/Recaptcha.tsx"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "config/localeSettings.ts"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "components/TicketReadonlyColumns.tsx"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/TicketDetail.tsx",
-    "to": "components/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/TicketDetail.tsx",
-    "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/TicketDetail.tsx",
-    "to": "styles/ticketDetail.ts"
-  },
-  {
-    "from": "pages/Traffic.tsx",
+    "from": "pages/account/Traffic.tsx",
     "to": "components/TrafficColumns.tsx"
   },
   {
-    "from": "pages/Traffic.tsx",
+    "from": "pages/account/Traffic.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/Traffic.tsx",
+    "from": "pages/account/Traffic.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "routes/index.ts",
-    "to": "pages/Dashboard.tsx"
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "components/LanguageSelector.tsx"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "components/Recaptcha.tsx"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/auth/Index.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/auth/Login.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/auth/Login.tsx",
+    "to": "components/LanguageSelector.tsx"
+  },
+  {
+    "from": "pages/auth/Login.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/auth/Login.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "components/LanguageSelector.tsx"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "components/Recaptcha.tsx"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "components/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "components/MobileList.tsx"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "components/MoneyDisplay.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "components/OrderColumns.tsx"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "config/localeSettings.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/commerce/Order.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/OrderInfo.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/OrderPaymentSummary.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/OrderStatusResult.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/PaymentMethods.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/PaymentQrModal.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/ProductInfo.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/checkout/StripePaymentForm.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "components/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "components/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "components/SubscribeImporter.tsx"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "components/SubscribeUsage.ts"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/dashboard/Dashboard.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "components/NodeColumns.tsx"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "pages/subscription/Node.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/subscription/Plan.tsx",
+    "to": "components/PlanCard.tsx"
+  },
+  {
+    "from": "pages/subscription/Plan.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/subscription/Plan.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "components/checkout/Coupon.tsx"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "components/checkout/OrderSummary.tsx"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "components/checkout/Pricing.tsx"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/support/Knowledge.tsx",
+    "to": "components/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/support/Knowledge.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/support/Knowledge.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/support/Knowledge.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/support/Ticket.tsx",
+    "to": "components/TicketReadonlyColumns.tsx"
+  },
+  {
+    "from": "pages/support/Ticket.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/support/Ticket.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/support/TicketDetail.tsx",
+    "to": "components/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/support/TicketDetail.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/support/TicketDetail.tsx",
+    "to": "styles/ticketDetail.ts"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Forgetpassword.tsx"
+    "to": "pages/account/Invite.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Index.tsx"
+    "to": "pages/account/Profile.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Invite.tsx"
+    "to": "pages/account/Traffic.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Knowledge.tsx"
+    "to": "pages/auth/ForgetPassword.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Login.tsx"
+    "to": "pages/auth/Index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Node.tsx"
+    "to": "pages/auth/Login.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Order.tsx"
+    "to": "pages/auth/Register.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/OrderDetail.tsx"
+    "to": "pages/commerce/Order.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Plan.tsx"
+    "to": "pages/commerce/OrderDetail.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/PlanDetail.tsx"
+    "to": "pages/dashboard/Dashboard.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Profile.tsx"
+    "to": "pages/subscription/Node.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Register.tsx"
+    "to": "pages/subscription/Plan.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Ticket.tsx"
+    "to": "pages/subscription/PlanDetail.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/TicketDetail.tsx"
+    "to": "pages/support/Knowledge.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/Traffic.tsx"
+    "to": "pages/support/Ticket.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/support/TicketDetail.tsx"
   },
   {
     "from": "runtime/dvaApplication.tsx",

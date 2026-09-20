@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
-import history from '../app/routerHistory';
-import Recaptcha from '../components/Recaptcha';
-import { formatMessage, getLocale } from '../locales/i18n';
-import { LanguageSelector } from '../components/LanguageSelector';
-import { localeSettings } from '../config/localeSettings';
-import { notify } from '../utils/siteHelpers';
-import type { RecaptchaToken, RegistrationPageProps } from '../types/auth';
-import type { UserRootState } from '../types/store';
+import history from '../../app/routerHistory';
+import Recaptcha from '../../components/Recaptcha';
+import { formatMessage, getLocale } from '../../locales/i18n';
+import { LanguageSelector } from '../../components/LanguageSelector';
+import { localeSettings } from '../../config/localeSettings';
+import { notify } from '../../utils/siteHelpers';
+import type { RecaptchaToken, RegistrationPageProps } from '../../types/auth';
+import type { UserRootState } from '../../types/store';
 
 interface ForgetPasswordState {
   sendEmailVerifyTimeout: number;

@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/Register.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/auth/Register.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const actions = [], notices = [], timers = [];
   const React = {

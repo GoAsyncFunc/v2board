@@ -27,7 +27,7 @@ function findNodes(tree, predicate) {
 }
 
 test('Login restores token login, session check, keyboard submit and navigation', async () => {
-  const code = await compile('../src/pages/Login.tsx');
+  const code = await compile('../src/pages/auth/Login.tsx');
   const actions = [], routes = [], listeners = new Map();
   const React = createReact();
   const window = {
@@ -83,7 +83,7 @@ test('Login restores token login, session check, keyboard submit and navigation'
 });
 
 test('Home page redirects without configured content and decodes configured HTML', async () => {
-  const code = await compile('../src/pages/Index.tsx');
+  const code = await compile('../src/pages/auth/Index.tsx');
   const routes = [];
   const React = createReact();
   const window = { settings: {}, atob: value => Buffer.from(value, 'base64').toString('binary') };
