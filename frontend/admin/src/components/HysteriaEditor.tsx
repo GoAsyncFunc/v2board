@@ -8,11 +8,11 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 interface HysteriaEditorProps extends ServerEditorProps { serverHysteria: ServerSaveState; }
 interface HysteriaEditorState { server: ServerRecord; visible: boolean; }
-interface HysteriaRootState extends Omit<HysteriaEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class HysteriaEditor extends React.Component<HysteriaEditorProps, HysteriaEditorState> {
   constructor(props: HysteriaEditorProps) {
@@ -78,7 +78,7 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
   }
 }
 
-const ConnectedHysteriaEditor = connect((state: HysteriaRootState) => ({
+const ConnectedHysteriaEditor = connect((state: AdminRootState) => ({
   serverHysteria: state.serverHysteria,
   serverGroup: state.serverGroup,
   serverManage: state.serverManage,

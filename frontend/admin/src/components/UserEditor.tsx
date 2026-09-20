@@ -9,7 +9,7 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import type { UserModuleState, UserPlanOption, UserRecord } from '../types/user';
 
 
@@ -23,7 +23,6 @@ interface UserEditorProps extends UserEditorOwnProps {
   plan: { plans: UserPlanOption[] };
 }
 interface UserEditorState { visible: boolean; }
-interface UserEditorRootState { user: UserModuleState; plan: UserEditorProps['plan']; }
 const EMPTY_PLAN_VALUE = null as never;
 
 export class UserEditor extends React.Component<UserEditorProps, UserEditorState> {
@@ -75,4 +74,4 @@ export class UserEditor extends React.Component<UserEditorProps, UserEditorState
   }
 }
 
-export default connect((state: UserEditorRootState) => ({ user: state.user, plan: state.plan }))(UserEditor);
+export default connect((state: AdminRootState) => ({ user: state.user, plan: state.plan }))(UserEditor);

@@ -8,11 +8,11 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import type { Scalar, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 interface TuicEditorProps extends ServerEditorProps { serverTuic: ServerSaveState; }
 interface TuicEditorState { server: ServerRecord; visible: boolean; }
-interface TuicRootState extends Omit<TuicEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState> {
   constructor(props: TuicEditorProps) {
@@ -65,4 +65,4 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
   }
 }
 
-export default connect((state: TuicRootState) => ({ serverTuic: state.serverTuic, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(TuicEditor);
+export default connect((state: AdminRootState) => ({ serverTuic: state.serverTuic, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(TuicEditor);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 export interface PermissionGroupRecord {
   id?: string | number;
@@ -23,10 +23,6 @@ interface PermissionGroupEditorProps extends PermissionGroupEditorOwnProps {
 interface PermissionGroupEditorState {
   submit: PermissionGroupRecord;
   visible: boolean;
-}
-
-interface PermissionGroupRootState {
-  serverGroup: PermissionGroupEditorProps['serverGroup'];
 }
 
 export class PermissionGroupEditor extends React.Component<PermissionGroupEditorProps, PermissionGroupEditorState> {
@@ -75,4 +71,4 @@ export class PermissionGroupEditor extends React.Component<PermissionGroupEditor
   }
 }
 
-export default connect((state: PermissionGroupRootState) => ({ serverGroup: state.serverGroup }))(PermissionGroupEditor);
+export default connect((state: AdminRootState) => ({ serverGroup: state.serverGroup }))(PermissionGroupEditor);

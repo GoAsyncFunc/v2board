@@ -12,6 +12,7 @@ import CompatibleDrawer from './CompatibleDrawer';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import type { ChildDrawerState, DnsSettingsValue, RuleSettingsValue, SecuritySettings, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {
@@ -133,7 +134,6 @@ export class TlsSettings extends React.Component<VmessTlsSettingsProps, VmessTls
 
 interface VmessEditorProps extends ServerEditorProps { serverVmess: ServerSaveState; }
 interface VmessEditorState { server: ServerRecord; visible: boolean; childDrawer: ChildDrawerState; }
-interface VmessRootState extends Omit<VmessEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorState> {
   constructor(props: VmessEditorProps) {
@@ -216,7 +216,7 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
   }
 }
 
-const ConnectedVmessEditor = connect((state: VmessRootState) => ({
+const ConnectedVmessEditor = connect((state: AdminRootState) => ({
   serverVmess: state.serverVmess,
   serverGroup: state.serverGroup,
   serverManage: state.serverManage,

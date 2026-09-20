@@ -6,11 +6,8 @@ import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
 import history from '../app/history';
-import type { AdminDispatch } from '../types/store';
-
-interface LayoutState {
-  showNav: boolean;
-}
+import type { AdminDispatch, AdminRootState } from '../types/store';
+import type { LayoutState } from '../types/session';
 
 interface MainLayoutOwnProps {
   children?: React.ReactNode;
@@ -23,7 +20,6 @@ interface MainLayoutOwnProps {
 interface MainLayoutStateProps { layout: LayoutState; }
 interface MainLayoutDispatchProps { dispatch: AdminDispatch; }
 type MainLayoutProps = MainLayoutOwnProps & MainLayoutStateProps & MainLayoutDispatchProps;
-interface MainLayoutRootState { layout: LayoutState; }
 
 const layoutTheme = window.settings.theme;
 
@@ -66,6 +62,6 @@ export class MainLayout extends React.Component<MainLayoutProps> {
   }
 }
 
-export default connect<MainLayoutStateProps, MainLayoutDispatchProps, MainLayoutOwnProps, MainLayoutRootState>(
+export default connect<MainLayoutStateProps, MainLayoutDispatchProps, MainLayoutOwnProps, AdminRootState>(
   state => ({ layout: state.layout }),
 )(MainLayout);

@@ -5,7 +5,7 @@ import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
 import { settings } from '../config/adminSettings';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 
 interface AssignOrderForm {
   email?: string;
@@ -33,11 +33,6 @@ interface AssignOrderEditorProps extends AssignOrderEditorOwnProps {
 interface AssignOrderEditorState {
   visible: boolean;
   submit: AssignOrderForm;
-}
-
-interface AssignOrderRootState {
-  plan: AssignOrderEditorProps['plan'];
-  order: AssignOrderEditorProps['order'];
 }
 
 export const emptyAssignOrder = (email?: string): AssignOrderForm => ({
@@ -102,4 +97,4 @@ export class AssignOrderEditor extends React.Component<AssignOrderEditorProps, A
   }
 }
 
-export default connect((state: AssignOrderRootState) => ({ plan: state.plan, order: state.order }))(AssignOrderEditor);
+export default connect((state: AdminRootState) => ({ plan: state.plan, order: state.order }))(AssignOrderEditor);

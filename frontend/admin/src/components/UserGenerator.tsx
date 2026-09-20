@@ -5,7 +5,8 @@ import DatePicker from 'antd/lib/date-picker';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
+import type { UserModuleState } from '../types/user';
 
 interface UserGenerationForm {
   email_prefix?: string;
@@ -27,18 +28,13 @@ interface UserGeneratorOwnProps {
 
 interface UserGeneratorProps extends UserGeneratorOwnProps {
   dispatch: AdminDispatch;
-  user: { generateLoading: boolean };
+  user: UserModuleState;
   plan: { plans?: PlanOption[] };
 }
 
 interface UserGeneratorState {
   visible: boolean;
   submit: UserGenerationForm;
-}
-
-interface UserGeneratorRootState {
-  user: UserGeneratorProps['user'];
-  plan: UserGeneratorProps['plan'];
 }
 
 export class UserGenerator extends React.Component<UserGeneratorProps, UserGeneratorState> {
@@ -93,4 +89,4 @@ export class UserGenerator extends React.Component<UserGeneratorProps, UserGener
   }
 }
 
-export default connect((state: UserGeneratorRootState) => ({ user: state.user, plan: state.plan }))(UserGenerator);
+export default connect((state: AdminRootState) => ({ user: state.user, plan: state.plan }))(UserGenerator);

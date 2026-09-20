@@ -7,6 +7,7 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 const CIPHERS = [
   'aes-128-gcm',
@@ -19,7 +20,6 @@ const CIPHERS = [
 
 interface ShadowsocksEditorProps extends ServerEditorProps { serverShadowsocks: ServerSaveState; }
 interface ShadowsocksEditorState { server: ServerRecord; visible: boolean; }
-interface ShadowsocksRootState extends Omit<ShadowsocksEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class ShadowsocksEditor extends React.Component<ShadowsocksEditorProps, ShadowsocksEditorState> {
   constructor(props: ShadowsocksEditorProps) {
@@ -103,7 +103,7 @@ export class ShadowsocksEditor extends React.Component<ShadowsocksEditorProps, S
   }
 }
 
-const ConnectedShadowsocksEditor = connect((state: ShadowsocksRootState) => ({
+const ConnectedShadowsocksEditor = connect((state: AdminRootState) => ({
   serverShadowsocks: state.serverShadowsocks,
   serverGroup: state.serverGroup,
   serverManage: state.serverManage,

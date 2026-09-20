@@ -9,6 +9,7 @@ import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 const DEFAULT_PADDING_SCHEME = JSON.stringify([
@@ -25,7 +26,6 @@ const DEFAULT_PADDING_SCHEME = JSON.stringify([
 
 interface AnyTlsEditorProps extends ServerEditorProps { serverAnyTLS: ServerSaveState; }
 interface AnyTlsEditorState { server: ServerRecord; visible: boolean; paddingEditorVisible: boolean; }
-interface AnyTlsRootState extends Omit<AnyTlsEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEditorState> {
   constructor(props: AnyTlsEditorProps) {
@@ -90,7 +90,7 @@ export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEdito
   }
 }
 
-export default connect((state: AnyTlsRootState) => ({
+export default connect((state: AdminRootState) => ({
   serverAnyTLS: state.serverAnyTLS,
   serverGroup: state.serverGroup,
   serverManage: state.serverManage,

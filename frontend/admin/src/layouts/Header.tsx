@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
 import { clearToken, getPreference, setPreference } from '../utils/siteHelpers';
 import history from '../app/history';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
 import '../services/request';
 
 export interface HeaderSearchConfig {
@@ -31,10 +31,6 @@ interface HeaderState {
   showAvatarMenu: boolean;
   showSearchBar: boolean;
   loading?: boolean;
-}
-
-interface HeaderRootState {
-  user: HeaderStateProps['user'];
 }
 
 const headerTheme = window.settings.theme;
@@ -178,6 +174,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 }
 
-export default connect<HeaderStateProps, HeaderDispatchProps, HeaderOwnProps, HeaderRootState>(
+export default connect<HeaderStateProps, HeaderDispatchProps, HeaderOwnProps, AdminRootState>(
   state => ({ user: state.user }),
 )(Header);

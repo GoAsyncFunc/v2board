@@ -9,6 +9,7 @@ import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {
@@ -27,7 +28,6 @@ function prepareServer(record?: ServerRecord): ServerRecord {
 
 interface TrojanEditorProps extends ServerEditorProps { serverTrojan: ServerSaveState; }
 interface TrojanEditorState { server: ServerRecord; visible: boolean; networkSettingsVisible: boolean; }
-interface TrojanRootState extends Omit<TrojanEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEditorState> {
   constructor(props: TrojanEditorProps) {
@@ -124,7 +124,7 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
   }
 }
 
-const ConnectedTrojanEditor = connect((state: TrojanRootState) => ({
+const ConnectedTrojanEditor = connect((state: AdminRootState) => ({
   serverTrojan: state.serverTrojan,
   serverGroup: state.serverGroup,
   serverManage: state.serverManage,

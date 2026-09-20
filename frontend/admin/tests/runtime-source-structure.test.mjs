@@ -135,3 +135,28 @@ test('admin pages select from the canonical root state', async () => {
     }
   }
 });
+
+test('admin connected layouts and editors use the canonical root state', async () => {
+  const connectedSources = [
+    '../src/layouts/Header.tsx',
+    '../src/layouts/MainLayout.tsx',
+    '../src/components/AnyTlsEditor.tsx',
+    '../src/components/AssignOrderEditor.tsx',
+    '../src/components/HysteriaEditor.tsx',
+    '../src/components/PermissionGroupEditor.tsx',
+    '../src/components/SendMailEditor.tsx',
+    '../src/components/ShadowsocksEditor.tsx',
+    '../src/components/TrojanEditor.tsx',
+    '../src/components/TuicEditor.tsx',
+    '../src/components/UserEditor.tsx',
+    '../src/components/UserGenerator.tsx',
+    '../src/components/V2NodeEditor.tsx',
+    '../src/components/VlessEditor.tsx',
+    '../src/components/VmessEditor.tsx',
+  ];
+  for (const relativePath of connectedSources) {
+    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
+    assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${relativePath} declares a duplicate root state`);
+    assert.match(source, /AdminRootState/, `${relativePath} must select from AdminRootState`);
+  }
+});

@@ -11,6 +11,7 @@ import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import type { ChildDrawerState, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {
@@ -24,7 +25,6 @@ const NETWORK_PRESETS: Record<string, string> = {
 
 interface VlessEditorProps extends ServerEditorProps { serverVless: ServerSaveState; }
 interface VlessEditorState { server: ServerRecord; visible: boolean; childDrawer: ChildDrawerState; }
-interface VlessRootState extends Omit<VlessEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorState> {
   constructor(props: VlessEditorProps) {
@@ -93,4 +93,4 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
   }
 }
 
-export default connect((state: VlessRootState) => ({ serverVless: state.serverVless, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(VlessEditor);
+export default connect((state: AdminRootState) => ({ serverVless: state.serverVless, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(VlessEditor);

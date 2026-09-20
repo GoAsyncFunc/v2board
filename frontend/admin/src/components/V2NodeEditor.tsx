@@ -10,6 +10,7 @@ import PermissionGroupEditor from './PermissionGroupEditor';
 import JsonEditor from './JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import type { ChildDrawerState, ServerEditorProps, ServerRecord, ServerSaveState } from '../types/server';
+import type { AdminRootState } from '../types/store';
 
 
 const NETWORK_PRESETS: Record<string, string> = {
@@ -26,7 +27,6 @@ const TLS_PROTOCOLS = ['anytls', 'hysteria2', 'trojan', 'tuic'];
 
 interface V2NodeEditorProps extends ServerEditorProps { serverV2node: ServerSaveState; }
 interface V2NodeEditorState { server: ServerRecord; visible: boolean; childDrawer: ChildDrawerState; }
-interface V2NodeRootState extends Omit<V2NodeEditorProps, 'children' | 'dispatch' | 'record'> {}
 
 export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEditorState> {
   constructor(props: V2NodeEditorProps) {
@@ -121,4 +121,4 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
   }
 }
 
-export default connect((state: V2NodeRootState) => ({ serverV2node: state.serverV2node, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(V2NodeEditor);
+export default connect((state: AdminRootState) => ({ serverV2node: state.serverV2node, serverGroup: state.serverGroup, serverManage: state.serverManage, serverRoute: state.serverRoute }))(V2NodeEditor);

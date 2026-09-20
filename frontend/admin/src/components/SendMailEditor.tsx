@@ -2,16 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch } from '../types/store';
+import type { AdminDispatch, AdminRootState } from '../types/store';
+import type { UserModuleState } from '../types/user';
 
 interface MailForm {
   subject?: string;
   content?: string;
-}
-
-interface UserMailState {
-  sendMailLoading: boolean;
-  filter: object[];
 }
 
 interface SendMailEditorOwnProps {
@@ -20,16 +16,12 @@ interface SendMailEditorOwnProps {
 
 interface SendMailEditorProps extends SendMailEditorOwnProps {
   dispatch: AdminDispatch;
-  user: UserMailState;
+  user: UserModuleState;
 }
 
 interface SendMailEditorState {
   visible: boolean;
   submit: MailForm;
-}
-
-interface SendMailRootState {
-  user: UserMailState;
 }
 
 export class SendMailEditor extends React.Component<SendMailEditorProps, SendMailEditorState> {
@@ -71,4 +63,4 @@ export class SendMailEditor extends React.Component<SendMailEditorProps, SendMai
   }
 }
 
-export default connect((state: SendMailRootState) => ({ user: state.user }))(SendMailEditor);
+export default connect((state: AdminRootState) => ({ user: state.user }))(SendMailEditor);
