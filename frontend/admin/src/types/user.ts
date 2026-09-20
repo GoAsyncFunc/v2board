@@ -1,4 +1,3 @@
-import type { PaginationConfig } from 'antd/lib/pagination';
 import type { FilterItem } from '../components/FilterDrawer';
 
 export interface UserRecord {
@@ -38,14 +37,29 @@ export interface UserRecord {
 export interface UserPlanOption { id: string | number; name: string; }
 export interface UserGroupOption { id: string | number; name?: string; }
 
+export interface UserPagination {
+  pageSize?: number;
+  current?: number;
+  total?: number;
+  [field: string]: string | number | boolean | undefined;
+}
+
+export interface UserSort {
+  sort?: string | number;
+  sort_type?: 'ASC' | 'DESC';
+  [field: string]: string | number | undefined;
+}
+
 export interface UserModuleState {
+  userInfo: Partial<UserRecord>;
+  getUserInfoLoading: boolean;
   users: UserRecord[];
   user: Partial<UserRecord>;
   fetchLoading: boolean;
   updateLoading?: boolean;
   generateLoading?: boolean;
   sendMailLoading?: boolean;
-  pagination: PaginationConfig;
+  pagination: UserPagination;
   filter: FilterItem[];
-  sort?: Record<string, unknown>;
+  sort?: UserSort;
 }

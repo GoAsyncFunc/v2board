@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
-const code = (await transform(await fs.readFile(new URL('../src/models/userExportEffects.js', import.meta.url), 'utf8'), { format: 'cjs' })).code;
+const code = (await transform(await fs.readFile(new URL('../src/models/userExportEffects.ts', import.meta.url), 'utf8'), { format: 'cjs', loader: 'ts' })).code;
 function run(effect, { count, code: status = 200, reject = false, callback = false } = {}) {
   const trace = [], module = { exports: {} };
   const params = count === undefined ? {} : { generate_count: count };

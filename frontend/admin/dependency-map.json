@@ -241,7 +241,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/user.js"
+    "to": "models/user.ts"
   },
   {
     "from": "app/store.tsx",
@@ -608,39 +608,39 @@
     "to": "services/request.ts"
   },
   {
-    "from": "models/user.js",
+    "from": "models/user.ts",
     "to": "models/sessionEffects.ts"
   },
   {
-    "from": "models/user.js",
-    "to": "models/userExportEffects.js"
+    "from": "models/user.ts",
+    "to": "models/userExportEffects.ts"
   },
   {
-    "from": "models/user.js",
-    "to": "models/userMutationEffects.js"
+    "from": "models/user.ts",
+    "to": "models/userMutationEffects.ts"
   },
   {
-    "from": "models/user.js",
-    "to": "models/userQueryEffects.js"
+    "from": "models/user.ts",
+    "to": "models/userQueryEffects.ts"
   },
   {
-    "from": "models/user.js",
+    "from": "models/user.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/userExportEffects.js",
+    "from": "models/userExportEffects.ts",
     "to": "services/download.ts"
   },
   {
-    "from": "models/userExportEffects.js",
+    "from": "models/userExportEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/userMutationEffects.js",
+    "from": "models/userMutationEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/userQueryEffects.js",
+    "from": "models/userQueryEffects.ts",
     "to": "services/request.ts"
   },
   {

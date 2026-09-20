@@ -1,21 +1,21 @@
 import { getPreference } from '../utils/siteHelpers';
 import * as session from './sessionEffects';
-import * as queries from './userQueryEffects.js';
-import * as mutations from './userMutationEffects.js';
-import * as exports from './userExportEffects.js';
+import * as queries from './userQueryEffects';
+import * as mutations from './userMutationEffects';
+import * as exports from './userExportEffects';
+import type { UserModuleState } from '../types/user';
 
-const initialState = {
+const initialState: UserModuleState = {
   userInfo: {}, getUserInfoLoading: false,
-  pagination: { pageSize: getPreference('user_manage_page_size') || 10, current: 1 },
+  pagination: { pageSize: (getPreference('user_manage_page_size') as number) || 10, current: 1 },
   filter: [], users: [], fetchLoading: false, user: {}, sort: {},
   generateLoading: false, sendMailLoading: false,
 };
 export default {
-  name: 'user',
-  state: { ...initialState },
+  name: 'user', state: { ...initialState },
   reducers: {
-    setState(state, { payload }) { return { ...state, ...payload }; },
-    empty(state) { return { ...initialState, userInfo: state.userInfo }; },
+    setState(state: UserModuleState, { payload }: { payload: Partial<UserModuleState> }) { return { ...state, ...payload }; },
+    empty(state: UserModuleState) { return { ...initialState, userInfo: state.userInfo }; },
   },
   effects: {
     checkLogin: session.checkLogin, getUserInfo: session.getUserInfo,
