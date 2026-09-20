@@ -1,7 +1,7 @@
-import { post } from '../services/request.js';
+import { post } from '../services/request';
 import message from 'antd/lib/message';
 import moment from 'moment';
-import { downloadCsv } from '../services/download.js';
+import { downloadCsv } from '../services/download';
 const endpoint = action => `/${window.settings.secure_path}/user/${action}`;
 
 export function* generate({ params, callback }, { put }) {

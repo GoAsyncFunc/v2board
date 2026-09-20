@@ -4,7 +4,7 @@ import routeRenderer from '../runtime/routeRenderer';
 import { routerBindings } from '../runtime/dvaApplication';
 import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
-import appRoutes from './routes.js';
+import appRoutes from './routes';
 import type { AdminStore } from '../types/store';
 
 const { ConnectedRouter } = routerBindings;

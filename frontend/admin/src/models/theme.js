@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import '../config/adminSettings';
 
 const initialState = { themes: [], active: undefined };

@@ -12,7 +12,7 @@ import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
 import AssignOrderEditor from '../components/AssignOrderEditor';
 import LoadingContainer from '../components/LoadingContainer';
 import history from '../app/navigation';
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import MainLayout from '../layouts/MainLayout';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
 import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';

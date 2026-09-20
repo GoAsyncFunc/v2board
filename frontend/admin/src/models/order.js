@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import * as orderQueries from './orderQueryEffects.js';
 
 const initialState = {

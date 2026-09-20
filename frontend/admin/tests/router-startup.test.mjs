@@ -37,7 +37,7 @@ test('admin Router accesses plugins only after bootstrap initializes them', asyn
       if (id.includes('routeRenderer')) return { __esModule: true, default() {} };
       if (id.includes('dvaApplication')) return { routerBindings: { ConnectedRouter: 'ConnectedRouter' } };
       if (id === './history') return { __esModule: true, default: history };
-      if (id === './routes.js') return { __esModule: true, default: [] };
+      if (id === './routes') return { __esModule: true, default: [] };
       throw new Error(`Unexpected dependency ${id}`);
     },
   });

@@ -1,4 +1,4 @@
-import { post } from '../services/request.js';
+import { post } from '../services/request';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
 

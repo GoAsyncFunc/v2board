@@ -1,4 +1,4 @@
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 
 export function* fetch(action, { put, select }) {
   const orderState = yield select(state => state.order);

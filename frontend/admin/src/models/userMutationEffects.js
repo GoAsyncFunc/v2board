@@ -1,4 +1,4 @@
-import { post } from '../services/request.js';
+import { post } from '../services/request';
 import message from 'antd/lib/message';
 const endpoint = action => `/${window.settings.secure_path}/user/${action}`;
 

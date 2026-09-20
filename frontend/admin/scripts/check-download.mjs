@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const result=await build({entryPoints:[path.join(home,'src/services/download.js')],bundle:true,loader:{'.js':'jsx'},write:false,format:'iife',globalName:'DownloadTest'});
+const result=await build({entryPoints:[path.join(home,'src/services/download.ts')],bundle:true,write:false,format:'iife',globalName:'DownloadTest'});
 const browser=await chromium.launch();
 try{
  const page=await browser.newPage({acceptDownloads:true});

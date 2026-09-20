@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 import history from '../app/navigation';
 
 // Retained separate from passport: existing callers use the action/complete contract.

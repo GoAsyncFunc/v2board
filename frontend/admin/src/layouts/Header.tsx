@@ -4,7 +4,7 @@ import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader
 import { clearToken, getPreference, setPreference } from '../utils/siteHelpers';
 import history from '../app/history';
 import type { AdminDispatch } from '../types/store';
-import '../services/request.js';
+import '../services/request';
 
 export interface HeaderSearchConfig {
   placeholder: string;

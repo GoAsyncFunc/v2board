@@ -1,5 +1,5 @@
 // A download link must be a DOM element, not a React element.
-export function downloadCsv(buffer, filename) {
+export function downloadCsv(buffer: BlobPart, filename: string): void {
   const blob = new Blob([buffer], { type: 'text/plain,charset=UTF-8' });
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement('a');

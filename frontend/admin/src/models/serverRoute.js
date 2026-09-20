@@ -1,4 +1,4 @@
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 
 const initialState = {
   routes: [],

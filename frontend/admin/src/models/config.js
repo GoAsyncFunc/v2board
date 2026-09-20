@@ -1,6 +1,6 @@
 import React from 'react';
 import notification from 'antd/lib/message';
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 
 const initialState = {
   ticket: {}, deposit: {}, invite: {}, site: {}, subscribe: {}, frontend: {},

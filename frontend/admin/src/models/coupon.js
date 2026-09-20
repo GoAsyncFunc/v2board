@@ -1,5 +1,5 @@
 import dayjs from 'moment';
-import { get, post } from '../services/request.js';
+import { get, post } from '../services/request';
 
 const initialState = { coupons: [], fetchLoading: false, saveLoading: false, pagination: { pageSize: 10, current: 1 }, sort: {} };
 

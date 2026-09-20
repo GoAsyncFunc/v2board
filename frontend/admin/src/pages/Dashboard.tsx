@@ -14,7 +14,7 @@ import { LabelLayout } from 'echarts/features';
 import { SVGRenderer } from 'echarts/renderers';
 import history from '../app/navigation';
 import MainLayout from '../layouts/MainLayout';
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 import { siteSettings } from '../config/siteSettings';
 import { formatIncome, formatLiveCount, type DisplayScalar } from '../components/MoneyDisplay';
 import type { AdminDispatch } from '../types/store';

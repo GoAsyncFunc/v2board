@@ -5,7 +5,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "app/routes.js"
+    "to": "app/routes.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -17,7 +17,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "runtime/routeRenderer.js"
+    "to": "runtime/routeRenderer.tsx"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -56,79 +56,79 @@
     "to": "app/store.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ConfigPayment.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ConfigSystem.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ConfigTheme.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Coupon.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Dashboard.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Giftcard.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Index.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Knowledge.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Login.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Notice.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Order.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Plan.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Queue.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ServerGroup.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ServerManage.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/ServerRoute.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/Ticket.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/TicketDetail.tsx"
   },
   {
-    "from": "app/routes.js",
+    "from": "app/routes.ts",
     "to": "pages/User.tsx"
   },
   {
@@ -301,7 +301,7 @@
   },
   {
     "from": "components/TrafficPanel.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "components/TrafficPanel.tsx",
@@ -421,7 +421,7 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "layouts/Header.tsx",
@@ -461,27 +461,27 @@
   },
   {
     "from": "models/auth.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/config.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/coupon.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/giftcard.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/knowledge.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/notice.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/order.js",
@@ -489,11 +489,11 @@
   },
   {
     "from": "models/order.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/orderQueryEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/passport.js",
@@ -501,7 +501,7 @@
   },
   {
     "from": "models/passport.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/passport.js",
@@ -513,7 +513,7 @@
   },
   {
     "from": "models/payment.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/plan.js",
@@ -521,51 +521,51 @@
   },
   {
     "from": "models/plan.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverAnyTLS.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverGroup.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverHysteria.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverManage.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverRoute.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverShadowsocks.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverTrojan.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverTuic.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverV2node.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverVless.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/serverVmess.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/sessionEffects.js",
@@ -573,7 +573,7 @@
   },
   {
     "from": "models/sessionEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/sessionEffects.js",
@@ -581,11 +581,11 @@
   },
   {
     "from": "models/stat.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/system.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/theme.js",
@@ -593,11 +593,11 @@
   },
   {
     "from": "models/theme.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/ticket.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/user.js",
@@ -621,19 +621,19 @@
   },
   {
     "from": "models/userExportEffects.js",
-    "to": "services/download.js"
+    "to": "services/download.ts"
   },
   {
     "from": "models/userExportEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/userMutationEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "models/userQueryEffects.js",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/ConfigPayment.tsx",
@@ -709,7 +709,7 @@
   },
   {
     "from": "pages/ConfigTheme.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Coupon.tsx",
@@ -745,7 +745,7 @@
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Giftcard.tsx",
@@ -833,7 +833,7 @@
   },
   {
     "from": "pages/Order.tsx",
-    "to": "services/request.js"
+    "to": "services/request.ts"
   },
   {
     "from": "pages/Plan.tsx",
@@ -1060,19 +1060,19 @@
     "to": "runtime/routerBindings.tsx"
   },
   {
-    "from": "runtime/routeRenderer.js",
+    "from": "runtime/routeRenderer.tsx",
     "to": "runtime/pluginRuntime.ts"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "config/siteSettings.ts"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "services/fetchResponse.ts"
   },
   {
-    "from": "services/request.js",
+    "from": "services/request.ts",
     "to": "utils/siteHelpers.ts"
   }
 ]

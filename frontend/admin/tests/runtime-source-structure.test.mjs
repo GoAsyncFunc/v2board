@@ -16,7 +16,11 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/runtime/loadingPlugin.ts',
     '../src/runtime/pluginRuntime.ts',
     '../src/runtime/routerBindings.tsx',
+    '../src/runtime/routeRenderer.tsx',
     '../src/services/fetchResponse.ts',
+    '../src/services/request.ts',
+    '../src/services/download.ts',
+    '../src/app/routes.ts',
   ];
   for (const relativePath of typedRuntimePaths) {
     const stat = await fs.stat(new URL(relativePath, import.meta.url));
@@ -31,6 +35,12 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/runtime/loadingPlugin.js',
     '../src/runtime/pluginRuntime.js',
     '../src/runtime/routerBindings.js',
+    '../src/runtime/routeRenderer.js',
+    '../src/services/request.js',
+    '../src/services/request.d.ts',
+    '../src/services/download.js',
+    '../src/app/routes.js',
+    '../src/app/moduleInterop.js',
     '../src/vendor/appDvaConfig.js',
     '../src/vendor/appRuntime.js',
     '../src/vendor/dva.js',

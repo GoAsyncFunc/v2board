@@ -1,4 +1,4 @@
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 
 const userEndpoint = action => `/${window.settings.secure_path}/user/${action}`;
 

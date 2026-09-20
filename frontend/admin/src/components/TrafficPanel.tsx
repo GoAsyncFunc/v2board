@@ -5,7 +5,7 @@ import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from './LoadingContainer';
-import { get } from '../services/request.js';
+import { get } from '../services/request';
 import { formatBytes } from '../utils/siteHelpers';
 
 export interface TrafficRecord {

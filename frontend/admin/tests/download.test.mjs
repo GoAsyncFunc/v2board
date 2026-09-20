@@ -5,8 +5,8 @@ import fs from 'node:fs/promises';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
-const source=await fs.readFile(new URL('../src/services/download.js',import.meta.url),'utf8');
-const code=(await transform(source,{format:'cjs'})).code;
+const source=await fs.readFile(new URL('../src/services/download.ts',import.meta.url),'utf8');
+const code=(await transform(source,{format:'cjs',loader:'ts'})).code;
 for(const fail of [false,true])test(`CSV uses DOM and releases URL; click failure=${fail}`,()=>{
  const trace=[],link={style:{},click(){trace.push('click');if(fail)throw Error('click failed');}};
  const module={exports:{}};
