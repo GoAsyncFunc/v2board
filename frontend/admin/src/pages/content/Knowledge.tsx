@@ -14,12 +14,12 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import MarkdownIt from 'markdown-it';
 import Loadable from 'react-loadable';
 import type MarkdownEditorComponent from 'react-markdown-editor-lite';
-import { createReadonlyKnowledgeColumns, type KnowledgeRecord } from '../../components/content/KnowledgeDisplayColumns';
+import { createReadonlyKnowledgeColumns } from '../../components/content/KnowledgeDisplayColumns';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import Sortable from '../../components/common/Sortable';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { KnowledgeState } from '../../types/knowledge';
+import type { KnowledgeRecord, KnowledgeState } from '../../types/knowledge';
 import { settings } from '../../config/adminSettings';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;

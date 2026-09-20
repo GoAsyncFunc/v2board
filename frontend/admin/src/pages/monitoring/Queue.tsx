@@ -3,8 +3,8 @@ import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import { createReadonlyQueueColumns, type QueueWorkload } from '../../components/monitoring/QueueDisplayColumns';
-import type { SystemMonitoringState } from '../../types/monitoring';
+import { createReadonlyQueueColumns } from '../../components/monitoring/QueueDisplayColumns';
+import type { QueueWorkload, SystemMonitoringState } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 interface QueuePageProps {

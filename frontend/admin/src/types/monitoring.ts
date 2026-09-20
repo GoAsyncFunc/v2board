@@ -1,5 +1,14 @@
-import type { DisplayScalar } from '../components/common/MoneyDisplay';
-import type { QueueWorkload } from '../components/monitoring/QueueDisplayColumns';
+export type DisplayScalar = string | number | boolean | null | undefined;
+export type QueueName = string | number | symbol | null | undefined;
+export type QueueWait = string | number | object | null | undefined;
+export type QueueMetric = string | number | null | undefined;
+
+export interface QueueWorkload {
+  name: QueueName;
+  processes?: QueueMetric;
+  length?: QueueMetric;
+  wait?: QueueWait;
+}
 
 export interface OrderChartRecord {
   type: string;

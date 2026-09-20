@@ -1,4 +1,25 @@
-import type { TicketRecord } from '../components/content/TicketDisplayColumns';
+export type TicketId = string | number;
+export type TicketTimestamp = number | string | null | undefined;
+export type TicketLevel = string | number | null | undefined;
+
+export interface TicketMessage {
+  id?: TicketId;
+  is_me?: boolean | number;
+  created_at: TicketTimestamp;
+  message?: string | number | null;
+}
+
+export interface TicketRecord {
+  id?: TicketId;
+  subject?: string;
+  level?: TicketLevel;
+  status?: boolean | number;
+  reply_status?: boolean | number;
+  created_at?: TicketTimestamp;
+  updated_at?: TicketTimestamp;
+  user_id?: TicketId;
+  message?: TicketMessage[];
+}
 
 export interface TicketPagination {
   pageSize: number;

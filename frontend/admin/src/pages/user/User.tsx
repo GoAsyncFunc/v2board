@@ -18,9 +18,10 @@ import history from '../../app/navigation';
 import { copyToClipboard, setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout';
 import UserEditor from '../../components/user/UserEditor';
-import FilterDrawer, { type FilterField, type FilterItem, type FilterValue } from '../../components/common/FilterDrawer';
+import FilterDrawer from '../../components/common/FilterDrawer';
 import ContextMenuTable from '../../components/common/ContextMenuTable';
 import { createReadonlyUserEmailColumn } from '../../components/user/UserDisplayColumns';
+import type { FilterField, FilterItem, FilterValue } from '../../types/filter';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { UserGroupOption, UserModuleState, UserPlanOption, UserRecord } from '../../types/user';
 

@@ -16,12 +16,12 @@ import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import moment from 'moment';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import { createReadonlyCouponColumns, type CouponRecord } from '../../components/promotion/CouponDisplayColumns';
+import { createReadonlyCouponColumns } from '../../components/promotion/CouponDisplayColumns';
 import MainLayout from '../../layouts/MainLayout';
 import { settings } from '../../config/adminSettings';
 import type { PlanSummary } from '../../types/config';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { CouponState } from '../../types/promotion';
+import type { CouponRecord, CouponState } from '../../types/promotion';
 import { copyText } from '../../utils/clipboard';
 
 const defaultCoupon: CouponRecord = { type: 1 };

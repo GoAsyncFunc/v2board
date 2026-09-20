@@ -1,4 +1,4 @@
-import type { FilterItem } from '../components/common/FilterDrawer';
+import type { FilterItem } from './filter';
 
 export interface UserRecord {
   id: string | number;

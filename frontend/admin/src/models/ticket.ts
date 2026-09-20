@@ -1,7 +1,6 @@
 import notification from 'antd/lib/message';
 import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
-import type { TicketId, TicketRecord } from '../components/content/TicketDisplayColumns';
-import type { TicketFilterState, TicketPagination, TicketState } from '../types/ticket';
+import type { TicketFilterState, TicketId, TicketPagination, TicketRecord, TicketState } from '../types/ticket';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 

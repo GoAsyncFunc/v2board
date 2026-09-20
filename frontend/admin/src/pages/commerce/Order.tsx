@@ -14,12 +14,13 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { get, isSuccessfulResponse, post } from '../../services/request';
 import MainLayout from '../../layouts/MainLayout';
-import FilterDrawer, { type FilterField, type FilterItem } from '../../components/common/FilterDrawer';
-import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../../components/commerce/OrderDetailBody';
+import FilterDrawer from '../../components/common/FilterDrawer';
+import OrderDetailBody from '../../components/commerce/OrderDetailBody';
 import { createReadonlyOrderColumns } from '../../components/commerce/OrderDisplayColumns';
 import { settings } from '../../config/adminSettings';
+import type { FilterField, FilterItem } from '../../types/filter';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { OrderRecord, OrderState } from '../../types/order';
+import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser, OrderRecord, OrderState } from '../../types/order';
 
 interface OrderPageProps { dispatch: AdminDispatch; order: OrderState; }
 interface OrderDetailModalProps {

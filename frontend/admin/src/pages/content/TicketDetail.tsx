@@ -7,9 +7,8 @@ import { ticketDetailClassNames as styles } from '../../styles/ticketDetail';
 import UserEditor from '../../components/user/UserEditor';
 import TrafficPanel from '../../components/user/TrafficPanel';
 import { formatDateTime } from '../../components/common/DateTimeDisplay';
-import type { TicketId, TicketMessage, TicketRecord } from '../../components/content/TicketDisplayColumns';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { TicketState } from '../../types/ticket';
+import type { TicketId, TicketMessage, TicketRecord, TicketState } from '../../types/ticket';
 
 interface TicketDetailChatProps {
   ticket?: TicketRecord;

@@ -1,6 +1,5 @@
 import { get, isSuccessfulResponse, post, type ApiResponse } from '../services/request';
-import type { KnowledgeRecord } from '../components/content/KnowledgeDisplayColumns';
-import type { KnowledgeState } from '../types/knowledge';
+import type { KnowledgeRecord, KnowledgeState } from '../types/knowledge';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 

@@ -128,6 +128,38 @@ test('admin application runtime is implemented as typed TSX components', async (
   );
 });
 
+test('admin business contracts do not depend on rendering components', async () => {
+  const typesDirectory = new URL('../src/types/', import.meta.url);
+  const typeNames = (await fs.readdir(typesDirectory)).filter(name => name.endsWith('.ts'));
+  assert.ok(typeNames.includes('filter.ts'));
+  for (const typeName of typeNames) {
+    const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
+    assert.doesNotMatch(source, /from ['"]\.\.\/(components|pages|layouts)\//, `${typeName} depends on the rendering layer`);
+  }
+
+  const modelsDirectory = new URL('../src/models/', import.meta.url);
+  const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
+  for (const modelName of modelNames) {
+    const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+    assert.doesNotMatch(source, /import type .* from ['"]\.\.\/components\//, `${modelName} imports a contract from a component`);
+  }
+
+  const contractSources = {
+    'filter.ts': ['FilterItem', 'FilterField'],
+    'knowledge.ts': ['KnowledgeRecord'],
+    'monitoring.ts': ['QueueWorkload', 'DisplayScalar'],
+    'notice.ts': ['NoticeRecord'],
+    'order.ts': ['OrderDetailRecord'],
+    'payment.ts': ['PaymentRecord'],
+    'promotion.ts': ['CouponRecord', 'GiftcardRecord'],
+    'ticket.ts': ['TicketRecord', 'TicketMessage'],
+  };
+  for (const [typeName, contracts] of Object.entries(contractSources)) {
+    const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
+    for (const contract of contracts) assert.match(source, new RegExp(`export (?:interface|type) ${contract}\\b`));
+  }
+});
+
 test('admin root state names every registered business model', async () => {
   const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
   const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');

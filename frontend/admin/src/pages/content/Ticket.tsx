@@ -10,9 +10,9 @@ import type { RadioChangeEvent } from 'antd/lib/radio/interface';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import MainLayout from '../../layouts/MainLayout';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../../components/content/TicketDisplayColumns';
+import { createReadonlyTicketColumns } from '../../components/content/TicketDisplayColumns';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { TicketFilterState, TicketState } from '../../types/ticket';
+import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../types/ticket';
 
 interface TicketPageProps {
   dispatch: AdminDispatch;

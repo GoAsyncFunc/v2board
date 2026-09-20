@@ -2,21 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
-
-export interface GiftcardPlan { id: number | string; name?: string | null; }
-export interface GiftcardRecord {
-  [field: string]: string | number | string[] | null | undefined;
-  id?: string | number;
-  name?: string;
-  type?: 1 | 2 | 3 | 4 | 5;
-  value?: string | number;
-  code?: string;
-  plan_id?: string | number | null;
-  limit_use?: string | number | null;
-  generate_count?: string | number;
-  started_at?: number | string | null;
-  ended_at?: number | string | null;
-}
+import type { GiftcardPlan, GiftcardRecord } from '../../types/promotion';
 
 export function giftcardTypeText(type: GiftcardRecord['type']): string {
   switch (type) {

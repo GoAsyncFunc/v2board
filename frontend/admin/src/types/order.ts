@@ -1,5 +1,34 @@
-import type { FilterItem } from '../components/common/FilterDrawer';
-import type { OrderDetailRecord } from '../components/commerce/OrderDetailBody';
+import type React from 'react';
+import type { FilterItem } from './filter';
+
+export interface OrderDetailRecord {
+  trade_no: React.ReactNode;
+  period: PropertyKey;
+  status: number;
+  plan_id: string | number;
+  callback_no?: React.ReactNode;
+  total_amount: number;
+  balance_amount: number;
+  discount_amount: number;
+  refund_amount: number;
+  surplus_amount: number;
+  created_at: number;
+  updated_at: number;
+  invite_user_id?: string | number;
+  commission_balance: number;
+  actual_commission_balance?: number;
+  commission_status: number;
+  user_id?: string | number;
+}
+
+export interface OrderDetailUser {
+  email: string;
+}
+
+export interface OrderDetailPlan {
+  id: string | number;
+  name?: React.ReactNode;
+}
 
 export interface OrderRecord extends OrderDetailRecord {
   id: number | string;

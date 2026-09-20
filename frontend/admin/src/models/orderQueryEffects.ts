@@ -1,5 +1,5 @@
 import { get, isSuccessfulResponse, type ApiResponse } from '../services/request';
-import type { FilterItem, FilterValue } from '../components/common/FilterDrawer';
+import type { FilterItem, FilterValue } from '../types/filter';
 import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 import type { AdminAction, AdminRootState } from '../types/store';

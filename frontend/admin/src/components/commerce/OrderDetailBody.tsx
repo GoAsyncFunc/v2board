@@ -6,35 +6,7 @@ import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
 import { settings } from '../../config/adminSettings';
-
-export interface OrderDetailRecord {
-  trade_no: React.ReactNode;
-  period: PropertyKey;
-  status: number;
-  plan_id: string | number;
-  callback_no?: React.ReactNode;
-  total_amount: number;
-  balance_amount: number;
-  discount_amount: number;
-  refund_amount: number;
-  surplus_amount: number;
-  created_at: number;
-  updated_at: number;
-  invite_user_id?: string | number;
-  commission_balance: number;
-  actual_commission_balance?: number;
-  commission_status: number;
-  user_id?: string | number;
-}
-
-export interface OrderDetailUser {
-  email: string;
-}
-
-export interface OrderDetailPlan {
-  id: string | number;
-  name?: React.ReactNode;
-}
+import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser } from '../../types/order';
 
 export interface OrderDetailBodyProps {
   order: OrderDetailRecord;

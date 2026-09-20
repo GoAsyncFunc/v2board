@@ -1,8 +1,7 @@
 import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord } from '../services/request';
-import type { NoticeRecord } from '../components/content/NoticeDisplayColumns';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-import type { NoticeState } from '../types/notice';
+import type { NoticeRecord, NoticeState } from '../types/notice';
 
 interface NoticeEffectTools extends PutEffectTools {}
 

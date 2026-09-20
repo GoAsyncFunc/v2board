@@ -9,10 +9,11 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import { createReadonlyNoticeColumns, type NoticeRecord } from '../../components/content/NoticeDisplayColumns';
+import { createReadonlyNoticeColumns } from '../../components/content/NoticeDisplayColumns';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { NoticeRecord } from '../../types/notice';
 
 const readonlyColumns = createReadonlyNoticeColumns();
 

@@ -1,7 +1,6 @@
 import { get, isSuccessfulResponse, post, type ApiResponse, type FormRecord, type JsonValue } from '../services/request';
 import '../config/adminSettings';
-import type { PaymentRecord } from '../components/config/PaymentDisplayColumns';
-import type { PaymentForm, PaymentState } from '../types/payment';
+import type { PaymentForm, PaymentRecord, PaymentState } from '../types/payment';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 

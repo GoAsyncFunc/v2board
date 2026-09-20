@@ -1,5 +1,5 @@
 // Readonly income/count display shared by admin pages; no events or requests.
-export type DisplayScalar = string | number | boolean | null | undefined;
+import type { DisplayScalar } from '../../types/monitoring';
 
 export function formatIncome(value: DisplayScalar): string {
   return value ? ((value as number) / 100).toFixed(2) : '0.00';

@@ -13,9 +13,9 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import Sortable from '../../components/common/Sortable';
 import MainLayout from '../../layouts/MainLayout';
 import { createPaymentNotifyColumn } from '../../components/config/PaymentNotifyColumn';
-import { createReadonlyPaymentColumns, type PaymentConfigValue, type PaymentRecord } from '../../components/config/PaymentDisplayColumns';
+import { createReadonlyPaymentColumns } from '../../components/config/PaymentDisplayColumns';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { PaymentForm, PaymentState } from '../../types/payment';
+import type { PaymentConfigValue, PaymentForm, PaymentRecord, PaymentState } from '../../types/payment';
 
 
 const readonlyColumns = createReadonlyPaymentColumns();
