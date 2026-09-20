@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Modal from '../vendor/Modal.js';
-import Icon from '../vendor/Icon.js';
-import copyText from '../vendor/clipboard.js';
+import Modal from 'antd/lib/modal';
+import Icon from 'antd/lib/icon';
+import copyText from 'copy-to-clipboard';
 import { formatMessage } from '../vendor/i18n.js';
 import type { UserDispatch } from '../types/store';
 import type { TelegramBot } from '../types/queryModels';

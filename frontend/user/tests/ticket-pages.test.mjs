@@ -23,9 +23,9 @@ async function load(name) {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
-      if (id.includes('/Modal')) return { Modal: 'Modal' };
+      if (id.includes('/Modal') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal', Modal: 'Modal' };
       if (id.includes('/ui.js')) return { Table: 'Table', Input: Object.assign(function Input() {}, { TextArea: 'TextArea' }), Select: Object.assign(function Select() {}, { Option: 'Option' }) };
-      if (id.includes('/Icon')) return { Icon: 'Icon' };
+      if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       if (id.includes('TicketReadonlyColumns')) return { createReadonlyTicketColumns: () => [] };

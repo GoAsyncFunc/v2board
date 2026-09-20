@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import { Button, Drawer } from '../vendor/ui.js';
 import { QRCode } from '../vendor/content.js';
 import { copyToClipboard, isAndroid, isAppleMobile, isIPadDesktopMode, isMac, isMobile, isWindows } from '../vendor/siteHelpers.js';

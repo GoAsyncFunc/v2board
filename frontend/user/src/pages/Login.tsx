@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Divider } from '../vendor/Divider.js';
-import { Icon } from '../vendor/Icon.js';
+import Divider from 'antd/lib/divider';
+import Icon from 'antd/lib/icon';
 import history from '../vendor/routerHistory.js';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
 import { LanguageSelector } from '../components/LanguageSelector';
 import { localeSettings } from '../vendor/localeSettings.js';
 import type { AuthRootState, LoginPageProps } from '../types/auth';
-import '../vendor/iconStyles.js';
 
 const translate = (id: string): string => formatMessage({ id });
 

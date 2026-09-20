@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Modal from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import type { AuthRootState, GuestState, RecaptchaToken } from '../types/auth';
 
 interface RecaptchaApi {

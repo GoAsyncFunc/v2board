@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "../../vendor/Icon.js";
+import Icon from 'antd/lib/icon';
 import { localeSettings as settings } from "../../vendor/localeSettings.js";
 import { formatMessage } from "../../vendor/i18n.js";
 import { formatPrice } from "../MoneyDisplay";

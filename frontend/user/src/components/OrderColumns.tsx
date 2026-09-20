@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider } from '../vendor/Divider.js';
+import Divider from 'antd/lib/divider';
 import { Badge } from '../vendor/ui.js';
 import { Tag } from '../vendor/ui.js';
 import history from '../vendor/routerHistory.js';

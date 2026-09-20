@@ -33,7 +33,13 @@ const MODULE_BY_EXPORT = {
 };
 
 export function expandVendorUiImports(source) {
-  return source.replace(
+  return source
+    .replace(/import\s+Icon\s+from\s+(['"])antd\/lib\/icon\1;?/g, "import { Icon } from '../vendor/Icon.js';")
+    .replace(/import\s+Modal\s+from\s+(['"])antd\/lib\/modal\1;?/g, "import { Modal } from '../vendor/Modal.js';")
+    .replace(/import\s+Divider\s+from\s+(['"])antd\/lib\/divider\1;?/g, "import { Divider } from '../vendor/Divider.js';")
+    .replace(/import\s+moment\s+from\s+(['"])moment\1;?/g, "import moment from '../vendor/modules/77642f52.js';")
+    .replace(/import\s+(\w+)\s+from\s+(['"])copy-to-clipboard\2;?/g, "import $1 from '../vendor/modules/clipboardRuntime.js';")
+    .replace(
     /import\s+\{([^}]+)\}\s+from\s+(['"])([^'"]*vendor\/)ui\.js\2;?/g,
     (statement, specifierList, quote, vendorPrefix) => specifierList
       .split(',')
@@ -47,7 +53,7 @@ export function expandVendorUiImports(source) {
         return `import { a as ${localName} } from ${quote}${vendorPrefix}modules/${moduleName}${quote};`;
       })
       .join('\n'),
-  )
+    )
     .replace(/from\s+(['"])([^'"]*vendor\/)dateTime\.js\1/g, 'from $1$2modules/77642f52.js$1')
     .replace(/import\s+(['"])([^'"]*vendor\/)dateTime\.js\1;?/g, 'import $1$2modules/77642f52.js$1;')
     .replace(/import\s+\{\s*settings\s*\}\s+from\s+(['"])([^'"]*vendor\/)adminSettings\.js\1;?/g, 'import { a as settings } from $1$2modules/adminSettingsRuntime.js$1;')

@@ -20,7 +20,10 @@ async function load(responseCode = 200) {
     if (id.includes('/ui.js')) return { Switch: 'Switch', Button: 'Button', message: {
       success: text => notices.push(['success', text]), error: text => notices.push(['error', text]),
     } };
-    if (id.includes('/Modal')) return { Modal: { confirm: options => confirmations.push(options) } };
+    if (id.includes('/Modal') || id === 'antd/lib/modal') {
+      const Modal = { confirm: options => confirmations.push(options) };
+      return { __esModule: true, default: Modal, Modal };
+    }
     if (id.includes('MainLayout')) return 'Layout';
     if (id.includes('TelegramBindModal')) return 'TelegramBindModal';
     if (id.includes('/request')) return { get: async path => { requests.push(path); return { code: responseCode }; } };

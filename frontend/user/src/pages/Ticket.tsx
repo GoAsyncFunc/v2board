@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import { Select } from '../vendor/ui.js';
 import { Input } from '../vendor/ui.js';
 import { Table } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 import MainLayout from '../layouts/MainLayout';
 import { formatMessage } from '../vendor/i18n.js';
 import { createReadonlyTicketColumns } from '../components/TicketReadonlyColumns';
 import type { TicketDraft, TicketState } from '../types/ticket';
 import type { UserDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 
 interface TicketStateProps { ticket: TicketState; }
 

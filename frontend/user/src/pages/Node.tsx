@@ -11,7 +11,6 @@ import type { ServerState } from '../types/queryModels';
 import type { UserDispatch } from '../types/store';
 
 import '../services/request';
-import '../vendor/dateTime.js';
 const message = (id: string): string => formatMessage({ id });
 
 interface NodePageStateProps {

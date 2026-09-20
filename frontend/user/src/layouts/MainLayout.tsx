@@ -8,7 +8,6 @@ import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
 import history from '../app/history';
 import type { UserDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 interface LayoutState { showNav: boolean; }
 interface MainLayoutOwnProps {

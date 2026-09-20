@@ -26,10 +26,10 @@ async function load(name, stateProps) {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
-      if (id.endsWith('/Modal.js')) return { __esModule: true, default: 'Modal', Modal: 'Modal' };
-      if (id.endsWith('/Icon.js')) return { __esModule: true, default: 'Icon' };
+      if (id.endsWith('/Modal.js') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal', Modal: 'Modal' };
+      if (id.endsWith('/Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon' };
       if (id.endsWith('/ui.js')) return { Input: 'Input', Select: Object.assign('Select', { Option: 'Option' }) };
-      if (id.endsWith('/clipboard.js')) return value => copied.push(value);
+      if (id.endsWith('/clipboard.js') || id === 'copy-to-clipboard') return value => copied.push(value);
       if (id.endsWith('/i18n.js')) return { formatMessage: ({ id }) => id };
       throw Error(id);
     },

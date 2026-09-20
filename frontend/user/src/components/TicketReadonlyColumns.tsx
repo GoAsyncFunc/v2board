@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from '../vendor/ui.js';
-import moment from '../vendor/dateTime.js';
+import moment from 'moment';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, TicketRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from '../vendor/ui.js';
 import { Carousel } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
-import { Modal } from '../vendor/Modal.js';
+import Icon from 'antd/lib/icon';
+import Modal from 'antd/lib/modal';
 import SubscribeImporter from '../components/SubscribeImporter';
 import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
@@ -16,7 +16,6 @@ import type { UserNotice, UserSubscription } from '../types/subscription';
 import type { UserDispatch } from '../types/store';
 import type { NoticeState } from '../types/queryModels';
 
-import '../vendor/iconStyles.js';
 
 interface DashboardStateProps {
   user: { subscribe: UserSubscription; stat: number[] };

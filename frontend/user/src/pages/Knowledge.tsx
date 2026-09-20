@@ -6,12 +6,11 @@ import message from 'antd/lib/message';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 import MarkdownIt from 'markdown-it';
 import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
 import type { UserDispatch } from '../types/store';
 import { copyToClipboard } from '../vendor/siteHelpers.js';
-import '../vendor/dateTime.js';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 

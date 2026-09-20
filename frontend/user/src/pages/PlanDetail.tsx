@@ -3,7 +3,7 @@ import Result from 'antd/lib/result';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
 import { Button } from '../vendor/ui.js';
-import { Modal } from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import { formatMessage } from '../vendor/i18n.js';
 import { isExpired, parseJson } from '../vendor/siteHelpers.js';
 import { router } from '../vendor/appRuntime.js';
@@ -13,7 +13,6 @@ import OrderSummary from '../components/checkout/OrderSummary';
 import type { PlanCheckoutState } from '../types/checkout';
 import type { PlanFeature } from '../types/plan';
 import type { UserDispatch } from '../types/store';
-import '../vendor/iconStyles.js';
 
 const message = (id: string): string => formatMessage({ id });
 

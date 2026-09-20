@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from './reactRedux.js';
+import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
 import { create as createDvaCore } from 'dva-core';
 import * as routerBindings from '../runtime/routerBindings';

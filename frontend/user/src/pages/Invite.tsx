@@ -4,8 +4,8 @@ import { formatMoney } from '../components/MoneyDisplay';
 import MainLayout from '../layouts/MainLayout';
 import { connect } from 'react-redux';
 import { Table, Button, Tooltip, message } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
-import copy from '../vendor/clipboard.js';
+import Icon from 'antd/lib/icon';
+import copy from 'copy-to-clipboard';
 import { formatMessage } from '../vendor/i18n.js';
 import TransferModal from '../components/TransferCommissionModal';
 import WithdrawModal from '../components/WithdrawModal';
@@ -13,9 +13,7 @@ import type { ColumnProps } from 'antd/lib/table';
 import type { InviteCode, InviteConfig, InviteState } from '../types/invite';
 import type { UserDispatch } from '../types/store';
 
-import '../vendor/iconStyles.js';
 import '../vendor/localeSettings.js';
-import '../vendor/dateTime.js';
 
 const translate = (id: string): string => formatMessage({ id });
 

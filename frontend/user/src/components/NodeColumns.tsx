@@ -2,12 +2,11 @@ import React from 'react';
 import { Tag } from '../vendor/ui.js';
 import { Badge } from '../vendor/ui.js';
 import { Tooltip } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NodeRecord, NumericValue } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 
-import '../vendor/iconStyles.js';
 const message = (id: string): string => formatMessage({ id });
 
 export function createNodeColumns(): ColumnProps<NodeRecord>[] {

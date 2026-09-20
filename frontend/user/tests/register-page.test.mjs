@@ -23,7 +23,7 @@ async function loadPage() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux' || id.includes('reactRedux')) return { connect: () => Page => Page };
-      if (id.includes('Icon.js')) return { Icon: 'Icon' };
+      if (id.includes('Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('routerHistory')) return { push() {} };
       if (id.includes('Recaptcha')) return 'Recaptcha';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id, getLocale: () => 'zh-CN' };

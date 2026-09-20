@@ -15,9 +15,12 @@ async function load(name) {
     if (id.includes('localeSettings')) return { localeSettings: { periodText: { month_price: () => 'Month' } } };
     if (id.includes('DateTimeDisplay')) return { formatDateTimeSeconds: value => `date:${value}` };
     if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
-    if (id.includes('/Modal')) return { Modal: { confirm: options => confirmations.push(options) } };
+    if (id.includes('/Modal') || id === 'antd/lib/modal') {
+      const Modal = { confirm: options => confirmations.push(options) };
+      return { __esModule: true, default: Modal, Modal };
+    }
     if (id.includes('/LoadingContainer')) return 'Loading';
-    if (id.includes('/Icon')) return { Icon: 'Icon' };
+    if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
     throw Error(id);
   } });
   return { render: module.exports.default, confirmations, actions, dispatch: action => actions.push(action) };

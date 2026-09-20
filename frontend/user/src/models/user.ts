@@ -1,7 +1,7 @@
 import message from 'antd/lib/message';
 import { get, post } from '../services/request';
 import history from '../vendor/routerHistory.js';
-import moment from '../vendor/dateTime.js';
+import moment from 'moment';
 import { formatBytes } from '../vendor/siteHelpers.js';
 import * as sessionEffects from './sessionEffects';
 import type { PutEffect } from 'redux-saga/effects';

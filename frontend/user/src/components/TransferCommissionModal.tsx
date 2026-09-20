@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import { Input } from '../vendor/ui.js';
 import { formatMessage } from '../vendor/i18n.js';
 import type { UserDispatch } from '../types/store';

@@ -26,7 +26,7 @@ async function loadRecaptcha() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
-      if (id.includes('Modal')) return 'Modal';
+      if (id.includes('Modal') || id === 'antd/lib/modal') return { __esModule: true, default: 'Modal' };
       throw new Error(id);
     },
   });

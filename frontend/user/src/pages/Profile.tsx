@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch } from '../vendor/ui.js';
 import { Button } from '../vendor/ui.js';
-import { Modal } from '../vendor/Modal.js';
+import Modal from 'antd/lib/modal';
 import { message } from '../vendor/ui.js';
 import TelegramBindModal from '../components/TelegramBindModal';
 import MainLayout from '../layouts/MainLayout';

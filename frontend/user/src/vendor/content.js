@@ -1,4 +1,4 @@
-import { withRouter } from "./router.js";
+import { withRouter } from 'react-router-dom';
 
 export const ticketDetailStyles = {
     content: "ticket-detail-content",

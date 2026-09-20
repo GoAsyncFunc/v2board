@@ -17,7 +17,6 @@ import type { IntlApi, LanguageContextValue } from '../vendor/i18n.js';
 import * as plugins from '../vendor/appRuntime.js';
 import history from './history';
 import appRoutes from './routes';
-import '../vendor/dateTime.js';
 import type { UserStore } from '../types/store';
 import type { PluginValue } from '../runtime/pluginRuntime';
 

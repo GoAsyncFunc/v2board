@@ -1,14 +1,13 @@
 import React from 'react';
-import moment from '../vendor/dateTime.js';
+import moment from 'moment';
 import { Tooltip } from '../vendor/ui.js';
 import { Tag } from '../vendor/ui.js';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 import { formatBytes } from '../vendor/siteHelpers.js';
 import { formatMessage } from '../vendor/i18n.js';
 import type { NumericValue, TrafficRecord } from '../types/commerce';
 import type { ColumnProps } from 'antd/lib/table';
 
-import '../vendor/iconStyles.js';
 
 const message = (id: string): string => formatMessage({ id });
 export function createTrafficColumns(): ColumnProps<TrafficRecord>[] {

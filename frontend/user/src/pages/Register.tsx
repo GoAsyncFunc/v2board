@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Icon } from '../vendor/Icon.js';
+import Icon from 'antd/lib/icon';
 import history from '../vendor/routerHistory.js';
 import Recaptcha from '../components/Recaptcha';
 import { formatMessage, getLocale } from '../vendor/i18n.js';
@@ -8,7 +8,6 @@ import { LanguageSelector } from '../components/LanguageSelector';
 import { notify } from '../vendor/siteHelpers.js';
 import { localeSettings } from '../vendor/localeSettings.js';
 import type { AuthRootState, RecaptchaToken, RegistrationPageProps } from '../types/auth';
-import '../vendor/iconStyles.js';
 
 interface RegistrationPageState {
   sendEmailVerifyTimeout: number;

@@ -21,6 +21,16 @@ test('user business components live outside the vendor compatibility layer', asy
     '../src/vendor/featureRuntime.js',
     '../src/vendor/loadingIndicator.js',
     '../src/vendor/payment.js',
+    '../src/vendor/Divider.js',
+    '../src/vendor/Icon.js',
+    '../src/vendor/Modal.js',
+    '../src/vendor/clipboard.js',
+    '../src/vendor/dateTime.js',
+    '../src/vendor/iconStyles.js',
+    '../src/vendor/notification.js',
+    '../src/vendor/reactRedux.js',
+    '../src/vendor/router.js',
+    '../src/vendor/theme.js',
   ];
   for (const relativePath of removedVendorPaths) {
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));

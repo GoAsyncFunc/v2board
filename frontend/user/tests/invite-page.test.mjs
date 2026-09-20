@@ -29,9 +29,9 @@ async function loadPage() {
         Table: 'Table', Button: 'Button', Tooltip: 'Tooltip',
         message: { success: text => trace.push(['success', text]) },
       };
-      if (id.includes('Icon.js')) return { Icon: 'Icon' };
+      if (id.includes('Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
-      if (id.includes('clipboard')) return value => trace.push(['copy', value]);
+      if (id.includes('clipboard') || id === 'copy-to-clipboard') return value => trace.push(['copy', value]);
       if (/iconStyles|localeSettings|dateTime/.test(id)) return {};
       if (/MainLayout|TransferCommissionModal|WithdrawModal/.test(id)) return id;
       throw new Error(`Unexpected import: ${id}`);

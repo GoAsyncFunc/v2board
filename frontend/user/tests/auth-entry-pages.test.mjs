@@ -43,8 +43,8 @@ test('Login restores token login, session check, keyboard submit and navigation'
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Page => Page };
-      if (id.includes('Divider')) return { Divider: 'Divider' };
-      if (id.includes('Icon')) return { Icon: 'Icon' };
+      if (id.includes('Divider') || id === 'antd/lib/divider') return { __esModule: true, default: 'Divider', Divider: 'Divider' };
+      if (id.includes('Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('routerHistory')) return { push: route => routes.push(route) };
       if (id.includes('i18n')) return { formatMessage: ({ id: messageId }) => messageId, getLocale: () => 'zh-CN' };
       if (id.includes('LanguageSelector')) return { LanguageSelector: 'LanguageSelector' };

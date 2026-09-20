@@ -13,10 +13,6 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "app/Router.tsx",
     "to": "vendor/dva.js"
   },
   {
@@ -185,10 +181,6 @@
   },
   {
     "from": "components/InviteDisplayColumns.tsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/InviteDisplayColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -205,15 +197,7 @@
   },
   {
     "from": "components/NodeColumns.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/NodeColumns.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/NodeColumns.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/NodeColumns.tsx",
@@ -229,10 +213,6 @@
   },
   {
     "from": "components/OrderColumns.tsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "components/OrderColumns.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -266,14 +246,6 @@
   {
     "from": "components/PlanCard.tsx",
     "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "components/Recaptcha.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/SubscribeImporter.tsx",
-    "to": "vendor/Modal.js"
   },
   {
     "from": "components/SubscribeImporter.tsx",
@@ -305,23 +277,7 @@
   },
   {
     "from": "components/TelegramBindModal.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/TelegramBindModal.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/TelegramBindModal.tsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "components/TelegramBindModal.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/TicketReadonlyColumns.tsx",
-    "to": "vendor/dateTime.js"
   },
   {
     "from": "components/TicketReadonlyColumns.tsx",
@@ -333,19 +289,7 @@
   },
   {
     "from": "components/TrafficColumns.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/TrafficColumns.tsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "components/TrafficColumns.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "components/TrafficColumns.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "components/TrafficColumns.tsx",
@@ -357,19 +301,11 @@
   },
   {
     "from": "components/TransferCommissionModal.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/TransferCommissionModal.tsx",
     "to": "vendor/i18n.js"
   },
   {
     "from": "components/TransferCommissionModal.tsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/WithdrawModal.tsx",
-    "to": "vendor/Modal.js"
   },
   {
     "from": "components/WithdrawModal.tsx",
@@ -405,19 +341,11 @@
   },
   {
     "from": "components/checkout/OrderInfo.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "components/checkout/OrderInfo.tsx",
     "to": "vendor/i18n.js"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
     "to": "components/MoneyDisplay.ts"
-  },
-  {
-    "from": "components/checkout/OrderPaymentSummary.tsx",
-    "to": "vendor/Icon.js"
   },
   {
     "from": "components/checkout/OrderPaymentSummary.tsx",
@@ -449,10 +377,6 @@
   },
   {
     "from": "components/checkout/OrderSummary.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "components/checkout/OrderSummary.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -462,10 +386,6 @@
   {
     "from": "components/checkout/PaymentMethods.tsx",
     "to": "vendor/ui.js"
-  },
-  {
-    "from": "components/checkout/PaymentQrModal.tsx",
-    "to": "vendor/Modal.js"
   },
   {
     "from": "components/checkout/PaymentQrModal.tsx",
@@ -522,10 +442,6 @@
   {
     "from": "layouts/MainLayout.tsx",
     "to": "layouts/Sidebar.tsx"
-  },
-  {
-    "from": "layouts/MainLayout.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "layouts/Sidebar.tsx",
@@ -653,10 +569,6 @@
   },
   {
     "from": "models/user.ts",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "models/user.ts",
     "to": "vendor/routerHistory.js"
   },
   {
@@ -685,19 +597,7 @@
   },
   {
     "from": "pages/Dashboard.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Dashboard.tsx",
@@ -721,15 +621,7 @@
   },
   {
     "from": "pages/Forgetpassword.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Forgetpassword.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Forgetpassword.tsx",
@@ -769,23 +661,7 @@
   },
   {
     "from": "pages/Invite.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Invite.tsx",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "pages/Invite.tsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Invite.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Invite.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Invite.tsx",
@@ -805,14 +681,6 @@
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Knowledge.tsx",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "pages/Knowledge.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -825,19 +693,7 @@
   },
   {
     "from": "pages/Login.tsx",
-    "to": "vendor/Divider.js"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Login.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Login.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Login.tsx",
@@ -858,10 +714,6 @@
   {
     "from": "pages/Node.tsx",
     "to": "services/request.ts"
-  },
-  {
-    "from": "pages/Node.tsx",
-    "to": "vendor/dateTime.js"
   },
   {
     "from": "pages/Node.tsx",
@@ -898,10 +750,6 @@
   {
     "from": "pages/Order.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "vendor/Modal.js"
   },
   {
     "from": "pages/Order.tsx",
@@ -961,10 +809,6 @@
   },
   {
     "from": "pages/OrderDetail.tsx",
-    "to": "vendor/iconStyles.js"
-  },
-  {
-    "from": "pages/OrderDetail.tsx",
     "to": "vendor/ui.js"
   },
   {
@@ -1001,19 +845,11 @@
   },
   {
     "from": "pages/PlanDetail.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
     "to": "vendor/appRuntime.js"
   },
   {
     "from": "pages/PlanDetail.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/PlanDetail.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/PlanDetail.tsx",
@@ -1041,10 +877,6 @@
   },
   {
     "from": "pages/Profile.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Profile.tsx",
     "to": "vendor/i18n.js"
   },
   {
@@ -1061,15 +893,7 @@
   },
   {
     "from": "pages/Register.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Register.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Register.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Register.tsx",
@@ -1093,19 +917,7 @@
   },
   {
     "from": "pages/Ticket.tsx",
-    "to": "vendor/Icon.js"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "vendor/Modal.js"
-  },
-  {
-    "from": "pages/Ticket.tsx",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/Ticket.tsx",
@@ -1192,16 +1004,8 @@
     "to": "vendor/routerRuntime.js"
   },
   {
-    "from": "vendor/content.js",
-    "to": "vendor/router.js"
-  },
-  {
     "from": "vendor/dva.js",
     "to": "runtime/routerBindings.tsx"
-  },
-  {
-    "from": "vendor/dva.js",
-    "to": "vendor/reactRedux.js"
   },
   {
     "from": "vendor/localeSettings.js",
@@ -1221,15 +1025,7 @@
   },
   {
     "from": "vendor/siteHelpers.js",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
     "to": "vendor/i18n.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
-    "to": "vendor/notification.js"
   },
   {
     "from": "vendor/siteHelpers.js",

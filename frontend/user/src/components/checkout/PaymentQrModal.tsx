@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "../../vendor/Modal.js";
+import Modal from 'antd/lib/modal';
 import { QRCode } from "../../vendor/content.js";
 import { formatMessage } from "../../vendor/i18n.js";
 

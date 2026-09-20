@@ -37,7 +37,7 @@ async function loadPage() {
         getLocale: () => 'zh-CN',
         formatMessage: ({ id }, values) => values ? id.replace('{date}', values.date) : id,
       };
-      if (id.includes('Icon.js')) return { Icon: 'Icon' };
+      if (id.includes('Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('siteHelpers')) return { copyToClipboard: value => copied.push(value) };
       if (id.includes('dateTime')) return {};
       throw new Error(id);
