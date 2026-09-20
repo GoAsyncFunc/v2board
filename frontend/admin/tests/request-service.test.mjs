@@ -18,7 +18,6 @@ function loadRequest({ response, token = null } = {}) {
     exports: module.exports,
     window: { location },
     require(id) {
-      if (id === 'antd/lib/notification') return { error: options => notifications.push(options) };
       if (id.includes('config/siteSettings')) return { siteSettings: { serviceHost: 'https://service.example.test/api/v1' } };
       if (id.includes('utils/siteHelpers')) return {
         getToken: () => token,
@@ -33,6 +32,7 @@ function loadRequest({ response, token = null } = {}) {
       throw new Error(`Unexpected dependency ${id}`);
     },
   });
+  module.exports.setRequestFailurePresenter(failure => notifications.push(failure));
   return { request: module.exports, calls, notifications, session, location };
 }
 
@@ -89,8 +89,8 @@ test('admin request reports the first validation error for non-200 responses', a
   const result = await runtime.request.post('/users', { email: 'invalid' });
   assert.deepEqual(JSON.parse(JSON.stringify(result)), { code: 422, msg: 'Invalid email' });
   assert.deepEqual(JSON.parse(JSON.stringify(runtime.notifications)), [{
-    message: '请求失败',
+    title: '请求失败',
     description: 'Invalid email',
-    duration: 1.5,
+    durationSeconds: 1.5,
   }]);
 });

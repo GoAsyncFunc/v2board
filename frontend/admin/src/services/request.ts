@@ -1,4 +1,3 @@
-import notification from 'antd/lib/notification';
 import { siteSettings } from '../config/siteSettings';
 import { clearToken, getToken } from '../utils/siteHelpers';
 import { fetchResponse } from './fetchResponse';
@@ -41,6 +40,20 @@ interface ApiPayload<Data = JsonValue> {
 
 export interface AdminRequestOptions extends Omit<RequestInit, 'headers'> {
   headers?: Record<string, string>;
+}
+
+export interface RequestFailurePresentation {
+  title: string;
+  description?: string;
+  durationSeconds: number;
+}
+
+export type RequestFailurePresenter = (failure: RequestFailurePresentation) => void;
+
+let presentRequestFailure: RequestFailurePresenter = () => {};
+
+export function setRequestFailurePresenter(presenter: RequestFailurePresenter): void {
+  presentRequestFailure = presenter;
 }
 
 export function encodeForm(data?: FormRecord | null): string {
@@ -93,10 +106,10 @@ export async function request<Data = JsonValue>(
   }
   if (response.status !== 200) {
     const message = data.errors ? Object.values(data.errors)[0][0] : data.message;
-    notification.error({
-      message: '请求失败',
+    presentRequestFailure({
+      title: '请求失败',
       description: message,
-      duration: 1.5,
+      durationSeconds: 1.5,
     });
     return { code: response.status, msg: message } as ApiResponse<Data>;
   }

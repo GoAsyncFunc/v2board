@@ -29,6 +29,10 @@
   },
   {
     "from": "app/bootstrap.tsx",
+    "to": "app/requestPresentation.ts"
+  },
+  {
+    "from": "app/bootstrap.tsx",
     "to": "app/rootRuntime.tsx"
   },
   {
@@ -50,6 +54,10 @@
   {
     "from": "app/navigation.ts",
     "to": "app/history.ts"
+  },
+  {
+    "from": "app/requestPresentation.ts",
+    "to": "services/request.ts"
   },
   {
     "from": "app/rootRuntime.tsx",
@@ -350,10 +358,6 @@
   {
     "from": "layouts/Header.tsx",
     "to": "app/history.ts"
-  },
-  {
-    "from": "layouts/Header.tsx",
-    "to": "services/request.ts"
   },
   {
     "from": "layouts/Header.tsx",

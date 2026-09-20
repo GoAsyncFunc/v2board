@@ -11,6 +11,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/app/store.tsx',
     '../src/app/dvaConfig.ts',
     '../src/app/navigation.ts',
+    '../src/app/requestPresentation.ts',
     '../src/app/rootRuntime.tsx',
     '../src/runtime/dvaApplication.tsx',
     '../src/runtime/loadingPlugin.ts',
@@ -159,6 +160,16 @@ test('admin business contracts do not depend on rendering components', async () 
     const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
     for (const contract of contracts) assert.match(source, new RegExp(`export (?:interface|type) ${contract}\\b`));
   }
+});
+
+test('admin request transport does not depend on the rendering library', async () => {
+  const requestSource = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
+  const headerSource = await fs.readFile(new URL('../src/layouts/Header.tsx', import.meta.url), 'utf8');
+  const presentationSource = await fs.readFile(new URL('../src/app/requestPresentation.ts', import.meta.url), 'utf8');
+  assert.doesNotMatch(requestSource, /from ['"]antd\//);
+  assert.doesNotMatch(headerSource, /import ['"]\.\.\/services\/request['"]/);
+  assert.match(presentationSource, /setRequestFailurePresenter/);
+  assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
 });
 
 test('admin root state names every registered business model', async () => {
