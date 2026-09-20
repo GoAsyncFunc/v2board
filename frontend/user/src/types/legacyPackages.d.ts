@@ -71,5 +71,5 @@ declare module 'react-intl/locale-data/vi' { const data: ReadonlyArray<object>; 
 declare module 'react-intl/locale-data/zh' { const data: ReadonlyArray<object>; export default data; }
 
 declare module 'dva-core' {
-  export function create(options?: object, createOptions?: object): unknown;
+  export function create<Application extends object = object>(options?: object, createOptions?: object): Application;
 }

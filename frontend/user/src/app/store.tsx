@@ -1,5 +1,6 @@
 import React from 'react';
 import { createDva } from '../runtime/dvaApplication';
+import type { DvaApplication } from '../runtime/dvaApplication';
 import loadingPlugin from '../runtime/loadingPlugin';
 import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
@@ -21,13 +22,7 @@ import tutorial from '../models/tutorial';
 import user from '../models/user';
 import type { UserStore } from '../types/store';
 
-export interface UserDvaApplication {
-  _store: UserStore;
-  use(plugin: object): void;
-  model(model: object): void;
-  router(render: () => React.ReactElement): void;
-  start(): () => React.ReactElement;
-}
+export interface UserDvaApplication extends DvaApplication {}
 
 interface DvaConfig {
   config?: Record<string, object>;
@@ -61,7 +56,7 @@ export function createApp(): UserDvaApplication {
     history,
     ...(dvaConfig.config || {}),
     ...(window.g_useSSR ? { initialState: window.g_initialData } : {}),
-  }) as UserDvaApplication;
+  });
   appInstance.use(loadingPlugin());
   (dvaConfig.plugins || []).forEach(plugin => appInstance?.use(plugin));
   Object.entries(models).forEach(([namespace, model]) => {
@@ -71,7 +66,13 @@ export function createApp(): UserDvaApplication {
 }
 
 export function getApp(): UserDvaApplication {
-  return appInstance as UserDvaApplication;
+  if (!appInstance) throw new Error('User application has not been created');
+  return appInstance;
+}
+
+export function getUserStore(app: UserDvaApplication = getApp()): UserStore {
+  if (!app._store) throw new Error('User store has not been initialized');
+  return app._store;
 }
 
 interface DvaContainerProps {
@@ -81,7 +82,9 @@ interface DvaContainerProps {
 export class DvaContainer extends React.Component<DvaContainerProps> {
   render(): React.ReactElement {
     const app = getApp();
-    app.router(() => React.cloneElement(this.props.children, { store: app._store }));
-    return app.start()();
+    app.router(() => React.cloneElement(this.props.children, { store: getUserStore(app) }));
+    const Provider = app.start();
+    if (!Provider) throw new Error('User application did not create a provider');
+    return <Provider />;
   }
 }

@@ -3,6 +3,7 @@ export {};
 import type { UserHistory } from '../app/history';
 import type { AppRoute } from '../app/routes';
 import type { UserDvaApplication } from '../app/store';
+import type { UserRootState, UserValue } from './store';
 
 declare global {
   type SupportChatValue = string | number | SupportChatValue[];
@@ -13,6 +14,7 @@ declare global {
     copy?: (text: string) => void;
     jump?: (id: string | number) => void;
     settings: {
+      assets_path?: string;
       background_url?: string;
       description?: string;
       homepage?: string;
@@ -22,12 +24,12 @@ declare global {
       theme: { color?: string; header?: string; sidebar?: string };
       host?: string;
       i18n: string[] & Record<string, Record<string, string>>;
-      [key: string]: unknown;
+      [key: string]: UserValue;
     };
     g_routes: AppRoute[];
     g_app: UserDvaApplication;
     g_history: UserHistory;
-    g_initialData: Record<string, object>;
+    g_initialData: UserRootState;
     g_isBrowser: boolean;
     g_plugins: typeof import('../runtime/pluginRuntime');
     g_useSSR: boolean;

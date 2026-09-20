@@ -6,13 +6,14 @@ import type { History } from 'history';
 import { Provider } from 'react-redux';
 import * as routerBindings from './routerBindings';
 import { routerMiddleware } from './routerBindings';
-import type { PluginValue } from './pluginRuntime';
-import type { UserStore } from '../types/store';
+import type { UserRootState, UserStore, UserValue } from '../types/store';
 
-type DvaRouterProps = Record<string, PluginValue>;
-type DvaProvider = (props?: DvaRouterProps) => React.ReactElement;
+export type DvaRouterProps = Record<string, UserValue>;
+export type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
+export type DvaProvider = (props?: DvaRouterProps) => React.ReactElement;
+type DvaStartResult = DvaProvider | void;
 
-interface DvaCoreApplication {
+export interface DvaCoreApplication {
   _history: History;
   _getProvider?: (router: DvaRouter) => DvaProvider;
   _plugin: { apply(name: string): (render: (router: DvaRouter) => void) => void };
@@ -20,15 +21,18 @@ interface DvaCoreApplication {
   _store?: UserStore;
   model(model: object): void;
   router?: (router: DvaRouter) => void;
-  start: (container?: string | Element) => DvaProvider | void;
+  start: (container?: string | Element) => DvaStartResult;
   use(plugin: object): void;
 }
 
-type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
+export interface DvaApplication extends DvaCoreApplication {
+  router(router: DvaRouter): void;
+}
 
 interface DvaOptions {
   history?: History;
-  [key: string]: PluginValue;
+  initialState?: UserRootState;
+  [key: string]: UserValue;
 }
 
 function assert(condition: unknown, message: string): asserts condition {
@@ -71,7 +75,7 @@ function patchHistory(history: History): History {
   return history;
 }
 
-export function createDva(options: DvaOptions = {}): DvaCoreApplication {
+export function createDva(options: DvaOptions = {}): DvaApplication {
   const history = options.history || createHashHistory();
   const createOptions = {
     initialReducer: { router: routerBindings.connectRouter() },
@@ -82,7 +86,7 @@ export function createDva(options: DvaOptions = {}): DvaCoreApplication {
       app._history = patchHistory(history);
     },
   };
-  const app = createDvaCore(options, createOptions) as DvaCoreApplication;
+  const app = createDvaCore<DvaCoreApplication>(options, createOptions);
   const startCore = app.start;
 
   app.router = router => {
@@ -107,7 +111,7 @@ export function createDva(options: DvaOptions = {}): DvaCoreApplication {
     return undefined;
   };
 
-  return app;
+  return app as DvaApplication;
 }
 
 export { routerBindings };

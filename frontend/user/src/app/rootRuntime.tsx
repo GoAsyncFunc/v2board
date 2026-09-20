@@ -1,5 +1,6 @@
 import React from 'react';
-import { DvaContainer, getApp } from './store';
+import { DvaContainer, getUserStore } from './store';
+import type { UserRootState } from '../types/store';
 
 type InitialProps = Record<string, object>;
 
@@ -9,7 +10,7 @@ export function rootContainer(children: React.ReactElement): React.ReactElement 
 
 export function initialProps(props?: InitialProps): InitialProps {
   if (props) return props;
-  const state = getApp()._store.getState();
+  const state: UserRootState = getUserStore().getState();
   return Object.keys(state).reduce<InitialProps>((result, key) => {
     if (!['@@dva', 'loading', 'routing'].includes(key)) result[key] = state[key];
     return result;
@@ -17,5 +18,5 @@ export function initialProps(props?: InitialProps): InitialProps {
 }
 
 export function modifyInitialProps(props?: InitialProps): InitialProps {
-  return props ? { store: getApp()._store } : {};
+  return props ? { store: getUserStore() } : {};
 }
