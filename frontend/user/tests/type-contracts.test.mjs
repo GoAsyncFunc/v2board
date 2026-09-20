@@ -18,8 +18,12 @@ async function sourceFiles(directory) {
 
 test('user source expresses nullable contracts without non-null assertions', async () => {
   const assertions = [];
+  const unsafeCompatibilityAssertions = [];
   for (const file of await sourceFiles(sourceRoot)) {
     const source = await fs.readFile(file, 'utf8');
+    if (/\bas\s+unknown\s+as\b|\bas\s+never\b/.test(source)) {
+      unsafeCompatibilityAssertions.push(path.relative(sourceRoot, file));
+    }
     const sourceFile = ts.createSourceFile(
       file,
       source,
@@ -37,4 +41,5 @@ test('user source expresses nullable contracts without non-null assertions', asy
     visit(sourceFile);
   }
   assert.deepEqual(assertions, []);
+  assert.deepEqual(unsafeCompatibilityAssertions, []);
 });

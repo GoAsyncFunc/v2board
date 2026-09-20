@@ -94,10 +94,22 @@ test('user pages are grouped by business domain without migration scripts', asyn
 test('user application runtime is implemented as typed TSX components', async () => {
   const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
   const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
+  const packageJson = JSON.parse(await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'));
   assert.match(runtimeSource, /function createApplicationProvider/);
   assert.match(runtimeSource, /<ApplicationProvider \/>/);
   assert.doesNotMatch(runtimeSource, /React\.createElement/);
   assert.equal(tsconfig.compilerOptions.allowJs, false);
+  assert.deepEqual(
+    Object.fromEntries(['@types/qrcode.react', '@types/react-intl', '@types/react-loadable'].map(name => [name, packageJson.devDependencies[name]])),
+    {
+      '@types/qrcode.react': '1.0.5',
+      '@types/react-intl': '2.3.18',
+      '@types/react-loadable': '5.5.11',
+    },
+  );
+  await fs.access(new URL('../src/types/classnames.d.ts', import.meta.url));
+  await fs.access(new URL('../src/types/dvaCore.d.ts', import.meta.url));
+  await assert.rejects(fs.access(new URL('../src/types/legacyPackages.d.ts', import.meta.url)));
 });
 
 test('user root state names every registered business model', async () => {

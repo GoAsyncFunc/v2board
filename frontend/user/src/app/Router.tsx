@@ -22,12 +22,13 @@ import type { UserStore } from '../types/store';
 import type { PluginValue } from '../runtime/pluginRuntime';
 
 const { ConnectedRouter } = routerBindings;
+type LocaleData = Parameters<typeof addLocaleData>[0];
 
 interface AppLocale {
   messages: Record<string, string>;
   locale: string;
   antd: AntdLocale;
-  data?: ReadonlyArray<object> | object;
+  data?: LocaleData;
   momentLocale: string;
 }
 
