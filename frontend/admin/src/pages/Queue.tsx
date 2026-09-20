@@ -4,21 +4,12 @@ import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyQueueColumns, type QueueWorkload } from '../components/QueueDisplayColumns';
+import type { SystemMonitoringState } from '../types/monitoring';
 import type { AdminDispatch } from '../types/store';
-
-interface QueueStats {
-  jobsPerMinute?: number;
-  recentJobs?: number;
-  failedJobs?: number;
-  status?: boolean;
-}
 
 interface QueuePageProps {
   dispatch: AdminDispatch;
-  system: {
-    queueStats: QueueStats | null;
-    queueWorkload: QueueWorkload[] | null;
-  };
+  system: Required<Pick<SystemMonitoringState, 'queueStats' | 'queueWorkload'>>;
   [key: string]: unknown;
 }
 

@@ -16,37 +16,14 @@ import history from '../app/navigation';
 import MainLayout from '../layouts/MainLayout';
 import { get } from '../services/request';
 import { siteSettings } from '../config/siteSettings';
-import { formatIncome, formatLiveCount, type DisplayScalar } from '../components/MoneyDisplay';
+import { formatIncome, formatLiveCount } from '../components/MoneyDisplay';
+import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
 import type { AdminDispatch } from '../types/store';
 
 echarts.use([
   LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent,
   DatasetComponent, TransformComponent, LabelLayout, SVGRenderer,
 ]);
-
-interface OrderChartRecord {
-  type: string;
-  date: string;
-  value: number;
-}
-
-interface RankChartRecord {
-  total: number;
-  server_name?: string;
-  email?: string;
-}
-
-interface DashboardStats {
-  online_user?: DisplayScalar;
-  day_income?: DisplayScalar;
-  day_register_total?: DisplayScalar;
-  month_income?: DisplayScalar;
-  last_month_income?: DisplayScalar;
-  commission_last_month_payout?: DisplayScalar;
-  month_register_total?: DisplayScalar;
-  ticket_pending_total?: DisplayScalar;
-  commission_pending_total?: DisplayScalar;
-}
 
 interface DashboardConfig {
   site: { currency?: string };

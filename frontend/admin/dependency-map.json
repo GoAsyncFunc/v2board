@@ -225,11 +225,11 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/stat.js"
+    "to": "models/stat.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/system.js"
+    "to": "models/system.ts"
   },
   {
     "from": "app/store.tsx",
@@ -584,11 +584,11 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/stat.js",
+    "from": "models/stat.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/system.js",
+    "from": "models/system.ts",
     "to": "services/request.ts"
   },
   {
