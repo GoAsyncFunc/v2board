@@ -196,6 +196,42 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/account/invite/InviteCodeManager.tsx",
+    "to": "components/account/InviteDisplayColumns.tsx"
+  },
+  {
+    "from": "components/account/invite/InviteCodeManager.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionHistory.tsx",
+    "to": "components/account/InviteDisplayColumns.tsx"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionHistory.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionWallet.tsx",
+    "to": "components/account/TransferCommissionModal.tsx"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionWallet.tsx",
+    "to": "components/account/WithdrawModal.tsx"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionWallet.tsx",
+    "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "components/account/invite/InviteCommissionWallet.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/account/invite/InviteStatistics.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
     "from": "components/account/profile/ProfileGiftcard.tsx",
     "to": "locales/i18n.ts"
   },
@@ -693,19 +729,19 @@
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/account/InviteDisplayColumns.tsx"
+    "to": "components/account/invite/InviteCodeManager.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/account/TransferCommissionModal.tsx"
+    "to": "components/account/invite/InviteCommissionHistory.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/account/WithdrawModal.tsx"
+    "to": "components/account/invite/InviteCommissionWallet.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "components/common/MoneyDisplay.ts"
+    "to": "components/account/invite/InviteStatistics.tsx"
   },
   {
     "from": "pages/account/Invite.tsx",

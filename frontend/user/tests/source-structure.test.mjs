@@ -215,6 +215,16 @@ test('user root state names every registered business model', async () => {
     assert.match(profile, new RegExp(`components/account/profile/${component}`));
   }
   assert.doesNotMatch(profile, /antd\/lib\/(?:button|switch)/);
+
+  const invite = await fs.readFile(new URL('../src/pages/account/Invite.tsx', import.meta.url), 'utf8');
+  for (const component of [
+    'InviteCodeManager',
+    'InviteCommissionHistory',
+    'InviteCommissionWallet',
+    'InviteStatistics',
+  ]) {
+    assert.match(invite, new RegExp(`components/account/invite/${component}`));
+  }
 });
 
 test('user Redux selectors share the canonical root state contract', async () => {
