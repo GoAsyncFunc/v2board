@@ -21,12 +21,13 @@ import ticket from '../models/ticket';
 import tutorial from '../models/tutorial';
 import user from '../models/user';
 import type { UserStore } from '../types/store';
+import type { DvaOptions, DvaPlugin } from '../types/dva';
 
 export interface UserDvaApplication extends DvaApplication {}
 
 interface DvaConfig {
-    config?: Record<string, object>;
-    plugins?: object[];
+    config?: DvaOptions;
+    plugins?: DvaPlugin[];
 }
 
 const models = {

@@ -3,7 +3,7 @@ export {};
 import type { UserHistory } from '../app/history';
 import type { UserRoute } from '../routes';
 import type { UserDvaApplication } from '../app/store';
-import type { UserRootState, UserValue } from './store';
+import type { UserRootState } from './store';
 
 declare global {
     type SupportChatValue = string | number | SupportChatValue[];
@@ -24,7 +24,6 @@ declare global {
             theme: { color?: string; header?: string; sidebar?: string };
             host?: string;
             i18n: string[] & Record<string, Record<string, string>>;
-            [key: string]: UserValue;
         };
         g_routes: UserRoute[];
         g_app: UserDvaApplication;

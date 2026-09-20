@@ -1,3 +1,6 @@
+import type { PutEffect } from 'redux-saga/effects';
+import type { DvaPlugin } from '../types/dva';
+
 const SHOW_LOADING = '@@DVA_LOADING/SHOW';
 const HIDE_LOADING = '@@DVA_LOADING/HIDE';
 
@@ -14,26 +17,35 @@ export interface LoadingState {
 }
 
 interface LoadingAction {
-    type?: string;
+    type: string;
     payload?: {
         namespace?: string;
         actionType?: string;
     };
 }
 
-type EffectArgument = object | string | number | boolean | null | undefined;
-type EffectResult = Iterator<object>;
-type ModelEffect = (...args: EffectArgument[]) => EffectResult;
+type EffectArgument = LoadingAction | EffectHelpers | EffectModel | string;
+type EffectResult = Generator<PutEffect<LoadingAction> | Iterator<unknown>, void, unknown>;
+type ModelEffect = (...args: EffectArgument[]) => Iterator<unknown>;
 
 interface EffectHelpers {
-    put(action: LoadingAction): object;
+    put(action: LoadingAction): PutEffect<LoadingAction>;
 }
 
 interface EffectModel {
     namespace: string;
 }
 
-export default function createLoadingPlugin(options: LoadingPluginOptions = {}) {
+export default function createLoadingPlugin(options: LoadingPluginOptions = {}): DvaPlugin & {
+    extraReducers: Record<string, typeof loadingReducer>;
+    onEffect(
+        effect: ModelEffect,
+        helpers: EffectHelpers,
+        model: EffectModel,
+        effectContext: Readonly<Record<string, never>>,
+        effectName: string,
+    ): ModelEffect;
+} {
     const namespace = options.namespace || 'loading';
     const only = options.only || [];
     const except = options.except || [];
@@ -50,39 +62,42 @@ export default function createLoadingPlugin(options: LoadingPluginOptions = {}) 
         effects: {},
     };
 
-    const extraReducers = {
-        [namespace](state: LoadingState = initialState, action: LoadingAction = {}): LoadingState {
-            const payload = action.payload || {};
-            const modelNamespace = payload.namespace as string;
-            const actionType = payload.actionType as string;
-            if (action.type === SHOW_LOADING) {
-                return {
-                    ...state,
-                    global: true,
-                    models: { ...state.models, [modelNamespace]: true },
-                    effects: { ...state.effects, [actionType]: true },
-                };
-            }
+    function loadingReducer(
+        state: LoadingState = initialState,
+        action: LoadingAction = { type: '' },
+    ): LoadingState {
+        const payload = action.payload || {};
+        const modelNamespace = payload.namespace as string;
+        const actionType = payload.actionType as string;
+        if (action.type === SHOW_LOADING) {
+            return {
+                ...state,
+                global: true,
+                models: { ...state.models, [modelNamespace]: true },
+                effects: { ...state.effects, [actionType]: true },
+            };
+        }
 
-            if (action.type === HIDE_LOADING) {
-                const effects = { ...state.effects, [actionType]: false };
-                const models = {
-                    ...state.models,
-                    [modelNamespace]: Object.keys(effects).some(
-                        (effect) => effect.split('/')[0] === payload.namespace && effects[effect],
-                    ),
-                };
-                return {
-                    ...state,
-                    global: Object.values(models).some(Boolean),
-                    models,
-                    effects,
-                };
-            }
+        if (action.type === HIDE_LOADING) {
+            const effects = { ...state.effects, [actionType]: false };
+            const models = {
+                ...state.models,
+                [modelNamespace]: Object.keys(effects).some(
+                    (effect) => effect.split('/')[0] === payload.namespace && effects[effect],
+                ),
+            };
+            return {
+                ...state,
+                global: Object.values(models).some(Boolean),
+                models,
+                effects,
+            };
+        }
 
-            return state;
-        },
-    };
+        return state;
+    }
+
+    const extraReducers = { [namespace]: loadingReducer };
 
     const shouldTrack = (effectName: string): boolean =>
         (!only.length && !except.length) ||
@@ -95,7 +110,7 @@ export default function createLoadingPlugin(options: LoadingPluginOptions = {}) 
             effect: ModelEffect,
             { put }: EffectHelpers,
             model: EffectModel,
-            _effectContext: object,
+            _effectContext: Readonly<Record<string, never>>,
             effectName: string,
         ): ModelEffect {
             if (!shouldTrack(effectName)) return effect;

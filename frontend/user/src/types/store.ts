@@ -9,19 +9,11 @@ import type { TicketState } from './ticket';
 import type { UserState } from './user';
 import type { RouterState } from './router';
 
-export type UserValue = object | string | number | boolean | symbol | bigint | null | undefined;
-
-export interface UserAction<Result = void> {
+export interface UserAction {
     type: string;
-    params?: object;
-    callback?: (result: Result) => void;
-    [key: string]: UserValue;
 }
 
-export type UserDispatchResult<Result> = UserAction<Result> | Promise<Result> | undefined;
-export type UserDispatch = <Result = void>(
-    action: UserAction<Result>,
-) => UserDispatchResult<Result>;
+export type UserDispatch = <Action extends UserAction>(action: Action) => void;
 export interface UserRootState {
     comm: CommunicationState;
     coupon: CouponState;

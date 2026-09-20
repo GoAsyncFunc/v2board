@@ -112,6 +112,27 @@ test('user application runtime is implemented as typed TSX components', async ()
   await assert.rejects(fs.access(new URL('../src/types/legacyPackages.d.ts', import.meta.url)));
 });
 
+test('user DVA runtime uses named contracts instead of broad object placeholders', async () => {
+  const contractPaths = [
+    '../src/types/store.ts',
+    '../src/types/dva.ts',
+    '../src/types/dvaCore.d.ts',
+    '../src/runtime/dvaApplication.tsx',
+    '../src/runtime/loadingPlugin.ts',
+    '../src/app/store.tsx',
+  ];
+  for (const relativePath of contractPaths) {
+    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
+    assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
+  }
+
+  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+  const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+  assert.match(storeTypes, /Action extends UserAction/);
+  assert.match(dvaTypes, /export interface DvaPlugin/);
+  assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
+});
+
 test('user root state names every registered business model', async () => {
   const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
   const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
