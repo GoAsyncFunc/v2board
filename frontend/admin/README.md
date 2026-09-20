@@ -47,11 +47,12 @@ npm run build
 
 ```sh
 npm run check:dependencies
+npm test
+npm run check:types
 npm run build
-npm test -- --runInBand
 ```
 
-当前管理端回归基线为 872 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 903 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -64,13 +65,16 @@ src/config/      导航等界面配置
 src/layouts/     管理端布局
 src/models/      管理端状态模型
 src/pages/       管理端页面
+src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求与下载服务
 src/styles/      页面样式常量与样式入口
+src/types/       API、状态和业务实体类型
+src/utils/       浏览器、日期和站点工具
 tests/           独立回归测试与 fixture
 dist/            本地构建产物，不提交 Git
 ```
 
-`dependency-map.json` 是当前入口可达的项目内依赖基线。`modules.json` 和 `routes.json` 仅用于逆向恢复追踪，不参与正常构建。
+`dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
 ## 测试服务器部署
 
@@ -96,3 +100,11 @@ npm run check:deployed
 ```
 
 提供 `TEST_EMAIL` 和 `TEST_PASSWORD` 时，还会登录并检查 Dashboard、套餐、订单、用户、公告和工单页面。账号密码只从环境变量读取，不写入源码。
+
+## 常见问题
+
+- 页面请求后端失败：确认 `API_PROXY` 指向可访问的 V2Board 实例，并重新启动开发服务器。
+- 依赖图检查失败：源码引用已经变化，先确认改动符合项目边界，再运行 `node scripts/generate-dependency-map.mjs` 更新基线。
+- 后台地址返回 404：确认本地或部署环境使用的 `ADMIN_PATH` 与后端 `secure_path` 一致。
+- 部署后仍显示旧页面：确认终端输出的 `RELEASE` 与服务器 `deployment.json` 一致，并清理浏览器缓存后重新访问。
+- 需要回滚：在服务器执行当前部署输出的 `ROLLBACK` 脚本，该脚本会恢复 Blade 入口并清理 Laravel 视图缓存。
