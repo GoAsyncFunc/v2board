@@ -128,9 +128,13 @@ test('user DVA runtime uses named contracts instead of broad object placeholders
 
   const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
   const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+  const loadingRuntime = await fs.readFile(new URL('../src/runtime/loadingPlugin.ts', import.meta.url), 'utf8');
   assert.match(storeTypes, /Action extends UserAction/);
   assert.match(dvaTypes, /export interface DvaPlugin/);
+  assert.match(dvaTypes, /export type DvaEffectEnhancer/);
+  assert.doesNotMatch(dvaTypes, /DvaHook|DvaReducer/);
   assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
+  assert.doesNotMatch(loadingRuntime, /effectContext|Iterator<unknown>/);
 });
 
 test('user plugin runtime separates callable hooks from configuration values', async () => {

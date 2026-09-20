@@ -46,7 +46,6 @@ test('user loading effect preserves show, effect and hide ordering', async () =>
     effect,
     { put: action => ({ dispatched: action }) },
     { namespace: 'order' },
-    {},
     'order/fetch',
   );
   const iterator = wrapped('page-2');
@@ -73,5 +72,5 @@ test('user loading plugin rejects conflicting filters and skips excluded effects
   );
   const effect = function* effect() { yield 'unchanged'; };
   const plugin = createLoadingPlugin({ except: ['order/fetch'] });
-  assert.equal(plugin.onEffect(effect, { put() {} }, { namespace: 'order' }, {}, 'order/fetch'), effect);
+  assert.equal(plugin.onEffect(effect, { put() {} }, { namespace: 'order' }, 'order/fetch'), effect);
 });
