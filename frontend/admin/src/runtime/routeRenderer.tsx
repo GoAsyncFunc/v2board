@@ -2,10 +2,14 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteComponentProps, RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
-import type { PluginValue } from './pluginRuntime';
 import type { AdminRouteComponent, AdminRouteConfig } from '../routes/types';
+import type { AdminRootState, AdminStore } from '../types/store';
 
-export type DynamicRouteProps = Record<string, PluginValue>;
+export type DynamicRouteProps = Partial<AdminRootState> & {
+    store?: AdminStore;
+    fetchingProps?: boolean;
+    render?: RouteRenderFunction;
+};
 type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;
 
 export interface InitialRoutePropsContext extends DynamicRouteProps {
@@ -57,8 +61,10 @@ function createNestedRouteComponent(route: AdminRouteConfig): React.ElementType 
     const cachedComponent = routeComponentCache.get(route);
     if (cachedComponent) return cachedComponent;
 
-    let renderChild: RouteRenderFunction = ({ render: childRender, ...props }) =>
-        (childRender as RouteRenderFunction)(props as RouteRenderProps);
+    let renderChild: RouteRenderFunction = ({ render: childRender, ...props }) => {
+        if (!childRender) throw new Error('Nested route render function was not provided');
+        return childRender(props);
+    };
     const wrappers = route.Routes || [];
     for (let index = wrappers.length - 1; index >= 0; index -= 1) {
         const ChildComponent = wrappers[index];

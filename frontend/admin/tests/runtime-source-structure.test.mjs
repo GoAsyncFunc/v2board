@@ -152,6 +152,19 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
   assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
 });
 
+test('admin plugin runtime separates callable hooks from route and configuration values', async () => {
+  const pluginRuntime = await fs.readFile(new URL('../src/runtime/pluginRuntime.ts', import.meta.url), 'utf8');
+  const routeRuntime = await fs.readFile(new URL('../src/runtime/routeRenderer.tsx', import.meta.url), 'utf8');
+  const bootstrap = await fs.readFile(new URL('../src/app/bootstrap.tsx', import.meta.url), 'utf8');
+  assert.match(pluginRuntime, /export type PluginCallback/);
+  assert.match(pluginRuntime, /export interface PluginConfiguration/);
+  assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
+  assert.match(routeRuntime, /Partial<AdminRootState>/);
+  assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
+  assert.match(bootstrap, /apply<React\.ReactElement>/);
+  assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);
+});
+
 test('admin business contracts do not depend on rendering components', async () => {
   const typesDirectory = new URL('../src/types/', import.meta.url);
   const typeNames = (await fs.readdir(typesDirectory)).filter(name => name.endsWith('.ts'));

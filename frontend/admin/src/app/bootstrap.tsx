@@ -30,16 +30,16 @@ window.g_app = createApp();
 async function renderApp(): Promise<void> {
     window.g_isBrowser = true;
     const ssrInitialProps = window.g_useSSR ? window.g_initialData : {};
-    const root = plugins.apply('rootContainer', {
+    const root = plugins.apply<React.ReactElement>('rootContainer', {
         initialValue: <Router {...ssrInitialProps} />,
-    }) as React.ReactElement;
+    });
     const rootElement = document.getElementById('root');
     if (!rootElement) throw new Error('Application root element was not found');
     const render = window.g_useSSR ? ReactDOM.hydrate : ReactDOM.render;
     render(root, rootElement);
 }
 
-const render = plugins.compose('render', { initialValue: renderApp }) as () => Promise<void> | void;
+const render = plugins.compose<() => Promise<void> | void>('render', { initialValue: renderApp });
 Promise.resolve()
     .then(() => render())
     .catch((error: Error) => {

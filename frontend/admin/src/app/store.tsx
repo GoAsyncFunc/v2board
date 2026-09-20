@@ -74,7 +74,7 @@ const models = {
 let appInstance: AdminDvaApplication | null = null;
 
 export function createApp(): AdminDvaApplication {
-    const dvaConfig = mergeConfig('dva') as DvaConfig;
+    const dvaConfig = mergeConfig<DvaConfig>('dva');
     appInstance = createDva({
         history,
         ...(dvaConfig.config || {}),
