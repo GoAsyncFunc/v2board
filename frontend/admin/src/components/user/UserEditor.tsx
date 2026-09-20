@@ -9,6 +9,7 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
+import NullableSelectOption from '../common/NullableSelectOption';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { UserModuleState, UserPlanOption, UserRecord } from '../../types/user';
 
@@ -23,7 +24,6 @@ interface UserEditorProps extends UserEditorOwnProps {
   plan: { plans: UserPlanOption[] };
 }
 interface UserEditorState { visible: boolean; }
-const EMPTY_PLAN_VALUE = null as never;
 
 export class UserEditor extends React.Component<UserEditorProps, UserEditorState> {
   state = { visible: false };
@@ -56,7 +56,7 @@ export class UserEditor extends React.Component<UserEditorProps, UserEditorState
       <FormGroup label="流量"><Input type="number" addonAfter="GB" defaultValue={user.transfer_enable as string | number | undefined} placeholder="请输入流量" onChange={event => this.formChange('transfer_enable', event.target.value)} /></FormGroup>
       <FormGroup label="设备数限制"><Input placeholder="留空则不限制" defaultValue={user.device_limit as string | number | undefined} onChange={event => this.formChange('device_limit', event.target.value)} /></FormGroup>
       <FormGroup label="到期时间"><DatePicker placeholder="长期有效" defaultValue={user.expired_at !== null && user.expired_at !== undefined ? moment(1000 * Number(user.expired_at)) : null} style={{ width: '100%' }} onChange={date => this.formChange('expired_at', date ? date.format('X') : null)} /></FormGroup>
-      <FormGroup label="订阅计划"><Select placeholder="请选择用户订阅计划" style={{ width: '100%' }} defaultValue={user.plan_id || undefined} onChange={planId => this.formChange('plan_id', planId)}><Select.Option value={EMPTY_PLAN_VALUE}>无</Select.Option>{plans.map(plan => <Select.Option key={plan.id} value={plan.id}>{plan.name}</Select.Option>)}</Select></FormGroup>
+      <FormGroup label="订阅计划"><Select placeholder="请选择用户订阅计划" style={{ width: '100%' }} defaultValue={user.plan_id || undefined} onChange={planId => this.formChange('plan_id', planId)}><NullableSelectOption value={null}>无</NullableSelectOption>{plans.map(plan => <Select.Option key={plan.id} value={plan.id}>{plan.name}</Select.Option>)}</Select></FormGroup>
       <FormGroup label="账户状态"><Select style={{ width: '100%' }} defaultValue={user.banned ? 1 : 0} onChange={banned => this.formChange('banned', banned)}><Select.Option value={1}>封禁</Select.Option><Select.Option value={0}>正常</Select.Option></Select></FormGroup>
       <FormGroup label="推荐返利类型"><Select style={{ width: '100%' }} defaultValue={parseInt(String(user.commission_type), 10)} onChange={type => this.formChange('commission_type', type)}><Select.Option value={0}>跟随系统设置</Select.Option><Select.Option value={1}>循环返利</Select.Option><Select.Option value={2}>首次返利</Select.Option></Select></FormGroup>
       <FormGroup label="推荐返利比例"><Input addonAfter="%" defaultValue={user.commission_rate as string | number | undefined} placeholder="请输入推荐返利比例(为空则跟随站点设置返利比例)" onChange={event => this.formChange('commission_rate', event.target.value)} /></FormGroup>

@@ -43,6 +43,7 @@ async function load(componentName) {
       if (id === 'antd/lib/modal') return 'Modal';
       if (id === 'antd/lib/select') return Select;
       if (id === 'moment') return { default: { unix: value => ({ value }) } };
+      if (id.includes('NullableSelectOption')) return { __esModule: true, default: 'NullableSelectOption' };
       if (id.includes('adminSettings')) return { settings: { periodText: { month_price: '月付' } } };
       throw new Error(id);
     },

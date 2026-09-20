@@ -25,6 +25,7 @@ for (const file of [
   'admin/src/components/server/AnyTlsEditor.tsx',
   'admin/src/components/commerce/AssignOrderEditor.tsx',
   'admin/src/components/common/FilterDrawer.tsx',
+  'admin/src/components/common/NullableSelectOption.tsx',
   'admin/src/components/server/HysteriaEditor.tsx',
   'admin/src/components/common/PermissionGroupEditor.tsx',
   'admin/src/components/user/SendMailEditor.tsx',

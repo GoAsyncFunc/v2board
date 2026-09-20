@@ -22,6 +22,8 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/services/download.ts',
     '../src/routes/index.ts',
     '../src/routes/types.ts',
+    '../src/types/copyToClipboard.d.ts',
+    '../src/types/dvaCore.d.ts',
   ];
   for (const relativePath of typedRuntimePaths) {
     const stat = await fs.stat(new URL(relativePath, import.meta.url));
@@ -50,6 +52,7 @@ test('admin application runtime uses typed source modules outside vendor', async
     '../src/vendor/rootRuntime.js',
     '../src/vendor/routerHistory.js',
     '../src/vendor/routerHistory.d.ts',
+    '../src/types/legacyPackages.d.ts',
   ];
   for (const relativePath of removedPaths) {
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));

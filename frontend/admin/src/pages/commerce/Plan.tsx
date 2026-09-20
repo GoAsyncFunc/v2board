@@ -17,6 +17,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import Sortable from '../../components/common/Sortable';
 import PermissionGroupEditor from '../../components/common/PermissionGroupEditor';
 import LoadingContainer from '../../components/common/LoadingContainer';
+import NullableSelectOption from '../../components/common/NullableSelectOption';
 import MainLayout from '../../layouts/MainLayout';
 import ContextMenuTable from '../../components/common/ContextMenuTable';
 import { createPlanGroupColumn, type PlanGroup } from '../../components/commerce/PlanGroupColumn';
@@ -42,7 +43,6 @@ interface PlanPageProps { dispatch: AdminDispatch; plan: PlanState; serverGroup:
 
 const resourceColumns = createReadonlyPlanResourceColumns();
 const priceColumns = createReadonlyPlanPriceColumns();
-const DEFAULT_RESET_METHOD_VALUE = null as never;
 const PRICE_FIELDS: Array<[string, string]> = [
   ['month_price', '月付'], ['quarter_price', '季付'], ['half_year_price', '半年'],
   ['year_price', '年付'], ['two_year_price', '两年付'], ['three_year_price', '三年付'],
@@ -93,7 +93,7 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
           <div className="form-group"><label>套餐流量</label><Input addonAfter="GB" placeholder="请输入套餐流量" value={record.transfer_enable as string | number | undefined} onChange={event => this.updateRecord('transfer_enable', event.target.value)} /></div>
           <div className="form-group"><label>设备数限制</label><Input placeholder="留空则不限制" value={record.device_limit as string | number | undefined} onChange={event => this.updateRecord('device_limit', event.target.value)} /></div>
           <div className="form-group"><label>权限组 <PermissionGroupEditor><a href="javascript:void(0);">添加权限组</a></PermissionGroupEditor></label><Select placeholder="请选择权限组" style={{ width: '100%' }} value={record.group_id} onChange={groupId => this.updateRecord('group_id', groupId)}>{groups.map(group => <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>)}</Select></div>
-          <div className="form-group"><label>流量重置方式</label><Select placeholder="请选择权限组" style={{ width: '100%' }} value={record.reset_traffic_method} onChange={method => this.updateRecord('reset_traffic_method', method)}><Select.Option value={DEFAULT_RESET_METHOD_VALUE}>跟随系统设置</Select.Option><Select.Option value={0}>每月1号</Select.Option><Select.Option value={1}>按月重置</Select.Option><Select.Option value={2}>不重置</Select.Option><Select.Option value={3}>每年1月1日</Select.Option><Select.Option value={4}>按年重置</Select.Option></Select></div>
+          <div className="form-group"><label>流量重置方式</label><Select placeholder="请选择权限组" style={{ width: '100%' }} value={record.reset_traffic_method} onChange={method => this.updateRecord('reset_traffic_method', method)}><NullableSelectOption value={null}>跟随系统设置</NullableSelectOption><Select.Option value={0}>每月1号</Select.Option><Select.Option value={1}>按月重置</Select.Option><Select.Option value={2}>不重置</Select.Option><Select.Option value={3}>每年1月1日</Select.Option><Select.Option value={4}>按年重置</Select.Option></Select></div>
         </div>
         <div className="form-group"><label>最大容纳用户量</label><Input placeholder="留空则不限制" value={record.capacity_limit as string | number | undefined} onChange={event => this.updateRecord('capacity_limit', event.target.value)} /></div>
         <div className="form-group"><label>限速</label><Input addonAfter="Mbps" placeholder="留空则不限制" value={record.speed_limit as string | number | undefined} onChange={event => this.updateRecord('speed_limit', event.target.value)} /></div>

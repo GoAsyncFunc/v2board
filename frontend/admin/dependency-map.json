@@ -340,6 +340,14 @@
     "to": "utils/siteHelpers.ts"
   },
   {
+    "from": "components/user/UserEditor.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "components/user/UserGenerator.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
     "from": "layouts/Header.tsx",
     "to": "app/history.ts"
   },
@@ -626,6 +634,10 @@
   {
     "from": "pages/commerce/Plan.tsx",
     "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/commerce/Plan.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
   },
   {
     "from": "pages/commerce/Plan.tsx",

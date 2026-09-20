@@ -20,11 +20,15 @@ async function sourceFiles(directory) {
 test('admin source uses explicit nullable and successful-response contracts', async () => {
   const nonNullAssertions = [];
   const directStatusChecks = [];
+  const unsafeCompatibilityAssertions = [];
   for (const file of await sourceFiles(sourceRoot)) {
     const source = await fs.readFile(file, 'utf8');
     const relativePath = path.relative(sourceRoot, file);
     if (relativePath !== path.join('services', 'request.ts') && /response\.code\s*[!=]==?\s*200/.test(source)) {
       directStatusChecks.push(relativePath);
+    }
+    if (/\bas\s+unknown\s+as\b|\bas\s+never\b/.test(source)) {
+      unsafeCompatibilityAssertions.push(relativePath);
     }
     const sourceFile = ts.createSourceFile(
       file,
@@ -44,4 +48,5 @@ test('admin source uses explicit nullable and successful-response contracts', as
   }
   assert.deepEqual(nonNullAssertions, []);
   assert.deepEqual(directStatusChecks, []);
+  assert.deepEqual(unsafeCompatibilityAssertions, []);
 });
