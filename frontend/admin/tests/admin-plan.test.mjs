@@ -14,9 +14,9 @@ async function run(original, scenario) {
   const response = structuredClone(scenario.response || { code: scenario.status ?? 200 });
   const request = method => (url, data) => { trace.push(['request', method, url, structuredClone(data)]); return 'request'; };
   const get = request('GET'), post = request('POST');
-  const file = new URL(original ? './fixtures/models/admin-plan.cjs' : '../src/models/plan.js', import.meta.url);
+  const file = new URL(original ? './fixtures/models/admin-plan.cjs' : '../src/models/plan.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  const code = original ? text : (await transform(text, { format: 'cjs' })).code;
+  const code = original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code;
   vm.runInNewContext(code, {
     module, exports: module.exports, window: { settings: { secure_path: 'fixture-admin' } },
     require(id) {

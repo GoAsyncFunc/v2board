@@ -23,34 +23,8 @@ import { createPlanGroupColumn, type PlanGroup } from '../components/PlanGroupCo
 import { createReadonlyPlanResourceColumns } from '../components/PlanResourceColumns';
 import { createReadonlyPlanPriceColumns } from '../components/PlanPriceColumns';
 import type { AdminDispatch } from '../types/store';
+import type { PlanFieldValue, PlanRecord, PlanState } from '../types/plan';
 
-
-export interface PlanRecord {
-  id?: number | string;
-  sort?: number | string;
-  show?: number | string;
-  renew?: number | string;
-  name?: string | null;
-  content?: string | null;
-  transfer_enable?: string | number | null;
-  device_limit?: string | number | null;
-  group_id?: number | string | null;
-  reset_traffic_method?: number | null;
-  capacity_limit?: string | number | null;
-  speed_limit?: string | number | null;
-  force_update?: boolean;
-  month_price?: string | number | null;
-  quarter_price?: string | number | null;
-  half_year_price?: string | number | null;
-  year_price?: string | number | null;
-  two_year_price?: string | number | null;
-  three_year_price?: string | number | null;
-  onetime_price?: string | number | null;
-  reset_price?: string | number | null;
-  [key: string]: unknown;
-}
-
-interface PlanState { plans: PlanRecord[]; fetchLoading: boolean; saveLoading?: boolean; }
 interface ServerGroupState { groups: PlanGroup[]; }
 interface ConfigState { site: { currency_symbol?: string }; }
 
@@ -94,7 +68,7 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
     this.props.dispatch({ type: 'serverGroup/fetch' });
   }
 
-  updateRecord(field: string, value: unknown): void { this.setState({ record: { ...this.state.record, [field]: value } }); }
+  updateRecord(field: string, value: PlanFieldValue): void { this.setState({ record: { ...this.state.record, [field]: value } }); }
   updatePrice(field: string, value: string): void { this.updateRecord(field, value !== '' ? value : null); }
 
   save(): void {
@@ -135,7 +109,7 @@ export class PlanPage extends React.Component<PlanPageProps> {
   contextPlan?: PlanRecord;
   componentDidMount(): void { this.props.dispatch({ type: 'plan/fetch' }); this.props.dispatch({ type: 'serverGroup/fetch' }); }
   drop(id: number | string | undefined): void { this.props.dispatch({ type: 'plan/drop', id }); }
-  update(id: number | string | undefined, key: string, value: unknown): void { this.props.dispatch({ type: 'plan/update', id, key, value }); }
+  update(id: number | string | undefined, key: string, value: PlanFieldValue): void { this.props.dispatch({ type: 'plan/update', id, key, value }); }
   actionMenu(plan: PlanRecord): React.ReactElement { return <Menu><Menu.Item onContextMenu={event => event.stopPropagation()}><ConnectedPlanEditor record={plan} key={plan.id}><a><Icon type="edit" /> 编辑</a></ConnectedPlanEditor></Menu.Item><Menu.Item style={{ color: '#ff4d4f' }} onClick={() => this.drop(plan.id)}><Icon type="delete" /> 删除</Menu.Item></Menu>; }
   render(): React.ReactNode {
     const { plans, fetchLoading } = this.props.plan;
