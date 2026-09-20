@@ -2,10 +2,10 @@ import { get, post, type ApiResponse, type FormRecord, type JsonValue } from '..
 import '../config/adminSettings';
 import type { PaymentRecord } from '../components/PaymentDisplayColumns';
 import type { PaymentForm, PaymentState } from '../types/payment';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface PaymentRootState { payment: PaymentState; }
+type PaymentRootState = Pick<AdminRootState, 'payment'>;
 interface PaymentTools extends ModelEffectTools<PaymentRootState> {}
 interface CompleteAction<Data> { complete(data: Data): void; }
 interface PaymentFormAction extends CompleteAction<PaymentForm> { payment: string; id?: string | number; }

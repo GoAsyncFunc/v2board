@@ -2,9 +2,9 @@ import { get, type ApiResponse } from '../services/request';
 import type { FilterItem, FilterValue } from '../components/FilterDrawer';
 import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 
-interface OrderStoreState { order: OrderState; }
+type OrderStoreState = Pick<AdminRootState, 'order'>;
 type OrderQueryAction = AdminAction | { filter: FilterItem[] };
 interface QueryEffectTools extends ModelEffectTools<OrderStoreState, OrderQueryAction> {}
 

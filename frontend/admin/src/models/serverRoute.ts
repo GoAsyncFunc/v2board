@@ -1,13 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
-import type { ServerId, ServerRouteOption } from '../types/server';
+import type { ServerId, ServerRouteOption, ServerRouteState } from '../types/server';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface ServerRouteModelState {
-  routes: ServerRouteOption[];
-  saveLoading: boolean;
-  fetchLoading: boolean;
-}
 
 interface ServerRouteEffectTools extends PutEffectTools {}
 
@@ -22,7 +16,7 @@ interface SaveServerRouteAction {
 
 type ServerRouteEffect = ModelEffect<ApiResponse<ServerRouteOption[]>>;
 
-const initialState: ServerRouteModelState = {
+const initialState: ServerRouteState = {
   routes: [],
   saveLoading: false,
   fetchLoading: false,
@@ -32,7 +26,7 @@ export default {
   name: 'serverRoute',
   state: { ...initialState },
   reducers: {
-    setState(state: ServerRouteModelState, { payload }: { payload: Partial<ServerRouteModelState> }) {
+    setState(state: ServerRouteState, { payload }: { payload: Partial<ServerRouteState> }) {
       return { ...state, ...payload };
     },
   },

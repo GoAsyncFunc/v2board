@@ -5,6 +5,10 @@ export interface AdminLoginData {
   is_admin: number | boolean;
 }
 
+export interface AuthState {
+  loginLoading?: boolean;
+}
+
 export type AdminUserInfo = Partial<UserRecord>;
 
 export interface PassportState {

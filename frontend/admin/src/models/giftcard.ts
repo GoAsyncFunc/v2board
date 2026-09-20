@@ -2,10 +2,10 @@ import dayjs from 'moment';
 import { get, post, type ApiResponse } from '../services/request';
 import type { GiftcardRecord } from '../components/GiftcardDisplayColumns';
 import type { GiftcardState, PromotionPagination, PromotionSort } from '../types/promotion';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface GiftcardRootState { giftcard: GiftcardState; }
+type GiftcardRootState = Pick<AdminRootState, 'giftcard'>;
 interface GiftcardTools extends ModelEffectTools<GiftcardRootState> {}
 interface GiftcardGenerateAction { params: GiftcardRecord; callback?: () => void; }
 interface GiftcardIdAction { id?: string | number; }

@@ -1,10 +1,10 @@
 import { get, post, type ApiResponse } from '../services/request';
 import { settings } from '../config/adminSettings';
 import type { PlanFieldValue, PlanPriceField, PlanRecord, PlanState } from '../types/plan';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface PlanRootState { plan: PlanState; }
+type PlanRootState = Pick<AdminRootState, 'plan'>;
 interface PlanTools extends ModelEffectTools<PlanRootState> {}
 interface PlanSaveAction { params: PlanRecord; callback?: () => void; }
 interface PlanIdAction { id?: string | number; }

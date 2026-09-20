@@ -1,13 +1,12 @@
 import type { LayoutState } from '../types/session';
+import type { AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
 interface ShowNavigationAction {
   show?: boolean;
 }
 
-interface LayoutStoreState {
-  layout: LayoutState;
-}
+type LayoutStoreState = Pick<AdminRootState, 'layout'>;
 
 interface LayoutEffectTools extends ModelEffectTools<LayoutStoreState> {}
 

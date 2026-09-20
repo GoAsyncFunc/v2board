@@ -2,13 +2,10 @@ import notification from 'antd/lib/message';
 import { get, post, type ApiResponse } from '../services/request';
 import type { TicketId, TicketRecord } from '../components/TicketDisplayColumns';
 import type { TicketFilterState, TicketPagination, TicketState } from '../types/ticket';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface TicketRootState {
-  ticket: TicketState;
-  user: { user: { id?: TicketId } };
-}
+type TicketRootState = Pick<AdminRootState, 'ticket' | 'user'>;
 interface TicketTools extends ModelEffectTools<TicketRootState> {}
 interface TicketIdAction { id?: TicketId; }
 interface TicketReplyAction extends TicketIdAction { msg?: string; callback?: () => void; }

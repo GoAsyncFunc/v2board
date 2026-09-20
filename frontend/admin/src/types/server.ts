@@ -85,8 +85,23 @@ export interface ServerManageState {
   sortMode: boolean;
 }
 
-export interface ServerGroupState { groups: ServerGroupOption[]; }
-export interface ServerRouteState { routes: ServerRouteOption[]; }
+export interface ServerProtocolState {
+  switchLoading: Record<string, boolean>;
+  saveLoading: boolean;
+}
+
+export interface ServerGroupState {
+  groups: ServerGroupOption[];
+  switchLoading: Record<string, boolean>;
+  saveLoading: boolean;
+  fetchLoading: boolean;
+}
+
+export interface ServerRouteState {
+  routes: ServerRouteOption[];
+  saveLoading: boolean;
+  fetchLoading: boolean;
+}
 export interface ServerSaveState { saveLoading: boolean; }
 
 export interface ServerEditorProps {

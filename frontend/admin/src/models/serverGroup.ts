@@ -1,14 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
-import type { ServerGroupOption, ServerId } from '../types/server';
+import type { ServerGroupOption, ServerGroupState, ServerId } from '../types/server';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface ServerGroupModelState {
-  groups: ServerGroupOption[];
-  switchLoading: Record<string, boolean>;
-  saveLoading: boolean;
-  fetchLoading: boolean;
-}
 
 interface ServerGroupEffectTools extends PutEffectTools {}
 
@@ -23,7 +16,7 @@ interface SaveServerGroupAction {
 
 type ServerGroupEffect = ModelEffect<ApiResponse<ServerGroupOption[]>>;
 
-const initialState: ServerGroupModelState = {
+const initialState: ServerGroupState = {
   groups: [],
   switchLoading: {},
   saveLoading: false,
@@ -34,7 +27,7 @@ export default {
   name: 'serverGroup',
   state: { ...initialState },
   reducers: {
-    setState(state: ServerGroupModelState, { payload }: { payload: Partial<ServerGroupModelState> }) {
+    setState(state: ServerGroupState, { payload }: { payload: Partial<ServerGroupState> }) {
       return { ...state, ...payload };
     },
   },

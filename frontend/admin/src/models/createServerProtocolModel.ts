@@ -1,11 +1,6 @@
 import { post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
-import type { ServerId } from '../types/server';
+import type { ServerId, ServerProtocolState } from '../types/server';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface ServerProtocolState {
-  switchLoading: Record<string, boolean>;
-  saveLoading: boolean;
-}
 
 interface ServerProtocolModelOptions {
   name: string;

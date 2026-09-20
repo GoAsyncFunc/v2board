@@ -2,12 +2,7 @@ import { get, post, type ApiResponse, type FormRecord } from '../services/reques
 import type { NoticeRecord } from '../components/NoticeDisplayColumns';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface NoticeState {
-  notices: NoticeRecord[];
-  fetchLoading: boolean;
-  saveLoading?: boolean;
-}
+import type { NoticeState } from '../types/notice';
 
 interface NoticeEffectTools extends PutEffectTools {}
 

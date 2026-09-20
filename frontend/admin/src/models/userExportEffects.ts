@@ -3,10 +3,10 @@ import moment from 'moment';
 import { post, type ApiResponse, type FormRecord } from '../services/request';
 import { downloadCsv } from '../services/download';
 import type { UserModuleState } from '../types/user';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface UserRootState { user: UserModuleState; }
+type UserRootState = Pick<AdminRootState, 'user'>;
 interface UserTools extends ModelEffectTools<UserRootState> {}
 interface GenerateAction { params: FormRecord; callback?: () => void; }
 type ExportResponse = ApiResponse & { buffer?: BlobPart };

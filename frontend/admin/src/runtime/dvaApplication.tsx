@@ -31,7 +31,7 @@ export interface DvaApplication extends DvaCoreApplication {
 
 interface DvaOptions {
   history?: History;
-  initialState?: AdminRootState;
+  initialState?: Partial<AdminRootState>;
   [key: string]: AdminValue;
 }
 

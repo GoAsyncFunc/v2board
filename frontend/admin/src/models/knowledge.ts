@@ -1,10 +1,10 @@
 import { get, post, type ApiResponse } from '../services/request';
 import type { KnowledgeRecord } from '../components/KnowledgeDisplayColumns';
 import type { KnowledgeState } from '../types/knowledge';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface KnowledgeRootState { knowledge: KnowledgeState; }
+type KnowledgeRootState = Pick<AdminRootState, 'knowledge'>;
 interface KnowledgeTools extends ModelEffectTools<KnowledgeRootState> {}
 interface KnowledgeIdAction { id?: string | number; }
 interface KnowledgeSaveAction { callback?: () => void; }

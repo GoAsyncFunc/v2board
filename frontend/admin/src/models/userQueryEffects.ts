@@ -1,10 +1,10 @@
 import { get, type ApiResponse } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/user';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface UserRootState { user: UserModuleState; }
+type UserRootState = Pick<AdminRootState, 'user'>;
 interface UserTools extends ModelEffectTools<UserRootState> {}
 interface UserIdAction { id?: string | number; }
 interface UserFilterAction { filter: FilterItem[]; }

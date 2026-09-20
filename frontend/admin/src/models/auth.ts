@@ -1,11 +1,7 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import history from '../app/navigation';
-import type { AdminLoginData } from '../types/session';
+import type { AdminLoginData, AuthState } from '../types/session';
 import type { ModelEffect, PutEffectTools } from '../types/effects';
-
-interface AuthState {
-  loginLoading?: boolean;
-}
 
 interface AuthLoginAction {
   action: FormRecord;

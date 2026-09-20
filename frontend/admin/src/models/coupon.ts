@@ -2,10 +2,10 @@ import dayjs from 'moment';
 import { get, post, type ApiResponse } from '../services/request';
 import type { CouponRecord } from '../components/CouponDisplayColumns';
 import type { CouponState, PromotionPagination, PromotionSort } from '../types/promotion';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface CouponRootState { coupon: CouponState; }
+type CouponRootState = Pick<AdminRootState, 'coupon'>;
 interface CouponTools extends ModelEffectTools<CouponRootState> {}
 interface CouponGenerateAction { params: CouponRecord; callback?: () => void; }
 interface CouponIdAction { id?: string | number; }

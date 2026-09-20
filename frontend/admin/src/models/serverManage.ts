@@ -1,11 +1,9 @@
 import { get, post, type ApiResponse, type FormRecord } from '../services/request';
 import type { ManagedServerRecord, ServerManageState } from '../types/server';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface ServerManageStoreState {
-  serverManage: ServerManageState;
-}
+type ServerManageStoreState = Pick<AdminRootState, 'serverManage'>;
 
 interface ServerManageEffectTools extends ModelEffectTools<ServerManageStoreState> {}
 

@@ -109,3 +109,17 @@ test('admin application runtime is implemented as typed TSX components', async (
   assert.doesNotMatch(runtimeSource, /React\.createElement/);
   assert.equal(tsconfig.compilerOptions.allowJs, false);
 });
+
+test('admin root state names every registered business model', async () => {
+  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+  const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
+  assert.match(storeTypes, /export interface AdminRootState/);
+  for (const model of [
+    'auth', 'config', 'coupon', 'giftcard', 'knowledge', 'layout', 'notice', 'order',
+    'passport', 'payment', 'plan', 'serverAnyTLS', 'serverGroup', 'serverHysteria',
+    'serverManage', 'serverRoute', 'serverShadowsocks', 'serverTrojan', 'serverTuic',
+    'serverV2node', 'serverVless', 'serverVmess', 'stat', 'system', 'theme', 'ticket', 'user',
+  ]) assert.match(storeTypes, new RegExp(`\\b${model}:`));
+  assert.doesNotMatch(storeTypes, /AdminRootState = Record<string, object>/);
+  assert.match(rootRuntime, /Partial<AdminRootState>/);
+});

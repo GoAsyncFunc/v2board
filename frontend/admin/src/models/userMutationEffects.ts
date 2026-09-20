@@ -2,10 +2,10 @@ import message from 'antd/lib/message';
 import { post, type ApiResponse, type FormRecord, type FormValue } from '../services/request';
 import type { FilterItem } from '../components/FilterDrawer';
 import type { UserModuleState, UserRecord } from '../types/user';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface UserRootState { user: UserModuleState; }
+type UserRootState = Pick<AdminRootState, 'user'>;
 interface UserTools extends ModelEffectTools<UserRootState> {}
 interface CallbackAction { callback?: () => void; }
 interface UpdateAction extends CallbackAction { params: UserRecord; }

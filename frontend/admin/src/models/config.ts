@@ -9,10 +9,10 @@ import type {
   MailTestLog,
   SiteConfig,
 } from '../types/config';
-import type { AdminAction } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 
-interface ConfigRootState { config: AdminConfigState; }
+type ConfigRootState = Pick<AdminRootState, 'config'>;
 interface ConfigTools extends ModelEffectTools<ConfigRootState> {}
 
 interface FetchConfigAction {
