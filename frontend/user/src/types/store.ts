@@ -5,7 +5,8 @@ export interface UserAction<Result = void> {
   [key: string]: unknown;
 }
 
-export type UserDispatch = <Result = void>(action: UserAction<Result>) => unknown;
+export type UserDispatchResult<Result> = UserAction<Result> | Promise<Result> | undefined;
+export type UserDispatch = <Result = void>(action: UserAction<Result>) => UserDispatchResult<Result>;
 
 export interface UserStore {
   dispatch: UserDispatch;

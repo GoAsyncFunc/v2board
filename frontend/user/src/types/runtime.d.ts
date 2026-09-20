@@ -1,6 +1,7 @@
 export {};
 
 import type { UserHistory } from '../app/history';
+import type { AppRoute } from '../app/routes';
 import type { UserDvaApplication } from '../app/store';
 
 declare global {
@@ -23,7 +24,7 @@ declare global {
       i18n: string[] & Record<string, Record<string, string>>;
       [key: string]: unknown;
     };
-    g_routes: unknown;
+    g_routes: AppRoute[];
     g_app: UserDvaApplication;
     g_history: UserHistory;
     g_initialData: Record<string, object>;

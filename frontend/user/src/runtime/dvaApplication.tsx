@@ -6,22 +6,25 @@ import type { History } from 'history';
 import { Provider } from 'react-redux';
 import * as routerBindings from './routerBindings';
 import { routerMiddleware } from './routerBindings';
+import type { PluginValue } from './pluginRuntime';
 import type { UserStore } from '../types/store';
+
+type DvaRouterProps = Record<string, PluginValue>;
+type DvaProvider = (props?: DvaRouterProps) => React.ReactElement;
 
 interface DvaCoreApplication {
   _history: History;
-  _getProvider?: (router: DvaRouter) => (props: Record<string, unknown>) => React.ReactElement;
+  _getProvider?: (router: DvaRouter) => DvaProvider;
   _plugin: { apply(name: string): (render: (router: DvaRouter) => void) => void };
   _router?: DvaRouter;
   _store?: UserStore;
   model(model: object): void;
   router?: (router: DvaRouter) => void;
-  start: (container?: string | Element) => unknown;
+  start: (container?: string | Element) => DvaProvider | void;
   use(plugin: object): void;
-  [key: string]: unknown;
 }
 
-type DvaRouter = (props: Record<string, unknown>) => React.ReactElement;
+type DvaRouter = (props: DvaRouterProps) => React.ReactElement;
 
 interface DvaOptions {
   history?: History;
@@ -37,7 +40,7 @@ function isDomElement(value: unknown): value is Element {
 }
 
 function createProvider(store: UserStore, app: DvaCoreApplication, router: DvaRouter) {
-  return (props: Record<string, unknown>): React.ReactElement => (
+  return (props: DvaRouterProps = {}): React.ReactElement => (
     <Provider store={store as React.ComponentProps<typeof Provider>['store']}>
       {router({ app, history: app._history, ...props })}
     </Provider>

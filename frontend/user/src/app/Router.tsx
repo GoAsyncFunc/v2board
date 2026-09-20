@@ -27,7 +27,7 @@ interface AppLocale {
   messages: Record<string, string>;
   locale: string;
   antd: AntdLocale;
-  data?: unknown;
+  data?: ReadonlyArray<object> | object;
   momentLocale: string;
 }
 
