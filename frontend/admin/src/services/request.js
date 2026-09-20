@@ -1,7 +1,7 @@
 import { fetchResponse } from './fetchResponse';
-import { notification } from "../vendor/notification.js";
-import { siteSettings } from "../vendor/siteSettings.js";
-import { getToken, clearToken } from "../vendor/siteHelpers.js";
+import notification from 'antd/lib/notification';
+import { siteSettings } from '../config/siteSettings';
+import { getToken, clearToken } from '../utils/siteHelpers';
 
 export function encodeForm(data) {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return '';

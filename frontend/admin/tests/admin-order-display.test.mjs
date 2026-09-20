@@ -10,7 +10,7 @@ const settings={a:{periodText:{month_price:'月付'}}},Tag={a:'Tag'},moment=valu
 async function columns(original, suppliedSettings=settings){
  const file=new URL(original?'./fixtures/pages/admin-order-display.cjs':'../src/components/OrderDisplayColumns.tsx',import.meta.url);
  const source=await fs.readFile(file,'utf8');const module={exports:{}};
- vm.runInNewContext(original?source:(await transform(source,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id==='moment')return moment;if(id.includes('antdTag'))return Tag;if(id.includes('adminSettingsRuntime'))return suppliedSettings;if(id.includes('77642f52'))return moment;
+ vm.runInNewContext(original?source:(await transform(source,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id==='moment')return moment;if(id.includes('antdTag'))return Tag;if(id.includes('adminSettingsRuntime'))return suppliedSettings;if(id.includes('config/adminSettings'))return {settings:suppliedSettings.a};if(id.includes('77642f52'))return moment;
         throw Error(id);}});
  return original?module.exports({a:React},Tag,suppliedSettings,()=>moment):Object.values(module.exports.createReadonlyOrderColumns());
 }

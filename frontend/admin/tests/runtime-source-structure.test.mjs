@@ -43,3 +43,31 @@ test('admin application runtime uses typed source modules outside vendor', async
     await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
   }
 });
+
+test('admin configuration and browser helpers use typed source modules outside vendor', async () => {
+  const typedSourcePaths = [
+    '../src/config/adminSettings.ts',
+    '../src/config/siteSettings.ts',
+    '../src/utils/siteHelpers.ts',
+  ];
+  for (const relativePath of typedSourcePaths) {
+    const stat = await fs.stat(new URL(relativePath, import.meta.url));
+    assert.equal(stat.isFile(), true, `${relativePath} should be a file`);
+  }
+
+  const removedPaths = [
+    '../src/vendor/adminSettings.js',
+    '../src/vendor/adminSettings.d.ts',
+    '../src/vendor/clipboard.js',
+    '../src/vendor/dateTime.js',
+    '../src/vendor/notification.js',
+    '../src/vendor/siteHelpers.js',
+    '../src/vendor/siteHelpers.d.ts',
+    '../src/vendor/siteSettings.js',
+    '../src/vendor/siteSettings.d.ts',
+    '../src/vendor/ui.js',
+  ];
+  for (const relativePath of removedPaths) {
+    await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
+  }
+});

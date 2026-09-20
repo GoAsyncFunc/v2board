@@ -1,4 +1,4 @@
-import { notification } from '../vendor/ui.js';
+import notification from 'antd/lib/message';
 
 import { get, post } from '../services/request.js';
 

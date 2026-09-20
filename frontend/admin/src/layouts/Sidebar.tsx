@@ -4,7 +4,7 @@ import { createNavigation } from '../config/navigation';
 import type { NavigationItem } from '../config/navigation';
 import history from '../app/history';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/siteSettings.js';
+import '../config/siteSettings';
 
 interface SidebarOwnProps {
   location: { pathname: string };

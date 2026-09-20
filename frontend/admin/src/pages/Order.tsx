@@ -17,7 +17,7 @@ import MainLayout from '../layouts/MainLayout';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';
 import OrderDetailBody, { type OrderDetailPlan, type OrderDetailRecord, type OrderDetailUser } from '../components/OrderDetailBody';
 import { createReadonlyOrderColumns } from '../components/OrderDisplayColumns';
-import { settings } from '../vendor/adminSettings.js';
+import { settings } from '../config/adminSettings';
 import type { AdminDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';

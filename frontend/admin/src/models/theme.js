@@ -1,5 +1,5 @@
 import { get, post } from '../services/request.js';
-import '../vendor/adminSettings.js';
+import '../config/adminSettings';
 
 const initialState = { themes: [], active: undefined };
 

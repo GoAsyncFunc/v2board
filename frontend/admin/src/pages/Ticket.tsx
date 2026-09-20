@@ -12,7 +12,6 @@ import MainLayout from '../layouts/MainLayout';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyTicketColumns, type TicketId, type TicketRecord } from '../components/TicketDisplayColumns';
 import type { AdminDispatch } from '../types/store';
-import '../vendor/dateTime.js';
 
 interface TicketFilterState {
   status?: number;

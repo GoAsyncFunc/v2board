@@ -19,7 +19,7 @@ import LoadingContainer from '../components/LoadingContainer';
 import Sortable from '../components/Sortable';
 import MainLayout from '../layouts/MainLayout';
 import type { AdminDispatch } from '../types/store';
-import { settings } from '../vendor/adminSettings.js';
+import { settings } from '../config/adminSettings';
 import '../vendor/iconStyles.js';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;

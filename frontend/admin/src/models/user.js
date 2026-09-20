@@ -1,4 +1,4 @@
-import { getPreference } from '../vendor/siteHelpers.js';
+import { getPreference } from '../utils/siteHelpers';
 import * as session from './sessionEffects.js';
 import * as queries from './userQueryEffects.js';
 import * as mutations from './userMutationEffects.js';

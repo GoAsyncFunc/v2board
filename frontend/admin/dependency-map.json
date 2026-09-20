@@ -41,7 +41,7 @@
   },
   {
     "from": "app/dvaConfig.ts",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "app/history.ts",
@@ -273,7 +273,7 @@
   },
   {
     "from": "components/AssignOrderEditor.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "components/FilterDrawer.tsx",
@@ -293,11 +293,11 @@
   },
   {
     "from": "components/OrderDetailBody.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "components/OrderDisplayColumns.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "components/ShadowsocksEditor.tsx",
@@ -317,7 +317,7 @@
   },
   {
     "from": "components/TrafficPanel.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "components/TrojanEditor.tsx",
@@ -461,7 +461,7 @@
   },
   {
     "from": "layouts/Header.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -485,7 +485,7 @@
   },
   {
     "from": "layouts/Sidebar.tsx",
-    "to": "vendor/siteSettings.js"
+    "to": "config/siteSettings.ts"
   },
   {
     "from": "main.ts",
@@ -504,24 +504,12 @@
     "to": "services/request.js"
   },
   {
-    "from": "models/config.js",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "models/coupon.js",
     "to": "services/request.js"
   },
   {
-    "from": "models/coupon.js",
-    "to": "vendor/dateTime.js"
-  },
-  {
     "from": "models/giftcard.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/giftcard.js",
-    "to": "vendor/dateTime.js"
   },
   {
     "from": "models/knowledge.js",
@@ -553,23 +541,23 @@
   },
   {
     "from": "models/passport.js",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "models/payment.js",
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "models/payment.js",
     "to": "services/request.js"
   },
   {
-    "from": "models/payment.js",
-    "to": "vendor/adminSettings.js"
+    "from": "models/plan.js",
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "models/plan.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/plan.js",
-    "to": "vendor/adminSettings.js"
   },
   {
     "from": "models/serverAnyTLS.js",
@@ -625,7 +613,7 @@
   },
   {
     "from": "models/sessionEffects.js",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/stat.js",
@@ -637,19 +625,15 @@
   },
   {
     "from": "models/theme.js",
-    "to": "services/request.js"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "models/theme.js",
-    "to": "vendor/adminSettings.js"
-  },
-  {
-    "from": "models/ticket.js",
     "to": "services/request.js"
   },
   {
     "from": "models/ticket.js",
-    "to": "vendor/ui.js"
+    "to": "services/request.js"
   },
   {
     "from": "models/user.js",
@@ -669,7 +653,7 @@
   },
   {
     "from": "models/user.js",
-    "to": "vendor/siteHelpers.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/userExportEffects.js",
@@ -680,20 +664,8 @@
     "to": "services/request.js"
   },
   {
-    "from": "models/userExportEffects.js",
-    "to": "vendor/dateTime.js"
-  },
-  {
-    "from": "models/userExportEffects.js",
-    "to": "vendor/ui.js"
-  },
-  {
     "from": "models/userMutationEffects.js",
     "to": "services/request.js"
-  },
-  {
-    "from": "models/userMutationEffects.js",
-    "to": "vendor/ui.js"
   },
   {
     "from": "models/userQueryEffects.js",
@@ -789,11 +761,11 @@
   },
   {
     "from": "pages/Coupon.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/Coupon.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Coupon.tsx",
@@ -809,15 +781,15 @@
   },
   {
     "from": "pages/Dashboard.tsx",
+    "to": "config/siteSettings.ts"
+  },
+  {
+    "from": "pages/Dashboard.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Dashboard.tsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Dashboard.tsx",
-    "to": "vendor/siteSettings.js"
   },
   {
     "from": "pages/Giftcard.tsx",
@@ -857,11 +829,11 @@
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/Knowledge.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Knowledge.tsx",
@@ -921,15 +893,15 @@
   },
   {
     "from": "pages/Order.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/Order.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/Order.tsx",
     "to": "services/request.js"
-  },
-  {
-    "from": "pages/Order.tsx",
-    "to": "vendor/adminSettings.js"
   },
   {
     "from": "pages/Order.tsx",
@@ -1065,11 +1037,11 @@
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "vendor/iconStyles.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/ServerManage.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/iconStyles.js"
   },
   {
     "from": "pages/ServerRoute.tsx",
@@ -1085,11 +1057,11 @@
   },
   {
     "from": "pages/ServerRoute.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/ServerRoute.tsx",
-    "to": "vendor/adminSettings.js"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ServerRoute.tsx",
@@ -1106,10 +1078,6 @@
   {
     "from": "pages/Ticket.tsx",
     "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/Ticket.tsx",
-    "to": "vendor/dateTime.js"
   },
   {
     "from": "pages/TicketDetail.tsx",
@@ -1177,11 +1145,11 @@
   },
   {
     "from": "pages/User.tsx",
-    "to": "vendor/iconStyles.js"
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/User.tsx",
-    "to": "vendor/siteHelpers.js"
+    "to": "vendor/iconStyles.js"
   },
   {
     "from": "runtime/dvaApplication.tsx",
@@ -1193,26 +1161,14 @@
   },
   {
     "from": "services/request.js",
+    "to": "config/siteSettings.ts"
+  },
+  {
+    "from": "services/request.js",
     "to": "services/fetchResponse.ts"
   },
   {
     "from": "services/request.js",
-    "to": "vendor/notification.js"
-  },
-  {
-    "from": "services/request.js",
-    "to": "vendor/siteHelpers.js"
-  },
-  {
-    "from": "services/request.js",
-    "to": "vendor/siteSettings.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
-    "to": "vendor/clipboard.js"
-  },
-  {
-    "from": "vendor/siteHelpers.js",
-    "to": "vendor/ui.js"
+    "to": "utils/siteHelpers.ts"
   }
 ]

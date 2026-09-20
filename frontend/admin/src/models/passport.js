@@ -1,6 +1,6 @@
 import { post } from '../services/request.js';
 import history from '../app/navigation';
-import { setToken } from '../vendor/siteHelpers.js';
+import { setToken } from '../utils/siteHelpers';
 
 export default {
   name: 'passport',

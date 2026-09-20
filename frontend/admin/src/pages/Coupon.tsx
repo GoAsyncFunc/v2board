@@ -19,7 +19,7 @@ import moment from 'moment';
 import LoadingContainer from '../components/LoadingContainer';
 import { createReadonlyCouponColumns, type CouponRecord } from '../components/CouponDisplayColumns';
 import MainLayout from '../layouts/MainLayout';
-import { settings } from '../vendor/adminSettings.js';
+import { settings } from '../config/adminSettings';
 import type { PlanSummary } from '../types/config';
 import type { AdminDispatch } from '../types/store';
 import '../vendor/iconStyles.js';

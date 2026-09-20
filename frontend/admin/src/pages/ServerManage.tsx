@@ -17,7 +17,7 @@ import copyText from 'copy-to-clipboard';
 import { Prompt } from 'react-router-dom';
 import Sortable from '../components/Sortable';
 import LoadingContainer from '../components/LoadingContainer';
-import { getPreference, isMobile, setPreference } from '../vendor/siteHelpers.js';
+import { getPreference, isMobile, setPreference } from '../utils/siteHelpers';
 import MainLayout from '../layouts/MainLayout';
 import ContextMenuTable from '../components/ContextMenuTable';
 import ShadowsocksEditor from '../components/ShadowsocksEditor';

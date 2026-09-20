@@ -1,6 +1,6 @@
 import { post } from '../services/request.js';
-import { message } from '../vendor/ui.js';
-import moment from '../vendor/dateTime.js';
+import message from 'antd/lib/message';
+import moment from 'moment';
 import { downloadCsv } from '../services/download.js';
 const endpoint = action => `/${window.settings.secure_path}/user/${action}`;
 

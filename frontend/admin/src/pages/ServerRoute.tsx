@@ -12,7 +12,7 @@ import LoadingContainer from '../components/LoadingContainer';
 import MainLayout from '../layouts/MainLayout';
 import { createRouteActionColumn } from '../components/RouteActionColumn';
 import { createReadonlyServerRouteColumns } from '../components/ServerRouteDisplayColumns';
-import { settings } from '../vendor/adminSettings.js';
+import { settings } from '../config/adminSettings';
 import type { AdminDispatch } from '../types/store';
 
 import '../vendor/iconStyles.js';

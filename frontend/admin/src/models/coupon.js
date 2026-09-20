@@ -1,4 +1,4 @@
-import dayjs from '../vendor/dateTime.js';
+import dayjs from 'moment';
 import { get, post } from '../services/request.js';
 
 const initialState = { coupons: [], fetchLoading: false, saveLoading: false, pagination: { pageSize: 10, current: 1 }, sort: {} };

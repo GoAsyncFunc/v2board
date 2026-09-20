@@ -15,7 +15,7 @@ import UserGenerator from '../components/UserGenerator';
 import LoadingContainer from '../components/LoadingContainer';
 import TrafficPanel from '../components/TrafficPanel';
 import history from '../app/navigation';
-import { copyToClipboard, setPreference } from '../vendor/siteHelpers.js';
+import { copyToClipboard, setPreference } from '../utils/siteHelpers';
 import MainLayout from '../layouts/MainLayout';
 import UserEditor from '../components/UserEditor';
 import FilterDrawer, { type FilterField, type FilterItem } from '../components/FilterDrawer';

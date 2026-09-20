@@ -1,4 +1,15 @@
-export const settings = {
+export interface AdminSettings {
+  i18nText: Readonly<Record<PropertyKey, string>>;
+  periodText: Readonly<Record<PropertyKey, string>>;
+  tutorialCategoryText: Readonly<Record<PropertyKey, string>>;
+  tutorialCategoryIcon: Readonly<Record<PropertyKey, string>>;
+  orderStatusText: Readonly<Record<PropertyKey, string>>;
+  commissionStatusText: Readonly<Record<PropertyKey, string>>;
+  ticketStatusText: Readonly<Record<PropertyKey, string>>;
+  routeActionText: Readonly<Record<PropertyKey, string>>;
+}
+
+export const settings: AdminSettings = {
   i18nText: {
     'zh-CN': '简体中文',
     'zh-TW': '繁體中文',
