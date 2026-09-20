@@ -5,6 +5,7 @@ import moment from 'moment';
 
 export interface GiftcardPlan { id: number | string; name?: string | null; }
 export interface GiftcardRecord {
+  [field: string]: string | number | string[] | null | undefined;
   id?: string | number;
   name?: string;
   type?: 1 | 2 | 3 | 4 | 5;

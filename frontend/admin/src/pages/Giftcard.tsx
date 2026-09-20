@@ -20,6 +20,7 @@ import { createReadonlyGiftcardColumns, type GiftcardRecord } from '../component
 import MainLayout from '../layouts/MainLayout';
 import type { PlanSummary } from '../types/config';
 import type { AdminDispatch } from '../types/store';
+import type { GiftcardState } from '../types/promotion';
 
 const defaultGiftcard: GiftcardRecord = { type: 1 };
 
@@ -34,12 +35,7 @@ function createValidityRange(startedAt?: number | string | null, endedAt?: numbe
 
 interface GiftcardPageProps {
   dispatch: AdminDispatch;
-  giftcard: {
-    giftcards: GiftcardRecord[];
-    fetchLoading: boolean;
-    saveLoading: boolean;
-    pagination: PaginationConfig;
-  };
+  giftcard: GiftcardState;
   plan: { plans: PlanSummary[] };
   [key: string]: unknown;
 }

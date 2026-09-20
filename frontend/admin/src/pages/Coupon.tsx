@@ -22,6 +22,7 @@ import MainLayout from '../layouts/MainLayout';
 import { settings } from '../config/adminSettings';
 import type { PlanSummary } from '../types/config';
 import type { AdminDispatch } from '../types/store';
+import type { CouponState } from '../types/promotion';
 
 const defaultCoupon: CouponRecord = { type: 1 };
 const readonlyColumns = createReadonlyCouponColumns();
@@ -37,12 +38,7 @@ function createValidityRange(startedAt?: number | string | null, endedAt?: numbe
 
 interface CouponPageProps {
   dispatch: AdminDispatch;
-  coupon: {
-    coupons: CouponRecord[];
-    fetchLoading: boolean;
-    saveLoading: boolean;
-    pagination: PaginationConfig;
-  };
+  coupon: CouponState;
   plan: { plans: PlanSummary[] };
   [key: string]: unknown;
 }

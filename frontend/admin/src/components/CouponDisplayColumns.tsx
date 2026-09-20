@@ -4,6 +4,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 
 export interface CouponRecord {
+  [field: string]: string | number | boolean | string[] | null | undefined;
   id?: string | number;
   name?: string;
   show?: boolean | number;
