@@ -61,6 +61,11 @@ const MODEL_BY_TYPE = {
     anytls: 'serverAnyTLS',
     v2node: 'serverV2node',
 };
+type ServerProtocolAction = 'copy' | 'drop' | 'update';
+interface ServerUpdatePayload<Key extends keyof ServerRecord = keyof ServerRecord> {
+    key: Key;
+    value: ServerRecord[Key];
+}
 
 interface ServerManagePageProps {
     dispatch: AdminDispatch;
@@ -178,10 +183,24 @@ export class ServerManagePage extends React.Component<
         this.props.dispatch({ type: 'serverRoute/fetch' });
     }
 
-    dispatchServerAction(server: ServerRecord, action: string, extra: object = {}): void {
+    dispatchServerAction(
+        server: ServerRecord,
+        action: Exclude<ServerProtocolAction, 'update'>,
+    ): void;
+    dispatchServerAction<Key extends keyof ServerRecord>(
+        server: ServerRecord,
+        action: 'update',
+        payload: ServerUpdatePayload<Key>,
+    ): void;
+    dispatchServerAction(
+        server: ServerRecord,
+        action: ServerProtocolAction,
+        payload?: ServerUpdatePayload,
+    ): void {
         if (!server.type) return;
         const model = MODEL_BY_TYPE[server.type as keyof typeof MODEL_BY_TYPE];
-        if (model) this.props.dispatch({ type: `${model}/${action}`, id: server.id, ...extra });
+        if (model)
+            this.props.dispatch({ type: `${model}/${action}`, id: server.id, ...(payload || {}) });
     }
 
     copy(server: ServerRecord): void {

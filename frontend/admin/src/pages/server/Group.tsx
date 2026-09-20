@@ -12,16 +12,14 @@ import {
     createReadonlyServerGroupColumns,
     type ServerGroupRecord,
 } from '../../components/server/ServerGroupDisplayColumns';
+import type { ServerGroupState } from '../../types/server';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 const readonlyColumns = createReadonlyServerGroupColumns();
 
 interface ServerGroupPageProps {
     dispatch: AdminDispatch;
-    serverGroup: {
-        groups: ServerGroupRecord[];
-        fetchLoading: boolean;
-    };
+    serverGroup: ServerGroupState;
 }
 
 export class ServerGroupPage extends React.Component<ServerGroupPageProps> {

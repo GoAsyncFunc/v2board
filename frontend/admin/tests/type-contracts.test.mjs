@@ -69,3 +69,26 @@ test('server security settings use protocol-specific fields instead of a generic
   assert.match(componentSource, /function inputValue\(/);
   assert.match(componentSource, /function isEchMode\(/);
 });
+
+test('admin business boundary types avoid broad object placeholders', async () => {
+  const relativePaths = [
+    'types/user.ts',
+    'types/monitoring.ts',
+    'pages/server/Manage.tsx',
+    'components/common/ContextMenuTable.tsx',
+    'components/server/RouteActionColumn.ts',
+    'components/server/ServerRouteDisplayColumns.ts',
+    'components/server/ServerGroupDisplayColumns.tsx',
+  ];
+  for (const relativePath of relativePaths) {
+    const source = await fs.readFile(path.join(sourceRoot, relativePath), 'utf8');
+    assert.doesNotMatch(source, /:\s*object\b|extends\s+object\b|=\s*object\b/, relativePath);
+  }
+
+  const userTypes = await fs.readFile(path.join(sourceRoot, 'types', 'user.ts'), 'utf8');
+  const monitoringTypes = await fs.readFile(path.join(sourceRoot, 'types', 'monitoring.ts'), 'utf8');
+  const managePage = await fs.readFile(path.join(sourceRoot, 'pages', 'server', 'Manage.tsx'), 'utf8');
+  assert.match(userTypes, /invite_user\?: InvitingUserReference \| null/);
+  assert.match(monitoringTypes, /interface CoercibleQueueWait/);
+  assert.match(managePage, /type ServerProtocolAction = 'copy' \| 'drop' \| 'update'/);
+});

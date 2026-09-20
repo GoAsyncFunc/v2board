@@ -1,6 +1,11 @@
 export type DisplayScalar = string | number | boolean | null | undefined;
 export type QueueName = string | number | symbol | null | undefined;
-export type QueueWait = string | number | object | null | undefined;
+export interface CoercibleQueueWait {
+    [Symbol.toPrimitive]?(hint: 'default' | 'number' | 'string'): string | number;
+    toString(): string;
+    valueOf(): CoercibleQueueWait | string | number;
+}
+export type QueueWait = string | number | CoercibleQueueWait | null | undefined;
 export type QueueMetric = string | number | null | undefined;
 
 export interface QueueWorkload {

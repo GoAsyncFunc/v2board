@@ -45,7 +45,7 @@ export function* getUserInfoById({ id }: UserIdAction, { put }: UserTools): User
     })) as ApiResponse<UserRecord>;
     if (!isSuccessfulResponse(response)) return;
     const user = formatUser(response.data);
-    if (user.invite_user) user.invite_user_email = (user.invite_user as { email?: string }).email;
+    if (user.invite_user) user.invite_user_email = user.invite_user.email;
     yield put({ type: 'setState', payload: { user } });
 }
 

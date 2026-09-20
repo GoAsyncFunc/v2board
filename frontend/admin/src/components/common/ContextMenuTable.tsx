@@ -8,7 +8,7 @@ export interface ContextMenuTableProps<RecordType> extends TableProps<RecordType
     onContextMenu?: (record: RecordType | undefined) => void;
 }
 
-export class ContextMenuTable<RecordType extends object = object> extends React.Component<
+export class ContextMenuTable<RecordType = never> extends React.Component<
     ContextMenuTableProps<RecordType>
 > {
     getMenuElement() {

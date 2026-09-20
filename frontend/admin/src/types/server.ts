@@ -56,7 +56,12 @@ export interface VmessTlsSettings {
 export interface ServerGroupOption {
     id: number;
     name: string;
+    user_count?: LegacyDisplayValue;
+    server_count?: LegacyDisplayValue;
 }
+
+export type LegacyDisplayValue =
+    React.ReactNode | Readonly<Record<string, React.ReactNode>> | symbol;
 
 export interface ServerRouteOption {
     id: ServerId;

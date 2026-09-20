@@ -1,5 +1,9 @@
 import type { FilterItem } from './filter';
 
+export interface InvitingUserReference {
+    email?: string;
+}
+
 export interface UserRecord {
     id: string | number;
     email: string;
@@ -27,7 +31,7 @@ export interface UserRecord {
     t?: number | string | null;
     password?: string;
     invite_user_email?: string;
-    invite_user?: object;
+    invite_user?: InvitingUserReference | null;
     is_admin?: number | boolean;
     is_staff?: number | boolean;
     remarks?: string;
