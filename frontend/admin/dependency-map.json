@@ -649,6 +649,10 @@
   },
   {
     "from": "pages/config/theme/index.tsx",
+    "to": "pages/config/theme/_Modal/index.tsx"
+  },
+  {
+    "from": "pages/config/theme/index.tsx",
     "to": "services/request.ts"
   },
   {

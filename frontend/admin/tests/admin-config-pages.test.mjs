@@ -93,8 +93,8 @@ async function loadPaymentModule(relativePath) {
 const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/index.tsx');
 const loadPaymentEditor = () => loadPaymentModule('../src/pages/config/payment/_Modal/index.tsx');
 
-async function loadThemePage() {
-  const source = await fs.readFile(new URL('../src/pages/config/theme/index.tsx', import.meta.url), 'utf8');
+async function loadThemeModule(relativePath) {
+  const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const requests = [];
   const successMessages = [];
@@ -117,6 +117,7 @@ async function loadThemePage() {
       if (id === 'antd/lib/modal') return 'Modal';
       if (id === 'antd/lib/select') return Select;
       if (id.includes('MainLayout')) return 'MainLayout';
+      if (id === './_Modal') return { __esModule: true, default: 'ConnectedThemeConfigEditor', ThemeConfigEditor: 'ThemeConfigEditor' };
       if (id.includes('services/request')) return {
         post: async (endpoint, data) => { requests.push({ endpoint, data }); return { code: 200 }; },
       };
@@ -126,6 +127,9 @@ async function loadThemePage() {
   });
   return { ...module.exports, requests, successMessages };
 }
+
+const loadThemePage = () => loadThemeModule('../src/pages/config/theme/index.tsx');
+const loadThemeEditor = () => loadThemeModule('../src/pages/config/theme/_Modal/index.tsx');
 
 test('Payment editor loads methods and form, updates values and saves the selected gateway', async () => {
   const { PaymentEditor } = await loadPaymentEditor();
@@ -185,7 +189,7 @@ test('Payment page preserves fetch, enable, delete and sort actions', async () =
 });
 
 test('Theme editor loads semantic fields and submits the encoded configuration', async () => {
-  const runtime = await loadThemePage();
+  const runtime = await loadThemeEditor();
   const actions = [];
   const editor = new runtime.ThemeConfigEditor({
     children: { type: 'button', props: {} },
