@@ -803,6 +803,13 @@ test('V2Node editor composes focused field modules', async () => {
         ),
         'utf8',
     );
+    const childSettingsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     const protocolSpecificDirectory = new URL(
         '../src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/',
         import.meta.url,
@@ -824,6 +831,7 @@ test('V2Node editor composes focused field modules', async () => {
     assert.match(editorSource, /<V2NodeProtocolFields/);
     assert.match(editorSource, /<V2NodeProtocolSpecificFields/);
     assert.match(editorSource, /<V2NodeRelationshipFields/);
+    assert.match(editorSource, /<V2NodeChildSettingsPanel/);
     assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明|节点协议|混淆方式obfs/);
     assert.match(generalFieldsSource, /function V2NodeGeneralFields/);
     assert.match(generalFieldsSource, /PermissionGroupEditor/);
@@ -832,6 +840,8 @@ test('V2Node editor composes focused field modules', async () => {
     assert.match(protocolSpecificFieldsSource, /function V2NodeProtocolSpecificFields/);
     assert.match(protocolSpecificFieldsSource, /switch \(server\.protocol\)/);
     assert.match(hysteria2FieldsSource, /混淆方式obfs/);
+    assert.match(childSettingsSource, /export function V2NodeChildSettingsPanel/);
+    assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
     assert.match(relationshipFieldsSource, /function V2NodeRelationshipFields/);
     assert.match(relationshipFieldsSource, /父节点说明/);
 });

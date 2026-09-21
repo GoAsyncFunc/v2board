@@ -71,6 +71,7 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/VlessFields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx',
     'admin/src/pages/server/manage/_Editors/VlessEditor.tsx',
     'admin/src/pages/server/manage/_Editors/VmessEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx',

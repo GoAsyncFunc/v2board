@@ -1072,6 +1072,14 @@
     "to": "pages/server/manage/_Editors/Tuic/TransportSettings.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
@@ -1093,15 +1101,11 @@
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+    "to": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",

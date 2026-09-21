@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import CompatibleDrawer from './CompatibleDrawer';
-import JsonEditor from '../../../../components/common/JsonEditor';
-import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import V2NodeGeneralFields from './V2Node/GeneralFields';
 import V2NodeProtocolFields from './V2Node/ProtocolFields';
 import V2NodeProtocolSpecificFields from './V2Node/ProtocolSpecificFields';
 import V2NodeRelationshipFields from './V2Node/RelationshipFields';
+import { V2NodeChildSettingsPanel } from './V2Node/ChildSettingsPanel';
 import type { V2NodeSettingsPanel } from './V2Node/types';
 import type {
     ChildDrawerState,
@@ -17,53 +16,6 @@ import type {
 } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
 
-const NETWORK_PRESETS: Record<string, string> = {
-    tcp: JSON.stringify(
-        {
-            acceptProxyProtocol: false,
-            header: {
-                type: 'http',
-                request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } },
-                response: {},
-            },
-        },
-        null,
-        4,
-    ),
-    http: JSON.stringify(
-        { acceptProxyProtocol: false, path: '/', Host: 'xtls.github.io' },
-        null,
-        4,
-    ),
-    ws: JSON.stringify(
-        { acceptProxyProtocol: false, path: '/', headers: { Host: 'xtls.github.io' } },
-        null,
-        4,
-    ),
-    grpc: JSON.stringify({ serviceName: 'GunService' }, null, 4),
-    httpupgrade: JSON.stringify(
-        { acceptProxyProtocol: false, path: '/', host: 'xtls.github.io' },
-        null,
-        4,
-    ),
-    xhttp: JSON.stringify({ path: '/', host: 'xtls.github.io', mode: 'auto', extra: {} }, null, 4),
-};
-
-const DEFAULT_PADDING_SCHEME = JSON.stringify(
-    [
-        'stop=8',
-        '0=30-30',
-        '1=100-400',
-        '2=400-500,c,500-1000,c,500-1000,c,500-1000,c,500-1000',
-        '3=9-9,500-1000',
-        '4=500-1000',
-        '5=500-1000',
-        '6=500-1000',
-        '7=500-1000',
-    ],
-    null,
-    4,
-);
 const TLS_PROTOCOLS = ['anytls', 'hysteria2', 'trojan', 'tuic'];
 
 interface V2NodeEditorProps extends ServerEditorProps {
@@ -133,77 +85,6 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
         });
     }
 
-    renderJsonEditor(
-        value: ServerRecord['network_settings'] | ServerRecord['padding_scheme'],
-        placeholder: string,
-        field: 'network_settings' | 'padding_scheme',
-        id: string,
-    ): React.ReactElement {
-        const editorValue =
-            typeof value === 'string' ? value : value == null ? '' : JSON.stringify(value, null, 2);
-        return (
-            <div id={id}>
-                <div className="form-group">
-                    <JsonEditor
-                        placeholder={placeholder}
-                        mode="json"
-                        theme="github"
-                        fontSize={14}
-                        showPrintMargin
-                        showGutter
-                        highlightActiveLine
-                        value={editorValue}
-                        onChange={(nextValue) => this.updateServer(field, nextValue)}
-                        setOptions={{
-                            enableBasicAutocompletion: false,
-                            enableLiveAutocompletion: false,
-                            enableSnippets: false,
-                            showLineNumbers: true,
-                            tabSize: 2,
-                        }}
-                    />
-                </div>
-            </div>
-        );
-    }
-
-    renderChildDrawer(): React.ReactNode {
-        const { server, childDrawer } = this.state;
-        if (childDrawer.type === 'network_settings')
-            return this.renderJsonEditor(
-                typeof server.network_settings === 'object'
-                    ? JSON.stringify(server.network_settings, null, 2)
-                    : server.network_settings,
-                NETWORK_PRESETS[server.network || ''] || '',
-                'network_settings',
-                'v2ray-protocol',
-            );
-        if (childDrawer.type === 'tls_settings')
-            return (
-                <TlsSettings
-                    settings={server.tls_settings}
-                    tls={server.tls ?? 0}
-                    certApply
-                    onChange={(settings) => this.updateServer('tls_settings', settings)}
-                />
-            );
-        if (childDrawer.type === 'encryption_settings')
-            return (
-                <EncryptionSettings
-                    settings={server.encryption_settings}
-                    onChange={(settings) => this.updateServer('encryption_settings', settings)}
-                />
-            );
-        if (childDrawer.type === 'padding_scheme')
-            return this.renderJsonEditor(
-                server.padding_scheme,
-                DEFAULT_PADDING_SCHEME,
-                'padding_scheme',
-                'anytls-padding-scheme',
-            );
-        return null;
-    }
-
     render(): React.ReactNode {
         const { server, visible, childDrawer } = this.state;
         const { groups } = this.props.serverGroup;
@@ -261,7 +142,11 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                         visible={childDrawer.visible}
                         onClose={() => this.hideChildDrawer()}
                     >
-                        {this.renderChildDrawer()}
+                        <V2NodeChildSettingsPanel
+                            server={server}
+                            childDrawer={childDrawer}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </CompatibleDrawer>
                 </CompatibleDrawer>
             </>
