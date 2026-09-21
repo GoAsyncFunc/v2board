@@ -1057,11 +1057,11 @@
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "components/monitoring/QueueDisplayColumns.ts"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "pages/queue/_List/columns.ts"
   },
   {
     "from": "pages/server/group/index.tsx",

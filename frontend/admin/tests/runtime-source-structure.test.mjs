@@ -594,7 +594,7 @@ test('admin pages select from the canonical root state', async () => {
 test('admin components use business domains and connected editors use the canonical root state', async () => {
     const componentsDirectory = new URL('../src/components/', import.meta.url);
     const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-    const expectedDomains = ['commerce', 'common', 'config', 'monitoring', 'server', 'user'];
+    const expectedDomains = ['commerce', 'common', 'config', 'server', 'user'];
     assert.deepEqual(
         componentEntries
             .filter((entry) => entry.isDirectory())

@@ -1,7 +1,7 @@
 // Readonly queue workload columns, extracted unchanged from the admin Queue page.
 // Only pure display cells are here: no events, requests, sorting or pagination.
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { QueueName, QueueWait, QueueWorkload } from '../../types/monitoring';
+import type { QueueName, QueueWait, QueueWorkload } from '../../../types/monitoring';
 
 const QUEUE_NAME_LABELS: Record<string, string> = {
     order_handle: '订单队列',
