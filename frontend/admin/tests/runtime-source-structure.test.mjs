@@ -149,12 +149,28 @@ test('Trojan transport settings live in a focused protocol module', async () => 
         new URL('../src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx', import.meta.url),
         'utf8',
     );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Trojan/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Trojan/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     assert.match(
         editorSource,
         /import \{ TrojanNetworkSettings \} from '\.\/Trojan\/NetworkSettings'/,
     );
     assert.match(editorSource, /<TrojanNetworkSettings/);
     assert.match(networkSource, /export function TrojanNetworkSettings/);
+    assert.match(editorSource, /<TrojanGeneralFields/);
+    assert.match(editorSource, /<TrojanRelationshipFields/);
+    assert.match(generalFieldsSource, /export function TrojanGeneralFields/);
+    assert.match(relationshipFieldsSource, /export function TrojanRelationshipFields/);
+    assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明/);
     assert.doesNotMatch(editorSource, /<JsonEditor/);
 });
 

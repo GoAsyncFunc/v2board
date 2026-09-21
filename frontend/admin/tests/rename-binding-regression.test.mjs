@@ -55,6 +55,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
     'admin/src/components/common/Sortable.tsx',
     'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Trojan/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Trojan/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx',
     'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx',
