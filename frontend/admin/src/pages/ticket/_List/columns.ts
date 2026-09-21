@@ -1,7 +1,7 @@
 import moment from 'moment';
 import type React from 'react';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { TicketLevel, TicketRecord, TicketTimestamp } from '../../types/ticket';
+import type { TicketLevel, TicketRecord, TicketTimestamp } from '../../../types/ticket';
 
 export function renderTicketLevel(
     levels: readonly React.ReactNode[],

@@ -391,6 +391,10 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
   assert.ok((await fs.readdir(new URL('_List/', noticeDirectory))).includes('columns.ts'));
   assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
+  const ticketDirectory = new URL('ticket/', pagesDirectory);
+  assert.ok((await fs.readdir(ticketDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('columns.ts'));
   await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/promotion/CouponDisplayColumns.tsx', import.meta.url)));
@@ -400,6 +404,7 @@ test('admin pages select from the canonical root state', async () => {
   await assert.rejects(fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDisplayColumns.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDetailBody.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/content/TicketDisplayColumns.ts', import.meta.url)));
   for (const legacyUserPath of [
     '../src/components/user/UserDisplayColumns.tsx',
     '../src/components/user/UserEditor.tsx',

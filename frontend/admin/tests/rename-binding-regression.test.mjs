@@ -86,6 +86,8 @@ for (const file of [
   'admin/src/pages/server/route/index.tsx',
   'admin/src/pages/server/manage/index.tsx',
   'admin/src/pages/ticket/index.tsx',
+  'admin/src/pages/ticket/_List/index.tsx',
+  'admin/src/pages/ticket/_List/columns.ts',
   'admin/src/pages/ticket/[id].tsx',
   'admin/src/pages/user/index.tsx',
 ]) {

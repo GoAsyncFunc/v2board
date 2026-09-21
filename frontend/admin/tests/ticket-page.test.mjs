@@ -31,12 +31,16 @@ async function loadPage(userAgent = 'desktop') {
       if (id === 'antd/lib/divider') return 'Divider';
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('TicketDisplayColumns')) return {
+      if (id.includes('TicketDisplayColumns') || id.includes('/_List/columns')) return {
         createReadonlyTicketColumns: () => ({
           id: { key: 'id' }, subject: { key: 'subject' }, level: { key: 'level' },
           created_at: { key: 'created_at' }, updated_at: { key: 'updated_at' },
         }),
       };
+      if (id === './_List') {
+        function TicketList() {}
+        return { TicketList };
+      }
       if (id.includes('dateTime')) return {};
       throw new Error(id);
     },
@@ -62,9 +66,9 @@ test('Ticket page fetches, filters, searches and preserves table actions', async
   });
   page.componentDidMount();
   assert.deepEqual(runtime.actions, [{ type: 'ticket/fetch' }]);
-  const table = nodes(page.render(), node => node.type === 'Table')[0];
-  assert.deepEqual(JSON.parse(JSON.stringify(table.props.pagination)), { current: 1, pageSize: 10, total: 1, size: 'small' });
-  table.props.onChange({ current: 2, pageSize: 20 }, { status: [1] });
+  const list = nodes(page.render(), node => node.type?.name === 'TicketList')[0];
+  assert.deepEqual(JSON.parse(JSON.stringify(list.props.ticket.pagination)), { current: 1, pageSize: 10, total: 1 });
+  list.props.onTableChange({ current: 2, pageSize: 20 }, { status: [1] });
   assert.deepEqual(runtime.actions.at(-1), {
     type: 'ticket/filter', pagination: { current: 2, pageSize: 20 }, filter: { status: [1] },
   });

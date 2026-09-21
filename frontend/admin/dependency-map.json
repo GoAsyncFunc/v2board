@@ -1148,16 +1148,20 @@
     "to": "styles/ticketDetail.ts"
   },
   {
+    "from": "pages/ticket/_List/index.tsx",
+    "to": "pages/ticket/_List/columns.ts"
+  },
+  {
     "from": "pages/ticket/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/ticket/index.tsx",
-    "to": "components/content/TicketDisplayColumns.ts"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/ticket/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "pages/ticket/_List/index.tsx"
   },
   {
     "from": "pages/user/_Drawer/edit.tsx",
