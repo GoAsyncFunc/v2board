@@ -664,7 +664,7 @@ test('admin components use business domains and connected editors use the canoni
     }
 });
 
-test('V2Node editor composes focused general and relationship field modules', async () => {
+test('V2Node editor composes focused field modules', async () => {
     const editorSource = await fs.readFile(
         new URL('../src/pages/server/manage/_Editors/V2NodeEditor.tsx', import.meta.url),
         'utf8',
@@ -680,12 +680,29 @@ test('V2Node editor composes focused general and relationship field modules', as
         ),
         'utf8',
     );
+    const protocolFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/V2Node/ProtocolFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const protocolSpecificFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
 
     assert.match(editorSource, /<V2NodeGeneralFields/);
+    assert.match(editorSource, /<V2NodeProtocolFields/);
+    assert.match(editorSource, /<V2NodeProtocolSpecificFields/);
     assert.match(editorSource, /<V2NodeRelationshipFields/);
-    assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明/);
+    assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明|节点协议|混淆方式obfs/);
     assert.match(generalFieldsSource, /function V2NodeGeneralFields/);
     assert.match(generalFieldsSource, /PermissionGroupEditor/);
+    assert.match(protocolFieldsSource, /function V2NodeProtocolFields/);
+    assert.match(protocolFieldsSource, /节点协议/);
+    assert.match(protocolSpecificFieldsSource, /function V2NodeProtocolSpecificFields/);
+    assert.match(protocolSpecificFieldsSource, /混淆方式obfs/);
     assert.match(relationshipFieldsSource, /function V2NodeRelationshipFields/);
     assert.match(relationshipFieldsSource, /父节点说明/);
 });

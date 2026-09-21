@@ -1065,6 +1065,14 @@
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
     "to": "pages/server/manage/_Editors/V2Node/RelationshipFields.tsx"
   },
   {

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
-import Select from 'antd/lib/select';
 import CompatibleDrawer from './CompatibleDrawer';
 import JsonEditor from '../../../../components/common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import V2NodeGeneralFields from './V2Node/GeneralFields';
+import V2NodeProtocolFields from './V2Node/ProtocolFields';
+import V2NodeProtocolSpecificFields from './V2Node/ProtocolSpecificFields';
 import V2NodeRelationshipFields from './V2Node/RelationshipFields';
+import type { V2NodeSettingsPanel } from './V2Node/types';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -111,7 +111,7 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
         else this.setState({ server: { ...this.state.server, [field]: value } });
     }
 
-    showChildDrawer(title: string, type: string): void {
+    showChildDrawer(title: string, type: V2NodeSettingsPanel): void {
         this.setState({ childDrawer: { visible: true, title, type } });
     }
     hideChildDrawer(): void {
@@ -204,33 +204,12 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
         return null;
     }
 
-    yesNoSelect(
-        field: 'disable_sni' | 'zero_rtt_handshake',
-        value: ServerRecord['disable_sni'],
-    ): React.ReactElement {
-        return (
-            <Select
-                value={parseInt(String(value), 10) ? 1 : 0}
-                style={{ width: '100%' }}
-                onChange={(nextValue) => this.updateServer(field, nextValue)}
-            >
-                <Select.Option value={0}>否</Select.Option>
-                <Select.Option value={1}>是</Select.Option>
-            </Select>
-        );
-    }
-
     render(): React.ReactNode {
         const { server, visible, childDrawer } = this.state;
         const { groups } = this.props.serverGroup;
         const { servers } = this.props.serverManage;
         const { routes } = this.props.serverRoute;
         const saveLoading = this.props.serverV2node.saveLoading;
-        const protocol = server.protocol;
-        const requiresTls = Boolean(protocol && ['hysteria2', 'trojan', 'tuic'].includes(protocol));
-        const supportsTransport = Boolean(
-            protocol && !['hysteria2', 'shadowsocks', 'tuic'].includes(protocol),
-        );
 
         return (
             <>
@@ -249,329 +228,16 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                             groups={groups}
                             onChange={(field, value) => this.updateServer(field, value)}
                         />
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>节点协议</label>
-                                <Select
-                                    value={protocol}
-                                    style={{ width: '100%' }}
-                                    onChange={(value) => this.updateServer('protocol', value)}
-                                >
-                                    {[
-                                        ['anytls', 'AnyTLS'],
-                                        ['hysteria2', 'Hysteria2'],
-                                        ['shadowsocks', 'Shadowsocks'],
-                                        ['trojan', 'Trojan'],
-                                        ['tuic', 'Tuic'],
-                                        ['vless', 'VLess'],
-                                        ['vmess', 'VMess'],
-                                    ].map(([value, label]) => (
-                                        <Select.Option key={value} value={value}>
-                                            {label}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </div>
-                            {protocol && protocol !== 'shadowsocks' && (
-                                <div className="form-group col-md-6 col-xs-12">
-                                    <label>
-                                        安全性{' '}
-                                        {(parseInt(String(server.tls ?? 0), 10) !== 0 ||
-                                            requiresTls) && (
-                                            <a
-                                                href="javascript:void(0);"
-                                                onClick={() =>
-                                                    this.showChildDrawer(
-                                                        '编辑安全性配置',
-                                                        'tls_settings',
-                                                    )
-                                                }
-                                            >
-                                                编辑配置
-                                            </a>
-                                        )}
-                                    </label>
-                                    <Select
-                                        value={
-                                            parseInt(String(server.tls ?? 0), 10) ||
-                                            (requiresTls ? 1 : 0)
-                                        }
-                                        style={{ width: '100%' }}
-                                        onChange={(value) => this.updateServer('tls', value)}
-                                    >
-                                        {['vless', 'vmess'].includes(protocol) && (
-                                            <Select.Option value={0}>无</Select.Option>
-                                        )}
-                                        <Select.Option value={1}>TLS</Select.Option>
-                                        {['vless', 'anytls'].includes(protocol) && (
-                                            <Select.Option value={2}>Reality</Select.Option>
-                                        )}
-                                    </Select>
-                                </div>
-                            )}
-                        </div>
-                        {protocol === 'shadowsocks' && (
-                            <div className="form-group">
-                                <label>
-                                    传输协议{' '}
-                                    <a
-                                        href="javascript:void(0);"
-                                        onClick={() =>
-                                            this.showChildDrawer('编辑协议配置', 'network_settings')
-                                        }
-                                    >
-                                        编辑配置
-                                    </a>
-                                </label>
-                                <Select
-                                    value={server.network ?? 'tcp'}
-                                    style={{ width: '100%' }}
-                                    onChange={(value) => this.updateServer('network', value)}
-                                >
-                                    <Select.Option value="tcp">TCP</Select.Option>
-                                    <Select.Option value="http">HTTP伪装</Select.Option>
-                                </Select>
-                            </div>
-                        )}
-                        {supportsTransport && (
-                            <div className="form-group">
-                                <label>
-                                    传输协议{' '}
-                                    <a
-                                        href="javascript:void(0);"
-                                        onClick={() =>
-                                            this.showChildDrawer('编辑协议配置', 'network_settings')
-                                        }
-                                    >
-                                        编辑配置
-                                    </a>
-                                </label>
-                                <Select
-                                    value={server.network ?? 'tcp'}
-                                    style={{ width: '100%' }}
-                                    onChange={(value) => this.updateServer('network', value)}
-                                >
-                                    <Select.Option value="tcp">TCP</Select.Option>
-                                    <Select.Option value="ws">WebSocket</Select.Option>
-                                    <Select.Option value="grpc">gRPC</Select.Option>
-                                    {protocol !== 'trojan' && (
-                                        <Select.Option value="httpupgrade">
-                                            HTTPUpgrade
-                                        </Select.Option>
-                                    )}
-                                    {protocol !== 'trojan' && (
-                                        <Select.Option value="xhttp">XHTTP</Select.Option>
-                                    )}
-                                </Select>
-                            </div>
-                        )}
-                        {['xhttp', 'ws', 'grpc'].includes(server.network || '') && (
-                            <div className="form-group">
-                                <label>信任的XFF头部(获取真实IP)</label>
-                                <Select
-                                    mode="tags"
-                                    value={server.trusted_x_forwarded_for || []}
-                                    style={{ width: '100%' }}
-                                    placeholder="常见头部:X-Forwarded-For CF-Connecting-IP X-Real-IP"
-                                    onChange={(headers) =>
-                                        this.updateServer(
-                                            'trusted_x_forwarded_for',
-                                            headers.length ? headers : null,
-                                        )
-                                    }
-                                />
-                            </div>
-                        )}
-                        {protocol === 'anytls' && (
-                            <div className="form-group">
-                                <label>
-                                    <a
-                                        href="javascript:void(0);"
-                                        onClick={() =>
-                                            this.showChildDrawer('编辑填充方案', 'padding_scheme')
-                                        }
-                                    >
-                                        编辑填充方案
-                                    </a>
-                                </label>
-                            </div>
-                        )}
-                        {protocol === 'hysteria2' && (
-                            <>
-                                <div className="row">
-                                    <div className="form-group col-md-6 col-xs-12">
-                                        <label>混淆方式obfs</label>
-                                        <Select
-                                            value={server.obfs ?? ''}
-                                            style={{ width: '100%' }}
-                                            onChange={(value) =>
-                                                this.updateServer('obfs', value || null)
-                                            }
-                                        >
-                                            <Select.Option value="">无</Select.Option>
-                                            <Select.Option value="salamander">
-                                                salamander
-                                            </Select.Option>
-                                        </Select>
-                                    </div>
-                                    {server.obfs === 'salamander' && (
-                                        <div className="form-group col-md-6 col-xs-12">
-                                            <label>混淆密码obfs_password</label>
-                                            <Input
-                                                value={server.obfs_password}
-                                                placeholder="留空自动生成"
-                                                onChange={(event) =>
-                                                    this.updateServer(
-                                                        'obfs_password',
-                                                        event.target.value,
-                                                    )
-                                                }
-                                            />
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="form-group">
-                                    <label>上行带宽</label>
-                                    <Input
-                                        addonAfter="Mbps"
-                                        placeholder="服务端发送带宽,留空或填0使用BBR"
-                                        value={server.up_mbps ?? undefined}
-                                        onChange={(event) =>
-                                            this.updateServer('up_mbps', event.target.value)
-                                        }
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>下行带宽</label>
-                                    <Input
-                                        addonAfter="Mbps"
-                                        placeholder="服务端接收带宽,留空或填0使用BBR"
-                                        value={server.down_mbps ?? undefined}
-                                        onChange={(event) =>
-                                            this.updateServer('down_mbps', event.target.value)
-                                        }
-                                    />
-                                </div>
-                            </>
-                        )}
-                        {protocol === 'tuic' && (
-                            <>
-                                <div className="row">
-                                    <div className="form-group col-md-6 col-xs-12">
-                                        <label>禁用SNI</label>
-                                        {this.yesNoSelect('disable_sni', server.disable_sni)}
-                                    </div>
-                                    <div className="form-group col-md-6 col-xs-12">
-                                        <label>数据包中继模式</label>
-                                        <Select
-                                            value={server.udp_relay_mode || 'native'}
-                                            style={{ width: '100%' }}
-                                            onChange={(value) =>
-                                                this.updateServer('udp_relay_mode', value)
-                                            }
-                                        >
-                                            <Select.Option value="native">native</Select.Option>
-                                            <Select.Option value="quic">quic</Select.Option>
-                                        </Select>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="form-group col-md-6 col-xs-12">
-                                        <label>拥塞控制算法</label>
-                                        <Select
-                                            value={server.congestion_control || 'cubic'}
-                                            style={{ width: '100%' }}
-                                            onChange={(value) =>
-                                                this.updateServer('congestion_control', value)
-                                            }
-                                        >
-                                            <Select.Option value="cubic">cubic</Select.Option>
-                                            <Select.Option value="new_reno">new_reno</Select.Option>
-                                            <Select.Option value="bbr">bbr</Select.Option>
-                                        </Select>
-                                    </div>
-                                    <div className="form-group col-md-6 col-xs-12">
-                                        <label>客户端启用 0-RTT</label>
-                                        {this.yesNoSelect(
-                                            'zero_rtt_handshake',
-                                            server.zero_rtt_handshake,
-                                        )}
-                                    </div>
-                                </div>
-                            </>
-                        )}
-                        {protocol === 'shadowsocks' && (
-                            <div className="form-group">
-                                <label>加密算法</label>
-                                <Select
-                                    value={server.cipher ?? 'aes-128-gcm'}
-                                    style={{ width: '100%' }}
-                                    onChange={(value) => this.updateServer('cipher', value)}
-                                >
-                                    {[
-                                        'aes-128-gcm',
-                                        'aes-192-gcm',
-                                        'aes-256-gcm',
-                                        'chacha20-ietf-poly1305',
-                                        '2022-blake3-aes-128-gcm',
-                                        '2022-blake3-aes-256-gcm',
-                                    ].map((value) => (
-                                        <Select.Option key={value} value={value}>
-                                            {value}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </div>
-                        )}
-                        {protocol === 'vless' && (
-                            <>
-                                <div className="form-group">
-                                    <label>
-                                        加密方式{' '}
-                                        {server.encryption && (
-                                            <a
-                                                href="javascript:void(0);"
-                                                onClick={() =>
-                                                    this.showChildDrawer(
-                                                        '编辑加密配置',
-                                                        'encryption_settings',
-                                                    )
-                                                }
-                                            >
-                                                编辑配置
-                                            </a>
-                                        )}
-                                    </label>
-                                    <Select
-                                        value={server.encryption ?? ''}
-                                        style={{ width: '100%' }}
-                                        onChange={(value) =>
-                                            this.updateServer('encryption', value || null)
-                                        }
-                                    >
-                                        <Select.Option value="">无</Select.Option>
-                                        <Select.Option value="mlkem768x25519plus">
-                                            MLKEM768X25519PLUS
-                                        </Select.Option>
-                                    </Select>
-                                </div>
-                                <div className="form-group">
-                                    <label>XTLS流控算法</label>
-                                    <Select
-                                        value={server.flow ?? ''}
-                                        style={{ width: '100%' }}
-                                        onChange={(value) =>
-                                            this.updateServer('flow', value || null)
-                                        }
-                                    >
-                                        <Select.Option value="">无</Select.Option>
-                                        <Select.Option value="xtls-rprx-vision">
-                                            xtls-rprx-vision
-                                        </Select.Option>
-                                    </Select>
-                                </div>
-                            </>
-                        )}
+                        <V2NodeProtocolFields
+                            server={server}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
+                        <V2NodeProtocolSpecificFields
+                            server={server}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
                         <V2NodeRelationshipFields
                             server={server}
                             servers={servers}
