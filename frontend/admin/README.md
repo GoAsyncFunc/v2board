@@ -70,7 +70,7 @@ npm run build
 public/          独立静态资源和 settings.js
 scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
-src/components/  按业务域组织的管理端组件与编辑器
+src/components/  跨页面复用的管理端组件
 src/config/      导航等界面配置
 src/layouts/     管理端布局
 src/models/      管理端状态模型
@@ -89,7 +89,7 @@ dist/            本地构建产物，不提交 Git
 
 `src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面继续按旧版工程约定使用 `_List/`、`_Drawer/` 和 `_Modal/` 子模块，`plan`、`order`、`coupon`、`giftcard`、`user` 和 `notice` 已分别按页面入口、列表、筛选抽屉和编辑/详情弹窗拆分，列表展示列也归档在各自页面目录内。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
 
-`src/components/` 只保留跨页面复用的 `common`、`server`、`commerce` 和 `user` 组件。系统配置 Tab 位于 `src/pages/config/system/_Tabs/`，支付列表列定义位于 `src/pages/config/payment/_List/`；只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应页面目录内，不再保留混合的 `config`、`promotion`、`monitoring` 页面组件目录。
+`src/components/` 只保留跨页面复用的 `common`、`commerce` 和 `user` 组件。Server 管理编辑器位于 `src/pages/server/manage/_Editors/`，Server 列表展示位于 `src/pages/server/manage/_List/`；系统配置 Tab 位于 `src/pages/config/system/_Tabs/`，支付列表列定义位于 `src/pages/config/payment/_List/`。只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应页面目录内。
 
 ## 测试服务器部署
 

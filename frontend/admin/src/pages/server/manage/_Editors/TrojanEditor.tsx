@@ -6,83 +6,112 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import PermissionGroupEditor from '../common/PermissionGroupEditor';
-import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../types/server';
-import type { AdminRootState } from '../../types/store';
+import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
+import JsonEditor from '../../../../components/common/JsonEditor';
+import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
+import type { AdminRootState } from '../../../../types/store';
 
-interface HysteriaEditorProps extends ServerEditorProps {
-    serverHysteria: ServerSaveState;
+const NETWORK_PRESETS: Record<string, string> = {
+    tcp: '',
+    ws: JSON.stringify({ path: '/', headers: { Host: 'v2ray.com' } }, null, 4),
+    grpc: JSON.stringify({ serviceName: 'GunService' }, null, 4),
+};
+
+function prepareServer(record?: ServerRecord): ServerRecord {
+    const server = record ? { ...record } : { tls: 0, rate: 1 };
+    if (server.network_settings && typeof server.network_settings === 'object') {
+        server.network_settings = JSON.stringify(server.network_settings, null, 2);
+    }
+    return server;
 }
-interface HysteriaEditorState {
+
+interface TrojanEditorProps extends ServerEditorProps {
+    serverTrojan: ServerSaveState;
+}
+interface TrojanEditorState {
     server: ServerRecord;
     visible: boolean;
+    networkSettingsVisible: boolean;
 }
 
-export class HysteriaEditor extends React.Component<HysteriaEditorProps, HysteriaEditorState> {
-    constructor(props: HysteriaEditorProps) {
+export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEditorState> {
+    constructor(props: TrojanEditorProps) {
         super(props);
         this.state = {
-            server: props.record ? { ...props.record } : { insecure: 0, version: 1, rate: 1 },
+            server: prepareServer(props.record),
             visible: false,
+            networkSettingsVisible: false,
         };
     }
 
     toggle(): void {
         this.setState({ visible: !this.state.visible });
     }
+
     updateServer<Key extends keyof ServerRecord>(field: Key, value: ServerRecord[Key]): void {
         this.setState({ server: { ...this.state.server, [field]: value } });
     }
 
     save(): void {
-        this.props.dispatch({
-            type: 'serverHysteria/save',
-            params: { ...this.state.server },
-            callback: () => this.toggle(),
-        });
+        const { server } = this.state;
+        const params = {
+            ...server,
+            network_settings: server.network_settings
+                ? typeof server.network_settings === 'string'
+                    ? JSON.parse(server.network_settings)
+                    : server.network_settings
+                : null,
+        };
+        this.props.dispatch({ type: 'serverTrojan/save', params, callback: () => this.toggle() });
     }
 
-    renderObfuscation(): React.ReactNode {
+    renderNetworkSettings(): React.ReactNode {
         const { server } = this.state;
-        const version = parseInt(String(server.version), 10) || 1;
-        const method = version === 1 ? 'xplus' : 'salamander';
         return (
-            <div className="row">
-                <div className="form-group col-md-6 col-xs-12">
-                    <label>混淆方式obfs</label>
-                    <Select
-                        value={server.obfs ?? undefined}
-                        style={{ width: '100%' }}
-                        onChange={(obfs) => this.updateServer('obfs', obfs || null)}
-                    >
-                        <Select.Option value="">无</Select.Option>
-                        <Select.Option value={method}>{method}</Select.Option>
-                    </Select>
+            <div id="v2ray-protocol">
+                <div className="form-group">
+                    <label>
+                        协议详细配置{' '}
+                        <a href="https://www.v2ray.com/chapter_02/05_transport.html">
+                            <Icon type="link" />
+                            参考
+                        </a>
+                    </label>
+                    <JsonEditor
+                        placeholder={NETWORK_PRESETS[server.network || ''] || ''}
+                        mode="json"
+                        theme="github"
+                        fontSize={14}
+                        showPrintMargin
+                        showGutter
+                        highlightActiveLine
+                        value={
+                            typeof server.network_settings === 'string'
+                                ? server.network_settings
+                                : server.network_settings
+                                  ? JSON.stringify(server.network_settings, null, 2)
+                                  : ''
+                        }
+                        onChange={(value) => this.updateServer('network_settings', value)}
+                        setOptions={{
+                            enableBasicAutocompletion: false,
+                            enableLiveAutocompletion: false,
+                            enableSnippets: false,
+                            showLineNumbers: true,
+                            tabSize: 2,
+                        }}
+                    />
                 </div>
-                {server.obfs === method && (
-                    <div className="form-group col-md-6 col-xs-12">
-                        <label>
-                            {version === 1 ? '混淆密码obfsParam' : '混淆密码obfs_password'}
-                        </label>
-                        <Input
-                            value={server.obfs_password}
-                            placeholder="留空自动生成"
-                            onChange={(event) =>
-                                this.updateServer('obfs_password', event.target.value)
-                            }
-                        />
-                    </div>
-                )}
             </div>
         );
     }
 
     render(): React.ReactNode {
-        const { server, visible } = this.state;
-        const saveLoading = this.props.serverHysteria.saveLoading;
-        const { servers } = this.props.serverManage;
+        const { server, visible, networkSettingsVisible } = this.state;
         const { groups } = this.props.serverGroup;
+        const { servers } = this.props.serverManage;
         const { routes } = this.props.serverRoute;
+        const saveLoading = this.props.serverTrojan.saveLoading;
 
         return (
             <>
@@ -154,19 +183,6 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                                 ))}
                             </Select>
                         </div>
-                        <div className="row">
-                            <div className="form-group col-md-3 col-xs-12">
-                                <label>HYSTERIA版本</label>
-                                <Select
-                                    value={parseInt(String(server.version), 10) || 1}
-                                    style={{ width: '100%' }}
-                                    onChange={(version) => this.updateServer('version', version)}
-                                >
-                                    <Select.Option value={1}>v1</Select.Option>
-                                    <Select.Option value={2}>v2</Select.Option>
-                                </Select>
-                            </div>
-                        </div>
                         <div className="form-group">
                             <label>节点地址</label>
                             <Input
@@ -206,10 +222,10 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                                     </Tooltip>
                                 </label>
                                 <Select
-                                    value={parseInt(String(server.insecure), 10) ? 1 : 0}
+                                    value={parseInt(String(server.allow_insecure), 10) ? 1 : 0}
                                     placeholder="允许不安全"
                                     style={{ width: '100%' }}
-                                    onChange={(insecure) => this.updateServer('insecure', insecure)}
+                                    onChange={(allow) => this.updateServer('allow_insecure', allow)}
                                 >
                                     <Select.Option value={0}>否</Select.Option>
                                     <Select.Option value={1}>是</Select.Option>
@@ -226,28 +242,26 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                                 }
                             />
                         </div>
-                        {this.renderObfuscation()}
                         <div className="form-group">
-                            <label>上行带宽</label>
-                            <Input
-                                addonAfter="Mbps"
-                                placeholder="服务端发送带宽,留空或填0使用BBR"
-                                value={server.up_mbps ?? undefined}
-                                onChange={(event) =>
-                                    this.updateServer('up_mbps', event.target.value)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>下行带宽</label>
-                            <Input
-                                addonAfter="Mbps"
-                                placeholder="服务端接收带宽,留空或填0使用BBR"
-                                value={server.down_mbps ?? undefined}
-                                onChange={(event) =>
-                                    this.updateServer('down_mbps', event.target.value)
-                                }
-                            />
+                            <label>
+                                传输协议{' '}
+                                <a
+                                    href="javascript:void(0);"
+                                    onClick={() => this.setState({ networkSettingsVisible: true })}
+                                >
+                                    编辑配置
+                                </a>
+                            </label>
+                            <Select
+                                value={server.network}
+                                placeholder="选择传输协议"
+                                style={{ width: '100%' }}
+                                onChange={(network) => this.updateServer('network', network)}
+                            >
+                                <Select.Option value="tcp">TCP</Select.Option>
+                                <Select.Option value="ws">WebSocket</Select.Option>
+                                <Select.Option value="grpc">gRPC</Select.Option>
+                            </Select>
                         </div>
                         <div className="form-group">
                             <label>
@@ -271,7 +285,7 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                                 {servers
                                     .filter(
                                         (option) =>
-                                            option.type === 'hysteria' && option.id !== server.id,
+                                            option.type === 'trojan' && option.id !== server.id,
                                     )
                                     .map((option) => (
                                         <Select.Option key={option.id} value={option.id}>
@@ -307,17 +321,27 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                             提交
                         </Button>
                     </div>
+                    <CompatibleDrawer
+                        closable={false}
+                        id="server-network-settings"
+                        width="80%"
+                        title="编辑协议配置"
+                        visible={networkSettingsVisible}
+                        onClose={() => this.setState({ networkSettingsVisible: false })}
+                    >
+                        {this.renderNetworkSettings()}
+                    </CompatibleDrawer>
                 </CompatibleDrawer>
             </>
         );
     }
 }
 
-const ConnectedHysteriaEditor = connect((state: AdminRootState) => ({
-    serverHysteria: state.serverHysteria,
+const ConnectedTrojanEditor = connect((state: AdminRootState) => ({
+    serverTrojan: state.serverTrojan,
     serverGroup: state.serverGroup,
     serverManage: state.serverManage,
     serverRoute: state.serverRoute,
-}))(HysteriaEditor);
+}))(TrojanEditor);
 
-export default ConnectedHysteriaEditor;
+export default ConnectedTrojanEditor;

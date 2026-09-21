@@ -16,12 +16,9 @@ import {
     createNewServerMenu,
     renderServerEditor,
     serverModelNamespace,
-} from '../../../components/server/ServerEditorRegistry';
-import {
-    createServerManageColumns,
-    createServerSortColumns,
-} from '../../../components/server/ServerManageColumns';
-import ServerManageMobileList from '../../../components/server/ServerManageMobileList';
+} from './_Editors/ServerEditorRegistry';
+import { createServerManageColumns, createServerSortColumns } from './_List/ServerManageColumns';
+import ServerManageMobileList from './_List/ServerManageMobileList';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     ManagedServerRecord,

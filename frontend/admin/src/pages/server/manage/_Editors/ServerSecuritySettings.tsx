@@ -7,9 +7,9 @@ import type {
     EncryptionSecuritySettings,
     NodeTlsSettings,
     TlsFingerprint,
-} from '../../types/server';
+} from '../../../../types/server';
 
-export type { EncryptionSecuritySettings, NodeTlsSettings } from '../../types/server';
+export type { EncryptionSecuritySettings, NodeTlsSettings } from '../../../../types/server';
 
 export interface TlsSettingsProps {
     settings?: NodeTlsSettings | null;

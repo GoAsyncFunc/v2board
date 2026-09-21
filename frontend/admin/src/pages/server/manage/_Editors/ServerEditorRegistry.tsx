@@ -8,8 +8,8 @@ import TuicEditor from './TuicEditor';
 import V2NodeEditor from './V2NodeEditor';
 import VlessEditor from './VlessEditor';
 import VmessEditor from './VmessEditor';
-import { renderServerTypeTag } from './ServerTypeTag';
-import type { ServerProtocolType, ServerRecord } from '../../types/server';
+import { renderServerTypeTag } from '../_List/ServerTypeTag';
+import type { ServerProtocolType, ServerRecord } from '../../../../types/server';
 
 type ServerEditorComponent = React.ComponentType<{
     children: React.ReactElement;

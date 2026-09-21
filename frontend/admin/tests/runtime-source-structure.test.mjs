@@ -594,7 +594,7 @@ test('admin pages select from the canonical root state', async () => {
 test('admin components use business domains and connected editors use the canonical root state', async () => {
     const componentsDirectory = new URL('../src/components/', import.meta.url);
     const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-    const expectedDomains = ['commerce', 'common', 'server', 'user'];
+    const expectedDomains = ['commerce', 'common', 'user'];
     assert.deepEqual(
         componentEntries
             .filter((entry) => entry.isDirectory())
@@ -613,15 +613,15 @@ test('admin components use business domains and connected editors use the canoni
     );
     assert.match(
         serverManagePage,
-        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/,
+        /from ['"]\.\/\_Editors\/ServerEditorRegistry['"]/,
     );
     assert.match(
         serverManagePage,
-        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/,
+        /from ['"]\.\/\_List\/ServerManageColumns['"]/,
     );
     assert.match(
         serverManagePage,
-        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/,
+        /from ['"]\.\/\_List\/ServerManageMobileList['"]/,
     );
     assert.doesNotMatch(
         serverManagePage,
@@ -639,19 +639,19 @@ test('admin components use business domains and connected editors use the canoni
     const connectedSources = [
         '../src/layouts/Header.tsx',
         '../src/layouts/MainLayout.tsx',
-        '../src/components/server/AnyTlsEditor.tsx',
+        '../src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
         '../src/components/commerce/AssignOrderEditor.tsx',
-        '../src/components/server/HysteriaEditor.tsx',
+        '../src/pages/server/manage/_Editors/HysteriaEditor.tsx',
         '../src/components/common/PermissionGroupEditor.tsx',
         '../src/pages/user/_Modal/sendMail.tsx',
-        '../src/components/server/ShadowsocksEditor.tsx',
-        '../src/components/server/TrojanEditor.tsx',
-        '../src/components/server/TuicEditor.tsx',
+        '../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
+        '../src/pages/server/manage/_Editors/TrojanEditor.tsx',
+        '../src/pages/server/manage/_Editors/TuicEditor.tsx',
         '../src/pages/user/_Drawer/edit.tsx',
         '../src/pages/user/_Modal/generate.tsx',
-        '../src/components/server/V2NodeEditor.tsx',
-        '../src/components/server/VlessEditor.tsx',
-        '../src/components/server/VmessEditor.tsx',
+        '../src/pages/server/manage/_Editors/V2NodeEditor.tsx',
+        '../src/pages/server/manage/_Editors/VlessEditor.tsx',
+        '../src/pages/server/manage/_Editors/VmessEditor.tsx',
     ];
     for (const relativePath of connectedSources) {
         const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');

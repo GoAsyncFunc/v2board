@@ -54,7 +54,7 @@ async function loadPage() {
 }
 
 async function loadEditorRegistry() {
-  const source = await fs.readFile(new URL('../src/components/server/ServerEditorRegistry.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/server/manage/_Editors/ServerEditorRegistry.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   const React = createReact();

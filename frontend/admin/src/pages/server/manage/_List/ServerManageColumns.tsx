@@ -5,9 +5,13 @@ import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import message from 'antd/lib/message';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import { copyText } from '../../utils/clipboard';
-import type { ManagedServerRecord, ServerGroupOption, ServerRecord } from '../../types/server';
-import { SERVER_TYPE_FILTERS } from './ServerEditorRegistry';
+import { copyText } from '../../../../utils/clipboard';
+import type {
+    ManagedServerRecord,
+    ServerGroupOption,
+    ServerRecord,
+} from '../../../../types/server';
+import { SERVER_TYPE_FILTERS } from '../_Editors/ServerEditorRegistry';
 import { createServerNameColumn } from './ServerNameColumn';
 import { createServerRateColumn } from './ServerRateColumn';
 import { renderServerTypeTag } from './ServerTypeTag';

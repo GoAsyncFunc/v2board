@@ -72,7 +72,7 @@ test('FilterDrawer preserves validation and field reset behavior', async () => {
 });
 
 test('TLS and encryption settings retain defaults and emit complete updates', async () => {
-  const component = await load('../src/components/server/ServerSecuritySettings.tsx', id => {
+  const component = await load('../src/pages/server/manage/_Editors/ServerSecuritySettings.tsx', id => {
     if (id === 'antd/lib/input') return 'Input';
     if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
     if (id === 'antd/lib/switch') return 'Switch';

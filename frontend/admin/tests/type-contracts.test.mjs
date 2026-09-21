@@ -54,7 +54,7 @@ test('admin source uses explicit nullable and successful-response contracts', as
 test('server security settings use protocol-specific fields instead of a generic string index', async () => {
   const typeSource = await fs.readFile(path.join(sourceRoot, 'types', 'server.ts'), 'utf8');
   const componentSource = await fs.readFile(
-    path.join(sourceRoot, 'components', 'server', 'ServerSecuritySettings.tsx'),
+    path.join(sourceRoot, 'pages', 'server', 'manage', '_Editors', 'ServerSecuritySettings.tsx'),
     'utf8',
   );
 

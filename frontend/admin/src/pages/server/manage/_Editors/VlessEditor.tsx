@@ -7,16 +7,16 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from '../common/PermissionGroupEditor';
-import JsonEditor from '../common/JsonEditor';
+import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
+import JsonEditor from '../../../../components/common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import type {
     ChildDrawerState,
     ServerEditorProps,
     ServerRecord,
     ServerSaveState,
-} from '../../types/server';
-import type { AdminRootState } from '../../types/store';
+} from '../../../../types/server';
+import type { AdminRootState } from '../../../../types/store';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

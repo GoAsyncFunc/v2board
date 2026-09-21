@@ -192,162 +192,6 @@
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "components/server/AnyTlsEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "components/server/AnyTlsEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/AnyTlsEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/HysteriaEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/HysteriaEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/AnyTlsEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/HysteriaEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/ServerTypeTag.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/ShadowsocksEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/TrojanEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/TuicEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/V2NodeEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/VlessEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerEditorRegistry.tsx",
-    "to": "components/server/VmessEditor.tsx"
-  },
-  {
-    "from": "components/server/ServerManageColumns.tsx",
-    "to": "components/server/ServerEditorRegistry.tsx"
-  },
-  {
-    "from": "components/server/ServerManageColumns.tsx",
-    "to": "components/server/ServerNameColumn.tsx"
-  },
-  {
-    "from": "components/server/ServerManageColumns.tsx",
-    "to": "components/server/ServerRateColumn.tsx"
-  },
-  {
-    "from": "components/server/ServerManageColumns.tsx",
-    "to": "components/server/ServerTypeTag.tsx"
-  },
-  {
-    "from": "components/server/ServerManageColumns.tsx",
-    "to": "utils/clipboard.ts"
-  },
-  {
-    "from": "components/server/ServerManageMobileList.tsx",
-    "to": "components/server/ServerManageColumns.tsx"
-  },
-  {
-    "from": "components/server/ServerManageMobileList.tsx",
-    "to": "components/server/ServerTypeTag.tsx"
-  },
-  {
-    "from": "components/server/ShadowsocksEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/ShadowsocksEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/TrojanEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "components/server/TrojanEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/TrojanEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/TuicEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/TuicEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/V2NodeEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "components/server/V2NodeEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/V2NodeEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/V2NodeEditor.tsx",
-    "to": "components/server/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "components/server/VlessEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "components/server/VlessEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/VlessEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "components/server/VlessEditor.tsx",
-    "to": "components/server/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "components/server/VmessEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "components/server/VmessEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "components/server/VmessEditor.tsx",
-    "to": "components/server/CompatibleDrawer.tsx"
-  },
-  {
     "from": "components/user/TrafficPanel.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -1080,6 +924,162 @@
     "to": "pages/server/group/_List/columns.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/AnyTlsEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/HysteriaEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/ShadowsocksEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/TrojanEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/TuicEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/V2NodeEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/VlessEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_Editors/VmessEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
+    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "to": "pages/server/manage/_List/ServerNameColumn.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "to": "pages/server/manage/_List/ServerRateColumn.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "to": "utils/clipboard.ts"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageMobileList.tsx",
+    "to": "pages/server/manage/_List/ServerManageColumns.tsx"
+  },
+  {
+    "from": "pages/server/manage/_List/ServerManageMobileList.tsx",
+    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+  },
+  {
     "from": "pages/server/manage/index.tsx",
     "to": "components/common/ContextMenuTable.tsx"
   },
@@ -1093,19 +1093,19 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "components/server/ServerEditorRegistry.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "components/server/ServerManageColumns.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "components/server/ServerManageMobileList.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/_List/ServerManageColumns.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/_List/ServerManageMobileList.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",

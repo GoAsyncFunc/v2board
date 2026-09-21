@@ -22,7 +22,7 @@ const Input = Object.assign('Input', { TextArea: 'Input.TextArea' });
 const Select = Object.assign('Select', { Option: 'Select.Option' });
 
 async function loadComponent(componentName) {
-  const source = await fs.readFile(new URL(`../src/components/server/${componentName}.tsx`, import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL(`../src/pages/server/manage/_Editors/${componentName}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   vm.runInNewContext(code, {
