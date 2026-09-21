@@ -476,6 +476,30 @@
     "to": "utils/subscription.ts"
   },
   {
+    "from": "components/support/KnowledgeArticleList.tsx",
+    "to": "components/common/DateTimeDisplay.ts"
+  },
+  {
+    "from": "components/support/KnowledgeArticleList.tsx",
+    "to": "components/support/KnowledgeDetailDrawer.tsx"
+  },
+  {
+    "from": "components/support/KnowledgeArticleList.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/support/KnowledgeDetailDrawer.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "components/support/KnowledgeDetailDrawer.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "components/support/KnowledgeSearchBar.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
     "from": "components/support/TicketReadonlyColumns.tsx",
     "to": "locales/i18n.ts"
   },
@@ -1045,7 +1069,11 @@
   },
   {
     "from": "pages/support/Knowledge.tsx",
-    "to": "components/common/DateTimeDisplay.ts"
+    "to": "components/support/KnowledgeArticleList.tsx"
+  },
+  {
+    "from": "pages/support/Knowledge.tsx",
+    "to": "components/support/KnowledgeSearchBar.tsx"
   },
   {
     "from": "pages/support/Knowledge.tsx",
@@ -1054,10 +1082,6 @@
   {
     "from": "pages/support/Knowledge.tsx",
     "to": "locales/i18n.ts"
-  },
-  {
-    "from": "pages/support/Knowledge.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/support/Ticket.tsx",

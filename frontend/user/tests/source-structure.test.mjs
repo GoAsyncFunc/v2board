@@ -225,6 +225,15 @@ test('user root state names every registered business model', async () => {
   ]) {
     assert.match(invite, new RegExp(`components/account/invite/${component}`));
   }
+
+  const knowledge = await fs.readFile(new URL('../src/pages/support/Knowledge.tsx', import.meta.url), 'utf8');
+  for (const component of [
+    'KnowledgeArticleList',
+    'KnowledgeSearchBar',
+  ]) {
+    assert.match(knowledge, new RegExp(`components/support/${component}`));
+  }
+  assert.doesNotMatch(knowledge, /markdown-it|antd\/lib\/(drawer|message)/);
 });
 
 test('user Redux selectors share the canonical root state contract', async () => {
