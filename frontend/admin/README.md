@@ -87,7 +87,7 @@ dist/            本地构建产物，不提交 Git
 
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
-`src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面继续按旧版工程约定使用 `_List/`、`_Drawer/` 和 `_Modal/` 子模块。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
+`src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面继续按旧版工程约定使用 `_List/`、`_Drawer/` 和 `_Modal/` 子模块，公告已按 `notice/index.tsx`、`notice/_List/`、`notice/_Modal/` 拆分。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
 
 `src/components/` 按职责分为 `common`、`config`、`server`、`commerce`、`promotion`、`content`、`user` 和 `monitoring`。新增组件应放入对应业务域，不再直接平铺到 `src/components/` 根目录。
 

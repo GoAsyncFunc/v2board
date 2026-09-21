@@ -341,8 +341,14 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+  const noticeDirectory = new URL('notice/', pagesDirectory);
+  assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_List/', noticeDirectory))).includes('columns.ts'));
   assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
   await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)));
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {

@@ -920,16 +920,24 @@
     "to": "pages/knowledge/_List/index.tsx"
   },
   {
+    "from": "pages/notice/_List/index.tsx",
+    "to": "pages/notice/_List/columns.ts"
+  },
+  {
     "from": "pages/notice/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/notice/index.tsx",
-    "to": "components/content/NoticeDisplayColumns.ts"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/notice/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "pages/notice/_List/index.tsx"
+  },
+  {
+    "from": "pages/notice/index.tsx",
+    "to": "pages/notice/_Modal/index.tsx"
   },
   {
     "from": "pages/order/index.tsx",
