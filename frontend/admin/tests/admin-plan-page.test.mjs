@@ -41,6 +41,7 @@ async function loadModule(relativePath, localModules = {}) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
       if (id === './_Modal' || id.endsWith('/_Modal')) return localModules.modal;
+      if (id === './PriceFields') return 'PlanPriceFields';
       if (id === './_List' || id.endsWith('/_List')) return localModules.list;
       if (id === './PlanGroupColumn') return localModules.groupColumns;
       if (id === './PlanPriceColumns') return localModules.priceColumns;

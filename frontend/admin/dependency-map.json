@@ -896,6 +896,10 @@
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "pages/plan/_Modal/PriceFields.tsx"
+  },
+  {
     "from": "pages/plan/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },

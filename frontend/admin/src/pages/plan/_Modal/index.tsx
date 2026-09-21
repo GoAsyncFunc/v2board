@@ -2,18 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Checkbox from 'antd/lib/checkbox';
-import Col from 'antd/lib/col';
 import Divider from 'antd/lib/divider';
 import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
-import Row from 'antd/lib/row';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
 import NullableSelectOption from '../../../components/common/NullableSelectOption';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { PlanFieldValue, PlanRecord, PlanState } from '../../../types/plan';
+import PlanPriceFields from './PriceFields';
 
 interface ServerGroupState {
     groups: Array<{ id: number | string; name?: React.ReactNode }>;
@@ -36,15 +35,6 @@ interface PlanEditorState {
     visible: boolean;
     record: PlanRecord;
 }
-
-const PRICE_FIELDS: Array<[string, string]> = [
-    ['month_price', '月付'],
-    ['quarter_price', '季付'],
-    ['half_year_price', '半年'],
-    ['year_price', '年付'],
-    ['two_year_price', '两年付'],
-    ['three_year_price', '三年付'],
-];
 
 export function emptyPlan(): PlanRecord {
     return {
@@ -127,65 +117,11 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
                                 }
                             />
                         </div>
-                        <Divider orientation="center">
-                            售价设置{' '}
-                            <Tooltip placement="top" title="将金额留空则不会进行出售">
-                                <Icon type="info-circle" />
-                            </Tooltip>
-                        </Divider>
-                        <Row gutter={10}>
-                            {PRICE_FIELDS.map(([field, label]) => (
-                                <Col md={4} key={field}>
-                                    <div className="form-group">
-                                        <label>{label}</label>
-                                        <Input
-                                            value={
-                                                record[field] !== null
-                                                    ? (record[field] as string | number)
-                                                    : undefined
-                                            }
-                                            onChange={(event) =>
-                                                this.updatePrice(field, event.target.value)
-                                            }
-                                        />
-                                    </div>
-                                </Col>
-                            ))}
-                        </Row>
-                        <Row gutter={10}>
-                            <Col md={12}>
-                                <div className="form-group">
-                                    <label>一次性</label>
-                                    <Input
-                                        addonAfter={currencySymbol}
-                                        value={
-                                            record.onetime_price !== null
-                                                ? (record.onetime_price as string | number)
-                                                : undefined
-                                        }
-                                        onChange={(event) =>
-                                            this.updatePrice('onetime_price', event.target.value)
-                                        }
-                                    />
-                                </div>
-                            </Col>
-                            <Col md={12}>
-                                <div className="form-group">
-                                    <label>重置包</label>
-                                    <Input
-                                        addonAfter={currencySymbol}
-                                        value={
-                                            record.reset_price !== null
-                                                ? (record.reset_price as string | number)
-                                                : undefined
-                                        }
-                                        onChange={(event) =>
-                                            this.updatePrice('reset_price', event.target.value)
-                                        }
-                                    />
-                                </div>
-                            </Col>
-                        </Row>
+                        <PlanPriceFields
+                            record={record}
+                            currencySymbol={currencySymbol}
+                            onPriceChange={(field, value) => this.updatePrice(field, value)}
+                        />
                         <Divider />
                         <div className="form-group">
                             <label>套餐流量</label>
