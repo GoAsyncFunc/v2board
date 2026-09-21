@@ -140,6 +140,24 @@ test('server security editors are organized as named source modules', async () =
     assert.doesNotMatch(compatibilitySource, /class (?:TlsSettings|EncryptionSettings)/);
 });
 
+test('Trojan transport settings live in a focused protocol module', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/TrojanEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const networkSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        editorSource,
+        /import \{ TrojanNetworkSettings \} from '\.\/Trojan\/NetworkSettings'/,
+    );
+    assert.match(editorSource, /<TrojanNetworkSettings/);
+    assert.match(networkSource, /export function TrojanNetworkSettings/);
+    assert.doesNotMatch(editorSource, /<JsonEditor/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(

@@ -7,15 +7,9 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
-import JsonEditor from '../../../../components/common/JsonEditor';
+import { TrojanNetworkSettings } from './Trojan/NetworkSettings';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
-
-const NETWORK_PRESETS: Record<string, string> = {
-    tcp: '',
-    ws: JSON.stringify({ path: '/', headers: { Host: 'v2ray.com' } }, null, 4),
-    grpc: JSON.stringify({ serviceName: 'GunService' }, null, 4),
-};
 
 function prepareServer(record?: ServerRecord): ServerRecord {
     const server = record ? { ...record } : { tls: 0, rate: 1 };
@@ -63,47 +57,6 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
                 : null,
         };
         this.props.dispatch({ type: 'serverTrojan/save', params, callback: () => this.toggle() });
-    }
-
-    renderNetworkSettings(): React.ReactNode {
-        const { server } = this.state;
-        return (
-            <div id="v2ray-protocol">
-                <div className="form-group">
-                    <label>
-                        协议详细配置{' '}
-                        <a href="https://www.v2ray.com/chapter_02/05_transport.html">
-                            <Icon type="link" />
-                            参考
-                        </a>
-                    </label>
-                    <JsonEditor
-                        placeholder={NETWORK_PRESETS[server.network || ''] || ''}
-                        mode="json"
-                        theme="github"
-                        fontSize={14}
-                        showPrintMargin
-                        showGutter
-                        highlightActiveLine
-                        value={
-                            typeof server.network_settings === 'string'
-                                ? server.network_settings
-                                : server.network_settings
-                                  ? JSON.stringify(server.network_settings, null, 2)
-                                  : ''
-                        }
-                        onChange={(value) => this.updateServer('network_settings', value)}
-                        setOptions={{
-                            enableBasicAutocompletion: false,
-                            enableLiveAutocompletion: false,
-                            enableSnippets: false,
-                            showLineNumbers: true,
-                            tabSize: 2,
-                        }}
-                    />
-                </div>
-            </div>
-        );
     }
 
     render(): React.ReactNode {
@@ -329,7 +282,11 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
                         visible={networkSettingsVisible}
                         onClose={() => this.setState({ networkSettingsVisible: false })}
                     >
-                        {this.renderNetworkSettings()}
+                        <TrojanNetworkSettings
+                            network={server.network}
+                            value={server.network_settings}
+                            onChange={(value) => this.updateServer('network_settings', value)}
+                        />
                     </CompatibleDrawer>
                 </CompatibleDrawer>
             </>

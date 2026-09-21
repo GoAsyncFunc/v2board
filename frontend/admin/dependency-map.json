@@ -1032,7 +1032,7 @@
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
+    "from": "pages/server/manage/_Editors/Trojan/NetworkSettings.tsx",
     "to": "components/common/JsonEditor.tsx"
   },
   {
@@ -1042,6 +1042,10 @@
   {
     "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/_Editors/Trojan/NetworkSettings.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/TuicEditor.tsx",
