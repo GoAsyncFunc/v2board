@@ -1,6 +1,6 @@
 import moment from 'moment';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { KnowledgeRecord, KnowledgeTimestamp } from '../../types/knowledge';
+import type { KnowledgeRecord, KnowledgeTimestamp } from '../../../types/knowledge';
 
 export function formatKnowledgeUpdatedAt(value: KnowledgeTimestamp): string {
     return moment(1000 * (value as number)).format('YYYY/MM/DD HH:mm');

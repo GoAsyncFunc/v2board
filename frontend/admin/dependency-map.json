@@ -897,11 +897,11 @@
   },
   {
     "from": "pages/knowledge/_List/index.tsx",
-    "to": "components/content/KnowledgeDisplayColumns.ts"
+    "to": "pages/knowledge/_Drawer/index.tsx"
   },
   {
     "from": "pages/knowledge/_List/index.tsx",
-    "to": "pages/knowledge/_Drawer/index.tsx"
+    "to": "pages/knowledge/_List/columns.ts"
   },
   {
     "from": "pages/knowledge/index.tsx",

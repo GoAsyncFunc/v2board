@@ -6,7 +6,7 @@ import Modal from 'antd/lib/modal';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import { createReadonlyKnowledgeColumns } from '../../../components/content/KnowledgeDisplayColumns';
+import { createReadonlyKnowledgeColumns } from './columns';
 import Sortable from '../../../components/common/Sortable';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';

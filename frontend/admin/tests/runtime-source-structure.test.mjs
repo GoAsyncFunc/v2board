@@ -3,466 +3,679 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 
 test('admin application runtime uses typed source modules outside vendor', async () => {
-  const typedRuntimePaths = [
-    '../src/main.ts',
-    '../src/app/bootstrap.tsx',
-    '../src/app/history.ts',
-    '../src/app/historyFactory.ts',
-    '../src/app/store.tsx',
-    '../src/app/dvaConfig.ts',
-    '../src/app/navigation.ts',
-    '../src/app/requestPresentation.ts',
-    '../src/app/rootRuntime.tsx',
-    '../src/runtime/dvaApplication.tsx',
-    '../src/runtime/loadingPlugin.ts',
-    '../src/runtime/pluginRuntime.ts',
-    '../src/runtime/routerBindings.tsx',
-    '../src/runtime/routeRenderer.tsx',
-    '../src/services/fetchResponse.ts',
-    '../src/services/request.ts',
-    '../src/services/download.ts',
-    '../src/routes/index.ts',
-    '../src/routes/types.ts',
-    '../src/types/api.ts',
-    '../src/types/dva.ts',
-    '../src/types/dvaCore.d.ts',
-    '../src/utils/clipboard.ts',
-  ];
-  for (const relativePath of typedRuntimePaths) {
-    const stat = await fs.stat(new URL(relativePath, import.meta.url));
-    assert.equal(stat.isFile(), true, `${relativePath} should be a file`);
-  }
+    const typedRuntimePaths = [
+        '../src/main.ts',
+        '../src/app/bootstrap.tsx',
+        '../src/app/history.ts',
+        '../src/app/historyFactory.ts',
+        '../src/app/store.tsx',
+        '../src/app/dvaConfig.ts',
+        '../src/app/navigation.ts',
+        '../src/app/requestPresentation.ts',
+        '../src/app/rootRuntime.tsx',
+        '../src/runtime/dvaApplication.tsx',
+        '../src/runtime/loadingPlugin.ts',
+        '../src/runtime/pluginRuntime.ts',
+        '../src/runtime/routerBindings.tsx',
+        '../src/runtime/routeRenderer.tsx',
+        '../src/services/fetchResponse.ts',
+        '../src/services/request.ts',
+        '../src/services/download.ts',
+        '../src/routes/index.ts',
+        '../src/routes/types.ts',
+        '../src/types/api.ts',
+        '../src/types/dva.ts',
+        '../src/types/dvaCore.d.ts',
+        '../src/utils/clipboard.ts',
+    ];
+    for (const relativePath of typedRuntimePaths) {
+        const stat = await fs.stat(new URL(relativePath, import.meta.url));
+        assert.equal(stat.isFile(), true, `${relativePath} should be a file`);
+    }
 
-  const removedPaths = [
-    '../src/main.js',
-    '../src/app/bootstrap.js',
-    '../src/app/history.js',
-    '../src/app/store.js',
-    '../src/runtime/loadingPlugin.js',
-    '../src/runtime/pluginRuntime.js',
-    '../src/runtime/routerBindings.js',
-    '../src/runtime/routeRenderer.js',
-    '../src/services/request.js',
-    '../src/services/request.d.ts',
-    '../src/services/download.js',
-    '../src/app/routes.js',
-    '../src/app/routes.ts',
-    '../src/app/moduleInterop.js',
-    '../src/vendor/appDvaConfig.js',
-    '../src/vendor/appRuntime.js',
-    '../src/vendor/dva.js',
-    '../src/vendor/reactRedux.js',
-    '../src/vendor/rootRuntime.js',
-    '../src/vendor/routerHistory.js',
-    '../src/vendor/routerHistory.d.ts',
-    '../src/types/legacyPackages.d.ts',
-    '../src/types/copyToClipboard.d.ts',
-  ];
-  for (const relativePath of removedPaths) {
-    await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
-  }
+    const removedPaths = [
+        '../src/main.js',
+        '../src/app/bootstrap.js',
+        '../src/app/history.js',
+        '../src/app/store.js',
+        '../src/runtime/loadingPlugin.js',
+        '../src/runtime/pluginRuntime.js',
+        '../src/runtime/routerBindings.js',
+        '../src/runtime/routeRenderer.js',
+        '../src/services/request.js',
+        '../src/services/request.d.ts',
+        '../src/services/download.js',
+        '../src/app/routes.js',
+        '../src/app/routes.ts',
+        '../src/app/moduleInterop.js',
+        '../src/vendor/appDvaConfig.js',
+        '../src/vendor/appRuntime.js',
+        '../src/vendor/dva.js',
+        '../src/vendor/reactRedux.js',
+        '../src/vendor/rootRuntime.js',
+        '../src/vendor/routerHistory.js',
+        '../src/vendor/routerHistory.d.ts',
+        '../src/types/legacyPackages.d.ts',
+        '../src/types/copyToClipboard.d.ts',
+    ];
+    for (const relativePath of removedPaths) {
+        await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
+    }
 });
 
 test('admin route definitions live in the dedicated routes directory', async () => {
-  const routeSource = await fs.readFile(new URL('../src/routes/index.ts', import.meta.url), 'utf8');
-  const routeTypeSource = await fs.readFile(new URL('../src/routes/types.ts', import.meta.url), 'utf8');
-  assert.match(routeSource, /const adminRoutes: AdminRouteConfig\[\]/);
-  assert.match(routeSource, /path: '\/dashboard'/);
-  assert.match(routeSource, /path: '\/ticket\/:ticket_id'/);
-  assert.match(routeTypeSource, /export interface AdminRouteConfig/);
-  await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
+    const routeSource = await fs.readFile(
+        new URL('../src/routes/index.ts', import.meta.url),
+        'utf8',
+    );
+    const routeTypeSource = await fs.readFile(
+        new URL('../src/routes/types.ts', import.meta.url),
+        'utf8',
+    );
+    assert.match(routeSource, /const adminRoutes: AdminRouteConfig\[\]/);
+    assert.match(routeSource, /path: '\/dashboard'/);
+    assert.match(routeSource, /path: '\/ticket\/:ticket_id'/);
+    assert.match(routeTypeSource, /export interface AdminRouteConfig/);
+    await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
 });
 
 test('admin configuration and browser helpers use typed source modules outside vendor', async () => {
-  const typedSourcePaths = [
-    '../src/config/adminSettings.ts',
-    '../src/config/siteSettings.ts',
-    '../src/utils/siteHelpers.ts',
-  ];
-  for (const relativePath of typedSourcePaths) {
-    const stat = await fs.stat(new URL(relativePath, import.meta.url));
-    assert.equal(stat.isFile(), true, `${relativePath} should be a file`);
-  }
+    const typedSourcePaths = [
+        '../src/config/adminSettings.ts',
+        '../src/config/siteSettings.ts',
+        '../src/utils/siteHelpers.ts',
+    ];
+    for (const relativePath of typedSourcePaths) {
+        const stat = await fs.stat(new URL(relativePath, import.meta.url));
+        assert.equal(stat.isFile(), true, `${relativePath} should be a file`);
+    }
 
-  const removedPaths = [
-    '../src/vendor/adminSettings.js',
-    '../src/vendor/adminSettings.d.ts',
-    '../src/vendor/clipboard.js',
-    '../src/vendor/dateTime.js',
-    '../src/vendor/notification.js',
-    '../src/vendor/siteHelpers.js',
-    '../src/vendor/siteHelpers.d.ts',
-    '../src/vendor/siteSettings.js',
-    '../src/vendor/siteSettings.d.ts',
-    '../src/vendor/ui.js',
-  ];
-  for (const relativePath of removedPaths) {
-    await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
-  }
+    const removedPaths = [
+        '../src/vendor/adminSettings.js',
+        '../src/vendor/adminSettings.d.ts',
+        '../src/vendor/clipboard.js',
+        '../src/vendor/dateTime.js',
+        '../src/vendor/notification.js',
+        '../src/vendor/siteHelpers.js',
+        '../src/vendor/siteHelpers.d.ts',
+        '../src/vendor/siteSettings.js',
+        '../src/vendor/siteSettings.d.ts',
+        '../src/vendor/ui.js',
+    ];
+    for (const relativePath of removedPaths) {
+        await assert.rejects(fs.access(new URL(relativePath, import.meta.url)));
+    }
 });
 
 test('admin source no longer contains a vendor compatibility directory', async () => {
-  const typedStylePath = '../src/styles/ticketDetail.ts';
-  const stat = await fs.stat(new URL(typedStylePath, import.meta.url));
-  assert.equal(stat.isFile(), true, `${typedStylePath} should be a file`);
-  await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
+    const typedStylePath = '../src/styles/ticketDetail.ts';
+    const stat = await fs.stat(new URL(typedStylePath, import.meta.url));
+    assert.equal(stat.isFile(), true, `${typedStylePath} should be a file`);
+    await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
 });
 
 test('admin model composition uses named business effects instead of module aliases', async () => {
-  const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
-  const orderModel = await fs.readFile(new URL('../src/models/order.ts', import.meta.url), 'utf8');
-  const orderMutations = await fs.readFile(new URL('../src/models/orderMutationEffects.ts', import.meta.url), 'utf8');
+    const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
+    const orderModel = await fs.readFile(
+        new URL('../src/models/order.ts', import.meta.url),
+        'utf8',
+    );
+    const orderMutations = await fs.readFile(
+        new URL('../src/models/orderMutationEffects.ts', import.meta.url),
+        'utf8',
+    );
 
-  for (const source of [userModel, orderModel]) {
-    assert.doesNotMatch(source, /import \* as /);
-    assert.doesNotMatch(source, /\bexports\./);
-  }
-  for (const effect of ['update', 'paid', 'cancel', 'assign']) {
-    assert.match(orderMutations, new RegExp(`export function\\* ${effect}\\b`));
-  }
-  assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
+    for (const source of [userModel, orderModel]) {
+        assert.doesNotMatch(source, /import \* as /);
+        assert.doesNotMatch(source, /\bexports\./);
+    }
+    for (const effect of ['update', 'paid', 'cancel', 'assign']) {
+        assert.match(orderMutations, new RegExp(`export function\\* ${effect}\\b`));
+    }
+    assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
 
-  const modelDirectory = new URL('../src/models/', import.meta.url);
-  const directModelNamespaces = [
-    'auth', 'config', 'coupon', 'giftcard', 'knowledge', 'layout', 'notice', 'order',
-    'passport', 'payment', 'plan', 'serverGroup', 'serverManage', 'serverRoute',
-    'stat', 'system', 'theme', 'ticket', 'user',
-  ];
-  for (const namespace of directModelNamespaces) {
-    const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
-    assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
-    assert.doesNotMatch(source, /export default\s*{\s*name:/);
-  }
+    const modelDirectory = new URL('../src/models/', import.meta.url);
+    const directModelNamespaces = [
+        'auth',
+        'config',
+        'coupon',
+        'giftcard',
+        'knowledge',
+        'layout',
+        'notice',
+        'order',
+        'passport',
+        'payment',
+        'plan',
+        'serverGroup',
+        'serverManage',
+        'serverRoute',
+        'stat',
+        'system',
+        'theme',
+        'ticket',
+        'user',
+    ];
+    for (const namespace of directModelNamespaces) {
+        const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+        assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
+        assert.doesNotMatch(source, /export default\s*{\s*name:/);
+    }
 
-  const protocolModelNamespaces = [
-    'serverAnyTLS', 'serverHysteria', 'serverShadowsocks', 'serverTrojan',
-    'serverTuic', 'serverV2node', 'serverVless', 'serverVmess',
-  ];
-  for (const namespace of protocolModelNamespaces) {
-    const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
-    assert.match(source, new RegExp(`namespace: ['"]${namespace}['"]`));
-    assert.doesNotMatch(source, /\bname:\s*['"]/);
-  }
+    const protocolModelNamespaces = [
+        'serverAnyTLS',
+        'serverHysteria',
+        'serverShadowsocks',
+        'serverTrojan',
+        'serverTuic',
+        'serverV2node',
+        'serverVless',
+        'serverVmess',
+    ];
+    for (const namespace of protocolModelNamespaces) {
+        const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+        assert.match(source, new RegExp(`namespace: ['"]${namespace}['"]`));
+        assert.doesNotMatch(source, /\bname:\s*['"]/);
+    }
 
-  const protocolFactory = await fs.readFile(new URL('createServerProtocolModel.ts', modelDirectory), 'utf8');
-  assert.match(protocolFactory, /interface ServerProtocolModelOptions\s*{\s*namespace: string;/);
-  assert.match(protocolFactory, /return\s*{\s*namespace,/);
-  assert.doesNotMatch(protocolFactory, /\bname:\s*string/);
+    const protocolFactory = await fs.readFile(
+        new URL('createServerProtocolModel.ts', modelDirectory),
+        'utf8',
+    );
+    assert.match(protocolFactory, /interface ServerProtocolModelOptions\s*{\s*namespace: string;/);
+    assert.match(protocolFactory, /return\s*{\s*namespace,/);
+    assert.doesNotMatch(protocolFactory, /\bname:\s*string/);
 
-  const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
-  assert.match(store, /model\.namespace !== registeredNamespace/);
-  assert.match(store, /appInstance\?\.model\(model\)/);
-  assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
+    const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
+    assert.match(store, /model\.namespace !== registeredNamespace/);
+    assert.match(store, /appInstance\?\.model\(model\)/);
+    assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
 });
 
 test('admin scripts exclude one-time reverse-engineering extractors', async () => {
-  const scriptNames = await fs.readdir(new URL('../scripts/', import.meta.url));
-  assert.deepEqual(scriptNames.filter(name => name.startsWith('extract-')), []);
+    const scriptNames = await fs.readdir(new URL('../scripts/', import.meta.url));
+    assert.deepEqual(
+        scriptNames.filter((name) => name.startsWith('extract-')),
+        [],
+    );
 });
 
 test('admin application runtime is implemented as typed TSX components', async () => {
-  const runtimeSource = await fs.readFile(new URL('../src/runtime/dvaApplication.tsx', import.meta.url), 'utf8');
-  const tsconfig = JSON.parse(await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'));
-  const packageJson = JSON.parse(await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'));
-  assert.match(runtimeSource, /function createApplicationProvider/);
-  assert.match(runtimeSource, /<ApplicationProvider \/>/);
-  assert.doesNotMatch(runtimeSource, /React\.createElement/);
-  assert.equal(tsconfig.compilerOptions.allowJs, false);
-  assert.deepEqual(
-    Object.fromEntries(['@types/markdown-it', '@types/react-loadable', '@types/react-router-dom'].map(name => [name, packageJson.devDependencies[name]])),
-    {
-      '@types/markdown-it': '10.0.3',
-      '@types/react-loadable': '5.5.11',
-      '@types/react-router-dom': '5.3.3',
-    },
-  );
+    const runtimeSource = await fs.readFile(
+        new URL('../src/runtime/dvaApplication.tsx', import.meta.url),
+        'utf8',
+    );
+    const tsconfig = JSON.parse(
+        await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'),
+    );
+    const packageJson = JSON.parse(
+        await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
+    );
+    assert.match(runtimeSource, /function createApplicationProvider/);
+    assert.match(runtimeSource, /<ApplicationProvider \/>/);
+    assert.doesNotMatch(runtimeSource, /React\.createElement/);
+    assert.equal(tsconfig.compilerOptions.allowJs, false);
+    assert.deepEqual(
+        Object.fromEntries(
+            ['@types/markdown-it', '@types/react-loadable', '@types/react-router-dom'].map(
+                (name) => [name, packageJson.devDependencies[name]],
+            ),
+        ),
+        {
+            '@types/markdown-it': '10.0.3',
+            '@types/react-loadable': '5.5.11',
+            '@types/react-router-dom': '5.3.3',
+        },
+    );
 });
 
 test('admin DVA runtime uses named contracts instead of broad object placeholders', async () => {
-  const contractPaths = [
-    '../src/types/store.ts',
-    '../src/types/dva.ts',
-    '../src/types/dvaCore.d.ts',
-    '../src/runtime/dvaApplication.tsx',
-    '../src/runtime/loadingPlugin.ts',
-    '../src/app/store.tsx',
-  ];
-  for (const relativePath of contractPaths) {
-    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
-    assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
-  }
+    const contractPaths = [
+        '../src/types/store.ts',
+        '../src/types/dva.ts',
+        '../src/types/dvaCore.d.ts',
+        '../src/runtime/dvaApplication.tsx',
+        '../src/runtime/loadingPlugin.ts',
+        '../src/app/store.tsx',
+    ];
+    for (const relativePath of contractPaths) {
+        const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
+        assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
+    }
 
-  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
-  const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
-  const effectTypes = await fs.readFile(new URL('../src/types/effects.ts', import.meta.url), 'utf8');
-  const loadingRuntime = await fs.readFile(new URL('../src/runtime/loadingPlugin.ts', import.meta.url), 'utf8');
-  assert.match(storeTypes, /Action extends AdminAction/);
-  assert.match(dvaTypes, /export interface DvaPlugin/);
-  assert.match(dvaTypes, /export type DvaEffectEnhancer/);
-  assert.doesNotMatch(dvaTypes, /DvaHook|DvaReducer/);
-  assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
-  assert.match(effectTypes, /Effect \| Promise<RequestEffectResult>/);
-  assert.doesNotMatch(effectTypes, /EffectInstruction = object/);
-  assert.doesNotMatch(loadingRuntime, /effectContext|Iterator<unknown>/);
+    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+    const effectTypes = await fs.readFile(
+        new URL('../src/types/effects.ts', import.meta.url),
+        'utf8',
+    );
+    const loadingRuntime = await fs.readFile(
+        new URL('../src/runtime/loadingPlugin.ts', import.meta.url),
+        'utf8',
+    );
+    assert.match(storeTypes, /Action extends AdminAction/);
+    assert.match(dvaTypes, /export interface DvaPlugin/);
+    assert.match(dvaTypes, /export type DvaEffectEnhancer/);
+    assert.doesNotMatch(dvaTypes, /DvaHook|DvaReducer/);
+    assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
+    assert.match(effectTypes, /Effect \| Promise<RequestEffectResult>/);
+    assert.doesNotMatch(effectTypes, /EffectInstruction = object/);
+    assert.doesNotMatch(loadingRuntime, /effectContext|Iterator<unknown>/);
 });
 
 test('admin plugin runtime separates callable hooks from route and configuration values', async () => {
-  const pluginRuntime = await fs.readFile(new URL('../src/runtime/pluginRuntime.ts', import.meta.url), 'utf8');
-  const routeRuntime = await fs.readFile(new URL('../src/runtime/routeRenderer.tsx', import.meta.url), 'utf8');
-  const bootstrap = await fs.readFile(new URL('../src/app/bootstrap.tsx', import.meta.url), 'utf8');
-  assert.match(pluginRuntime, /export type PluginCallback/);
-  assert.match(pluginRuntime, /export interface PluginConfiguration/);
-  assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
-  assert.match(routeRuntime, /Partial<AdminRootState>/);
-  assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
-  assert.match(bootstrap, /apply<React\.ReactElement>/);
-  assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);
+    const pluginRuntime = await fs.readFile(
+        new URL('../src/runtime/pluginRuntime.ts', import.meta.url),
+        'utf8',
+    );
+    const routeRuntime = await fs.readFile(
+        new URL('../src/runtime/routeRenderer.tsx', import.meta.url),
+        'utf8',
+    );
+    const bootstrap = await fs.readFile(
+        new URL('../src/app/bootstrap.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(pluginRuntime, /export type PluginCallback/);
+    assert.match(pluginRuntime, /export interface PluginConfiguration/);
+    assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
+    assert.match(routeRuntime, /Partial<AdminRootState>/);
+    assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
+    assert.match(bootstrap, /apply<React\.ReactElement>/);
+    assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);
 });
 
 test('admin business contracts do not depend on rendering components', async () => {
-  const typesDirectory = new URL('../src/types/', import.meta.url);
-  const typeNames = (await fs.readdir(typesDirectory)).filter(name => name.endsWith('.ts'));
-  assert.ok(typeNames.includes('filter.ts'));
-  for (const typeName of typeNames) {
-    const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
-    assert.doesNotMatch(source, /from ['"]\.\.\/(components|pages|layouts)\//, `${typeName} depends on the rendering layer`);
-  }
+    const typesDirectory = new URL('../src/types/', import.meta.url);
+    const typeNames = (await fs.readdir(typesDirectory)).filter((name) => name.endsWith('.ts'));
+    assert.ok(typeNames.includes('filter.ts'));
+    for (const typeName of typeNames) {
+        const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
+        assert.doesNotMatch(
+            source,
+            /from ['"]\.\.\/(components|pages|layouts)\//,
+            `${typeName} depends on the rendering layer`,
+        );
+    }
 
-  const modelsDirectory = new URL('../src/models/', import.meta.url);
-  const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
-  for (const modelName of modelNames) {
-    const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
-    assert.doesNotMatch(source, /from ['"]\.\.\/components\//, `${modelName} depends on a component`);
-    assert.doesNotMatch(source, /from ['"]antd\/lib\/(?:message|notification|modal)['"]/, `${modelName} imports a rendering notification`);
-  }
+    const modelsDirectory = new URL('../src/models/', import.meta.url);
+    const modelNames = (await fs.readdir(modelsDirectory)).filter((name) => name.endsWith('.ts'));
+    for (const modelName of modelNames) {
+        const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+        assert.doesNotMatch(
+            source,
+            /from ['"]\.\.\/components\//,
+            `${modelName} depends on a component`,
+        );
+        assert.doesNotMatch(
+            source,
+            /from ['"]antd\/lib\/(?:message|notification|modal)['"]/,
+            `${modelName} imports a rendering notification`,
+        );
+    }
 
-  const contractSources = {
-    'filter.ts': ['FilterItem', 'FilterField'],
-    'knowledge.ts': ['KnowledgeRecord'],
-    'monitoring.ts': ['QueueWorkload', 'DisplayScalar'],
-    'notice.ts': ['NoticeRecord'],
-    'order.ts': ['OrderDetailRecord'],
-    'payment.ts': ['PaymentRecord'],
-    'promotion.ts': ['CouponRecord', 'GiftcardRecord'],
-    'ticket.ts': ['TicketRecord', 'TicketMessage'],
-  };
-  for (const [typeName, contracts] of Object.entries(contractSources)) {
-    const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
-    for (const contract of contracts) assert.match(source, new RegExp(`export (?:interface|type) ${contract}\\b`));
-  }
+    const contractSources = {
+        'filter.ts': ['FilterItem', 'FilterField'],
+        'knowledge.ts': ['KnowledgeRecord'],
+        'monitoring.ts': ['QueueWorkload', 'DisplayScalar'],
+        'notice.ts': ['NoticeRecord'],
+        'order.ts': ['OrderDetailRecord'],
+        'payment.ts': ['PaymentRecord'],
+        'promotion.ts': ['CouponRecord', 'GiftcardRecord'],
+        'ticket.ts': ['TicketRecord', 'TicketMessage'],
+    };
+    for (const [typeName, contracts] of Object.entries(contractSources)) {
+        const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
+        for (const contract of contracts)
+            assert.match(source, new RegExp(`export (?:interface|type) ${contract}\\b`));
+    }
 });
 
 test('admin request transport does not depend on the rendering library', async () => {
-  const requestSource = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
-  const headerSource = await fs.readFile(new URL('../src/layouts/Header.tsx', import.meta.url), 'utf8');
-  const presentationSource = await fs.readFile(new URL('../src/app/requestPresentation.ts', import.meta.url), 'utf8');
-  assert.doesNotMatch(requestSource, /from ['"]antd\//);
-  assert.doesNotMatch(headerSource, /import ['"]\.\.\/services\/request['"]/);
-  assert.match(presentationSource, /setRequestFailurePresenter/);
-  assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
+    const requestSource = await fs.readFile(
+        new URL('../src/services/request.ts', import.meta.url),
+        'utf8',
+    );
+    const headerSource = await fs.readFile(
+        new URL('../src/layouts/Header.tsx', import.meta.url),
+        'utf8',
+    );
+    const presentationSource = await fs.readFile(
+        new URL('../src/app/requestPresentation.ts', import.meta.url),
+        'utf8',
+    );
+    assert.doesNotMatch(requestSource, /from ['"]antd\//);
+    assert.doesNotMatch(headerSource, /import ['"]\.\.\/services\/request['"]/);
+    assert.match(presentationSource, /setRequestFailurePresenter/);
+    assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
 });
 
 test('admin models depend on API contracts separately from request transport', async () => {
-  const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
-  const requestSource = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
-  assert.match(apiSource, /export interface ApiResponse/);
-  assert.match(apiSource, /export interface FormRecord/);
-  assert.match(apiSource, /export function isSuccessfulResponse/);
-  assert.doesNotMatch(requestSource, /export interface ApiResponse/);
-  assert.doesNotMatch(requestSource, /export type FormValue/);
-
-  const modelsDirectory = new URL('../src/models/', import.meta.url);
-  const modelNames = (await fs.readdir(modelsDirectory)).filter(name => name.endsWith('.ts'));
-  for (const modelName of modelNames) {
-    const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
-    assert.doesNotMatch(
-      source,
-      /import\s*\{[^}]*\b(?:ApiResponse|FormRecord|FormValue|JsonValue|isSuccessfulResponse)\b[^}]*\}\s*from ['"]\.\.\/services\/request['"]/s,
-      `${modelName} imports API contracts from request transport`,
+    const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
+    const requestSource = await fs.readFile(
+        new URL('../src/services/request.ts', import.meta.url),
+        'utf8',
     );
-  }
+    assert.match(apiSource, /export interface ApiResponse/);
+    assert.match(apiSource, /export interface FormRecord/);
+    assert.match(apiSource, /export function isSuccessfulResponse/);
+    assert.doesNotMatch(requestSource, /export interface ApiResponse/);
+    assert.doesNotMatch(requestSource, /export type FormValue/);
+
+    const modelsDirectory = new URL('../src/models/', import.meta.url);
+    const modelNames = (await fs.readdir(modelsDirectory)).filter((name) => name.endsWith('.ts'));
+    for (const modelName of modelNames) {
+        const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+        assert.doesNotMatch(
+            source,
+            /import\s*\{[^}]*\b(?:ApiResponse|FormRecord|FormValue|JsonValue|isSuccessfulResponse)\b[^}]*\}\s*from ['"]\.\.\/services\/request['"]/s,
+            `${modelName} imports API contracts from request transport`,
+        );
+    }
 });
 
 test('admin root state names every registered business model', async () => {
-  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
-  const rootRuntime = await fs.readFile(new URL('../src/app/rootRuntime.tsx', import.meta.url), 'utf8');
-  assert.match(storeTypes, /export interface AdminRootState/);
-  for (const model of [
-    'auth', 'config', 'coupon', 'giftcard', 'knowledge', 'layout', 'notice', 'order',
-    'passport', 'payment', 'plan', 'serverAnyTLS', 'serverGroup', 'serverHysteria',
-    'serverManage', 'serverRoute', 'serverShadowsocks', 'serverTrojan', 'serverTuic',
-    'serverV2node', 'serverVless', 'serverVmess', 'stat', 'system', 'theme', 'ticket', 'user',
-  ]) assert.match(storeTypes, new RegExp(`\\b${model}:`));
-  assert.doesNotMatch(storeTypes, /AdminRootState = Record<string, object>/);
-  assert.match(rootRuntime, /Partial<AdminRootState>/);
+    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const rootRuntime = await fs.readFile(
+        new URL('../src/app/rootRuntime.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(storeTypes, /export interface AdminRootState/);
+    for (const model of [
+        'auth',
+        'config',
+        'coupon',
+        'giftcard',
+        'knowledge',
+        'layout',
+        'notice',
+        'order',
+        'passport',
+        'payment',
+        'plan',
+        'serverAnyTLS',
+        'serverGroup',
+        'serverHysteria',
+        'serverManage',
+        'serverRoute',
+        'serverShadowsocks',
+        'serverTrojan',
+        'serverTuic',
+        'serverV2node',
+        'serverVless',
+        'serverVmess',
+        'stat',
+        'system',
+        'theme',
+        'ticket',
+        'user',
+    ])
+        assert.match(storeTypes, new RegExp(`\\b${model}:`));
+    assert.doesNotMatch(storeTypes, /AdminRootState = Record<string, object>/);
+    assert.match(rootRuntime, /Partial<AdminRootState>/);
 });
 
 test('admin pages select from the canonical root state', async () => {
-  const pagesDirectory = new URL('../src/pages/', import.meta.url);
-  const domainEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
-  const expectedDomains = [
-    'config', 'coupon', 'dashboard', 'giftcard', 'knowledge', 'login', 'notice', 'order',
-    'plan', 'queue', 'server', 'ticket', 'user',
-  ];
-  assert.deepEqual(domainEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
-  assert.deepEqual(domainEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')).map(entry => entry.name), ['index.tsx']);
+    const pagesDirectory = new URL('../src/pages/', import.meta.url);
+    const domainEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
+    const expectedDomains = [
+        'config',
+        'coupon',
+        'dashboard',
+        'giftcard',
+        'knowledge',
+        'login',
+        'notice',
+        'order',
+        'plan',
+        'queue',
+        'server',
+        'ticket',
+        'user',
+    ];
+    assert.deepEqual(
+        domainEntries
+            .filter((entry) => entry.isDirectory())
+            .map((entry) => entry.name)
+            .sort(),
+        expectedDomains,
+    );
+    assert.deepEqual(
+        domainEntries
+            .filter((entry) => entry.isFile() && entry.name.endsWith('.tsx'))
+            .map((entry) => entry.name),
+        ['index.tsx'],
+    );
 
-  for (const domain of expectedDomains) {
-    const domainDirectory = new URL(`${domain}/`, pagesDirectory);
-    const files = await fs.readdir(domainDirectory, { withFileTypes: true });
-    if (!['config', 'server'].includes(domain)) {
-      assert.ok(files.some(entry => entry.name === 'index.tsx'), `${domain} should expose an index page`);
+    for (const domain of expectedDomains) {
+        const domainDirectory = new URL(`${domain}/`, pagesDirectory);
+        const files = await fs.readdir(domainDirectory, { withFileTypes: true });
+        if (!['config', 'server'].includes(domain)) {
+            assert.ok(
+                files.some((entry) => entry.name === 'index.tsx'),
+                `${domain} should expose an index page`,
+            );
+        }
+        const sourceFiles = [];
+        async function collect(directory, prefix = '') {
+            for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+                const relative = `${prefix}${entry.name}`;
+                if (entry.isDirectory())
+                    await collect(new URL(`${entry.name}/`, directory), `${relative}/`);
+                else if (entry.name.endsWith('.tsx')) sourceFiles.push(relative);
+            }
+        }
+        await collect(domainDirectory);
+        for (const relativePageName of sourceFiles) {
+            const source = await fs.readFile(new URL(relativePageName, domainDirectory), 'utf8');
+            assert.doesNotMatch(
+                source,
+                /interface\s+\w*RootState\b/,
+                `${domain}/${relativePageName} declares a duplicate root state`,
+            );
+            if (source.includes('connect(')) {
+                assert.match(
+                    source,
+                    /connect\(\(state:\s*AdminRootState\)/,
+                    `${domain}/${relativePageName} must select from AdminRootState`,
+                );
+            }
+        }
     }
-    const sourceFiles = [];
-    async function collect(directory, prefix = '') {
-      for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
-        const relative = `${prefix}${entry.name}`;
-        if (entry.isDirectory()) await collect(new URL(`${entry.name}/`, directory), `${relative}/`);
-        else if (entry.name.endsWith('.tsx')) sourceFiles.push(relative);
-      }
-    }
-    await collect(domainDirectory);
-    for (const relativePageName of sourceFiles) {
-      const source = await fs.readFile(new URL(relativePageName, domainDirectory), 'utf8');
-      assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${domain}/${relativePageName} declares a duplicate root state`);
-      if (source.includes('connect(')) {
-        assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${domain}/${relativePageName} must select from AdminRootState`);
-      }
-    }
-  }
 
-  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('payment'));
-  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('system'));
-  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('theme'));
-  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
-  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
-  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));
-  const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
-  assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
-  const couponDirectory = new URL('coupon/', pagesDirectory);
-  assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(couponDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('columns.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', couponDirectory))).includes('index.tsx'));
-  const giftcardDirectory = new URL('giftcard/', pagesDirectory);
-  assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(giftcardDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('columns.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
-  const planDirectory = new URL('plan/', pagesDirectory);
-  assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(planDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(planDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanGroupColumn.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanPriceColumns.ts'));
-  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanResourceColumns.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', planDirectory))).includes('index.tsx'));
-  const orderDirectory = new URL('order/', pagesDirectory);
-  assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(orderDirectory)).includes('_Drawer'));
-  assert.ok((await fs.readdir(orderDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(orderDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('filter.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('detail.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'));
-  const userDirectory = new URL('user/', pagesDirectory);
-  assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(userDirectory)).includes('_Drawer'));
-  assert.ok((await fs.readdir(userDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(userDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('edit.tsx'));
-  assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('filter.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('columns.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('generate.tsx'));
-  assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('sendMail.tsx'));
-  const noticeDirectory = new URL('notice/', pagesDirectory);
-  assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
-  assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
-  assert.ok((await fs.readdir(new URL('_List/', noticeDirectory))).includes('columns.ts'));
-  assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
-  const ticketDirectory = new URL('ticket/', pagesDirectory);
-  assert.ok((await fs.readdir(ticketDirectory)).includes('_List'));
-  assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('index.tsx'));
-  assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('columns.ts'));
-  await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/promotion/CouponDisplayColumns.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/promotion/GiftcardDisplayColumns.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanGroupColumn.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanPriceColumns.ts', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDisplayColumns.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDetailBody.tsx', import.meta.url)));
-  await assert.rejects(fs.access(new URL('../src/components/content/TicketDisplayColumns.ts', import.meta.url)));
-  for (const legacyUserPath of [
-    '../src/components/user/UserDisplayColumns.tsx',
-    '../src/components/user/UserEditor.tsx',
-    '../src/components/user/UserGenerator.tsx',
-    '../src/components/user/SendMailEditor.tsx',
-  ]) {
-    await assert.rejects(fs.access(new URL(legacyUserPath, import.meta.url)));
-  }
+    assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('payment'));
+    assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('system'));
+    assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('theme'));
+    assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
+    assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
+    assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));
+    const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
+    assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+    const couponDirectory = new URL('coupon/', pagesDirectory);
+    assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(couponDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('columns.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', couponDirectory))).includes('index.tsx'));
+    const giftcardDirectory = new URL('giftcard/', pagesDirectory);
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('columns.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
+    const planDirectory = new URL('plan/', pagesDirectory);
+    assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(planDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(planDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanGroupColumn.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanPriceColumns.ts'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', planDirectory))).includes('PlanResourceColumns.tsx'),
+    );
+    assert.ok((await fs.readdir(new URL('_Modal/', planDirectory))).includes('index.tsx'));
+    const orderDirectory = new URL('order/', pagesDirectory);
+    assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(orderDirectory)).includes('_Drawer'));
+    assert.ok((await fs.readdir(orderDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(orderDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('filter.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('detail.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'),
+    );
+    const userDirectory = new URL('user/', pagesDirectory);
+    assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(userDirectory)).includes('_Drawer'));
+    assert.ok((await fs.readdir(userDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(userDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('edit.tsx'));
+    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('filter.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('columns.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('generate.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('sendMail.tsx'));
+    const noticeDirectory = new URL('notice/', pagesDirectory);
+    assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(new URL('_List/', noticeDirectory))).includes('columns.ts'));
+    assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
+    const ticketDirectory = new URL('ticket/', pagesDirectory);
+    assert.ok((await fs.readdir(ticketDirectory)).includes('_List'));
+    assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('columns.ts'));
+    await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
+    await assert.rejects(
+        fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/promotion/CouponDisplayColumns.tsx', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(
+            new URL('../src/components/promotion/GiftcardDisplayColumns.tsx', import.meta.url),
+        ),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/commerce/PlanGroupColumn.tsx', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/commerce/PlanPriceColumns.ts', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/commerce/OrderDisplayColumns.tsx', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/commerce/OrderDetailBody.tsx', import.meta.url)),
+    );
+    await assert.rejects(
+        fs.access(new URL('../src/components/content/TicketDisplayColumns.ts', import.meta.url)),
+    );
+    for (const legacyUserPath of [
+        '../src/components/user/UserDisplayColumns.tsx',
+        '../src/components/user/UserEditor.tsx',
+        '../src/components/user/UserGenerator.tsx',
+        '../src/components/user/SendMailEditor.tsx',
+    ]) {
+        await assert.rejects(fs.access(new URL(legacyUserPath, import.meta.url)));
+    }
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {
-  const componentsDirectory = new URL('../src/components/', import.meta.url);
-  const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-  const expectedDomains = ['commerce', 'common', 'config', 'content', 'monitoring', 'server', 'user'];
-  assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
-  assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
+    const componentsDirectory = new URL('../src/components/', import.meta.url);
+    const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
+    const expectedDomains = ['commerce', 'common', 'config', 'monitoring', 'server', 'user'];
+    assert.deepEqual(
+        componentEntries
+            .filter((entry) => entry.isDirectory())
+            .map((entry) => entry.name)
+            .sort(),
+        expectedDomains,
+    );
+    assert.deepEqual(
+        componentEntries.filter((entry) => entry.isFile() && /\.tsx?$/.test(entry.name)),
+        [],
+    );
 
-  const serverManagePage = await fs.readFile(new URL('../src/pages/server/manage/index.tsx', import.meta.url), 'utf8');
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/);
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/);
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/);
-  assert.doesNotMatch(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/);
+    const serverManagePage = await fs.readFile(
+        new URL('../src/pages/server/manage/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        serverManagePage,
+        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/,
+    );
+    assert.match(
+        serverManagePage,
+        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/,
+    );
+    assert.match(
+        serverManagePage,
+        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/,
+    );
+    assert.doesNotMatch(
+        serverManagePage,
+        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/,
+    );
 
-  for (const domain of expectedDomains) {
-    const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
-    assert.ok(componentNames.some(name => /\.tsx?$/.test(name)), `${domain} should contain at least one component`);
-  }
+    for (const domain of expectedDomains) {
+        const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
+        assert.ok(
+            componentNames.some((name) => /\.tsx?$/.test(name)),
+            `${domain} should contain at least one component`,
+        );
+    }
 
-  const connectedSources = [
-    '../src/layouts/Header.tsx',
-    '../src/layouts/MainLayout.tsx',
-    '../src/components/server/AnyTlsEditor.tsx',
-    '../src/components/commerce/AssignOrderEditor.tsx',
-    '../src/components/server/HysteriaEditor.tsx',
-    '../src/components/common/PermissionGroupEditor.tsx',
-    '../src/pages/user/_Modal/sendMail.tsx',
-    '../src/components/server/ShadowsocksEditor.tsx',
-    '../src/components/server/TrojanEditor.tsx',
-    '../src/components/server/TuicEditor.tsx',
-    '../src/pages/user/_Drawer/edit.tsx',
-    '../src/pages/user/_Modal/generate.tsx',
-    '../src/components/server/V2NodeEditor.tsx',
-    '../src/components/server/VlessEditor.tsx',
-    '../src/components/server/VmessEditor.tsx',
-  ];
-  for (const relativePath of connectedSources) {
-    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
-    assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${relativePath} declares a duplicate root state`);
-    assert.match(source, /AdminRootState/, `${relativePath} must select from AdminRootState`);
-  }
+    const connectedSources = [
+        '../src/layouts/Header.tsx',
+        '../src/layouts/MainLayout.tsx',
+        '../src/components/server/AnyTlsEditor.tsx',
+        '../src/components/commerce/AssignOrderEditor.tsx',
+        '../src/components/server/HysteriaEditor.tsx',
+        '../src/components/common/PermissionGroupEditor.tsx',
+        '../src/pages/user/_Modal/sendMail.tsx',
+        '../src/components/server/ShadowsocksEditor.tsx',
+        '../src/components/server/TrojanEditor.tsx',
+        '../src/components/server/TuicEditor.tsx',
+        '../src/pages/user/_Drawer/edit.tsx',
+        '../src/pages/user/_Modal/generate.tsx',
+        '../src/components/server/V2NodeEditor.tsx',
+        '../src/components/server/VlessEditor.tsx',
+        '../src/components/server/VmessEditor.tsx',
+    ];
+    for (const relativePath of connectedSources) {
+        const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
+        assert.doesNotMatch(
+            source,
+            /interface\s+\w*RootState\b/,
+            `${relativePath} declares a duplicate root state`,
+        );
+        assert.match(source, /AdminRootState/, `${relativePath} must select from AdminRootState`);
+    }
 });
 
 test('admin router selectors use the canonical root state', async () => {
-  const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
-  const routerTypes = await fs.readFile(new URL('../src/types/router.ts', import.meta.url), 'utf8');
-  const routerBindings = await fs.readFile(new URL('../src/runtime/routerBindings.tsx', import.meta.url), 'utf8');
-  assert.match(storeTypes, /router\?: RouterState/);
-  assert.match(routerTypes, /export interface RouterState/);
-  assert.doesNotMatch(routerBindings, /interface\s+RouterRootState\b/);
-  assert.match(routerBindings, /state: AdminRootState/);
+    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const routerTypes = await fs.readFile(
+        new URL('../src/types/router.ts', import.meta.url),
+        'utf8',
+    );
+    const routerBindings = await fs.readFile(
+        new URL('../src/runtime/routerBindings.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(storeTypes, /router\?: RouterState/);
+    assert.match(routerTypes, /export interface RouterState/);
+    assert.doesNotMatch(routerBindings, /interface\s+RouterRootState\b/);
+    assert.match(routerBindings, /state: AdminRootState/);
 });
