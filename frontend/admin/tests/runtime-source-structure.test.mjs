@@ -158,6 +158,27 @@ test('Trojan transport settings live in a focused protocol module', async () => 
     assert.doesNotMatch(editorSource, /<JsonEditor/);
 });
 
+test('Hysteria obfuscation settings live in a focused protocol module', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/HysteriaEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const obfuscationSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    assert.match(
+        editorSource,
+        /import \{ HysteriaObfuscationSettings \} from '\.\/Hysteria\/ObfuscationSettings'/,
+    );
+    assert.match(editorSource, /<HysteriaObfuscationSettings/);
+    assert.match(obfuscationSource, /export function HysteriaObfuscationSettings/);
+    assert.doesNotMatch(editorSource, /混淆方式obfs/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(

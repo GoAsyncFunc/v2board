@@ -41,6 +41,7 @@ for (const file of [
     'admin/src/components/common/FilterDrawer.tsx',
     'admin/src/components/common/NullableSelectOption.tsx',
     'admin/src/pages/server/manage/_Editors/HysteriaEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx',
     'admin/src/pages/server/manage/_Editors/ServerEditorRegistry.tsx',
     'admin/src/pages/server/manage/_List/ServerManageColumns.tsx',
     'admin/src/pages/server/manage/_List/ServerManageMobileList.tsx',
