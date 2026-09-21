@@ -680,12 +680,16 @@
     "to": "pages/coupon/_Modal/index.tsx"
   },
   {
-    "from": "pages/dashboard/index.tsx",
+    "from": "pages/dashboard/_Nav/index.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/dashboard/index.tsx",
+    "from": "pages/dashboard/_Overview/index.tsx",
     "to": "components/common/MoneyDisplay.ts"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "app/navigation.ts"
   },
   {
     "from": "pages/dashboard/index.tsx",
@@ -694,6 +698,18 @@
   {
     "from": "pages/dashboard/index.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/_Charts/index.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/_Nav/index.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/_Overview/index.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",

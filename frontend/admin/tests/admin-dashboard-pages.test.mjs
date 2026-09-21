@@ -57,6 +57,18 @@ async function loadDashboard() {
       if (id.includes('services/request')) return { get: async () => ({ status: 'running' }) };
       if (id.includes('siteSettings')) return { siteSettings: { serviceHost: 'https://service.example.test/api/v1' } };
       if (id.includes('MoneyDisplay')) return { formatIncome: value => `income:${value}`, formatLiveCount: value => value || '0' };
+      if (id === './_Nav') return () => null;
+      if (id === './_Overview') return () => null;
+      if (id === './_Charts') return {
+        rankChartOption: (data, getLabel) => ({
+          tooltip: { trigger: 'axis', formatter: values => `${values[0].value} GB` },
+          grid: { top: '1%', left: '1%', right: '1%', bottom: '3%', containLabel: true },
+          xAxis: { type: 'value' },
+          yAxis: { type: 'category', data: [...data].reverse().map(getLabel) },
+          series: [{ data: [...data].reverse().map(item => item.total), type: 'bar' }],
+        }),
+        RankChart: () => null,
+      };
       throw new Error(id);
     },
   });

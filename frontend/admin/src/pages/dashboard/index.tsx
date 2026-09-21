@@ -16,9 +16,13 @@ import history from '../../app/navigation';
 import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
-import { formatIncome, formatLiveCount } from '../../components/common/MoneyDisplay';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
+import DashboardNavigation from './_Nav';
+import DashboardOverview from './_Overview';
+import { rankChartOption, RankChart } from './_Charts';
+
+export { rankChartOption } from './_Charts';
 
 echarts.use([
     LineChart,
@@ -46,26 +50,6 @@ interface DashboardState {
     queueStatus?: string;
 }
 
-interface QuickLinkProps {
-    icon: string;
-    label: string;
-    path: string;
-}
-
-interface RankChartProps {
-    title: string;
-    chartRef: React.RefObject<HTMLDivElement>;
-    extraClass?: string;
-}
-
-interface RankChartOption extends EChartsCoreOption {
-    tooltip: { trigger: string; formatter: (values: Array<{ value: string | number }>) => string };
-    grid: { top: string; left: string; right: string; bottom: string; containLabel: boolean };
-    xAxis: { type: string };
-    yAxis: { type: string; data: string[] };
-    series: Array<{ data: number[]; type: string }>;
-}
-
 interface OrderChartSeries {
     name: string;
     type: string;
@@ -80,59 +64,6 @@ interface OrderChartOption extends EChartsCoreOption {
     xAxis: { type: string; boundaryGap: boolean; data: string[] };
     yAxis: { type: string };
     series: OrderChartSeries[];
-}
-
-export function rankChartOption(
-    data: RankChartRecord[],
-    getLabel: (item: RankChartRecord) => string | undefined,
-) {
-    const option: RankChartOption = {
-        tooltip: { trigger: 'axis', formatter: (values) => `${values[0].value} GB` },
-        grid: { top: '1%', left: '1%', right: '1%', bottom: '3%', containLabel: true },
-        xAxis: { type: 'value' },
-        yAxis: { type: 'category', data: [] },
-        series: [{ data: [], type: 'bar' }],
-    };
-    [...data].reverse().forEach((item) => {
-        option.yAxis.data.push(getLabel(item) || '');
-        option.series[0].data.push(item.total);
-    });
-    return option;
-}
-
-function QuickLink({ icon, label, path }: QuickLinkProps) {
-    return (
-        <div className="col-sm-6 col-xl-3 js-appear-enabled animated" data-toggle="appear">
-            <a
-                className="block block-bordered block-link-pop text-center mb-0"
-                onClick={() => history.push(path)}
-            >
-                <div className="block-content block-content-full text-center">
-                    <i className={`fa-2x si ${icon} text-primary d-none d-sm-inline-block mb-3`} />
-                    <div className="font-w600 text-uppercase">{label}</div>
-                </div>
-            </a>
-        </div>
-    );
-}
-
-function RankChart({ title, chartRef, extraClass = '' }: RankChartProps) {
-    return (
-        <div className={`col-lg-6 js-appear-enabled animated ${extraClass}`} data-toggle="appear">
-            <div className="block border-bottom">
-                <div className="block-header block-header-default">
-                    <h3 className="block-title">{title}</h3>
-                </div>
-                <div className="block-content">
-                    <div
-                        className="px-sm-3 pt-sm-3 py-3 clearfix"
-                        style={{ height: 400 }}
-                        ref={chartRef}
-                    />
-                </div>
-            </div>
-        </div>
-    );
 }
 
 export class DashboardPage extends React.Component<DashboardProps, DashboardState> {
@@ -338,97 +269,12 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
         return (
             <MainLayout {...this.props} title="仪表盘">
                 {this.renderAlerts()}
-                <div className="mb-0 block border-bottom js-classic-nav d-none d-sm-block">
-                    <div className="block-content block-content-full">
-                        <div className="row no-gutters border">
-                            <QuickLink icon="si-equalizer" label="系统设置" path="/config/system" />
-                            <QuickLink icon="si-list" label="订单管理" path="/order" />
-                            <QuickLink icon="si-bag" label="订阅管理" path="/plan" />
-                            <QuickLink icon="si-users" label="用户管理" path="/user" />
-                        </div>
-                    </div>
-                </div>
-                <div className="row no-gutters">
-                    <div className="col-lg-12 js-appear-enabled animated" data-toggle="appear">
-                        <div className="block border-bottom mb-0 v2board-stats-bar">
-                            <div className="block-content">
-                                <div className="d-flex align-items-center">
-                                    <div className="pr-4 pr-sm-5 pl-0 pl-sm-3">
-                                        <i className="fa fa-users fa-2x text-gray-light float-right" />
-                                        <div className="text-muted mb-1" style={{ width: 120 }}>
-                                            在线人数
-                                        </div>
-                                        <div className="display-4 text-black font-w300 mb-2">
-                                            {stat.online_user || '0'}
-                                        </div>
-                                    </div>
-                                    <div className="pr-4 pr-sm-5 pl-0 pl-sm-3">
-                                        <i className="fa fa-chart-line fa-2x text-gray-light float-right" />
-                                        <p className="text-muted w-75 mb-1">今日收入</p>
-                                        <p className="display-4 text-black font-w300 mb-2">
-                                            {formatIncome(stat.day_income)}
-                                            <span className="font-size-h5 font-w600 text-muted">
-                                                {config.site.currency}
-                                            </span>
-                                        </p>
-                                    </div>
-                                    <div className="pr-4 pr-sm-5 pl-0 pl-sm-3">
-                                        <i className="fa fa-user fa-2x text-gray-light float-right" />
-                                        <div className="text-muted mb-1" style={{ width: 120 }}>
-                                            实时注册
-                                        </div>
-                                        <div className="display-4 text-black font-w300 mb-2">
-                                            {formatLiveCount(stat.day_register_total)}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-12 js-appear-enabled animated" data-toggle="appear">
-                        <div className="block border-bottom mb-0 v2board-stats-bar">
-                            <div className="block-content block-content-full">
-                                <div className="d-flex align-items-center">
-                                    <div className="pr-4 pr-sm-5 pl-0 pl-sm-3">
-                                        <p className="fs-3 text-dark mb-0">
-                                            {formatIncome(stat.month_income)} {config.site.currency}
-                                        </p>
-                                        <p className="text-muted mb-0">本月收入</p>
-                                    </div>
-                                    <div className="px-4 px-sm-5 border-start">
-                                        <p className="fs-3 text-dark mb-0">
-                                            {formatIncome(stat.last_month_income)}{' '}
-                                            {config.site.currency}
-                                        </p>
-                                        <p className="text-muted mb-0">上月收入</p>
-                                    </div>
-                                    <div className="px-4 px-sm-5 border-start">
-                                        <p className="fs-3 text-dark mb-0">
-                                            {formatIncome(stat.commission_last_month_payout)}{' '}
-                                            {config.site.currency}
-                                        </p>
-                                        <p className="text-muted mb-0">上月佣金支出</p>
-                                    </div>
-                                    <div className="px-4 px-sm-5 border-start">
-                                        <p className="fs-3 text-dark mb-0">
-                                            {stat.month_register_total || '-'}
-                                        </p>
-                                        <p className="text-muted mb-0">本月新增用户</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-12 js-appear-enabled animated" data-toggle="appear">
-                        <div className="block border-bottom mb-0">
-                            <div
-                                className="px-sm-3 pt-sm-3 py-3 clearfix"
-                                style={{ height: 400 }}
-                                ref={this.orderChart}
-                            />
-                        </div>
-                    </div>
-                </div>
+                <DashboardNavigation />
+                <DashboardOverview
+                    stat={stat}
+                    currency={config.site.currency}
+                    orderChart={this.orderChart}
+                />
                 <div className="row mt-xl-3">
                     <RankChart
                         title="今日节点流量排行"
