@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
-import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, TelegramConfig } from '../../types/config';
+import ConfigRow from '../_components/ConfigRow';
+import type { ConfigChangeHandler, TelegramConfig } from '../../../../types/config';
 
 interface TelegramConfigTabProps {
     telegram: TelegramConfig;

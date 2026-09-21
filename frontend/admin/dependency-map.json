@@ -192,50 +192,6 @@
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "components/config/AppConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/DepositConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/EmailConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/FrontendConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/InviteConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/SafeConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/ServerConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/SiteConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/SubscribeConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/TelegramConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
-    "from": "components/config/TicketConfigTab.tsx",
-    "to": "components/config/ConfigRow.tsx"
-  },
-  {
     "from": "components/server/AnyTlsEditor.tsx",
     "to": "components/common/JsonEditor.tsx"
   },
@@ -733,67 +689,111 @@
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "components/config/PaymentDisplayColumns.ts"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "components/config/PaymentNotifyColumn.tsx"
+    "to": "pages/config/payment/_List/columns.ts"
   },
   {
     "from": "pages/config/payment/index.tsx",
+    "to": "pages/config/payment/_List/notifyColumn.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/AppConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/DepositConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/EmailConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/FrontendConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/InviteConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/SafeConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/ServerConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/SiteConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/SubscribeConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/TelegramConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/_Tabs/TicketConfigTab.tsx",
+    "to": "pages/config/system/_components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/AppConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/AppConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/DepositConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/DepositConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/EmailConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/EmailConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/FrontendConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/FrontendConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/InviteConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/InviteConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/MailTestResult.tsx"
+    "to": "pages/config/system/_Tabs/SafeConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/SafeConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/ServerConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/ServerConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/SiteConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/SiteConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/SubscribeConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/SubscribeConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/TelegramConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/TelegramConfigTab.tsx"
+    "to": "pages/config/system/_Tabs/TicketConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "components/config/TicketConfigTab.tsx"
-  },
-  {
-    "from": "pages/config/system/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "pages/config/system/_components/MailTestResult.tsx"
   },
   {
     "from": "pages/config/theme/index.tsx",

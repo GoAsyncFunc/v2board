@@ -27,18 +27,18 @@ async function loadConfig() {
   };
   const components = {};
   for (const [name, file] of [
-    ['row', '../src/components/config/ConfigRow.tsx'],
-    ['site', '../src/components/config/SiteConfigTab.tsx'],
-    ['safe', '../src/components/config/SafeConfigTab.tsx'],
-    ['subscribe', '../src/components/config/SubscribeConfigTab.tsx'],
-    ['deposit', '../src/components/config/DepositConfigTab.tsx'],
-    ['ticket', '../src/components/config/TicketConfigTab.tsx'],
-    ['invite', '../src/components/config/InviteConfigTab.tsx'],
-    ['frontend', '../src/components/config/FrontendConfigTab.tsx'],
-    ['app', '../src/components/config/AppConfigTab.tsx'],
-    ['telegram', '../src/components/config/TelegramConfigTab.tsx'],
-    ['email', '../src/components/config/EmailConfigTab.tsx'],
-    ['server', '../src/components/config/ServerConfigTab.tsx'],
+    ['row', '../src/pages/config/system/_components/ConfigRow.tsx'],
+    ['site', '../src/pages/config/system/_Tabs/SiteConfigTab.tsx'],
+    ['safe', '../src/pages/config/system/_Tabs/SafeConfigTab.tsx'],
+    ['subscribe', '../src/pages/config/system/_Tabs/SubscribeConfigTab.tsx'],
+    ['deposit', '../src/pages/config/system/_Tabs/DepositConfigTab.tsx'],
+    ['ticket', '../src/pages/config/system/_Tabs/TicketConfigTab.tsx'],
+    ['invite', '../src/pages/config/system/_Tabs/InviteConfigTab.tsx'],
+    ['frontend', '../src/pages/config/system/_Tabs/FrontendConfigTab.tsx'],
+    ['app', '../src/pages/config/system/_Tabs/AppConfigTab.tsx'],
+    ['telegram', '../src/pages/config/system/_Tabs/TelegramConfigTab.tsx'],
+    ['email', '../src/pages/config/system/_Tabs/EmailConfigTab.tsx'],
+    ['server', '../src/pages/config/system/_Tabs/ServerConfigTab.tsx'],
     ['page', '../src/pages/config/system/index.tsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'tsx' });

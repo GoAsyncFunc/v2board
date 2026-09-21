@@ -1,8 +1,8 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Switch from 'antd/lib/switch';
-import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, ServerConfig } from '../../types/config';
+import ConfigRow from '../_components/ConfigRow';
+import type { ConfigChangeHandler, ServerConfig } from '../../../../types/config';
 
 interface TextSettingProps {
     title: string;

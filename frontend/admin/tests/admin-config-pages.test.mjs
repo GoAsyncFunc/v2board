@@ -52,8 +52,8 @@ async function loadPaymentPage() {
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('Sortable')) return 'Sortable';
       if (id.includes('MainLayout')) return 'MainLayout';
-      if (id.includes('PaymentNotifyColumn')) return { createPaymentNotifyColumn: () => ({ key: 'notify_url' }) };
-      if (id.includes('PaymentDisplayColumns')) return { createReadonlyPaymentColumns: () => ({ name: { key: 'name' }, payment: { key: 'payment' } }) };
+      if (id.includes('PaymentNotifyColumn') || id.includes('notifyColumn')) return { createPaymentNotifyColumn: () => ({ key: 'notify_url' }) };
+      if (id.includes('PaymentDisplayColumns') || id.endsWith('/_List/columns')) return { createReadonlyPaymentColumns: () => ({ name: { key: 'name' }, payment: { key: 'payment' } }) };
       if (id.includes('iconStyles')) return {};
       throw new Error(id);
     },

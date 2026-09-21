@@ -1,7 +1,12 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
-import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, ConfigValue, PlanSummary, SiteConfig } from '../../types/config';
+import ConfigRow from '../_components/ConfigRow';
+import type {
+    ConfigChangeHandler,
+    ConfigValue,
+    PlanSummary,
+    SiteConfig,
+} from '../../../../types/config';
 
 interface TextSettingProps {
     title: string;
