@@ -62,7 +62,7 @@ npm run check:types
 npm run build
 ```
 
-当前管理端回归基线为 949 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归基线为 979 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -87,7 +87,7 @@ dist/            本地构建产物，不提交 Git
 
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
-`src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面继续按旧版工程约定使用 `_List/`、`_Drawer/` 和 `_Modal/` 子模块，`plan`、`order`、`coupon`、`giftcard` 和 `notice` 已分别按页面入口、列表、筛选抽屉和编辑/详情弹窗拆分，列表展示列也归档在各自页面目录内。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
+`src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面继续按旧版工程约定使用 `_List/`、`_Drawer/` 和 `_Modal/` 子模块，`plan`、`order`、`coupon`、`giftcard`、`user` 和 `notice` 已分别按页面入口、列表、筛选抽屉和编辑/详情弹窗拆分，列表展示列也归档在各自页面目录内。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
 
 `src/components/` 按职责分为 `common`、`config`、`server`、`commerce`、`content`、`user` 和 `monitoring`。只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应 `src/pages/<domain>/_List/` 或 `src/pages/<domain>/_Modal/`，不再保留混合的 `promotion` 页面组件目录。
 

@@ -408,14 +408,6 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "components/user/UserEditor.tsx",
-    "to": "components/common/NullableSelectOption.tsx"
-  },
-  {
-    "from": "components/user/UserGenerator.tsx",
-    "to": "components/common/NullableSelectOption.tsx"
-  },
-  {
     "from": "layouts/Header.tsx",
     "to": "app/history.ts"
   },
@@ -1149,7 +1141,7 @@
   },
   {
     "from": "pages/ticket/[id].tsx",
-    "to": "components/user/UserEditor.tsx"
+    "to": "pages/user/_Drawer/edit.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",
@@ -1168,20 +1160,44 @@
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/user/index.tsx",
-    "to": "app/navigation.ts"
+    "from": "pages/user/_Drawer/edit.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
   },
   {
-    "from": "pages/user/index.tsx",
+    "from": "pages/user/_Drawer/filter.tsx",
+    "to": "components/common/FilterDrawer.tsx"
+  },
+  {
+    "from": "pages/user/_List/index.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/user/index.tsx",
+    "from": "pages/user/_List/index.tsx",
     "to": "components/common/ContextMenuTable.tsx"
   },
   {
+    "from": "pages/user/_List/index.tsx",
+    "to": "components/user/TrafficPanel.tsx"
+  },
+  {
+    "from": "pages/user/_List/index.tsx",
+    "to": "pages/user/_Drawer/edit.tsx"
+  },
+  {
+    "from": "pages/user/_List/index.tsx",
+    "to": "pages/user/_List/columns.tsx"
+  },
+  {
+    "from": "pages/user/_List/index.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/user/_Modal/generate.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
     "from": "pages/user/index.tsx",
-    "to": "components/common/FilterDrawer.tsx"
+    "to": "app/navigation.ts"
   },
   {
     "from": "pages/user/index.tsx",
@@ -1189,27 +1205,27 @@
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "components/user/SendMailEditor.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "components/user/TrafficPanel.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "components/user/UserDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "components/user/UserEditor.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "components/user/UserGenerator.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_Drawer/edit.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_Drawer/filter.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_List/index.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_Modal/generate.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_Modal/sendMail.tsx"
   },
   {
     "from": "pages/user/index.tsx",

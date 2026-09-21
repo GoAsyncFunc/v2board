@@ -374,6 +374,17 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
   assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('detail.tsx'));
   assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'));
+  const userDirectory = new URL('user/', pagesDirectory);
+  assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(userDirectory)).includes('_Drawer'));
+  assert.ok((await fs.readdir(userDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(userDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('edit.tsx'));
+  assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('filter.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('columns.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('generate.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('sendMail.tsx'));
   const noticeDirectory = new URL('notice/', pagesDirectory);
   assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -389,6 +400,14 @@ test('admin pages select from the canonical root state', async () => {
   await assert.rejects(fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDisplayColumns.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDetailBody.tsx', import.meta.url)));
+  for (const legacyUserPath of [
+    '../src/components/user/UserDisplayColumns.tsx',
+    '../src/components/user/UserEditor.tsx',
+    '../src/components/user/UserGenerator.tsx',
+    '../src/components/user/SendMailEditor.tsx',
+  ]) {
+    await assert.rejects(fs.access(new URL(legacyUserPath, import.meta.url)));
+  }
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {
@@ -416,12 +435,12 @@ test('admin components use business domains and connected editors use the canoni
     '../src/components/commerce/AssignOrderEditor.tsx',
     '../src/components/server/HysteriaEditor.tsx',
     '../src/components/common/PermissionGroupEditor.tsx',
-    '../src/components/user/SendMailEditor.tsx',
+    '../src/pages/user/_Modal/sendMail.tsx',
     '../src/components/server/ShadowsocksEditor.tsx',
     '../src/components/server/TrojanEditor.tsx',
     '../src/components/server/TuicEditor.tsx',
-    '../src/components/user/UserEditor.tsx',
-    '../src/components/user/UserGenerator.tsx',
+    '../src/pages/user/_Drawer/edit.tsx',
+    '../src/pages/user/_Modal/generate.tsx',
     '../src/components/server/V2NodeEditor.tsx',
     '../src/components/server/VlessEditor.tsx',
     '../src/components/server/VmessEditor.tsx',

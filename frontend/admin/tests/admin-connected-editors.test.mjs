@@ -22,13 +22,13 @@ const Input = Object.assign('Input', { Group: 'Input.Group', TextArea: 'Input.Te
 const Select = Object.assign('Select', { Option: 'Select.Option' });
 
 async function load(componentName) {
-  const componentDomains = {
-    AssignOrderEditor: 'commerce',
-    PermissionGroupEditor: 'common',
-    SendMailEditor: 'user',
-    UserGenerator: 'user',
+  const componentPaths = {
+    AssignOrderEditor: '../src/components/commerce/AssignOrderEditor.tsx',
+    PermissionGroupEditor: '../src/components/common/PermissionGroupEditor.tsx',
+    SendMailEditor: '../src/pages/user/_Modal/sendMail.tsx',
+    UserGenerator: '../src/pages/user/_Modal/generate.tsx',
   };
-  const source = await fs.readFile(new URL(`../src/components/${componentDomains[componentName]}/${componentName}.tsx`, import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL(componentPaths[componentName], import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   const messages = [];

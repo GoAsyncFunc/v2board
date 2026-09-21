@@ -51,6 +51,10 @@ async function loadSource(path, extra = {}) {
       if (id.includes('routerHistory') || id.includes('app/navigation')) return { __esModule: true, default: { push: path => routes.push(path) } };
       if (id.includes('siteHelpers')) return { copyToClipboard() { return true; }, setPreference: (key, value) => preferences.push({ key, value }) };
       if (id.includes('UserDisplayColumns')) return { createReadonlyUserEmailColumn: () => ({ key: 'email' }) };
+      if (id.includes('/_Drawer/filter')) return {
+        __esModule: true,
+        createUserFilterFields: plans => Array.from({ length: 13 }, (_, index) => ({ key: `${index}:${plans.length}` })),
+      };
       return extra[id] || { __esModule: true, default: id };
     },
   });
@@ -107,7 +111,7 @@ test('User search keeps the recovered 400ms debounce contract', async () => {
 });
 
 test('User editor fetches, updates, submits and clears its record on close', async () => {
-  const runtime = await loadSource('../src/components/user/UserEditor.tsx');
+  const runtime = await loadSource('../src/pages/user/_Drawer/edit.tsx');
   const actions = [];
   const editor = new runtime.UserEditor({
     userId: 7, children: { props: {} }, dispatch: action => actions.push(action),
