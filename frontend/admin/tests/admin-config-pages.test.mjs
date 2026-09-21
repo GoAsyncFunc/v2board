@@ -31,8 +31,8 @@ function nodes(tree, predicate) {
 
 const normalize = value => JSON.parse(JSON.stringify(value));
 
-async function loadPaymentPage() {
-  const source = await fs.readFile(new URL('../src/pages/config/payment/index.tsx', import.meta.url), 'utf8');
+async function loadPaymentModule(relativePath) {
+  const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const confirmations = [];
   const Modal = Object.assign('Modal', { confirm: options => { confirmations.push(options); return options; } });
@@ -55,6 +55,7 @@ async function loadPaymentPage() {
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('Sortable')) return 'Sortable';
       if (id.includes('MainLayout')) return 'MainLayout';
+      if (id === './_Modal') return { __esModule: true, default: 'ConnectedPaymentEditor', PaymentEditor: 'PaymentEditor' };
       if (id === './_List') {
         const PaymentList = ({ dispatch, payment, renderEditor }) => ({
           type: 'Sortable',
@@ -88,6 +89,9 @@ async function loadPaymentPage() {
   });
   return { ...module.exports, confirmations };
 }
+
+const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/index.tsx');
+const loadPaymentEditor = () => loadPaymentModule('../src/pages/config/payment/_Modal/index.tsx');
 
 async function loadThemePage() {
   const source = await fs.readFile(new URL('../src/pages/config/theme/index.tsx', import.meta.url), 'utf8');
@@ -124,7 +128,7 @@ async function loadThemePage() {
 }
 
 test('Payment editor loads methods and form, updates values and saves the selected gateway', async () => {
-  const { PaymentEditor } = await loadPaymentPage();
+  const { PaymentEditor } = await loadPaymentEditor();
   const actions = [];
   const editor = new PaymentEditor({
     children: { type: 'button', props: {} },

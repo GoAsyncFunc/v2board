@@ -544,6 +544,10 @@
     "to": "pages/config/payment/_List/index.tsx"
   },
   {
+    "from": "pages/config/payment/index.tsx",
+    "to": "pages/config/payment/_Modal/index.tsx"
+  },
+  {
     "from": "pages/config/system/_Tabs/AppConfigTab.tsx",
     "to": "pages/config/system/_components/ConfigRow.tsx"
   },
