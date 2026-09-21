@@ -29,7 +29,7 @@ function nodes(tree, predicate) {
 const normalize = value => JSON.parse(JSON.stringify(value));
 
 async function loadPaymentPage() {
-  const source = await fs.readFile(new URL('../src/pages/config/Payment.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/config/payment/index.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const confirmations = [];
   const Modal = Object.assign('Modal', { confirm: options => { confirmations.push(options); return options; } });
@@ -62,7 +62,7 @@ async function loadPaymentPage() {
 }
 
 async function loadThemePage() {
-  const source = await fs.readFile(new URL('../src/pages/config/Theme.tsx', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/pages/config/theme/index.tsx', import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const requests = [];
   const successMessages = [];

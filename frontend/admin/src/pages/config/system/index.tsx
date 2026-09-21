@@ -2,26 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Tabs from 'antd/lib/tabs';
 import message from 'antd/lib/message';
-import MainLayout from '../../layouts/MainLayout';
-import SiteConfigTab from '../../components/config/SiteConfigTab';
-import SafeConfigTab from '../../components/config/SafeConfigTab';
-import SubscribeConfigTab from '../../components/config/SubscribeConfigTab';
-import DepositConfigTab from '../../components/config/DepositConfigTab';
-import TicketConfigTab from '../../components/config/TicketConfigTab';
-import InviteConfigTab from '../../components/config/InviteConfigTab';
-import FrontendConfigTab from '../../components/config/FrontendConfigTab';
-import ServerConfigTab from '../../components/config/ServerConfigTab';
-import EmailConfigTab from '../../components/config/EmailConfigTab';
-import { showMailTestResult } from '../../components/config/MailTestResult';
-import TelegramConfigTab from '../../components/config/TelegramConfigTab';
-import AppConfigTab from '../../components/config/AppConfigTab';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import MainLayout from '../../../layouts/MainLayout';
+import SiteConfigTab from '../../../components/config/SiteConfigTab';
+import SafeConfigTab from '../../../components/config/SafeConfigTab';
+import SubscribeConfigTab from '../../../components/config/SubscribeConfigTab';
+import DepositConfigTab from '../../../components/config/DepositConfigTab';
+import TicketConfigTab from '../../../components/config/TicketConfigTab';
+import InviteConfigTab from '../../../components/config/InviteConfigTab';
+import FrontendConfigTab from '../../../components/config/FrontendConfigTab';
+import ServerConfigTab from '../../../components/config/ServerConfigTab';
+import EmailConfigTab from '../../../components/config/EmailConfigTab';
+import { showMailTestResult } from '../../../components/config/MailTestResult';
+import TelegramConfigTab from '../../../components/config/TelegramConfigTab';
+import AppConfigTab from '../../../components/config/AppConfigTab';
+import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     AdminConfigState,
     ConfigGroupKey,
     ConfigValue,
     PlanSummary,
-} from '../../types/config';
+} from '../../../types/config';
 
 interface SystemConfigPageProps {
     dispatch: AdminDispatch;

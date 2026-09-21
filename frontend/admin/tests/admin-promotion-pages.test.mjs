@@ -23,7 +23,11 @@ const message = { success: () => undefined };
 const readonlyColumn = key => ({ title: key, dataIndex: key, key });
 
 async function loadPage(pageName) {
-  const source = await fs.readFile(new URL(`../src/pages/promotion/${pageName}.tsx`, import.meta.url), 'utf8');
+  const pagePaths = {
+    Coupon: '../src/pages/coupon/index.tsx',
+    Giftcard: '../src/pages/giftcard/index.tsx',
+  };
+  const source = await fs.readFile(new URL(pagePaths[pageName], import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   vm.runInNewContext(code, {

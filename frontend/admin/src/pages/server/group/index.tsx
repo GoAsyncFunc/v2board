@@ -1,19 +1,19 @@
 import React from 'react';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import PermissionGroupEditor from '../../components/common/PermissionGroupEditor';
+import LoadingContainer from '../../../components/common/LoadingContainer';
+import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
 import {
     createReadonlyServerGroupColumns,
     type ServerGroupRecord,
-} from '../../components/server/ServerGroupDisplayColumns';
-import type { ServerGroupState } from '../../types/server';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+} from '../../../components/server/ServerGroupDisplayColumns';
+import type { ServerGroupState } from '../../../types/server';
+import type { AdminDispatch, AdminRootState } from '../../../types/store';
 
 const readonlyColumns = createReadonlyServerGroupColumns();
 

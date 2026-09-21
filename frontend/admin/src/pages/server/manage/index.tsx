@@ -7,29 +7,29 @@ import Input from 'antd/lib/input';
 import Menu from 'antd/lib/menu';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { Prompt } from 'react-router-dom';
-import Sortable from '../../components/common/Sortable';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import { getPreference, isMobile, setPreference } from '../../utils/siteHelpers';
-import MainLayout from '../../layouts/MainLayout';
-import ContextMenuTable from '../../components/common/ContextMenuTable';
+import Sortable from '../../../components/common/Sortable';
+import LoadingContainer from '../../../components/common/LoadingContainer';
+import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
+import MainLayout from '../../../layouts/MainLayout';
+import ContextMenuTable from '../../../components/common/ContextMenuTable';
 import {
     createNewServerMenu,
     renderServerEditor,
     serverModelNamespace,
-} from '../../components/server/ServerEditorRegistry';
+} from '../../../components/server/ServerEditorRegistry';
 import {
     createServerManageColumns,
     createServerSortColumns,
-} from '../../components/server/ServerManageColumns';
-import ServerManageMobileList from '../../components/server/ServerManageMobileList';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+} from '../../../components/server/ServerManageColumns';
+import ServerManageMobileList from '../../../components/server/ServerManageMobileList';
+import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     ManagedServerRecord,
     ServerGroupOption,
     ServerGroupState,
     ServerManageState,
     ServerRecord,
-} from '../../types/server';
+} from '../../../types/server';
 
 type ServerProtocolAction = 'copy' | 'drop' | 'update';
 interface ServerUpdatePayload<Key extends keyof ServerRecord = keyof ServerRecord> {

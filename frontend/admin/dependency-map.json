@@ -740,228 +740,148 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/auth/Index.tsx",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "components/commerce/AssignOrderEditor.tsx"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "components/commerce/OrderDetailBody.tsx"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "components/commerce/OrderDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "components/common/FilterDrawer.tsx"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
+    "from": "pages/config/payment/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/commerce/Order.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "pages/commerce/Order.tsx",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/commerce/PlanGroupColumn.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/commerce/PlanPriceColumns.ts"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/commerce/PlanResourceColumns.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/common/ContextMenuTable.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/common/NullableSelectOption.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/commerce/Plan.tsx",
+    "from": "pages/config/payment/index.tsx",
     "to": "components/common/Sortable.tsx"
   },
   {
-    "from": "pages/commerce/Plan.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/config/Payment.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/config/Payment.tsx",
-    "to": "components/common/Sortable.tsx"
-  },
-  {
-    "from": "pages/config/Payment.tsx",
+    "from": "pages/config/payment/index.tsx",
     "to": "components/config/PaymentDisplayColumns.ts"
   },
   {
-    "from": "pages/config/Payment.tsx",
+    "from": "pages/config/payment/index.tsx",
     "to": "components/config/PaymentNotifyColumn.tsx"
   },
   {
-    "from": "pages/config/Payment.tsx",
+    "from": "pages/config/payment/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/AppConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/DepositConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/EmailConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/FrontendConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/InviteConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/MailTestResult.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/SafeConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/ServerConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/SiteConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/SubscribeConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/TelegramConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "components/config/TicketConfigTab.tsx"
   },
   {
-    "from": "pages/config/System.tsx",
+    "from": "pages/config/system/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/config/Theme.tsx",
+    "from": "pages/config/theme/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/config/Theme.tsx",
+    "from": "pages/config/theme/index.tsx",
     "to": "services/request.ts"
   },
   {
-    "from": "pages/config/Theme.tsx",
+    "from": "pages/config/theme/index.tsx",
     "to": "types/api.ts"
   },
   {
-    "from": "pages/content/Notice.tsx",
+    "from": "pages/coupon/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/content/Notice.tsx",
-    "to": "components/content/NoticeDisplayColumns.ts"
+    "from": "pages/coupon/index.tsx",
+    "to": "components/promotion/CouponDisplayColumns.tsx"
   },
   {
-    "from": "pages/content/Notice.tsx",
+    "from": "pages/coupon/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/coupon/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/content/Ticket.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "from": "pages/coupon/index.tsx",
+    "to": "utils/clipboard.ts"
   },
   {
-    "from": "pages/content/Ticket.tsx",
-    "to": "components/content/TicketDisplayColumns.ts"
-  },
-  {
-    "from": "pages/content/Ticket.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/content/TicketDetail.tsx",
-    "to": "components/common/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/content/TicketDetail.tsx",
-    "to": "components/user/TrafficPanel.tsx"
-  },
-  {
-    "from": "pages/content/TicketDetail.tsx",
-    "to": "components/user/UserEditor.tsx"
-  },
-  {
-    "from": "pages/content/TicketDetail.tsx",
-    "to": "styles/ticketDetail.ts"
-  },
-  {
-    "from": "pages/dashboard/Dashboard.tsx",
+    "from": "pages/dashboard/index.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/dashboard/Dashboard.tsx",
+    "from": "pages/dashboard/index.tsx",
     "to": "components/common/MoneyDisplay.ts"
   },
   {
-    "from": "pages/dashboard/Dashboard.tsx",
+    "from": "pages/dashboard/index.tsx",
     "to": "config/siteSettings.ts"
   },
   {
-    "from": "pages/dashboard/Dashboard.tsx",
+    "from": "pages/dashboard/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/dashboard/Dashboard.tsx",
+    "from": "pages/dashboard/index.tsx",
     "to": "services/request.ts"
+  },
+  {
+    "from": "pages/giftcard/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/giftcard/index.tsx",
+    "to": "components/promotion/GiftcardDisplayColumns.tsx"
+  },
+  {
+    "from": "pages/giftcard/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/giftcard/index.tsx",
+    "to": "utils/clipboard.ts"
+  },
+  {
+    "from": "pages/index.tsx",
+    "to": "app/navigation.ts"
   },
   {
     "from": "pages/knowledge/_Drawer/index.tsx",
@@ -1000,212 +920,276 @@
     "to": "pages/knowledge/_List/index.tsx"
   },
   {
-    "from": "pages/monitoring/Queue.tsx",
+    "from": "pages/notice/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/monitoring/Queue.tsx",
-    "to": "components/monitoring/QueueDisplayColumns.ts"
+    "from": "pages/notice/index.tsx",
+    "to": "components/content/NoticeDisplayColumns.ts"
   },
   {
-    "from": "pages/monitoring/Queue.tsx",
+    "from": "pages/notice/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/promotion/Coupon.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/promotion/Coupon.tsx",
-    "to": "components/promotion/CouponDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/promotion/Coupon.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/promotion/Coupon.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/promotion/Coupon.tsx",
-    "to": "utils/clipboard.ts"
-  },
-  {
-    "from": "pages/promotion/Giftcard.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/promotion/Giftcard.tsx",
-    "to": "components/promotion/GiftcardDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/promotion/Giftcard.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/promotion/Giftcard.tsx",
-    "to": "utils/clipboard.ts"
-  },
-  {
-    "from": "pages/server/Group.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/server/Group.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/Group.tsx",
-    "to": "components/server/ServerGroupDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/server/Group.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/common/ContextMenuTable.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/common/Sortable.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerEditorRegistry.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerManageColumns.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "components/server/ServerManageMobileList.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/server/Manage.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "pages/server/Route.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/server/Route.tsx",
-    "to": "components/server/RouteActionColumn.ts"
-  },
-  {
-    "from": "pages/server/Route.tsx",
-    "to": "components/server/ServerRouteDisplayColumns.ts"
-  },
-  {
-    "from": "pages/server/Route.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/server/Route.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/user/User.tsx",
-    "to": "components/common/ContextMenuTable.tsx"
+    "from": "pages/order/index.tsx",
+    "to": "components/commerce/OrderDetailBody.tsx"
   },
   {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
+    "to": "components/commerce/OrderDisplayColumns.tsx"
+  },
+  {
+    "from": "pages/order/index.tsx",
     "to": "components/common/FilterDrawer.tsx"
   },
   {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/user/User.tsx",
-    "to": "components/user/SendMailEditor.tsx"
+    "from": "pages/order/index.tsx",
+    "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/user/User.tsx",
-    "to": "components/user/TrafficPanel.tsx"
-  },
-  {
-    "from": "pages/user/User.tsx",
-    "to": "components/user/UserDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/user/User.tsx",
-    "to": "components/user/UserEditor.tsx"
-  },
-  {
-    "from": "pages/user/User.tsx",
-    "to": "components/user/UserGenerator.tsx"
-  },
-  {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/user/User.tsx",
+    "from": "pages/order/index.tsx",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "pages/order/index.tsx",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/commerce/PlanGroupColumn.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/commerce/PlanPriceColumns.ts"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/commerce/PlanResourceColumns.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/queue/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/queue/index.tsx",
+    "to": "components/monitoring/QueueDisplayColumns.ts"
+  },
+  {
+    "from": "pages/queue/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/group/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/server/group/index.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/group/index.tsx",
+    "to": "components/server/ServerGroupDisplayColumns.tsx"
+  },
+  {
+    "from": "pages/server/group/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/server/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/server/ServerManageColumns.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "components/server/ServerManageMobileList.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "components/server/RouteActionColumn.ts"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "components/server/ServerRouteDisplayColumns.ts"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
+    "to": "components/common/DateTimeDisplay.ts"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
+    "to": "components/user/TrafficPanel.tsx"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
+    "to": "components/user/UserEditor.tsx"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
+    "to": "styles/ticketDetail.ts"
+  },
+  {
+    "from": "pages/ticket/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/ticket/index.tsx",
+    "to": "components/content/TicketDisplayColumns.ts"
+  },
+  {
+    "from": "pages/ticket/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/commerce/AssignOrderEditor.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/common/FilterDrawer.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/user/SendMailEditor.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/user/TrafficPanel.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/user/UserDisplayColumns.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/user/UserEditor.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "components/user/UserGenerator.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/auth/Index.tsx"
+    "to": "pages/config/payment/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/auth/Login.tsx"
+    "to": "pages/config/system/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/commerce/Order.tsx"
+    "to": "pages/config/theme/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/commerce/Plan.tsx"
+    "to": "pages/coupon/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/Payment.tsx"
+    "to": "pages/dashboard/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/System.tsx"
+    "to": "pages/giftcard/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/Theme.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/content/Notice.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/content/Ticket.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/content/TicketDetail.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/dashboard/Dashboard.tsx"
+    "to": "pages/index.tsx"
   },
   {
     "from": "routes/index.ts",
@@ -1213,31 +1197,47 @@
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/monitoring/Queue.tsx"
+    "to": "pages/login/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/promotion/Coupon.tsx"
+    "to": "pages/notice/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/promotion/Giftcard.tsx"
+    "to": "pages/order/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/Group.tsx"
+    "to": "pages/plan/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/Manage.tsx"
+    "to": "pages/queue/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/Route.tsx"
+    "to": "pages/server/group/index.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/user/User.tsx"
+    "to": "pages/server/manage/index.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/server/route/index.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ticket/[id].tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ticket/index.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/user/index.tsx"
   },
   {
     "from": "runtime/dvaApplication.tsx",

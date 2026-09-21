@@ -300,28 +300,48 @@ test('admin root state names every registered business model', async () => {
 test('admin pages select from the canonical root state', async () => {
   const pagesDirectory = new URL('../src/pages/', import.meta.url);
   const domainEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
-  const expectedDomains = ['auth', 'commerce', 'config', 'content', 'dashboard', 'knowledge', 'monitoring', 'promotion', 'server', 'user'];
+  const expectedDomains = [
+    'config', 'coupon', 'dashboard', 'giftcard', 'knowledge', 'login', 'notice', 'order',
+    'plan', 'queue', 'server', 'ticket', 'user',
+  ];
   assert.deepEqual(domainEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
-  assert.deepEqual(domainEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')), []);
+  assert.deepEqual(domainEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')).map(entry => entry.name), ['index.tsx']);
 
   for (const domain of expectedDomains) {
     const domainDirectory = new URL(`${domain}/`, pagesDirectory);
-    const pageNames = (await fs.readdir(domainDirectory)).filter(name => name.endsWith('.tsx'));
-    assert.ok(pageNames.length > 0, `${domain} should contain at least one page`);
-    for (const pageName of pageNames) {
-      const relativePageName = `${domain}/${pageName}`;
-      const source = await fs.readFile(new URL(pageName, domainDirectory), 'utf8');
-      assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${relativePageName} declares a duplicate root state`);
+    const files = await fs.readdir(domainDirectory, { withFileTypes: true });
+    if (!['config', 'server'].includes(domain)) {
+      assert.ok(files.some(entry => entry.name === 'index.tsx'), `${domain} should expose an index page`);
+    }
+    const sourceFiles = [];
+    async function collect(directory, prefix = '') {
+      for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+        const relative = `${prefix}${entry.name}`;
+        if (entry.isDirectory()) await collect(new URL(`${entry.name}/`, directory), `${relative}/`);
+        else if (entry.name.endsWith('.tsx')) sourceFiles.push(relative);
+      }
+    }
+    await collect(domainDirectory);
+    for (const relativePageName of sourceFiles) {
+      const source = await fs.readFile(new URL(relativePageName, domainDirectory), 'utf8');
+      assert.doesNotMatch(source, /interface\s+\w*RootState\b/, `${domain}/${relativePageName} declares a duplicate root state`);
       if (source.includes('connect(')) {
-        assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${relativePageName} must select from AdminRootState`);
+        assert.match(source, /connect\(\(state:\s*AdminRootState\)/, `${domain}/${relativePageName} must select from AdminRootState`);
       }
     }
   }
 
+  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('payment'));
+  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('system'));
+  assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('theme'));
+  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
+  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
+  assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));
   const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+  assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
   await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
 });
 
@@ -332,11 +352,11 @@ test('admin components use business domains and connected editors use the canoni
   assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
 
-  const serverManagePage = await fs.readFile(new URL('../src/pages/server/Manage.tsx', import.meta.url), 'utf8');
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/);
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/);
-  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/);
-  assert.doesNotMatch(serverManagePage, /from ['"]\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/);
+  const serverManagePage = await fs.readFile(new URL('../src/pages/server/manage/index.tsx', import.meta.url), 'utf8');
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerEditorRegistry['"]/);
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageColumns['"]/);
+  assert.match(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/ServerManageMobileList['"]/);
+  assert.doesNotMatch(serverManagePage, /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/);
 
   for (const domain of expectedDomains) {
     const componentNames = await fs.readdir(new URL(`${domain}/`, componentsDirectory));
