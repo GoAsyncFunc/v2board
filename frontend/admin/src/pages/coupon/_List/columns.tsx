@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
-import type { CouponRecord } from '../../types/promotion';
+import type { CouponRecord } from '../../../types/promotion';
 
 // Read and format the start before accessing the end, as in the original renderer.
 // Missing timestamps and null records deliberately keep their existing behavior.

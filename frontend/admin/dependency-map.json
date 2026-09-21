@@ -824,16 +824,20 @@
     "to": "types/api.ts"
   },
   {
+    "from": "pages/coupon/_List/index.tsx",
+    "to": "pages/coupon/_List/columns.tsx"
+  },
+  {
+    "from": "pages/coupon/_List/index.tsx",
+    "to": "utils/clipboard.ts"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
     "from": "pages/coupon/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/coupon/index.tsx",
-    "to": "components/promotion/CouponDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/coupon/index.tsx",
-    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/coupon/index.tsx",
@@ -841,7 +845,11 @@
   },
   {
     "from": "pages/coupon/index.tsx",
-    "to": "utils/clipboard.ts"
+    "to": "pages/coupon/_List/index.tsx"
+  },
+  {
+    "from": "pages/coupon/index.tsx",
+    "to": "pages/coupon/_Modal/index.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
@@ -864,12 +872,16 @@
     "to": "services/request.ts"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "from": "pages/giftcard/_List/index.tsx",
+    "to": "pages/giftcard/_List/columns.tsx"
+  },
+  {
+    "from": "pages/giftcard/_List/index.tsx",
+    "to": "utils/clipboard.ts"
   },
   {
     "from": "pages/giftcard/index.tsx",
-    "to": "components/promotion/GiftcardDisplayColumns.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/giftcard/index.tsx",
@@ -877,7 +889,11 @@
   },
   {
     "from": "pages/giftcard/index.tsx",
-    "to": "utils/clipboard.ts"
+    "to": "pages/giftcard/_List/index.tsx"
+  },
+  {
+    "from": "pages/giftcard/index.tsx",
+    "to": "pages/giftcard/_Modal/index.tsx"
   },
   {
     "from": "pages/index.tsx",

@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
-import type { GiftcardPlan, GiftcardRecord } from '../../types/promotion';
+import type { GiftcardPlan, GiftcardRecord } from '../../../types/promotion';
 
 export function giftcardTypeText(type: GiftcardRecord['type']): string {
     switch (type) {

@@ -341,6 +341,20 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
   assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+  const couponDirectory = new URL('coupon/', pagesDirectory);
+  assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(couponDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('columns.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', couponDirectory))).includes('index.tsx'));
+  const giftcardDirectory = new URL('giftcard/', pagesDirectory);
+  assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(giftcardDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('columns.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
   const noticeDirectory = new URL('notice/', pagesDirectory);
   assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -349,12 +363,14 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
   await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/promotion/CouponDisplayColumns.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/promotion/GiftcardDisplayColumns.tsx', import.meta.url)));
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {
   const componentsDirectory = new URL('../src/components/', import.meta.url);
   const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-  const expectedDomains = ['commerce', 'common', 'config', 'content', 'monitoring', 'promotion', 'server', 'user'];
+  const expectedDomains = ['commerce', 'common', 'config', 'content', 'monitoring', 'server', 'user'];
   assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
 
