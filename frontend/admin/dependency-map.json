@@ -192,14 +192,6 @@
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "components/commerce/OrderDetailBody.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "components/commerce/OrderDisplayColumns.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
     "from": "components/config/AppConfigTab.tsx",
     "to": "components/config/ConfigRow.tsx"
   },
@@ -956,8 +948,44 @@
     "to": "pages/notice/_Modal/index.tsx"
   },
   {
-    "from": "pages/order/index.tsx",
+    "from": "pages/order/_Drawer/filter.tsx",
+    "to": "components/common/FilterDrawer.tsx"
+  },
+  {
+    "from": "pages/order/_List/columns.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/order/_List/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/order/_List/index.tsx",
+    "to": "pages/order/_List/columns.tsx"
+  },
+  {
+    "from": "pages/order/_List/index.tsx",
+    "to": "pages/order/_Modal/detail.tsx"
+  },
+  {
+    "from": "pages/order/_Modal/OrderDetailBody.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/order/_Modal/detail.tsx",
     "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/order/_Modal/detail.tsx",
+    "to": "pages/order/_Modal/OrderDetailBody.tsx"
+  },
+  {
+    "from": "pages/order/_Modal/detail.tsx",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "pages/order/_Modal/detail.tsx",
+    "to": "types/api.ts"
   },
   {
     "from": "pages/order/index.tsx",
@@ -965,23 +993,7 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "components/commerce/OrderDetailBody.tsx"
-  },
-  {
-    "from": "pages/order/index.tsx",
-    "to": "components/commerce/OrderDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/order/index.tsx",
-    "to": "components/common/FilterDrawer.tsx"
-  },
-  {
-    "from": "pages/order/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/order/index.tsx",
-    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/order/index.tsx",
@@ -989,11 +1001,15 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "services/request.ts"
+    "to": "pages/order/_Drawer/filter.tsx"
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "types/api.ts"
+    "to": "pages/order/_List/index.tsx"
+  },
+  {
+    "from": "pages/order/index.tsx",
+    "to": "pages/order/_Modal/detail.tsx"
   },
   {
     "from": "pages/plan/_List/index.tsx",

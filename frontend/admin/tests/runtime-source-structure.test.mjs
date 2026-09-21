@@ -364,6 +364,16 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanPriceColumns.ts'));
   assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanResourceColumns.tsx'));
   assert.ok((await fs.readdir(new URL('_Modal/', planDirectory))).includes('index.tsx'));
+  const orderDirectory = new URL('order/', pagesDirectory);
+  assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(orderDirectory)).includes('_Drawer'));
+  assert.ok((await fs.readdir(orderDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(orderDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('filter.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('detail.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'));
   const noticeDirectory = new URL('notice/', pagesDirectory);
   assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -377,6 +387,8 @@ test('admin pages select from the canonical root state', async () => {
   await assert.rejects(fs.access(new URL('../src/components/commerce/PlanGroupColumn.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/PlanPriceColumns.ts', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDisplayColumns.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/commerce/OrderDetailBody.tsx', import.meta.url)));
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {

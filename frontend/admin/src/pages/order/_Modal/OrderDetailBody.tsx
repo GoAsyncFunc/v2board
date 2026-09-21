@@ -5,8 +5,8 @@ import Icon from 'antd/lib/icon';
 import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import { settings } from '../../config/adminSettings';
-import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser } from '../../types/order';
+import { settings } from '../../../config/adminSettings';
+import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser } from '../../../types/order';
 
 export interface OrderDetailBodyProps {
     order: OrderDetailRecord;
@@ -20,6 +20,7 @@ export interface OrderDetailBodyProps {
 export function formatOrderAmount(amount: number): string {
     return (amount / 100).toFixed(2);
 }
+
 export function formatOrderTime(timestamp: number): string {
     return moment(1000 * timestamp).format('YYYY-MM-DD HH:mm:ss');
 }
