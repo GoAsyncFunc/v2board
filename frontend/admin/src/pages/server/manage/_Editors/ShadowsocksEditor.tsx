@@ -6,17 +6,9 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
+import { ShadowsocksSecuritySettings } from './Shadowsocks/SecuritySettings';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
-
-const CIPHERS = [
-    'aes-128-gcm',
-    'aes-192-gcm',
-    'aes-256-gcm',
-    'chacha20-ietf-poly1305',
-    '2022-blake3-aes-128-gcm',
-    '2022-blake3-aes-256-gcm',
-];
 
 interface ShadowsocksEditorProps extends ServerEditorProps {
     serverShadowsocks: ServerSaveState;
@@ -61,29 +53,6 @@ export class ShadowsocksEditor extends React.Component<
             params: { ...this.state.server },
             callback: () => this.toggle(),
         });
-    }
-
-    renderObfs(): React.ReactNode {
-        const { server } = this.state;
-        if (server.obfs !== 'http') return null;
-        return (
-            <div className="row mt-2">
-                <div className="form-group col-4 mb-0">
-                    <Input
-                        placeholder="路径"
-                        value={server.obfs_settings?.path}
-                        onChange={(event) => this.updateObfs('path', event.target.value)}
-                    />
-                </div>
-                <div className="form-group col-8 mb-0">
-                    <Input
-                        placeholder="Host"
-                        value={server.obfs_settings?.host}
-                        onChange={(event) => this.updateObfs('host', event.target.value)}
-                    />
-                </div>
-            </div>
-        );
     }
 
     render(): React.ReactNode {
@@ -193,32 +162,11 @@ export class ShadowsocksEditor extends React.Component<
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
-                            <label>加密算法</label>
-                            <Select
-                                value={server.cipher}
-                                onChange={(cipher) => this.updateServer('cipher', cipher)}
-                                style={{ width: '100%' }}
-                            >
-                                {CIPHERS.map((cipher) => (
-                                    <Select.Option key={cipher} value={cipher}>
-                                        {cipher}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>混淆</label>
-                            <Select
-                                value={server.obfs || ''}
-                                onChange={(obfs) => this.updateServer('obfs', obfs)}
-                                style={{ width: '100%' }}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                <Select.Option value="http">HTTP</Select.Option>
-                            </Select>
-                            {this.renderObfs()}
-                        </div>
+                        <ShadowsocksSecuritySettings
+                            server={server}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onObfsChange={(field, value) => this.updateObfs(field, value)}
+                        />
                         <div className="form-group">
                             <label>
                                 <Tooltip placement="top" title="父节点说明">

@@ -195,6 +195,28 @@ test('AnyTLS padding configuration lives in a focused protocol module', async ()
     assert.doesNotMatch(editorSource, /<JsonEditor/);
 });
 
+test('Shadowsocks security settings live in a focused protocol module', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const securitySource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Shadowsocks/SecuritySettings.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    assert.match(
+        editorSource,
+        /import \{ ShadowsocksSecuritySettings \} from '\.\/Shadowsocks\/SecuritySettings'/,
+    );
+    assert.match(editorSource, /<ShadowsocksSecuritySettings/);
+    assert.match(securitySource, /export const SHADOWSOCKS_CIPHERS/);
+    assert.match(securitySource, /export function ShadowsocksSecuritySettings/);
+    assert.doesNotMatch(editorSource, /加密算法|混淆/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(
