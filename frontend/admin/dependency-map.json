@@ -1124,12 +1124,16 @@
     "to": "pages/server/manage/_Editors/V2Node/RelationshipFields.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/Vless/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
+    "from": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx",
+    "to": "components/common/JsonEditor.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "from": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/Vless/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/VlessEditor.tsx",
@@ -1137,7 +1141,7 @@
   },
   {
     "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+    "to": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/VlessEditor.tsx",

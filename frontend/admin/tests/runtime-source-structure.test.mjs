@@ -894,13 +894,23 @@ test('Vless editor composes focused general and relationship field modules', asy
         ),
         'utf8',
     );
+    const childSettingsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
 
     assert.equal((editorSource.match(/<VlessGeneralFields/g) || []).length, 1);
     assert.match(editorSource, /<VlessRelationshipFields/);
+    assert.match(editorSource, /<VlessChildSettingsPanel/);
     assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明|加密方式/);
     assert.match(generalFieldsSource, /function VlessGeneralFields/);
     assert.match(generalFieldsSource, /加密方式/);
     assert.match(relationshipFieldsSource, /function VlessRelationshipFields/);
+    assert.match(childSettingsSource, /export function VlessChildSettingsPanel/);
+    assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
     assert.match(relationshipFieldsSource, /父节点说明/);
 });
 

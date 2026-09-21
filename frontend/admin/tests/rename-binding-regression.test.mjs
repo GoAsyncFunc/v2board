@@ -79,6 +79,7 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx',
     'admin/src/pages/server/manage/_Editors/Vless/GeneralFields.tsx',
     'admin/src/pages/server/manage/_Editors/Vless/RelationshipFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx',
     'admin/src/app/Router.tsx',
     'admin/src/config/navigation.tsx',
     'admin/src/layouts/Header/index.tsx',

@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Icon from 'antd/lib/icon';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import JsonEditor from '../../../../components/common/JsonEditor';
-import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
 import VlessGeneralFields from './Vless/GeneralFields';
 import VlessRelationshipFields from './Vless/RelationshipFields';
+import { VlessChildSettingsPanel } from './Vless/ChildSettingsPanel';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -15,29 +13,6 @@ import type {
     ServerSaveState,
 } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
-
-const NETWORK_PRESETS: Record<string, string> = {
-    tcp: JSON.stringify(
-        {
-            header: {
-                type: 'http',
-                request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } },
-                response: {},
-            },
-        },
-        null,
-        4,
-    ),
-    ws: JSON.stringify(
-        { security: 'auto', path: '/', headers: { Host: 'xtls.github.io' } },
-        null,
-        4,
-    ),
-    grpc: JSON.stringify({ serviceName: 'GunService' }, null, 4),
-    kcp: JSON.stringify({ header: { type: 'none' }, seed: '' }, null, 4),
-    httpupgrade: JSON.stringify({ path: '/', host: 'xtls.github.io' }, null, 4),
-    xhttp: JSON.stringify({ path: '/', host: 'xtls.github.io', mode: 'auto', extra: {} }, null, 4),
-};
 
 interface VlessEditorProps extends ServerEditorProps {
     serverVless: ServerSaveState;
@@ -96,64 +71,6 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
         }
     }
 
-    renderChildDrawer(): React.ReactNode {
-        const { server, childDrawer } = this.state;
-        if (childDrawer.type === 'network_settings')
-            return (
-                <div id="v2ray-protocol">
-                    <div className="form-group">
-                        <label>
-                            协议详细配置{' '}
-                            <a href="https://www.v2ray.com/chapter_02/05_transport.html">
-                                <Icon type="link" />
-                                参考
-                            </a>
-                        </label>
-                        <JsonEditor
-                            placeholder={NETWORK_PRESETS[server.network || ''] || ''}
-                            mode="json"
-                            theme="github"
-                            fontSize={14}
-                            showPrintMargin
-                            showGutter
-                            highlightActiveLine
-                            value={
-                                typeof server.network_settings === 'string'
-                                    ? server.network_settings
-                                    : server.network_settings
-                                      ? JSON.stringify(server.network_settings, null, 2)
-                                      : ''
-                            }
-                            onChange={(value) => this.updateServer('network_settings', value)}
-                            setOptions={{
-                                enableBasicAutocompletion: false,
-                                enableLiveAutocompletion: false,
-                                enableSnippets: false,
-                                showLineNumbers: true,
-                                tabSize: 2,
-                            }}
-                        />
-                    </div>
-                </div>
-            );
-        if (childDrawer.type === 'tls_settings')
-            return (
-                <TlsSettings
-                    settings={server.tls_settings}
-                    tls={server.tls ?? 0}
-                    onChange={(settings) => this.updateServer('tls_settings', settings)}
-                />
-            );
-        if (childDrawer.type === 'encryption_settings')
-            return (
-                <EncryptionSettings
-                    settings={server.encryption_settings}
-                    onChange={(settings) => this.updateServer('encryption_settings', settings)}
-                />
-            );
-        return null;
-    }
-
     render(): React.ReactNode {
         const { server, visible, childDrawer } = this.state;
         const { servers } = this.props.serverManage;
@@ -201,7 +118,12 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
                         visible={childDrawer.visible}
                         onClose={() => this.hideChildDrawer()}
                     >
-                        {this.renderChildDrawer()}
+                        <VlessChildSettingsPanel
+                            server={server}
+                            childDrawer={childDrawer}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
                     </CompatibleDrawer>
                 </CompatibleDrawer>
             </>
