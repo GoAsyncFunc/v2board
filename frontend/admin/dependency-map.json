@@ -208,35 +208,35 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "layouts/Header.tsx",
+    "from": "layouts/Header/index.tsx",
     "to": "app/history.ts"
   },
   {
-    "from": "layouts/Header.tsx",
+    "from": "layouts/Header/index.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "layouts/MainLayout.tsx",
+    "from": "layouts/MainLayout/index.tsx",
     "to": "app/history.ts"
   },
   {
-    "from": "layouts/MainLayout.tsx",
-    "to": "layouts/Header.tsx"
+    "from": "layouts/MainLayout/index.tsx",
+    "to": "layouts/Header/index.tsx"
   },
   {
-    "from": "layouts/MainLayout.tsx",
-    "to": "layouts/Sidebar.tsx"
+    "from": "layouts/MainLayout/index.tsx",
+    "to": "layouts/Sidebar/index.tsx"
   },
   {
-    "from": "layouts/Sidebar.tsx",
+    "from": "layouts/Sidebar/index.tsx",
     "to": "app/history.ts"
   },
   {
-    "from": "layouts/Sidebar.tsx",
+    "from": "layouts/Sidebar/index.tsx",
     "to": "config/navigation.tsx"
   },
   {
-    "from": "layouts/Sidebar.tsx",
+    "from": "layouts/Sidebar/index.tsx",
     "to": "config/siteSettings.ts"
   },
   {
@@ -537,7 +537,7 @@
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
@@ -593,7 +593,7 @@
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
@@ -645,7 +645,7 @@
   },
   {
     "from": "pages/config/theme/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/config/theme/index.tsx",
@@ -677,7 +677,7 @@
   },
   {
     "from": "pages/coupon/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/coupon/index.tsx",
@@ -705,7 +705,7 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
@@ -737,7 +737,7 @@
   },
   {
     "from": "pages/giftcard/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/giftcard/index.tsx",
@@ -777,7 +777,7 @@
   },
   {
     "from": "pages/knowledge/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/knowledge/index.tsx",
@@ -797,7 +797,7 @@
   },
   {
     "from": "pages/notice/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/notice/index.tsx",
@@ -857,7 +857,7 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/order/index.tsx",
@@ -913,7 +913,7 @@
   },
   {
     "from": "pages/plan/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/plan/index.tsx",
@@ -929,7 +929,7 @@
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/queue/index.tsx",
@@ -953,7 +953,7 @@
   },
   {
     "from": "pages/server/group/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/server/group/index.tsx",
@@ -1129,7 +1129,7 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
@@ -1165,7 +1165,7 @@
   },
   {
     "from": "pages/server/route/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/server/route/index.tsx",
@@ -1197,7 +1197,7 @@
   },
   {
     "from": "pages/ticket/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/ticket/index.tsx",
@@ -1261,7 +1261,7 @@
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "layouts/MainLayout/index.tsx"
   },
   {
     "from": "pages/user/index.tsx",

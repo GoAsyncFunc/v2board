@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
-import { clearToken, getPreference, setPreference } from '../utils/siteHelpers';
-import history from '../app/history';
-import type { AdminDispatch, AdminRootState } from '../types/store';
+import { clearToken, getPreference, setPreference } from '../../utils/siteHelpers';
+import history from '../../app/history';
+import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 export interface HeaderSearchConfig {
     placeholder: string;

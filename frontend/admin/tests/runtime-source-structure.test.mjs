@@ -337,7 +337,7 @@ test('admin request transport does not depend on the rendering library', async (
         'utf8',
     );
     const headerSource = await fs.readFile(
-        new URL('../src/layouts/Header.tsx', import.meta.url),
+        new URL('../src/layouts/Header/index.tsx', import.meta.url),
         'utf8',
     );
     const presentationSource = await fs.readFile(
@@ -637,8 +637,8 @@ test('admin components use business domains and connected editors use the canoni
     }
 
     const connectedSources = [
-        '../src/layouts/Header.tsx',
-        '../src/layouts/MainLayout.tsx',
+        '../src/layouts/Header/index.tsx',
+        '../src/layouts/MainLayout/index.tsx',
         '../src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
         '../src/components/commerce/AssignOrderEditor.tsx',
         '../src/pages/server/manage/_Editors/HysteriaEditor.tsx',

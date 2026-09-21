@@ -27,7 +27,7 @@ async function load(target,original){
    if(id==='react'||id.includes('reactRuntime'))return React;
    if(id==='react-redux'||id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
-   if(id==='../app/history.js'||id==='../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
+   if(id==='../app/history.js'||id==='../app/history'||id==='../../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
    if(id.includes('routerHistory')||id.includes('app/navigation'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
    if(id.includes('LanguageSelector'))return {a:'LanguageSelector'};
@@ -40,15 +40,15 @@ async function load(target,original){
    if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
    if(id==='antd/lib/config-provider'||id.includes('antdConfigProvider'))return {__esModule:true,default:'ConfigProvider',a:'ConfigProvider'};
    if(id==='antd/lib/locale-provider/zh_CN'||id.includes('antdZhCnLocale'))return {__esModule:true,default:'zh-CN',a:'zh-CN'};
-   if(id==='./Sidebar'||id==='./Header')return evaluate(path.join(home,'src/layouts',id.slice(2)+'.tsx'));
-   if(id==='../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
+   if(id==='../Sidebar'||id==='../Header')return evaluate(path.join(home,'src/layouts',id.slice(3),'index.tsx'));
+   if(id==='../../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
   };
   vm.runInNewContext(code,{module,exports:module.exports,require,window,document,Math},{filename:file,timeout:3000});
   cache.set(file,module.exports);return module.exports;
  }
- const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name+'.tsx'));
+ const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name,'index.tsx'));
  if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
  const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
