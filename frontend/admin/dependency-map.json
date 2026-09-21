@@ -996,20 +996,36 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/plan/index.tsx",
-    "to": "components/commerce/PlanGroupColumn.tsx"
-  },
-  {
-    "from": "pages/plan/index.tsx",
-    "to": "components/commerce/PlanPriceColumns.ts"
-  },
-  {
-    "from": "pages/plan/index.tsx",
-    "to": "components/commerce/PlanResourceColumns.tsx"
-  },
-  {
-    "from": "pages/plan/index.tsx",
+    "from": "pages/plan/_List/index.tsx",
     "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/plan/_List/index.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/plan/_List/index.tsx",
+    "to": "pages/plan/_List/PlanGroupColumn.tsx"
+  },
+  {
+    "from": "pages/plan/_List/index.tsx",
+    "to": "pages/plan/_List/PlanPriceColumns.ts"
+  },
+  {
+    "from": "pages/plan/_List/index.tsx",
+    "to": "pages/plan/_List/PlanResourceColumns.tsx"
+  },
+  {
+    "from": "pages/plan/_List/index.tsx",
+    "to": "pages/plan/_Modal/index.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/plan/index.tsx",
@@ -1017,19 +1033,15 @@
   },
   {
     "from": "pages/plan/index.tsx",
-    "to": "components/common/NullableSelectOption.tsx"
-  },
-  {
-    "from": "pages/plan/index.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/plan/index.tsx",
-    "to": "components/common/Sortable.tsx"
-  },
-  {
-    "from": "pages/plan/index.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "pages/plan/_List/index.tsx"
+  },
+  {
+    "from": "pages/plan/index.tsx",
+    "to": "pages/plan/_Modal/index.tsx"
   },
   {
     "from": "pages/queue/index.tsx",

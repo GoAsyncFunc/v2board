@@ -355,6 +355,15 @@ test('admin pages select from the canonical root state', async () => {
   assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
   assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('columns.tsx'));
   assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
+  const planDirectory = new URL('plan/', pagesDirectory);
+  assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(planDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(planDirectory)).includes('_Modal'));
+  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('index.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanGroupColumn.tsx'));
+  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanPriceColumns.ts'));
+  assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanResourceColumns.tsx'));
+  assert.ok((await fs.readdir(new URL('_Modal/', planDirectory))).includes('index.tsx'));
   const noticeDirectory = new URL('notice/', pagesDirectory);
   assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
   assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -365,6 +374,9 @@ test('admin pages select from the canonical root state', async () => {
   await assert.rejects(fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/promotion/CouponDisplayColumns.tsx', import.meta.url)));
   await assert.rejects(fs.access(new URL('../src/components/promotion/GiftcardDisplayColumns.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanGroupColumn.tsx', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanPriceColumns.ts', import.meta.url)));
+  await assert.rejects(fs.access(new URL('../src/components/commerce/PlanResourceColumns.tsx', import.meta.url)));
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {
