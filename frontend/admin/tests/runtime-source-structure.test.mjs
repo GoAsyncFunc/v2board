@@ -179,6 +179,22 @@ test('Hysteria obfuscation settings live in a focused protocol module', async ()
     assert.doesNotMatch(editorSource, /混淆方式obfs/);
 });
 
+test('AnyTLS padding configuration lives in a focused protocol module', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/AnyTlsEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const paddingSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(editorSource, /import \{ AnyTlsPaddingScheme \} from '\.\/AnyTls\/PaddingScheme'/);
+    assert.match(editorSource, /<AnyTlsPaddingScheme/);
+    assert.match(paddingSource, /export const DEFAULT_PADDING_SCHEME/);
+    assert.match(paddingSource, /export function AnyTlsPaddingScheme/);
+    assert.doesNotMatch(editorSource, /<JsonEditor/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(

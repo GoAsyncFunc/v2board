@@ -7,25 +7,9 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
-import JsonEditor from '../../../../components/common/JsonEditor';
+import { AnyTlsPaddingScheme } from './AnyTls/PaddingScheme';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
-
-const DEFAULT_PADDING_SCHEME = JSON.stringify(
-    [
-        'stop=8',
-        '0=30-30',
-        '1=100-400',
-        '2=400-500,c,500-1000,c,500-1000,c,500-1000,c,500-1000',
-        '3=9-9,500-1000',
-        '4=500-1000',
-        '5=500-1000',
-        '6=500-1000',
-        '7=500-1000',
-    ],
-    null,
-    4,
-);
 
 interface AnyTlsEditorProps extends ServerEditorProps {
     serverAnyTLS: ServerSaveState;
@@ -273,28 +257,10 @@ export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEdito
                         visible={paddingEditorVisible}
                         onClose={() => this.setState({ paddingEditorVisible: false })}
                     >
-                        <div id="anytls-padding-scheme">
-                            <div className="form-group">
-                                <JsonEditor
-                                    placeholder={DEFAULT_PADDING_SCHEME}
-                                    mode="json"
-                                    theme="github"
-                                    fontSize={14}
-                                    showPrintMargin
-                                    showGutter
-                                    highlightActiveLine
-                                    value={server.padding_scheme || ''}
-                                    onChange={(value) => this.updateServer('padding_scheme', value)}
-                                    setOptions={{
-                                        enableBasicAutocompletion: false,
-                                        enableLiveAutocompletion: false,
-                                        enableSnippets: false,
-                                        showLineNumbers: true,
-                                        tabSize: 2,
-                                    }}
-                                />
-                            </div>
-                        </div>
+                        <AnyTlsPaddingScheme
+                            value={server.padding_scheme}
+                            onChange={(value) => this.updateServer('padding_scheme', value)}
+                        />
                     </CompatibleDrawer>
                 </CompatibleDrawer>
             </>
