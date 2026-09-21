@@ -114,6 +114,32 @@ test('admin source no longer contains a vendor compatibility directory', async (
     await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
 });
 
+test('server security editors are organized as named source modules', async () => {
+    const compatibilitySource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/ServerSecuritySettings.tsx', import.meta.url),
+        'utf8',
+    );
+    const tlsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Security/TlsSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    const encryptionSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    assert.match(compatibilitySource, /export \{ TlsSettings \} from '\.\/Security\/TlsSettings'/);
+    assert.match(
+        compatibilitySource,
+        /export \{ EncryptionSettings \} from '\.\/Security\/EncryptionSettings'/,
+    );
+    assert.match(tlsSource, /export class TlsSettings/);
+    assert.match(encryptionSource, /export class EncryptionSettings/);
+    assert.doesNotMatch(compatibilitySource, /class (?:TlsSettings|EncryptionSettings)/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(

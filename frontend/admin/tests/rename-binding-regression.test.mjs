@@ -48,6 +48,8 @@ for (const file of [
     'admin/src/pages/user/_Modal/sendMail.tsx',
     'admin/src/pages/user/_Drawer/filter.tsx',
     'admin/src/pages/server/manage/_Editors/ServerSecuritySettings.tsx',
+    'admin/src/pages/server/manage/_Editors/Security/TlsSettings.tsx',
+    'admin/src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
     'admin/src/components/common/Sortable.tsx',
     'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',
     'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',

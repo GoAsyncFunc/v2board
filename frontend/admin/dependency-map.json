@@ -1016,6 +1016,14 @@
     "to": "pages/server/manage/_List/ServerTypeTag.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/ServerSecuritySettings.tsx",
+    "to": "pages/server/manage/_Editors/Security/EncryptionSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ServerSecuritySettings.tsx",
+    "to": "pages/server/manage/_Editors/Security/TlsSettings.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
