@@ -866,6 +866,13 @@ test('Vmess editor composes focused field and settings modules', async () => {
         new URL('../src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx', import.meta.url),
         'utf8',
     );
+    const childSettingsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
 
     assert.equal((editorSource.match(/<VmessGeneralFields/g) || []).length, 1);
     assert.match(editorSource, /<VmessRelationshipFields/);
@@ -876,6 +883,9 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.match(settingsEditorsSource, /class DnsSettings/);
     assert.match(settingsEditorsSource, /class RuleSettings/);
     assert.match(settingsEditorsSource, /class TlsSettings/);
+    assert.match(editorSource, /<VmessChildSettingsPanel/);
+    assert.match(childSettingsSource, /export function VmessChildSettingsPanel/);
+    assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
 });
 
 test('Vless editor composes focused general and relationship field modules', async () => {

@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import Input from 'antd/lib/input';
-import JsonEditor from '../../../../components/common/JsonEditor';
 import { DnsSettings, RuleSettings, TlsSettings } from './Vmess/SettingsEditors';
+import { VmessChildSettingsPanel } from './Vmess/ChildSettingsPanel';
 import VmessGeneralFields from './Vmess/GeneralFields';
 import VmessRelationshipFields from './Vmess/RelationshipFields';
 import type {
@@ -17,25 +15,6 @@ import type {
     ServerSaveState,
 } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
-
-const NETWORK_PRESETS: Record<string, string> = {
-    tcp: JSON.stringify(
-        {
-            header: {
-                type: 'http',
-                request: { path: ['/'], headers: { Host: ['www.baidu.com', 'www.bing.com'] } },
-                response: {},
-            },
-        },
-        null,
-        4,
-    ),
-    ws: JSON.stringify({ path: '/', headers: { Host: 'v2ray.com' } }, null, 4),
-    grpc: JSON.stringify({ serviceName: 'GunService' }, null, 4),
-    kcp: JSON.stringify({ header: { type: 'none' }, seed: '' }, null, 4),
-    httpupgrade: JSON.stringify({ path: '/', host: 'xtls.github.io' }, null, 4),
-    xhttp: JSON.stringify({ path: '/', host: 'xtls.github.io' }, null, 4),
-};
 
 function prepareServer(record?: ServerRecord): ServerRecord {
     const server = record ? { ...record } : { tls: 0, rate: 1 };
@@ -99,71 +78,6 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
         } catch (error) {
             notification.error({ message: '请求失败', description: '传输协议配置格式有误' });
         }
-    }
-
-    renderChildDrawer(): React.ReactNode {
-        const { server, childDrawer } = this.state;
-        if (childDrawer.type === 'networkSettings') {
-            return (
-                <div id="v2ray-protocol">
-                    <div className="form-group">
-                        <label>
-                            协议详细配置{' '}
-                            <a href="https://www.v2ray.com/chapter_02/05_transport.html">
-                                <Icon type="link" />
-                                参考
-                            </a>
-                        </label>
-                        <JsonEditor
-                            placeholder={NETWORK_PRESETS[server.network || ''] || ''}
-                            mode="json"
-                            theme="github"
-                            fontSize={14}
-                            showPrintMargin
-                            showGutter
-                            highlightActiveLine
-                            value={
-                                typeof server.networkSettings === 'string'
-                                    ? server.networkSettings
-                                    : server.networkSettings
-                                      ? JSON.stringify(server.networkSettings, null, 2)
-                                      : ''
-                            }
-                            onChange={(value) => this.updateServer('networkSettings', value)}
-                            setOptions={{
-                                enableBasicAutocompletion: false,
-                                enableLiveAutocompletion: false,
-                                enableSnippets: false,
-                                showLineNumbers: true,
-                                tabSize: 2,
-                            }}
-                        />
-                    </div>
-                </div>
-            );
-        }
-        if (childDrawer.type === 'ruleSettings')
-            return (
-                <RuleSettings
-                    settings={server.ruleSettings}
-                    onChange={(settings) => this.updateServer('ruleSettings', settings)}
-                />
-            );
-        if (childDrawer.type === 'tlsSettings')
-            return (
-                <TlsSettings
-                    settings={server.tlsSettings}
-                    onChange={(settings) => this.updateServer('tlsSettings', settings)}
-                />
-            );
-        if (childDrawer.type === 'dnsSettings')
-            return (
-                <DnsSettings
-                    settings={server.dnsSettings}
-                    onChange={(settings) => this.updateServer('dnsSettings', settings)}
-                />
-            );
-        return null;
     }
 
     render(): React.ReactNode {
@@ -242,7 +156,11 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                         visible={childDrawer.visible}
                         onClose={() => this.hideChildDrawer()}
                     >
-                        {this.renderChildDrawer()}
+                        <VmessChildSettingsPanel
+                            server={server}
+                            childDrawer={childDrawer}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </CompatibleDrawer>
                 </CompatibleDrawer>
             </>
