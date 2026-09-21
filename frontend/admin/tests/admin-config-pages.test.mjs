@@ -16,7 +16,10 @@ function createReact() {
     },
     Fragment: 'Fragment',
     cloneElement: (element, props) => ({ ...element, props: { ...element.props, ...props } }),
-    createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+    createElement: (type, props, ...children) => {
+      if (type?.__testRender) return type({ ...(props || {}), children });
+      return { type, props: props || {}, children };
+    },
   };
 }
 
@@ -52,6 +55,31 @@ async function loadPaymentPage() {
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('Sortable')) return 'Sortable';
       if (id.includes('MainLayout')) return 'MainLayout';
+      if (id === './_List') {
+        const PaymentList = ({ dispatch, payment, renderEditor }) => ({
+          type: 'Sortable',
+          props: {
+            onDragEnd: (fromIndex, toIndex) => dispatch({ type: 'payment/sort', fromIndex, toIndex }),
+            children: {
+              type: 'Table',
+              props: {
+                dataSource: payment.payments,
+                columns: [
+                  {},
+                  { render: (_value, record) => ({ props: { onChange: () => dispatch({ type: 'payment/show', id: record.id }) } }) },
+                  {}, {}, {},
+                  { render: (_value, record) => ({ children: [
+                    renderEditor(record, record.id),
+                    { type: 'a', children: ['删除'], props: { onClick: () => Modal.confirm({ onOk: () => dispatch({ type: 'payment/drop', id: record.id }) }) } },
+                  ] }) },
+                ],
+              },
+            },
+          },
+        });
+        PaymentList.__testRender = true;
+        return PaymentList;
+      }
       if (id.includes('PaymentNotifyColumn') || id.includes('notifyColumn')) return { createPaymentNotifyColumn: () => ({ key: 'notify_url' }) };
       if (id.includes('PaymentDisplayColumns') || id.endsWith('/_List/columns')) return { createReadonlyPaymentColumns: () => ({ name: { key: 'name' }, payment: { key: 'payment' } }) };
       if (id.includes('iconStyles')) return {};

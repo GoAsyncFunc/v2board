@@ -1,19 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import Switch from 'antd/lib/switch';
-import Table from 'antd/lib/table';
-import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../../../components/common/LoadingContainer';
-import Sortable from '../../../components/common/Sortable';
 import MainLayout from '../../../layouts/MainLayout';
-import { createPaymentNotifyColumn } from './_List/notifyColumn';
-import { createReadonlyPaymentColumns } from './_List/columns';
+import PaymentList from './_List';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     PaymentConfigValue,
@@ -21,8 +15,6 @@ import type {
     PaymentRecord,
     PaymentState,
 } from '../../../types/payment';
-
-const readonlyColumns = createReadonlyPaymentColumns();
 
 function toInputValue(value: PaymentConfigValue): string | number | undefined {
     if (value === null || value === undefined) return undefined;
@@ -276,69 +268,6 @@ export class PaymentPage extends React.Component<PaymentPageProps> {
 
     render() {
         const { payment } = this.props;
-        const columns: ColumnProps<PaymentRecord>[] = [
-            {
-                title: 'ID',
-                dataIndex: 'id',
-                key: 'id',
-                render: (id: PaymentRecord['id']) => (
-                    <>
-                        <Icon type="menu" style={{ cursor: 'move' }} /> {id}
-                    </>
-                ),
-            },
-            {
-                title: '启用',
-                dataIndex: 'enable',
-                key: 'enable',
-                render: (enabled: PaymentRecord['enable'], record) => (
-                    <Switch
-                        checked={Boolean(parseInt(String(enabled), 10))}
-                        size="small"
-                        onChange={() =>
-                            this.props.dispatch({ type: 'payment/show', id: record.id })
-                        }
-                    />
-                ),
-            },
-            readonlyColumns.name,
-            readonlyColumns.payment,
-            createPaymentNotifyColumn(),
-            {
-                title: '操作',
-                dataIndex: 'action',
-                key: 'action',
-                align: 'right',
-                fixed: 'right',
-                render: (_value, record) => (
-                    <>
-                        <ConnectedPaymentEditor key={record.id} record={record}>
-                            <a href="javascript:void(0);">编辑</a>
-                        </ConnectedPaymentEditor>
-                        <Divider type="vertical" />
-                        <a
-                            href="javascript:void(0);"
-                            onClick={() =>
-                                Modal.confirm({
-                                    title: '警告',
-                                    content: '确定要删除该条项目吗？',
-                                    onOk: () =>
-                                        this.props.dispatch({
-                                            type: 'payment/drop',
-                                            id: record.id,
-                                        }),
-                                    okText: '确定',
-                                    cancelText: '取消',
-                                })
-                            }
-                        >
-                            删除
-                        </a>
-                    </>
-                ),
-            },
-        ];
-
         return (
             <MainLayout {...this.props} title="支付配置">
                 <div className="d-flex justify-content-between align-items-center" />
@@ -352,25 +281,15 @@ export class PaymentPage extends React.Component<PaymentPageProps> {
                                     </Button>
                                 </ConnectedPaymentEditor>
                             </div>
-                            <Sortable
-                                onDragEnd={(fromIndex, toIndex) =>
-                                    this.props.dispatch({
-                                        type: 'payment/sort',
-                                        fromIndex,
-                                        toIndex,
-                                    })
-                                }
-                                nodeSelector="tr"
-                                handleSelector="i"
-                            >
-                                <Table<PaymentRecord>
-                                    tableLayout="auto"
-                                    dataSource={payment.payments}
-                                    columns={columns}
-                                    pagination={false}
-                                    scroll={{ x: 1300 }}
-                                />
-                            </Sortable>
+                            <PaymentList
+                                dispatch={this.props.dispatch}
+                                payment={payment}
+                                renderEditor={(record, key) => (
+                                    <ConnectedPaymentEditor key={key} record={record}>
+                                        <a href="javascript:void(0);">编辑</a>
+                                    </ConnectedPaymentEditor>
+                                )}
+                            />
                         </div>
                     </div>
                 </LoadingContainer>
