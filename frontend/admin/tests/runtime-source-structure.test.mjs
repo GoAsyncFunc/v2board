@@ -873,6 +873,18 @@ test('Vmess editor composes focused field and settings modules', async () => {
         ),
         'utf8',
     );
+    const dnsSettingsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/DnsSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    const ruleSettingsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/RuleSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    const tlsSettingsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/TlsSettings.tsx', import.meta.url),
+        'utf8',
+    );
 
     assert.equal((editorSource.match(/<VmessGeneralFields/g) || []).length, 1);
     assert.match(editorSource, /<VmessRelationshipFields/);
@@ -880,11 +892,12 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.doesNotMatch(editorSource, /class DnsSettings|class RuleSettings|class TlsSettings/);
     assert.match(generalFieldsSource, /function VmessGeneralFields/);
     assert.match(relationshipFieldsSource, /function VmessRelationshipFields/);
-    assert.match(settingsEditorsSource, /class DnsSettings/);
-    assert.match(settingsEditorsSource, /class RuleSettings/);
-    assert.match(settingsEditorsSource, /class TlsSettings/);
     assert.match(editorSource, /<VmessChildSettingsPanel/);
     assert.match(childSettingsSource, /export function VmessChildSettingsPanel/);
+    assert.match(dnsSettingsSource, /export class DnsSettings/);
+    assert.match(ruleSettingsSource, /export class RuleSettings/);
+    assert.match(tlsSettingsSource, /export class TlsSettings/);
+    assert.match(settingsEditorsSource, /export \{ DnsSettings \} from '\.\/DnsSettings'/);
     assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
 });
 

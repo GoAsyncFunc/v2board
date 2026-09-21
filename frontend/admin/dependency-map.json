@@ -1164,6 +1164,18 @@
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/DnsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/RuleSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/TlsSettings.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/VmessEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
