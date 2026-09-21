@@ -524,12 +524,16 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "from": "pages/config/payment/_List/index.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/config/payment/_List/index.tsx",
+    "to": "pages/config/payment/_List/notifyColumn.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "components/common/Sortable.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
@@ -537,11 +541,7 @@
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/_List/columns.ts"
-  },
-  {
-    "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/_List/notifyColumn.tsx"
+    "to": "pages/config/payment/_List/index.tsx"
   },
   {
     "from": "pages/config/system/_Tabs/AppConfigTab.tsx",
@@ -924,6 +924,14 @@
     "to": "pages/queue/_List/columns.ts"
   },
   {
+    "from": "pages/server/group/_List/index.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/group/_List/index.tsx",
+    "to": "pages/server/group/_List/columns.tsx"
+  },
+  {
     "from": "pages/server/group/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -937,7 +945,7 @@
   },
   {
     "from": "pages/server/group/index.tsx",
-    "to": "pages/server/group/_List/columns.tsx"
+    "to": "pages/server/group/_List/index.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",

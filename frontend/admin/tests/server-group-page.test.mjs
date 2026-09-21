@@ -21,7 +21,10 @@ async function loadPage() {
                 this.state = { ...this.state, ...next };
             }
         },
-        createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+        createElement: (type, props, ...children) => {
+            if (type?.__testRender) return type({ ...(props || {}), children });
+            return { type, props: props || {}, children };
+        },
     };
     const module = { exports: {} };
     vm.runInNewContext(code, {
@@ -37,6 +40,25 @@ async function loadPage() {
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id.includes('PermissionGroupEditor')) return 'PermissionGroupEditor';
+            if (id === './_List') {
+                const ServerGroupList = ({ groups, onDelete }) => ({
+                    type: 'Table',
+                    props: {
+                        dataSource: groups,
+                        columns: [
+                            {}, {}, {}, {},
+                            { render: (_value, record) => ({
+                                children: [
+                                    { type: 'PermissionGroupEditor' },
+                                    { type: 'a', props: { onClick: () => onDelete(record.id) } },
+                                ],
+                            }) },
+                        ],
+                    },
+                });
+                ServerGroupList.__testRender = true;
+                return ServerGroupList;
+            }
             if (id.includes('ServerGroupDisplayColumns') || id === './_List/columns')
                 return {
                     createReadonlyServerGroupColumns: () => ({
