@@ -664,6 +664,32 @@ test('admin components use business domains and connected editors use the canoni
     }
 });
 
+test('V2Node editor composes focused general and relationship field modules', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/V2NodeEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+
+    assert.match(editorSource, /<V2NodeGeneralFields/);
+    assert.match(editorSource, /<V2NodeRelationshipFields/);
+    assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明/);
+    assert.match(generalFieldsSource, /function V2NodeGeneralFields/);
+    assert.match(generalFieldsSource, /PermissionGroupEditor/);
+    assert.match(relationshipFieldsSource, /function V2NodeRelationshipFields/);
+    assert.match(relationshipFieldsSource, /父节点说明/);
+});
+
 test('admin router selectors use the canonical root state', async () => {
     const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
     const routerTypes = await fs.readFile(

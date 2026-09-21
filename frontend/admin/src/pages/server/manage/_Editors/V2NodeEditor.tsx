@@ -4,11 +4,11 @@ import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import Tooltip from 'antd/lib/tooltip';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
 import JsonEditor from '../../../../components/common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
+import V2NodeGeneralFields from './V2Node/GeneralFields';
+import V2NodeRelationshipFields from './V2Node/RelationshipFields';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -244,106 +244,11 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                     onClose={() => this.close()}
                 >
                     <div>
-                        <div className="row">
-                            <div className="form-group col-8">
-                                <label>节点名称</label>
-                                <Input
-                                    placeholder="请输入节点名称"
-                                    value={server.name}
-                                    onChange={(event) =>
-                                        this.updateServer('name', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-4">
-                                <label>倍率</label>
-                                <Input
-                                    addonAfter="x"
-                                    placeholder="请输入节点倍率"
-                                    value={server.rate ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('rate', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>节点标签</label>
-                            <Select
-                                mode="tags"
-                                value={server.tags || []}
-                                style={{ width: '100%' }}
-                                placeholder="输入后回车添加标签"
-                                onChange={(tags) =>
-                                    this.updateServer('tags', tags.length ? tags : null)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                权限组{' '}
-                                <PermissionGroupEditor>
-                                    <a href="javascript:void(0);">添加权限组</a>
-                                </PermissionGroupEditor>
-                            </label>
-                            <Select
-                                mode="multiple"
-                                value={server.group_id}
-                                placeholder="请选择权限组"
-                                style={{ width: '100%' }}
-                                onChange={(groupIds) => this.updateServer('group_id', groupIds)}
-                            >
-                                {groups.map((group) => (
-                                    <Select.Option key={group.id} value={group.id}>
-                                        {group.name}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>连接地址</label>
-                                <Input
-                                    placeholder="地址或IP"
-                                    value={server.host}
-                                    onChange={(event) =>
-                                        this.updateServer('host', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>监听地址</label>
-                                <Input
-                                    placeholder="地址或IP默认为0.0.0.0"
-                                    value={server.listen_ip}
-                                    onChange={(event) =>
-                                        this.updateServer('listen_ip', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>连接端口</label>
-                                <Input
-                                    placeholder="用户连接端口"
-                                    value={server.port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('port', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>服务端口</label>
-                                <Input
-                                    placeholder="服务端开放端口"
-                                    value={server.server_port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('server_port', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
+                        <V2NodeGeneralFields
+                            server={server}
+                            groups={groups}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                         <div className="row">
                             <div className="form-group col-md-6 col-xs-12">
                                 <label>节点协议</label>
@@ -667,64 +572,12 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                                 </div>
                             </>
                         )}
-                        <div className="form-group">
-                            <label>
-                                <Tooltip placement="top" title="父节点说明">
-                                    父节点{' '}
-                                    <a
-                                        target="_blank"
-                                        href="https://docs.v2board.com/use/node.html#父节点与子节点关系"
-                                        rel="noreferrer"
-                                    >
-                                        更多解答
-                                    </a>
-                                </Tooltip>
-                            </label>
-                            <Select
-                                value={server.parent_id || ''}
-                                onChange={(value) => this.updateServer('parent_id', value)}
-                                style={{ width: '100%' }}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                {servers
-                                    .filter(
-                                        (option) =>
-                                            option.type === 'v2node' && option.id !== server.id,
-                                    )
-                                    .map((option) => (
-                                        <Select.Option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </Select.Option>
-                                    ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>路由组</label>
-                            <Select
-                                mode="multiple"
-                                value={server.route_id || []}
-                                placeholder="请选择路由组"
-                                style={{ width: '100%' }}
-                                onChange={(routeIds) =>
-                                    this.updateServer('route_id', routeIds.length ? routeIds : null)
-                                }
-                            >
-                                {routes.map((route) => (
-                                    <Select.Option key={route.id} value={route.id}>
-                                        {route.remarks}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>一键安装指令</label>
-                            <Input.TextArea
-                                value={server.install_command}
-                                rows={4}
-                                readOnly
-                                style={{ backgroundColor: '#f5f5f5a0', cursor: 'text' }}
-                            />
-                        </div>
+                        <V2NodeRelationshipFields
+                            server={server}
+                            servers={servers}
+                            routes={routes}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </div>
                     <div className="v2board-drawer-action">
                         <Button style={{ marginRight: 8 }} onClick={() => this.close()}>

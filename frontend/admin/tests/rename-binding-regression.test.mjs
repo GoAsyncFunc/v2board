@@ -42,6 +42,8 @@ for (const file of [
   'admin/src/pages/user/_List/index.tsx',
   'admin/src/pages/user/_List/columns.tsx',
   'admin/src/pages/server/manage/_Editors/V2NodeEditor.tsx',
+  'admin/src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx',
+  'admin/src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
   'admin/src/pages/server/manage/_Editors/VlessEditor.tsx',
   'admin/src/pages/server/manage/_Editors/VmessEditor.tsx',
   'admin/src/app/Router.tsx',

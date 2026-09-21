@@ -1044,12 +1044,12 @@
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "from": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
+    "to": "components/common/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
@@ -1058,6 +1058,14 @@
   {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
     "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/RelationshipFields.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/VlessEditor.tsx",
