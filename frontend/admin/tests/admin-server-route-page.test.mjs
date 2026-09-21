@@ -25,9 +25,9 @@ function createReact() {
     };
 }
 
-async function loadPage() {
+async function loadModule(relativePath) {
     const source = await fs.readFile(
-        new URL('../src/pages/server/route/index.tsx', import.meta.url),
+        new URL(relativePath, import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
@@ -68,6 +68,12 @@ async function loadPage() {
                 ServerRouteList.__testRender = true;
                 return ServerRouteList;
             }
+            if (id === './_Modal')
+                return {
+                    __esModule: true,
+                    default: 'ConnectedRouteEditor',
+                    RouteEditor: 'RouteEditor',
+                };
             if (id.includes('adminSettings')) return { settings: { routeActionText: {} } };
             return { __esModule: true, default: id };
         },
@@ -75,8 +81,11 @@ async function loadPage() {
     return module.exports;
 }
 
+const loadPage = () => loadModule('../src/pages/server/route/index.tsx');
+const loadEditor = () => loadModule('../src/pages/server/route/_Modal/index.tsx');
+
 test('Route editor normalizes match values and closes after save', async () => {
-    const runtime = await loadPage();
+    const runtime = await loadEditor();
     const actions = [];
     const editor = new runtime.RouteEditor({
         children: { props: {} },
@@ -98,7 +107,7 @@ test('Route editor normalizes match values and closes after save', async () => {
 });
 
 test('Route editor converts comma strings and missing match values', async () => {
-    const runtime = await loadPage();
+    const runtime = await loadEditor();
     const actions = [];
     const editor = new runtime.RouteEditor({
         children: { props: {} },

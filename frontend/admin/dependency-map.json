@@ -1156,6 +1156,10 @@
     "to": "pages/server/route/_List/columns.ts"
   },
   {
+    "from": "pages/server/route/_Modal/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
     "from": "pages/server/route/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -1170,6 +1174,10 @@
   {
     "from": "pages/server/route/index.tsx",
     "to": "pages/server/route/_List/index.tsx"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "pages/server/route/_Modal/index.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",

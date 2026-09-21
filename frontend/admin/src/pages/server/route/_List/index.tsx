@@ -4,7 +4,7 @@ import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createRouteActionColumn } from './RouteActionColumn';
 import { createReadonlyServerRouteColumns } from './columns';
-import type { ServerRouteRecord } from '../index';
+import type { ServerRouteRecord } from '../_Modal';
 
 interface ServerRouteListProps {
     routes: ServerRouteRecord[];
