@@ -23,8 +23,8 @@ const Select = Object.assign('Select', { Option: 'Select.Option' });
 const Modal = Object.assign('Modal', { confirm: options => options });
 const readonlyColumn = key => ({ title: key, dataIndex: key, key });
 
-async function loadPage() {
-  const source = await fs.readFile(new URL('../src/pages/content/Knowledge.tsx', import.meta.url), 'utf8');
+async function loadModule(relativePath, localComponents = {}) {
+  const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
   const module = { exports: {} };
   vm.runInNewContext(code, {
@@ -33,6 +33,8 @@ async function loadPage() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Component => Component };
+      if (id.endsWith('/_Drawer')) return localComponents.drawer;
+      if (id.endsWith('/_List')) return localComponents.list;
       if (id === 'antd/lib/button') return 'Button';
       if (id === 'antd/lib/divider') return 'Divider';
       if (id === 'antd/lib/drawer') return 'Drawer';
@@ -59,6 +61,23 @@ async function loadPage() {
   return module.exports;
 }
 
+async function loadPage() {
+  return loadModule('../src/pages/knowledge/index.tsx', {
+    drawer: { __esModule: true, default: 'KnowledgeEditor' },
+    list: { __esModule: true, default: 'KnowledgeList', KnowledgeList: 'KnowledgeList' },
+  });
+}
+
+async function loadEditor() {
+  return loadModule('../src/pages/knowledge/_Drawer/index.tsx');
+}
+
+async function loadList() {
+  return loadModule('../src/pages/knowledge/_List/index.tsx', {
+    drawer: { __esModule: true, default: 'KnowledgeEditor' },
+  });
+}
+
 function nodes(tree, predicate) {
   if (Array.isArray(tree)) return tree.flatMap(node => nodes(node, predicate));
   if (!tree || typeof tree !== 'object') return [];
@@ -68,7 +87,7 @@ function nodes(tree, predicate) {
 const normalize = value => JSON.parse(JSON.stringify(value));
 
 test('KnowledgeEditor preserves fetch, form, save, and reset behavior', async () => {
-  const { KnowledgeEditor } = await loadPage();
+  const { KnowledgeEditor } = await loadEditor();
   const actions = [];
   const editor = new KnowledgeEditor({
     id: 7,
@@ -103,20 +122,17 @@ test('KnowledgeEditor preserves fetch, form, save, and reset behavior', async ()
   assert.deepEqual(normalize(actions[3]), { type: 'knowledge/setState', payload: { knowledge: {} } });
 });
 
-test('KnowledgePage preserves fetch, visibility, delete, and sort actions', async () => {
-  const { KnowledgePage } = await loadPage();
+test('KnowledgeList preserves visibility, delete, and sort actions', async () => {
+  const { KnowledgeList } = await loadList();
   const actions = [];
   const records = [{ id: 9, title: 'Article', category: 'Help', show: true }];
-  const page = new KnowledgePage({
+  const page = new KnowledgeList({
     dispatch: action => actions.push(action),
     knowledge: {
       knowledges: records, fetchLoading: false, categorys: [], knowledge: {},
       fetchByIdLoading: false, saveLoading: false,
     },
   });
-
-  page.componentDidMount();
-  assert.deepEqual(actions.slice(0, 2).map(action => action.type), ['knowledge/fetch', 'knowledge/getCategory']);
 
   const tree = page.render();
   const table = nodes(tree, node => node.type === 'Table')[0];
@@ -130,9 +146,27 @@ test('KnowledgePage preserves fetch, visibility, delete, and sort actions', asyn
   confirmation.onOk();
   sortable.props.onDragEnd(0, 3);
 
-  assert.deepEqual(normalize(actions.slice(2)), [
+  assert.deepEqual(normalize(actions), [
     { type: 'knowledge/show', id: 9 },
     { type: 'knowledge/drop', id: 9 },
     { type: 'knowledge/sort', fromIndex: 0, toIndex: 3 },
   ]);
+});
+
+test('KnowledgePage composes the nested list and editor modules', async () => {
+  const { KnowledgePage } = await loadPage();
+  const actions = [];
+  const page = new KnowledgePage({
+    dispatch: action => actions.push(action),
+    knowledge: {
+      knowledges: [], fetchLoading: false, categorys: [], knowledge: {},
+      fetchByIdLoading: false, saveLoading: false,
+    },
+  });
+
+  page.componentDidMount();
+  assert.deepEqual(actions.map(action => action.type), ['knowledge/fetch', 'knowledge/getCategory']);
+  const tree = page.render();
+  assert.equal(nodes(tree, node => node.type === 'KnowledgeEditor').length, 1);
+  assert.equal(nodes(tree, node => node.type === 'KnowledgeList').length, 1);
 });

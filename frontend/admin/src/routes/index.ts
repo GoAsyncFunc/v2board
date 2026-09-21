@@ -5,7 +5,7 @@ import Plan from '../pages/commerce/Plan';
 import ConfigPayment from '../pages/config/Payment';
 import ConfigSystem from '../pages/config/System';
 import ConfigTheme from '../pages/config/Theme';
-import Knowledge from '../pages/content/Knowledge';
+import Knowledge from '../pages/knowledge';
 import Notice from '../pages/content/Notice';
 import Ticket from '../pages/content/Ticket';
 import TicketDetail from '../pages/content/TicketDetail';

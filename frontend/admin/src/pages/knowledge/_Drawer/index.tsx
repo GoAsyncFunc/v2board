@@ -1,37 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Divider from 'antd/lib/divider';
 import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
-import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import Switch from 'antd/lib/switch';
-import Table from 'antd/lib/table';
-import type { ColumnProps } from 'antd/lib/table/interface';
 import MarkdownIt from 'markdown-it';
 import Loadable from 'react-loadable';
 import type MarkdownEditorComponent from 'react-markdown-editor-lite';
-import { createReadonlyKnowledgeColumns } from '../../components/content/KnowledgeDisplayColumns';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import Sortable from '../../components/common/Sortable';
-import MainLayout from '../../layouts/MainLayout';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { KnowledgeRecord, KnowledgeState } from '../../types/knowledge';
-import { settings } from '../../config/adminSettings';
+import { connect } from 'react-redux';
+import { settings } from '../../../config/adminSettings';
+import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;
 
-const readonlyColumns = createReadonlyKnowledgeColumns();
 const MarkdownEditor: React.ComponentType<MarkdownEditorProps> = Loadable({
-    loader: () => import('../../components/common/MarkdownEditor').then((module) => module.default),
+    loader: () =>
+        import('../../../components/common/MarkdownEditor').then((module) => module.default),
     loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
-interface KnowledgeEditorProps {
+export interface KnowledgeEditorProps {
     children: React.ReactElement;
     dispatch: AdminDispatch;
     id?: string | number;
@@ -74,7 +65,7 @@ export class KnowledgeEditor extends React.Component<KnowledgeEditorProps, Knowl
         });
     }
 
-    render() {
+    render(): React.ReactNode {
         const { visible } = this.state;
         const { knowledge } = this.props;
         const article = knowledge.knowledge;
@@ -183,115 +174,4 @@ const ConnectedKnowledgeEditor = connect((state: AdminRootState) => ({
     knowledge: state.knowledge,
 }))(KnowledgeEditor);
 
-interface KnowledgePageProps {
-    dispatch: AdminDispatch;
-    knowledge: KnowledgeState;
-}
-
-export class KnowledgePage extends React.Component<KnowledgePageProps> {
-    componentDidMount(): void {
-        this.props.dispatch({ type: 'knowledge/fetch' });
-        this.props.dispatch({ type: 'knowledge/getCategory' });
-    }
-
-    show(id: string | number | undefined): void {
-        this.props.dispatch({ type: 'knowledge/show', id });
-    }
-
-    drop(article: KnowledgeRecord): void {
-        this.props.dispatch({ type: 'knowledge/drop', id: article.id });
-    }
-
-    render() {
-        const { knowledge } = this.props;
-        const columns: ColumnProps<KnowledgeRecord>[] = [
-            {
-                title: '排序',
-                dataIndex: 'sort',
-                key: 'sort',
-                render: () => <Icon type="menu" style={{ cursor: 'move' }} />,
-            },
-            readonlyColumns.id,
-            {
-                title: '显示',
-                dataIndex: 'show',
-                key: 'show',
-                render: (visible: boolean, article) => (
-                    <Switch size="small" checked={visible} onChange={() => this.show(article.id)} />
-                ),
-            },
-            readonlyColumns.title,
-            readonlyColumns.category,
-            readonlyColumns.updated_at,
-            {
-                title: '操作',
-                dataIndex: 'action',
-                key: 'action',
-                align: 'right',
-                fixed: 'right',
-                render: (_value, article) => (
-                    <>
-                        <ConnectedKnowledgeEditor id={article.id}>
-                            <a href="javascript:void(0);">编辑</a>
-                        </ConnectedKnowledgeEditor>
-                        <Divider type="vertical" />
-                        <a
-                            href="javascript:void(0);"
-                            onClick={() =>
-                                Modal.confirm({
-                                    title: '警告',
-                                    content: '确定要删除该条项目吗？',
-                                    onOk: () => this.drop(article),
-                                    okText: '确定',
-                                    cancelText: '取消',
-                                })
-                            }
-                        >
-                            删除
-                        </a>
-                    </>
-                ),
-            },
-        ];
-
-        return (
-            <MainLayout {...this.props} title="知识库管理">
-                <LoadingContainer loading={knowledge.fetchLoading}>
-                    <div className="block border-bottom">
-                        <div className="bg-white">
-                            <div style={{ padding: 15 }}>
-                                <ConnectedKnowledgeEditor>
-                                    <Button>
-                                        <Icon type="plus" />
-                                        新增
-                                    </Button>
-                                </ConnectedKnowledgeEditor>
-                            </div>
-                            <Sortable
-                                onDragEnd={(fromIndex, toIndex) =>
-                                    this.props.dispatch({
-                                        type: 'knowledge/sort',
-                                        fromIndex,
-                                        toIndex,
-                                    })
-                                }
-                                nodeSelector="tr"
-                                handleSelector="i"
-                            >
-                                <Table<KnowledgeRecord>
-                                    tableLayout="auto"
-                                    dataSource={knowledge.knowledges}
-                                    pagination={false}
-                                    columns={columns}
-                                    scroll={{ x: 750 }}
-                                />
-                            </Sortable>
-                        </div>
-                    </div>
-                </LoadingContainer>
-            </MainLayout>
-        );
-    }
-}
-
-export default connect((state: AdminRootState) => ({ knowledge: state.knowledge }))(KnowledgePage);
+export default ConnectedKnowledgeEditor;

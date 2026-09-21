@@ -904,30 +904,6 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "components/common/MarkdownEditor.tsx"
-  },
-  {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "components/common/Sortable.tsx"
-  },
-  {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "components/content/KnowledgeDisplayColumns.ts"
-  },
-  {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/content/Knowledge.tsx",
-    "to": "layouts/MainLayout.tsx"
-  },
-  {
     "from": "pages/content/Notice.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -986,6 +962,42 @@
   {
     "from": "pages/dashboard/Dashboard.tsx",
     "to": "services/request.ts"
+  },
+  {
+    "from": "pages/knowledge/_Drawer/index.tsx",
+    "to": "components/common/MarkdownEditor.tsx"
+  },
+  {
+    "from": "pages/knowledge/_Drawer/index.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/knowledge/_List/index.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/knowledge/_List/index.tsx",
+    "to": "components/content/KnowledgeDisplayColumns.ts"
+  },
+  {
+    "from": "pages/knowledge/_List/index.tsx",
+    "to": "pages/knowledge/_Drawer/index.tsx"
+  },
+  {
+    "from": "pages/knowledge/index.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/knowledge/index.tsx",
+    "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/knowledge/index.tsx",
+    "to": "pages/knowledge/_Drawer/index.tsx"
+  },
+  {
+    "from": "pages/knowledge/index.tsx",
+    "to": "pages/knowledge/_List/index.tsx"
   },
   {
     "from": "pages/monitoring/Queue.tsx",
@@ -1181,10 +1193,6 @@
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/content/Knowledge.tsx"
-  },
-  {
-    "from": "routes/index.ts",
     "to": "pages/content/Notice.tsx"
   },
   {
@@ -1198,6 +1206,10 @@
   {
     "from": "routes/index.ts",
     "to": "pages/dashboard/Dashboard.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/knowledge/index.tsx"
   },
   {
     "from": "routes/index.ts",

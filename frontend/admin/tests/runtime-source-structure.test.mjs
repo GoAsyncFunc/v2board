@@ -300,7 +300,7 @@ test('admin root state names every registered business model', async () => {
 test('admin pages select from the canonical root state', async () => {
   const pagesDirectory = new URL('../src/pages/', import.meta.url);
   const domainEntries = await fs.readdir(pagesDirectory, { withFileTypes: true });
-  const expectedDomains = ['auth', 'commerce', 'config', 'content', 'dashboard', 'monitoring', 'promotion', 'server', 'user'];
+  const expectedDomains = ['auth', 'commerce', 'config', 'content', 'dashboard', 'knowledge', 'monitoring', 'promotion', 'server', 'user'];
   assert.deepEqual(domainEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(domainEntries.filter(entry => entry.isFile() && entry.name.endsWith('.tsx')), []);
 
@@ -317,6 +317,12 @@ test('admin pages select from the canonical root state', async () => {
       }
     }
   }
+
+  const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
+  assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
+  assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
+  assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+  await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
 });
 
 test('admin components use business domains and connected editors use the canonical root state', async () => {
