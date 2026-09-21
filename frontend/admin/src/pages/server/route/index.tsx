@@ -1,17 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import Table from 'antd/lib/table';
-import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import MainLayout from '../../../layouts/MainLayout';
-import { createRouteActionColumn } from './_List/RouteActionColumn';
-import { createReadonlyServerRouteColumns } from './_List/columns';
+import ServerRouteList from './_List';
 import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 
@@ -46,7 +42,6 @@ interface ServerRoutePageProps {
     serverRoute: ServerRouteState;
 }
 
-const readonlyColumns = createReadonlyServerRouteColumns<ServerRouteRecord>();
 const routeActions: RouteAction[] = [
     'block',
     'block_ip',
@@ -231,29 +226,6 @@ export class ServerRoutePage extends React.Component<ServerRoutePageProps> {
 
     render(): React.ReactNode {
         const { routes, fetchLoading } = this.props.serverRoute;
-        const columns: ColumnProps<ServerRouteRecord>[] = [
-            readonlyColumns.id,
-            readonlyColumns.remarks,
-            readonlyColumns.match,
-            createRouteActionColumn<ServerRouteRecord>(settings.routeActionText),
-            {
-                title: '操作',
-                dataIndex: 'action2',
-                key: 'action2',
-                align: 'right',
-                render: (_value, record) => (
-                    <div>
-                        <ConnectedRouteEditor route={record} key={record.id}>
-                            <a href="javascript:void(0);">编辑</a>
-                        </ConnectedRouteEditor>
-                        <Divider type="vertical" />
-                        <a href="javascript:void(0);" onClick={() => this.drop(record.id)}>
-                            删除
-                        </a>
-                    </div>
-                ),
-            },
-        ];
         return (
             <MainLayout {...this.props} title="路由管理">
                 <div className="d-flex justify-content-between align-items-center" />
@@ -267,11 +239,15 @@ export class ServerRoutePage extends React.Component<ServerRoutePageProps> {
                                     </Button>
                                 </ConnectedRouteEditor>
                             </div>
-                            <Table<ServerRouteRecord>
-                                tableLayout="auto"
-                                columns={columns}
-                                dataSource={routes}
-                                pagination={false}
+                            <ServerRouteList
+                                routes={routes}
+                                routeActionText={settings.routeActionText}
+                                onDelete={(id) => this.drop(id)}
+                                renderEditor={(record, key) => (
+                                    <ConnectedRouteEditor route={record} key={key}>
+                                        <a href="javascript:void(0);">编辑</a>
+                                    </ConnectedRouteEditor>
+                                )}
                             />
                         </div>
                     </div>

@@ -18,7 +18,10 @@ function createReact() {
         },
         Fragment: 'Fragment',
         cloneElement: (element, props) => ({ ...element, props: { ...element.props, ...props } }),
-        createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+        createElement: (type, props, ...children) => {
+            if (type?.__testRender) return type({ ...(props || {}), children });
+            return { type, props: props || {}, children };
+        },
     };
 }
 
@@ -48,6 +51,23 @@ async function loadPage() {
                 return {
                     createReadonlyServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),
                 };
+            if (id === './_List') {
+                const ServerRouteList = ({ routes, renderEditor, onDelete }) => ({
+                    type: 'antd/lib/table',
+                    props: {
+                        dataSource: routes,
+                        columns: [{}, {}, {}, {}, {
+                            render: (_value, record) => ({
+                                children: [renderEditor(record, record.id), {
+                                    type: 'a', children: ['删除'], props: { onClick: () => onDelete(record.id) },
+                                }],
+                            }),
+                        }],
+                    },
+                });
+                ServerRouteList.__testRender = true;
+                return ServerRouteList;
+            }
             if (id.includes('adminSettings')) return { settings: { routeActionText: {} } };
             return { __esModule: true, default: id };
         },

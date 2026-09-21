@@ -1136,6 +1136,14 @@
     "to": "utils/siteHelpers.ts"
   },
   {
+    "from": "pages/server/route/_List/index.tsx",
+    "to": "pages/server/route/_List/RouteActionColumn.ts"
+  },
+  {
+    "from": "pages/server/route/_List/index.tsx",
+    "to": "pages/server/route/_List/columns.ts"
+  },
+  {
     "from": "pages/server/route/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -1149,11 +1157,7 @@
   },
   {
     "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/_List/RouteActionColumn.ts"
-  },
-  {
-    "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/_List/columns.ts"
+    "to": "pages/server/route/_List/index.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",
