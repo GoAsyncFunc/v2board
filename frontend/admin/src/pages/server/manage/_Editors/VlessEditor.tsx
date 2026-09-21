@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
-import Select from 'antd/lib/select';
-import Tooltip from 'antd/lib/tooltip';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
 import JsonEditor from '../../../../components/common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from './ServerSecuritySettings';
+import VlessGeneralFields from './Vless/GeneralFields';
+import VlessRelationshipFields from './Vless/RelationshipFields';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -174,249 +172,18 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
                     onClose={() => this.close()}
                 >
                     <div>
-                        <div className="row">
-                            <div className="form-group col-8">
-                                <label>节点名称</label>
-                                <Input
-                                    placeholder="请输入节点名称"
-                                    value={server.name}
-                                    onChange={(event) =>
-                                        this.updateServer('name', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-4">
-                                <label>倍率</label>
-                                <Input
-                                    addonAfter="x"
-                                    placeholder="请输入节点倍率"
-                                    value={server.rate ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('rate', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>节点标签</label>
-                            <Select
-                                mode="tags"
-                                value={server.tags || []}
-                                style={{ width: '100%' }}
-                                placeholder="输入后回车添加标签"
-                                onChange={(tags) =>
-                                    this.updateServer('tags', tags.length ? tags : null)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                权限组{' '}
-                                <PermissionGroupEditor>
-                                    <a href="javascript:void(0);">添加权限组</a>
-                                </PermissionGroupEditor>
-                            </label>
-                            <Select
-                                mode="multiple"
-                                value={server.group_id}
-                                placeholder="请选择权限组"
-                                style={{ width: '100%' }}
-                                onChange={(groupIds) => this.updateServer('group_id', groupIds)}
-                            >
-                                {groups.map((group) => (
-                                    <Select.Option key={group.id} value={group.id}>
-                                        {group.name}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-8 col-xs-12">
-                                <label>节点地址</label>
-                                <Input
-                                    placeholder="请输入连接地址"
-                                    value={server.host}
-                                    onChange={(event) =>
-                                        this.updateServer('host', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-4 col-xs-12">
-                                <label>
-                                    安全性{' '}
-                                    {parseInt(String(server.tls ?? 0), 10) !== 0 && (
-                                        <a
-                                            href="javascript:void(0);"
-                                            onClick={() =>
-                                                this.showChildDrawer(
-                                                    '编辑安全性配置',
-                                                    'tls_settings',
-                                                )
-                                            }
-                                        >
-                                            编辑配置
-                                        </a>
-                                    )}
-                                </label>
-                                <Select
-                                    value={parseInt(String(server.tls ?? 0), 10) || 0}
-                                    style={{ width: '100%' }}
-                                    onChange={(value) => this.updateServer('tls', value)}
-                                >
-                                    <Select.Option value={0}>无</Select.Option>
-                                    <Select.Option value={1}>TLS</Select.Option>
-                                    <Select.Option value={2}>Reality</Select.Option>
-                                </Select>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>连接端口</label>
-                                <Input
-                                    placeholder="用户连接端口"
-                                    value={server.port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('port', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>服务端口</label>
-                                <Input
-                                    placeholder="非NAT同连接端口"
-                                    value={server.server_port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('server_port', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                传输协议{' '}
-                                <a
-                                    href="javascript:void(0);"
-                                    onClick={() =>
-                                        this.showChildDrawer('编辑协议配置', 'network_settings')
-                                    }
-                                >
-                                    编辑配置
-                                </a>
-                            </label>
-                            <Select
-                                value={server.network}
-                                placeholder="选择传输协议"
-                                style={{ width: '100%' }}
-                                onChange={(value) => this.updateServer('network', value)}
-                            >
-                                {[
-                                    ['tcp', 'TCP'],
-                                    ['ws', 'WebSocket'],
-                                    ['grpc', 'gRPC'],
-                                    ['kcp', 'mKCP'],
-                                    ['httpupgrade', 'HTTPUpgrade'],
-                                    ['xhttp', 'XHTTP'],
-                                ].map(([value, label]) => (
-                                    <Select.Option key={value} value={value}>
-                                        {label}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                加密方式{' '}
-                                {server.encryption && (
-                                    <a
-                                        href="javascript:void(0);"
-                                        onClick={() =>
-                                            this.showChildDrawer(
-                                                '编辑加密配置',
-                                                'encryption_settings',
-                                            )
-                                        }
-                                    >
-                                        编辑配置
-                                    </a>
-                                )}
-                            </label>
-                            <Select
-                                value={server.encryption ?? ''}
-                                placeholder="选择加密方式"
-                                style={{ width: '100%' }}
-                                onChange={(value) => this.updateServer('encryption', value || null)}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                <Select.Option value="mlkem768x25519plus">
-                                    MLKEM768X25519PLUS
-                                </Select.Option>
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>XTLS流控算法</label>
-                            <Select
-                                value={server.flow ?? ''}
-                                placeholder="选择XTLS流控算法"
-                                style={{ width: '100%' }}
-                                onChange={(value) => this.updateServer('flow', value || null)}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                {server.network === 'tcp' && (
-                                    <Select.Option value="xtls-rprx-vision">
-                                        xtls-rprx-vision
-                                    </Select.Option>
-                                )}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                <Tooltip placement="top" title="父节点说明">
-                                    父节点{' '}
-                                    <a
-                                        target="_blank"
-                                        href="https://docs.v2board.com/use/node.html#父节点与子节点关系"
-                                        rel="noreferrer"
-                                    >
-                                        <Icon type="read" />
-                                    </a>
-                                </Tooltip>
-                            </label>
-                            <Select
-                                value={server.parent_id || ''}
-                                onChange={(value) => this.updateServer('parent_id', value)}
-                                style={{ width: '100%' }}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                {servers
-                                    .filter(
-                                        (option) =>
-                                            option.type === 'vless' && option.id !== server.id,
-                                    )
-                                    .map((option) => (
-                                        <Select.Option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </Select.Option>
-                                    ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>路由组</label>
-                            <Select
-                                mode="multiple"
-                                value={server.route_id || []}
-                                placeholder="请选择路由组"
-                                style={{ width: '100%' }}
-                                onChange={(routeIds) =>
-                                    this.updateServer('route_id', routeIds.length ? routeIds : null)
-                                }
-                            >
-                                {routes.map((route) => (
-                                    <Select.Option key={route.id} value={route.id}>
-                                        {route.remarks}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
+                        <VlessGeneralFields
+                            server={server}
+                            groups={groups}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
+                        <VlessRelationshipFields
+                            server={server}
+                            servers={servers}
+                            routes={routes}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </div>
                     <div className="v2board-drawer-action">
                         <Button style={{ marginRight: 8 }} onClick={() => this.close()}>

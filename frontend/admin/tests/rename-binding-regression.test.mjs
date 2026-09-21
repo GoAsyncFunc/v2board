@@ -1,125 +1,146 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-import {parse} from '@babel/parser';
+import { readFileSync } from 'node:fs';
+import { parse } from '@babel/parser';
 import traverseModule from '@babel/traverse';
 const traverse = traverseModule.default || traverseModule;
 const globals = new Set([
-  'module', 'exports', 'require', 'Object', 'Array', 'Math', 'undefined', 'console',
-  'window', 'document', 'Element', 'HTMLElement', 'Node', 'URL', 'setTimeout', 'clearTimeout',
+    'module',
+    'exports',
+    'require',
+    'Object',
+    'Array',
+    'Math',
+    'undefined',
+    'console',
+    'window',
+    'document',
+    'Element',
+    'HTMLElement',
+    'Node',
+    'URL',
+    'setTimeout',
+    'clearTimeout',
 ]);
 for (const file of [
-  'admin/src/pages/config/system/_Tabs/AppConfigTab.tsx',
-  'admin/src/pages/config/system/_components/ConfigRow.tsx',
-  'admin/src/pages/config/system/_Tabs/DepositConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/EmailConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/FrontendConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/InviteConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/SafeConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/ServerConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/SiteConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/SubscribeConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/TelegramConfigTab.tsx',
-  'admin/src/pages/config/system/_Tabs/TicketConfigTab.tsx',
-  'admin/src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
-  'admin/src/components/commerce/AssignOrderEditor.tsx',
-  'admin/src/components/common/FilterDrawer.tsx',
-  'admin/src/components/common/NullableSelectOption.tsx',
-  'admin/src/pages/server/manage/_Editors/HysteriaEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/ServerEditorRegistry.tsx',
-  'admin/src/pages/server/manage/_List/ServerManageColumns.tsx',
-  'admin/src/pages/server/manage/_List/ServerManageMobileList.tsx',
-  'admin/src/components/common/PermissionGroupEditor.tsx',
-  'admin/src/pages/user/_Modal/sendMail.tsx',
-  'admin/src/pages/user/_Drawer/filter.tsx',
-  'admin/src/pages/server/manage/_Editors/ServerSecuritySettings.tsx',
-  'admin/src/components/common/Sortable.tsx',
-  'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',
-  'admin/src/pages/user/_Modal/generate.tsx',
-  'admin/src/pages/user/_Drawer/edit.tsx',
-  'admin/src/pages/user/_List/index.tsx',
-  'admin/src/pages/user/_List/columns.tsx',
-  'admin/src/pages/server/manage/_Editors/V2NodeEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx',
-  'admin/src/pages/server/manage/_Editors/V2Node/ProtocolFields.tsx',
-  'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx',
-  'admin/src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
-  'admin/src/pages/server/manage/_Editors/VlessEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/VmessEditor.tsx',
-  'admin/src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx',
-  'admin/src/pages/server/manage/_Editors/Vmess/RelationshipFields.tsx',
-  'admin/src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx',
-  'admin/src/app/Router.tsx',
-  'admin/src/config/navigation.tsx',
-  'admin/src/layouts/Header/index.tsx',
-  'admin/src/layouts/MainLayout/index.tsx',
-  'admin/src/layouts/Sidebar/index.tsx',
-  'admin/src/pages/config/payment/index.tsx',
-  'admin/src/pages/config/theme/index.tsx',
-  'admin/src/pages/config/system/index.tsx',
-  'admin/src/pages/dashboard/index.tsx',
-  'admin/src/pages/plan/index.tsx',
-  'admin/src/pages/plan/_List/index.tsx',
-  'admin/src/pages/plan/_List/PlanGroupColumn.tsx',
-  'admin/src/pages/plan/_List/PlanPriceColumns.ts',
-  'admin/src/pages/plan/_List/PlanResourceColumns.tsx',
-  'admin/src/pages/plan/_Modal/index.tsx',
-  'admin/src/pages/coupon/index.tsx',
-  'admin/src/pages/coupon/_List/index.tsx',
-  'admin/src/pages/coupon/_List/columns.tsx',
-  'admin/src/pages/coupon/_Modal/index.tsx',
-  'admin/src/pages/giftcard/index.tsx',
-  'admin/src/pages/giftcard/_List/index.tsx',
-  'admin/src/pages/giftcard/_List/columns.tsx',
-  'admin/src/pages/giftcard/_Modal/index.tsx',
-  'admin/src/pages/knowledge/index.tsx',
-  'admin/src/pages/knowledge/_List/index.tsx',
-  'admin/src/pages/knowledge/_Drawer/index.tsx',
-  'admin/src/pages/index.tsx',
-  'admin/src/pages/notice/index.tsx',
-  'admin/src/pages/notice/_List/index.tsx',
-  'admin/src/pages/notice/_List/columns.ts',
-  'admin/src/pages/notice/_Modal/index.tsx',
-  'admin/src/pages/order/index.tsx',
-  'admin/src/pages/order/_Drawer/filter.tsx',
-  'admin/src/pages/order/_List/index.tsx',
-  'admin/src/pages/order/_List/columns.tsx',
-  'admin/src/pages/order/_Modal/detail.tsx',
-  'admin/src/pages/order/_Modal/OrderDetailBody.tsx',
-  'admin/src/pages/queue/index.tsx',
-  'admin/src/pages/server/group/index.tsx',
-  'admin/src/pages/server/route/index.tsx',
-  'admin/src/pages/server/manage/index.tsx',
-  'admin/src/pages/ticket/index.tsx',
-  'admin/src/pages/ticket/_List/index.tsx',
-  'admin/src/pages/ticket/_List/columns.ts',
-  'admin/src/pages/ticket/[id].tsx',
-  'admin/src/pages/user/index.tsx',
+    'admin/src/pages/config/system/_Tabs/AppConfigTab.tsx',
+    'admin/src/pages/config/system/_components/ConfigRow.tsx',
+    'admin/src/pages/config/system/_Tabs/DepositConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/EmailConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/FrontendConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/InviteConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/SafeConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/ServerConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/SiteConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/SubscribeConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/TelegramConfigTab.tsx',
+    'admin/src/pages/config/system/_Tabs/TicketConfigTab.tsx',
+    'admin/src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
+    'admin/src/components/commerce/AssignOrderEditor.tsx',
+    'admin/src/components/common/FilterDrawer.tsx',
+    'admin/src/components/common/NullableSelectOption.tsx',
+    'admin/src/pages/server/manage/_Editors/HysteriaEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/ServerEditorRegistry.tsx',
+    'admin/src/pages/server/manage/_List/ServerManageColumns.tsx',
+    'admin/src/pages/server/manage/_List/ServerManageMobileList.tsx',
+    'admin/src/components/common/PermissionGroupEditor.tsx',
+    'admin/src/pages/user/_Modal/sendMail.tsx',
+    'admin/src/pages/user/_Drawer/filter.tsx',
+    'admin/src/pages/server/manage/_Editors/ServerSecuritySettings.tsx',
+    'admin/src/components/common/Sortable.tsx',
+    'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',
+    'admin/src/pages/user/_Modal/generate.tsx',
+    'admin/src/pages/user/_Drawer/edit.tsx',
+    'admin/src/pages/user/_List/index.tsx',
+    'admin/src/pages/user/_List/columns.tsx',
+    'admin/src/pages/server/manage/_Editors/V2NodeEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/ProtocolFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
+    'admin/src/pages/server/manage/_Editors/VlessEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/VmessEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Vmess/RelationshipFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx',
+    'admin/src/pages/server/manage/_Editors/Vless/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Vless/RelationshipFields.tsx',
+    'admin/src/app/Router.tsx',
+    'admin/src/config/navigation.tsx',
+    'admin/src/layouts/Header/index.tsx',
+    'admin/src/layouts/MainLayout/index.tsx',
+    'admin/src/layouts/Sidebar/index.tsx',
+    'admin/src/pages/config/payment/index.tsx',
+    'admin/src/pages/config/theme/index.tsx',
+    'admin/src/pages/config/system/index.tsx',
+    'admin/src/pages/dashboard/index.tsx',
+    'admin/src/pages/plan/index.tsx',
+    'admin/src/pages/plan/_List/index.tsx',
+    'admin/src/pages/plan/_List/PlanGroupColumn.tsx',
+    'admin/src/pages/plan/_List/PlanPriceColumns.ts',
+    'admin/src/pages/plan/_List/PlanResourceColumns.tsx',
+    'admin/src/pages/plan/_Modal/index.tsx',
+    'admin/src/pages/coupon/index.tsx',
+    'admin/src/pages/coupon/_List/index.tsx',
+    'admin/src/pages/coupon/_List/columns.tsx',
+    'admin/src/pages/coupon/_Modal/index.tsx',
+    'admin/src/pages/giftcard/index.tsx',
+    'admin/src/pages/giftcard/_List/index.tsx',
+    'admin/src/pages/giftcard/_List/columns.tsx',
+    'admin/src/pages/giftcard/_Modal/index.tsx',
+    'admin/src/pages/knowledge/index.tsx',
+    'admin/src/pages/knowledge/_List/index.tsx',
+    'admin/src/pages/knowledge/_Drawer/index.tsx',
+    'admin/src/pages/index.tsx',
+    'admin/src/pages/notice/index.tsx',
+    'admin/src/pages/notice/_List/index.tsx',
+    'admin/src/pages/notice/_List/columns.ts',
+    'admin/src/pages/notice/_Modal/index.tsx',
+    'admin/src/pages/order/index.tsx',
+    'admin/src/pages/order/_Drawer/filter.tsx',
+    'admin/src/pages/order/_List/index.tsx',
+    'admin/src/pages/order/_List/columns.tsx',
+    'admin/src/pages/order/_Modal/detail.tsx',
+    'admin/src/pages/order/_Modal/OrderDetailBody.tsx',
+    'admin/src/pages/queue/index.tsx',
+    'admin/src/pages/server/group/index.tsx',
+    'admin/src/pages/server/route/index.tsx',
+    'admin/src/pages/server/manage/index.tsx',
+    'admin/src/pages/ticket/index.tsx',
+    'admin/src/pages/ticket/_List/index.tsx',
+    'admin/src/pages/ticket/_List/columns.ts',
+    'admin/src/pages/ticket/[id].tsx',
+    'admin/src/pages/user/index.tsx',
 ]) {
-  const localFile = file.replace(/^admin\//, '');
-  test(`${localFile}: references resolve in their lexical scope`, () => {
-    const source = readFileSync(new URL('../' + localFile, import.meta.url), 'utf8');
-    const ast = parse(source, {sourceType: 'module', plugins: ['jsx', 'typescript']});
-    const missing = [];
-    traverse(ast, {
-      ReferencedIdentifier(path) {
-        if (path.findParent(parent => parent.node.type.startsWith('TS'))) return;
-        if (!globals.has(path.node.name) && !path.scope.hasBinding(path.node.name)) {
-          missing.push(`${path.node.name}:${path.node.loc.start.line}`);
+    const localFile = file.replace(/^admin\//, '');
+    test(`${localFile}: references resolve in their lexical scope`, () => {
+        const source = readFileSync(new URL('../' + localFile, import.meta.url), 'utf8');
+        const ast = parse(source, { sourceType: 'module', plugins: ['jsx', 'typescript'] });
+        const missing = [];
+        traverse(ast, {
+            ReferencedIdentifier(path) {
+                if (path.findParent((parent) => parent.node.type.startsWith('TS'))) return;
+                if (!globals.has(path.node.name) && !path.scope.hasBinding(path.node.name)) {
+                    missing.push(`${path.node.name}:${path.node.loc.start.line}`);
+                }
+            },
+            AssignmentExpression(path) {
+                const left = path.node.left;
+                if (
+                    left.type === 'Identifier' &&
+                    !path.scope.hasBinding(left.name) &&
+                    !globals.has(left.name)
+                )
+                    missing.push(left.name);
+            },
+        });
+        assert.deepEqual(missing, []);
+        if (localFile.includes('FilterDrawer')) {
+            assert.match(source, /\badd\(\)\s*\{/);
+            assert.match(source, /this\.add\(\)/);
+            assert.doesNotMatch(source, /adobjectAssign/);
         }
-      },
-      AssignmentExpression(path) {
-        const left = path.node.left;
-        if (left.type === 'Identifier' && !path.scope.hasBinding(left.name) && !globals.has(left.name)) missing.push(left.name);
-      },
     });
-    assert.deepEqual(missing, []);
-    if (localFile.includes('FilterDrawer')) {
-      assert.match(source, /\badd\(\)\s*\{/);
-      assert.match(source, /this\.add\(\)/);
-      assert.doesNotMatch(source, /adobjectAssign/);
-    }
-  });
 }

@@ -730,6 +730,32 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.match(settingsEditorsSource, /class TlsSettings/);
 });
 
+test('Vless editor composes focused general and relationship field modules', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/VlessEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vless/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Vless/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+
+    assert.equal((editorSource.match(/<VlessGeneralFields/g) || []).length, 1);
+    assert.match(editorSource, /<VlessRelationshipFields/);
+    assert.doesNotMatch(editorSource, /PermissionGroupEditor|父节点说明|加密方式/);
+    assert.match(generalFieldsSource, /function VlessGeneralFields/);
+    assert.match(generalFieldsSource, /加密方式/);
+    assert.match(relationshipFieldsSource, /function VlessRelationshipFields/);
+    assert.match(relationshipFieldsSource, /父节点说明/);
+});
+
 test('admin router selectors use the canonical root state', async () => {
     const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
     const routerTypes = await fs.readFile(
