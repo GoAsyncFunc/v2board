@@ -1,21 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'antd/lib/button';
-import Dropdown from 'antd/lib/dropdown';
-import Icon from 'antd/lib/icon';
-import Menu from 'antd/lib/menu';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import Tooltip from 'antd/lib/tooltip';
 import type { PaginationConfig } from 'antd/lib/table/interface';
-import SendMailEditor from './_Modal/sendMail';
-import UserGenerator from './_Modal/generate';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './_Drawer/filter';
 import { UserList, type UserSorter } from './_List';
+import UserToolbar from './_Toolbar';
 import type { FilterField, FilterValue } from '../../types/filter';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type {
@@ -136,84 +130,18 @@ export class UserPage extends React.Component<UserPageProps> {
                 <LoadingContainer loading={fetchLoading}>
                     <div className="block border-bottom">
                         <div className="bg-white">
-                            <div className="v2board-table-action" style={{ padding: 15 }}>
-                                <Tooltip
-                                    title="Tips：可以使用过滤器过滤后再使用操作对过滤的用户进行操作。"
-                                    placement="right"
-                                >
-                                    <Button.Group>
-                                        <UserFilterDrawer
-                                            key={filter.length}
-                                            value={filter}
-                                            plans={this.props.plan.plans}
-                                            onOk={(nextFilter) =>
-                                                this.props.dispatch({
-                                                    type: 'user/filter',
-                                                    filter: nextFilter,
-                                                })
-                                            }
-                                        >
-                                            <Button
-                                                type={filter.length > 0 ? 'primary' : undefined}
-                                            >
-                                                <Icon type="filter" /> 过滤器
-                                            </Button>
-                                        </UserFilterDrawer>
-                                        <Dropdown
-                                            overlay={
-                                                <Menu>
-                                                    <Menu.Item>
-                                                        <a onClick={() => this.dumpCsv()}>
-                                                            <Icon type="file-excel" /> 导出CSV
-                                                        </a>
-                                                    </Menu.Item>
-                                                    <Menu.Item>
-                                                        <SendMailEditor>
-                                                            <a>
-                                                                <Icon type="mail" /> 发送邮件
-                                                            </a>
-                                                        </SendMailEditor>
-                                                    </Menu.Item>
-                                                    <Menu.Item disabled={!filter.length}>
-                                                        <a
-                                                            onClick={() =>
-                                                                this.confirmBatch(
-                                                                    'ban',
-                                                                    '确定要进行封禁吗？',
-                                                                )
-                                                            }
-                                                        >
-                                                            <Icon type="stop" /> 批量封禁
-                                                        </a>
-                                                    </Menu.Item>
-                                                    <Menu.Item disabled={!filter.length}>
-                                                        <a
-                                                            onClick={() =>
-                                                                this.confirmBatch(
-                                                                    'allDel',
-                                                                    '确定要进行删除吗？',
-                                                                )
-                                                            }
-                                                        >
-                                                            <Icon type="delete" /> 批量删除
-                                                        </a>
-                                                    </Menu.Item>
-                                                </Menu>
-                                            }
-                                        >
-                                            <Button>
-                                                <Icon type="select" />
-                                                操作
-                                            </Button>
-                                        </Dropdown>
-                                    </Button.Group>
-                                </Tooltip>
-                                <UserGenerator>
-                                    <Button className="ml-2">
-                                        <Icon type="user-add" />
-                                    </Button>
-                                </UserGenerator>
-                            </div>
+                            <UserToolbar
+                                filter={filter}
+                                plans={this.props.plan.plans}
+                                onFilter={(nextFilter) =>
+                                    this.props.dispatch({ type: 'user/filter', filter: nextFilter })
+                                }
+                                onExport={() => this.dumpCsv()}
+                                onBatchBan={() => this.confirmBatch('ban', '确定要进行封禁吗？')}
+                                onBatchDelete={() =>
+                                    this.confirmBatch('allDel', '确定要进行删除吗？')
+                                }
+                            />
                             <UserList
                                 dispatch={this.props.dispatch}
                                 user={this.props.user}

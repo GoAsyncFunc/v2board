@@ -1232,6 +1232,18 @@
     "to": "components/common/NullableSelectOption.tsx"
   },
   {
+    "from": "pages/user/_Toolbar/index.tsx",
+    "to": "pages/user/_Drawer/filter.tsx"
+  },
+  {
+    "from": "pages/user/_Toolbar/index.tsx",
+    "to": "pages/user/_Modal/generate.tsx"
+  },
+  {
+    "from": "pages/user/_Toolbar/index.tsx",
+    "to": "pages/user/_Modal/sendMail.tsx"
+  },
+  {
     "from": "pages/user/index.tsx",
     "to": "app/navigation.ts"
   },
@@ -1262,6 +1274,10 @@
   {
     "from": "pages/user/index.tsx",
     "to": "pages/user/_Modal/sendMail.tsx"
+  },
+  {
+    "from": "pages/user/index.tsx",
+    "to": "pages/user/_Toolbar/index.tsx"
   },
   {
     "from": "pages/user/index.tsx",
