@@ -44,6 +44,7 @@ for (const file of [
     'admin/src/components/common/NullableSelectOption.tsx',
     'admin/src/pages/server/manage/_Editors/HysteriaEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx',
+    'admin/src/pages/server/manage/_Editors/Hysteria/GeneralFields.tsx',
     'admin/src/pages/server/manage/_Editors/Hysteria/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/ServerEditorRegistry.tsx',
     'admin/src/pages/server/manage/_List/ServerManageColumns.tsx',

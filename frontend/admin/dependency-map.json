@@ -976,12 +976,16 @@
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
+    "from": "pages/server/manage/_Editors/Hysteria/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/_Editors/Hysteria/GeneralFields.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
