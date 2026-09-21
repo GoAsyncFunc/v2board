@@ -8,6 +8,7 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
 import { HysteriaObfuscationSettings } from './Hysteria/ObfuscationSettings';
+import { HysteriaRelationshipFields } from './Hysteria/RelationshipFields';
 import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
 
@@ -218,55 +219,12 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                                 }
                             />
                         </div>
-                        <div className="form-group">
-                            <label>
-                                <Tooltip placement="top" title="父节点说明">
-                                    父节点{' '}
-                                    <a
-                                        target="_blank"
-                                        href="https://docs.v2board.com/use/node.html#父节点与子节点关系"
-                                        rel="noreferrer"
-                                    >
-                                        更多解答
-                                    </a>
-                                </Tooltip>
-                            </label>
-                            <Select
-                                value={server.parent_id || ''}
-                                onChange={(parentId) => this.updateServer('parent_id', parentId)}
-                                style={{ width: '100%' }}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                {servers
-                                    .filter(
-                                        (option) =>
-                                            option.type === 'hysteria' && option.id !== server.id,
-                                    )
-                                    .map((option) => (
-                                        <Select.Option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </Select.Option>
-                                    ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>路由组</label>
-                            <Select
-                                mode="multiple"
-                                value={server.route_id || []}
-                                placeholder="请选择路由组"
-                                style={{ width: '100%' }}
-                                onChange={(routeIds) =>
-                                    this.updateServer('route_id', routeIds.length ? routeIds : null)
-                                }
-                            >
-                                {routes.map((route) => (
-                                    <Select.Option key={route.id} value={route.id}>
-                                        {route.remarks}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
+                        <HysteriaRelationshipFields
+                            server={server}
+                            servers={servers}
+                            routes={routes}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </div>
                     <div className="v2board-drawer-action">
                         <Button style={{ marginRight: 8 }} onClick={() => this.toggle()}>

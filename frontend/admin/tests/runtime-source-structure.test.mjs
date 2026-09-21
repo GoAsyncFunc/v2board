@@ -186,12 +186,21 @@ test('Hysteria obfuscation settings live in a focused protocol module', async ()
         ),
         'utf8',
     );
+    const relationshipSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Hysteria/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     assert.match(
         editorSource,
         /import \{ HysteriaObfuscationSettings \} from '\.\/Hysteria\/ObfuscationSettings'/,
     );
     assert.match(editorSource, /<HysteriaObfuscationSettings/);
     assert.match(obfuscationSource, /export function HysteriaObfuscationSettings/);
+    assert.match(editorSource, /<HysteriaRelationshipFields/);
+    assert.match(relationshipSource, /export function HysteriaRelationshipFields/);
     assert.doesNotMatch(editorSource, /混淆方式obfs/);
 });
 

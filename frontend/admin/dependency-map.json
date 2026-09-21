@@ -988,6 +988,10 @@
     "to": "pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/_Editors/Hysteria/RelationshipFields.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
     "to": "pages/server/manage/_Editors/AnyTlsEditor.tsx"
   },
