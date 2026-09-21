@@ -1073,11 +1073,11 @@
   },
   {
     "from": "pages/server/group/index.tsx",
-    "to": "components/server/ServerGroupDisplayColumns.tsx"
+    "to": "layouts/MainLayout.tsx"
   },
   {
     "from": "pages/server/group/index.tsx",
-    "to": "layouts/MainLayout.tsx"
+    "to": "pages/server/group/_List/columns.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
@@ -1117,19 +1117,19 @@
   },
   {
     "from": "pages/server/route/index.tsx",
-    "to": "components/server/RouteActionColumn.ts"
-  },
-  {
-    "from": "pages/server/route/index.tsx",
-    "to": "components/server/ServerRouteDisplayColumns.ts"
-  },
-  {
-    "from": "pages/server/route/index.tsx",
     "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/server/route/index.tsx",
     "to": "layouts/MainLayout.tsx"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "pages/server/route/_List/RouteActionColumn.ts"
+  },
+  {
+    "from": "pages/server/route/index.tsx",
+    "to": "pages/server/route/_List/columns.ts"
   },
   {
     "from": "pages/ticket/[id].tsx",

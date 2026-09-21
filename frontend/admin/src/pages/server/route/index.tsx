@@ -10,8 +10,8 @@ import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import MainLayout from '../../../layouts/MainLayout';
-import { createRouteActionColumn } from '../../../components/server/RouteActionColumn';
-import { createReadonlyServerRouteColumns } from '../../../components/server/ServerRouteDisplayColumns';
+import { createRouteActionColumn } from './_List/RouteActionColumn';
+import { createReadonlyServerRouteColumns } from './_List/columns';
 import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 

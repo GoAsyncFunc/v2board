@@ -76,9 +76,9 @@ test('admin business boundary types avoid broad object placeholders', async () =
     'types/monitoring.ts',
     'pages/server/manage/index.tsx',
     'components/common/ContextMenuTable.tsx',
-    'components/server/RouteActionColumn.ts',
-    'components/server/ServerRouteDisplayColumns.ts',
-    'components/server/ServerGroupDisplayColumns.tsx',
+    'pages/server/route/_List/RouteActionColumn.ts',
+    'pages/server/route/_List/columns.ts',
+    'pages/server/group/_List/columns.tsx',
   ];
   for (const relativePath of relativePaths) {
     const source = await fs.readFile(path.join(sourceRoot, relativePath), 'utf8');

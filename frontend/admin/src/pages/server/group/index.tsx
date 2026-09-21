@@ -8,10 +8,7 @@ import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
-import {
-    createReadonlyServerGroupColumns,
-    type ServerGroupRecord,
-} from '../../../components/server/ServerGroupDisplayColumns';
+import { createReadonlyServerGroupColumns, type ServerGroupRecord } from './_List/columns';
 import type { ServerGroupState } from '../../../types/server';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 
