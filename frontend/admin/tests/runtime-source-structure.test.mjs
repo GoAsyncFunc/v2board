@@ -803,6 +803,22 @@ test('V2Node editor composes focused field modules', async () => {
         ),
         'utf8',
     );
+    const protocolSpecificDirectory = new URL(
+        '../src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/',
+        import.meta.url,
+    );
+    for (const file of [
+        'Hysteria2Fields.tsx',
+        'TuicFields.tsx',
+        'ShadowsocksFields.tsx',
+        'VlessFields.tsx',
+    ]) {
+        assert.equal((await fs.stat(new URL(file, protocolSpecificDirectory))).isFile(), true);
+    }
+    const hysteria2FieldsSource = await fs.readFile(
+        new URL('Hysteria2Fields.tsx', protocolSpecificDirectory),
+        'utf8',
+    );
 
     assert.match(editorSource, /<V2NodeGeneralFields/);
     assert.match(editorSource, /<V2NodeProtocolFields/);
@@ -814,7 +830,8 @@ test('V2Node editor composes focused field modules', async () => {
     assert.match(protocolFieldsSource, /function V2NodeProtocolFields/);
     assert.match(protocolFieldsSource, /节点协议/);
     assert.match(protocolSpecificFieldsSource, /function V2NodeProtocolSpecificFields/);
-    assert.match(protocolSpecificFieldsSource, /混淆方式obfs/);
+    assert.match(protocolSpecificFieldsSource, /switch \(server\.protocol\)/);
+    assert.match(hysteria2FieldsSource, /混淆方式obfs/);
     assert.match(relationshipFieldsSource, /function V2NodeRelationshipFields/);
     assert.match(relationshipFieldsSource, /父节点说明/);
 });

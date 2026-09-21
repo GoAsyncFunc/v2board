@@ -1076,6 +1076,22 @@
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/TuicFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/VlessFields.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
     "to": "components/common/JsonEditor.tsx"
   },
