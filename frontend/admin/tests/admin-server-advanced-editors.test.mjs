@@ -99,7 +99,7 @@ test('VmessEditor parses transport settings and drops empty DNS settings', async
 });
 
 test('DnsSettings keeps typed server fields while editing and deleting rows', async () => {
-  const { DnsSettings } = await loadComponent('VmessEditor');
+  const { DnsSettings } = await loadComponent('Vmess/SettingsEditors');
   const changes = [];
   const settings = new DnsSettings({ onChange: value => changes.push(normalize(value)) });
   settings.addServer();

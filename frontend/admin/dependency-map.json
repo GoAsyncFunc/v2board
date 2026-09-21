@@ -1092,16 +1092,28 @@
     "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/Vmess/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/VmessEditor.tsx",
     "to": "components/common/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
+    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/_Editors/Vmess/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx"
   },
   {
     "from": "pages/server/manage/_List/ServerManageColumns.tsx",

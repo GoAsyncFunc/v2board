@@ -611,18 +611,9 @@ test('admin components use business domains and connected editors use the canoni
         new URL('../src/pages/server/manage/index.tsx', import.meta.url),
         'utf8',
     );
-    assert.match(
-        serverManagePage,
-        /from ['"]\.\/\_Editors\/ServerEditorRegistry['"]/,
-    );
-    assert.match(
-        serverManagePage,
-        /from ['"]\.\/\_List\/ServerManageColumns['"]/,
-    );
-    assert.match(
-        serverManagePage,
-        /from ['"]\.\/\_List\/ServerManageMobileList['"]/,
-    );
+    assert.match(serverManagePage, /from ['"]\.\/\_Editors\/ServerEditorRegistry['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/\_List\/ServerManageColumns['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/\_List\/ServerManageMobileList['"]/);
     assert.doesNotMatch(
         serverManagePage,
         /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/,
@@ -705,6 +696,38 @@ test('V2Node editor composes focused field modules', async () => {
     assert.match(protocolSpecificFieldsSource, /混淆方式obfs/);
     assert.match(relationshipFieldsSource, /function V2NodeRelationshipFields/);
     assert.match(relationshipFieldsSource, /父节点说明/);
+});
+
+test('Vmess editor composes focused field and settings modules', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/VmessEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Vmess/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    const settingsEditorsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx', import.meta.url),
+        'utf8',
+    );
+
+    assert.equal((editorSource.match(/<VmessGeneralFields/g) || []).length, 1);
+    assert.match(editorSource, /<VmessRelationshipFields/);
+    assert.match(editorSource, /from ['"]\.\/Vmess\/SettingsEditors['"]/);
+    assert.doesNotMatch(editorSource, /class DnsSettings|class RuleSettings|class TlsSettings/);
+    assert.match(generalFieldsSource, /function VmessGeneralFields/);
+    assert.match(relationshipFieldsSource, /function VmessRelationshipFields/);
+    assert.match(settingsEditorsSource, /class DnsSettings/);
+    assert.match(settingsEditorsSource, /class RuleSettings/);
+    assert.match(settingsEditorsSource, /class TlsSettings/);
 });
 
 test('admin router selectors use the canonical root state', async () => {

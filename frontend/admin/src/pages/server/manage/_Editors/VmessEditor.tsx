@@ -1,24 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import Switch from 'antd/lib/switch';
-import Tooltip from 'antd/lib/tooltip';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
-import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
+import Input from 'antd/lib/input';
 import JsonEditor from '../../../../components/common/JsonEditor';
+import { DnsSettings, RuleSettings, TlsSettings } from './Vmess/SettingsEditors';
+import VmessGeneralFields from './Vmess/GeneralFields';
+import VmessRelationshipFields from './Vmess/RelationshipFields';
 import type {
     ChildDrawerState,
-    DnsSettingsValue,
-    RuleSettingsValue,
     ServerEditorProps,
     ServerRecord,
     ServerSaveState,
-    VmessTlsSettings,
 } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
 
@@ -49,222 +45,7 @@ function prepareServer(record?: ServerRecord): ServerRecord {
     return server;
 }
 
-interface DnsSettingsProps {
-    settings?: DnsSettingsValue;
-    onChange: (settings: DnsSettingsValue) => void;
-}
-interface DnsSettingsState {
-    settings: DnsSettingsValue;
-}
-
-export class DnsSettings extends React.Component<DnsSettingsProps, DnsSettingsState> {
-    constructor(props: DnsSettingsProps) {
-        super(props);
-        this.state = { settings: props.settings || { servers: [], hosts: {} } };
-    }
-
-    commit(settings: DnsSettingsValue): void {
-        this.setState({ settings }, () => this.props.onChange(this.state.settings));
-    }
-
-    addServer(): void {
-        this.commit({
-            ...this.state.settings,
-            servers: [
-                ...this.state.settings.servers,
-                { address: '', port: 53, domains: [], expectIPs: [] },
-            ],
-        });
-    }
-
-    dropServer(index: number): void {
-        this.commit({
-            ...this.state.settings,
-            servers: this.state.settings.servers.filter(
-                (server, serverIndex) => serverIndex !== index,
-            ),
-        });
-    }
-
-    changeServer(
-        index: number,
-        field: 'address' | 'port' | 'domains',
-        value: string | number,
-    ): void {
-        const servers = this.state.settings.servers.map((server, serverIndex) => {
-            if (serverIndex !== index) return server;
-            if (field === 'domains') return { ...server, domains: String(value).split('\n') };
-            if (field === 'port') return { ...server, port: Number(value) };
-            return { ...server, address: String(value) };
-        });
-        this.commit({ ...this.state.settings, servers });
-    }
-
-    render(): React.ReactNode {
-        return (
-            <div className="form-group">
-                <label>DNS服务器表</label>
-                {this.state.settings.servers.map((server, index) => (
-                    <div key={`${server.address}-${index}`}>
-                        <div className="row">
-                            <Divider type="horizontal">
-                                {server.address || `服务器组${index + 1}`}{' '}
-                                <Icon
-                                    type="delete"
-                                    style={{ color: '#ff4d4f' }}
-                                    onClick={() => this.dropServer(index)}
-                                />
-                            </Divider>
-                            <div className="form-group col-md-9 col-xs-12">
-                                <label>DNS服务器地址</label>
-                                <Input
-                                    placeholder="请输入DNS服务器地址"
-                                    value={server.address}
-                                    onChange={(event) =>
-                                        this.changeServer(index, 'address', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-3 col-xs-12">
-                                <label>端口</label>
-                                <Input
-                                    type="number"
-                                    placeholder="端口"
-                                    value={server.port}
-                                    onChange={(event) =>
-                                        this.changeServer(
-                                            index,
-                                            'port',
-                                            parseInt(event.target.value, 10),
-                                        )
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>域名</label>
-                            <Input.TextArea
-                                rows={5}
-                                value={server.domains?.join('\n')}
-                                placeholder="域名列表，此列表包含的域名，将优先使用此服务器进行查询。一行一条"
-                                onChange={(event) =>
-                                    this.changeServer(index, 'domains', event.target.value)
-                                }
-                            />
-                        </div>
-                    </div>
-                ))}
-                <Button type="primary" style={{ width: '100%' }} onClick={() => this.addServer()}>
-                    添加
-                </Button>
-            </div>
-        );
-    }
-}
-
-interface RuleSettingsProps {
-    settings?: RuleSettingsValue;
-    onChange: (settings: RuleSettingsValue) => void;
-}
-interface RuleSettingsState {
-    settings: RuleSettingsValue;
-}
-
-export class RuleSettings extends React.Component<RuleSettingsProps, RuleSettingsState> {
-    constructor(props: RuleSettingsProps) {
-        super(props);
-        const settings =
-            props.settings && Object.keys(props.settings).length
-                ? props.settings
-                : { domain: [], protocol: [] };
-        this.state = { settings };
-    }
-
-    change(field: 'domain' | 'protocol', value: string): void {
-        const settings = { ...this.state.settings, [field]: value.split('\n') };
-        this.setState({ settings });
-        this.props.onChange(settings);
-    }
-
-    render(): React.ReactNode {
-        const { domain, protocol } = this.state.settings;
-        return (
-            <>
-                <div className="form-group">
-                    <label>域名过滤器</label>
-                    <Input.TextArea
-                        value={domain?.join('\n')}
-                        onChange={(event) => this.change('domain', event.target.value)}
-                        rows={5}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>协议过滤器</label>
-                    <Input.TextArea
-                        value={protocol?.join('\n')}
-                        onChange={(event) => this.change('protocol', event.target.value)}
-                        rows={5}
-                    />
-                </div>
-            </>
-        );
-    }
-}
-
-interface VmessTlsSettingsProps {
-    settings?: VmessTlsSettings;
-    onChange: (settings: VmessTlsSettings) => void;
-}
-interface VmessTlsSettingsState {
-    settings: VmessTlsSettings;
-}
-
-export class TlsSettings extends React.Component<VmessTlsSettingsProps, VmessTlsSettingsState> {
-    constructor(props: VmessTlsSettingsProps) {
-        super(props);
-        const settings =
-            props.settings && Object.keys(props.settings).length
-                ? props.settings
-                : { serverName: '', allowInsecure: 0 };
-        this.state = { settings };
-    }
-
-    change<Field extends keyof VmessTlsSettings>(
-        field: Field,
-        value: VmessTlsSettings[Field],
-    ): void {
-        const settings = { ...this.state.settings, [field]: value };
-        this.setState({ settings });
-        this.props.onChange(settings);
-    }
-
-    render(): React.ReactNode {
-        const { serverName, allowInsecure } = this.state.settings;
-        return (
-            <div>
-                <div className="form-group">
-                    <label>Server Name</label>
-                    <Input
-                        value={serverName ?? undefined}
-                        onChange={(event) => this.change('serverName', event.target.value)}
-                        placeholder="不使用请留空"
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Allow Insecure</label>
-                    <div>
-                        <Switch
-                            checked={Boolean(parseInt(String(allowInsecure ?? 0), 10))}
-                            onChange={(enabled) =>
-                                this.change('allowInsecure', enabled ? '1' : '0')
-                            }
-                        />
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
+export { DnsSettings, RuleSettings, TlsSettings };
 
 interface VmessEditorProps extends ServerEditorProps {
     serverVmess: ServerSaveState;
@@ -406,118 +187,12 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                     onClose={() => this.toggle()}
                 >
                     <div>
-                        <div className="row">
-                            <div className="form-group col-8">
-                                <label>节点名称</label>
-                                <Input
-                                    placeholder="请输入节点名称"
-                                    value={server.name}
-                                    onChange={(event) =>
-                                        this.updateServer('name', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-4">
-                                <label>倍率</label>
-                                <Input
-                                    addonAfter="x"
-                                    placeholder="请输入节点倍率"
-                                    value={server.rate ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('rate', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label>节点标签</label>
-                            <Select
-                                mode="tags"
-                                value={server.tags || []}
-                                style={{ width: '100%' }}
-                                placeholder="输入后回车添加标签"
-                                onChange={(tags) =>
-                                    this.updateServer('tags', tags.length ? tags : null)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                权限组{' '}
-                                <PermissionGroupEditor>
-                                    <a href="javascript:void(0);">添加权限组</a>
-                                </PermissionGroupEditor>
-                            </label>
-                            <Select
-                                mode="multiple"
-                                value={server.group_id}
-                                placeholder="请选择权限组"
-                                style={{ width: '100%' }}
-                                onChange={(groupIds) => this.updateServer('group_id', groupIds)}
-                            >
-                                {groups.map((group) => (
-                                    <Select.Option key={group.id} value={group.id}>
-                                        {group.name}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-8 col-xs-12">
-                                <label>节点地址</label>
-                                <Input
-                                    placeholder="请输入连接地址"
-                                    value={server.host}
-                                    onChange={(event) =>
-                                        this.updateServer('host', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-4 col-xs-12">
-                                <label>
-                                    TLS{' '}
-                                    <a
-                                        href="javascript:void(0);"
-                                        onClick={() =>
-                                            this.showChildDrawer('编辑TLS配置', 'tlsSettings')
-                                        }
-                                    >
-                                        编辑配置
-                                    </a>
-                                </label>
-                                <Select
-                                    value={parseInt(String(server.tls ?? 0), 10) ? 1 : 0}
-                                    placeholder="是否支持TLS"
-                                    style={{ width: '100%' }}
-                                    onChange={(tls) => this.updateServer('tls', tls)}
-                                >
-                                    <Select.Option value={0}>不支持</Select.Option>
-                                    <Select.Option value={1}>支持</Select.Option>
-                                </Select>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>连接端口</label>
-                                <Input
-                                    placeholder="用户连接端口"
-                                    value={server.port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('port', event.target.value)
-                                    }
-                                />
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>服务端口</label>
-                                <Input
-                                    placeholder="非NAT同连接端口"
-                                    value={server.server_port ?? undefined}
-                                    onChange={(event) =>
-                                        this.updateServer('server_port', event.target.value)
-                                    }
-                                />
-                            </div>
-                        </div>
+                        <VmessGeneralFields
+                            server={server}
+                            groups={groups}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
                         <div className="form-group">
                             <label>
                                 传输协议{' '}
@@ -544,55 +219,12 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                                 <Select.Option value="xhttp">XHTTP</Select.Option>
                             </Select>
                         </div>
-                        <div className="form-group">
-                            <label>
-                                <Tooltip placement="top" title="父节点说明">
-                                    父节点{' '}
-                                    <a
-                                        target="_blank"
-                                        href="https://docs.v2board.com/use/node.html#父节点与子节点关系"
-                                        rel="noreferrer"
-                                    >
-                                        <Icon type="read" />
-                                    </a>
-                                </Tooltip>
-                            </label>
-                            <Select
-                                value={server.parent_id || ''}
-                                onChange={(parentId) => this.updateServer('parent_id', parentId)}
-                                style={{ width: '100%' }}
-                            >
-                                <Select.Option value="">无</Select.Option>
-                                {servers
-                                    .filter(
-                                        (option) =>
-                                            option.type === 'vmess' && option.id !== server.id,
-                                    )
-                                    .map((option) => (
-                                        <Select.Option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </Select.Option>
-                                    ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>路由组</label>
-                            <Select
-                                mode="multiple"
-                                value={server.route_id || []}
-                                placeholder="请选择路由组"
-                                style={{ width: '100%' }}
-                                onChange={(routeIds) =>
-                                    this.updateServer('route_id', routeIds.length ? routeIds : null)
-                                }
-                            >
-                                {routes.map((route) => (
-                                    <Select.Option key={route.id} value={route.id}>
-                                        {route.remarks}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
+                        <VmessRelationshipFields
+                            server={server}
+                            servers={servers}
+                            routes={routes}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                     </div>
                     <div className="v2board-drawer-action">
                         <Button style={{ marginRight: 8 }} onClick={() => this.toggle()}>
