@@ -7,12 +7,8 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
-import type {
-    Scalar,
-    ServerEditorProps,
-    ServerRecord,
-    ServerSaveState,
-} from '../../../../types/server';
+import { TuicTransportSettings } from './Tuic/TransportSettings';
+import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
 import type { AdminRootState } from '../../../../types/store';
 
 interface TuicEditorProps extends ServerEditorProps {
@@ -53,22 +49,6 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
             params: { ...this.state.server },
             callback: () => this.toggle(),
         });
-    }
-
-    yesNoSelect(
-        field: 'disable_sni' | 'zero_rtt_handshake' | 'insecure',
-        value: Scalar | undefined,
-    ): React.ReactElement {
-        return (
-            <Select
-                value={parseInt(String(value), 10) ? 1 : 0}
-                style={{ width: '100%' }}
-                onChange={(nextValue) => this.updateServer(field, nextValue)}
-            >
-                <Select.Option value={0}>否</Select.Option>
-                <Select.Option value={1}>是</Select.Option>
-            </Select>
-        );
     }
 
     render(): React.ReactNode {
@@ -185,58 +165,20 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
                                         允许不安全 <Icon type="question-circle" />
                                     </Tooltip>
                                 </label>
-                                {this.yesNoSelect('insecure', server.insecure)}
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>禁用SNI</label>
-                                {this.yesNoSelect('disable_sni', server.disable_sni)}
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>数据包中继模式</label>
                                 <Select
-                                    value={server.udp_relay_mode || 'native'}
+                                    value={parseInt(String(server.insecure), 10) ? 1 : 0}
                                     style={{ width: '100%' }}
-                                    onChange={(mode) => this.updateServer('udp_relay_mode', mode)}
+                                    onChange={(value) => this.updateServer('insecure', value)}
                                 >
-                                    <Select.Option value="native">native</Select.Option>
-                                    <Select.Option value="quic">quic</Select.Option>
+                                    <Select.Option value={0}>否</Select.Option>
+                                    <Select.Option value={1}>是</Select.Option>
                                 </Select>
                             </div>
                         </div>
-                        {!parseInt(String(server.disable_sni), 10) && (
-                            <div className="form-group">
-                                <label>服务器名称指示(sni)</label>
-                                <Input
-                                    placeholder="当节点地址与证书不一致时用于证书验证"
-                                    value={server.server_name}
-                                    onChange={(event) =>
-                                        this.updateServer('server_name', event.target.value)
-                                    }
-                                />
-                            </div>
-                        )}
-                        <div className="row">
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>拥塞控制算法</label>
-                                <Select
-                                    value={server.congestion_control || 'cubic'}
-                                    style={{ width: '100%' }}
-                                    onChange={(algorithm) =>
-                                        this.updateServer('congestion_control', algorithm)
-                                    }
-                                >
-                                    <Select.Option value="cubic">cubic</Select.Option>
-                                    <Select.Option value="new_reno">new_reno</Select.Option>
-                                    <Select.Option value="bbr">bbr</Select.Option>
-                                </Select>
-                            </div>
-                            <div className="form-group col-md-6 col-xs-12">
-                                <label>客户端启用 0-RTT</label>
-                                {this.yesNoSelect('zero_rtt_handshake', server.zero_rtt_handshake)}
-                            </div>
-                        </div>
+                        <TuicTransportSettings
+                            server={server}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                        />
                         <div className="form-group">
                             <label>
                                 <Tooltip placement="top" title="父节点说明">

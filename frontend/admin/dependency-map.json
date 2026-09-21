@@ -1068,6 +1068,10 @@
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "to": "pages/server/manage/_Editors/Tuic/TransportSettings.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },

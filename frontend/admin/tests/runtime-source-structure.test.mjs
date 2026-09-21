@@ -217,6 +217,24 @@ test('Shadowsocks security settings live in a focused protocol module', async ()
     assert.doesNotMatch(editorSource, /加密算法|混淆/);
 });
 
+test('Tuic transport settings live in a focused protocol module', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/TuicEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const transportSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        editorSource,
+        /import \{ TuicTransportSettings \} from '\.\/Tuic\/TransportSettings'/,
+    );
+    assert.match(editorSource, /<TuicTransportSettings/);
+    assert.match(transportSource, /export function TuicTransportSettings/);
+    assert.doesNotMatch(editorSource, /<label>禁用SNI|<label>拥塞控制算法/);
+});
+
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(

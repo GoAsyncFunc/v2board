@@ -57,6 +57,7 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx',
     'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx',
     'admin/src/pages/user/_Modal/generate.tsx',
     'admin/src/pages/user/_Drawer/edit.tsx',
     'admin/src/pages/user/_List/index.tsx',
