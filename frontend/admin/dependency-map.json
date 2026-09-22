@@ -1128,6 +1128,14 @@
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/ProtocolSelectionFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx",
+    "to": "pages/server/manage/_Editors/V2Node/TransportFields.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
     "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx"
   },

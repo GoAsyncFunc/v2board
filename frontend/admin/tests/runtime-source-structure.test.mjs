@@ -888,6 +888,17 @@ test('V2Node editor composes focused field modules', async () => {
         ),
         'utf8',
     );
+    const protocolSelectionFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/V2Node/ProtocolSelectionFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    const transportFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/V2Node/TransportFields.tsx', import.meta.url),
+        'utf8',
+    );
     const childSettingsSource = await fs.readFile(
         new URL(
             '../src/pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx',
@@ -921,7 +932,11 @@ test('V2Node editor composes focused field modules', async () => {
     assert.match(generalFieldsSource, /function V2NodeGeneralFields/);
     assert.match(generalFieldsSource, /PermissionGroupEditor/);
     assert.match(protocolFieldsSource, /function V2NodeProtocolFields/);
-    assert.match(protocolFieldsSource, /节点协议/);
+    assert.match(protocolFieldsSource, /<V2NodeProtocolSelectionFields/);
+    assert.match(protocolFieldsSource, /<V2NodeTransportFields/);
+    assert.match(protocolSelectionFieldsSource, /function V2NodeProtocolSelectionFields/);
+    assert.match(protocolSelectionFieldsSource, /节点协议/);
+    assert.match(transportFieldsSource, /function V2NodeTransportFields/);
     assert.match(protocolSpecificFieldsSource, /function V2NodeProtocolSpecificFields/);
     assert.match(protocolSpecificFieldsSource, /switch \(server\.protocol\)/);
     assert.match(hysteria2FieldsSource, /混淆方式obfs/);

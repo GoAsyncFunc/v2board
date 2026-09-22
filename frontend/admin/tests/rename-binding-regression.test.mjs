@@ -76,6 +76,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/V2NodeEditor.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSelectionFields.tsx',
+    'admin/src/pages/server/manage/_Editors/V2Node/TransportFields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx',
     'admin/src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/TuicFields.tsx',
