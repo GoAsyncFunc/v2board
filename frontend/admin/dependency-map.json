@@ -1484,8 +1484,20 @@
     "to": "components/common/FilterDrawer.tsx"
   },
   {
-    "from": "pages/user/_List/index.tsx",
+    "from": "pages/user/_List/actions.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
+  },
+  {
+    "from": "pages/user/_List/actions.tsx",
+    "to": "components/user/TrafficPanel.tsx"
+  },
+  {
+    "from": "pages/user/_List/actions.tsx",
+    "to": "pages/user/_Drawer/edit.tsx"
+  },
+  {
+    "from": "pages/user/_List/actions.tsx",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/user/_List/index.tsx",
@@ -1493,19 +1505,15 @@
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "components/user/TrafficPanel.tsx"
+    "to": "pages/user/_List/actions.tsx"
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "pages/user/_Drawer/edit.tsx"
+    "to": "pages/user/_List/userColumns.tsx"
   },
   {
-    "from": "pages/user/_List/index.tsx",
+    "from": "pages/user/_List/userColumns.tsx",
     "to": "pages/user/_List/columns.tsx"
-  },
-  {
-    "from": "pages/user/_List/index.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/user/_Modal/generate.tsx",

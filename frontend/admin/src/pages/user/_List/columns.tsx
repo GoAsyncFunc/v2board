@@ -3,6 +3,7 @@ import Badge from 'antd/lib/badge';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
+import type { UserGroupOption, UserRecord } from '../../../types/user';
 
 export type UserTimestamp = number | string | null | undefined;
 
