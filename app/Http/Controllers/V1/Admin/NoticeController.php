@@ -41,6 +41,14 @@ class NoticeController extends Controller
         ]);
     }
 
+    public function update(NoticeSave $request)
+    {
+        $notice = Notice::find($request->input('id'));
+        if (!$notice) abort(404, '公告不存在');
+        $notice->update($request->only(['title', 'content', 'img_url', 'tags']));
+        return response(['data' => true]);
+    }
+
 
 
     public function show(Request $request)

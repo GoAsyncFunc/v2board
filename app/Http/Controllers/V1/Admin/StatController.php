@@ -18,11 +18,56 @@ use App\Models\StatServer;
 use App\Models\StatUser;
 use App\Models\Ticket;
 use App\Models\User;
+use App\Services\StatisticalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class StatController extends Controller
 {
+    private function period(Request $request): array
+    {
+        $endAt = $request->input('end_at') ? (int) $request->input('end_at') : strtotime(date('Y-m-d'));
+        $startAt = $request->input('start_at') ? (int) $request->input('start_at') : strtotime('-1 day', $endAt);
+        if ($startAt >= $endAt) abort(422, '统计时间范围无效');
+        return [$startAt, $endAt];
+    }
+
+    public function getStat(Request $request)
+    {
+        [$startAt, $endAt] = $this->period($request);
+        $service = new StatisticalService();
+        $service->setStartAt($startAt);
+        $service->setEndAt($endAt);
+        return response(['data' => $service->generateStatData()]);
+    }
+
+    public function getStatRecord(Request $request)
+    {
+        [$startAt, $endAt] = $this->period($request);
+        $type = $request->input('type', 'paid_total');
+        if (!in_array($type, ['paid_total', 'commission_total', 'register_count'], true)) {
+            abort(422, '统计记录类型无效');
+        }
+        $service = new StatisticalService();
+        $service->setStartAt($startAt);
+        $service->setEndAt($endAt);
+        return response(['data' => $service->getStatRecord($type)]);
+    }
+
+    public function getRanking(Request $request)
+    {
+        [$startAt, $endAt] = $this->period($request);
+        $type = $request->input('type', 'user_consumption_rank');
+        if (!in_array($type, ['server_traffic_rank', 'user_consumption_rank', 'invite_rank'], true)) {
+            abort(422, '排行类型无效');
+        }
+        $limit = min(max((int) $request->input('limit', 20), 1), 100);
+        $service = new StatisticalService();
+        $service->setStartAt($startAt);
+        $service->setEndAt($endAt);
+        return response(['data' => $service->getRanking($type, $limit)]);
+    }
+
     public function getOverride(Request $request)
     {
         return [
@@ -293,4 +338,3 @@ class StatController extends Controller
     }
 
 }
-
