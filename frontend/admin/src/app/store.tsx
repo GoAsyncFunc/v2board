@@ -26,7 +26,7 @@ import serverTuic from '../models/serverTuic';
 import serverV2node from '../models/serverV2node';
 import serverVless from '../models/serverVless';
 import serverVmess from '../models/serverVmess';
-import stat from '../models/stat';
+import dashboardStatistics from '../models/dashboardStatistics';
 import system from '../models/system';
 import theme from '../models/theme';
 import ticket from '../models/ticket';
@@ -64,7 +64,7 @@ const models = {
     serverVmess,
     serverAnyTLS,
     serverV2node,
-    stat,
+    stat: dashboardStatistics,
     system,
     theme,
     ticket,

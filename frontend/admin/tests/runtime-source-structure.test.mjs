@@ -388,29 +388,31 @@ test('admin model composition uses named business effects instead of module alia
     assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
 
     const modelDirectory = new URL('../src/models/', import.meta.url);
-    const directModelNamespaces = [
-        'auth',
-        'config',
-        'coupon',
-        'giftcard',
-        'knowledge',
-        'layout',
-        'notice',
-        'order',
-        'passport',
-        'payment',
-        'plan',
-        'serverGroup',
-        'serverManage',
-        'serverRoute',
-        'stat',
-        'system',
-        'theme',
-        'ticket',
-        'user',
+    const directModels = [
+        ...[
+            'auth',
+            'config',
+            'coupon',
+            'giftcard',
+            'knowledge',
+            'layout',
+            'notice',
+            'order',
+            'passport',
+            'payment',
+            'plan',
+            'serverGroup',
+            'serverManage',
+            'serverRoute',
+            'system',
+            'theme',
+            'ticket',
+            'user',
+        ].map((namespace) => ({ file: namespace, namespace })),
+        { file: 'dashboardStatistics', namespace: 'stat' },
     ];
-    for (const namespace of directModelNamespaces) {
-        const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+    for (const { file, namespace } of directModels) {
+        const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');
         assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
         assert.doesNotMatch(source, /export default\s*{\s*name:/);
     }
@@ -761,7 +763,9 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
     assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
     assert.ok(
-        (await fs.readdir(new URL('_List/', giftcardDirectory))).includes('GiftcardDisplayColumns.tsx'),
+        (await fs.readdir(new URL('_List/', giftcardDirectory))).includes(
+            'GiftcardDisplayColumns.tsx',
+        ),
     );
     assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
     const planDirectory = new URL('plan/', pagesDirectory);
@@ -807,9 +811,7 @@ test('admin pages select from the canonical root state', async () => {
         (await fs.readdir(new URL('_List/', userDirectory))).includes('UserDisplayColumns.tsx'),
     );
     assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('UserGenerator.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'),
-    );
+    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'));
     const noticeDirectory = new URL('notice/', pagesDirectory);
     assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -1080,7 +1082,10 @@ test('Trojan network settings use the server model value contract', async () => 
         'utf8',
     );
     assert.match(networkSource, /value\?: ServerRecord\['network_settings'\]/);
-    assert.match(networkSource, /formatNetworkSettings\(value: ServerRecord\['network_settings'\]\)/);
+    assert.match(
+        networkSource,
+        /formatNetworkSettings\(value: ServerRecord\['network_settings'\]\)/,
+    );
     assert.doesNotMatch(networkSource, /value\?: unknown|formatNetworkSettings\(value: unknown\)/);
 });
 

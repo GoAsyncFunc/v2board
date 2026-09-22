@@ -50,22 +50,22 @@ function runEffect(model, effect, response) {
   return { puts, completed };
 }
 
-test('stat model uses semantic endpoints and only completes successful requests', async () => {
+test('dashboard statistics model uses semantic endpoints and only completes successful requests', async () => {
   const effects = ['getOrder', 'getServerLastRank', 'getServerTodayRank', 'getUserTodayRank', 'getUserLastRank'];
   for (const effect of effects) {
-    const successful = await loadModel('stat');
+    const successful = await loadModel('dashboardStatistics');
     const data = [{ total: 3 }];
     const result = runEffect(successful.model, effect, { code: 200, data });
     assert.equal(successful.requests[0], `/admin-path/stat/${effect}`);
     assert.deepEqual(result.completed, [data]);
 
-    const failed = await loadModel('stat');
+    const failed = await loadModel('dashboardStatistics');
     assert.deepEqual(runEffect(failed.model, effect, { code: 422, data }).completed, []);
   }
 });
 
-test('stat override stores dashboard totals after success', async () => {
-  const { model, requests } = await loadModel('stat');
+test('dashboard statistics override stores dashboard totals after success', async () => {
+  const { model, requests } = await loadModel('dashboardStatistics');
   const data = { online_user: 4, day_income: 1200 };
   const result = runEffect(model, 'getOverride', { code: 200, data });
   assert.deepEqual(requests, ['/admin-path/stat/getOverride']);
