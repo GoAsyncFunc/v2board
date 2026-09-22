@@ -22,6 +22,18 @@ use Illuminate\Support\Facades\Cache;
 
 class UserController extends Controller
 {
+    public function setInviteUser(Request $request)
+    {
+        $user = User::find($request->input('id'));
+        if (!$user) abort(404, '用户不存在');
+        $email = trim((string) $request->input('invite_user_email', ''));
+        $inviter = $email === '' ? null : User::where('email', $email)->first();
+        if ($email !== '' && !$inviter) abort(404, '邀请人不存在');
+        if ($inviter && $inviter->id === $user->id) abort(422, '用户不能邀请自己');
+        $user->invite_user_id = $inviter?->id;
+        return response(['data' => $user->save()]);
+    }
+
     public function resetSecret(Request $request)
     {
         $user = User::find($request->input('id'));
@@ -114,6 +126,9 @@ class UserController extends Controller
             abort(500, '参数错误');
         }
         $user = User::find($request->input('id'));
+        if (!$user) {
+            abort(404, '用户不存在');
+        }
         if ($user->invite_user_id) {
             $user['invite_user'] = User::find($user->invite_user_id);
         }
