@@ -25,8 +25,8 @@ async function load(componentName) {
   const componentPaths = {
     AssignOrderEditor: '../src/components/commerce/AssignOrderEditor.tsx',
     PermissionGroupEditor: '../src/components/common/PermissionGroupEditor.tsx',
-    SendMailEditor: '../src/pages/user/_Modal/SendMailEditor.tsx',
-    UserGenerator: '../src/pages/user/_Modal/UserGenerator.tsx',
+    SendMailEditor: '../src/pages/user/components/SendMailEditor.tsx',
+    UserGenerator: '../src/pages/user/components/UserGenerator.tsx',
   };
   const source = await fs.readFile(new URL(componentPaths[componentName], import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });

@@ -4,9 +4,9 @@ import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
 import Tooltip from 'antd/lib/tooltip';
-import UserFilterDrawer from '../_Drawer/UserFilterDrawer';
-import SendMailEditor from '../_Modal/SendMailEditor';
-import UserGenerator from '../_Modal/UserGenerator';
+import UserFilterDrawer from './UserFilterDrawer';
+import SendMailEditor from './SendMailEditor';
+import UserGenerator from './UserGenerator';
 import type { FilterItem } from '../../../types/filter';
 import type { UserPlanOption } from '../../../types/user';
 

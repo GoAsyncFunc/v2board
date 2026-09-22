@@ -81,7 +81,7 @@ async function loadSource(path, extra = {}) {
                 };
             if (id.includes('UserDisplayColumns'))
                 return { createReadonlyUserEmailColumn: () => ({ key: 'email' }) };
-            if (id.includes('/_Drawer/UserFilterDrawer'))
+            if (id.includes('/components/UserFilterDrawer'))
                 return {
                     __esModule: true,
                     createUserFilterFields: (plans) =>
@@ -170,7 +170,7 @@ test('User search keeps the recovered 400ms debounce contract', async () => {
 });
 
 test('User editor fetches, updates, submits and clears its record on close', async () => {
-    const runtime = await loadSource('../src/pages/user/_Drawer/UserEditor.tsx');
+    const runtime = await loadSource('../src/pages/user/components/UserEditor.tsx');
     const actions = [];
     const editor = new runtime.UserEditor({
         userId: 7,

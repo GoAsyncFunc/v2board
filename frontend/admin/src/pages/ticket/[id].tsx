@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
 import message from 'antd/lib/message';
 import { ticketDetailClassNames as styles } from '../../styles/ticketDetail';
-import UserEditor from '../user/_Drawer/UserEditor';
+import UserEditor from '../user/components/UserEditor';
 import TrafficPanel from '../../components/user/TrafficPanel';
 import { formatDateTime } from '../../components/common/DateTimeDisplay';
 import type { AdminDispatch, AdminRootState } from '../../types/store';

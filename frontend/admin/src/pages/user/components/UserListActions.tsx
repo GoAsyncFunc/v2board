@@ -5,7 +5,7 @@ import Menu from 'antd/lib/menu';
 import AssignOrderEditor from '../../../components/commerce/AssignOrderEditor';
 import TrafficPanel from '../../../components/user/TrafficPanel';
 import { copyToClipboard } from '../../../utils/siteHelpers';
-import UserEditor from '../_Drawer/UserEditor';
+import UserEditor from './UserEditor';
 import type { UserRecord } from '../../../types/user';
 
 export interface UserListActions {

@@ -45,7 +45,7 @@ async function loadPage() {
         destroy: () => messages.push(['destroy']),
       } };
       if (id.includes('styles/ticketDetail')) return { ticketDetailClassNames: { tag: 'tag', controls: 'ctrl', content: 'content', input: 'input' } };
-      if (id.includes('UserEditor') || id.includes('/_Drawer/UserEditor')) return 'UserEditor';
+      if (id.includes('UserEditor') || id.includes('/components/UserEditor')) return 'UserEditor';
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
       if (id.includes('DateTimeDisplay')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('iconStyles')) return {};

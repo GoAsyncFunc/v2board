@@ -844,19 +844,28 @@ test('admin pages select from the canonical root state', async () => {
     );
     const userDirectory = new URL('user/', pagesDirectory);
     assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(userDirectory)).includes('_Drawer'));
-    assert.ok((await fs.readdir(userDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(userDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('UserEditor.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_Drawer/', userDirectory))).includes('UserFilterDrawer.tsx'),
-    );
-    assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_List/', userDirectory))).includes('UserDisplayColumns.tsx'),
-    );
-    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('UserGenerator.tsx'));
-    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'));
+    assert.ok((await fs.readdir(userDirectory)).includes('components'));
+    const userComponentsDirectory = new URL('components/', userDirectory);
+    for (const component of [
+        'FormGroup.tsx',
+        'SendMailEditor.tsx',
+        'UserDisplayColumns.tsx',
+        'UserEditor.tsx',
+        'UserFilterDrawer.tsx',
+        'UserFormFields.tsx',
+        'UserGenerator.tsx',
+        'UserList.tsx',
+        'UserListActions.tsx',
+        'UserListColumns.tsx',
+        'UserMoneyFields.tsx',
+        'UserToolbar.tsx',
+        'UserTrafficFields.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(userComponentsDirectory)).includes(component),
+            `user components should include ${component}`,
+        );
+    }
     const noticeDirectory = new URL('notice/', pagesDirectory);
     assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('components'));
@@ -972,12 +981,12 @@ test('admin components use business domains and connected editors use the canoni
         '../src/components/commerce/AssignOrderEditor.tsx',
         '../src/pages/server/manage/_Editors/HysteriaEditor.tsx',
         '../src/components/common/PermissionGroupEditor.tsx',
-        '../src/pages/user/_Modal/SendMailEditor.tsx',
+        '../src/pages/user/components/SendMailEditor.tsx',
         '../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
         '../src/pages/server/manage/_Editors/TrojanEditor.tsx',
         '../src/pages/server/manage/_Editors/TuicEditor.tsx',
-        '../src/pages/user/_Drawer/UserEditor.tsx',
-        '../src/pages/user/_Modal/UserGenerator.tsx',
+        '../src/pages/user/components/UserEditor.tsx',
+        '../src/pages/user/components/UserGenerator.tsx',
         '../src/pages/server/manage/_Editors/V2NodeEditor.tsx',
         '../src/pages/server/manage/_Editors/VlessEditor.tsx',
         '../src/pages/server/manage/_Editors/VmessEditor.tsx',

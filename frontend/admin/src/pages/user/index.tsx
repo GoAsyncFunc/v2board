@@ -7,9 +7,9 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout';
-import UserFilterDrawer, { createUserFilterFields } from './_Drawer/UserFilterDrawer';
-import { UserList, type UserSorter } from './_List';
-import UserToolbar from './_Toolbar';
+import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
+import { UserList, type UserSorter } from './components/UserList';
+import UserToolbar from './components/UserToolbar';
 import type { FilterField, FilterValue } from '../../types/filter';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type {
@@ -166,10 +166,10 @@ export class UserPage extends React.Component<UserPageProps> {
     }
 }
 
-export { UserList } from './_List';
-export { UserEditor } from './_Drawer/UserEditor';
-export { SendMailEditor } from './_Modal/SendMailEditor';
-export { UserGenerator } from './_Modal/UserGenerator';
+export { UserList } from './components/UserList';
+export { UserEditor } from './components/UserEditor';
+export { SendMailEditor } from './components/SendMailEditor';
+export { UserGenerator } from './components/UserGenerator';
 
 export default connect((state: AdminRootState) => ({
     user: state.user,
