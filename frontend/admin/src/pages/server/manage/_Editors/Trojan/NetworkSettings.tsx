@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import JsonEditor from '../../../../../components/common/JsonEditor';
+import type { ServerRecord } from '../../../../../types/server';
 
 export const NETWORK_PRESETS: Record<string, string> = {
     tcp: '',
@@ -10,12 +11,12 @@ export const NETWORK_PRESETS: Record<string, string> = {
 
 export interface TrojanNetworkSettingsProps {
     network?: string | null;
-    value?: unknown;
+    value?: ServerRecord['network_settings'];
     onChange: (value: string) => void;
     onClose?: () => void;
 }
 
-function formatNetworkSettings(value: unknown): string {
+function formatNetworkSettings(value: ServerRecord['network_settings']): string {
     if (typeof value === 'string') return value;
     return value ? JSON.stringify(value, null, 2) : '';
 }

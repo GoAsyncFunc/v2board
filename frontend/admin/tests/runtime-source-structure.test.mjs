@@ -1025,6 +1025,16 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
 });
 
+test('Trojan network settings use the server model value contract', async () => {
+    const networkSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(networkSource, /value\?: ServerRecord\['network_settings'\]/);
+    assert.match(networkSource, /formatNetworkSettings\(value: ServerRecord\['network_settings'\]\)/);
+    assert.doesNotMatch(networkSource, /value\?: unknown|formatNetworkSettings\(value: unknown\)/);
+});
+
 test('Vless editor composes focused general and relationship field modules', async () => {
     const editorSource = await fs.readFile(
         new URL('../src/pages/server/manage/_Editors/VlessEditor.tsx', import.meta.url),
