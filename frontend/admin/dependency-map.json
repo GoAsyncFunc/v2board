@@ -188,7 +188,7 @@
     "to": "runtime/pluginRuntime.ts"
   },
   {
-    "from": "components/commerce/AssignOrderEditor.tsx",
+    "from": "components/order/AssignOrderEditor.tsx",
     "to": "config/adminSettings.ts"
   },
   {
@@ -917,11 +917,11 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "components/commerce/AssignOrderEditor.tsx"
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "to": "components/order/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/order/index.tsx",
@@ -1541,7 +1541,7 @@
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
-    "to": "components/commerce/AssignOrderEditor.tsx"
+    "to": "components/order/AssignOrderEditor.tsx"
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
