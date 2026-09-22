@@ -20,10 +20,10 @@ import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../ty
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import DashboardNavigation from './_Nav';
 import DashboardOverview from './_Overview';
-import { rankChartOption, RankChart } from './_Charts';
+import { createRankChartOption, RankChart } from './_ServerRank';
 import { createOrderChartOption } from './chartOptions';
 
-export { rankChartOption } from './_Charts';
+export { createRankChartOption } from './_ServerRank';
 
 echarts.use([
     LineChart,
@@ -88,7 +88,7 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
     ): void {
         const chart = echarts.init(ref.current);
         this[propertyName] = chart;
-        chart.setOption(rankChartOption(data, getLabel));
+        chart.setOption(createRankChartOption(data, getLabel));
     }
 
     chartResize(): void {

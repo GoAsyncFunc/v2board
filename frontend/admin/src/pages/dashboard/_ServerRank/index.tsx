@@ -10,7 +10,7 @@ interface RankChartOption extends EChartsCoreOption {
     series: Array<{ data: number[]; type: string }>;
 }
 
-export function rankChartOption(
+export function createRankChartOption(
     data: RankChartRecord[],
     getLabel: (item: RankChartRecord) => string | undefined,
 ) {

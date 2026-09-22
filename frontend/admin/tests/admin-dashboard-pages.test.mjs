@@ -121,9 +121,9 @@ async function loadDashboard() {
                 };
             if (id === './_Nav') return () => null;
             if (id === './_Overview') return () => null;
-            if (id === './_Charts')
+            if (id === './_ServerRank')
                 return {
-                    rankChartOption: (data, getLabel) => ({
+                    createRankChartOption: (data, getLabel) => ({
                         tooltip: {
                             trigger: 'axis',
                             formatter: (values) => `${values[0].value} GB`,
@@ -187,8 +187,8 @@ test('order chart options keep dates and values grouped by order type', async ()
 });
 
 test('Dashboard builds ranked chart options in reverse display order', async () => {
-    const { rankChartOption } = await loadDashboard();
-    const option = rankChartOption(
+    const { createRankChartOption } = await loadDashboard();
+    const option = createRankChartOption(
         [
             { server_name: 'A', total: 1 },
             { server_name: 'B', total: 2 },

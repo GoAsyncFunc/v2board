@@ -741,15 +741,15 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/_Charts/index.tsx"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
     "to": "pages/dashboard/_Nav/index.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
     "to": "pages/dashboard/_Overview/index.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/_ServerRank/index.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
