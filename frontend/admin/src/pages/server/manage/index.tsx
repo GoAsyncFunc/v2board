@@ -8,14 +8,17 @@ import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpe
 import MainLayout from '../../../layouts/MainLayout';
 import ContextMenuTable from '../../../components/common/ContextMenuTable';
 import { serverModelNamespace } from './_Editors/ServerEditorRegistry';
-import { createServerManageColumns, createServerSortColumns } from './_List/ServerManageColumns';
-import ServerManageMobileList from './_List/ServerManageMobileList';
+import {
+    createServerManageColumns,
+    createServerSortColumns,
+} from './components/ServerManageColumns';
+import ServerManageMobileList from './components/ServerManageMobileList';
 import {
     createServerContextMenu,
     ServerActionDropdown,
     type ServerManageActions,
-} from './_List/ServerManageActions';
-import { ServerManageToolbar } from './_List/ServerManageToolbar';
+} from './components/ServerManageActions';
+import { ServerManageToolbar } from './components/ServerManageToolbar';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     ManagedServerRecord,

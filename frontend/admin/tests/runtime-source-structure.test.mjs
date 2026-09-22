@@ -931,8 +931,27 @@ test('admin components use business domains and connected editors use the canoni
         'utf8',
     );
     assert.match(serverManagePage, /from ['"]\.\/\_Editors\/ServerEditorRegistry['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/\_List\/ServerManageColumns['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/\_List\/ServerManageMobileList['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageColumns['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageMobileList['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageActions['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageToolbar['"]/);
+    const serverManageDirectory = new URL('../src/pages/server/manage/', import.meta.url);
+    assert.ok((await fs.readdir(serverManageDirectory)).includes('components'));
+    const serverManageComponentsDirectory = new URL('components/', serverManageDirectory);
+    for (const component of [
+        'ServerManageActions.tsx',
+        'ServerManageColumns.tsx',
+        'ServerManageMobileList.tsx',
+        'ServerManageToolbar.tsx',
+        'ServerNameColumn.tsx',
+        'ServerRateColumn.tsx',
+        'ServerTypeTag.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(serverManageComponentsDirectory)).includes(component),
+            `server manage components should include ${component}`,
+        );
+    }
     assert.doesNotMatch(
         serverManagePage,
         /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/,

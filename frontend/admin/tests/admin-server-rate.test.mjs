@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original, factoryOnly=false){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-rate.cjs':'../src/pages/server/manage/_List/ServerRateColumn.tsx',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-server-rate.cjs':'../src/pages/server/manage/components/ServerRateColumn.tsx',import.meta.url);
  const text=await fs.readFile(file,'utf8');vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tooltip')return 'Tooltip';if(id==='antd/lib/icon')return 'Icon';if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('Icon'))return {a:'Icon',Icon:'Icon'};if(id.includes('antdTag'))return {a:'Tag'};
         throw Error(id);}});
  const factory=original?()=>module.exports({a:React},{a:'Tooltip'},{a:'Icon'},{a:'Tag'}):module.exports.createServerRateColumn;

@@ -1137,7 +1137,7 @@
   },
   {
     "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+    "to": "pages/server/manage/components/ServerTypeTag.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/ServerSecuritySettings.tsx",
@@ -1348,39 +1348,39 @@
     "to": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageActions.tsx",
+    "from": "pages/server/manage/components/ServerManageActions.tsx",
     "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
     "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
-    "to": "pages/server/manage/_List/ServerNameColumn.tsx"
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
+    "to": "pages/server/manage/components/ServerNameColumn.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
-    "to": "pages/server/manage/_List/ServerRateColumn.tsx"
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
+    "to": "pages/server/manage/components/ServerRateColumn.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
-    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
+    "to": "pages/server/manage/components/ServerTypeTag.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageColumns.tsx",
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
     "to": "utils/clipboard.ts"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageMobileList.tsx",
-    "to": "pages/server/manage/_List/ServerManageColumns.tsx"
+    "from": "pages/server/manage/components/ServerManageMobileList.tsx",
+    "to": "pages/server/manage/components/ServerManageColumns.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageMobileList.tsx",
-    "to": "pages/server/manage/_List/ServerTypeTag.tsx"
+    "from": "pages/server/manage/components/ServerManageMobileList.tsx",
+    "to": "pages/server/manage/components/ServerTypeTag.tsx"
   },
   {
-    "from": "pages/server/manage/_List/ServerManageToolbar.tsx",
+    "from": "pages/server/manage/components/ServerManageToolbar.tsx",
     "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
   },
   {
@@ -1405,19 +1405,19 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/_List/ServerManageActions.tsx"
+    "to": "pages/server/manage/components/ServerManageActions.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/_List/ServerManageColumns.tsx"
+    "to": "pages/server/manage/components/ServerManageColumns.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/_List/ServerManageMobileList.tsx"
+    "to": "pages/server/manage/components/ServerManageMobileList.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/_List/ServerManageToolbar.tsx"
+    "to": "pages/server/manage/components/ServerManageToolbar.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
