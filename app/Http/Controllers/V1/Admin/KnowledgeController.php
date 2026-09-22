@@ -45,7 +45,9 @@ class KnowledgeController extends Controller
             }
         } else {
             try {
-                Knowledge::find($request->input('id'))->update($params);
+                $knowledge = Knowledge::find($request->input('id'));
+                if (!$knowledge) abort(404, '知识不存在');
+                $knowledge->update($params);
             } catch (\Exception $e) {
                 abort(500, '保存失败');
             }

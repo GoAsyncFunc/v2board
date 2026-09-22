@@ -69,17 +69,16 @@ class PlanController extends Controller
 
     public function drop(Request $request)
     {
+        if (!$request->input('id')) abort(422, '订阅ID不能为空');
         if (Order::where('plan_id', $request->input('id'))->first()) {
             abort(500, '该订阅下存在订单无法删除');
         }
         if (User::where('plan_id', $request->input('id'))->first()) {
             abort(500, '该订阅下存在用户无法删除');
         }
-        if ($request->input('id')) {
-            $plan = Plan::find($request->input('id'));
-            if (!$plan) {
-                abort(500, '该订阅ID不存在');
-            }
+        $plan = Plan::find($request->input('id'));
+        if (!$plan) {
+            abort(404, '该订阅ID不存在');
         }
         return response([
             'data' => $plan->delete()
@@ -113,7 +112,12 @@ class PlanController extends Controller
     {
         DB::beginTransaction();
         foreach ($request->input('plan_ids') as $k => $v) {
-            if (!Plan::find($v)->update(['sort' => $k + 1])) {
+            $plan = Plan::find($v);
+            if (!$plan) {
+                DB::rollBack();
+                abort(404, '订阅不存在');
+            }
+            if (!$plan->update(['sort' => $k + 1])) {
                 DB::rollBack();
                 abort(500, '保存失败');
             }
