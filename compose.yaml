@@ -1,0 +1,109 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: v2board-app
+    restart: unless-stopped
+    ports:
+      - "7003:80"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://127.0.0.1:7003
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: v2board
+      DB_USERNAME: v2board
+      DB_PASSWORD: v2board
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: null
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_CONNECTION: redis
+      V2BOARD_ADMIN_EMAIL: admin@example.com
+      V2BOARD_ADMIN_PASSWORD: admin123456
+      V2BOARD_SECURE_PATH: admin
+      V2BOARD_ADMIN_SOURCE_BUILD: "true"
+      V2BOARD_UI_VERSION: admin-source-20260922.1326
+      UI_VERSION: admin-source-20260922.1326
+    volumes:
+      - .:/var/www/html
+      - composer-cache:/tmp/composer-cache
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  horizon:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: v2board-horizon
+    restart: unless-stopped
+    command: php artisan horizon
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://127.0.0.1:7003
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: v2board
+      DB_USERNAME: v2board
+      DB_PASSWORD: v2board
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: null
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_CONNECTION: redis
+      V2BOARD_ADMIN_EMAIL: admin@example.com
+      V2BOARD_ADMIN_PASSWORD: admin123456
+      V2BOARD_SECURE_PATH: admin
+    volumes:
+      - .:/var/www/html
+      - composer-cache:/tmp/composer-cache
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:8.0
+    container_name: v2board-mysql
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: v2board
+      MYSQL_USER: v2board
+      MYSQL_PASSWORD: v2board
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:7-alpine
+    container_name: v2board-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  mysql-data:
+  redis-data:
+  composer-cache:

@@ -45,7 +45,7 @@ Route::get('/' . config('v2board.secure_path', config('v2board.frontend_admin_pa
         'theme_header' => config('v2board.frontend_theme_header', 'dark'),
         'theme_color' => config('v2board.frontend_theme_color', 'default'),
         'background_url' => config('v2board.frontend_background_url'),
-        'version' => config('app.version'),
+        'version' => config('v2board.ui_version', config('app.version')),
         'logo' => config('v2board.logo'),
         'secure_path' => config('v2board.secure_path', config('v2board.frontend_admin_path', hash('crc32b', config('app.key'))))
     ]);

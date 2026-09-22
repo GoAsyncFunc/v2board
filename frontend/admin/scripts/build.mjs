@@ -5,12 +5,16 @@ import { build } from 'esbuild';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(appRoot, 'dist');
+const uiVersion = process.env.UI_VERSION || 'admin-source-20260922.1326';
 
 export async function buildApp() {
   await fs.rm(destination, { recursive: true, force: true });
   await fs.mkdir(destination, { recursive: true });
   await fs.cp(path.join(appRoot, 'public'), destination, { recursive: true });
   await fs.copyFile(path.join(appRoot, 'index.html'), path.join(destination, 'index.html'));
+  const settingsPath = path.join(destination, 'settings.js');
+  const settings = await fs.readFile(settingsPath, 'utf8');
+  await fs.writeFile(settingsPath, settings.replace(/("version":\s*")[^"]*(")/, `$1${uiVersion}$2`));
 
   const result = await build({
     absWorkingDir: appRoot,
@@ -37,7 +41,7 @@ export async function buildApp() {
 
   await fs.writeFile(
     path.join(destination, 'source-build.json'),
-    `${JSON.stringify({ application: 'admin', inputs, standaloneBuild: true }, null, 2)}\n`,
+    `${JSON.stringify({ application: 'admin', inputs, standaloneBuild: true, uiVersion }, null, 2)}\n`,
   );
   console.log(`admin: ${inputs.length} source/dependency files -> dist/app.js`);
 }

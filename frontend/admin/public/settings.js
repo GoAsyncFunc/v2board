@@ -4,7 +4,7 @@ window.settings = {
   "title": "V2Board",
   "description": "V2Board is best",
   "host": "",
-  "version": "recovered",
+  "version": "admin-source-20260922.1326",
   "theme": {
     "sidebar": "light",
     "header": "dark",
