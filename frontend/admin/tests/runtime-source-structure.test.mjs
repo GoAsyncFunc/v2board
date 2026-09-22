@@ -813,6 +813,20 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardList.tsx'));
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardColumns.tsx'));
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardEditor.tsx'));
+    const dashboardDirectory = new URL('dashboard/', pagesDirectory);
+    assert.ok((await fs.readdir(dashboardDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(dashboardDirectory)).includes('components'));
+    const dashboardComponentsDirectory = new URL('components/', dashboardDirectory);
+    for (const component of [
+        'DashboardNavigation.tsx',
+        'DashboardOverview.tsx',
+        'DashboardServerRank.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(dashboardComponentsDirectory)).includes(component),
+            `dashboard components should include ${component}`,
+        );
+    }
     const planDirectory = new URL('plan/', pagesDirectory);
     assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(planDirectory)).includes('components'));

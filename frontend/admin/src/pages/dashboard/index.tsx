@@ -18,12 +18,12 @@ import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
-import DashboardNavigation from './_Nav';
-import DashboardOverview from './_Overview';
-import { createRankChartOption, RankChart } from './_ServerRank';
+import DashboardNavigation from './components/DashboardNavigation';
+import DashboardOverview from './components/DashboardOverview';
+import { createRankChartOption, RankChart } from './components/DashboardServerRank';
 import { createOrderChartOption } from './chartOptions';
 
-export { createRankChartOption } from './_ServerRank';
+export { createRankChartOption } from './components/DashboardServerRank';
 
 echarts.use([
     LineChart,

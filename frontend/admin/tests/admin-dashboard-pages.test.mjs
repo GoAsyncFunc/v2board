@@ -119,9 +119,9 @@ async function loadDashboard() {
                     formatIncome: (value) => `income:${value}`,
                     formatLiveCount: (value) => value || '0',
                 };
-            if (id === './_Nav') return () => null;
-            if (id === './_Overview') return () => null;
-            if (id === './_ServerRank')
+            if (id === './components/DashboardNavigation') return () => null;
+            if (id === './components/DashboardOverview') return () => null;
+            if (id === './components/DashboardServerRank')
                 return {
                     createRankChartOption: (data, getLabel) => ({
                         tooltip: {
