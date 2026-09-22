@@ -1380,6 +1380,10 @@
     "to": "pages/server/manage/_List/ServerTypeTag.tsx"
   },
   {
+    "from": "pages/server/manage/_List/ServerManageToolbar.tsx",
+    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+  },
+  {
     "from": "pages/server/manage/index.tsx",
     "to": "components/common/ContextMenuTable.tsx"
   },
@@ -1410,6 +1414,10 @@
   {
     "from": "pages/server/manage/index.tsx",
     "to": "pages/server/manage/_List/ServerManageMobileList.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/_List/ServerManageToolbar.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
