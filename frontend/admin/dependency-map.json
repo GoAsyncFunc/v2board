@@ -1504,6 +1504,22 @@
     "to": "components/common/NullableSelectOption.tsx"
   },
   {
+    "from": "pages/user/_Drawer/UserFormFields.tsx",
+    "to": "pages/user/_Drawer/FormGroup.tsx"
+  },
+  {
+    "from": "pages/user/_Drawer/UserFormFields.tsx",
+    "to": "pages/user/_Drawer/UserMoneyFields.tsx"
+  },
+  {
+    "from": "pages/user/_Drawer/UserFormFields.tsx",
+    "to": "pages/user/_Drawer/UserTrafficFields.tsx"
+  },
+  {
+    "from": "pages/user/_Drawer/UserTrafficFields.tsx",
+    "to": "pages/user/_Drawer/FormGroup.tsx"
+  },
+  {
     "from": "pages/user/_Drawer/edit.tsx",
     "to": "pages/user/_Drawer/UserFormFields.tsx"
   },
