@@ -1052,12 +1052,20 @@
     "to": "pages/server/manage/_Editors/Security/TlsSettings.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
+    "from": "pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/_Editors/Shadowsocks/RelationshipFields.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",

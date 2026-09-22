@@ -262,6 +262,20 @@ test('Shadowsocks security settings live in a focused protocol module', async ()
         ),
         'utf8',
     );
+    const generalFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Shadowsocks/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     assert.match(
         editorSource,
         /import \{ ShadowsocksSecuritySettings \} from '\.\/Shadowsocks\/SecuritySettings'/,
@@ -269,6 +283,10 @@ test('Shadowsocks security settings live in a focused protocol module', async ()
     assert.match(editorSource, /<ShadowsocksSecuritySettings/);
     assert.match(securitySource, /export const SHADOWSOCKS_CIPHERS/);
     assert.match(securitySource, /export function ShadowsocksSecuritySettings/);
+    assert.match(editorSource, /<ShadowsocksGeneralFields/);
+    assert.match(editorSource, /<ShadowsocksRelationshipFields/);
+    assert.match(generalFieldsSource, /export function ShadowsocksGeneralFields/);
+    assert.match(relationshipFieldsSource, /export function ShadowsocksRelationshipFields/);
     assert.doesNotMatch(editorSource, /加密算法|混淆/);
 });
 

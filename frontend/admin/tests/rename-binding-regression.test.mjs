@@ -36,6 +36,8 @@ for (const file of [
     'admin/src/pages/config/system/_Tabs/TelegramConfigTab.tsx',
     'admin/src/pages/config/system/_Tabs/TicketConfigTab.tsx',
     'admin/src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Shadowsocks/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Shadowsocks/SecuritySettings.tsx',
     'admin/src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
     'admin/src/pages/server/manage/_Editors/AnyTls/GeneralFields.tsx',
