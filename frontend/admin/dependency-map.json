@@ -1024,12 +1024,12 @@
     "to": "pages/queue/components/QueueColumns.ts"
   },
   {
-    "from": "pages/server/group/_List/index.tsx",
+    "from": "pages/server/group/components/ServerGroupList.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
-    "from": "pages/server/group/_List/index.tsx",
-    "to": "pages/server/group/_List/ServerGroupDisplayColumns.tsx"
+    "from": "pages/server/group/components/ServerGroupList.tsx",
+    "to": "pages/server/group/components/ServerGroupColumns.tsx"
   },
   {
     "from": "pages/server/group/index.tsx",
@@ -1045,7 +1045,7 @@
   },
   {
     "from": "pages/server/group/index.tsx",
-    "to": "pages/server/group/_List/index.tsx"
+    "to": "pages/server/group/components/ServerGroupList.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/AnyTls/GeneralFields.tsx",
@@ -1424,28 +1424,28 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "pages/server/route/_List/index.tsx",
-    "to": "pages/server/route/_List/RouteActionColumn.ts"
-  },
-  {
-    "from": "pages/server/route/_List/index.tsx",
-    "to": "pages/server/route/_List/ServerRouteDisplayColumns.ts"
-  },
-  {
-    "from": "pages/server/route/_Modal/RouteActionField.tsx",
+    "from": "pages/server/route/components/RouteActionField.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/server/route/_Modal/index.tsx",
-    "to": "pages/server/route/_Modal/RouteActionField.tsx"
+    "from": "pages/server/route/components/RouteEditor.tsx",
+    "to": "pages/server/route/components/RouteActionField.tsx"
   },
   {
-    "from": "pages/server/route/_Modal/index.tsx",
-    "to": "pages/server/route/_Modal/RouteBasicFields.tsx"
+    "from": "pages/server/route/components/RouteEditor.tsx",
+    "to": "pages/server/route/components/RouteBasicFields.tsx"
   },
   {
-    "from": "pages/server/route/_Modal/index.tsx",
-    "to": "pages/server/route/_Modal/RouteMatchField.tsx"
+    "from": "pages/server/route/components/RouteEditor.tsx",
+    "to": "pages/server/route/components/RouteMatchField.tsx"
+  },
+  {
+    "from": "pages/server/route/components/ServerRouteList.tsx",
+    "to": "pages/server/route/components/RouteActionColumn.ts"
+  },
+  {
+    "from": "pages/server/route/components/ServerRouteList.tsx",
+    "to": "pages/server/route/components/ServerRouteColumns.ts"
   },
   {
     "from": "pages/server/route/index.tsx",
@@ -1461,11 +1461,11 @@
   },
   {
     "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/_List/index.tsx"
+    "to": "pages/server/route/components/RouteEditor.tsx"
   },
   {
     "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/_Modal/index.tsx"
+    "to": "pages/server/route/components/ServerRouteList.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",

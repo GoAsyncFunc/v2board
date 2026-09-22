@@ -3,8 +3,8 @@ import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createRouteActionColumn } from './RouteActionColumn';
-import { createReadonlyServerRouteColumns } from './ServerRouteDisplayColumns';
-import type { ServerRouteRecord } from '../_Modal';
+import { createReadonlyServerRouteColumns } from './ServerRouteColumns';
+import type { ServerRouteRecord } from './RouteEditor';
 
 interface ServerRouteListProps {
     routes: ServerRouteRecord[];

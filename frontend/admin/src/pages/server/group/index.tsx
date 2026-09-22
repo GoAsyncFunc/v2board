@@ -5,8 +5,8 @@ import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
-import ServerGroupList from './_List';
-import type { ServerGroupRecord } from './_List/ServerGroupDisplayColumns';
+import ServerGroupList from './components/ServerGroupList';
+import type { ServerGroupRecord } from './components/ServerGroupColumns';
 import type { ServerGroupState } from '../../../types/server';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 

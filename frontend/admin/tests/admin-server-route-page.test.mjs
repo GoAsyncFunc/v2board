@@ -45,7 +45,7 @@ async function loadModule(relativePath) {
             if (id === 'antd/lib/select')
                 return Object.assign('Select', { Option: 'Select.Option' });
             if (id.startsWith('antd/')) return id;
-            if (id.includes('RouteActionColumn') || id === './_List/RouteActionColumn')
+            if (id.includes('RouteActionColumn') || id === './RouteActionColumn')
                 return { createRouteActionColumn: () => ({ key: 'action' }) };
             if (id === './RouteActionField') return { RouteActionField: 'RouteActionField' };
             if (id === './RouteBasicFields') return { RouteBasicFields: 'RouteBasicFields' };
@@ -60,11 +60,11 @@ async function loadModule(relativePath) {
                             : `placeholder:${action || 'default'}`,
                 };
             }
-            if (id.includes('ServerRouteDisplayColumns') || id === './_List/ServerRouteDisplayColumns')
+            if (id.includes('ServerRouteColumns') || id === './ServerRouteColumns')
                 return {
                     createReadonlyServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),
                 };
-            if (id === './_List') {
+            if (id === './components/ServerRouteList') {
                 const ServerRouteList = ({ routes, renderEditor, onDelete }) => ({
                     type: 'antd/lib/table',
                     props: {
@@ -81,7 +81,7 @@ async function loadModule(relativePath) {
                 ServerRouteList.__testRender = true;
                 return ServerRouteList;
             }
-            if (id === './_Modal')
+            if (id === './components/RouteEditor')
                 return {
                     __esModule: true,
                     default: 'ConnectedRouteEditor',
@@ -95,7 +95,7 @@ async function loadModule(relativePath) {
 }
 
 const loadPage = () => loadModule('../src/pages/server/route/index.tsx');
-const loadEditor = () => loadModule('../src/pages/server/route/_Modal/index.tsx');
+const loadEditor = () => loadModule('../src/pages/server/route/components/RouteEditor.tsx');
 
 test('Route editor normalizes match values and closes after save', async () => {
     const runtime = await loadEditor();

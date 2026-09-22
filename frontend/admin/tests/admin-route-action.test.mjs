@@ -10,7 +10,7 @@ async function load(original, mapping) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-route-action.cjs'
-            : '../src/pages/server/route/_List/RouteActionColumn.ts',
+            : '../src/pages/server/route/components/RouteActionColumn.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');

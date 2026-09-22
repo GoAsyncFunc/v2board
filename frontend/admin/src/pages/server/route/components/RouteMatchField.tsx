@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
-import type { RouteAction, ServerRouteRecord } from './index';
+import type { RouteAction, ServerRouteRecord } from './RouteEditor';
 
 export function getRouteMatchPlaceholder(action: RouteAction | undefined): string {
     if (action === 'protocol') return 'http\ntls\nquic\nbittorrent';

@@ -5,8 +5,11 @@ import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import MainLayout from '../../../layouts/MainLayout';
 import { settings } from '../../../config/adminSettings';
-import ServerRouteList from './_List';
-import ConnectedRouteEditor, { RouteEditor, type ServerRouteRecord } from './_Modal';
+import ServerRouteList from './components/ServerRouteList';
+import ConnectedRouteEditor, {
+    RouteEditor,
+    type ServerRouteRecord,
+} from './components/RouteEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 
 interface ServerRoutePageProps {

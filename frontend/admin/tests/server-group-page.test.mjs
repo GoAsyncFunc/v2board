@@ -40,7 +40,7 @@ async function loadPage() {
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id.includes('PermissionGroupEditor')) return 'PermissionGroupEditor';
-            if (id === './_List') {
+            if (id === './components/ServerGroupList') {
                 const ServerGroupList = ({ groups, onDelete }) => ({
                     type: 'Table',
                     props: {
@@ -59,7 +59,7 @@ async function loadPage() {
                 ServerGroupList.__testRender = true;
                 return ServerGroupList;
             }
-            if (id.includes('ServerGroupDisplayColumns') || id === './_List/ServerGroupDisplayColumns')
+            if (id.includes('ServerGroupColumns') || id === './ServerGroupColumns')
                 return {
                     createReadonlyServerGroupColumns: () => ({
                         id: { key: 'id' },

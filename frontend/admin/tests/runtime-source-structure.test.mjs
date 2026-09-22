@@ -766,6 +766,32 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));
+    const serverGroupDirectory = new URL('server/group/', pagesDirectory);
+    assert.ok((await fs.readdir(serverGroupDirectory)).includes('components'));
+    const serverGroupComponentsDirectory = new URL('components/', serverGroupDirectory);
+    assert.ok(
+        (await fs.readdir(serverGroupComponentsDirectory)).includes('ServerGroupList.tsx'),
+    );
+    assert.ok(
+        (await fs.readdir(serverGroupComponentsDirectory)).includes('ServerGroupColumns.tsx'),
+    );
+    const serverRouteDirectory = new URL('server/route/', pagesDirectory);
+    assert.ok((await fs.readdir(serverRouteDirectory)).includes('components'));
+    const serverRouteComponentsDirectory = new URL('components/', serverRouteDirectory);
+    for (const component of [
+        'ServerRouteList.tsx',
+        'ServerRouteColumns.ts',
+        'RouteActionColumn.ts',
+        'RouteEditor.tsx',
+        'RouteActionField.tsx',
+        'RouteBasicFields.tsx',
+        'RouteMatchField.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(serverRouteComponentsDirectory)).includes(component),
+            `server route components should include ${component}`,
+        );
+    }
     const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
     assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(knowledgeDirectory)).includes('components'));

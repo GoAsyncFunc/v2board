@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { ServerRouteRecord } from './index';
+import type { ServerRouteRecord } from './RouteEditor';
 
 export interface RouteBasicFieldsProps {
     route: ServerRouteRecord;
