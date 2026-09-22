@@ -68,7 +68,8 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
                     },
                 };
             }
-            if (id.includes('types/api')) return { isSuccessfulResponse: (response) => response.code === 200 };
+            if (id.includes('types/api'))
+                return { isSuccessfulResponse: (response) => response.code === 200 };
             if (id.includes('adminSettings')) {
                 return {
                     settings: {
@@ -87,6 +88,9 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
             }
             if (id === './columns' || id.endsWith('/_List/columns')) {
                 return localModules.columns;
+            }
+            if (id === './orderColumns' || id.endsWith('/_List/orderColumns')) {
+                return localModules.orderColumns;
             }
             if (id.includes('FilterDrawer')) return 'FilterDrawer';
             if (id.includes('OrderDetailBody')) return localModules.detailBody;
@@ -114,7 +118,7 @@ async function loadPage() {
 }
 
 async function loadList() {
-    return loadModule('../src/pages/order/_List/index.tsx', {
+    const orderColumns = await loadModule('../src/pages/order/_List/orderColumns.tsx', {
         detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
         columns: {
             createReadonlyOrderColumns: () => ({
@@ -125,6 +129,10 @@ async function loadList() {
                 created_at: { key: 'created_at' },
             }),
         },
+    });
+    return loadModule('../src/pages/order/_List/index.tsx', {
+        detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
+        orderColumns,
     });
 }
 
@@ -214,13 +222,15 @@ test('Order page preserves lifecycle, filter and nested list composition', async
 test('Order list preserves status, commission and pagination actions', async () => {
     const runtime = await loadList();
     const actions = [];
-    const orders = [{
-        id: 7,
-        trade_no: 'TRADE',
-        status: 0,
-        commission_status: 0,
-        commission_balance: 100,
-    }];
+    const orders = [
+        {
+            id: 7,
+            trade_no: 'TRADE',
+            status: 0,
+            commission_status: 0,
+            commission_balance: 100,
+        },
+    ];
     const list = new runtime.OrderList({
         dispatch: (action) => actions.push(action),
         order: {

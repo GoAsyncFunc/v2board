@@ -881,14 +881,18 @@
   },
   {
     "from": "pages/order/_List/index.tsx",
+    "to": "pages/order/_List/orderColumns.tsx"
+  },
+  {
+    "from": "pages/order/_List/orderColumns.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_List/index.tsx",
+    "from": "pages/order/_List/orderColumns.tsx",
     "to": "pages/order/_List/columns.tsx"
   },
   {
-    "from": "pages/order/_List/index.tsx",
+    "from": "pages/order/_List/orderColumns.tsx",
     "to": "pages/order/_Modal/detail.tsx"
   },
   {
