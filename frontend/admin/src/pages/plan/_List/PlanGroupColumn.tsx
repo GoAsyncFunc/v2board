@@ -11,9 +11,10 @@ export function renderPlanGroupTags(
     groupId: string | number | null | undefined,
 ) {
     const tags: React.ReactElement[] = [];
+    if (!groups) throw new TypeError('Plan groups were not provided');
     // Keep parsing inside iteration and retain every matching group, including
     // duplicates. Do not replace with find(), coerce group IDs or add defaults.
-    groups!.map((group) => {
+    groups.map((group) => {
         if (group.id === parseInt(groupId as string)) tags.push(<Tag>{group.name}</Tag>);
     });
     return tags;

@@ -42,7 +42,8 @@ export function findGiftcardPlanName(
     plans: GiftcardPlan[] | null | undefined,
     id: GiftcardRecord['plan_id'],
 ): string | null | undefined {
-    const plan = plans!.find((candidate) => candidate.id === id);
+    if (!plans) throw new TypeError('Giftcard plans were not provided');
+    const plan = plans.find((candidate) => candidate.id === id);
     return plan ? plan.name : '-';
 }
 

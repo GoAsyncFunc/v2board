@@ -96,6 +96,8 @@ export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawe
         fieldConfig: FilterField,
     ): React.ReactElement {
         if (fieldConfig.type === 'select') {
+            const options = fieldConfig.options;
+            if (!options) throw new TypeError('Filter select options were not provided');
             return (
                 <Select
                     value={filterItem.value || undefined}
@@ -103,7 +105,7 @@ export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawe
                     placeholder="请选择值"
                     onChange={(value) => this.changeFilter(index, 'value', value)}
                 >
-                    {fieldConfig.options!.map((option) => (
+                    {options.map((option) => (
                         <Select.Option
                             key={`${option.key}-${option.value}`}
                             value={option.value as string | number | undefined}
