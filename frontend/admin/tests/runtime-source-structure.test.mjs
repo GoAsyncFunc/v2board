@@ -2,6 +2,20 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 
+async function collectSourceFiles(directory) {
+    const entries = await fs.readdir(directory, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+        const entryPath = new URL(`${entry.name}${entry.isDirectory() ? '/' : ''}`, directory);
+        if (entry.isDirectory()) {
+            files.push(...(await collectSourceFiles(entryPath)));
+        } else {
+            files.push(entryPath);
+        }
+    }
+    return files;
+}
+
 test('admin application runtime uses typed source modules outside vendor', async () => {
     const typedRuntimePaths = [
         '../src/main.ts',
@@ -112,6 +126,21 @@ test('admin source no longer contains a vendor compatibility directory', async (
     const stat = await fs.stat(new URL(typedStylePath, import.meta.url));
     assert.equal(stat.isFile(), true, `${typedStylePath} should be a file`);
     await assert.rejects(fs.access(new URL('../src/vendor', import.meta.url)));
+});
+
+test('admin production source has no compiler-generated module or style identifiers', async () => {
+    const sourceDirectory = new URL('../src/', import.meta.url);
+    const sourceFiles = await collectSourceFiles(sourceDirectory);
+    const sourceText = [];
+    for (const file of sourceFiles) {
+        assert.match(file.pathname, /\.(?:ts|tsx|d\.ts)$/);
+        const text = await fs.readFile(file, 'utf8');
+        sourceText.push(`${file.pathname}\n${text}`);
+        assert.doesNotMatch(text, /(?:from|require\()\s*['"][^'"]+\.(?:js|jsx)['"]/);
+        assert.doesNotMatch(text, /(?:vendor\/modules|webpackJsonp|moduleId|interopDefault)/);
+        assert.doesNotMatch(text, /(?:className|class)\s*=?.*___[A-Za-z0-9_-]{4,}/);
+    }
+    assert.doesNotMatch(sourceText.join('\n'), /\b(?:var|let|const)\s+[rioaslc](?:\s*,|\s*=)/);
 });
 
 test('server security editors are organized as named source modules', async () => {
