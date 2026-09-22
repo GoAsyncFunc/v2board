@@ -47,6 +47,19 @@ async function loadModule(relativePath) {
             if (id.startsWith('antd/')) return id;
             if (id.includes('RouteActionColumn') || id === './_List/RouteActionColumn')
                 return { createRouteActionColumn: () => ({ key: 'action' }) };
+            if (id === './RouteActionField') return { RouteActionField: 'RouteActionField' };
+            if (id === './RouteBasicFields') return { RouteBasicFields: 'RouteBasicFields' };
+            if (id === './RouteMatchField') {
+                return {
+                    RouteMatchField: 'RouteMatchField',
+                    getRouteMatchPlaceholder: (action) =>
+                        action === 'protocol'
+                            ? 'http\ntls\nquic\nbittorrent'
+                            : action === 'route_ip' || action === 'block_ip'
+                            ? 'geoip:cn'
+                            : `placeholder:${action || 'default'}`,
+                };
+            }
             if (id.includes('ServerRouteDisplayColumns') || id === './_List/columns')
                 return {
                     createReadonlyServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),

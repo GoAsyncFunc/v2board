@@ -1356,8 +1356,20 @@
     "to": "pages/server/route/_List/columns.ts"
   },
   {
-    "from": "pages/server/route/_Modal/index.tsx",
+    "from": "pages/server/route/_Modal/RouteActionField.tsx",
     "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/server/route/_Modal/index.tsx",
+    "to": "pages/server/route/_Modal/RouteActionField.tsx"
+  },
+  {
+    "from": "pages/server/route/_Modal/index.tsx",
+    "to": "pages/server/route/_Modal/RouteBasicFields.tsx"
+  },
+  {
+    "from": "pages/server/route/_Modal/index.tsx",
+    "to": "pages/server/route/_Modal/RouteMatchField.tsx"
   },
   {
     "from": "pages/server/route/index.tsx",
