@@ -1,18 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Checkbox from 'antd/lib/checkbox';
 import Divider from 'antd/lib/divider';
 import Drawer from 'antd/lib/drawer';
-import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
-import Select from 'antd/lib/select';
-import Tooltip from 'antd/lib/tooltip';
-import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
-import NullableSelectOption from '../../../components/common/NullableSelectOption';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { PlanFieldValue, PlanRecord, PlanState } from '../../../types/plan';
+import { PlanAccessFields } from './PlanAccessFields';
+import { PlanBasicFields } from './PlanBasicFields';
+import { PlanEditorActions } from './PlanEditorActions';
 import PlanPriceFields from './PriceFields';
+import { PlanResourceFields } from './PlanResourceFields';
 
 interface ServerGroupState {
     groups: Array<{ id: number | string; name?: React.ReactNode }>;
@@ -98,143 +95,32 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
                     width="80%"
                 >
                     <div>
-                        <div className="form-group">
-                            <label>套餐名称</label>
-                            <Input
-                                placeholder="请输入套餐名称"
-                                value={record.name ?? undefined}
-                                onChange={(event) => this.updateRecord('name', event.target.value)}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>套餐描述</label>
-                            <Input.TextArea
-                                rows={4}
-                                value={record.content ?? undefined}
-                                placeholder="请输入套餐描述，支持HTML"
-                                onChange={(event) =>
-                                    this.updateRecord('content', event.target.value)
-                                }
-                            />
-                        </div>
+                        <PlanBasicFields
+                            record={record}
+                            onChange={(field, value) => this.updateRecord(field, value)}
+                        />
                         <PlanPriceFields
                             record={record}
                             currencySymbol={currencySymbol}
                             onPriceChange={(field, value) => this.updatePrice(field, value)}
                         />
                         <Divider />
-                        <div className="form-group">
-                            <label>套餐流量</label>
-                            <Input
-                                addonAfter="GB"
-                                placeholder="请输入套餐流量"
-                                value={record.transfer_enable as string | number | undefined}
-                                onChange={(event) =>
-                                    this.updateRecord('transfer_enable', event.target.value)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>设备数限制</label>
-                            <Input
-                                placeholder="留空则不限制"
-                                value={record.device_limit as string | number | undefined}
-                                onChange={(event) =>
-                                    this.updateRecord('device_limit', event.target.value)
-                                }
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>
-                                权限组{' '}
-                                <PermissionGroupEditor>
-                                    <a href="javascript:void(0);">添加权限组</a>
-                                </PermissionGroupEditor>
-                            </label>
-                            <Select
-                                placeholder="请选择权限组"
-                                style={{ width: '100%' }}
-                                value={record.group_id}
-                                onChange={(groupId) => this.updateRecord('group_id', groupId)}
-                            >
-                                {groups.map((group) => (
-                                    <Select.Option key={group.id} value={group.id}>
-                                        {group.name}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </div>
-                        <div className="form-group">
-                            <label>流量重置方式</label>
-                            <Select
-                                placeholder="请选择权限组"
-                                style={{ width: '100%' }}
-                                value={record.reset_traffic_method}
-                                onChange={(method) =>
-                                    this.updateRecord('reset_traffic_method', method)
-                                }
-                            >
-                                <NullableSelectOption value={null}>
-                                    跟随系统设置
-                                </NullableSelectOption>
-                                <Select.Option value={0}>每月1号</Select.Option>
-                                <Select.Option value={1}>按月重置</Select.Option>
-                                <Select.Option value={2}>不重置</Select.Option>
-                                <Select.Option value={3}>每年1月1日</Select.Option>
-                                <Select.Option value={4}>按年重置</Select.Option>
-                            </Select>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label>最大容纳用户量</label>
-                        <Input
-                            placeholder="留空则不限制"
-                            value={record.capacity_limit as string | number | undefined}
-                            onChange={(event) =>
-                                this.updateRecord('capacity_limit', event.target.value)
-                            }
+                        <PlanResourceFields
+                            record={record}
+                            onChange={(field, value) => this.updateRecord(field, value)}
+                        />
+                        <PlanAccessFields
+                            record={record}
+                            groups={groups}
+                            onChange={(field, value) => this.updateRecord(field, value)}
                         />
                     </div>
-                    <div className="form-group">
-                        <label>限速</label>
-                        <Input
-                            addonAfter="Mbps"
-                            placeholder="留空则不限制"
-                            value={record.speed_limit as string | number | undefined}
-                            onChange={(event) =>
-                                this.updateRecord('speed_limit', event.target.value)
-                            }
-                        />
-                    </div>
-                    <div className="v2board-drawer-action">
-                        <div style={{ float: 'left', marginTop: 5 }}>
-                            <Tooltip
-                                title="勾选后变更的流量、限速、权限组将应用到该套餐下的用户"
-                                placement="top"
-                            >
-                                <Checkbox
-                                    onChange={(event) =>
-                                        this.updateRecord('force_update', event.target.checked)
-                                    }
-                                >
-                                    强制更新到用户
-                                </Checkbox>
-                            </Tooltip>
-                        </div>
-                        <Button
-                            style={{ marginRight: 8 }}
-                            onClick={() => this.setState({ visible: false })}
-                        >
-                            取消
-                        </Button>
-                        <Button
-                            loading={saveLoading}
-                            onClick={() => !saveLoading && this.save()}
-                            type="primary"
-                        >
-                            提交
-                        </Button>
-                    </div>
+                    <PlanEditorActions
+                        saveLoading={saveLoading}
+                        onForceUpdateChange={(value) => this.updateRecord('force_update', value)}
+                        onCancel={() => this.setState({ visible: false })}
+                        onSubmit={() => !saveLoading && this.save()}
+                    />
                 </Drawer>
             </>
         );

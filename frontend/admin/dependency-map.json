@@ -908,12 +908,28 @@
     "to": "pages/plan/_Modal/index.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
+    "from": "pages/plan/_Modal/PlanAccessFields.tsx",
     "to": "components/common/NullableSelectOption.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
+    "from": "pages/plan/_Modal/PlanAccessFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "pages/plan/_Modal/PlanAccessFields.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "pages/plan/_Modal/PlanBasicFields.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "pages/plan/_Modal/PlanEditorActions.tsx"
+  },
+  {
+    "from": "pages/plan/_Modal/index.tsx",
+    "to": "pages/plan/_Modal/PlanResourceFields.tsx"
   },
   {
     "from": "pages/plan/_Modal/index.tsx",
