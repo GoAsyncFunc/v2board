@@ -228,10 +228,25 @@ test('AnyTLS padding configuration lives in a focused protocol module', async ()
         new URL('../src/pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx', import.meta.url),
         'utf8',
     );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/AnyTls/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/AnyTls/RelationshipFields.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     assert.match(editorSource, /import \{ AnyTlsPaddingScheme \} from '\.\/AnyTls\/PaddingScheme'/);
     assert.match(editorSource, /<AnyTlsPaddingScheme/);
     assert.match(paddingSource, /export const DEFAULT_PADDING_SCHEME/);
     assert.match(paddingSource, /export function AnyTlsPaddingScheme/);
+    assert.match(editorSource, /<AnyTlsGeneralFields/);
+    assert.match(editorSource, /<AnyTlsRelationshipFields/);
+    assert.match(generalFieldsSource, /export function AnyTlsGeneralFields/);
+    assert.match(relationshipFieldsSource, /export function AnyTlsRelationshipFields/);
     assert.doesNotMatch(editorSource, /<JsonEditor/);
 });
 

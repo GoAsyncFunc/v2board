@@ -38,6 +38,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Shadowsocks/SecuritySettings.tsx',
     'admin/src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/AnyTls/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/AnyTls/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx',
     'admin/src/components/commerce/AssignOrderEditor.tsx',
     'admin/src/components/common/FilterDrawer.tsx',
