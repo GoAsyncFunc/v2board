@@ -14,8 +14,9 @@ class KnowledgeController extends Controller
     public function fetch(Request $request)
     {
         if ($request->input('id')) {
-            $knowledge = Knowledge::find($request->input('id'))->toArray();
-            if (!$knowledge) abort(500, '知识不存在');
+            $knowledgeModel = Knowledge::find($request->input('id'));
+            if (!$knowledgeModel) abort(404, '知识不存在');
+            $knowledge = $knowledgeModel->toArray();
             return response([
                 'data' => $knowledge
             ]);
