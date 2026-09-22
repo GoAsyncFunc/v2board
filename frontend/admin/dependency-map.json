@@ -1384,8 +1384,12 @@
     "to": "pages/ticket/_List/index.tsx"
   },
   {
-    "from": "pages/user/_Drawer/edit.tsx",
+    "from": "pages/user/_Drawer/UserFormFields.tsx",
     "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "pages/user/_Drawer/edit.tsx",
+    "to": "pages/user/_Drawer/UserFormFields.tsx"
   },
   {
     "from": "pages/user/_Drawer/filter.tsx",

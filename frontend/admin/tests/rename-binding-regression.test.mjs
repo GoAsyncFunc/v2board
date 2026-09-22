@@ -73,6 +73,7 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx',
     'admin/src/pages/user/_Modal/generate.tsx',
     'admin/src/pages/user/_Drawer/edit.tsx',
+    'admin/src/pages/user/_Drawer/UserFormFields.tsx',
     'admin/src/pages/user/_List/index.tsx',
     'admin/src/pages/user/_List/columns.tsx',
     'admin/src/pages/server/manage/_Editors/V2NodeEditor.tsx',
