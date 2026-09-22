@@ -59,6 +59,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/ServerSecuritySettings.tsx',
     'admin/src/pages/server/manage/_Editors/Security/TlsSettings.tsx',
     'admin/src/pages/server/manage/_Editors/Security/TlsAdvancedSettings.tsx',
+    'admin/src/pages/server/manage/_Editors/Security/TlsCertificateSettings.tsx',
+    'admin/src/pages/server/manage/_Editors/Security/TlsRealitySettings.tsx',
     'admin/src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
     'admin/src/components/common/Sortable.tsx',
     'admin/src/pages/server/manage/_Editors/TrojanEditor.tsx',

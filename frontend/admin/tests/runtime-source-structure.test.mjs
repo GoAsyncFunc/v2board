@@ -130,6 +130,20 @@ test('server security editors are organized as named source modules', async () =
         ),
         'utf8',
     );
+    const tlsCertificateSource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Security/TlsCertificateSettings.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    const tlsRealitySource = await fs.readFile(
+        new URL(
+            '../src/pages/server/manage/_Editors/Security/TlsRealitySettings.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
     const encryptionSource = await fs.readFile(
         new URL(
             '../src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
@@ -145,6 +159,10 @@ test('server security editors are organized as named source modules', async () =
     assert.match(tlsSource, /export class TlsSettings/);
     assert.match(tlsSource, /<TlsAdvancedSettings/);
     assert.match(tlsAdvancedSource, /export function TlsAdvancedSettings/);
+    assert.match(tlsSource, /<TlsCertificateSettings/);
+    assert.match(tlsSource, /<TlsRealitySettings/);
+    assert.match(tlsCertificateSource, /export function TlsCertificateSettings/);
+    assert.match(tlsRealitySource, /export function TlsRealitySettings/);
     assert.match(encryptionSource, /export class EncryptionSettings/);
     assert.doesNotMatch(compatibilitySource, /class (?:TlsSettings|EncryptionSettings)/);
 });

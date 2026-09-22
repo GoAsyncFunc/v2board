@@ -1008,6 +1008,14 @@
     "to": "pages/server/manage/_Editors/Security/TlsAdvancedSettings.tsx"
   },
   {
+    "from": "pages/server/manage/_Editors/Security/TlsSettings.tsx",
+    "to": "pages/server/manage/_Editors/Security/TlsCertificateSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/Security/TlsSettings.tsx",
+    "to": "pages/server/manage/_Editors/Security/TlsRealitySettings.tsx"
+  },
+  {
     "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
     "to": "pages/server/manage/_Editors/AnyTlsEditor.tsx"
   },
