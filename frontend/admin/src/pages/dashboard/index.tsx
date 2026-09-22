@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as echarts from 'echarts/core';
-import type { EChartsCoreOption, EChartsType } from 'echarts/core';
+import type { EChartsType } from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
     DatasetComponent,
@@ -21,6 +21,7 @@ import type { AdminDispatch, AdminRootState } from '../../types/store';
 import DashboardNavigation from './_Nav';
 import DashboardOverview from './_Overview';
 import { rankChartOption, RankChart } from './_Charts';
+import { createOrderChartOption } from './chartOptions';
 
 export { rankChartOption } from './_Charts';
 
@@ -50,22 +51,6 @@ interface DashboardState {
     queueStatus?: string;
 }
 
-interface OrderChartSeries {
-    name: string;
-    type: string;
-    smooth: boolean;
-    data: number[];
-}
-
-interface OrderChartOption extends EChartsCoreOption {
-    tooltip: { trigger: string };
-    legend: { data: string[]; left: string; z: number };
-    grid: { left: string; right: string; bottom: string; containLabel: boolean };
-    xAxis: { type: string; boundaryGap: boolean; data: string[] };
-    yAxis: { type: string };
-    series: OrderChartSeries[];
-}
-
 export class DashboardPage extends React.Component<DashboardProps, DashboardState> {
     state: DashboardState = {};
     orderChart = React.createRef<HTMLDivElement>();
@@ -88,28 +73,7 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
         this.orderChartObject = echarts.init(this.orderChart.current, 'vintage', {
             renderer: 'svg',
         });
-        const option: OrderChartOption = {
-            tooltip: { trigger: 'axis' },
-            legend: { data: [], left: '0', z: 4 },
-            grid: { left: '1%', right: '1%', bottom: '3%', containLabel: true },
-            xAxis: { type: 'category', boundaryGap: false, data: [] },
-            yAxis: { type: 'value' },
-            series: [],
-        };
-        data.forEach((item) => {
-            if (!option.legend.data.includes(item.type)) option.legend.data.push(item.type);
-            if (!option.xAxis.data.includes(item.date)) option.xAxis.data.push(item.date);
-            const series = option.series.find((candidate) => candidate.name === item.type);
-            if (series) series.data.push(item.value);
-            else
-                option.series.push({
-                    name: item.type,
-                    type: 'line',
-                    smooth: true,
-                    data: [item.value],
-                });
-        });
-        this.orderChartObject.setOption(option);
+        this.orderChartObject.setOption(createOrderChartOption(data));
     }
 
     renderRankChart(

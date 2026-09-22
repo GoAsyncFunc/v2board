@@ -753,6 +753,10 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/chartOptions.ts"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
     "to": "services/request.ts"
   },
   {
