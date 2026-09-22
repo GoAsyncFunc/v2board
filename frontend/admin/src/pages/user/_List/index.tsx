@@ -6,7 +6,7 @@ import ContextMenuTable from '../../../components/common/ContextMenuTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { FilterValue } from '../../../types/filter';
 import type { UserGroupOption, UserModuleState, UserRecord } from '../../../types/user';
-import { UserActionDropdown, UserContextMenu, type UserListActions } from './actions';
+import { UserActionDropdown, UserContextMenu, type UserListActions } from './UserListActions';
 import { createUserListColumns } from './UserListColumns';
 
 export interface UserSorter {

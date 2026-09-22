@@ -1528,24 +1528,24 @@
     "to": "pages/user/_Drawer/FormGroup.tsx"
   },
   {
-    "from": "pages/user/_List/UserListColumns.tsx",
-    "to": "pages/user/_List/UserDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/user/_List/actions.tsx",
+    "from": "pages/user/_List/UserListActions.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/user/_List/actions.tsx",
+    "from": "pages/user/_List/UserListActions.tsx",
     "to": "components/user/TrafficPanel.tsx"
   },
   {
-    "from": "pages/user/_List/actions.tsx",
+    "from": "pages/user/_List/UserListActions.tsx",
     "to": "pages/user/_Drawer/UserEditor.tsx"
   },
   {
-    "from": "pages/user/_List/actions.tsx",
+    "from": "pages/user/_List/UserListActions.tsx",
     "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "pages/user/_List/UserListColumns.tsx",
+    "to": "pages/user/_List/UserDisplayColumns.tsx"
   },
   {
     "from": "pages/user/_List/index.tsx",
@@ -1553,11 +1553,11 @@
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "pages/user/_List/UserListColumns.tsx"
+    "to": "pages/user/_List/UserListActions.tsx"
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "pages/user/_List/actions.tsx"
+    "to": "pages/user/_List/UserListColumns.tsx"
   },
   {
     "from": "pages/user/_Modal/UserGenerator.tsx",
