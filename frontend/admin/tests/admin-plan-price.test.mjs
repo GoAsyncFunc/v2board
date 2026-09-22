@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-plan-price.cjs' : '../src/pages/plan/_List/PlanPriceColumns.ts', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-plan-price.cjs' : '../src/pages/plan/components/PlanPriceColumns.ts', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports });
   return original ? module.exports() : Object.values(module.exports.createReadonlyPlanPriceColumns());

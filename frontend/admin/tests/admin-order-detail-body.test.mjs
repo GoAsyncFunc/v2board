@@ -10,7 +10,7 @@ const settings={periodText:{month_price:'月付'},orderStatusText:['待支付','
 const moment=value=>({format:format=>`${value}:${format}`});
 async function render(original,data){
  const trace=[],module={exports:{}};
- const file=new URL(original?'./fixtures/pages/admin-order-detail-body.cjs':'../src/pages/order/_Modal/OrderDetailBody.tsx',import.meta.url);
+ const file=new URL(original?'./fixtures/pages/admin-order-detail-body.cjs':'../src/pages/order/components/OrderDetailBody.tsx',import.meta.url);
  const text=await fs.readFile(file,'utf8');vm.runInNewContext((await transform(text,{loader:'tsx',format:'cjs'})).code,{React,module,exports:module.exports,require(id){if(id==='react')return React;if(id==='moment')return moment;for(const [idSuffix,label]of [['row','Row'],['col','Col'],['divider','Divider'],['tooltip','Tooltip'],['icon','Icon']])if(id===`antd/lib/${idSuffix}`)return label;if(id.includes('adminSettingsRuntime'))return {a:settings};if(id.includes('config/adminSettings'))return {settings};if(id.includes('77642f52'))return moment;for(const [key,label]of [['antdRow','Row'],['antdCol','Col'],['Divider','Divider'],['antdTooltip','Tooltip'],['Icon','Icon']])if(id.includes(key))return {a:label,[label]:label};
         throw Error(id);}});
  const onUserFilter=(...args)=>trace.push(args);

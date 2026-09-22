@@ -42,17 +42,25 @@ async function loadModule(relativePath, localModules = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id === './_Modal' || id.endsWith('/_Modal')) return localModules.modal;
+            if (
+                id === './components/PlanEditor' ||
+                id === './PlanEditor' ||
+                id.endsWith('/components/PlanEditor')
+            ) {
+                return localModules.modal;
+            }
             if (id === './PriceFields') return 'PlanPriceFields';
             if (id === './PlanAccessFields') return { PlanAccessFields: 'PlanAccessFields' };
             if (id === './PlanBasicFields') return { PlanBasicFields: 'PlanBasicFields' };
             if (id === './PlanEditorActions') return { PlanEditorActions: 'PlanEditorActions' };
             if (id === './PlanResourceFields') return { PlanResourceFields: 'PlanResourceFields' };
-            if (id === './_List' || id.endsWith('/_List')) return localModules.list;
+            if (id === './components/PlanList' || id.endsWith('/components/PlanList')) {
+                return localModules.list;
+            }
             if (id === './PlanGroupColumn') return localModules.groupColumns;
             if (id === './PlanPriceColumns') return localModules.priceColumns;
             if (id === './PlanResourceColumns') return localModules.resourceColumns;
-            if (id === './PlanListColumns' || id.endsWith('/_List/PlanListColumns'))
+            if (id === './PlanListColumns' || id.endsWith('/components/PlanListColumns'))
                 return localModules.planListColumns;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/checkbox') return 'Checkbox';
@@ -87,7 +95,7 @@ async function loadPage() {
 }
 
 async function loadList() {
-    const planListColumns = await loadModule('../src/pages/plan/_List/PlanListColumns.tsx', {
+    const planListColumns = await loadModule('../src/pages/plan/components/PlanListColumns.tsx', {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
         groupColumns: { createPlanGroupColumn: () => ({ key: 'group_id' }) },
         priceColumns: {
@@ -115,14 +123,14 @@ async function loadList() {
                 ),
         },
     });
-    return loadModule('../src/pages/plan/_List/index.tsx', {
+    return loadModule('../src/pages/plan/components/PlanList.tsx', {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
         planListColumns,
     });
 }
 
 async function loadEditor() {
-    return loadModule('../src/pages/plan/_Modal/index.tsx');
+    return loadModule('../src/pages/plan/components/PlanEditor.tsx');
 }
 
 test('Plan page composes the nested list and editor modules', async () => {

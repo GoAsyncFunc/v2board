@@ -767,32 +767,32 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardEditor.tsx'));
     const planDirectory = new URL('plan/', pagesDirectory);
     assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(planDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(planDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanGroupColumn.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', planDirectory))).includes('PlanPriceColumns.ts'));
+    assert.ok((await fs.readdir(planDirectory)).includes('components'));
+    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanList.tsx'));
+    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanGroupColumn.tsx'));
+    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanPriceColumns.ts'));
     assert.ok(
-        (await fs.readdir(new URL('_List/', planDirectory))).includes('PlanResourceColumns.tsx'),
+        (await fs.readdir(new URL('components/', planDirectory))).includes('PlanResourceColumns.tsx'),
     );
-    assert.ok((await fs.readdir(new URL('_Modal/', planDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanEditor.tsx'));
     const orderDirectory = new URL('order/', pagesDirectory);
     assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(orderDirectory)).includes('_Drawer'));
-    assert.ok((await fs.readdir(orderDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(orderDirectory)).includes('_Modal'));
+    assert.ok((await fs.readdir(orderDirectory)).includes('components'));
     assert.ok(
-        (await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('OrderFilterDrawer.tsx'),
+        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderFilterDrawer.tsx'),
     );
-    assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(new URL('components/', orderDirectory))).includes('OrderList.tsx'));
     assert.ok(
-        (await fs.readdir(new URL('_List/', orderDirectory))).includes('OrderDisplayColumns.tsx'),
+        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderColumns.tsx'),
     );
     assert.ok(
-        (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailModal.tsx'),
+        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderListColumns.tsx'),
     );
     assert.ok(
-        (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'),
+        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderDetailModal.tsx'),
+    );
+    assert.ok(
+        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderDetailBody.tsx'),
     );
     const userDirectory = new URL('user/', pagesDirectory);
     assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));

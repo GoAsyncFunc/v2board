@@ -7,7 +7,7 @@ import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { AdminDispatch } from '../../../types/store';
 import type { PlanFieldValue, PlanRecord } from '../../../types/plan';
-import PlanEditor from '../_Modal';
+import PlanEditor from './PlanEditor';
 import { createPlanGroupColumn, type PlanGroup } from './PlanGroupColumn';
 import { createReadonlyPlanPriceColumns } from './PlanPriceColumns';
 import { createReadonlyPlanResourceColumns } from './PlanResourceColumns';

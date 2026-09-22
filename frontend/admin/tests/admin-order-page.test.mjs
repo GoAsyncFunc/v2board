@@ -79,17 +79,25 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
                     },
                 };
             }
-            if (id === './_List' || id.endsWith('/_List')) return localModules.list;
-            if (id === './_Drawer/OrderFilterDrawer' || id.endsWith('/_Drawer/OrderFilterDrawer')) {
+            if (id === './components/OrderList' || id.endsWith('/components/OrderList')) {
+                return localModules.list;
+            }
+            if (
+                id === './components/OrderFilterDrawer' ||
+                id.endsWith('/components/OrderFilterDrawer')
+            ) {
                 return localModules.filter;
             }
-            if (id === '../_Modal/OrderDetailModal' || id.endsWith('/_Modal/OrderDetailModal')) {
+            if (
+                id === './components/OrderDetailModal' ||
+                id.endsWith('/components/OrderDetailModal')
+            ) {
                 return localModules.detail;
             }
-            if (id === './OrderDisplayColumns' || id.endsWith('/_List/OrderDisplayColumns')) {
+            if (id === './OrderColumns' || id.endsWith('/components/OrderColumns')) {
                 return localModules.columns;
             }
-            if (id === './OrderListColumns' || id.endsWith('/_List/OrderListColumns')) {
+            if (id === './OrderListColumns' || id.endsWith('/components/OrderListColumns')) {
                 return localModules.orderListColumns;
             }
             if (id.includes('FilterDrawer')) return 'FilterDrawer';
@@ -118,7 +126,7 @@ async function loadPage() {
 }
 
 async function loadList() {
-    const orderListColumns = await loadModule('../src/pages/order/_List/OrderListColumns.tsx', {
+    const orderListColumns = await loadModule('../src/pages/order/components/OrderListColumns.tsx', {
         detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
         columns: {
             createReadonlyOrderColumns: () => ({
@@ -130,7 +138,7 @@ async function loadList() {
             }),
         },
     });
-    return loadModule('../src/pages/order/_List/index.tsx', {
+    return loadModule('../src/pages/order/components/OrderList.tsx', {
         detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
         orderListColumns,
     });
@@ -138,7 +146,7 @@ async function loadList() {
 
 async function loadDetail(responses = []) {
     return loadModule(
-        '../src/pages/order/_Modal/OrderDetailModal.tsx',
+        '../src/pages/order/components/OrderDetailModal.tsx',
         { detailBody: 'OrderDetailBody' },
         responses,
     );

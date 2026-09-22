@@ -6,8 +6,8 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { PlanState } from '../../types/plan';
-import PlanEditor from './_Modal';
-import { PlanList } from './_List';
+import PlanEditor from './components/PlanEditor';
+import { PlanList } from './components/PlanList';
 
 interface ServerGroupState {
     groups: Array<{ id: number | string; name?: React.ReactNode }>;
@@ -53,8 +53,8 @@ export class PlanPage extends React.Component<PlanPageProps> {
     }
 }
 
-export { PlanEditor } from './_Modal';
-export { PlanList } from './_List';
+export { PlanEditor } from './components/PlanEditor';
+export { PlanList } from './components/PlanList';
 
 export default connect((state: AdminRootState) => ({
     plan: state.plan,

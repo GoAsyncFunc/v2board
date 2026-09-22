@@ -872,48 +872,48 @@
     "to": "pages/notice/components/NoticeList.tsx"
   },
   {
-    "from": "pages/order/_Drawer/OrderFilterDrawer.tsx",
-    "to": "components/common/FilterDrawer.tsx"
-  },
-  {
-    "from": "pages/order/_List/OrderDisplayColumns.tsx",
+    "from": "pages/order/components/OrderColumns.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_List/OrderListColumns.tsx",
+    "from": "pages/order/components/OrderDetailBody.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_List/OrderListColumns.tsx",
-    "to": "pages/order/_List/OrderDisplayColumns.tsx"
-  },
-  {
-    "from": "pages/order/_List/OrderListColumns.tsx",
-    "to": "pages/order/_Modal/OrderDetailModal.tsx"
-  },
-  {
-    "from": "pages/order/_List/index.tsx",
-    "to": "pages/order/_List/OrderListColumns.tsx"
-  },
-  {
-    "from": "pages/order/_Modal/OrderDetailBody.tsx",
-    "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/order/_Modal/OrderDetailModal.tsx",
+    "from": "pages/order/components/OrderDetailModal.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/order/_Modal/OrderDetailModal.tsx",
-    "to": "pages/order/_Modal/OrderDetailBody.tsx"
+    "from": "pages/order/components/OrderDetailModal.tsx",
+    "to": "pages/order/components/OrderDetailBody.tsx"
   },
   {
-    "from": "pages/order/_Modal/OrderDetailModal.tsx",
+    "from": "pages/order/components/OrderDetailModal.tsx",
     "to": "services/request.ts"
   },
   {
-    "from": "pages/order/_Modal/OrderDetailModal.tsx",
+    "from": "pages/order/components/OrderDetailModal.tsx",
     "to": "types/api.ts"
+  },
+  {
+    "from": "pages/order/components/OrderFilterDrawer.tsx",
+    "to": "components/common/FilterDrawer.tsx"
+  },
+  {
+    "from": "pages/order/components/OrderList.tsx",
+    "to": "pages/order/components/OrderListColumns.tsx"
+  },
+  {
+    "from": "pages/order/components/OrderListColumns.tsx",
+    "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/order/components/OrderListColumns.tsx",
+    "to": "pages/order/components/OrderColumns.tsx"
+  },
+  {
+    "from": "pages/order/components/OrderListColumns.tsx",
+    "to": "pages/order/components/OrderDetailModal.tsx"
   },
   {
     "from": "pages/order/index.tsx",
@@ -929,71 +929,71 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "pages/order/_Drawer/OrderFilterDrawer.tsx"
+    "to": "pages/order/components/OrderDetailModal.tsx"
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "pages/order/_List/index.tsx"
+    "to": "pages/order/components/OrderFilterDrawer.tsx"
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "pages/order/_Modal/OrderDetailModal.tsx"
+    "to": "pages/order/components/OrderList.tsx"
   },
   {
-    "from": "pages/plan/_List/PlanListColumns.tsx",
-    "to": "pages/plan/_List/PlanGroupColumn.tsx"
-  },
-  {
-    "from": "pages/plan/_List/PlanListColumns.tsx",
-    "to": "pages/plan/_List/PlanPriceColumns.ts"
-  },
-  {
-    "from": "pages/plan/_List/PlanListColumns.tsx",
-    "to": "pages/plan/_List/PlanResourceColumns.tsx"
-  },
-  {
-    "from": "pages/plan/_List/PlanListColumns.tsx",
-    "to": "pages/plan/_Modal/index.tsx"
-  },
-  {
-    "from": "pages/plan/_List/index.tsx",
-    "to": "components/common/ContextMenuTable.tsx"
-  },
-  {
-    "from": "pages/plan/_List/index.tsx",
-    "to": "components/common/Sortable.tsx"
-  },
-  {
-    "from": "pages/plan/_List/index.tsx",
-    "to": "pages/plan/_List/PlanListColumns.tsx"
-  },
-  {
-    "from": "pages/plan/_Modal/PlanAccessFields.tsx",
+    "from": "pages/plan/components/PlanAccessFields.tsx",
     "to": "components/common/NullableSelectOption.tsx"
   },
   {
-    "from": "pages/plan/_Modal/PlanAccessFields.tsx",
+    "from": "pages/plan/components/PlanAccessFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
-    "to": "pages/plan/_Modal/PlanAccessFields.tsx"
+    "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PlanAccessFields.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
-    "to": "pages/plan/_Modal/PlanBasicFields.tsx"
+    "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PlanBasicFields.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
-    "to": "pages/plan/_Modal/PlanEditorActions.tsx"
+    "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PlanEditorActions.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
-    "to": "pages/plan/_Modal/PlanResourceFields.tsx"
+    "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PlanResourceFields.tsx"
   },
   {
-    "from": "pages/plan/_Modal/index.tsx",
-    "to": "pages/plan/_Modal/PriceFields.tsx"
+    "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PriceFields.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanList.tsx",
+    "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanList.tsx",
+    "to": "components/common/Sortable.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanList.tsx",
+    "to": "pages/plan/components/PlanListColumns.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanListColumns.tsx",
+    "to": "pages/plan/components/PlanEditor.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanListColumns.tsx",
+    "to": "pages/plan/components/PlanGroupColumn.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanListColumns.tsx",
+    "to": "pages/plan/components/PlanPriceColumns.ts"
+  },
+  {
+    "from": "pages/plan/components/PlanListColumns.tsx",
+    "to": "pages/plan/components/PlanResourceColumns.tsx"
   },
   {
     "from": "pages/plan/index.tsx",
@@ -1005,11 +1005,11 @@
   },
   {
     "from": "pages/plan/index.tsx",
-    "to": "pages/plan/_List/index.tsx"
+    "to": "pages/plan/components/PlanEditor.tsx"
   },
   {
     "from": "pages/plan/index.tsx",
-    "to": "pages/plan/_Modal/index.tsx"
+    "to": "pages/plan/components/PlanList.tsx"
   },
   {
     "from": "pages/queue/index.tsx",
