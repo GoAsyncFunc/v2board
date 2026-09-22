@@ -7,7 +7,7 @@ import MainLayout from '../../layouts/MainLayout';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../types/ticket';
-import { TicketList } from './_List';
+import { TicketList } from './components/TicketList';
 
 interface TicketPageProps {
     dispatch: AdminDispatch;
@@ -110,6 +110,6 @@ export class TicketPage extends React.Component<TicketPageProps> {
     }
 }
 
-export { TicketList } from './_List';
+export { TicketList } from './components/TicketList';
 
 export default connect((state: AdminRootState) => ({ ticket: state.ticket }))(TicketPage);

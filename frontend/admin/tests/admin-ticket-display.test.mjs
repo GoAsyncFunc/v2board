@@ -6,7 +6,7 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/pages/ticket/_List/TicketDisplayColumns.ts',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/pages/ticket/components/TicketColumns.ts',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});
@@ -26,13 +26,13 @@ for(const level of [0,1,2,99,'1',null,undefined])for(const time of [0,null,undef
 });
 
 test('ticket list composes status filters and delegates row actions', async () => {
- const source=await fs.readFile(new URL('../src/pages/ticket/_List/index.tsx',import.meta.url),'utf8');
+ const source=await fs.readFile(new URL('../src/pages/ticket/components/TicketList.tsx',import.meta.url),'utf8');
  const {code}=await transform(source,{format:'cjs',loader:'tsx'});
  const module={exports:{}}; const React={Component:class{constructor(props){this.props=props;}},createElement:(type,props,...children)=>({type,props:props||{},children})};
  vm.runInNewContext(code,{module,exports:module.exports,React,Date,require(id){
    if(id==='react')return React;if(id==='react-redux')return {connect:()=>Component=>Component};
    if(id==='antd/lib/table')return 'Table';if(id==='antd/lib/badge')return 'Badge';if(id==='antd/lib/divider')return 'Divider';
-   if(id.includes('TicketDisplayColumns'))return {createReadonlyTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
+   if(id.includes('TicketColumns'))return {createReadonlyTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
    throw Error(id);
  }});
  const open=[];const close=[];const change=[];const List=module.exports.TicketList;

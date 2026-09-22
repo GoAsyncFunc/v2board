@@ -821,11 +821,10 @@ test('admin pages select from the canonical root state', async () => {
     );
     assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
     const ticketDirectory = new URL('ticket/', pagesDirectory);
-    assert.ok((await fs.readdir(ticketDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('index.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_List/', ticketDirectory))).includes('TicketDisplayColumns.ts'),
-    );
+    assert.ok((await fs.readdir(ticketDirectory)).includes('components'));
+    const ticketComponentsDirectory = new URL('components/', ticketDirectory);
+    assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketList.tsx'));
+    assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketColumns.ts'));
     await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
     await assert.rejects(
         fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)),

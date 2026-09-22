@@ -7,7 +7,7 @@ import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../../types/ticket';
-import { createReadonlyTicketColumns } from './TicketDisplayColumns';
+import { createReadonlyTicketColumns } from './TicketColumns';
 
 export interface TicketListProps {
     dispatch: AdminDispatch;

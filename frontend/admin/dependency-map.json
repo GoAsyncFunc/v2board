@@ -1484,8 +1484,8 @@
     "to": "styles/ticketDetail.ts"
   },
   {
-    "from": "pages/ticket/_List/index.tsx",
-    "to": "pages/ticket/_List/TicketDisplayColumns.ts"
+    "from": "pages/ticket/components/TicketList.tsx",
+    "to": "pages/ticket/components/TicketColumns.ts"
   },
   {
     "from": "pages/ticket/index.tsx",
@@ -1497,7 +1497,7 @@
   },
   {
     "from": "pages/ticket/index.tsx",
-    "to": "pages/ticket/_List/index.tsx"
+    "to": "pages/ticket/components/TicketList.tsx"
   },
   {
     "from": "pages/user/_Drawer/UserEditor.tsx",
