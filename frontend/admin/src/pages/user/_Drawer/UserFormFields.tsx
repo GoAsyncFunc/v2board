@@ -14,6 +14,88 @@ interface FormGroupProps {
     children: React.ReactNode;
 }
 
+interface UserMoneyFieldsProps {
+    user: Partial<UserRecord>;
+    onChange: UserFormFieldsProps['onChange'];
+}
+
+function UserMoneyFields({ user, onChange }: UserMoneyFieldsProps): React.ReactElement {
+    return (
+        <div className="row">
+            <div className="form-group col-md-6 col-xs-12">
+                <label>余额</label>
+                <Input
+                    type="number"
+                    addonAfter="¥"
+                    placeholder="余额"
+                    defaultValue={user.balance as string | number | undefined}
+                    onChange={(event) => onChange('balance', event.target.value)}
+                />
+            </div>
+            <div className="form-group col-md-6 col-xs-12">
+                <label>推广佣金</label>
+                <Input
+                    type="number"
+                    addonAfter="¥"
+                    placeholder="推广佣金"
+                    defaultValue={user.commission_balance as string | number | undefined}
+                    onChange={(event) => onChange('commission_balance', event.target.value)}
+                />
+            </div>
+        </div>
+    );
+}
+
+interface UserTrafficFieldsProps {
+    user: Partial<UserRecord>;
+    onChange: UserFormFieldsProps['onChange'];
+}
+
+function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): React.ReactElement {
+    return (
+        <>
+            <div className="row">
+                <div className="form-group col-md-6 col-xs-12">
+                    <label>已用上行</label>
+                    <Input
+                        type="number"
+                        addonAfter="GB"
+                        placeholder="已用上行"
+                        defaultValue={user.u as string | number | undefined}
+                        onChange={(event) => onChange('u', event.target.value)}
+                    />
+                </div>
+                <div className="form-group col-md-6 col-xs-12">
+                    <label>已用下行</label>
+                    <Input
+                        type="number"
+                        addonAfter="GB"
+                        placeholder="已用下行"
+                        defaultValue={user.d as string | number | undefined}
+                        onChange={(event) => onChange('d', event.target.value)}
+                    />
+                </div>
+            </div>
+            <FormGroup label="流量">
+                <Input
+                    type="number"
+                    addonAfter="GB"
+                    defaultValue={user.transfer_enable as string | number | undefined}
+                    placeholder="请输入流量"
+                    onChange={(event) => onChange('transfer_enable', event.target.value)}
+                />
+            </FormGroup>
+            <FormGroup label="设备数限制">
+                <Input
+                    placeholder="留空则不限制"
+                    defaultValue={user.device_limit as string | number | undefined}
+                    onChange={(event) => onChange('device_limit', event.target.value)}
+                />
+            </FormGroup>
+        </>
+    );
+}
+
 function FormGroup({ label, children }: FormGroupProps): React.ReactElement {
     return (
         <div className="form-group">
@@ -53,66 +135,8 @@ export function UserFormFields({ user, plans, onChange }: UserFormFieldsProps): 
                     onChange={(event) => onChange('password', event.target.value)}
                 />
             </FormGroup>
-            <div className="row">
-                <div className="form-group col-md-6 col-xs-12">
-                    <label>余额</label>
-                    <Input
-                        type="number"
-                        addonAfter="¥"
-                        placeholder="余额"
-                        defaultValue={user.balance as string | number | undefined}
-                        onChange={(event) => onChange('balance', event.target.value)}
-                    />
-                </div>
-                <div className="form-group col-md-6 col-xs-12">
-                    <label>推广佣金</label>
-                    <Input
-                        type="number"
-                        addonAfter="¥"
-                        placeholder="推广佣金"
-                        defaultValue={user.commission_balance as string | number | undefined}
-                        onChange={(event) => onChange('commission_balance', event.target.value)}
-                    />
-                </div>
-            </div>
-            <div className="row">
-                <div className="form-group col-md-6 col-xs-12">
-                    <label>已用上行</label>
-                    <Input
-                        type="number"
-                        addonAfter="GB"
-                        placeholder="已用上行"
-                        defaultValue={user.u as string | number | undefined}
-                        onChange={(event) => onChange('u', event.target.value)}
-                    />
-                </div>
-                <div className="form-group col-md-6 col-xs-12">
-                    <label>已用下行</label>
-                    <Input
-                        type="number"
-                        addonAfter="GB"
-                        placeholder="已用下行"
-                        defaultValue={user.d as string | number | undefined}
-                        onChange={(event) => onChange('d', event.target.value)}
-                    />
-                </div>
-            </div>
-            <FormGroup label="流量">
-                <Input
-                    type="number"
-                    addonAfter="GB"
-                    defaultValue={user.transfer_enable as string | number | undefined}
-                    placeholder="请输入流量"
-                    onChange={(event) => onChange('transfer_enable', event.target.value)}
-                />
-            </FormGroup>
-            <FormGroup label="设备数限制">
-                <Input
-                    placeholder="留空则不限制"
-                    defaultValue={user.device_limit as string | number | undefined}
-                    onChange={(event) => onChange('device_limit', event.target.value)}
-                />
-            </FormGroup>
+            <UserMoneyFields user={user} onChange={onChange} />
+            <UserTrafficFields user={user} onChange={onChange} />
             <FormGroup label="到期时间">
                 <DatePicker
                     placeholder="长期有效"
