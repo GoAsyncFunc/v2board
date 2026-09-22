@@ -131,7 +131,7 @@ async function loadPaymentModule(relativePath) {
                 PaymentList.__testRender = true;
                 return PaymentList;
             }
-            if (id.includes('PaymentNotifyColumn') || id.includes('notifyColumn'))
+            if (id.includes('PaymentNotifyColumn'))
                 return { createPaymentNotifyColumn: () => ({ key: 'notify_url' }) };
             if (id.includes('PaymentDisplayColumns'))
                 return {

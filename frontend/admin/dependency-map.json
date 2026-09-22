@@ -529,7 +529,7 @@
   },
   {
     "from": "pages/config/payment/_List/index.tsx",
-    "to": "pages/config/payment/_List/notifyColumn.tsx"
+    "to": "pages/config/payment/_List/PaymentNotifyColumn.tsx"
   },
   {
     "from": "pages/config/payment/_Modal/index.tsx",
@@ -880,20 +880,20 @@
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_List/index.tsx",
-    "to": "pages/order/_List/orderColumns.tsx"
-  },
-  {
-    "from": "pages/order/_List/orderColumns.tsx",
+    "from": "pages/order/_List/OrderListColumns.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_List/orderColumns.tsx",
+    "from": "pages/order/_List/OrderListColumns.tsx",
     "to": "pages/order/_List/OrderDisplayColumns.tsx"
   },
   {
-    "from": "pages/order/_List/orderColumns.tsx",
+    "from": "pages/order/_List/OrderListColumns.tsx",
     "to": "pages/order/_Modal/OrderDetailModal.tsx"
+  },
+  {
+    "from": "pages/order/_List/index.tsx",
+    "to": "pages/order/_List/OrderListColumns.tsx"
   },
   {
     "from": "pages/order/_Modal/OrderDetailBody.tsx",
@@ -940,6 +940,22 @@
     "to": "pages/order/_Modal/OrderDetailModal.tsx"
   },
   {
+    "from": "pages/plan/_List/PlanListColumns.tsx",
+    "to": "pages/plan/_List/PlanGroupColumn.tsx"
+  },
+  {
+    "from": "pages/plan/_List/PlanListColumns.tsx",
+    "to": "pages/plan/_List/PlanPriceColumns.ts"
+  },
+  {
+    "from": "pages/plan/_List/PlanListColumns.tsx",
+    "to": "pages/plan/_List/PlanResourceColumns.tsx"
+  },
+  {
+    "from": "pages/plan/_List/PlanListColumns.tsx",
+    "to": "pages/plan/_Modal/index.tsx"
+  },
+  {
     "from": "pages/plan/_List/index.tsx",
     "to": "components/common/ContextMenuTable.tsx"
   },
@@ -949,23 +965,7 @@
   },
   {
     "from": "pages/plan/_List/index.tsx",
-    "to": "pages/plan/_List/planColumns.tsx"
-  },
-  {
-    "from": "pages/plan/_List/planColumns.tsx",
-    "to": "pages/plan/_List/PlanGroupColumn.tsx"
-  },
-  {
-    "from": "pages/plan/_List/planColumns.tsx",
-    "to": "pages/plan/_List/PlanPriceColumns.ts"
-  },
-  {
-    "from": "pages/plan/_List/planColumns.tsx",
-    "to": "pages/plan/_List/PlanResourceColumns.tsx"
-  },
-  {
-    "from": "pages/plan/_List/planColumns.tsx",
-    "to": "pages/plan/_Modal/index.tsx"
+    "to": "pages/plan/_List/PlanListColumns.tsx"
   },
   {
     "from": "pages/plan/_Modal/PlanAccessFields.tsx",
@@ -1528,6 +1528,10 @@
     "to": "pages/user/_Drawer/FormGroup.tsx"
   },
   {
+    "from": "pages/user/_List/UserListColumns.tsx",
+    "to": "pages/user/_List/UserDisplayColumns.tsx"
+  },
+  {
     "from": "pages/user/_List/actions.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
   },
@@ -1549,15 +1553,11 @@
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "pages/user/_List/actions.tsx"
+    "to": "pages/user/_List/UserListColumns.tsx"
   },
   {
     "from": "pages/user/_List/index.tsx",
-    "to": "pages/user/_List/userColumns.tsx"
-  },
-  {
-    "from": "pages/user/_List/userColumns.tsx",
-    "to": "pages/user/_List/UserDisplayColumns.tsx"
+    "to": "pages/user/_List/actions.tsx"
   },
   {
     "from": "pages/user/_Modal/UserGenerator.tsx",

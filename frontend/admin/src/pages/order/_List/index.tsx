@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { OrderRecord, OrderState } from '../../../types/order';
-import { createOrderListColumns, renderCommissionStatus, renderOrderStatus } from './orderColumns';
+import {
+    createOrderListColumns,
+    renderCommissionStatus,
+    renderOrderStatus,
+} from './OrderListColumns';
 
 interface OrderListProps {
     dispatch: AdminDispatch;

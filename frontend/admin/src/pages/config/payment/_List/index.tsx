@@ -6,7 +6,7 @@ import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import Sortable from '../../../../components/common/Sortable';
-import { createPaymentNotifyColumn } from './notifyColumn';
+import { createPaymentNotifyColumn } from './PaymentNotifyColumn';
 import type { AdminDispatch } from '../../../../types/store';
 import type { PaymentRecord, PaymentState } from '../../../../types/payment';
 

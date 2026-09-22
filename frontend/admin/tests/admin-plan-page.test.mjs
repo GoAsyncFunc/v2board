@@ -52,8 +52,8 @@ async function loadModule(relativePath, localModules = {}) {
             if (id === './PlanGroupColumn') return localModules.groupColumns;
             if (id === './PlanPriceColumns') return localModules.priceColumns;
             if (id === './PlanResourceColumns') return localModules.resourceColumns;
-            if (id === './planColumns' || id.endsWith('/_List/planColumns'))
-                return localModules.planColumns;
+            if (id === './PlanListColumns' || id.endsWith('/_List/PlanListColumns'))
+                return localModules.planListColumns;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/checkbox') return 'Checkbox';
             if (id === 'antd/lib/col') return 'Col';
@@ -87,7 +87,7 @@ async function loadPage() {
 }
 
 async function loadList() {
-    const planColumns = await loadModule('../src/pages/plan/_List/planColumns.tsx', {
+    const planListColumns = await loadModule('../src/pages/plan/_List/PlanListColumns.tsx', {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
         groupColumns: { createPlanGroupColumn: () => ({ key: 'group_id' }) },
         priceColumns: {
@@ -117,7 +117,7 @@ async function loadList() {
     });
     return loadModule('../src/pages/plan/_List/index.tsx', {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
-        planColumns,
+        planListColumns,
     });
 }
 

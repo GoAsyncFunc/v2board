@@ -10,7 +10,7 @@ import {
     createPlanContextMenu,
     createPlanListColumns,
     type PlanListActions,
-} from './planColumns';
+} from './PlanListColumns';
 
 interface ServerGroupState {
     groups: PlanGroup[];

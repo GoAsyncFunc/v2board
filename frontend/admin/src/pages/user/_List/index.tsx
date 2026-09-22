@@ -7,7 +7,7 @@ import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { FilterValue } from '../../../types/filter';
 import type { UserGroupOption, UserModuleState, UserRecord } from '../../../types/user';
 import { UserActionDropdown, UserContextMenu, type UserListActions } from './actions';
-import { createUserListColumns } from './userColumns';
+import { createUserListColumns } from './UserListColumns';
 
 export interface UserSorter {
     order?: 'ascend' | 'descend';
