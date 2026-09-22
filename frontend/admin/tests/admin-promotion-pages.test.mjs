@@ -42,12 +42,23 @@ async function loadModule(relativePath, localModules = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-      if (id === './_Modal') return localModules.modal;
-      if (id === './CouponBasicFields') return { CouponBasicFields: 'CouponBasicFields' };
-      if (id === './CouponValueFields') return { CouponValueFields: 'CouponValueFields' };
-      if (id === './CouponUsageFields') return { CouponUsageFields: 'CouponUsageFields' };
-      if (id === './CouponRestrictionsFields') return { CouponRestrictionsFields: 'CouponRestrictionsFields' };
-      if (id === './CouponGenerationField') return { CouponGenerationField: 'CouponGenerationField' };
+            if (id === './_Modal') return localModules.modal;
+            if (id === './CouponBasicFields') return { CouponBasicFields: 'CouponBasicFields' };
+            if (id === './CouponValueFields') return { CouponValueFields: 'CouponValueFields' };
+            if (id === './CouponUsageFields') return { CouponUsageFields: 'CouponUsageFields' };
+            if (id === './CouponRestrictionsFields')
+                return { CouponRestrictionsFields: 'CouponRestrictionsFields' };
+            if (id === './CouponGenerationField')
+                return { CouponGenerationField: 'CouponGenerationField' };
+            if (id === './GiftcardBasicFields')
+                return { GiftcardBasicFields: 'GiftcardBasicFields' };
+            if (id === './GiftcardValueFields')
+                return { GiftcardValueFields: 'GiftcardValueFields' };
+            if (id === './GiftcardPlanField') return { GiftcardPlanField: 'GiftcardPlanField' };
+            if (id === './GiftcardUsageFields')
+                return { GiftcardUsageFields: 'GiftcardUsageFields' };
+            if (id === './GiftcardGenerationField')
+                return { GiftcardGenerationField: 'GiftcardGenerationField' };
             if (id === './_List') return localModules.list;
             if (id === './columns') return localModules.columns;
             if (id === 'antd/lib/button') return 'Button';

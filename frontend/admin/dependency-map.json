@@ -764,6 +764,26 @@
     "to": "utils/clipboard.ts"
   },
   {
+    "from": "pages/giftcard/_Modal/index.tsx",
+    "to": "pages/giftcard/_Modal/GiftcardBasicFields.tsx"
+  },
+  {
+    "from": "pages/giftcard/_Modal/index.tsx",
+    "to": "pages/giftcard/_Modal/GiftcardGenerationField.tsx"
+  },
+  {
+    "from": "pages/giftcard/_Modal/index.tsx",
+    "to": "pages/giftcard/_Modal/GiftcardPlanField.tsx"
+  },
+  {
+    "from": "pages/giftcard/_Modal/index.tsx",
+    "to": "pages/giftcard/_Modal/GiftcardUsageFields.tsx"
+  },
+  {
+    "from": "pages/giftcard/_Modal/index.tsx",
+    "to": "pages/giftcard/_Modal/GiftcardValueFields.tsx"
+  },
+  {
     "from": "pages/giftcard/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
