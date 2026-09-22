@@ -776,10 +776,14 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(orderDirectory)).includes('_Drawer'));
     assert.ok((await fs.readdir(orderDirectory)).includes('_List'));
     assert.ok((await fs.readdir(orderDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('filter.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('OrderFilterDrawer.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
     assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
-    assert.ok((await fs.readdir(new URL('_Modal/', orderDirectory))).includes('detail.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailModal.tsx'),
+    );
     assert.ok(
         (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailBody.tsx'),
     );
@@ -788,12 +792,16 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(userDirectory)).includes('_Drawer'));
     assert.ok((await fs.readdir(userDirectory)).includes('_List'));
     assert.ok((await fs.readdir(userDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('edit.tsx'));
-    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('filter.tsx'));
+    assert.ok((await fs.readdir(new URL('_Drawer/', userDirectory))).includes('UserEditor.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_Drawer/', userDirectory))).includes('UserFilterDrawer.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
     assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('columns.tsx'));
-    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('generate.tsx'));
-    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('sendMail.tsx'));
+    assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('UserGenerator.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'),
+    );
     const noticeDirectory = new URL('notice/', pagesDirectory);
     assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
@@ -887,12 +895,12 @@ test('admin components use business domains and connected editors use the canoni
         '../src/components/commerce/AssignOrderEditor.tsx',
         '../src/pages/server/manage/_Editors/HysteriaEditor.tsx',
         '../src/components/common/PermissionGroupEditor.tsx',
-        '../src/pages/user/_Modal/sendMail.tsx',
+        '../src/pages/user/_Modal/SendMailEditor.tsx',
         '../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
         '../src/pages/server/manage/_Editors/TrojanEditor.tsx',
         '../src/pages/server/manage/_Editors/TuicEditor.tsx',
-        '../src/pages/user/_Drawer/edit.tsx',
-        '../src/pages/user/_Modal/generate.tsx',
+        '../src/pages/user/_Drawer/UserEditor.tsx',
+        '../src/pages/user/_Modal/UserGenerator.tsx',
         '../src/pages/server/manage/_Editors/V2NodeEditor.tsx',
         '../src/pages/server/manage/_Editors/VlessEditor.tsx',
         '../src/pages/server/manage/_Editors/VmessEditor.tsx',

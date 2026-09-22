@@ -7,7 +7,7 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout';
-import UserFilterDrawer, { createUserFilterFields } from './_Drawer/filter';
+import UserFilterDrawer, { createUserFilterFields } from './_Drawer/UserFilterDrawer';
 import { UserList, type UserSorter } from './_List';
 import UserToolbar from './_Toolbar';
 import type { FilterField, FilterValue } from '../../types/filter';
@@ -167,9 +167,9 @@ export class UserPage extends React.Component<UserPageProps> {
 }
 
 export { UserList } from './_List';
-export { UserEditor } from './_Drawer/edit';
-export { SendMailEditor } from './_Modal/sendMail';
-export { UserGenerator } from './_Modal/generate';
+export { UserEditor } from './_Drawer/UserEditor';
+export { SendMailEditor } from './_Modal/SendMailEditor';
+export { UserGenerator } from './_Modal/UserGenerator';
 
 export default connect((state: AdminRootState) => ({
     user: state.user,

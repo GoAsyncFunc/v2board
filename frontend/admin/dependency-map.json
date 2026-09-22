@@ -872,7 +872,7 @@
     "to": "pages/notice/_Modal/index.tsx"
   },
   {
-    "from": "pages/order/_Drawer/filter.tsx",
+    "from": "pages/order/_Drawer/OrderFilterDrawer.tsx",
     "to": "components/common/FilterDrawer.tsx"
   },
   {
@@ -893,26 +893,26 @@
   },
   {
     "from": "pages/order/_List/orderColumns.tsx",
-    "to": "pages/order/_Modal/detail.tsx"
+    "to": "pages/order/_Modal/OrderDetailModal.tsx"
   },
   {
     "from": "pages/order/_Modal/OrderDetailBody.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/order/_Modal/detail.tsx",
+    "from": "pages/order/_Modal/OrderDetailModal.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/order/_Modal/detail.tsx",
+    "from": "pages/order/_Modal/OrderDetailModal.tsx",
     "to": "pages/order/_Modal/OrderDetailBody.tsx"
   },
   {
-    "from": "pages/order/_Modal/detail.tsx",
+    "from": "pages/order/_Modal/OrderDetailModal.tsx",
     "to": "services/request.ts"
   },
   {
-    "from": "pages/order/_Modal/detail.tsx",
+    "from": "pages/order/_Modal/OrderDetailModal.tsx",
     "to": "types/api.ts"
   },
   {
@@ -929,7 +929,7 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "pages/order/_Drawer/filter.tsx"
+    "to": "pages/order/_Drawer/OrderFilterDrawer.tsx"
   },
   {
     "from": "pages/order/index.tsx",
@@ -937,7 +937,7 @@
   },
   {
     "from": "pages/order/index.tsx",
-    "to": "pages/order/_Modal/detail.tsx"
+    "to": "pages/order/_Modal/OrderDetailModal.tsx"
   },
   {
     "from": "pages/plan/_List/index.tsx",
@@ -1477,7 +1477,7 @@
   },
   {
     "from": "pages/ticket/[id].tsx",
-    "to": "pages/user/_Drawer/edit.tsx"
+    "to": "pages/user/_Drawer/UserEditor.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",
@@ -1500,6 +1500,14 @@
     "to": "pages/ticket/_List/index.tsx"
   },
   {
+    "from": "pages/user/_Drawer/UserEditor.tsx",
+    "to": "pages/user/_Drawer/UserFormFields.tsx"
+  },
+  {
+    "from": "pages/user/_Drawer/UserFilterDrawer.tsx",
+    "to": "components/common/FilterDrawer.tsx"
+  },
+  {
     "from": "pages/user/_Drawer/UserFormFields.tsx",
     "to": "components/common/NullableSelectOption.tsx"
   },
@@ -1520,14 +1528,6 @@
     "to": "pages/user/_Drawer/FormGroup.tsx"
   },
   {
-    "from": "pages/user/_Drawer/edit.tsx",
-    "to": "pages/user/_Drawer/UserFormFields.tsx"
-  },
-  {
-    "from": "pages/user/_Drawer/filter.tsx",
-    "to": "components/common/FilterDrawer.tsx"
-  },
-  {
     "from": "pages/user/_List/actions.tsx",
     "to": "components/commerce/AssignOrderEditor.tsx"
   },
@@ -1537,7 +1537,7 @@
   },
   {
     "from": "pages/user/_List/actions.tsx",
-    "to": "pages/user/_Drawer/edit.tsx"
+    "to": "pages/user/_Drawer/UserEditor.tsx"
   },
   {
     "from": "pages/user/_List/actions.tsx",
@@ -1560,20 +1560,20 @@
     "to": "pages/user/_List/columns.tsx"
   },
   {
-    "from": "pages/user/_Modal/generate.tsx",
+    "from": "pages/user/_Modal/UserGenerator.tsx",
     "to": "components/common/NullableSelectOption.tsx"
   },
   {
     "from": "pages/user/_Toolbar/index.tsx",
-    "to": "pages/user/_Drawer/filter.tsx"
+    "to": "pages/user/_Drawer/UserFilterDrawer.tsx"
   },
   {
     "from": "pages/user/_Toolbar/index.tsx",
-    "to": "pages/user/_Modal/generate.tsx"
+    "to": "pages/user/_Modal/SendMailEditor.tsx"
   },
   {
     "from": "pages/user/_Toolbar/index.tsx",
-    "to": "pages/user/_Modal/sendMail.tsx"
+    "to": "pages/user/_Modal/UserGenerator.tsx"
   },
   {
     "from": "pages/user/index.tsx",
@@ -1589,11 +1589,11 @@
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "pages/user/_Drawer/edit.tsx"
+    "to": "pages/user/_Drawer/UserEditor.tsx"
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "pages/user/_Drawer/filter.tsx"
+    "to": "pages/user/_Drawer/UserFilterDrawer.tsx"
   },
   {
     "from": "pages/user/index.tsx",
@@ -1601,11 +1601,11 @@
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "pages/user/_Modal/generate.tsx"
+    "to": "pages/user/_Modal/SendMailEditor.tsx"
   },
   {
     "from": "pages/user/index.tsx",
-    "to": "pages/user/_Modal/sendMail.tsx"
+    "to": "pages/user/_Modal/UserGenerator.tsx"
   },
   {
     "from": "pages/user/index.tsx",

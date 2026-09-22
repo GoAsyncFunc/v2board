@@ -80,10 +80,10 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
                 };
             }
             if (id === './_List' || id.endsWith('/_List')) return localModules.list;
-            if (id === './_Drawer/filter' || id.endsWith('/_Drawer/filter')) {
+            if (id === './_Drawer/OrderFilterDrawer' || id.endsWith('/_Drawer/OrderFilterDrawer')) {
                 return localModules.filter;
             }
-            if (id === '../_Modal/detail' || id.endsWith('/_Modal/detail')) {
+            if (id === '../_Modal/OrderDetailModal' || id.endsWith('/_Modal/OrderDetailModal')) {
                 return localModules.detail;
             }
             if (id === './columns' || id.endsWith('/_List/columns')) {
@@ -138,7 +138,7 @@ async function loadList() {
 
 async function loadDetail(responses = []) {
     return loadModule(
-        '../src/pages/order/_Modal/detail.tsx',
+        '../src/pages/order/_Modal/OrderDetailModal.tsx',
         { detailBody: 'OrderDetailBody' },
         responses,
     );

@@ -8,7 +8,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch } from '../../../types/store';
 import type { OrderRecord } from '../../../types/order';
-import { ConnectedOrderDetailModal } from '../_Modal/detail';
+import { ConnectedOrderDetailModal } from '../_Modal/OrderDetailModal';
 import { createReadonlyOrderColumns } from './columns';
 
 const readonlyColumns = createReadonlyOrderColumns<OrderRecord>();

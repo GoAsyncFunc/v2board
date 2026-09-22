@@ -7,7 +7,7 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { OrderState } from '../../types/order';
-import OrderFilterDrawer from './_Drawer/filter';
+import OrderFilterDrawer from './_Drawer/OrderFilterDrawer';
 import { OrderList } from './_List';
 
 interface OrderPageProps {
@@ -68,6 +68,6 @@ export class OrderPage extends React.Component<OrderPageProps> {
 }
 
 export { OrderList } from './_List';
-export { OrderDetailModal, ConnectedOrderDetailModal } from './_Modal/detail';
+export { OrderDetailModal, ConnectedOrderDetailModal } from './_Modal/OrderDetailModal';
 
 export default connect((state: AdminRootState) => ({ order: state.order }))(OrderPage);

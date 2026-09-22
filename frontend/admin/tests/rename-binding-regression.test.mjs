@@ -54,8 +54,8 @@ for (const file of [
     'admin/src/pages/server/manage/_List/ServerManageColumns.tsx',
     'admin/src/pages/server/manage/_List/ServerManageMobileList.tsx',
     'admin/src/components/common/PermissionGroupEditor.tsx',
-    'admin/src/pages/user/_Modal/sendMail.tsx',
-    'admin/src/pages/user/_Drawer/filter.tsx',
+    'admin/src/pages/user/_Modal/SendMailEditor.tsx',
+    'admin/src/pages/user/_Drawer/UserFilterDrawer.tsx',
     'admin/src/pages/server/manage/_Editors/ServerSecuritySettings.tsx',
     'admin/src/pages/server/manage/_Editors/Security/TlsSettings.tsx',
     'admin/src/pages/server/manage/_Editors/Security/TlsAdvancedSettings.tsx',
@@ -71,8 +71,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/Tuic/GeneralFields.tsx',
     'admin/src/pages/server/manage/_Editors/Tuic/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx',
-    'admin/src/pages/user/_Modal/generate.tsx',
-    'admin/src/pages/user/_Drawer/edit.tsx',
+    'admin/src/pages/user/_Modal/UserGenerator.tsx',
+    'admin/src/pages/user/_Drawer/UserEditor.tsx',
     'admin/src/pages/user/_Drawer/UserFormFields.tsx',
     'admin/src/pages/user/_List/index.tsx',
     'admin/src/pages/user/_List/columns.tsx',
@@ -153,10 +153,10 @@ for (const file of [
     'admin/src/pages/notice/_Modal/NoticeContentFields.tsx',
     'admin/src/pages/notice/_Modal/NoticeMetadataFields.tsx',
     'admin/src/pages/order/index.tsx',
-    'admin/src/pages/order/_Drawer/filter.tsx',
+    'admin/src/pages/order/_Drawer/OrderFilterDrawer.tsx',
     'admin/src/pages/order/_List/index.tsx',
     'admin/src/pages/order/_List/columns.tsx',
-    'admin/src/pages/order/_Modal/detail.tsx',
+    'admin/src/pages/order/_Modal/OrderDetailModal.tsx',
     'admin/src/pages/order/_Modal/OrderDetailBody.tsx',
     'admin/src/pages/queue/index.tsx',
     'admin/src/pages/server/group/index.tsx',
@@ -191,9 +191,9 @@ for (const file of [
             },
         });
         assert.deepEqual(missing, []);
-        if (localFile.includes('FilterDrawer')) {
-            assert.match(source, /\badd\(\)\s*\{/);
-            assert.match(source, /this\.add\(\)/);
+        if (/pages\/(user|order)\/.*FilterDrawer/.test(localFile)) {
+            assert.match(source, /create(User|Order)FilterFields|orderFilterFields/);
+            assert.match(source, /<FilterDrawer\b/);
             assert.doesNotMatch(source, /adobjectAssign/);
         }
     });
