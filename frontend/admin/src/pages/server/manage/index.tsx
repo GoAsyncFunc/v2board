@@ -4,7 +4,6 @@ import Button from 'antd/lib/button';
 import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
-import Menu from 'antd/lib/menu';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { Prompt } from 'react-router-dom';
 import Sortable from '../../../components/common/Sortable';
@@ -12,13 +11,14 @@ import LoadingContainer from '../../../components/common/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
 import MainLayout from '../../../layouts/MainLayout';
 import ContextMenuTable from '../../../components/common/ContextMenuTable';
-import {
-    createNewServerMenu,
-    renderServerEditor,
-    serverModelNamespace,
-} from './_Editors/ServerEditorRegistry';
+import { createNewServerMenu, serverModelNamespace } from './_Editors/ServerEditorRegistry';
 import { createServerManageColumns, createServerSortColumns } from './_List/ServerManageColumns';
 import ServerManageMobileList from './_List/ServerManageMobileList';
+import {
+    createServerContextMenu,
+    ServerActionDropdown,
+    type ServerManageActions,
+} from './_List/ServerManageActions';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     ManagedServerRecord,
@@ -98,36 +98,16 @@ export class ServerManagePage extends React.Component<
         this.dispatchServerAction(server, 'update', { key, value });
     }
 
-    actionMenu(server: ServerRecord): React.ReactElement {
-        return (
-            <Menu>
-                <Menu.Item onContextMenu={(event) => event.stopPropagation()}>
-                    {renderServerEditor(
-                        server,
-                        <a>
-                            <Icon type="edit" /> 编辑
-                        </a>,
-                    )}
-                </Menu.Item>
-                <Menu.Item onClick={() => this.copy(server)}>
-                    <Icon type="copy" /> 复制
-                </Menu.Item>
-                <Menu.Item style={{ color: '#ff4d4f' }} onClick={() => this.drop(server)}>
-                    <Icon type="delete" /> 删除
-                </Menu.Item>
-            </Menu>
-        );
+    listActions(): ServerManageActions {
+        return {
+            onCopy: (server) => this.copy(server),
+            onDrop: (server) => this.drop(server),
+        };
     }
 
     actionDropdown(server: ServerRecord, trigger?: React.ReactElement): React.ReactElement {
         return (
-            <Dropdown trigger={['click']} overlay={this.actionMenu(server)}>
-                {trigger || (
-                    <a href="javascript:void(0);">
-                        操作 <Icon type="caret-down" />
-                    </a>
-                )}
-            </Dropdown>
+            <ServerActionDropdown server={server} actions={this.listActions()} trigger={trigger} />
         );
     }
 
@@ -162,31 +142,7 @@ export class ServerManagePage extends React.Component<
     }
 
     renderContextMenu(): React.ReactElement {
-        const server = this.contextServer;
-        return (
-            <ul className="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical">
-                <li className="ant-dropdown-menu-item">
-                    {server &&
-                        renderServerEditor(
-                            server,
-                            <a>
-                                <Icon type="form" /> 编辑
-                            </a>,
-                            `context-${server.id}`,
-                        )}
-                </li>
-                <li className="ant-dropdown-menu-item" onClick={() => server && this.copy(server)}>
-                    <a>
-                        <Icon type="copy" /> 复制
-                    </a>
-                </li>
-                <li className="ant-dropdown-menu-item" onClick={() => server && this.drop(server)}>
-                    <a style={{ color: '#ff4d4f' }}>
-                        <Icon type="delete" /> 删除
-                    </a>
-                </li>
-            </ul>
-        );
+        return createServerContextMenu(this.contextServer, this.listActions());
     }
 
     renderDesktopTable(

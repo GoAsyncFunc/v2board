@@ -44,6 +44,10 @@ async function loadPage() {
         createServerManageColumns: () => [{ key: 'manage' }],
         createServerSortColumns: () => [{ key: 'sort' }],
       };
+      if (id.includes('ServerManageActions')) return {
+        createServerContextMenu: () => ({ type: 'ContextMenu' }),
+        ServerActionDropdown: 'ServerActionDropdown',
+      };
       if (id.includes('ServerTypeTag')) return { renderServerTypeTag: (_type, label) => label };
       if (id.includes('ServerNameColumn')) return { createServerNameColumn: () => ({ key: 'name' }) };
       if (id.includes('ServerRateColumn')) return { createServerRateColumn: () => ({ key: 'rate' }) };

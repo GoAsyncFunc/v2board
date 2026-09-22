@@ -1348,6 +1348,10 @@
     "to": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx"
   },
   {
+    "from": "pages/server/manage/_List/ServerManageActions.tsx",
+    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+  },
+  {
     "from": "pages/server/manage/_List/ServerManageColumns.tsx",
     "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
   },
@@ -1394,6 +1398,10 @@
   {
     "from": "pages/server/manage/index.tsx",
     "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/_List/ServerManageActions.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
