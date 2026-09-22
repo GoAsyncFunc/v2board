@@ -763,6 +763,30 @@ test('admin pages select from the canonical root state', async () => {
             'ThemeConfigEditor.tsx',
         ),
     );
+    const systemDirectory = new URL('config/system/', pagesDirectory);
+    assert.ok((await fs.readdir(systemDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(systemDirectory)).includes('components'));
+    const systemComponentsDirectory = new URL('components/', systemDirectory);
+    for (const component of [
+        'AppConfigTab.tsx',
+        'ConfigRow.tsx',
+        'DepositConfigTab.tsx',
+        'EmailConfigTab.tsx',
+        'FrontendConfigTab.tsx',
+        'InviteConfigTab.tsx',
+        'MailTestResult.tsx',
+        'SafeConfigTab.tsx',
+        'ServerConfigTab.tsx',
+        'SiteConfigTab.tsx',
+        'SubscribeConfigTab.tsx',
+        'TelegramConfigTab.tsx',
+        'TicketConfigTab.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(systemComponentsDirectory)).includes(component),
+            `system components should include ${component}`,
+        );
+    }
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));

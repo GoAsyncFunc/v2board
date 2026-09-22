@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import ConfigRow from '../_components/ConfigRow';
+import ConfigRow from './ConfigRow';
 import type { ConfigChangeHandler, EmailConfig } from '../../../../types/config';
 
 interface TextSettingProps {

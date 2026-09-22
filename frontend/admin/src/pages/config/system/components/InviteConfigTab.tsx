@@ -1,6 +1,6 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
-import ConfigRow from '../_components/ConfigRow';
+import ConfigRow from './ConfigRow';
 import type { ConfigChangeHandler, ConfigValue, InviteConfig } from '../../../../types/config';
 
 interface TextSettingProps {
