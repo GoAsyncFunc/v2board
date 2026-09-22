@@ -72,6 +72,18 @@ test('server security settings use protocol-specific fields instead of a generic
         ),
         'utf8',
     );
+    const advancedComponentSource = await fs.readFile(
+        path.join(
+            sourceRoot,
+            'pages',
+            'server',
+            'manage',
+            '_Editors',
+            'Security',
+            'TlsAdvancedSettings.tsx',
+        ),
+        'utf8',
+    );
 
     assert.doesNotMatch(
         typeSource,
@@ -85,7 +97,7 @@ test('server security settings use protocol-specific fields instead of a generic
     }
     assert.doesNotMatch(componentSource, /settings\.[A-Za-z_][A-Za-z0-9_]*\s+as\s+/);
     assert.match(componentSource, /function inputValue\(/);
-    assert.match(componentSource, /function isEchMode\(/);
+    assert.match(advancedComponentSource, /function isEchMode\(/);
 });
 
 test('admin business boundary types avoid broad object placeholders', async () => {

@@ -92,6 +92,7 @@ test('TLS and encryption settings retain defaults and emit complete updates', as
         if (id === 'antd/lib/input') return 'Input';
         if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
         if (id === 'antd/lib/switch') return 'Switch';
+        if (id === './TlsAdvancedSettings') return { TlsAdvancedSettings: 'TlsAdvancedSettings' };
         throw new Error(id);
     };
     const tlsComponent = await load(
