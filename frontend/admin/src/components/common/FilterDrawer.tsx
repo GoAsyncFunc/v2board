@@ -8,7 +8,7 @@ import Input from 'antd/lib/input';
 import notification from 'antd/lib/notification';
 import Select from 'antd/lib/select';
 import moment from 'moment';
-import type { FilterField, FilterItem, FilterOption, FilterValue } from '../../types/filter';
+import type { FilterField, FilterItem, FilterValue } from '../../types/filter';
 
 const DrawerWithFooter = Drawer as React.ComponentType<
     React.ComponentProps<typeof Drawer> & { footer?: React.ReactNode }
@@ -103,7 +103,7 @@ export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawe
                     placeholder="请选择值"
                     onChange={(value) => this.changeFilter(index, 'value', value)}
                 >
-                    {(fieldConfig.options as FilterOption[]).map((option) => (
+                    {fieldConfig.options!.map((option) => (
                         <Select.Option
                             key={`${option.key}-${option.value}`}
                             value={option.value as string | number | undefined}

@@ -13,9 +13,8 @@ export function renderPlanGroupTags(
     const tags: React.ReactElement[] = [];
     // Keep parsing inside iteration and retain every matching group, including
     // duplicates. Do not replace with find(), coerce group IDs or add defaults.
-    (groups as PlanGroup[]).map((group) => {
-        if ((group as PlanGroup).id === parseInt(groupId as string))
-            tags.push(<Tag>{(group as PlanGroup).name}</Tag>);
+    groups!.map((group) => {
+        if (group.id === parseInt(groupId as string)) tags.push(<Tag>{group.name}</Tag>);
     });
     return tags;
 }

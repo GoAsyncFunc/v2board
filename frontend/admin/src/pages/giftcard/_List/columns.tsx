@@ -42,9 +42,7 @@ export function findGiftcardPlanName(
     plans: GiftcardPlan[] | null | undefined,
     id: GiftcardRecord['plan_id'],
 ): string | null | undefined {
-    const plan = (plans as GiftcardPlan[]).find(
-        (candidate) => (candidate as GiftcardPlan).id === id,
-    );
+    const plan = plans!.find((candidate) => candidate.id === id);
     return plan ? plan.name : '-';
 }
 
