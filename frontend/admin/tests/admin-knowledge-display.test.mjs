@@ -11,7 +11,7 @@ async function load(original) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-knowledge-display.cjs'
-            : '../src/pages/knowledge/_List/KnowledgeDisplayColumns.ts',
+            : '../src/pages/knowledge/components/KnowledgeColumns.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');

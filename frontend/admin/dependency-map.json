@@ -808,24 +808,24 @@
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/knowledge/_Drawer/index.tsx",
+    "from": "pages/knowledge/components/KnowledgeEditor.tsx",
     "to": "components/common/MarkdownEditor.tsx"
   },
   {
-    "from": "pages/knowledge/_Drawer/index.tsx",
+    "from": "pages/knowledge/components/KnowledgeEditor.tsx",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/knowledge/_List/index.tsx",
+    "from": "pages/knowledge/components/KnowledgeList.tsx",
     "to": "components/common/Sortable.tsx"
   },
   {
-    "from": "pages/knowledge/_List/index.tsx",
-    "to": "pages/knowledge/_Drawer/index.tsx"
+    "from": "pages/knowledge/components/KnowledgeList.tsx",
+    "to": "pages/knowledge/components/KnowledgeColumns.ts"
   },
   {
-    "from": "pages/knowledge/_List/index.tsx",
-    "to": "pages/knowledge/_List/KnowledgeDisplayColumns.ts"
+    "from": "pages/knowledge/components/KnowledgeList.tsx",
+    "to": "pages/knowledge/components/KnowledgeEditor.tsx"
   },
   {
     "from": "pages/knowledge/index.tsx",
@@ -837,23 +837,23 @@
   },
   {
     "from": "pages/knowledge/index.tsx",
-    "to": "pages/knowledge/_Drawer/index.tsx"
+    "to": "pages/knowledge/components/KnowledgeEditor.tsx"
   },
   {
     "from": "pages/knowledge/index.tsx",
-    "to": "pages/knowledge/_List/index.tsx"
+    "to": "pages/knowledge/components/KnowledgeList.tsx"
   },
   {
-    "from": "pages/notice/_List/index.tsx",
-    "to": "pages/notice/_List/NoticeDisplayColumns.ts"
+    "from": "pages/notice/components/NoticeEditor.tsx",
+    "to": "pages/notice/components/NoticeContentFields.tsx"
   },
   {
-    "from": "pages/notice/_Modal/index.tsx",
-    "to": "pages/notice/_Modal/NoticeContentFields.tsx"
+    "from": "pages/notice/components/NoticeEditor.tsx",
+    "to": "pages/notice/components/NoticeMetadataFields.tsx"
   },
   {
-    "from": "pages/notice/_Modal/index.tsx",
-    "to": "pages/notice/_Modal/NoticeMetadataFields.tsx"
+    "from": "pages/notice/components/NoticeList.tsx",
+    "to": "pages/notice/components/NoticeColumns.ts"
   },
   {
     "from": "pages/notice/index.tsx",
@@ -865,11 +865,11 @@
   },
   {
     "from": "pages/notice/index.tsx",
-    "to": "pages/notice/_List/index.tsx"
+    "to": "pages/notice/components/NoticeEditor.tsx"
   },
   {
     "from": "pages/notice/index.tsx",
-    "to": "pages/notice/_Modal/index.tsx"
+    "to": "pages/notice/components/NoticeList.tsx"
   },
   {
     "from": "pages/order/_Drawer/OrderFilterDrawer.tsx",

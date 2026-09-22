@@ -36,13 +36,13 @@ async function loadModule(relativePath, localModules = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id === './_Modal') return localModules.modal;
+            if (id === './components/NoticeEditor') return localModules.modal;
             if (id === './NoticeContentFields')
                 return { NoticeContentFields: 'NoticeContentFields' };
             if (id === './NoticeMetadataFields')
                 return { NoticeMetadataFields: 'NoticeMetadataFields' };
-            if (id === './_List') return localModules.list;
-            if (id === './NoticeDisplayColumns') return localModules.columns;
+            if (id === './components/NoticeList') return localModules.list;
+            if (id === './NoticeColumns') return localModules.columns;
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id === 'antd/lib/button') return 'Button';
@@ -68,13 +68,13 @@ async function loadPage() {
 }
 
 async function loadList() {
-    return loadModule('../src/pages/notice/_List/index.tsx', {
+    return loadModule('../src/pages/notice/components/NoticeList.tsx', {
         columns: { __esModule: true, createReadonlyNoticeColumns: () => readonlyColumns },
     });
 }
 
 async function loadEditor() {
-    return loadModule('../src/pages/notice/_Modal/index.tsx');
+    return loadModule('../src/pages/notice/components/NoticeEditor.tsx');
 }
 
 function nodes(tree, predicate) {

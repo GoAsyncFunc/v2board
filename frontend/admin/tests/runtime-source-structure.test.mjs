@@ -746,8 +746,11 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));
     const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
     assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(knowledgeDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(knowledgeDirectory)).includes('_Drawer'));
+    assert.ok((await fs.readdir(knowledgeDirectory)).includes('components'));
+    const knowledgeComponentsDirectory = new URL('components/', knowledgeDirectory);
+    assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeList.tsx'));
+    assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeColumns.ts'));
+    assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeEditor.tsx'));
     const couponDirectory = new URL('coupon/', pagesDirectory);
     assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
@@ -814,11 +817,11 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'));
     const noticeDirectory = new URL('notice/', pagesDirectory);
     assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
-    assert.ok(
-        (await fs.readdir(new URL('_List/', noticeDirectory))).includes('NoticeDisplayColumns.ts'),
-    );
+    assert.ok((await fs.readdir(noticeDirectory)).includes('components'));
+    const noticeComponentsDirectory = new URL('components/', noticeDirectory);
+    assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeList.tsx'));
+    assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeColumns.ts'));
+    assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeEditor.tsx'));
     assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
     const ticketDirectory = new URL('ticket/', pagesDirectory);
     assert.ok((await fs.readdir(ticketDirectory)).includes('components'));

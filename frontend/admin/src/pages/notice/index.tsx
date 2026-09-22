@@ -6,8 +6,8 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { NoticeRecord, NoticeState } from '../../types/notice';
-import NoticeEditor from './_Modal';
-import { NoticeList } from './_List';
+import NoticeEditor from './components/NoticeEditor';
+import { NoticeList } from './components/NoticeList';
 
 interface NoticePageProps {
     dispatch: AdminDispatch;
@@ -66,7 +66,7 @@ export class NoticePage extends React.Component<NoticePageProps, NoticePageState
     }
 }
 
-export { NoticeEditor } from './_Modal';
-export { NoticeList } from './_List';
+export { NoticeEditor } from './components/NoticeEditor';
+export { NoticeList } from './components/NoticeList';
 
 export default connect((state: AdminRootState) => ({ notice: state.notice }))(NoticePage);

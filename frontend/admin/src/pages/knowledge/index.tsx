@@ -6,8 +6,8 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { KnowledgeState } from '../../types/knowledge';
-import ConnectedKnowledgeEditor from './_Drawer';
-import { KnowledgeList } from './_List';
+import ConnectedKnowledgeEditor from './components/KnowledgeEditor';
+import { KnowledgeList } from './components/KnowledgeList';
 
 interface KnowledgePageProps {
     dispatch: AdminDispatch;
@@ -44,7 +44,7 @@ export class KnowledgePage extends React.Component<KnowledgePageProps> {
     }
 }
 
-export { KnowledgeEditor } from './_Drawer';
-export { KnowledgeList } from './_List';
+export { KnowledgeEditor } from './components/KnowledgeEditor';
+export { KnowledgeList } from './components/KnowledgeList';
 
 export default connect((state: AdminRootState) => ({ knowledge: state.knowledge }))(KnowledgePage);

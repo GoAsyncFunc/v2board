@@ -7,7 +7,7 @@ import Modal from 'antd/lib/modal';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { NoticeRecord } from '../../../types/notice';
-import { createReadonlyNoticeColumns } from './NoticeDisplayColumns';
+import { createReadonlyNoticeColumns } from './NoticeColumns';
 
 interface NoticeListProps {
     dispatch: AdminDispatch;

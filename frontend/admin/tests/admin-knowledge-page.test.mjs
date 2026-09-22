@@ -35,8 +35,9 @@ async function loadModule(relativePath, localComponents = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id.endsWith('/_Drawer')) return localComponents.drawer;
-            if (id.endsWith('/_List')) return localComponents.list;
+            if (id.endsWith('/components/KnowledgeEditor')) return localComponents.drawer;
+            if (id === './KnowledgeEditor') return localComponents.drawer;
+            if (id.endsWith('/components/KnowledgeList')) return localComponents.list;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/divider') return 'Divider';
             if (id === 'antd/lib/drawer') return 'Drawer';
@@ -55,7 +56,7 @@ async function loadModule(relativePath, localComponents = {}) {
                     }
                 };
             if (id === 'react-loadable') return () => 'MarkdownEditor';
-            if (id.includes('KnowledgeDisplayColumns') || id === './columns') {
+            if (id.includes('KnowledgeColumns') || id === './columns') {
                 return {
                     createReadonlyKnowledgeColumns: () =>
                         Object.fromEntries(
@@ -86,11 +87,11 @@ async function loadPage() {
 }
 
 async function loadEditor() {
-    return loadModule('../src/pages/knowledge/_Drawer/index.tsx');
+    return loadModule('../src/pages/knowledge/components/KnowledgeEditor.tsx');
 }
 
 async function loadList() {
-    return loadModule('../src/pages/knowledge/_List/index.tsx', {
+    return loadModule('../src/pages/knowledge/components/KnowledgeList.tsx', {
         drawer: { __esModule: true, default: 'KnowledgeEditor' },
     });
 }
