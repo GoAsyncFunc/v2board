@@ -23,7 +23,7 @@ const Select = Object.assign('Select', { Option: 'Select.Option' });
 
 async function load(componentName) {
   const componentPaths = {
-    AssignOrderEditor: '../src/components/commerce/AssignOrderEditor.tsx',
+    AssignOrderEditor: '../src/components/order/AssignOrderEditor.tsx',
     PermissionGroupEditor: '../src/components/common/PermissionGroupEditor.tsx',
     SendMailEditor: '../src/pages/user/components/SendMailEditor.tsx',
     UserGenerator: '../src/pages/user/components/UserGenerator.tsx',

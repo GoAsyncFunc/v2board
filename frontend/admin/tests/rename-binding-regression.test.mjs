@@ -43,7 +43,7 @@ for (const file of [
     'admin/src/pages/server/manage/editors/AnyTls/GeneralFields.tsx',
     'admin/src/pages/server/manage/editors/AnyTls/RelationshipFields.tsx',
     'admin/src/pages/server/manage/editors/AnyTls/PaddingScheme.tsx',
-    'admin/src/components/commerce/AssignOrderEditor.tsx',
+    'admin/src/components/order/AssignOrderEditor.tsx',
     'admin/src/components/common/FilterDrawer.tsx',
     'admin/src/components/common/NullableSelectOption.tsx',
     'admin/src/pages/server/manage/editors/HysteriaEditor.tsx',

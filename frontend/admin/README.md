@@ -89,7 +89,7 @@ dist/            本地构建产物，不提交 Git
 
 `src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口统一使用小写目录下的 `index.tsx`，工单详情使用 `ticket/[id].tsx`；复杂页面的页面专属组件统一放在对应目录的 `components/` 下，列表、筛选、编辑器、展示列和字段模块使用语义化文件名。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
 
-`src/components/` 只保留跨页面复用的 `common`、`commerce` 和 `user` 组件。Server 管理编辑器位于 `src/pages/server/manage/editors/`，Server 列表展示和操作位于 `src/pages/server/manage/components/`；系统配置组件位于 `src/pages/config/system/components/`，支付、订单、计划、优惠券、礼品卡、用户、公告和知识库组件也分别位于各自页面的 `components/` 下。只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应页面目录内。
+`src/components/` 只保留跨页面复用的 `common`、`order` 和 `user` 组件。订单分配编辑器位于 `src/components/order/`；Server 管理编辑器位于 `src/pages/server/manage/editors/`，Server 列表展示和操作位于 `src/pages/server/manage/components/`；系统配置组件位于 `src/pages/config/system/components/`，支付、订单、计划、优惠券、礼品卡、用户、公告和知识库组件也分别位于各自页面的 `components/` 下。只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应页面目录内。
 
 ## 测试服务器部署
 

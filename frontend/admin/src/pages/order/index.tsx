@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import AssignOrderEditor from '../../components/commerce/AssignOrderEditor';
+import AssignOrderEditor from '../../components/order/AssignOrderEditor';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';

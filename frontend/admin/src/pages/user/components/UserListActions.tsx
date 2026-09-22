@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
-import AssignOrderEditor from '../../../components/commerce/AssignOrderEditor';
+import AssignOrderEditor from '../../../components/order/AssignOrderEditor';
 import TrafficPanel from '../../../components/user/TrafficPanel';
 import { copyToClipboard } from '../../../utils/siteHelpers';
 import UserEditor from './UserEditor';

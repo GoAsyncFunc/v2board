@@ -960,7 +960,7 @@ test('admin pages select from the canonical root state', async () => {
 test('admin components use business domains and connected editors use the canonical root state', async () => {
     const componentsDirectory = new URL('../src/components/', import.meta.url);
     const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-    const expectedDomains = ['commerce', 'common', 'user'];
+    const expectedDomains = ['common', 'order', 'user'];
     assert.deepEqual(
         componentEntries
             .filter((entry) => entry.isDirectory())
@@ -1035,7 +1035,7 @@ test('admin components use business domains and connected editors use the canoni
         '../src/layouts/Header/index.tsx',
         '../src/layouts/MainLayout/index.tsx',
         '../src/pages/server/manage/editors/AnyTlsEditor.tsx',
-        '../src/components/commerce/AssignOrderEditor.tsx',
+        '../src/components/order/AssignOrderEditor.tsx',
         '../src/pages/server/manage/editors/HysteriaEditor.tsx',
         '../src/components/common/PermissionGroupEditor.tsx',
         '../src/pages/user/components/SendMailEditor.tsx',
