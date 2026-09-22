@@ -25,7 +25,7 @@ const Select = Object.assign('Select', { Option: 'Select.Option' });
 
 async function loadComponent(componentName) {
     const source = await fs.readFile(
-        new URL(`../src/pages/server/manage/_Editors/${componentName}.tsx`, import.meta.url),
+        new URL(`../src/pages/server/manage/editors/${componentName}.tsx`, import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });

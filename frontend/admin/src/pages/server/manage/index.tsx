@@ -7,7 +7,7 @@ import LoadingContainer from '../../../components/common/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
 import MainLayout from '../../../layouts/MainLayout';
 import ContextMenuTable from '../../../components/common/ContextMenuTable';
-import { serverModelNamespace } from './_Editors/ServerEditorRegistry';
+import { serverModelNamespace } from './editors/ServerEditorRegistry';
 import {
     createServerManageColumns,
     createServerSortColumns,

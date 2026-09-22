@@ -1048,312 +1048,8 @@
     "to": "pages/server/group/components/ServerGroupList.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/AnyTls/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
-    "to": "pages/server/manage/_Editors/AnyTls/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
-    "to": "pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
-    "to": "pages/server/manage/_Editors/AnyTls/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/AnyTlsEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Hysteria/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
-    "to": "pages/server/manage/_Editors/Hysteria/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
-    "to": "pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/HysteriaEditor.tsx",
-    "to": "pages/server/manage/_Editors/Hysteria/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Security/TlsSettings.tsx",
-    "to": "pages/server/manage/_Editors/Security/TlsAdvancedSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Security/TlsSettings.tsx",
-    "to": "pages/server/manage/_Editors/Security/TlsCertificateSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Security/TlsSettings.tsx",
-    "to": "pages/server/manage/_Editors/Security/TlsRealitySettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/AnyTlsEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/HysteriaEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/ShadowsocksEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/TrojanEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/TuicEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/V2NodeEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/VlessEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/_Editors/VmessEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerEditorRegistry.tsx",
-    "to": "pages/server/manage/components/ServerTypeTag.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerSecuritySettings.tsx",
-    "to": "pages/server/manage/_Editors/Security/EncryptionSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ServerSecuritySettings.tsx",
-    "to": "pages/server/manage/_Editors/Security/TlsSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
-    "to": "pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
-    "to": "pages/server/manage/_Editors/Shadowsocks/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/ShadowsocksEditor.tsx",
-    "to": "pages/server/manage/_Editors/Shadowsocks/SecuritySettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Trojan/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Trojan/NetworkSettings.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
-    "to": "pages/server/manage/_Editors/Trojan/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
-    "to": "pages/server/manage/_Editors/Trojan/NetworkSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TrojanEditor.tsx",
-    "to": "pages/server/manage/_Editors/Trojan/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Tuic/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
-    "to": "pages/server/manage/_Editors/Tuic/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
-    "to": "pages/server/manage/_Editors/Tuic/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
-    "to": "pages/server/manage/_Editors/Tuic/TransportSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSelectionFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/TransportFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/TuicFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecific/VlessFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/_Editors/V2Node/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/_Editors/ServerSecuritySettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vless/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vless/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VlessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vless/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/GeneralFields.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/DnsSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/RuleSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/TlsSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/GeneralFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/NetworkFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/RelationshipFields.tsx"
-  },
-  {
-    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
-    "to": "pages/server/manage/_Editors/Vmess/SettingsEditors.tsx"
-  },
-  {
     "from": "pages/server/manage/components/ServerManageActions.tsx",
-    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
-  },
-  {
-    "from": "pages/server/manage/components/ServerManageColumns.tsx",
-    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
@@ -1369,6 +1065,10 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
+    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
     "to": "utils/clipboard.ts"
   },
   {
@@ -1381,7 +1081,307 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageToolbar.tsx",
-    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
+    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTls/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTls/PaddingScheme.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
+    "to": "pages/server/manage/editors/AnyTls/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
+    "to": "pages/server/manage/editors/AnyTls/PaddingScheme.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
+    "to": "pages/server/manage/editors/AnyTls/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Hysteria/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/editors/Hysteria/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/editors/Hysteria/ObfuscationSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/editors/Hysteria/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Security/TlsSettings.tsx",
+    "to": "pages/server/manage/editors/Security/TlsAdvancedSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Security/TlsSettings.tsx",
+    "to": "pages/server/manage/editors/Security/TlsCertificateSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Security/TlsSettings.tsx",
+    "to": "pages/server/manage/editors/Security/TlsRealitySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/components/ServerTypeTag.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/AnyTlsEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/HysteriaEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/ShadowsocksEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/TrojanEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/TuicEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/V2NodeEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/VlessEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
+    "to": "pages/server/manage/editors/VmessEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerSecuritySettings.tsx",
+    "to": "pages/server/manage/editors/Security/EncryptionSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ServerSecuritySettings.tsx",
+    "to": "pages/server/manage/editors/Security/TlsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Shadowsocks/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/editors/Shadowsocks/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/editors/Shadowsocks/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
+    "to": "pages/server/manage/editors/Shadowsocks/SecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Trojan/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/editors/Trojan/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/editors/Trojan/NetworkSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/editors/Trojan/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Tuic/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TuicEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TuicEditor.tsx",
+    "to": "pages/server/manage/editors/Tuic/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TuicEditor.tsx",
+    "to": "pages/server/manage/editors/Tuic/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TuicEditor.tsx",
+    "to": "pages/server/manage/editors/Tuic/TransportSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/TransportFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSpecific/TuicFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSpecific/VlessFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/V2Node/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/V2Node/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/ServerSecuritySettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vless/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VlessEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VlessEditor.tsx",
+    "to": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VlessEditor.tsx",
+    "to": "pages/server/manage/editors/Vless/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VlessEditor.tsx",
+    "to": "pages/server/manage/editors/Vless/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
+    "to": "components/common/JsonEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/Vmess/SettingsEditors.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/GeneralFields.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/editors/Vmess/DnsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/editors/Vmess/RuleSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
+    "to": "pages/server/manage/editors/Vmess/TlsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/NetworkFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/SettingsEditors.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
@@ -1401,10 +1401,6 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/_Editors/ServerEditorRegistry.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
     "to": "pages/server/manage/components/ServerManageActions.tsx"
   },
   {
@@ -1418,6 +1414,10 @@
   {
     "from": "pages/server/manage/index.tsx",
     "to": "pages/server/manage/components/ServerManageToolbar.tsx"
+  },
+  {
+    "from": "pages/server/manage/index.tsx",
+    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",

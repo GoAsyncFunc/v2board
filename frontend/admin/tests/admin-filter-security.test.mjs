@@ -100,11 +100,11 @@ test('TLS and encryption settings retain defaults and emit complete updates', as
         throw new Error(id);
     };
     const tlsComponent = await load(
-        '../src/pages/server/manage/_Editors/Security/TlsSettings.tsx',
+        '../src/pages/server/manage/editors/Security/TlsSettings.tsx',
         securityModule,
     );
     const encryptionComponent = await load(
-        '../src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
+        '../src/pages/server/manage/editors/Security/EncryptionSettings.tsx',
         securityModule,
     );
     const tlsUpdates = [];

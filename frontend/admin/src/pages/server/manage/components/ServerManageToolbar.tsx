@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
-import { createNewServerMenu } from '../_Editors/ServerEditorRegistry';
+import { createNewServerMenu } from '../editors/ServerEditorRegistry';
 
 export interface ServerManageToolbarProps {
     sortMode: boolean;

@@ -145,37 +145,37 @@ test('admin production source has no compiler-generated module or style identifi
 
 test('server security editors are organized as named source modules', async () => {
     const compatibilitySource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/ServerSecuritySettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/ServerSecuritySettings.tsx', import.meta.url),
         'utf8',
     );
     const tlsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Security/TlsSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Security/TlsSettings.tsx', import.meta.url),
         'utf8',
     );
     const tlsAdvancedSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Security/TlsAdvancedSettings.tsx',
+            '../src/pages/server/manage/editors/Security/TlsAdvancedSettings.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const tlsCertificateSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Security/TlsCertificateSettings.tsx',
+            '../src/pages/server/manage/editors/Security/TlsCertificateSettings.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const tlsRealitySource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Security/TlsRealitySettings.tsx',
+            '../src/pages/server/manage/editors/Security/TlsRealitySettings.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const encryptionSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Security/EncryptionSettings.tsx',
+            '../src/pages/server/manage/editors/Security/EncryptionSettings.tsx',
             import.meta.url,
         ),
         'utf8',
@@ -198,20 +198,20 @@ test('server security editors are organized as named source modules', async () =
 
 test('Trojan transport settings live in a focused protocol module', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/TrojanEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/TrojanEditor.tsx', import.meta.url),
         'utf8',
     );
     const networkSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Trojan/NetworkSettings.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Trojan/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Trojan/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Trojan/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/Trojan/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
@@ -232,25 +232,25 @@ test('Trojan transport settings live in a focused protocol module', async () => 
 
 test('Hysteria obfuscation settings live in a focused protocol module', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/HysteriaEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/HysteriaEditor.tsx', import.meta.url),
         'utf8',
     );
     const obfuscationSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Hysteria/ObfuscationSettings.tsx',
+            '../src/pages/server/manage/editors/Hysteria/ObfuscationSettings.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const relationshipSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Hysteria/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/Hysteria/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Hysteria/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Hysteria/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -268,20 +268,20 @@ test('Hysteria obfuscation settings live in a focused protocol module', async ()
 
 test('AnyTLS padding configuration lives in a focused protocol module', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/AnyTlsEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/AnyTlsEditor.tsx', import.meta.url),
         'utf8',
     );
     const paddingSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/AnyTls/PaddingScheme.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/AnyTls/PaddingScheme.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/AnyTls/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/AnyTls/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/AnyTls/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/AnyTls/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
@@ -299,26 +299,26 @@ test('AnyTLS padding configuration lives in a focused protocol module', async ()
 
 test('Shadowsocks security settings live in a focused protocol module', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/ShadowsocksEditor.tsx', import.meta.url),
         'utf8',
     );
     const securitySource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Shadowsocks/SecuritySettings.tsx',
+            '../src/pages/server/manage/editors/Shadowsocks/SecuritySettings.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Shadowsocks/GeneralFields.tsx',
+            '../src/pages/server/manage/editors/Shadowsocks/GeneralFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Shadowsocks/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/Shadowsocks/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
@@ -339,19 +339,19 @@ test('Shadowsocks security settings live in a focused protocol module', async ()
 
 test('Tuic editor fields live in focused protocol modules', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/TuicEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/TuicEditor.tsx', import.meta.url),
         'utf8',
     );
     const transportSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Tuic/TransportSettings.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Tuic/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Tuic/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Tuic/RelationshipFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Tuic/RelationshipFields.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -977,13 +977,32 @@ test('admin components use business domains and connected editors use the canoni
         new URL('../src/pages/server/manage/index.tsx', import.meta.url),
         'utf8',
     );
-    assert.match(serverManagePage, /from ['"]\.\/\_Editors\/ServerEditorRegistry['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/editors\/ServerEditorRegistry['"]/);
     assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageColumns['"]/);
     assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageMobileList['"]/);
     assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageActions['"]/);
     assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageToolbar['"]/);
     const serverManageDirectory = new URL('../src/pages/server/manage/', import.meta.url);
+    assert.ok((await fs.readdir(serverManageDirectory)).includes('editors'));
     assert.ok((await fs.readdir(serverManageDirectory)).includes('components'));
+    const serverEditorsDirectory = new URL('editors/', serverManageDirectory);
+    for (const component of [
+        'AnyTlsEditor.tsx',
+        'HysteriaEditor.tsx',
+        'ServerEditorRegistry.tsx',
+        'ServerSecuritySettings.tsx',
+        'ShadowsocksEditor.tsx',
+        'TrojanEditor.tsx',
+        'TuicEditor.tsx',
+        'V2NodeEditor.tsx',
+        'VlessEditor.tsx',
+        'VmessEditor.tsx',
+    ]) {
+        assert.ok(
+            (await fs.readdir(serverEditorsDirectory)).includes(component),
+            `server editors should include ${component}`,
+        );
+    }
     const serverManageComponentsDirectory = new URL('components/', serverManageDirectory);
     for (const component of [
         'ServerManageActions.tsx',
@@ -1015,19 +1034,19 @@ test('admin components use business domains and connected editors use the canoni
     const connectedSources = [
         '../src/layouts/Header/index.tsx',
         '../src/layouts/MainLayout/index.tsx',
-        '../src/pages/server/manage/_Editors/AnyTlsEditor.tsx',
+        '../src/pages/server/manage/editors/AnyTlsEditor.tsx',
         '../src/components/commerce/AssignOrderEditor.tsx',
-        '../src/pages/server/manage/_Editors/HysteriaEditor.tsx',
+        '../src/pages/server/manage/editors/HysteriaEditor.tsx',
         '../src/components/common/PermissionGroupEditor.tsx',
         '../src/pages/user/components/SendMailEditor.tsx',
-        '../src/pages/server/manage/_Editors/ShadowsocksEditor.tsx',
-        '../src/pages/server/manage/_Editors/TrojanEditor.tsx',
-        '../src/pages/server/manage/_Editors/TuicEditor.tsx',
+        '../src/pages/server/manage/editors/ShadowsocksEditor.tsx',
+        '../src/pages/server/manage/editors/TrojanEditor.tsx',
+        '../src/pages/server/manage/editors/TuicEditor.tsx',
         '../src/pages/user/components/UserEditor.tsx',
         '../src/pages/user/components/UserGenerator.tsx',
-        '../src/pages/server/manage/_Editors/V2NodeEditor.tsx',
-        '../src/pages/server/manage/_Editors/VlessEditor.tsx',
-        '../src/pages/server/manage/_Editors/VmessEditor.tsx',
+        '../src/pages/server/manage/editors/V2NodeEditor.tsx',
+        '../src/pages/server/manage/editors/VlessEditor.tsx',
+        '../src/pages/server/manage/editors/VmessEditor.tsx',
     ];
     for (const relativePath of connectedSources) {
         const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
@@ -1042,51 +1061,51 @@ test('admin components use business domains and connected editors use the canoni
 
 test('V2Node editor composes focused field modules', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/V2NodeEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/V2NodeEditor.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/V2Node/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/V2Node/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/V2Node/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/V2Node/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const protocolFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/V2Node/ProtocolFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/V2Node/ProtocolFields.tsx', import.meta.url),
         'utf8',
     );
     const protocolSpecificFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/V2Node/ProtocolSpecificFields.tsx',
+            '../src/pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const protocolSelectionFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/V2Node/ProtocolSelectionFields.tsx',
+            '../src/pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const transportFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/V2Node/TransportFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/V2Node/TransportFields.tsx', import.meta.url),
         'utf8',
     );
     const childSettingsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/V2Node/ChildSettingsPanel.tsx',
+            '../src/pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const protocolSpecificDirectory = new URL(
-        '../src/pages/server/manage/_Editors/V2Node/ProtocolSpecific/',
+        '../src/pages/server/manage/editors/V2Node/ProtocolSpecific/',
         import.meta.url,
     );
     for (const file of [
@@ -1127,45 +1146,45 @@ test('V2Node editor composes focused field modules', async () => {
 
 test('Vmess editor composes focused field and settings modules', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/VmessEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/VmessEditor.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Vmess/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/Vmess/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const networkFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/NetworkFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/NetworkFields.tsx', import.meta.url),
         'utf8',
     );
     const settingsEditorsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/SettingsEditors.tsx', import.meta.url),
         'utf8',
     );
     const childSettingsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx',
+            '../src/pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const dnsSettingsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/DnsSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/DnsSettings.tsx', import.meta.url),
         'utf8',
     );
     const ruleSettingsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/RuleSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/RuleSettings.tsx', import.meta.url),
         'utf8',
     );
     const tlsSettingsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vmess/TlsSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vmess/TlsSettings.tsx', import.meta.url),
         'utf8',
     );
 
@@ -1188,7 +1207,7 @@ test('Vmess editor composes focused field and settings modules', async () => {
 
 test('Trojan network settings use the server model value contract', async () => {
     const networkSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Trojan/NetworkSettings.tsx', import.meta.url),
         'utf8',
     );
     assert.match(networkSource, /value\?: ServerRecord\['network_settings'\]/);
@@ -1201,23 +1220,23 @@ test('Trojan network settings use the server model value contract', async () => 
 
 test('Vless editor composes focused general and relationship field modules', async () => {
     const editorSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/VlessEditor.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/VlessEditor.tsx', import.meta.url),
         'utf8',
     );
     const generalFieldsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/_Editors/Vless/GeneralFields.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/editors/Vless/GeneralFields.tsx', import.meta.url),
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Vless/RelationshipFields.tsx',
+            '../src/pages/server/manage/editors/Vless/RelationshipFields.tsx',
             import.meta.url,
         ),
         'utf8',
     );
     const childSettingsSource = await fs.readFile(
         new URL(
-            '../src/pages/server/manage/_Editors/Vless/ChildSettingsPanel.tsx',
+            '../src/pages/server/manage/editors/Vless/ChildSettingsPanel.tsx',
             import.meta.url,
         ),
         'utf8',

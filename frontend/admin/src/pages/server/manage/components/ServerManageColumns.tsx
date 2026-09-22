@@ -11,7 +11,7 @@ import type {
     ServerGroupOption,
     ServerRecord,
 } from '../../../../types/server';
-import { SERVER_TYPE_FILTERS } from '../_Editors/ServerEditorRegistry';
+import { SERVER_TYPE_FILTERS } from '../editors/ServerEditorRegistry';
 import { createServerNameColumn } from './ServerNameColumn';
 import { createServerRateColumn } from './ServerRateColumn';
 import { renderServerTypeTag } from './ServerTypeTag';
