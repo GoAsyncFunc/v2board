@@ -4,7 +4,7 @@ import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
 import type { UserGroupOption, UserRecord } from '../../../types/user';
-import { createReadonlyUserEmailColumn } from './columns';
+import { createReadonlyUserEmailColumn } from './UserDisplayColumns';
 
 export function createUserListColumns(
     groups: UserGroupOption[],

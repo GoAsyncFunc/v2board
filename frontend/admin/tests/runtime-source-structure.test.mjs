@@ -751,14 +751,18 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
     assert.ok((await fs.readdir(couponDirectory)).includes('_Modal'));
     assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('columns.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', couponDirectory))).includes('CouponDisplayColumns.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('_Modal/', couponDirectory))).includes('index.tsx'));
     const giftcardDirectory = new URL('giftcard/', pagesDirectory);
     assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(giftcardDirectory)).includes('_List'));
     assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
     assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('columns.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', giftcardDirectory))).includes('GiftcardDisplayColumns.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
     const planDirectory = new URL('plan/', pagesDirectory);
     assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
@@ -780,7 +784,9 @@ test('admin pages select from the canonical root state', async () => {
         (await fs.readdir(new URL('_Drawer/', orderDirectory))).includes('OrderFilterDrawer.tsx'),
     );
     assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', orderDirectory))).includes('columns.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', orderDirectory))).includes('OrderDisplayColumns.tsx'),
+    );
     assert.ok(
         (await fs.readdir(new URL('_Modal/', orderDirectory))).includes('OrderDetailModal.tsx'),
     );
@@ -797,7 +803,9 @@ test('admin pages select from the canonical root state', async () => {
         (await fs.readdir(new URL('_Drawer/', userDirectory))).includes('UserFilterDrawer.tsx'),
     );
     assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', userDirectory))).includes('columns.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', userDirectory))).includes('UserDisplayColumns.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('_Modal/', userDirectory))).includes('UserGenerator.tsx'));
     assert.ok(
         (await fs.readdir(new URL('_Modal/', userDirectory))).includes('SendMailEditor.tsx'),
@@ -806,12 +814,16 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('_List'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_List/', noticeDirectory))).includes('columns.ts'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', noticeDirectory))).includes('NoticeDisplayColumns.ts'),
+    );
     assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
     const ticketDirectory = new URL('ticket/', pagesDirectory);
     assert.ok((await fs.readdir(ticketDirectory)).includes('_List'));
     assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('index.tsx'));
-    assert.ok((await fs.readdir(new URL('_List/', ticketDirectory))).includes('columns.ts'));
+    assert.ok(
+        (await fs.readdir(new URL('_List/', ticketDirectory))).includes('TicketDisplayColumns.ts'),
+    );
     await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
     await assert.rejects(
         fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)),

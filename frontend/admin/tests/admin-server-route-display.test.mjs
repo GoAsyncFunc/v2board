@@ -10,7 +10,7 @@ async function load(original) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-server-route-display.cjs'
-            : '../src/pages/server/route/_List/columns.ts',
+            : '../src/pages/server/route/_List/ServerRouteDisplayColumns.ts',
         import.meta.url,
     );
     const source = await fs.readFile(file, 'utf8');

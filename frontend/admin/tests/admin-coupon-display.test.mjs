@@ -10,7 +10,7 @@ const Tag = 'Tag';
 const moment = value => ({ format: pattern => `${value}:${pattern}` });
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-coupon-display.cjs' : '../src/pages/coupon/_List/columns.tsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-coupon-display.cjs' : '../src/pages/coupon/_List/CouponDisplayColumns.tsx', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'tsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;

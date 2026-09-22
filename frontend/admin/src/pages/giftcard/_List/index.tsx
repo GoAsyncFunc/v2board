@@ -11,7 +11,7 @@ import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotion';
 import type { PlanSummary } from '../../../types/config';
 import { copyText } from '../../../utils/clipboard';
-import { createReadonlyGiftcardColumns } from './columns';
+import { createReadonlyGiftcardColumns } from './GiftcardDisplayColumns';
 
 interface GiftcardListProps {
     dispatch: AdminDispatch;

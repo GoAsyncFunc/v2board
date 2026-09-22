@@ -6,7 +6,7 @@ import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
 import ServerGroupList from './_List';
-import type { ServerGroupRecord } from './_List/columns';
+import type { ServerGroupRecord } from './_List/ServerGroupDisplayColumns';
 import type { ServerGroupState } from '../../../types/server';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 

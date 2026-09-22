@@ -35,7 +35,7 @@ async function loadPage() {
             if (id === 'antd/lib/table') return 'Table';
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
-            if (id.includes('QueueDisplayColumns') || id === './_List/columns')
+            if (id.includes('QueueDisplayColumns') || id === './_List/QueueDisplayColumns')
                 return { createReadonlyQueueColumns: () => [{ key: 'name' }] };
             throw new Error(id);
         },

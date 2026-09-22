@@ -31,7 +31,7 @@ async function loadPage(userAgent = 'desktop') {
       if (id === 'antd/lib/divider') return 'Divider';
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
-      if (id.includes('TicketDisplayColumns') || id.includes('/_List/columns')) return {
+      if (id.includes('TicketDisplayColumns')) return {
         createReadonlyTicketColumns: () => ({
           id: { key: 'id' }, subject: { key: 'subject' }, level: { key: 'level' },
           created_at: { key: 'created_at' }, updated_at: { key: 'updated_at' },

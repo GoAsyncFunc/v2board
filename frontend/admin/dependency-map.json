@@ -673,7 +673,7 @@
   },
   {
     "from": "pages/coupon/_List/index.tsx",
-    "to": "pages/coupon/_List/columns.tsx"
+    "to": "pages/coupon/_List/CouponDisplayColumns.tsx"
   },
   {
     "from": "pages/coupon/_List/index.tsx",
@@ -761,7 +761,7 @@
   },
   {
     "from": "pages/giftcard/_List/index.tsx",
-    "to": "pages/giftcard/_List/columns.tsx"
+    "to": "pages/giftcard/_List/GiftcardDisplayColumns.tsx"
   },
   {
     "from": "pages/giftcard/_List/index.tsx",
@@ -825,7 +825,7 @@
   },
   {
     "from": "pages/knowledge/_List/index.tsx",
-    "to": "pages/knowledge/_List/columns.ts"
+    "to": "pages/knowledge/_List/KnowledgeDisplayColumns.ts"
   },
   {
     "from": "pages/knowledge/index.tsx",
@@ -845,7 +845,7 @@
   },
   {
     "from": "pages/notice/_List/index.tsx",
-    "to": "pages/notice/_List/columns.ts"
+    "to": "pages/notice/_List/NoticeDisplayColumns.ts"
   },
   {
     "from": "pages/notice/_Modal/index.tsx",
@@ -876,7 +876,7 @@
     "to": "components/common/FilterDrawer.tsx"
   },
   {
-    "from": "pages/order/_List/columns.tsx",
+    "from": "pages/order/_List/OrderDisplayColumns.tsx",
     "to": "config/adminSettings.ts"
   },
   {
@@ -889,7 +889,7 @@
   },
   {
     "from": "pages/order/_List/orderColumns.tsx",
-    "to": "pages/order/_List/columns.tsx"
+    "to": "pages/order/_List/OrderDisplayColumns.tsx"
   },
   {
     "from": "pages/order/_List/orderColumns.tsx",
@@ -1021,7 +1021,7 @@
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "pages/queue/_List/columns.ts"
+    "to": "pages/queue/_List/QueueDisplayColumns.ts"
   },
   {
     "from": "pages/server/group/_List/index.tsx",
@@ -1029,7 +1029,7 @@
   },
   {
     "from": "pages/server/group/_List/index.tsx",
-    "to": "pages/server/group/_List/columns.tsx"
+    "to": "pages/server/group/_List/ServerGroupDisplayColumns.tsx"
   },
   {
     "from": "pages/server/group/index.tsx",
@@ -1429,7 +1429,7 @@
   },
   {
     "from": "pages/server/route/_List/index.tsx",
-    "to": "pages/server/route/_List/columns.ts"
+    "to": "pages/server/route/_List/ServerRouteDisplayColumns.ts"
   },
   {
     "from": "pages/server/route/_Modal/RouteActionField.tsx",
@@ -1485,7 +1485,7 @@
   },
   {
     "from": "pages/ticket/_List/index.tsx",
-    "to": "pages/ticket/_List/columns.ts"
+    "to": "pages/ticket/_List/TicketDisplayColumns.ts"
   },
   {
     "from": "pages/ticket/index.tsx",
@@ -1557,7 +1557,7 @@
   },
   {
     "from": "pages/user/_List/userColumns.tsx",
-    "to": "pages/user/_List/columns.tsx"
+    "to": "pages/user/_List/UserDisplayColumns.tsx"
   },
   {
     "from": "pages/user/_Modal/UserGenerator.tsx",

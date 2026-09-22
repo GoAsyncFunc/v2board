@@ -3,7 +3,7 @@ import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import { createReadonlyQueueColumns } from './_List/columns';
+import { createReadonlyQueueColumns } from './_List/QueueDisplayColumns';
 import type { QueueWorkload, SystemMonitoringState } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 

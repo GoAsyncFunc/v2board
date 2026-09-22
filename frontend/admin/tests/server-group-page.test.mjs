@@ -59,7 +59,7 @@ async function loadPage() {
                 ServerGroupList.__testRender = true;
                 return ServerGroupList;
             }
-            if (id.includes('ServerGroupDisplayColumns') || id === './_List/columns')
+            if (id.includes('ServerGroupDisplayColumns') || id === './_List/ServerGroupDisplayColumns')
                 return {
                     createReadonlyServerGroupColumns: () => ({
                         id: { key: 'id' },

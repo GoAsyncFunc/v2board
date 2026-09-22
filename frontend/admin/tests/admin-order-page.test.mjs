@@ -86,7 +86,7 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
             if (id === '../_Modal/OrderDetailModal' || id.endsWith('/_Modal/OrderDetailModal')) {
                 return localModules.detail;
             }
-            if (id === './columns' || id.endsWith('/_List/columns')) {
+            if (id === './OrderDisplayColumns' || id.endsWith('/_List/OrderDisplayColumns')) {
                 return localModules.columns;
             }
             if (id === './orderColumns' || id.endsWith('/_List/orderColumns')) {

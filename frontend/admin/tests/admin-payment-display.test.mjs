@@ -6,7 +6,7 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original) {
-  const file = new URL(original ? './fixtures/pages/admin-payment-display.cjs' : '../src/pages/config/payment/_List/columns.ts', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-payment-display.cjs' : '../src/pages/config/payment/_List/PaymentDisplayColumns.ts', import.meta.url);
   const module = { exports: {} }, source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports });
   return original ? module.exports() : Object.values(module.exports.createReadonlyPaymentColumns());

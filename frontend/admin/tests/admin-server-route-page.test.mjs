@@ -60,7 +60,7 @@ async function loadModule(relativePath) {
                             : `placeholder:${action || 'default'}`,
                 };
             }
-            if (id.includes('ServerRouteDisplayColumns') || id === './_List/columns')
+            if (id.includes('ServerRouteDisplayColumns') || id === './_List/ServerRouteDisplayColumns')
                 return {
                     createReadonlyServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),
                 };

@@ -6,7 +6,7 @@ import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 async function load(original){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/pages/ticket/_List/columns.ts',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/pages/ticket/_List/TicketDisplayColumns.ts',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});
@@ -32,7 +32,7 @@ test('ticket list composes status filters and delegates row actions', async () =
  vm.runInNewContext(code,{module,exports:module.exports,React,Date,require(id){
    if(id==='react')return React;if(id==='react-redux')return {connect:()=>Component=>Component};
    if(id==='antd/lib/table')return 'Table';if(id==='antd/lib/badge')return 'Badge';if(id==='antd/lib/divider')return 'Divider';
-   if(id.includes('/columns'))return {createReadonlyTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
+   if(id.includes('TicketDisplayColumns'))return {createReadonlyTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
    throw Error(id);
  }});
  const open=[];const close=[];const change=[];const List=module.exports.TicketList;

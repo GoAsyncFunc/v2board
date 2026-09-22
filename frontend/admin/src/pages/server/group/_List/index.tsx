@@ -3,7 +3,10 @@ import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
-import { createReadonlyServerGroupColumns, type ServerGroupRecord } from './columns';
+import {
+    createReadonlyServerGroupColumns,
+    type ServerGroupRecord,
+} from './ServerGroupDisplayColumns';
 
 interface ServerGroupListProps {
     groups: ServerGroupRecord[];

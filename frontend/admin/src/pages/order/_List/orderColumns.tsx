@@ -9,7 +9,7 @@ import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch } from '../../../types/store';
 import type { OrderRecord } from '../../../types/order';
 import { ConnectedOrderDetailModal } from '../_Modal/OrderDetailModal';
-import { createReadonlyOrderColumns } from './columns';
+import { createReadonlyOrderColumns } from './OrderDisplayColumns';
 
 const readonlyColumns = createReadonlyOrderColumns<OrderRecord>();
 const ORDER_BADGE_STATUS = ['error', 'processing', 'default', 'success', 'default'] as const;

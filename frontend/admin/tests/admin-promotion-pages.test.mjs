@@ -60,7 +60,8 @@ async function loadModule(relativePath, localModules = {}) {
             if (id === './GiftcardGenerationField')
                 return { GiftcardGenerationField: 'GiftcardGenerationField' };
             if (id === './_List') return localModules.list;
-            if (id === './columns') return localModules.columns;
+            if (id === './CouponDisplayColumns' || id === './GiftcardDisplayColumns')
+                return localModules.columns;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/date-picker') return DatePicker;
             if (id === 'antd/lib/divider') return 'Divider';

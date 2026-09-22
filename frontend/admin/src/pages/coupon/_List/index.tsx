@@ -11,7 +11,7 @@ import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { CouponRecord, CouponState } from '../../../types/promotion';
 import { copyText } from '../../../utils/clipboard';
-import { createReadonlyCouponColumns } from './columns';
+import { createReadonlyCouponColumns } from './CouponDisplayColumns';
 
 interface CouponListProps {
     dispatch: AdminDispatch;

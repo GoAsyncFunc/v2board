@@ -14,7 +14,7 @@ async function load(original) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-server-group-display.cjs'
-            : '../src/pages/server/group/_List/columns.tsx',
+            : '../src/pages/server/group/_List/ServerGroupDisplayColumns.tsx',
         import.meta.url,
     );
     const source = await fs.readFile(file, 'utf8');

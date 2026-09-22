@@ -42,7 +42,7 @@ async function loadModule(relativePath, localModules = {}) {
             if (id === './NoticeMetadataFields')
                 return { NoticeMetadataFields: 'NoticeMetadataFields' };
             if (id === './_List') return localModules.list;
-            if (id === './columns') return localModules.columns;
+            if (id === './NoticeDisplayColumns') return localModules.columns;
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id === 'antd/lib/button') return 'Button';
