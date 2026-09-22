@@ -947,6 +947,10 @@ test('Vmess editor composes focused field and settings modules', async () => {
         ),
         'utf8',
     );
+    const networkFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Vmess/NetworkFields.tsx', import.meta.url),
+        'utf8',
+    );
     const settingsEditorsSource = await fs.readFile(
         new URL('../src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx', import.meta.url),
         'utf8',
@@ -972,11 +976,13 @@ test('Vmess editor composes focused field and settings modules', async () => {
     );
 
     assert.equal((editorSource.match(/<VmessGeneralFields/g) || []).length, 1);
+    assert.match(editorSource, /<VmessNetworkFields/);
     assert.match(editorSource, /<VmessRelationshipFields/);
     assert.match(editorSource, /from ['"]\.\/Vmess\/SettingsEditors['"]/);
     assert.doesNotMatch(editorSource, /class DnsSettings|class RuleSettings|class TlsSettings/);
     assert.match(generalFieldsSource, /function VmessGeneralFields/);
     assert.match(relationshipFieldsSource, /function VmessRelationshipFields/);
+    assert.match(networkFieldsSource, /function VmessNetworkFields/);
     assert.match(editorSource, /<VmessChildSettingsPanel/);
     assert.match(childSettingsSource, /export function VmessChildSettingsPanel/);
     assert.match(dnsSettingsSource, /export class DnsSettings/);

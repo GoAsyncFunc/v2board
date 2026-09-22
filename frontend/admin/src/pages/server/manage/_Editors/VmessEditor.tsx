@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import Select from 'antd/lib/select';
 import notification from 'antd/lib/notification';
 import CompatibleDrawer from './CompatibleDrawer';
 import { DnsSettings, RuleSettings, TlsSettings } from './Vmess/SettingsEditors';
 import { VmessChildSettingsPanel } from './Vmess/ChildSettingsPanel';
 import VmessGeneralFields from './Vmess/GeneralFields';
+import VmessNetworkFields from './Vmess/NetworkFields';
 import VmessRelationshipFields from './Vmess/RelationshipFields';
 import type {
     ChildDrawerState,
@@ -107,32 +107,11 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                             onChange={(field, value) => this.updateServer(field, value)}
                             onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
                         />
-                        <div className="form-group">
-                            <label>
-                                传输协议{' '}
-                                <a
-                                    href="javascript:void(0);"
-                                    onClick={() =>
-                                        this.showChildDrawer('编辑协议配置', 'networkSettings')
-                                    }
-                                >
-                                    编辑配置
-                                </a>
-                            </label>
-                            <Select
-                                value={server.network}
-                                placeholder="选择传输协议"
-                                style={{ width: '100%' }}
-                                onChange={(network) => this.updateServer('network', network)}
-                            >
-                                <Select.Option value="tcp">TCP</Select.Option>
-                                <Select.Option value="ws">WebSocket</Select.Option>
-                                <Select.Option value="grpc">gRPC</Select.Option>
-                                <Select.Option value="kcp">mKCP</Select.Option>
-                                <Select.Option value="httpupgrade">HTTPUpgrade</Select.Option>
-                                <Select.Option value="xhttp">XHTTP</Select.Option>
-                            </Select>
-                        </div>
+                        <VmessNetworkFields
+                            server={server}
+                            onChange={(field, value) => this.updateServer(field, value)}
+                            onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
+                        />
                         <VmessRelationshipFields
                             server={server}
                             servers={servers}

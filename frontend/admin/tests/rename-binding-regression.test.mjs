@@ -86,6 +86,7 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/VlessEditor.tsx',
     'admin/src/pages/server/manage/_Editors/VmessEditor.tsx',
     'admin/src/pages/server/manage/_Editors/Vmess/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Vmess/NetworkFields.tsx',
     'admin/src/pages/server/manage/_Editors/Vmess/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Vmess/SettingsEditors.tsx',
     'admin/src/pages/server/manage/_Editors/Vmess/ChildSettingsPanel.tsx',

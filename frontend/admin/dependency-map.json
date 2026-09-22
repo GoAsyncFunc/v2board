@@ -1233,6 +1233,10 @@
   },
   {
     "from": "pages/server/manage/_Editors/VmessEditor.tsx",
+    "to": "pages/server/manage/_Editors/Vmess/NetworkFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/VmessEditor.tsx",
     "to": "pages/server/manage/_Editors/Vmess/RelationshipFields.tsx"
   },
   {
