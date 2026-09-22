@@ -3,31 +3,34 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
+import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import Tag from 'antd/lib/tag';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
-import type { GiftcardRecord, GiftcardState } from '../../../types/promotion';
-import type { PlanSummary } from '../../../types/config';
+import type { CouponRecord, CouponState } from '../../../types/promotion';
 import { copyText } from '../../../utils/clipboard';
-import { createReadonlyGiftcardColumns } from './GiftcardDisplayColumns';
+import { createReadonlyCouponColumns } from './CouponColumns';
 
-interface GiftcardListProps {
+interface CouponListProps {
     dispatch: AdminDispatch;
-    giftcard: GiftcardState;
-    plan: { plans: PlanSummary[] };
-    onEdit: (record: GiftcardRecord) => void;
+    coupon: CouponState;
+    onEdit: (record: CouponRecord) => void;
 }
 
-export class GiftcardList extends React.Component<GiftcardListProps> {
-    drop(card: GiftcardRecord): void {
-        this.props.dispatch({ type: 'giftcard/drop', id: card.id });
+export class CouponList extends React.Component<CouponListProps> {
+    show(id: string | number | undefined): void {
+        this.props.dispatch({ type: 'coupon/show', id });
     }
 
-    tableOnChange(pagination: PaginationConfig, sorter: SorterResult<GiftcardRecord>): void {
+    drop(coupon: CouponRecord): void {
+        this.props.dispatch({ type: 'coupon/drop', id: coupon.id });
+    }
+
+    tableOnChange(pagination: PaginationConfig, sorter: SorterResult<CouponRecord>): void {
         this.props.dispatch({
-            type: 'giftcard/changeTable',
+            type: 'coupon/changeTable',
             pagination,
             sort: {
                 sort_type: sorter.order === 'ascend' ? 'ASC' : 'DESC',
@@ -37,16 +40,22 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
     }
 
     render(): React.ReactNode {
-        const { giftcard, plan } = this.props;
-        const readonlyColumns = createReadonlyGiftcardColumns(plan.plans);
-        const columns: ColumnProps<GiftcardRecord>[] = [
+        const { coupon } = this.props;
+        const readonlyColumns = createReadonlyCouponColumns();
+        const columns: ColumnProps<CouponRecord>[] = [
             readonlyColumns.id,
+            {
+                title: '启用',
+                dataIndex: 'show',
+                key: 'show',
+                render: (enabled: boolean, row) => (
+                    <Switch size="small" checked={enabled} onChange={() => this.show(row.id)} />
+                ),
+            },
             readonlyColumns.name,
             readonlyColumns.type,
-            readonlyColumns.value,
-            readonlyColumns.plan_id,
             {
-                title: '卡密',
+                title: '券码',
                 dataIndex: 'code',
                 key: 'code',
                 render: (code: string) => (
@@ -95,13 +104,13 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
         ];
 
         return (
-            <Table<GiftcardRecord>
+            <Table<CouponRecord>
                 tableLayout="auto"
-                dataSource={giftcard.giftcards}
+                dataSource={coupon.coupons}
                 columns={columns}
                 scroll={{ x: 1050 }}
                 pagination={{
-                    ...giftcard.pagination,
+                    ...coupon.pagination,
                     size: 'small',
                     showSizeChanger: true,
                     pageSizeOptions: ['10', '50', '100', '150'],
@@ -112,7 +121,4 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
     }
 }
 
-export default connect((state: AdminRootState) => ({
-    giftcard: state.giftcard,
-    plan: state.plan,
-}))(GiftcardList);
+export default connect((state: AdminRootState) => ({ coupon: state.coupon }))(CouponList);

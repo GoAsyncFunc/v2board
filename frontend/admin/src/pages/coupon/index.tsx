@@ -6,8 +6,8 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { CouponRecord, CouponState } from '../../types/promotion';
-import CouponEditor from './_Modal';
-import { CouponList } from './_List';
+import CouponEditor from './components/CouponEditor';
+import { CouponList } from './components/CouponList';
 
 interface CouponPageProps {
     dispatch: AdminDispatch;
@@ -65,7 +65,7 @@ export class CouponPage extends React.Component<CouponPageProps, CouponPageState
     }
 }
 
-export { CouponEditor } from './_Modal';
-export { CouponList } from './_List';
+export { CouponEditor } from './components/CouponEditor';
+export { CouponList } from './components/CouponList';
 
 export default connect((state: AdminRootState) => ({ coupon: state.coupon }))(CouponPage);

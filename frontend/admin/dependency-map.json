@@ -672,36 +672,36 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/coupon/_List/index.tsx",
-    "to": "pages/coupon/_List/CouponDisplayColumns.tsx"
+    "from": "pages/coupon/components/CouponEditor.tsx",
+    "to": "pages/coupon/components/CouponBasicFields.tsx"
   },
   {
-    "from": "pages/coupon/_List/index.tsx",
+    "from": "pages/coupon/components/CouponEditor.tsx",
+    "to": "pages/coupon/components/CouponGenerationField.tsx"
+  },
+  {
+    "from": "pages/coupon/components/CouponEditor.tsx",
+    "to": "pages/coupon/components/CouponRestrictionsFields.tsx"
+  },
+  {
+    "from": "pages/coupon/components/CouponEditor.tsx",
+    "to": "pages/coupon/components/CouponUsageFields.tsx"
+  },
+  {
+    "from": "pages/coupon/components/CouponEditor.tsx",
+    "to": "pages/coupon/components/CouponValueFields.tsx"
+  },
+  {
+    "from": "pages/coupon/components/CouponList.tsx",
+    "to": "pages/coupon/components/CouponColumns.tsx"
+  },
+  {
+    "from": "pages/coupon/components/CouponList.tsx",
     "to": "utils/clipboard.ts"
   },
   {
-    "from": "pages/coupon/_Modal/CouponRestrictionsFields.tsx",
+    "from": "pages/coupon/components/CouponRestrictionsFields.tsx",
     "to": "config/adminSettings.ts"
-  },
-  {
-    "from": "pages/coupon/_Modal/index.tsx",
-    "to": "pages/coupon/_Modal/CouponBasicFields.tsx"
-  },
-  {
-    "from": "pages/coupon/_Modal/index.tsx",
-    "to": "pages/coupon/_Modal/CouponGenerationField.tsx"
-  },
-  {
-    "from": "pages/coupon/_Modal/index.tsx",
-    "to": "pages/coupon/_Modal/CouponRestrictionsFields.tsx"
-  },
-  {
-    "from": "pages/coupon/_Modal/index.tsx",
-    "to": "pages/coupon/_Modal/CouponUsageFields.tsx"
-  },
-  {
-    "from": "pages/coupon/_Modal/index.tsx",
-    "to": "pages/coupon/_Modal/CouponValueFields.tsx"
   },
   {
     "from": "pages/coupon/index.tsx",
@@ -713,11 +713,11 @@
   },
   {
     "from": "pages/coupon/index.tsx",
-    "to": "pages/coupon/_List/index.tsx"
+    "to": "pages/coupon/components/CouponEditor.tsx"
   },
   {
     "from": "pages/coupon/index.tsx",
-    "to": "pages/coupon/_Modal/index.tsx"
+    "to": "pages/coupon/components/CouponList.tsx"
   },
   {
     "from": "pages/dashboard/_Nav/index.tsx",
@@ -760,32 +760,32 @@
     "to": "services/request.ts"
   },
   {
-    "from": "pages/giftcard/_List/index.tsx",
-    "to": "pages/giftcard/_List/GiftcardDisplayColumns.tsx"
+    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "to": "pages/giftcard/components/GiftcardBasicFields.tsx"
   },
   {
-    "from": "pages/giftcard/_List/index.tsx",
+    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "to": "pages/giftcard/components/GiftcardGenerationField.tsx"
+  },
+  {
+    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "to": "pages/giftcard/components/GiftcardPlanField.tsx"
+  },
+  {
+    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "to": "pages/giftcard/components/GiftcardUsageFields.tsx"
+  },
+  {
+    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "to": "pages/giftcard/components/GiftcardValueFields.tsx"
+  },
+  {
+    "from": "pages/giftcard/components/GiftcardList.tsx",
+    "to": "pages/giftcard/components/GiftcardColumns.tsx"
+  },
+  {
+    "from": "pages/giftcard/components/GiftcardList.tsx",
     "to": "utils/clipboard.ts"
-  },
-  {
-    "from": "pages/giftcard/_Modal/index.tsx",
-    "to": "pages/giftcard/_Modal/GiftcardBasicFields.tsx"
-  },
-  {
-    "from": "pages/giftcard/_Modal/index.tsx",
-    "to": "pages/giftcard/_Modal/GiftcardGenerationField.tsx"
-  },
-  {
-    "from": "pages/giftcard/_Modal/index.tsx",
-    "to": "pages/giftcard/_Modal/GiftcardPlanField.tsx"
-  },
-  {
-    "from": "pages/giftcard/_Modal/index.tsx",
-    "to": "pages/giftcard/_Modal/GiftcardUsageFields.tsx"
-  },
-  {
-    "from": "pages/giftcard/_Modal/index.tsx",
-    "to": "pages/giftcard/_Modal/GiftcardValueFields.tsx"
   },
   {
     "from": "pages/giftcard/index.tsx",
@@ -797,11 +797,11 @@
   },
   {
     "from": "pages/giftcard/index.tsx",
-    "to": "pages/giftcard/_List/index.tsx"
+    "to": "pages/giftcard/components/GiftcardEditor.tsx"
   },
   {
     "from": "pages/giftcard/index.tsx",
-    "to": "pages/giftcard/_Modal/index.tsx"
+    "to": "pages/giftcard/components/GiftcardList.tsx"
   },
   {
     "from": "pages/index.tsx",

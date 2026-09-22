@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original,plans){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-giftcard-display.cjs':'../src/pages/giftcard/_List/GiftcardDisplayColumns.tsx',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-giftcard-display.cjs':'../src/pages/giftcard/components/GiftcardColumns.tsx',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});

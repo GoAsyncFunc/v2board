@@ -7,8 +7,8 @@ import MainLayout from '../../layouts/MainLayout';
 import type { PlanSummary } from '../../types/config';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { GiftcardRecord, GiftcardState } from '../../types/promotion';
-import GiftcardEditor from './_Modal';
-import { GiftcardList } from './_List';
+import GiftcardEditor from './components/GiftcardEditor';
+import { GiftcardList } from './components/GiftcardList';
 
 interface GiftcardPageProps {
     dispatch: AdminDispatch;
@@ -68,8 +68,8 @@ export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPag
     }
 }
 
-export { GiftcardEditor } from './_Modal';
-export { GiftcardList } from './_List';
+export { GiftcardEditor } from './components/GiftcardEditor';
+export { GiftcardList } from './components/GiftcardList';
 
 export default connect((state: AdminRootState) => ({
     giftcard: state.giftcard,

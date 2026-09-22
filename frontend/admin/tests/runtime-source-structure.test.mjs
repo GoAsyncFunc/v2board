@@ -753,24 +753,18 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeEditor.tsx'));
     const couponDirectory = new URL('coupon/', pagesDirectory);
     assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(couponDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(couponDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_List/', couponDirectory))).includes('index.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_List/', couponDirectory))).includes('CouponDisplayColumns.tsx'),
-    );
-    assert.ok((await fs.readdir(new URL('_Modal/', couponDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(couponDirectory)).includes('components'));
+    const couponComponentsDirectory = new URL('components/', couponDirectory);
+    assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponList.tsx'));
+    assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponColumns.tsx'));
+    assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponEditor.tsx'));
     const giftcardDirectory = new URL('giftcard/', pagesDirectory);
     assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
-    assert.ok((await fs.readdir(giftcardDirectory)).includes('_List'));
-    assert.ok((await fs.readdir(giftcardDirectory)).includes('_Modal'));
-    assert.ok((await fs.readdir(new URL('_List/', giftcardDirectory))).includes('index.tsx'));
-    assert.ok(
-        (await fs.readdir(new URL('_List/', giftcardDirectory))).includes(
-            'GiftcardDisplayColumns.tsx',
-        ),
-    );
-    assert.ok((await fs.readdir(new URL('_Modal/', giftcardDirectory))).includes('index.tsx'));
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('components'));
+    const giftcardComponentsDirectory = new URL('components/', giftcardDirectory);
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardList.tsx'));
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardColumns.tsx'));
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardEditor.tsx'));
     const planDirectory = new URL('plan/', pagesDirectory);
     assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(planDirectory)).includes('_List'));

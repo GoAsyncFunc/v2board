@@ -42,7 +42,8 @@ async function loadModule(relativePath, localModules = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id === './_Modal') return localModules.modal;
+            if (id === './components/CouponEditor' || id === './components/GiftcardEditor')
+                return localModules.modal;
             if (id === './CouponBasicFields') return { CouponBasicFields: 'CouponBasicFields' };
             if (id === './CouponValueFields') return { CouponValueFields: 'CouponValueFields' };
             if (id === './CouponUsageFields') return { CouponUsageFields: 'CouponUsageFields' };
@@ -59,8 +60,9 @@ async function loadModule(relativePath, localModules = {}) {
                 return { GiftcardUsageFields: 'GiftcardUsageFields' };
             if (id === './GiftcardGenerationField')
                 return { GiftcardGenerationField: 'GiftcardGenerationField' };
-            if (id === './_List') return localModules.list;
-            if (id === './CouponDisplayColumns' || id === './GiftcardDisplayColumns')
+            if (id === './components/CouponList' || id === './components/GiftcardList')
+                return localModules.list;
+            if (id === './CouponColumns' || id === './GiftcardColumns')
                 return localModules.columns;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/date-picker') return DatePicker;
@@ -105,8 +107,8 @@ async function loadPage(pageName) {
 async function loadList(pageName) {
     const relativePath =
         pageName === 'Coupon'
-            ? '../src/pages/coupon/_List/index.tsx'
-            : '../src/pages/giftcard/_List/index.tsx';
+            ? '../src/pages/coupon/components/CouponList.tsx'
+            : '../src/pages/giftcard/components/GiftcardList.tsx';
     return loadModule(relativePath, {
         columns: {
             __esModule: true,
@@ -119,8 +121,8 @@ async function loadList(pageName) {
 async function loadEditor(pageName) {
     const relativePath =
         pageName === 'Coupon'
-            ? '../src/pages/coupon/_Modal/index.tsx'
-            : '../src/pages/giftcard/_Modal/index.tsx';
+            ? '../src/pages/coupon/components/CouponEditor.tsx'
+            : '../src/pages/giftcard/components/GiftcardEditor.tsx';
     return loadModule(relativePath);
 }
 
