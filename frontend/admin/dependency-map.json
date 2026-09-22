@@ -844,6 +844,14 @@
     "to": "pages/notice/_List/columns.ts"
   },
   {
+    "from": "pages/notice/_Modal/index.tsx",
+    "to": "pages/notice/_Modal/NoticeContentFields.tsx"
+  },
+  {
+    "from": "pages/notice/_Modal/index.tsx",
+    "to": "pages/notice/_Modal/NoticeMetadataFields.tsx"
+  },
+  {
     "from": "pages/notice/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },

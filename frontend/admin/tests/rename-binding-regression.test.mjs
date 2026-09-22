@@ -150,6 +150,8 @@ for (const file of [
     'admin/src/pages/notice/_List/index.tsx',
     'admin/src/pages/notice/_List/columns.ts',
     'admin/src/pages/notice/_Modal/index.tsx',
+    'admin/src/pages/notice/_Modal/NoticeContentFields.tsx',
+    'admin/src/pages/notice/_Modal/NoticeMetadataFields.tsx',
     'admin/src/pages/order/index.tsx',
     'admin/src/pages/order/_Drawer/filter.tsx',
     'admin/src/pages/order/_List/index.tsx',

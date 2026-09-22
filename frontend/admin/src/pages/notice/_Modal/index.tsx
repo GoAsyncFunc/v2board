@@ -1,11 +1,10 @@
 import React from 'react';
-import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
-import Select from 'antd/lib/select';
 import type { AdminDispatch } from '../../../types/store';
 import type { NoticeRecord, NoticeState } from '../../../types/notice';
+import { NoticeContentFields } from './NoticeContentFields';
+import { NoticeMetadataFields } from './NoticeMetadataFields';
 
 interface NoticeEditorProps {
     dispatch: AdminDispatch;
@@ -56,47 +55,14 @@ export class NoticeEditor extends React.Component<NoticeEditorProps, NoticeEdito
                 cancelText="取消"
             >
                 <div>
-                    <div className="form-group">
-                        <label htmlFor="notice-title">标题</label>
-                        <Input
-                            id="notice-title"
-                            placeholder="请输入公告标题"
-                            value={submit.title}
-                            onChange={(event) => this.updateField('title', event.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="notice-content">公告内容</label>
-                        <Input.TextArea
-                            id="notice-content"
-                            rows={12}
-                            value={submit.content}
-                            placeholder="请输入公告内容"
-                            onChange={(event) => this.updateField('content', event.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="notice-tags">公告标签</label>
-                        <Select
-                            id="notice-tags"
-                            mode="tags"
-                            value={submit.tags || []}
-                            style={{ width: '100%' }}
-                            placeholder="输入后回车添加标签"
-                            onChange={(tags: string[]) =>
-                                this.updateField('tags', tags.length > 0 ? tags : null)
-                            }
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="notice-image">图片URL</label>
-                        <Input
-                            id="notice-image"
-                            placeholder="请输入图片URL"
-                            value={submit.img_url}
-                            onChange={(event) => this.updateField('img_url', event.target.value)}
-                        />
-                    </div>
+                    <NoticeContentFields
+                        notice={submit}
+                        onChange={(field, value) => this.updateField(field, value)}
+                    />
+                    <NoticeMetadataFields
+                        notice={submit}
+                        onChange={(field, value) => this.updateField(field, value)}
+                    />
                 </div>
             </Modal>
         );
