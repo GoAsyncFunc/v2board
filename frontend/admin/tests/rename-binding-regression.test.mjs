@@ -66,6 +66,8 @@ for (const file of [
     'admin/src/pages/server/manage/_Editors/Trojan/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Trojan/NetworkSettings.tsx',
     'admin/src/pages/server/manage/_Editors/TuicEditor.tsx',
+    'admin/src/pages/server/manage/_Editors/Tuic/GeneralFields.tsx',
+    'admin/src/pages/server/manage/_Editors/Tuic/RelationshipFields.tsx',
     'admin/src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx',
     'admin/src/pages/user/_Modal/generate.tsx',
     'admin/src/pages/user/_Drawer/edit.tsx',

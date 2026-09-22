@@ -290,7 +290,7 @@ test('Shadowsocks security settings live in a focused protocol module', async ()
     assert.doesNotMatch(editorSource, /加密算法|混淆/);
 });
 
-test('Tuic transport settings live in a focused protocol module', async () => {
+test('Tuic editor fields live in focused protocol modules', async () => {
     const editorSource = await fs.readFile(
         new URL('../src/pages/server/manage/_Editors/TuicEditor.tsx', import.meta.url),
         'utf8',
@@ -299,12 +299,24 @@ test('Tuic transport settings live in a focused protocol module', async () => {
         new URL('../src/pages/server/manage/_Editors/Tuic/TransportSettings.tsx', import.meta.url),
         'utf8',
     );
+    const generalFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Tuic/GeneralFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const relationshipFieldsSource = await fs.readFile(
+        new URL('../src/pages/server/manage/_Editors/Tuic/RelationshipFields.tsx', import.meta.url),
+        'utf8',
+    );
     assert.match(
         editorSource,
         /import \{ TuicTransportSettings \} from '\.\/Tuic\/TransportSettings'/,
     );
     assert.match(editorSource, /<TuicTransportSettings/);
     assert.match(transportSource, /export function TuicTransportSettings/);
+    assert.match(editorSource, /<TuicGeneralFields/);
+    assert.match(editorSource, /<TuicRelationshipFields/);
+    assert.match(generalFieldsSource, /export function TuicGeneralFields/);
+    assert.match(relationshipFieldsSource, /export function TuicRelationshipFields/);
     assert.doesNotMatch(editorSource, /<label>禁用SNI|<label>拥塞控制算法/);
 });
 

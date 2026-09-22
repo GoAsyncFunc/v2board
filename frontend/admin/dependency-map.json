@@ -1096,12 +1096,20 @@
     "to": "pages/server/manage/_Editors/Trojan/RelationshipFields.tsx"
   },
   {
-    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "from": "pages/server/manage/_Editors/Tuic/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/TuicEditor.tsx",
     "to": "pages/server/manage/_Editors/CompatibleDrawer.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "to": "pages/server/manage/_Editors/Tuic/GeneralFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/_Editors/TuicEditor.tsx",
+    "to": "pages/server/manage/_Editors/Tuic/RelationshipFields.tsx"
   },
   {
     "from": "pages/server/manage/_Editors/TuicEditor.tsx",
