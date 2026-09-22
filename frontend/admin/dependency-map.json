@@ -1021,7 +1021,7 @@
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "pages/queue/_List/QueueDisplayColumns.ts"
+    "to": "pages/queue/components/QueueColumns.ts"
   },
   {
     "from": "pages/server/group/_List/index.tsx",

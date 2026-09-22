@@ -11,7 +11,7 @@ async function load(original) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-queue-display.cjs'
-            : '../src/pages/queue/_List/QueueDisplayColumns.ts',
+            : '../src/pages/queue/components/QueueColumns.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');
