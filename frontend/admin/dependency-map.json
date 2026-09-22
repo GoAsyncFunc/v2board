@@ -949,18 +949,22 @@
   },
   {
     "from": "pages/plan/_List/index.tsx",
+    "to": "pages/plan/_List/planColumns.tsx"
+  },
+  {
+    "from": "pages/plan/_List/planColumns.tsx",
     "to": "pages/plan/_List/PlanGroupColumn.tsx"
   },
   {
-    "from": "pages/plan/_List/index.tsx",
+    "from": "pages/plan/_List/planColumns.tsx",
     "to": "pages/plan/_List/PlanPriceColumns.ts"
   },
   {
-    "from": "pages/plan/_List/index.tsx",
+    "from": "pages/plan/_List/planColumns.tsx",
     "to": "pages/plan/_List/PlanResourceColumns.tsx"
   },
   {
-    "from": "pages/plan/_List/index.tsx",
+    "from": "pages/plan/_List/planColumns.tsx",
     "to": "pages/plan/_Modal/index.tsx"
   },
   {
