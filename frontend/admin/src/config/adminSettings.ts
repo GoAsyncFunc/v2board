@@ -1,12 +1,14 @@
+import type { PropertyLabelMap } from '../types/lookup';
+
 export interface AdminSettings {
-    i18nText: Readonly<Record<PropertyKey, string>>;
-    periodText: Readonly<Record<PropertyKey, string>>;
-    tutorialCategoryText: Readonly<Record<PropertyKey, string>>;
-    tutorialCategoryIcon: Readonly<Record<PropertyKey, string>>;
-    orderStatusText: Readonly<Record<PropertyKey, string>>;
-    commissionStatusText: Readonly<Record<PropertyKey, string>>;
-    ticketStatusText: Readonly<Record<PropertyKey, string>>;
-    routeActionText: Readonly<Record<PropertyKey, string>>;
+    i18nText: PropertyLabelMap;
+    periodText: PropertyLabelMap;
+    tutorialCategoryText: PropertyLabelMap;
+    tutorialCategoryIcon: PropertyLabelMap;
+    orderStatusText: PropertyLabelMap;
+    commissionStatusText: PropertyLabelMap;
+    ticketStatusText: PropertyLabelMap;
+    routeActionText: PropertyLabelMap;
 }
 
 export const settings: AdminSettings = {

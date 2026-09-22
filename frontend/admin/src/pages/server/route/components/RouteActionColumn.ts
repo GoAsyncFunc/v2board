@@ -1,7 +1,8 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
+import type { PropertyLabelMap } from '../../../../types/lookup';
 
 // Display only: this column does not execute routing actions.
-export type RouteActionText = Readonly<Record<PropertyKey, string>>;
+export type RouteActionText = PropertyLabelMap;
 
 export interface RouteActionRecord {
     action?: PropertyKey;

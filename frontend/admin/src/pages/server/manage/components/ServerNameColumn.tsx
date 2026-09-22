@@ -2,9 +2,10 @@ import React from 'react';
 import Badge from 'antd/lib/badge';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
+import type { PropertyLookup } from '../../../../types/lookup';
 
 export type ServerStatus = React.ComponentProps<typeof Badge>['status'];
-export type ServerStatusMap = Record<PropertyKey, ServerStatus>;
+export type ServerStatusMap = PropertyLookup<ServerStatus>;
 
 export interface ServerAvailability {
     available_status?: PropertyKey;
