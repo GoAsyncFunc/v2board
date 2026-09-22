@@ -560,48 +560,48 @@
     "to": "pages/config/payment/components/PaymentList.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/AppConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/AppConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/DepositConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/DepositConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/EmailConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/EmailConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/FrontendConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/FrontendConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/InviteConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/InviteConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/SafeConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/SafeConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/ServerConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/ServerConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/SiteConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/SiteConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/SubscribeConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/SubscribeConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/TelegramConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/TelegramConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/_Tabs/TicketConfigTab.tsx",
-    "to": "pages/config/system/_components/ConfigRow.tsx"
+    "from": "pages/config/system/components/TicketConfigTab.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
@@ -609,51 +609,51 @@
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/AppConfigTab.tsx"
+    "to": "pages/config/system/components/AppConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/DepositConfigTab.tsx"
+    "to": "pages/config/system/components/DepositConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/EmailConfigTab.tsx"
+    "to": "pages/config/system/components/EmailConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/FrontendConfigTab.tsx"
+    "to": "pages/config/system/components/FrontendConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/InviteConfigTab.tsx"
+    "to": "pages/config/system/components/InviteConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/SafeConfigTab.tsx"
+    "to": "pages/config/system/components/MailTestResult.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/ServerConfigTab.tsx"
+    "to": "pages/config/system/components/SafeConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/SiteConfigTab.tsx"
+    "to": "pages/config/system/components/ServerConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/SubscribeConfigTab.tsx"
+    "to": "pages/config/system/components/SiteConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/TelegramConfigTab.tsx"
+    "to": "pages/config/system/components/SubscribeConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_Tabs/TicketConfigTab.tsx"
+    "to": "pages/config/system/components/TelegramConfigTab.tsx"
   },
   {
     "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/_components/MailTestResult.tsx"
+    "to": "pages/config/system/components/TicketConfigTab.tsx"
   },
   {
     "from": "pages/config/theme/index.tsx",
@@ -720,11 +720,11 @@
     "to": "pages/coupon/components/CouponList.tsx"
   },
   {
-    "from": "pages/dashboard/_Nav/index.tsx",
+    "from": "pages/dashboard/components/DashboardNavigation.tsx",
     "to": "app/navigation.ts"
   },
   {
-    "from": "pages/dashboard/_Overview/index.tsx",
+    "from": "pages/dashboard/components/DashboardOverview.tsx",
     "to": "components/common/MoneyDisplay.ts"
   },
   {
@@ -741,19 +741,19 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/_Nav/index.tsx"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/_Overview/index.tsx"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/_ServerRank/index.tsx"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
     "to": "pages/dashboard/chartOptions.ts"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/components/DashboardNavigation.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/components/DashboardOverview.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/components/DashboardServerRank.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
