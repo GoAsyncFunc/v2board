@@ -13,7 +13,7 @@ import type {
     ServerProtocolState,
     ServerRouteState,
 } from './server';
-import type { AuthState, LayoutState, PassportState } from './session';
+import type { AdministratorAuthenticationState, LayoutState, PassportState } from './session';
 import type { ThemeState } from './theme';
 import type { TicketState } from './ticket';
 import type { UserModuleState } from './user';
@@ -24,7 +24,7 @@ export interface AdminAction {
 
 export type AdminDispatch = <Action extends AdminAction>(action: Action) => void;
 export interface AdminRootState {
-    auth: AuthState;
+    auth: AdministratorAuthenticationState;
     config: AdminConfigState;
     coupon: CouponState;
     giftcard: GiftcardState;

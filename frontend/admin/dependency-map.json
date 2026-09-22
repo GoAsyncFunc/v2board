@@ -69,7 +69,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/auth.ts"
+    "to": "models/administratorAuthentication.ts"
   },
   {
     "from": "app/store.tsx",
@@ -244,15 +244,15 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/auth.ts",
+    "from": "models/administratorAuthentication.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/auth.ts",
+    "from": "models/administratorAuthentication.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/auth.ts",
+    "from": "models/administratorAuthentication.ts",
     "to": "types/api.ts"
   },
   {

@@ -5,7 +5,7 @@ export interface AdminLoginData {
     is_admin: number | boolean;
 }
 
-export interface AuthState {
+export interface AdministratorAuthenticationState {
     loginLoading?: boolean;
 }
 
