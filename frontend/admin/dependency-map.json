@@ -524,24 +524,24 @@
     "to": "types/api.ts"
   },
   {
-    "from": "pages/config/payment/_List/index.tsx",
+    "from": "pages/config/payment/components/PaymentEditor.tsx",
+    "to": "pages/config/payment/components/PaymentBasicFields.tsx"
+  },
+  {
+    "from": "pages/config/payment/components/PaymentEditor.tsx",
+    "to": "pages/config/payment/components/PaymentConfigFields.tsx"
+  },
+  {
+    "from": "pages/config/payment/components/PaymentEditor.tsx",
+    "to": "pages/config/payment/components/PaytaroNotice.tsx"
+  },
+  {
+    "from": "pages/config/payment/components/PaymentList.tsx",
     "to": "components/common/Sortable.tsx"
   },
   {
-    "from": "pages/config/payment/_List/index.tsx",
-    "to": "pages/config/payment/_List/PaymentNotifyColumn.tsx"
-  },
-  {
-    "from": "pages/config/payment/_Modal/index.tsx",
-    "to": "pages/config/payment/_Modal/PaymentBasicFields.tsx"
-  },
-  {
-    "from": "pages/config/payment/_Modal/index.tsx",
-    "to": "pages/config/payment/_Modal/PaymentConfigFields.tsx"
-  },
-  {
-    "from": "pages/config/payment/_Modal/index.tsx",
-    "to": "pages/config/payment/_Modal/PaytaroNotice.tsx"
+    "from": "pages/config/payment/components/PaymentList.tsx",
+    "to": "pages/config/payment/components/PaymentNotifyColumn.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
@@ -553,11 +553,11 @@
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/_List/index.tsx"
+    "to": "pages/config/payment/components/PaymentEditor.tsx"
   },
   {
     "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/_Modal/index.tsx"
+    "to": "pages/config/payment/components/PaymentList.tsx"
   },
   {
     "from": "pages/config/system/_Tabs/AppConfigTab.tsx",
@@ -661,7 +661,7 @@
   },
   {
     "from": "pages/config/theme/index.tsx",
-    "to": "pages/config/theme/_Modal/index.tsx"
+    "to": "pages/config/theme/components/ThemeConfigEditor.tsx"
   },
   {
     "from": "pages/config/theme/index.tsx",

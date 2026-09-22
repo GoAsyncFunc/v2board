@@ -66,7 +66,7 @@ async function loadPaymentModule(relativePath) {
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id.includes('Sortable')) return 'Sortable';
             if (id.includes('MainLayout')) return 'MainLayout';
-            if (id === './_Modal')
+            if (id === './components/PaymentEditor')
                 return {
                     __esModule: true,
                     default: 'ConnectedPaymentEditor',
@@ -76,7 +76,7 @@ async function loadPaymentModule(relativePath) {
             if (id === './PaymentConfigFields')
                 return { PaymentConfigFields: 'PaymentConfigFields' };
             if (id === './PaytaroNotice') return { PaytaroNotice: 'PaytaroNotice' };
-            if (id === './_List') {
+            if (id === './components/PaymentList') {
                 const PaymentList = ({ dispatch, payment, renderEditor }) => ({
                     type: 'Sortable',
                     props: {
@@ -148,7 +148,8 @@ async function loadPaymentModule(relativePath) {
 }
 
 const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/index.tsx');
-const loadPaymentEditor = () => loadPaymentModule('../src/pages/config/payment/_Modal/index.tsx');
+const loadPaymentEditor = () =>
+    loadPaymentModule('../src/pages/config/payment/components/PaymentEditor.tsx');
 
 async function loadThemeModule(relativePath) {
     const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
@@ -176,7 +177,7 @@ async function loadThemeModule(relativePath) {
             if (id === 'antd/lib/modal') return 'Modal';
             if (id === 'antd/lib/select') return Select;
             if (id.includes('MainLayout')) return 'MainLayout';
-            if (id === './_Modal')
+            if (id === './components/ThemeConfigEditor')
                 return {
                     __esModule: true,
                     default: 'ConnectedThemeConfigEditor',
@@ -198,7 +199,8 @@ async function loadThemeModule(relativePath) {
 }
 
 const loadThemePage = () => loadThemeModule('../src/pages/config/theme/index.tsx');
-const loadThemeEditor = () => loadThemeModule('../src/pages/config/theme/_Modal/index.tsx');
+const loadThemeEditor = () =>
+    loadThemeModule('../src/pages/config/theme/components/ThemeConfigEditor.tsx');
 
 test('Payment editor loads methods and form, updates values and saves the selected gateway', async () => {
     const { PaymentEditor } = await loadPaymentEditor();

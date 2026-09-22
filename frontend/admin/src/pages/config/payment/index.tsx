@@ -4,8 +4,8 @@ import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import MainLayout from '../../../layouts/MainLayout';
-import PaymentList from './_List';
-import ConnectedPaymentEditor, { PaymentEditor } from './_Modal';
+import PaymentList from './components/PaymentList';
+import ConnectedPaymentEditor, { PaymentEditor } from './components/PaymentEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { PaymentState } from '../../../types/payment';
 

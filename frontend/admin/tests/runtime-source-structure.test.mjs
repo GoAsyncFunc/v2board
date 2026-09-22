@@ -741,6 +741,28 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('payment'));
     assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('system'));
     assert.ok((await fs.readdir(new URL('config/', pagesDirectory))).includes('theme'));
+    const paymentDirectory = new URL('config/payment/', pagesDirectory);
+    assert.ok((await fs.readdir(paymentDirectory)).includes('components'));
+    const paymentComponentsDirectory = new URL('components/', paymentDirectory);
+    assert.ok(
+        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentList.tsx'),
+    );
+    assert.ok(
+        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentEditor.tsx'),
+    );
+    assert.ok(
+        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentDisplayColumns.ts'),
+    );
+    assert.ok(
+        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentNotifyColumn.tsx'),
+    );
+    const themeDirectory = new URL('config/theme/', pagesDirectory);
+    assert.ok((await fs.readdir(themeDirectory)).includes('components'));
+    assert.ok(
+        (await fs.readdir(new URL('components/', themeDirectory))).includes(
+            'ThemeConfigEditor.tsx',
+        ),
+    );
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('group'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('manage'));
     assert.ok((await fs.readdir(new URL('server/', pagesDirectory))).includes('route'));

@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-payment-notify.cjs':'../src/pages/config/payment/_List/PaymentNotifyColumn.tsx',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-payment-notify.cjs':'../src/pages/config/payment/components/PaymentNotifyColumn.tsx',import.meta.url);
  vm.runInNewContext((await transform(await fs.readFile(file,'utf8'),{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tooltip')return 'Tooltip';if(id==='antd/lib/icon')return 'Icon';if(id.includes('antdTooltip'))return {a:'Tooltip'};if(id.includes('Icon'))return {a:'Icon',Icon:'Icon'};
         throw Error(id);}});
  return original?module.exports({a:React},{a:'Tooltip'},{a:'Icon'}):module.exports.createPaymentNotifyColumn();
