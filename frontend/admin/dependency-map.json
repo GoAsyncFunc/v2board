@@ -680,8 +680,28 @@
     "to": "utils/clipboard.ts"
   },
   {
-    "from": "pages/coupon/_Modal/index.tsx",
+    "from": "pages/coupon/_Modal/CouponRestrictionsFields.tsx",
     "to": "config/adminSettings.ts"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "pages/coupon/_Modal/CouponBasicFields.tsx"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "pages/coupon/_Modal/CouponGenerationField.tsx"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "pages/coupon/_Modal/CouponRestrictionsFields.tsx"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "pages/coupon/_Modal/CouponUsageFields.tsx"
+  },
+  {
+    "from": "pages/coupon/_Modal/index.tsx",
+    "to": "pages/coupon/_Modal/CouponValueFields.tsx"
   },
   {
     "from": "pages/coupon/index.tsx",
