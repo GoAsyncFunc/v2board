@@ -264,6 +264,14 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/auth/RegistrationForm.tsx",
+    "to": "components/common/Recaptcha.tsx"
+  },
+  {
+    "from": "components/auth/RegistrationForm.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
     "from": "components/commerce/OrderColumns.tsx",
     "to": "app/routerHistory.ts"
   },
@@ -885,11 +893,15 @@
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "components/common/LanguageSelector.tsx"
+    "to": "components/auth/AuthBrand.tsx"
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "components/common/Recaptcha.tsx"
+    "to": "components/auth/RegistrationForm.tsx"
+  },
+  {
+    "from": "pages/auth/Register.tsx",
+    "to": "components/common/LanguageSelector.tsx"
   },
   {
     "from": "pages/auth/Register.tsx",

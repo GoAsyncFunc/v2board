@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 test('user business components live outside the vendor compatibility layer', async () => {
   const componentsDirectory = new URL('../src/components/', import.meta.url);
   const componentEntries = await fs.readdir(componentsDirectory, { withFileTypes: true });
-  const expectedDomains = ['account', 'commerce', 'common', 'dashboard', 'subscription', 'support'];
+  const expectedDomains = ['account', 'auth', 'commerce', 'common', 'dashboard', 'subscription', 'support'];
   assert.deepEqual(componentEntries.filter(entry => entry.isDirectory()).map(entry => entry.name).sort(), expectedDomains);
   assert.deepEqual(componentEntries.filter(entry => entry.isFile() && /\.tsx?$/.test(entry.name)), []);
 
@@ -16,6 +16,8 @@ test('user business components live outside the vendor compatibility layer', asy
   await fs.access(new URL('commerce/checkout/', componentsDirectory));
 
   const componentPaths = [
+    '../src/components/auth/AuthBrand.tsx',
+    '../src/components/auth/RegistrationForm.tsx',
     '../src/components/common/Recaptcha.tsx',
     '../src/components/subscription/SubscribeImporter.tsx',
     '../src/components/account/TelegramBindModal.tsx',

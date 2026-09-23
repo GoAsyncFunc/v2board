@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Icon from 'antd/lib/icon';
 import history from '../../app/routerHistory';
-import Recaptcha from '../../components/common/Recaptcha';
+import AuthBrand from '../../components/auth/AuthBrand';
+import RegistrationForm from '../../components/auth/RegistrationForm';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
@@ -115,28 +115,11 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
                                     <div className="row no-gutters">
                                         <div className="col-md-12 order-md-1 bg-white">
                                             <div className="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
-                                                <div className="mb-3 text-center">
-                                                    <a
-                                                        className="font-size-h1"
-                                                        href="javascript:void(0);"
-                                                    >
-                                                        {logo ? (
-                                                            <img
-                                                                className="v2board-logo mb-3"
-                                                                src={logo}
-                                                            />
-                                                        ) : (
-                                                            <span className="text-dark">
-                                                                {title || 'V2Board'}
-                                                            </span>
-                                                        )}
-                                                    </a>
-                                                    {description && (
-                                                        <p className="font-size-sm text-muted mb-3">
-                                                            {description}
-                                                        </p>
-                                                    )}
-                                                </div>
+                                                <AuthBrand
+                                                    logo={logo}
+                                                    title={title}
+                                                    description={description}
+                                                />
                                                 {getCommConfigLoading ? (
                                                     <div className="content content-full text-center">
                                                         <div
@@ -149,204 +132,43 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <div>
-                                                        <div
-                                                            className={`form-group ${commConfig.email_whitelist_suffix ? 'v2board-email-whitelist-enable' : ''}`}
-                                                        >
-                                                            <input
-                                                                type="text"
-                                                                className="form-control form-control-alt"
-                                                                placeholder={formatMessage({
-                                                                    id: '邮箱',
-                                                                })}
-                                                                ref={this.emailInput}
-                                                            />
-                                                            {commConfig.email_whitelist_suffix ? (
-                                                                <select
-                                                                    className="form-control form-control-alt"
-                                                                    value={emailSuffix}
-                                                                    onChange={(event) =>
-                                                                        this.props.dispatch({
-                                                                            type: 'guest/setState',
-                                                                            payload: {
-                                                                                selectEmailSuffix:
-                                                                                    event.target
-                                                                                        .value,
-                                                                            },
-                                                                        })
-                                                                    }
-                                                                >
-                                                                    {commConfig.email_whitelist_suffix.map(
-                                                                        (suffix) => (
-                                                                            <option
-                                                                                key={suffix}
-                                                                                value={suffix}
-                                                                            >
-                                                                                @{suffix}
-                                                                            </option>
-                                                                        ),
-                                                                    )}
-                                                                </select>
-                                                            ) : (
-                                                                ''
-                                                            )}
-                                                        </div>
-                                                        {commConfig.is_email_verify ? (
-                                                            <div className="form-group form-row">
-                                                                <div className="col-9">
-                                                                    <input
-                                                                        type="text"
-                                                                        className="form-control form-control-alt"
-                                                                        placeholder={formatMessage({
-                                                                            id: '邮箱验证码',
-                                                                        })}
-                                                                        ref={this.emailCodeInput}
-                                                                    />
-                                                                </div>
-                                                                <div className="col-3">
-                                                                    <Recaptcha
-                                                                        visible={Boolean(
-                                                                            commConfig.is_recaptcha,
-                                                                        )}
-                                                                        callback={(data) =>
-                                                                            this.sendEmailVerify(
-                                                                                data,
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        <button
-                                                                            type="submit"
-                                                                            disabled={
-                                                                                this.state
-                                                                                    .sendEmailVerifyTimeout !==
-                                                                                    60 ||
-                                                                                sendEmailVerifyLoading
-                                                                            }
-                                                                            className="btn btn-block btn-primary font-w400"
-                                                                        >
-                                                                            {this.state
-                                                                                .sendEmailVerifyTimeout ===
-                                                                            60 ? (
-                                                                                sendEmailVerifyLoading ? (
-                                                                                    <Icon type="loading" />
-                                                                                ) : (
-                                                                                    formatMessage({
-                                                                                        id: '发送',
-                                                                                    })
-                                                                                )
-                                                                            ) : (
-                                                                                this.state
-                                                                                    .sendEmailVerifyTimeout
-                                                                            )}
-                                                                        </button>
-                                                                    </Recaptcha>
-                                                                </div>
-                                                            </div>
-                                                        ) : (
-                                                            ''
-                                                        )}
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="password"
-                                                                className="form-control form-control-alt"
-                                                                placeholder={formatMessage({
-                                                                    id: '密码',
-                                                                })}
-                                                                ref={this.passwordInput}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="password"
-                                                                className="form-control form-control-alt"
-                                                                placeholder={formatMessage({
-                                                                    id: '密码',
-                                                                })}
-                                                                ref={this.repeatedPasswordInput}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="text"
-                                                                disabled={Boolean(inviteCode)}
-                                                                defaultValue={inviteCode}
-                                                                className="form-control form-control-alt"
-                                                                placeholder={formatMessage({
-                                                                    id: commConfig.is_invite_force
-                                                                        ? '邀请码'
-                                                                        : '邀请码(选填)',
-                                                                })}
-                                                                ref={this.inviteInput}
-                                                            />
-                                                        </div>
-                                                        {commConfig.tos_url && (
-                                                            <div className="form-group">
-                                                                <div className="custom-control custom-checkbox custom-control-primary">
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        className="custom-control-input"
-                                                                        checked={Boolean(
-                                                                            this.state.tosChecked,
-                                                                        )}
-                                                                        style={{ zIndex: 1000 }}
-                                                                        onChange={() =>
-                                                                            this.setState({
-                                                                                tosChecked:
-                                                                                    !this.state
-                                                                                        .tosChecked,
-                                                                            })
-                                                                        }
-                                                                    />
-                                                                    <label className="custom-control-label">
-                                                                        <div
-                                                                            dangerouslySetInnerHTML={{
-                                                                                __html: formatMessage(
-                                                                                    {
-                                                                                        id: '我已阅读并同意 <a target="_blank" href="{url}">服务条款</a>',
-                                                                                    },
-                                                                                    {
-                                                                                        url: commConfig.tos_url,
-                                                                                    },
-                                                                                ),
-                                                                            }}
-                                                                        />
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        )}
-                                                        <div className="form-group mb-0">
-                                                            <Recaptcha
-                                                                visible={Boolean(
-                                                                    commConfig.is_recaptcha,
-                                                                )}
-                                                                callback={(data) =>
-                                                                    this.register(data)
-                                                                }
-                                                            >
-                                                                <button
-                                                                    disabled={Boolean(
-                                                                        registerLoading ||
-                                                                        (commConfig.tos_url &&
-                                                                            !this.state.tosChecked),
-                                                                    )}
-                                                                    type="submit"
-                                                                    className="btn btn-block btn-primary font-w400"
-                                                                    onClick={() => this.register()}
-                                                                >
-                                                                    {registerLoading ? (
-                                                                        <Icon type="loading" />
-                                                                    ) : (
-                                                                        <span>
-                                                                            <i className="si si-emoticon-smile mr-1" />
-                                                                            {formatMessage({
-                                                                                id: '注册',
-                                                                            })}
-                                                                        </span>
-                                                                    )}
-                                                                </button>
-                                                            </Recaptcha>
-                                                        </div>
-                                                    </div>
+                                                    <RegistrationForm
+                                                        commConfig={commConfig}
+                                                        emailCodeInput={this.emailCodeInput}
+                                                        emailInput={this.emailInput}
+                                                        emailSuffix={emailSuffix}
+                                                        inviteCode={inviteCode}
+                                                        inviteInput={this.inviteInput}
+                                                        onEmailSuffixChange={(value) =>
+                                                            this.props.dispatch({
+                                                                type: 'guest/setState',
+                                                                payload: {
+                                                                    selectEmailSuffix: value,
+                                                                },
+                                                            })
+                                                        }
+                                                        onRegister={(data) => this.register(data)}
+                                                        onSendEmailVerify={(data) =>
+                                                            this.sendEmailVerify(data)
+                                                        }
+                                                        onToggleTerms={() =>
+                                                            this.setState({
+                                                                tosChecked: !this.state.tosChecked,
+                                                            })
+                                                        }
+                                                        passwordInput={this.passwordInput}
+                                                        registerLoading={registerLoading}
+                                                        repeatedPasswordInput={
+                                                            this.repeatedPasswordInput
+                                                        }
+                                                        sendEmailVerifyLoading={
+                                                            sendEmailVerifyLoading
+                                                        }
+                                                        sendEmailVerifyTimeout={
+                                                            this.state.sendEmailVerifyTimeout
+                                                        }
+                                                        tosChecked={Boolean(this.state.tosChecked)}
+                                                    />
                                                 )}
                                             </div>
                                         </div>

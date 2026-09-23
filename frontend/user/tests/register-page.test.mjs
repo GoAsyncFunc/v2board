@@ -23,6 +23,7 @@ async function loadPage() {
     require(id) {
       if (id === 'react') return React;
       if (id === 'react-redux' || id.includes('reactRedux')) return { connect: () => Page => Page };
+      if (id.includes('/components/auth/')) return id.endsWith('AuthBrand') ? 'AuthBrand' : 'RegistrationForm';
       if (id.includes('Icon.js') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('routerHistory')) return { push() {} };
       if (id.includes('Recaptcha')) return 'Recaptcha';
@@ -102,26 +103,86 @@ function nodes(tree, predicate) {
   return [...(predicate(tree) ? [tree] : []), ...nodes(tree.children, predicate)];
 }
 
+async function loadRegistrationForm() {
+  const source = await fs.readFile(
+    new URL('../src/components/auth/RegistrationForm.tsx', import.meta.url),
+    'utf8',
+  );
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+  const React = {
+    createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+  };
+  const module = { exports: {} };
+  vm.runInNewContext(code, {
+    module,
+    exports: module.exports,
+    require(id) {
+      if (id === 'react') return React;
+      if (id === 'antd/lib/icon') return { __esModule: true, default: 'Icon' };
+      if (id.includes('/common/Recaptcha')) return 'Recaptcha';
+      if (id.includes('/locales/i18n')) return { formatMessage: ({ id: messageId }) => messageId };
+      throw new Error(id);
+    },
+  });
+  return module.exports.default;
+}
+
 test('Registration keeps invite locking, whitelist selection, email verification and terms controls', async () => {
-  const { page, actions } = await loadPage();
-  page.props.guest.commConfig = {
+  const RegistrationForm = await loadRegistrationForm();
+  const actions = [];
+  const props = {
+    commConfig: {
     email_whitelist_suffix: ['example.com', 'example.org'], is_email_verify: true,
     is_recaptcha: true, is_invite_force: true, tos_url: '/terms',
+    },
+    emailCodeInput: { current: null },
+    emailInput: { current: null },
+    emailSuffix: 'example.com',
+    inviteCode: 'invite-code',
+    inviteInput: { current: null },
+    onEmailSuffixChange: value => actions.push({ type: 'selectEmailSuffix', value }),
+    onRegister: value => actions.push({ type: 'register', value }),
+    onSendEmailVerify: value => actions.push({ type: 'sendEmailVerify', value }),
+    onToggleTerms: () => actions.push({ type: 'toggleTerms' }),
+    passwordInput: { current: null },
+    registerLoading: false,
+    repeatedPasswordInput: { current: null },
+    sendEmailVerifyLoading: false,
+    sendEmailVerifyTimeout: 60,
+    tosChecked: false,
   };
-  let tree = page.render();
-  const invite = nodes(tree, node => node.props.ref === page.inviteInput)[0];
+  let tree = RegistrationForm(props);
+  const invite = nodes(tree, node => node.props.ref === props.inviteInput)[0];
   assert.equal(invite.props.defaultValue, 'invite-code');
   assert.equal(invite.props.disabled, true);
   assert.equal(invite.props.placeholder, '邀请码');
   const suffix = nodes(tree, node => node.type === 'select')[0];
   suffix.props.onChange({ target: { value: 'example.org' } });
-  assert.equal(actions.at(-1).payload.selectEmailSuffix, 'example.org');
+  assert.deepEqual(actions.at(-1), { type: 'selectEmailSuffix', value: 'example.org' });
   assert.equal(nodes(tree, node => node.type === 'Recaptcha').length, 2);
   assert.equal(nodes(tree, node => node.type === 'button').at(-1).props.disabled, true);
   nodes(tree, node => node.props.type === 'checkbox')[0].props.onChange();
-  tree = page.render();
+  assert.deepEqual(actions.at(-1), { type: 'toggleTerms' });
+  props.tosChecked = true;
+  tree = RegistrationForm(props);
   assert.equal(nodes(tree, node => node.type === 'button').at(-1).props.disabled, false);
+});
+
+test('Registration page composes branding and form while preserving loading state', async () => {
+  const { page } = await loadPage();
+  let tree = page.render();
+  assert.deepEqual(
+    nodes(
+      tree,
+      node =>
+        typeof node.type === 'string' &&
+        (node.type.startsWith('Auth') || node.type.startsWith('Registration')),
+    )
+      .map(node => node.type),
+    ['AuthBrand', 'RegistrationForm'],
+  );
   page.props.passport.getCommConfigLoading = true;
-  assert.equal(nodes(page.render(), node => node.props.role === 'status').length, 1);
-  assert.equal(nodes(page.render(), node => node.props.ref === page.emailInput).length, 0);
+  tree = page.render();
+  assert.equal(nodes(tree, node => node.props.role === 'status').length, 1);
+  assert.equal(nodes(tree, node => node.type === 'RegistrationForm').length, 0);
 });
