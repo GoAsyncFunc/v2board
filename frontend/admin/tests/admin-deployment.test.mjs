@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
+import prettier from 'prettier';
+import postcssPlugin from 'prettier/plugins/postcss';
 import { rewriteAdminTemplate } from '../scripts/rewrite-admin-template.mjs';
 
 const repoRoot = new URL('../../../', import.meta.url);
@@ -77,6 +80,39 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
         await fs.access(new URL(`../public/assets/admin/${assetPath.slice(2)}`, import.meta.url));
     }
     assert.match(page, /ticketDetailClassNames as styles/);
+});
+
+test('Admin-owned CSS assets are readable and contain no generated CSS-module hashes', async () => {
+    const assetDirectory = new URL('../public/assets/admin/', import.meta.url);
+    const cssFiles = [
+        'components.chunk.css',
+        'umi.css',
+        'theme/black.css',
+        'theme/darkblue.css',
+        'theme/default.css',
+        'theme/green.css',
+    ];
+
+    for (const file of cssFiles) {
+        const assetUrl = new URL(file, assetDirectory);
+        const filePath = fileURLToPath(assetUrl);
+        const css = await fs.readFile(assetUrl, 'utf8');
+        const prettierOptions = await prettier.resolveConfig(filePath, { editorconfig: true });
+        assert.equal(
+            await prettier.check(css, {
+                ...prettierOptions,
+                filepath: filePath,
+                plugins: [postcssPlugin],
+            }),
+            true,
+            `${file} should be formatted`,
+        );
+        assert.doesNotMatch(
+            css,
+            /\.[A-Za-z_-][\w-]*___[A-Za-z0-9_-]{4,}/,
+            `${file} has generated CSS-module names`,
+        );
+    }
 });
 
 test('Admin deploy archive and release copy include the full static build', async () => {
