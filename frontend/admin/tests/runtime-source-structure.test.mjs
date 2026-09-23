@@ -133,7 +133,7 @@ test('admin production source has no compiler-generated module or style identifi
     const sourceFiles = await collectSourceFiles(sourceDirectory);
     const sourceText = [];
     for (const file of sourceFiles) {
-        assert.match(file.pathname, /\.(?:ts|tsx|d\.ts)$/);
+        assert.match(file.pathname, /\.(?:ts|tsx|d\.ts|css)$/);
         const text = await fs.readFile(file, 'utf8');
         sourceText.push(`${file.pathname}\n${text}`);
         assert.doesNotMatch(text, /(?:from|require\()\s*['"][^'"]+\.(?:js|jsx)['"]/);

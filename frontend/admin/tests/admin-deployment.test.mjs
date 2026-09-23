@@ -46,7 +46,7 @@ test('Admin release template can be advanced without changing the legacy fallbac
 
 test('Admin build publishes semantic ticket CSS with its matching React class names', async () => {
     const css = await fs.readFile(
-        new URL('../public/assets/admin/umi.css', import.meta.url),
+        new URL('../src/styles/global.css', import.meta.url),
         'utf8',
     );
     const page = await fs.readFile(
@@ -83,18 +83,33 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
 });
 
 test('Admin-owned CSS assets are readable and contain no generated CSS-module hashes', async () => {
-    const assetDirectory = new URL('../public/assets/admin/', import.meta.url);
+    const publicDirectory = new URL('../public/', import.meta.url);
     const cssFiles = [
-        'components.chunk.css',
-        'umi.css',
-        'theme/black.css',
-        'theme/darkblue.css',
-        'theme/default.css',
-        'theme/green.css',
+        {
+            source: new URL('../public/assets/admin/components.chunk.css', import.meta.url),
+            publishedPath: 'assets/admin/components.chunk.css',
+        },
+        { source: new URL('../src/styles/global.css', import.meta.url), publishedPath: 'assets/admin/umi.css' },
+        {
+            source: new URL('../src/styles/themes/black.css', import.meta.url),
+            publishedPath: 'assets/admin/theme/black.css',
+        },
+        {
+            source: new URL('../src/styles/themes/darkblue.css', import.meta.url),
+            publishedPath: 'assets/admin/theme/darkblue.css',
+        },
+        {
+            source: new URL('../src/styles/themes/default.css', import.meta.url),
+            publishedPath: 'assets/admin/theme/default.css',
+        },
+        {
+            source: new URL('../src/styles/themes/green.css', import.meta.url),
+            publishedPath: 'assets/admin/theme/green.css',
+        },
     ];
 
-    for (const file of cssFiles) {
-        const assetUrl = new URL(file, assetDirectory);
+    for (const { source, publishedPath } of cssFiles) {
+        const assetUrl = source;
         const filePath = fileURLToPath(assetUrl);
         const css = await fs.readFile(assetUrl, 'utf8');
         const prettierOptions = await prettier.resolveConfig(filePath, { editorconfig: true });
@@ -105,19 +120,23 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
                 plugins: [postcssPlugin],
             }),
             true,
-            `${file} should be formatted`,
+            `${publishedPath} should be formatted`,
         );
         assert.doesNotMatch(
             css,
             /\.[A-Za-z_-][\w-]*___[A-Za-z0-9_-]{4,}/,
-            `${file} has generated CSS-module names`,
+            `${publishedPath} has generated CSS-module names`,
         );
         for (const [, referencedAsset] of css.matchAll(/url\((?:['"])?([^)'"\s]+)/g)) {
             const assetPath = referencedAsset.split(/[?#]/, 1)[0];
             if (!assetPath.startsWith('.')) continue;
 
-            assert.doesNotMatch(assetPath, /\.[a-f0-9]{8}\./, `${file} has a hashed asset name`);
-            await fs.access(new URL(assetPath, assetDirectory));
+            assert.doesNotMatch(
+                assetPath,
+                /\.[a-f0-9]{8}\./,
+                `${publishedPath} has a hashed asset name`,
+            );
+            await fs.access(new URL(assetPath, new URL(publishedPath, publicDirectory)));
         }
     }
 });

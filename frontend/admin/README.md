@@ -39,9 +39,9 @@ npm run build
 - `app.js`：浏览器入口
 - `app.js.map`：source map
 - `source-build.json`：本次构建输入清单
-- 从 `public/` 复制的静态资源
+- 从 `public/` 复制的静态资源，以及从 `src/styles/` 发布的全局和主题样式
 
-构建器会拒绝读取本项目目录之外的输入。
+构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，保持现有运行时 URL 不变。
 
 ## 格式化
 
@@ -50,7 +50,7 @@ npm run format
 npm run check:format
 ```
 
-格式化范围包含本项目的 `src/**/*.ts`、`src/**/*.tsx` 和 `public/assets/admin/**/*.css`，规则由 `.prettierrc.json` 与根目录 `.editorconfig` 共同决定。
+格式化范围包含本项目的 `src/**/*.ts`、`src/**/*.tsx`、`src/**/*.css` 和 `public/assets/admin/**/*.css`，规则由 `.prettierrc.json` 与根目录 `.editorconfig` 共同决定。
 
 ## 测试
 
@@ -68,7 +68,7 @@ npm run build
 
 ```text
 public/          独立静态资源和 settings.js
-public/assets/   Admin 样式及按字体家族整理的字体资源
+public/assets/   第三方组件样式及按字体家族整理的字体资源
 scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
 src/components/  跨页面复用的管理端组件
@@ -79,7 +79,7 @@ src/pages/       按业务域组织的管理端页面
 src/routes/      管理端路由表和路由类型
 src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求与下载服务
-src/styles/      页面样式常量与样式入口
+src/styles/      Admin 全局样式、主题样式和样式常量
 src/types/       API、状态和业务实体类型
 src/utils/       浏览器、日期和站点工具
 tests/           独立回归测试与 fixture

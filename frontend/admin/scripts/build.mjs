@@ -5,6 +5,13 @@ import { build } from 'esbuild';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(appRoot, 'dist');
+const stylesheetBuildEntries = [
+  ['src/styles/global.css', 'assets/admin/umi.css'],
+  ['src/styles/themes/black.css', 'assets/admin/theme/black.css'],
+  ['src/styles/themes/darkblue.css', 'assets/admin/theme/darkblue.css'],
+  ['src/styles/themes/default.css', 'assets/admin/theme/default.css'],
+  ['src/styles/themes/green.css', 'assets/admin/theme/green.css'],
+];
 
 export function createUiVersion(date = new Date()) {
   const timestamp = date.toISOString().slice(0, 19).replace(/[-:T]/g, '');
@@ -17,6 +24,11 @@ export async function buildApp() {
   await fs.rm(destination, { recursive: true, force: true });
   await fs.mkdir(destination, { recursive: true });
   await fs.cp(path.join(appRoot, 'public'), destination, { recursive: true });
+  for (const [sourcePath, outputPath] of stylesheetBuildEntries) {
+    const outputFile = path.join(destination, outputPath);
+    await fs.mkdir(path.dirname(outputFile), { recursive: true });
+    await fs.copyFile(path.join(appRoot, sourcePath), outputFile);
+  }
   await fs.copyFile(path.join(appRoot, 'index.html'), path.join(destination, 'index.html'));
   const settingsPath = path.join(destination, 'settings.js');
   const settings = await fs.readFile(settingsPath, 'utf8');
@@ -39,7 +51,10 @@ export async function buildApp() {
     logLevel: 'warning',
   });
 
-  const inputs = Object.keys(result.metafile.inputs);
+  const inputs = [
+    ...Object.keys(result.metafile.inputs),
+    ...stylesheetBuildEntries.map(([sourcePath]) => sourcePath),
+  ];
   const escapedInputs = inputs.filter(input => path.isAbsolute(input) || input.startsWith('../'));
   if (escapedInputs.length) {
     throw new Error(`Admin build used files outside its package: ${escapedInputs.slice(0, 5).join(', ')}`);
