@@ -3,7 +3,7 @@
 
 <head>
     @if (config('v2board.admin_source_build', false))
-        <link rel="stylesheet" href="/admin-build/assets/admin/components.chunk.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/antd.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/markdown-editor.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/umi.css?v={{$version}}">
     @else

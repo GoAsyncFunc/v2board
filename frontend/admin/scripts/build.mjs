@@ -6,11 +6,12 @@ import {
     markdownEditorStylesheetOutput,
     markdownEditorStylesheetPath,
     prefixMarkdownEditorStyles,
-    removeMarkdownEditorStyles,
 } from './build-styles.mjs';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(appRoot, 'dist');
+export const antdStylesheetPath = 'node_modules/antd/dist/antd.css';
+export const antdStylesheetOutput = 'assets/admin/antd.css';
 const stylesheetBuildEntries = [
     ['src/styles/global.css', 'assets/admin/umi.css'],
     ['src/styles/themes/black.css', 'assets/admin/theme/black.css'],
@@ -30,19 +31,14 @@ export async function buildApp() {
     await fs.rm(destination, { recursive: true, force: true });
     await fs.mkdir(destination, { recursive: true });
     await fs.cp(path.join(appRoot, 'public'), destination, { recursive: true });
-    const componentStylesheet = path.join(destination, 'assets/admin/components.chunk.css');
-    const originalComponentStyles = await fs.readFile(componentStylesheet, 'utf8');
-    const {
-        css: componentStyles,
-        removedRules,
-        removedFontFaces,
-    } = await removeMarkdownEditorStyles(originalComponentStyles, componentStylesheet);
-    if (removedRules === 0 || removedFontFaces !== 1) {
-        throw new Error(
-            `Expected Markdown editor CSS and one icon font; removed ${removedRules} rules and ${removedFontFaces} fonts`,
-        );
-    }
-    await fs.writeFile(componentStylesheet, componentStyles);
+
+    // The source build owns its third-party stylesheet boundary. The historical
+    // component chunk remains available only through the legacy fallback.
+    await fs.rm(path.join(destination, 'assets/admin/components.chunk.css'), { force: true });
+    const antdStylesheetSource = path.join(appRoot, antdStylesheetPath);
+    const antdStylesheet = path.join(destination, antdStylesheetOutput);
+    await fs.mkdir(path.dirname(antdStylesheet), { recursive: true });
+    await fs.copyFile(antdStylesheetSource, antdStylesheet);
 
     const editorStylesheetSource = path.join(appRoot, markdownEditorStylesheetPath);
     const editorStylesheet = await fs.readFile(editorStylesheetSource, 'utf8');
@@ -87,6 +83,7 @@ export async function buildApp() {
     const inputs = [
         ...Object.keys(result.metafile.inputs),
         ...stylesheetBuildEntries.map(([sourcePath]) => sourcePath),
+        antdStylesheetPath,
         markdownEditorStylesheetPath,
     ];
     const escapedInputs = inputs.filter(
@@ -106,7 +103,7 @@ export async function buildApp() {
                 inputs,
                 standaloneBuild: true,
                 stylesheets: [
-                    'assets/admin/components.chunk.css',
+                    antdStylesheetOutput,
                     markdownEditorStylesheetOutput,
                     'assets/admin/umi.css',
                 ],

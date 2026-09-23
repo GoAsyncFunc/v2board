@@ -28,7 +28,7 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
 
     assert.equal((rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length, 5);
     for (const resource of [
-        'assets/admin/components.chunk.css',
+        'assets/admin/antd.css',
         'assets/admin/markdown-editor.css',
         'assets/admin/umi.css',
         'settings.js',
@@ -159,7 +159,7 @@ test('Admin deploy archive and release copy include the full static build', asyn
     assert.match(script, /cp -R "\$stage\/dist\/\." "\$release\/"/);
     assert.match(
         script,
-        /assets\/admin\/components\.chunk\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/umi\.css/,
+        /assets\/admin\/antd\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/umi\.css/,
     );
     assert.match(script, /admin HTML does not reference \$resource/);
     assert.match(script, /unexpected content type \$content_type/);

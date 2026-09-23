@@ -39,10 +39,11 @@ npm run build
 - `app.js`：浏览器入口
 - `app.js.map`：source map
 - `source-build.json`：本次构建输入清单
-- 从 `public/` 复制的静态资源，以及从 `src/styles/` 发布的全局和主题样式
+- 从锁定版本 `antd` 依赖发布的 `assets/admin/antd.css`
+- 从 `src/styles/` 发布的全局和主题样式
 - `assets/admin/markdown-editor.css`：由锁定版本 `react-markdown-editor-lite` 的官方样式生成，并按项目 Browserslist 目标补齐浏览器前缀
 
-构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，保持现有运行时 URL 不变。Markdown 编辑器样式由其固定 npm 依赖单独提供；旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变。
+构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，第三方 Ant Design 样式发布到 `assets/admin/antd.css`。Markdown 编辑器样式由其固定 npm 依赖单独提供。旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变，不会被新源码构建引用。
 
 ## 格式化
 

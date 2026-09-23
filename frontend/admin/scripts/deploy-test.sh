@@ -108,7 +108,7 @@ if ! page=$(curl --max-time 30 -fsS "$site_url$admin_path"); then
   rollback_release "admin HTML could not be fetched"
 fi
 for resource in \
-  assets/admin/components.chunk.css \
+  assets/admin/antd.css \
   assets/admin/markdown-editor.css \
   assets/admin/umi.css \
   settings.js \

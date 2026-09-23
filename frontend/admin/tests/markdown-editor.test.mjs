@@ -67,7 +67,7 @@ test('source build separates the official Markdown editor stylesheet with legacy
     assert.match(prefixedEditorStyles, /\.rmel-iconfont\s*\{/);
     assert.match(prefixedEditorStyles, /\.rmel-icon-tab:before\s*\{/);
     assert.equal(markdownEditorStylesheetOutput, 'assets/admin/markdown-editor.css');
-    assert.ok(indexHtml.indexOf('components.chunk.css') < indexHtml.indexOf('markdown-editor.css'));
+    assert.ok(indexHtml.indexOf('antd.css') < indexHtml.indexOf('markdown-editor.css'));
     assert.ok(indexHtml.indexOf('markdown-editor.css') < indexHtml.indexOf('umi.css'));
 
     const markdownEditorLayout = parsedEditorStyles.nodes.find(
