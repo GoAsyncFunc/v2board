@@ -62,7 +62,7 @@ npm run check:types
 npm run build
 ```
 
-当前管理端回归基线为 1081 项。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归测试为 1126 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -93,7 +93,7 @@ dist/            本地构建产物，不提交 Git
 
 ## 测试服务器部署
 
-部署脚本会先构建 Admin，只上传 `app.js`，备份管理端 Blade 入口，切换到带时间戳的发布目录，清理 Laravel 视图缓存并检查管理端 HTTP 状态。它不会修改 User 入口。
+部署脚本会先构建 Admin，将完整 `dist/`（入口脚本、运行时设置、CSS、字体和构建清单）发布到独立时间戳目录，并把管理端 Blade 的源码构建资源引用切换到该目录。部署前会备份 Blade 入口，发布后检查管理端页面及关键静态资源；失败时自动恢复模板并清理 Laravel 视图缓存。它不会修改 User 入口。
 
 ```sh
 DEPLOY_HOST=root@5.104.86.24 npm run deploy:test
@@ -106,7 +106,7 @@ DEPLOY_HOST=root@5.104.86.24 npm run deploy:test
 - `DEPLOY_SITE_URL`：服务器本机健康检查地址，默认 `http://127.0.0.1:7003`
 - `ADMIN_PATH`：后台入口，默认 `/4434144c`
 
-成功后终端会输出 `RELEASE`、`BACKUP`、`ROLLBACK`、`GIT_COMMIT` 和 `APP_SHA256`，并在版本目录写入 `deployment.json`。发生模板、缓存或 HTTP 检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
+成功后终端会输出 `RELEASE`、`BACKUP`、`ROLLBACK`、`GIT_COMMIT`、`UI_VERSION` 和 `APP_SHA256`，并在版本目录写入 `deployment.json`。发生模板、缓存、页面或静态资源检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
 
 部署后检查登录页：
 

@@ -1,0 +1,102 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import test from 'node:test';
+import { rewriteAdminTemplate } from '../scripts/rewrite-admin-template.mjs';
+
+const repoRoot = new URL('../../../', import.meta.url);
+
+test('versioned Admin release rewrites every source-build asset reference', async () => {
+    const template = await fs.readFile(
+        new URL('resources/views/admin.blade.php', repoRoot),
+        'utf8',
+    );
+    const release = '/assets/restored-20260923-120000/admin/';
+    const rewritten = rewriteAdminTemplate(template, release);
+
+    assert.equal((rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length, 4);
+    for (const resource of [
+        'assets/admin/components.chunk.css',
+        'assets/admin/umi.css',
+        'settings.js',
+        'app.js',
+    ]) {
+        assert.ok(rewritten.includes(`/assets/restored-20260923-120000/admin/${resource}`));
+    }
+    assert.doesNotMatch(rewritten, /href="\/admin-build\//);
+    assert.doesNotMatch(rewritten, /src="\/admin-build\//);
+    assert.match(rewritten, /\/assets\/admin\/umi\.js\?v=/);
+});
+
+test('Admin release template can be advanced without changing the legacy fallback', async () => {
+    const template = await fs.readFile(
+        new URL('resources/views/admin.blade.php', repoRoot),
+        'utf8',
+    );
+    const firstRelease = rewriteAdminTemplate(template, '/assets/restored-first/admin/');
+    const secondRelease = rewriteAdminTemplate(firstRelease, '/assets/restored-second/admin/');
+
+    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 4);
+    assert.doesNotMatch(secondRelease, /restored-first/);
+    assert.match(secondRelease, /href="\/assets\/admin\/components\.chunk\.css\?v=/);
+    assert.match(secondRelease, /src="\/assets\/admin\/umi\.js\?v=/);
+});
+
+test('Admin build publishes semantic ticket CSS with its matching React class names', async () => {
+    const css = await fs.readFile(
+        new URL('../public/assets/admin/umi.css', import.meta.url),
+        'utf8',
+    );
+    const page = await fs.readFile(
+        new URL('../src/pages/ticket/[id].tsx', import.meta.url),
+        'utf8',
+    );
+    const styles = await fs.readFile(
+        new URL('../src/styles/ticketDetail.ts', import.meta.url),
+        'utf8',
+    );
+
+    for (const className of [
+        'ticket-detail-content',
+        'ticket-detail-input',
+        'ticket-detail-tag',
+        'ticket-detail-bubble',
+        'ticket-detail-time',
+        'ticket-detail-controls',
+    ]) {
+        assert.ok(styles.includes(className), `Ticket detail styles should define ${className}`);
+        assert.ok(css.includes(`.${className}`), `Admin CSS should define ${className}`);
+    }
+    assert.doesNotMatch(
+        css,
+        /(?:content___DW5w1|input___1j_ND|tag___12_9H|bubble___3NP2-|time___1yWOE|ctrl___UqDJ7)/,
+    );
+    const staticAssets = [...css.matchAll(/url\((?:['"])?([^)'"\s]+)/g)]
+        .map(([, assetPath]) => assetPath.split(/[?#]/, 1)[0])
+        .filter((assetPath) => assetPath.startsWith('./'));
+    for (const assetPath of new Set(staticAssets)) {
+        await fs.access(new URL(`../public/assets/admin/${assetPath.slice(2)}`, import.meta.url));
+    }
+    assert.match(page, /ticketDetailClassNames as styles/);
+});
+
+test('Admin deploy archive and release copy include the full static build', async () => {
+    const script = await fs.readFile(new URL('../scripts/deploy-test.sh', import.meta.url), 'utf8');
+
+    assert.match(script, /tar -czf "\$archive" -C "\$local_stage" dist admin\.blade\.php/);
+    assert.match(script, /cp -R "\$stage\/dist\/\." "\$release\/"/);
+    assert.match(script, /assets\/admin\/components\.chunk\.css \\\s+assets\/admin\/umi\.css/);
+    assert.match(script, /admin HTML does not reference \$resource/);
+    assert.match(script, /unexpected content type \$content_type/);
+    assert.match(script, /rollback_release\(\)/);
+    assert.match(script, /trap rollback_on_error ERR/);
+    assert.match(script, /\.source-build-\$stamp\.tmp/);
+    assert.match(script, /mv "\$staged_template" "\$site\/\$template"/);
+});
+
+test('unexpected Admin Blade asset layouts fail instead of deploying partial paths', () => {
+    assert.throws(
+        () =>
+            rewriteAdminTemplate('<link href="/admin-build/app.css">', '/assets/restored-x/admin/'),
+        /Expected 4 source-build asset references/,
+    );
+});
