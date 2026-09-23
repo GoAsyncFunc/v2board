@@ -39,6 +39,7 @@ async function loadConfig() {
     ['telegram', '../src/pages/config/system/components/TelegramConfigTab.tsx'],
     ['email', '../src/pages/config/system/components/EmailConfigTab.tsx'],
     ['server', '../src/pages/config/system/components/ServerConfigTab.tsx'],
+    ['tabs', '../src/pages/config/system/components/SystemConfigTabs.tsx'],
     ['page', '../src/pages/config/system/index.tsx'],
   ]) {
     const { code } = await transform(await fs.readFile(new URL(file, import.meta.url), 'utf8'), { format: 'cjs', loader: 'tsx' });
@@ -66,6 +67,7 @@ async function loadConfig() {
         if (id.includes('AppConfigTab')) return components.app;
         if (id.includes('TelegramConfigTab')) return components.telegram;
         if (id.includes('EmailConfigTab')) return components.email;
+        if (id.includes('SystemConfigTabs')) return components.tabs;
         if (id.includes('MailTestResult')) return { showMailTestResult: log => mailTestLogs.push(log) };
         if (id.includes('ServerConfigTab')) return components.server;
         if (id.includes('MainLayout')) return 'Layout';
@@ -86,6 +88,7 @@ async function loadConfig() {
     TelegramConfigTab: components.telegram.default,
     EmailConfigTab: components.email.default,
     ServerConfigTab: components.server.default,
+    SystemConfigTabs: components.tabs.default,
     Page: components.page.SystemConfigPage,
     timers, actions, mailTestLogs, messages, dispatch: action => actions.push(JSON.parse(JSON.stringify(action))),
   };
@@ -118,7 +121,7 @@ test('System config preserves sibling fields and debounces saves for the updated
 });
 
 test('System config keeps tab selection local to the page', async () => {
-  const { Page, actions, dispatch } = await loadConfig();
+  const { Page, SystemConfigTabs, actions, dispatch } = await loadConfig();
   const page = new Page({
     dispatch,
     config: {
@@ -129,14 +132,19 @@ test('System config keeps tab selection local to the page', async () => {
     plan: { plans: [] },
   });
   const tree = page.render();
-  const tabs = tree.children[0].children[0];
-  tabs.props.onChange('email');
+  const tabsComponent = nodes(tree, node => node.type === SystemConfigTabs)[0];
+  tabsComponent.props.onChangeTab('email');
   assert.equal(page.state.tabs, 'email');
+  const tabs = SystemConfigTabs(tabsComponent.props);
+  assert.equal(tabs.props.defaultActiveKey, 'site');
+  assert.deepEqual(nodes(tabs, node => node.type === 'TabPane').map(node => node.props.tab), [
+    '站点', '安全', '订阅', '充值', '工单', '邀请&佣金', '个性化', '节点', '邮件', 'Telegram', 'APP',
+  ]);
   assert.deepEqual(actions, []);
 });
 
 test('System config owns completion presentation', async () => {
-  const { Page, EmailConfigTab, TelegramConfigTab, mailTestLogs, messages, timers } = await loadConfig();
+  const { Page, EmailConfigTab, TelegramConfigTab, SystemConfigTabs, mailTestLogs, messages, timers } = await loadConfig();
   const actions = [];
   const page = new Page({
     dispatch: action => actions.push(action),
@@ -152,7 +160,9 @@ test('System config owns completion presentation', async () => {
   const saveAction = actions.find(action => action.type === 'config/save');
   saveAction.complete();
 
-  const tree = page.render();
+  const pageTree = page.render();
+  const tabsProps = nodes(pageTree, node => node.type === SystemConfigTabs)[0].props;
+  const tree = SystemConfigTabs(tabsProps);
   const emailTab = nodes(tree, node => node.type === EmailConfigTab)[0];
   emailTab.props.onTestSendMail();
   const mailAction = actions.find(action => action.type === 'config/testSendMail');

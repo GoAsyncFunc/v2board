@@ -1,32 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Tabs from 'antd/lib/tabs';
 import message from 'antd/lib/message';
 import MainLayout from '../../../layouts/MainLayout';
-import SiteConfigTab from './components/SiteConfigTab';
-import SafeConfigTab from './components/SafeConfigTab';
-import SubscribeConfigTab from './components/SubscribeConfigTab';
-import DepositConfigTab from './components/DepositConfigTab';
-import TicketConfigTab from './components/TicketConfigTab';
-import InviteConfigTab from './components/InviteConfigTab';
-import FrontendConfigTab from './components/FrontendConfigTab';
-import ServerConfigTab from './components/ServerConfigTab';
-import EmailConfigTab from './components/EmailConfigTab';
+import SystemConfigTabs from './components/SystemConfigTabs';
 import { showMailTestResult } from './components/MailTestResult';
-import TelegramConfigTab from './components/TelegramConfigTab';
-import AppConfigTab from './components/AppConfigTab';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
-import type {
-    AdminConfigState,
-    ConfigGroupKey,
-    ConfigValue,
-    PlanSummary,
-} from '../../../types/config';
+import type { AdminConfigState, ConfigGroupKey, ConfigValue } from '../../../types/config';
 
 interface SystemConfigPageProps {
     dispatch: AdminDispatch;
     config: AdminConfigState;
-    plan: { plans: PlanSummary[] };
+    plan: AdminRootState['plan'];
 }
 
 interface SystemConfigPageState {
@@ -64,118 +48,30 @@ export class SystemConfigPage extends React.Component<
     }
 
     render() {
-        const {
-            site,
-            invite,
-            subscribe,
-            frontend,
-            server,
-            tabs,
-            fetchLoading,
-            emailTemplate,
-            email,
-            telegram,
-            setTelegramWebhookLoading,
-            app,
-            testSendMailLoading,
-            safe,
-        } = this.props.config;
-        const plans = this.props.plan.plans;
-        const update = (group: ConfigGroupKey, field: string, value: ConfigValue): void =>
-            this.set(group, field, value);
+        const { config, plan } = this.props;
         return (
             <MainLayout {...this.props} title="系统配置">
                 <div
-                    className={`mb-0 block border-bottom ${fetchLoading ? 'block-mode-loading' : ''}`}
+                    className={`mb-0 block border-bottom ${config.fetchLoading ? 'block-mode-loading' : ''}`}
                 >
-                    <Tabs
-                        onChange={(activeTab) => this.setState({ tabs: activeTab })}
-                        defaultActiveKey={tabs}
-                        size="large"
-                    >
-                        <Tabs.TabPane tab="站点" key="site">
-                            <SiteConfigTab
-                                site={site}
-                                plans={plans}
-                                onChange={(field, value) => update('site', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="安全" key="safe">
-                            <SafeConfigTab
-                                safe={safe}
-                                onChange={(field, value) => update('safe', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="订阅" key="subscribe">
-                            <SubscribeConfigTab
-                                subscribe={subscribe}
-                                onChange={(field, value) => update('subscribe', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="充值" key="deposit">
-                            <DepositConfigTab
-                                deposit={this.props.config.deposit}
-                                onChange={(field, value) => update('deposit', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="工单" key="ticket">
-                            <TicketConfigTab
-                                ticket={this.props.config.ticket}
-                                onChange={(field, value) => update('ticket', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="邀请&佣金" key="invite">
-                            <InviteConfigTab
-                                invite={invite}
-                                onChange={(field, value) => update('invite', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="个性化" key="frontend">
-                            <FrontendConfigTab
-                                frontend={frontend}
-                                onChange={(field, value) => update('frontend', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="节点" key="server">
-                            <ServerConfigTab
-                                server={server}
-                                onChange={(field, value) => update('server', field, value)}
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="邮件" key="email">
-                            <EmailConfigTab
-                                email={email}
-                                templates={emailTemplate}
-                                testSendMailLoading={testSendMailLoading}
-                                onChange={(field, value) => update('email', field, value)}
-                                onTestSendMail={() =>
-                                    this.props.dispatch({
-                                        type: 'config/testSendMail',
-                                        complete: showMailTestResult,
-                                    })
-                                }
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="Telegram" key="telegram">
-                            <TelegramConfigTab
-                                telegram={telegram}
-                                webhookLoading={setTelegramWebhookLoading}
-                                onChange={(field, value) => update('telegram', field, value)}
-                                onSetWebhook={() =>
-                                    this.props.dispatch({
-                                        type: 'config/setTelegramWebhook',
-                                        complete: () => message.success('webhook 设置成功'),
-                                    })
-                                }
-                            />
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab="APP" key="app">
-                            <AppConfigTab
-                                app={app}
-                                onChange={(field, value) => update('app', field, value)}
-                            />
-                        </Tabs.TabPane>
-                    </Tabs>
+                    <SystemConfigTabs
+                        config={config}
+                        plans={plan.plans}
+                        onChange={(group, field, value) => this.set(group, field, value)}
+                        onChangeTab={(tabs) => this.setState({ tabs })}
+                        onTestSendMail={() =>
+                            this.props.dispatch({
+                                type: 'config/testSendMail',
+                                complete: showMailTestResult,
+                            })
+                        }
+                        onSetWebhook={() =>
+                            this.props.dispatch({
+                                type: 'config/setTelegramWebhook',
+                                complete: () => message.success('webhook 设置成功'),
+                            })
+                        }
+                    />
                 </div>
             </MainLayout>
         );

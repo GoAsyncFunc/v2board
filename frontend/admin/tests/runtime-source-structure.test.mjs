@@ -779,6 +779,7 @@ test('admin pages select from the canonical root state', async () => {
         'ServerConfigTab.tsx',
         'SiteConfigTab.tsx',
         'SubscribeConfigTab.tsx',
+        'SystemConfigTabs.tsx',
         'TelegramConfigTab.tsx',
         'TicketConfigTab.tsx',
     ]) {
