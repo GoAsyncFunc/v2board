@@ -6,13 +6,14 @@ import AssignOrderEditor from '../../../components/order/AssignOrderEditor';
 import TrafficPanel from '../../../components/user/TrafficPanel';
 import { copyToClipboard } from '../../../utils/siteHelpers';
 import UserEditor from './UserEditor';
+import type { FilterValue } from '../../../types/filter';
 import type { UserRecord } from '../../../types/user';
 
 export interface UserListActions {
     onResetSecret: (user?: UserRecord) => void;
     onDeleteUser: (user?: UserRecord) => void;
-    onUserFilter: (key: string, condition: string, value: string | number, clear?: boolean) => void;
-    onOrderFilter: (key: string, condition: string, value: string | number) => void;
+    onUserFilter: (key: string, condition: string, value: FilterValue, clear?: boolean) => void;
+    onOrderFilter: (key: string, condition: string, value: FilterValue) => void;
 }
 
 export function createUserActionMenu(
@@ -122,7 +123,7 @@ export function UserContextMenu({
             </li>
             <li
                 className="ant-dropdown-menu-item"
-                onClick={() => actions.onOrderFilter('user_id', '=', user?.id as string | number)}
+                onClick={() => actions.onOrderFilter('user_id', '=', user?.id)}
             >
                 <a>
                     <Icon type="account-book" /> TA的订单
@@ -130,9 +131,7 @@ export function UserContextMenu({
             </li>
             <li
                 className="ant-dropdown-menu-item"
-                onClick={() =>
-                    actions.onUserFilter('invite_user_id', '=', user?.id as string | number, true)
-                }
+                onClick={() => actions.onUserFilter('invite_user_id', '=', user?.id, true)}
             >
                 <a>
                     <Icon type="usergroup-add" /> TA的邀请
