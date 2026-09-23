@@ -749,6 +749,10 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
+    "to": "pages/dashboard/components/DashboardAlerts.tsx"
+  },
+  {
+    "from": "pages/dashboard/index.tsx",
     "to": "pages/dashboard/components/DashboardNavigation.tsx"
   },
   {

@@ -119,6 +119,7 @@ async function loadDashboard() {
                     formatIncome: (value) => `income:${value}`,
                     formatLiveCount: (value) => value || '0',
                 };
+            if (id === './components/DashboardAlerts') return () => null;
             if (id === './components/DashboardNavigation') return () => null;
             if (id === './components/DashboardOverview') return () => null;
             if (id === './components/DashboardServerRank')
@@ -149,6 +150,35 @@ async function loadDashboard() {
     return { ...module.exports, actions, historyEvents: actions, charts, listeners };
 }
 
+async function loadDashboardAlerts() {
+    const source = await fs.readFile(
+        new URL('../src/pages/dashboard/components/DashboardAlerts.tsx', import.meta.url),
+        'utf8',
+    );
+    const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+    const module = { exports: {} };
+    const history = { push: (path) => historyEvents.push(path) };
+    const historyEvents = [];
+    vm.runInNewContext(code, {
+        module,
+        exports: module.exports,
+        require(id) {
+            if (id === 'react')
+                return {
+                    Fragment: 'Fragment',
+                    createElement: (type, props, ...children) => ({
+                        type,
+                        props: props || {},
+                        children,
+                    }),
+                };
+            if (id.includes('app/navigation')) return { __esModule: true, default: history };
+            throw new Error(id);
+        },
+    });
+    return { DashboardAlerts: module.exports.default, historyEvents };
+}
+
 function nodes(tree, predicate) {
     if (Array.isArray(tree)) return tree.flatMap((node) => nodes(node, predicate));
     if (!tree || typeof tree !== 'object') return [];
@@ -157,6 +187,13 @@ function nodes(tree, predicate) {
         ...nodes(tree.children, predicate),
         ...nodes(tree.props?.children, predicate),
     ];
+}
+
+function renderedText(tree) {
+    if (Array.isArray(tree)) return tree.map(renderedText).join('');
+    if (typeof tree === 'string' || typeof tree === 'number') return String(tree);
+    if (!tree || typeof tree !== 'object') return '';
+    return renderedText(tree.children);
 }
 
 test('order chart options keep dates and values grouped by order type', async () => {
@@ -263,21 +300,44 @@ test('Dashboard pending commission alert keeps the original order filters and ro
     ]);
 });
 
-test('Dashboard alert area does not render stray zeros for empty pending counts', async () => {
-    const runtime = await loadDashboard();
-    const page = new runtime.DashboardPage({
-        dispatch() {},
+test('Dashboard alerts hide empty counts and render the queue and pending-work alerts', async () => {
+    const { DashboardAlerts } = await loadDashboardAlerts();
+    const emptyAlerts = DashboardAlerts({
         stat: { ticket_pending_total: 0, commission_pending_total: 0 },
-        config: { site: { currency: '¥' } },
+        onOpenTickets() {},
+        onOpenCommissions() {},
     });
-    const alerts = page.renderAlerts();
-    assert.equal(alerts.children.filter((child) => child === 0).length, 0);
-    assert.equal(alerts.children.filter(Boolean).length, 0);
+    assert.equal(emptyAlerts.children.filter((child) => child === 0).length, 0);
+    assert.equal(emptyAlerts.children.filter(Boolean).length, 0);
 
-    page.props.stat.ticket_pending_total = 2;
-    page.props.stat.commission_pending_total = 3;
-    const pendingAlerts = page.renderAlerts();
-    assert.equal(pendingAlerts.children.filter(Boolean).length, 2);
+    const alerts = DashboardAlerts({
+        stat: { ticket_pending_total: 2, commission_pending_total: 3 },
+        queueStatus: 'stopping',
+        onOpenTickets() {},
+        onOpenCommissions() {},
+    });
+    assert.equal(alerts.children.filter(Boolean).length, 3);
+    assert.match(JSON.stringify(alerts), /队列服务运行异常/);
+    assert.match(renderedText(alerts), /有 2 条工单等待处理/);
+    assert.match(renderedText(alerts), /有 3 笔佣金等待确认/);
+});
+
+test('Dashboard alert actions route tickets and delegate commission filtering', async () => {
+    const { DashboardAlerts, historyEvents } = await loadDashboardAlerts();
+    const actions = [];
+    const alerts = DashboardAlerts({
+        stat: { ticket_pending_total: 1, commission_pending_total: 1 },
+        onOpenTickets: () => historyEvents.push('/ticket'),
+        onOpenCommissions: () => actions.push('open-commissions'),
+    });
+    const links = alerts.children.flatMap((alert) => alert?.children || []).flatMap((paragraph) =>
+        (paragraph?.children || []).filter((child) => child?.props?.onClick),
+    );
+    assert.equal(links.length, 2);
+    links[0].props.onClick();
+    links[1].props.onClick();
+    assert.deepEqual(historyEvents, ['/ticket']);
+    assert.deepEqual(actions, ['open-commissions']);
 });
 
 test('Admin home redirects to login on mount', async () => {

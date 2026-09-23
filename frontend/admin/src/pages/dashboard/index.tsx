@@ -18,6 +18,7 @@ import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
+import DashboardAlerts from './components/DashboardAlerts';
 import DashboardNavigation from './components/DashboardNavigation';
 import DashboardOverview from './components/DashboardOverview';
 import { createRankChartOption, RankChart } from './components/DashboardServerRank';
@@ -181,58 +182,16 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
         history.push('/order');
     }
 
-    renderAlerts() {
-        const { stat } = this.props;
-        return (
-            <>
-                {this.state.queueStatus && this.state.queueStatus !== 'running' && (
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="alert alert-danger" role="alert">
-                                <p className="mb-0">
-                                    当前队列服务运行异常，可能会导致业务无法使用。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                {Boolean(stat.ticket_pending_total) && (
-                    <div className="alert alert-danger" role="alert">
-                        <p className="mb-0">
-                            有 {stat.ticket_pending_total} 条工单等待处理{' '}
-                            <a
-                                className="alert-link"
-                                href="javascript:void(0)"
-                                onClick={() => history.push('/ticket')}
-                            >
-                                立即处理
-                            </a>
-                        </p>
-                    </div>
-                )}
-                {Boolean(stat.commission_pending_total) && (
-                    <div className="alert alert-danger" role="alert">
-                        <p className="mb-0">
-                            有 {stat.commission_pending_total} 笔佣金等待确认{' '}
-                            <a
-                                className="alert-link"
-                                href="javascript:void(0)"
-                                onClick={() => this.showPendingCommissionOrders()}
-                            >
-                                立即处理
-                            </a>
-                        </p>
-                    </div>
-                )}
-            </>
-        );
-    }
-
     render() {
         const { stat, config } = this.props;
         return (
             <MainLayout {...this.props} title="仪表盘">
-                {this.renderAlerts()}
+                <DashboardAlerts
+                    stat={stat}
+                    queueStatus={this.state.queueStatus}
+                    onOpenTickets={() => history.push('/ticket')}
+                    onOpenCommissions={() => this.showPendingCommissionOrders()}
+                />
                 <DashboardNavigation />
                 <DashboardOverview
                     stat={stat}

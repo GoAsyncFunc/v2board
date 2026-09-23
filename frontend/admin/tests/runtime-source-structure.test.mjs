@@ -842,6 +842,7 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(dashboardDirectory)).includes('components'));
     const dashboardComponentsDirectory = new URL('components/', dashboardDirectory);
     for (const component of [
+        'DashboardAlerts.tsx',
         'DashboardNavigation.tsx',
         'DashboardOverview.tsx',
         'DashboardServerRank.tsx',
