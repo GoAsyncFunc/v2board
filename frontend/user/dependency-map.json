@@ -296,6 +296,18 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
+    "to": "components/commerce/checkout/PaymentMethods.tsx"
+  },
+  {
+    "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
+    "to": "components/commerce/checkout/StripePaymentForm.tsx"
+  },
+  {
+    "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
     "from": "components/commerce/checkout/Coupon.tsx",
     "to": "components/commerce/checkout/Pricing.tsx"
   },
@@ -961,6 +973,10 @@
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
+    "to": "components/commerce/checkout/CheckoutPaymentSection.tsx"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
     "to": "components/commerce/checkout/OrderInfo.tsx"
   },
   {
@@ -973,19 +989,11 @@
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/commerce/checkout/PaymentMethods.tsx"
-  },
-  {
-    "from": "pages/commerce/OrderDetail.tsx",
     "to": "components/commerce/checkout/PaymentQrModal.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
     "to": "components/commerce/checkout/ProductInfo.tsx"
-  },
-  {
-    "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/commerce/checkout/StripePaymentForm.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",

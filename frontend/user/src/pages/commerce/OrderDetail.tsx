@@ -1,25 +1,20 @@
 import OrderInfo from '../../components/commerce/checkout/OrderInfo';
 import ProductInfo from '../../components/commerce/checkout/ProductInfo';
 import OrderPaymentSummary from '../../components/commerce/checkout/OrderPaymentSummary';
+import CheckoutPaymentSection from '../../components/commerce/checkout/CheckoutPaymentSection';
 import OrderStatusResult, {
     orderResultProps,
 } from '../../components/commerce/checkout/OrderStatusResult';
-import PaymentMethods from '../../components/commerce/checkout/PaymentMethods';
 import PaymentQrModal from '../../components/commerce/checkout/PaymentQrModal';
 import React from 'react';
 import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
-import loadable from 'react-loadable';
 import { formatMessage } from '../../locales/i18n';
 import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from '../../types/payment';
 import type { PaymentMethod } from '../../types/commerce';
 import type { UserDispatch, UserRootState } from '../../types/store';
 
-const StripeForm = loadable({
-    loader: () => import('../../components/commerce/checkout/StripePaymentForm'),
-    loading: () => null,
-});
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
 
 type OrderDetailStateProps = Pick<UserRootState, 'order' | 'comm'>;
@@ -204,64 +199,16 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
                                         dispatch={this.props.dispatch}
                                     />
                                     {0 === order.status && (
-                                        <React.Fragment>
-                                            <div
-                                                className={'block block-rounded js-appear-enabled'}
-                                            >
-                                                <div
-                                                    className={'block-header block-header-default'}
-                                                >
-                                                    <h3 className={'block-title'}>
-                                                        {formatMessage({
-                                                            id: '支付方式',
-                                                        })}
-                                                    </h3>
-                                                    <div className={'block-options'}></div>
-                                                </div>
-                                                <PaymentMethods
-                                                    methods={methods}
-                                                    selectedMethod={selectedMethod}
-                                                    onSelect={(id) => this.changePaymentMethod(id)}
-                                                />
-                                            </div>
-                                        </React.Fragment>
+                                        <CheckoutPaymentSection
+                                            methods={methods}
+                                            selectedMethod={selectedMethod}
+                                            stripePublicKey={this.state.pk}
+                                            onSelect={(id) => this.changePaymentMethod(id)}
+                                            onStripeToken={(error, token) =>
+                                                this.stripeCallback(error, token)
+                                            }
+                                        />
                                     )}
-                                    {0 === order.status &&
-                                        'StripeCredit' === selectedPayment.payment &&
-                                        this.state.pk && (
-                                            <React.Fragment>
-                                                <h3 className={'font-w300 mt-5 mb-3'}>
-                                                    {formatMessage({
-                                                        id: '填写信用卡支付信息',
-                                                    })}
-                                                </h3>
-                                                <StripeForm
-                                                    key={this.state.pk}
-                                                    pk={this.state.pk}
-                                                    callback={(
-                                                        error: string | null | undefined,
-                                                        token?: StripeToken | null,
-                                                    ) => this.stripeCallback(error, token)}
-                                                ></StripeForm>
-                                                <div
-                                                    style={{
-                                                        fontSize: 12,
-                                                    }}
-                                                    className={'mt-3 mb-5'}
-                                                >
-                                                    <i
-                                                        className={'fa fa-user-shield'}
-                                                        style={{
-                                                            marginRight: 5,
-                                                            color: '#7cb305',
-                                                        }}
-                                                    ></i>
-                                                    {formatMessage({
-                                                        id: '您的信用卡信息只会被用作当次扣款，系统并不会保存，这是我们认为最安全的。',
-                                                    })}
-                                                </div>
-                                            </React.Fragment>
-                                        )}
                                 </div>
                                 {0 === order.status && (
                                     <OrderPaymentSummary

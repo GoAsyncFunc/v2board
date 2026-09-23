@@ -15,6 +15,38 @@ interface OrderPaymentSummaryProps {
     onCheckout: () => void;
 }
 
+interface PaymentAdjustmentRowProps {
+    amount: number;
+    currencySymbol?: string;
+    label: string;
+    prefix?: string;
+}
+
+function PaymentAdjustmentRow({
+    amount,
+    currencySymbol,
+    label,
+    prefix = '',
+}: PaymentAdjustmentRowProps) {
+    if (!amount) return null;
+
+    return (
+        <div>
+            <div className="pt-3" style={{ color: '#646669' }}>
+                {formatMessage({ id: label })}
+            </div>
+            <div className="row no-gutters py-3" style={{ borderBottom: '1px solid #646669' }}>
+                <div className="col-8" />
+                <div className="col-4 text-right">
+                    {prefix}
+                    {currencySymbol}
+                    {formatPrice(amount)}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 const periodLabels: Readonly<Partial<Record<string, () => string>>> = settings.periodText;
 export default function OrderPaymentSummary({
     order,
@@ -89,119 +121,27 @@ export default function OrderPaymentSummary({
                         </div>
                     </div>
                 )}
-                {order.discount_amount ? (
-                    <div>
-                        <div
-                            className={'pt-3'}
-                            style={{
-                                color: '#646669',
-                            }}
-                        >
-                            {formatMessage({
-                                id: '折扣',
-                            })}
-                        </div>
-                        <div
-                            className={'row no-gutters py-3'}
-                            style={{
-                                borderBottom: '1px solid #646669',
-                            }}
-                        >
-                            <div className={'col-8'}></div>
-                            <div className={'col-4 text-right'}>
-                                {config.currency_symbol}
-                                {formatPrice(order.discount_amount)}
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    ''
-                )}
-                {order.surplus_amount ? (
-                    <div>
-                        <div
-                            className={'pt-3'}
-                            style={{
-                                color: '#646669',
-                            }}
-                        >
-                            {formatMessage({
-                                id: '折抵',
-                            })}
-                        </div>
-                        <div
-                            className={'row no-gutters py-3'}
-                            style={{
-                                borderBottom: '1px solid #646669',
-                            }}
-                        >
-                            <div className={'col-8'}></div>
-                            <div className={'col-4 text-right'}>
-                                {config.currency_symbol}
-                                {formatPrice(order.surplus_amount)}
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    ''
-                )}
-                {order.refund_amount ? (
-                    <div>
-                        <div
-                            className={'pt-3'}
-                            style={{
-                                color: '#646669',
-                            }}
-                        >
-                            {formatMessage({
-                                id: '退款',
-                            })}
-                        </div>
-                        <div
-                            className={'row no-gutters py-3'}
-                            style={{
-                                borderBottom: '1px solid #646669',
-                            }}
-                        >
-                            <div className={'col-8'}></div>
-                            <div className={'col-4 text-right'}>
-                                {'- '}
-                                {config.currency_symbol}
-                                {formatPrice(order.refund_amount)}
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    ''
-                )}
-                {order.pre_handling_amount ? (
-                    <div>
-                        <div
-                            className={'pt-3'}
-                            style={{
-                                color: '#646669',
-                            }}
-                        >
-                            {formatMessage({
-                                id: '支付手续费',
-                            })}
-                        </div>
-                        <div
-                            className={'row no-gutters py-3'}
-                            style={{
-                                borderBottom: '1px solid #646669',
-                            }}
-                        >
-                            <div className={'col-8'}></div>
-                            <div className={'col-4 text-right'}>
-                                {'+ '}
-                                {formatPrice(order.pre_handling_amount)}
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    ''
-                )}
+                <PaymentAdjustmentRow
+                    amount={order.discount_amount || 0}
+                    currencySymbol={config.currency_symbol}
+                    label="折扣"
+                />
+                <PaymentAdjustmentRow
+                    amount={order.surplus_amount || 0}
+                    currencySymbol={config.currency_symbol}
+                    label="折抵"
+                />
+                <PaymentAdjustmentRow
+                    amount={order.refund_amount || 0}
+                    currencySymbol={config.currency_symbol}
+                    label="退款"
+                    prefix="- "
+                />
+                <PaymentAdjustmentRow
+                    amount={order.pre_handling_amount || 0}
+                    label="支付手续费"
+                    prefix="+ "
+                />
                 <div
                     className={'pt-3'}
                     style={{
