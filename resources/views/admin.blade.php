@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="/admin-build/assets/admin/pages/ticket-detail.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/framework/core.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/framework/layout.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/framework/components.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/framework/utilities.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/umi.css?v={{$version}}">
     @else
         <link rel="stylesheet" href="/assets/admin/components.chunk.css?v={{$version}}">

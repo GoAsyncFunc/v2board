@@ -46,6 +46,8 @@ npm run build
 - `assets/admin/pages/ticket-detail.css`：工单详情页专属布局样式
 - `assets/admin/framework/core.css`：Admin 框架排版、表单、按钮和基础组件样式
 - `assets/admin/framework/layout.css`：页面容器、Header、Sidebar、Overlay 和响应式主布局样式
+- `assets/admin/framework/components.css`：Block、主导航、列表、时间线和 Ribbon 等通用 UI 组件样式
+- `assets/admin/framework/utilities.css`：颜色、背景、边框、字重和文本等框架工具类
 
 构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，第三方 Ant Design 样式发布到 `assets/admin/antd.css`。通用第三方库和插件适配样式按职责发布到 `assets/admin/vendor/`，Markdown 编辑器样式由其固定 npm 依赖单独提供。旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变，不会被新源码构建引用。
 

@@ -119,6 +119,8 @@ for resource in \
   assets/admin/pages/ticket-detail.css \
   assets/admin/framework/core.css \
   assets/admin/framework/layout.css \
+  assets/admin/framework/components.css \
+  assets/admin/framework/utilities.css \
   assets/admin/umi.css \
   settings.js \
   app.js; do
