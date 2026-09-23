@@ -117,7 +117,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverAnyTLS.ts"
+    "to": "models/serverAnyTls.ts"
   },
   {
     "from": "app/store.tsx",
@@ -149,7 +149,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverV2node.ts"
+    "to": "models/serverV2Node.ts"
   },
   {
     "from": "app/store.tsx",
@@ -376,7 +376,7 @@
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverAnyTLS.ts",
+    "from": "models/serverAnyTls.ts",
     "to": "models/createServerProtocolModel.ts"
   },
   {
@@ -420,7 +420,7 @@
     "to": "models/createServerProtocolModel.ts"
   },
   {
-    "from": "models/serverV2node.ts",
+    "from": "models/serverV2Node.ts",
     "to": "models/createServerProtocolModel.ts"
   },
   {

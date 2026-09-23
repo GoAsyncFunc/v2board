@@ -75,21 +75,21 @@ function runEffect(model, effectName, action, response, selectedState) {
 }
 
 const protocols = [
-  ['serverAnyTLS', 'anytls'],
-  ['serverHysteria', 'hysteria'],
-  ['serverShadowsocks', 'shadowsocks'],
-  ['serverTrojan', 'trojan'],
-  ['serverTuic', 'tuic'],
-  ['serverV2node', 'v2node'],
-  ['serverVless', 'vless'],
-  ['serverVmess', 'vmess'],
+  ['serverAnyTls', 'serverAnyTLS', 'anytls'],
+  ['serverHysteria', 'serverHysteria', 'hysteria'],
+  ['serverShadowsocks', 'serverShadowsocks', 'shadowsocks'],
+  ['serverTrojan', 'serverTrojan', 'trojan'],
+  ['serverTuic', 'serverTuic', 'tuic'],
+  ['serverV2Node', 'serverV2node', 'v2node'],
+  ['serverVless', 'serverVless', 'vless'],
+  ['serverVmess', 'serverVmess', 'vmess'],
 ];
 
-for (const [modelName, protocol] of protocols) {
-  test(`${modelName} keeps its namespace and protocol endpoint`, async () => {
-    const { model, requests } = await loadModel(modelName);
+for (const [fileName, namespace, protocol] of protocols) {
+  test(`${fileName} keeps its namespace and protocol endpoint`, async () => {
+    const { model, requests } = await loadModel(fileName);
     const result = runEffect(model, 'update', { id: 7, key: 'show', value: 0 }, { code: 200 });
-    assert.equal(model.namespace, modelName);
+    assert.equal(model.namespace, namespace);
     assert.deepEqual(requests, [['POST', `/admin-path/server/${protocol}/update`, { id: 7, show: 0 }]]);
     assert.deepEqual(result.puts, [{ type: 'serverManage/getNodes' }]);
   });
