@@ -979,10 +979,8 @@ test('admin components use business domains and connected editors use the canoni
         'utf8',
     );
     assert.match(serverManagePage, /from ['"]\.\/editors\/ServerEditorRegistry['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageColumns['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageMobileList['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageActions['"]/);
-    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageToolbar['"]/);
+    assert.match(serverManagePage, /from ['"]\.\/components\/ServerManageWorkspace['"]/);
+    assert.doesNotMatch(serverManagePage, /renderDesktopTable|renderMobileList|renderContextMenu/);
     const serverManageDirectory = new URL('../src/pages/server/manage/', import.meta.url);
     assert.ok((await fs.readdir(serverManageDirectory)).includes('editors'));
     assert.ok((await fs.readdir(serverManageDirectory)).includes('components'));
@@ -1010,6 +1008,7 @@ test('admin components use business domains and connected editors use the canoni
         'ServerManageColumns.tsx',
         'ServerManageMobileList.tsx',
         'ServerManageToolbar.tsx',
+        'ServerManageWorkspace.tsx',
         'ServerNameColumn.tsx',
         'ServerRateColumn.tsx',
         'ServerTypeTag.tsx',

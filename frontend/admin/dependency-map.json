@@ -1112,6 +1112,30 @@
     "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
   },
   {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "components/common/ContextMenuTable.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "components/common/SortableTable.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "pages/server/manage/components/ServerManageActions.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "pages/server/manage/components/ServerManageColumns.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "pages/server/manage/components/ServerManageMobileList.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
+    "to": "pages/server/manage/components/ServerManageToolbar.tsx"
+  },
+  {
     "from": "pages/server/manage/editors/AnyTls/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
@@ -1413,15 +1437,7 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "components/common/ContextMenuTable.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",
@@ -1429,19 +1445,7 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/components/ServerManageActions.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/components/ServerManageColumns.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/components/ServerManageMobileList.tsx"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/components/ServerManageToolbar.tsx"
+    "to": "pages/server/manage/components/ServerManageWorkspace.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",

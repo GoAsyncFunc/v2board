@@ -1,28 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import type { ColumnProps } from 'antd/lib/table/interface';
 import { Prompt } from 'react-router-dom';
-import SortableTable from '../../../components/common/SortableTable';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
 import MainLayout from '../../../layouts/MainLayout';
-import ContextMenuTable from '../../../components/common/ContextMenuTable';
 import { serverModelNamespace } from './editors/ServerEditorRegistry';
-import {
-    createServerManageColumns,
-    createServerSortColumns,
-} from './components/ServerManageColumns';
-import ServerManageMobileList from './components/ServerManageMobileList';
-import {
-    createServerContextMenu,
-    ServerActionDropdown,
-    type ServerManageActions,
-} from './components/ServerManageActions';
-import { ServerManageToolbar } from './components/ServerManageToolbar';
+import ServerManageWorkspace from './components/ServerManageWorkspace';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type {
     ManagedServerRecord,
-    ServerGroupOption,
     ServerGroupState,
     ServerManageState,
     ServerRecord,
@@ -47,15 +33,12 @@ export class ServerManagePage extends React.Component<
     ServerManagePageProps,
     ServerManagePageState
 > {
-    contextServer: ServerRecord | null;
-
     constructor(props: ServerManagePageProps) {
         super(props);
         this.state = {
             searchKey: undefined,
             pageSize: Number(getPreference('server_manage_page_size')) || 10,
         };
-        this.contextServer = null;
     }
 
     componentDidMount(): void {
@@ -98,19 +81,6 @@ export class ServerManagePage extends React.Component<
         this.dispatchServerAction(server, 'update', { key, value });
     }
 
-    listActions(): ServerManageActions {
-        return {
-            onCopy: (server) => this.copy(server),
-            onDrop: (server) => this.drop(server),
-        };
-    }
-
-    actionDropdown(server: ServerRecord, trigger?: React.ReactElement): React.ReactElement {
-        return (
-            <ServerActionDropdown server={server} actions={this.listActions()} trigger={trigger} />
-        );
-    }
-
     filteredServers(): ManagedServerRecord[] {
         const { servers } = this.props.serverManage;
         const { searchKey } = this.state;
@@ -119,78 +89,11 @@ export class ServerManagePage extends React.Component<
             : servers;
     }
 
-    columns(groups: ServerGroupOption[]): ColumnProps<ManagedServerRecord>[] {
-        return createServerManageColumns({
-            groups,
-            renderActions: (server) => this.actionDropdown(server),
-            updateServer: (server, key, value) => this.update(server, key, value),
-        });
-    }
-
-    sortColumns(): ColumnProps<ManagedServerRecord>[] {
-        return createServerSortColumns();
-    }
-
-    renderMobileList(servers: ManagedServerRecord[]): React.ReactElement {
-        return (
-            <ServerManageMobileList
-                servers={servers}
-                renderActions={(server) => this.actionDropdown(server)}
-                updateServer={(server, key, value) => this.update(server, key, value)}
-            />
-        );
-    }
-
-    renderContextMenu(): React.ReactElement {
-        return createServerContextMenu(this.contextServer, this.listActions());
-    }
-
-    renderDesktopTable(
-        servers: ManagedServerRecord[],
-        groups: ServerGroupOption[],
-        sortMode: boolean,
-    ): React.ReactElement {
-        return (
-            <SortableTable
-                records={servers}
-                getRowKey={(server) => String(server.id ?? '')}
-                onSortEnd={(fromIndex, toIndex) =>
-                    this.props.dispatch({ type: 'serverManage/sort', fromIndex, toIndex })
-                }
-            >
-                <ContextMenuTable
-                    onContextMenu={(server) => {
-                        this.contextServer = server || null;
-                        this.forceUpdate();
-                    }}
-                    disableRightClick={sortMode}
-                    tableLayout="auto"
-                    dataSource={servers}
-                    columns={sortMode ? this.sortColumns() : this.columns(groups)}
-                    pagination={
-                        !sortMode && {
-                            pageSize: this.state.pageSize,
-                            pageSizeOptions: ['10', '50', '100', '500'],
-                            showSizeChanger: true,
-                            onShowSizeChange: (_current: number, pageSize: number) =>
-                                this.setState({ pageSize }, () =>
-                                    setPreference('server_manage_page_size', pageSize),
-                                ),
-                        }
-                    }
-                    scroll={{ x: 1300 }}
-                    rowClassName={(server) => (server.parent_id ? 'child_node' : '')}
-                >
-                    {this.renderContextMenu()}
-                </ContextMenuTable>
-            </SortableTable>
-        );
-    }
-
     render(): React.ReactNode {
         const { servers, fetchLoading, sortMode } = this.props.serverManage;
         const groups = this.props.serverGroup.groups;
         const filteredServers = this.filteredServers();
+        const mobile = isMobile();
         return (
             <MainLayout {...this.props} title="节点管理">
                 <Prompt
@@ -199,24 +102,38 @@ export class ServerManagePage extends React.Component<
                 />
                 <LoadingContainer loading={fetchLoading}>
                     <div className="block block-bottom">
-                        <div className="bg-white">
-                            <ServerManageToolbar
-                                sortMode={sortMode}
-                                showSortControls={!isMobile()}
-                                onSearch={(searchKey) => this.setState({ searchKey })}
-                                onToggleSort={() =>
-                                    sortMode
-                                        ? this.props.dispatch({ type: 'serverManage/saveSort' })
-                                        : this.props.dispatch({
-                                              type: 'serverManage/setState',
-                                              payload: { sortMode: true },
-                                          })
-                                }
-                            />
-                            {isMobile()
-                                ? this.renderMobileList(filteredServers)
-                                : this.renderDesktopTable(filteredServers, groups, sortMode)}
-                        </div>
+                        <ServerManageWorkspace
+                            groups={groups}
+                            servers={filteredServers}
+                            sortMode={sortMode}
+                            pageSize={this.state.pageSize}
+                            mobile={mobile}
+                            showSortControls={!mobile}
+                            onSearch={(searchKey) => this.setState({ searchKey })}
+                            onToggleSort={() =>
+                                sortMode
+                                    ? this.props.dispatch({ type: 'serverManage/saveSort' })
+                                    : this.props.dispatch({
+                                          type: 'serverManage/setState',
+                                          payload: { sortMode: true },
+                                      })
+                            }
+                            onSort={(fromIndex, toIndex) =>
+                                this.props.dispatch({
+                                    type: 'serverManage/sort',
+                                    fromIndex,
+                                    toIndex,
+                                })
+                            }
+                            onPageSizeChange={(pageSize) =>
+                                this.setState({ pageSize }, () =>
+                                    setPreference('server_manage_page_size', pageSize),
+                                )
+                            }
+                            onCopy={(server) => this.copy(server)}
+                            onDrop={(server) => this.drop(server)}
+                            onUpdate={(server, key, value) => this.update(server, key, value)}
+                        />
                     </div>
                 </LoadingContainer>
             </MainLayout>

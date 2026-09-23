@@ -6,6 +6,16 @@ import { transform } from 'esbuild';
 
 const normalize = (value) => JSON.parse(JSON.stringify(value));
 
+function nodes(tree, predicate) {
+    if (Array.isArray(tree)) return tree.flatMap((node) => nodes(node, predicate));
+    if (!tree || typeof tree !== 'object') return [];
+    return [
+        ...(predicate(tree) ? [tree] : []),
+        ...nodes(tree.children, predicate),
+        ...nodes(tree.props?.children, predicate),
+    ];
+}
+
 function createReact() {
     return {
         Component: class {
@@ -109,6 +119,44 @@ async function loadEditorRegistry() {
     return module.exports;
 }
 
+async function loadWorkspace() {
+    const source = await fs.readFile(
+        new URL('../src/pages/server/manage/components/ServerManageWorkspace.tsx', import.meta.url),
+        'utf8',
+    );
+    const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+    const module = { exports: {} };
+    const React = createReact();
+    const contextMenus = [];
+    vm.runInNewContext(code, {
+        module,
+        exports: module.exports,
+        React,
+        require(id) {
+            if (id === 'react') return React;
+            if (id.includes('SortableTable')) return 'SortableTable';
+            if (id.includes('ContextMenuTable')) return 'ContextMenuTable';
+            if (id.includes('ServerManageColumns'))
+                return {
+                    createServerManageColumns: () => [{ key: 'manage' }],
+                    createServerSortColumns: () => [{ key: 'sort' }],
+                };
+            if (id.includes('ServerManageMobileList')) return 'ServerManageMobileList';
+            if (id.includes('ServerManageActions'))
+                return {
+                    createServerContextMenu: (server, actions) => {
+                        contextMenus.push({ server, actions });
+                        return { type: 'ServerContextMenu' };
+                    },
+                    ServerActionDropdown: 'ServerActionDropdown',
+                };
+            if (id.includes('ServerManageToolbar')) return { ServerManageToolbar: 'Toolbar' };
+            throw new Error(id);
+        },
+    });
+    return { ServerManageWorkspace: module.exports.default, contextMenus };
+}
+
 function props(dispatch, servers = []) {
     return {
         dispatch,
@@ -154,7 +202,7 @@ test('Server management initializes dependencies and filters node records', asyn
     assert.deepEqual(normalize(page.filteredServers()), [servers[0]]);
 });
 
-test('Server management dispatches typed node actions and table sorting', async () => {
+test('Server management dispatches node actions and workspace preserves sorting and context actions', async () => {
     const runtime = await loadPage();
     const actions = [];
     const server = {
@@ -177,8 +225,33 @@ test('Server management dispatches typed node actions and table sorting', async 
         { type: 'serverVless/drop', id: 7 },
         { type: 'serverVless/update', id: 7, key: 'show', value: 0 },
     ]);
-    const tree = page.renderDesktopTable([server], page.props.serverGroup.groups, true);
-    tree.props.onSortEnd(1, 3);
+    const workspaceRuntime = await loadWorkspace();
+    const pageSizes = [];
+    const workspace = new workspaceRuntime.ServerManageWorkspace({
+        groups: page.props.serverGroup.groups,
+        servers: [server],
+        sortMode: false,
+        pageSize: 50,
+        mobile: false,
+        showSortControls: true,
+        onSearch() {},
+        onToggleSort() {},
+        onCopy: (record) => page.copy(record),
+        onDrop: (record) => page.drop(record),
+        onUpdate: (record, key, value) => page.update(record, key, value),
+        onPageSizeChange: (pageSize) => pageSizes.push(pageSize),
+        onSort: (fromIndex, toIndex) =>
+            actions.push({ type: 'serverManage/sort', fromIndex, toIndex }),
+    });
+    const tree = workspace.render();
+    const sortableTable = nodes(tree, (node) => node.type === 'SortableTable')[0];
+    sortableTable.props.onSortEnd(1, 3);
+    const contextTable = nodes(tree, (node) => node.type === 'ContextMenuTable')[0];
+    contextTable.props.onContextMenu(server);
+    workspace.renderContextMenu();
+    contextTable.props.pagination.onShowSizeChange(1, 100);
+    assert.equal(workspaceRuntime.contextMenus.at(-1).server, server);
+    assert.deepEqual(pageSizes, [100]);
     assert.deepEqual(normalize(actions.at(-1)), {
         type: 'serverManage/sort',
         fromIndex: 1,
