@@ -43,6 +43,9 @@ npm run build
 - 从源码 vendor 样式发布的 Bootstrap 兼容基础层、Font Awesome、Simple Line Icons、动画库、SimpleBar 核心样式和日期/编辑器/表格等插件适配样式
 - 从 `src/styles/` 发布的全局和主题样式
 - `assets/admin/markdown-editor.css`：由锁定版本 `react-markdown-editor-lite` 的官方样式生成，并按项目 Browserslist 目标补齐浏览器前缀
+- `assets/admin/pages/ticket-detail.css`：工单详情页专属布局样式
+- `assets/admin/framework/core.css`：Admin 框架排版、表单、按钮和基础组件样式
+- `assets/admin/framework/layout.css`：页面容器、Header、Sidebar、Overlay 和响应式主布局样式
 
 构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，第三方 Ant Design 样式发布到 `assets/admin/antd.css`。通用第三方库和插件适配样式按职责发布到 `assets/admin/vendor/`，Markdown 编辑器样式由其固定 npm 依赖单独提供。旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变，不会被新源码构建引用。
 

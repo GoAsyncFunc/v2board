@@ -13,6 +13,9 @@ const destination = path.join(appRoot, 'dist');
 export const antdStylesheetPath = 'node_modules/antd/dist/antd.css';
 export const antdStylesheetOutput = 'assets/admin/antd.css';
 const stylesheetBuildEntries = [
+    ['src/styles/pages/ticket-detail.css', 'assets/admin/pages/ticket-detail.css'],
+    ['src/styles/framework/core.css', 'assets/admin/framework/core.css'],
+    ['src/styles/framework/layout.css', 'assets/admin/framework/layout.css'],
     ['src/styles/global.css', 'assets/admin/umi.css'],
     ['src/styles/vendor/fontawesome.css', 'assets/admin/vendor/fontawesome.css'],
     ['src/styles/vendor/simple-line-icons.css', 'assets/admin/vendor/simple-line-icons.css'],
@@ -117,6 +120,9 @@ export async function buildApp() {
                     'assets/admin/vendor/bootstrap.css',
                     'assets/admin/vendor/plugin-adapters.css',
                     markdownEditorStylesheetOutput,
+                    'assets/admin/pages/ticket-detail.css',
+                    'assets/admin/framework/core.css',
+                    'assets/admin/framework/layout.css',
                     'assets/admin/umi.css',
                 ],
                 uiVersion,

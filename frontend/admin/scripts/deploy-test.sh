@@ -116,6 +116,9 @@ for resource in \
   assets/admin/markdown-editor.css \
   assets/admin/vendor/bootstrap.css \
   assets/admin/vendor/plugin-adapters.css \
+  assets/admin/pages/ticket-detail.css \
+  assets/admin/framework/core.css \
+  assets/admin/framework/layout.css \
   assets/admin/umi.css \
   settings.js \
   app.js; do
