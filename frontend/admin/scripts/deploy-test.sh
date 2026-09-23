@@ -114,6 +114,7 @@ for resource in \
   assets/admin/vendor/animate.css \
   assets/admin/vendor/simplebar.css \
   assets/admin/markdown-editor.css \
+  assets/admin/vendor/bootstrap.css \
   assets/admin/umi.css \
   settings.js \
   app.js; do
