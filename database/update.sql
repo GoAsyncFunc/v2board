@@ -859,15 +859,3 @@ CHANGE `action_value` `action_value` text NULL AFTER `action`;
 
 ALTER TABLE `v2_server_v2node`
 ADD `trusted_x_forwarded_for` varchar(255) COLLATE 'utf8mb4_general_ci' NULL COMMENT '信任的x-forwarded-for头部' AFTER `network_settings`;
-
-CREATE TABLE IF NOT EXISTS `v2_tutorial` (
-                             `id` int(11) NOT NULL AUTO_INCREMENT,
-                             `category_id` int(11) NOT NULL,
-                             `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-                             `steps` text,
-                             `show` tinyint(1) NOT NULL DEFAULT '0',
-                             `sort` int(11) DEFAULT NULL,
-                             `created_at` int(11) NOT NULL,
-                             `updated_at` int(11) NOT NULL,
-                             PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

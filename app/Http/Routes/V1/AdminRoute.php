@@ -153,12 +153,6 @@ class AdminRoute
             $router->post('/knowledge/show', 'V1\\Admin\\KnowledgeController@show');
             $router->post('/knowledge/drop', 'V1\\Admin\\KnowledgeController@drop');
             $router->post('/knowledge/sort', 'V1\\Admin\\KnowledgeController@sort');
-            // Tutorial
-            $router->get ('/tutorial/fetch', 'V1\\Admin\\TutorialController@fetch');
-            $router->post('/tutorial/save', 'V1\\Admin\\TutorialController@save');
-            $router->post('/tutorial/show', 'V1\\Admin\\TutorialController@show');
-            $router->post('/tutorial/drop', 'V1\\Admin\\TutorialController@drop');
-            $router->post('/tutorial/sort', 'V1\\Admin\\TutorialController@sort');
             // Payment
             $router->get ('/payment/fetch', 'V1\\Admin\\PaymentController@fetch');
             $router->get ('/payment/getPaymentMethods', 'V1\\Admin\\PaymentController@getPaymentMethods');
