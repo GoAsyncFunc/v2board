@@ -4,75 +4,82 @@ import test from 'node:test';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-async function loadSortable() {
-  const source = await fs.readFile(new URL('../src/components/common/Sortable.tsx', import.meta.url), 'utf8');
-  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
-  const React = {
-    Component: class {
-      constructor(props) { this.props = props; this.state = {}; }
-      setState(update) {
-        const next = typeof update === 'function' ? update(this.state, this.props) : update;
-        this.state = { ...this.state, ...next };
-      }
-    },
-    createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
-  };
-  const module = { exports: {} };
-  vm.runInNewContext(code, {
-    module,
-    exports: module.exports,
-    require: id => {
-      if (id === 'react') return React;
-      throw new Error(id);
-    },
-    Element: undefined,
-    Node: class {},
-    HTMLElement: class {},
-    window: { clearInterval() {}, setInterval: () => 1 },
-    document: { body: {} },
-  });
-  return module.exports;
+async function loadSortableTable() {
+    const source = await fs.readFile(
+        new URL('../src/components/common/SortableTable.tsx', import.meta.url),
+        'utf8',
+    );
+    const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+    const React = {
+        cloneElement: (element, props) => ({ ...element, props: { ...element.props, ...props } }),
+        createElement: (type, props, ...children) => ({ type, props: props || {}, children }),
+    };
+    const wrapSortable = (kind) => (Component) => {
+        function WrappedSortable(props) {
+            return { kind, Component, props };
+        }
+        WrappedSortable.sortableKind = kind;
+        return WrappedSortable;
+    };
+    const module = { exports: {} };
+    vm.runInNewContext(code, {
+        module,
+        exports: module.exports,
+        require(id) {
+            if (id === 'react') return React;
+            if (id === 'antd/lib/icon') return 'Icon';
+            if (id === 'react-sortable-hoc') {
+                return {
+                    SortableContainer: wrapSortable('container'),
+                    SortableElement: wrapSortable('element'),
+                    SortableHandle: wrapSortable('handle'),
+                };
+            }
+            throw new Error(id);
+        },
+    });
+    return module.exports;
 }
 
-test('Sortable emits changed indexes and clears native drag handlers', async () => {
-  const { Sortable } = await loadSortable();
-  const changes = [];
-  const sortable = new Sortable({ onDragEnd: (from, to) => changes.push([from, to]) });
-  const parent = { ondragenter: () => {}, ondragover: () => {} };
-  const dragNode = {
-    parentElement: parent,
-    removeAttribute(name) { this.removed = name; },
-    ondragstart: () => {},
-    ondragend: () => {},
-  };
-  sortable.state = { fromIndex: 1, toIndex: 4 };
-  sortable.getDragNode = () => dragNode;
-  sortable.stopAutoScroll = () => {};
-  sortable.hideDragLine = () => {};
+test('SortableTable injects official sortable body components and maps row keys to indexes', async () => {
+    const { SortableTable } = await loadSortableTable();
+    const changes = [];
+    const table = { type: 'Table', props: { components: { header: { cell: 'HeaderCell' } } } };
+    const rendered = SortableTable({
+        children: table,
+        records: [
+            { id: 10, name: 'first' },
+            { id: 20, name: 'second' },
+        ],
+        getRowKey: (record) => record.id,
+        onSortEnd: (fromIndex, toIndex) => changes.push([fromIndex, toIndex]),
+    });
 
-  sortable.onDragEnd({ target: dragNode });
+    assert.equal(rendered.props.components.header.cell, 'HeaderCell');
+    const row = rendered.props.components.body.row({ 'data-row-key': '20' });
+    assert.equal(row.type.sortableKind, 'element');
+    assert.equal(row.props.index, 1);
 
-  assert.deepEqual(changes, [[1, 4]]);
-  assert.equal(dragNode.removed, 'draggable');
-  assert.equal(dragNode.ondragstart, null);
-  assert.equal(dragNode.ondragend, null);
-  assert.equal(parent.ondragenter, null);
-  assert.equal(parent.ondragover, null);
-  assert.deepEqual(sortable.state, { fromIndex: -1, toIndex: -1 });
+    const body = rendered.props.components.body.wrapper({ className: 'ant-table-tbody' });
+    assert.equal(body.type.sortableKind, 'container');
+    assert.equal(body.props.useDragHandle, true);
+    assert.equal(body.props.helperClass, 'sortable-table-row-dragging');
+    body.props.onSortEnd({ oldIndex: 0, newIndex: 1 });
+    body.props.onSortEnd({ oldIndex: 1, newIndex: 1 });
+    assert.deepEqual(changes, [[0, 1]]);
 });
 
-test('Sortable removes its drag line and exposes the horizontal variant', async () => {
-  const { Sortable, DragColumn } = await loadSortable();
-  let removed;
-  const parentNode = { removeChild: node => { removed = node; } };
-  const dragLine = { parentNode };
-  const sortable = new Sortable({});
-  sortable.dragLine = dragLine;
-  sortable.cacheDragTarget = {};
-  sortable.componentWillUnmount();
+test('SortableTable exports a dedicated drag handle backed by react-sortable-hoc', async () => {
+    const { TableDragHandle } = await loadSortableTable();
 
-  assert.equal(removed, dragLine);
-  assert.equal(sortable.dragLine, null);
-  assert.equal(sortable.cacheDragTarget, null);
-  assert.equal(Sortable.DragColumn, DragColumn);
+    assert.equal(TableDragHandle.sortableKind, 'handle');
+    const handle = TableDragHandle({ title: '拖动排序' });
+    assert.equal(handle.props.title, '拖动排序');
+});
+
+test('the recovered custom sortable runtime is no longer part of Admin source', async () => {
+    await assert.rejects(
+        fs.access(new URL('../src/components/common/Sortable.tsx', import.meta.url)),
+        { code: 'ENOENT' },
+    );
 });

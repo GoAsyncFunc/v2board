@@ -80,7 +80,12 @@ async function loadModule(relativePath, localModules = {}) {
             if (id.includes('MainLayout')) return 'MainLayout';
             if (id.includes('NullableSelectOption')) return 'NullableSelectOption';
             if (id.includes('PermissionGroupEditor')) return 'PermissionGroupEditor';
-            if (id.includes('Sortable')) return 'Sortable';
+            if (id.includes('Sortable'))
+                return {
+                    __esModule: true,
+                    default: 'Sortable',
+                    TableDragHandle: 'TableDragHandle',
+                };
             throw new Error(id);
         },
     });
@@ -196,7 +201,7 @@ test('Plan list preserves switches, menu actions, and sorting', async () => {
 
     const tree = list.render();
     const sortable = findNode(tree, (node) => node.type === 'Sortable');
-    sortable.props.onDragEnd(1, 0);
+    sortable.props.onSortEnd(1, 0);
     const table = findNode(tree, (node) => node.type === 'ContextMenuTable');
     table.props.onContextMenu(plans[0]);
 

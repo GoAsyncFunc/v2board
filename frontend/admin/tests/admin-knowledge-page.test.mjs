@@ -68,7 +68,12 @@ async function loadModule(relativePath, localComponents = {}) {
                 };
             }
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
-            if (id.includes('Sortable')) return 'Sortable';
+            if (id.includes('Sortable'))
+                return {
+                    __esModule: true,
+                    default: 'Sortable',
+                    TableDragHandle: 'TableDragHandle',
+                };
             if (id.includes('MainLayout')) return 'MainLayout';
             if (id.includes('adminSettings'))
                 return { settings: { i18nText: { 'zh-CN': '简体中文', 'en-US': 'English' } } };
@@ -179,7 +184,7 @@ test('KnowledgeList preserves visibility, delete, and sort actions', async () =>
     )[0];
     const confirmation = deleteLink.props.onClick();
     confirmation.onOk();
-    sortable.props.onDragEnd(0, 3);
+    sortable.props.onSortEnd(0, 3);
 
     assert.deepEqual(normalize(actions), [
         { type: 'knowledge/show', id: 9 },

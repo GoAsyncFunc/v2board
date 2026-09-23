@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
-import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createReadonlyKnowledgeColumns } from './KnowledgeColumns';
-import Sortable from '../../../components/common/Sortable';
+import SortableTable, { TableDragHandle } from '../../../components/common/SortableTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
@@ -35,7 +34,7 @@ export class KnowledgeList extends React.Component<KnowledgeListProps> {
                 title: '排序',
                 dataIndex: 'sort',
                 key: 'sort',
-                render: () => <Icon type="menu" style={{ cursor: 'move' }} />,
+                render: () => <TableDragHandle title="拖动排序" />,
             },
             readonlyColumns.id,
             {
@@ -81,16 +80,16 @@ export class KnowledgeList extends React.Component<KnowledgeListProps> {
         ];
 
         return (
-            <Sortable
-                onDragEnd={(fromIndex, toIndex) =>
+            <SortableTable
+                records={knowledge.knowledges}
+                getRowKey={(article) => String(article.id ?? '')}
+                onSortEnd={(fromIndex, toIndex) =>
                     this.props.dispatch({
                         type: 'knowledge/sort',
                         fromIndex,
                         toIndex,
                     })
                 }
-                nodeSelector="tr"
-                handleSelector="i"
             >
                 <Table<KnowledgeRecord>
                     tableLayout="auto"
@@ -99,7 +98,7 @@ export class KnowledgeList extends React.Component<KnowledgeListProps> {
                     columns={columns}
                     scroll={{ x: 750 }}
                 />
-            </Sortable>
+            </SortableTable>
         );
     }
 }

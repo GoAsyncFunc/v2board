@@ -5,6 +5,7 @@ import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import message from 'antd/lib/message';
 import type { ColumnProps } from 'antd/lib/table/interface';
+import { TableDragHandle } from '../../../../components/common/SortableTable';
 import { copyText } from '../../../../utils/clipboard';
 import type {
     ManagedServerRecord,
@@ -139,7 +140,7 @@ export function createServerSortColumns(): ColumnProps<ManagedServerRecord>[] {
             key: 'sort',
             align: 'left',
             width: 100,
-            render: () => <Icon type="menu" style={{ cursor: 'move' }} title="拖动排序" />,
+            render: () => <TableDragHandle title="拖动排序" />,
         },
         {
             title: '节点ID',

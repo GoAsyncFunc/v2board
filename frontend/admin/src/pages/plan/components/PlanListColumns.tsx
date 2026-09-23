@@ -5,6 +5,7 @@ import Menu from 'antd/lib/menu';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
+import { TableDragHandle } from '../../../components/common/SortableTable';
 import type { AdminDispatch } from '../../../types/store';
 import type { PlanFieldValue, PlanRecord } from '../../../types/plan';
 import PlanEditor from './PlanEditor';
@@ -71,7 +72,7 @@ export function createPlanListColumns(
             title: '排序',
             dataIndex: 'sort',
             key: 'sort',
-            render: () => <Icon type="menu" style={{ cursor: 'move' }} />,
+            render: () => <TableDragHandle title="拖动排序" />,
         },
         {
             title: '销售状态',

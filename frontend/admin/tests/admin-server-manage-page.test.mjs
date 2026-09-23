@@ -178,7 +178,7 @@ test('Server management dispatches typed node actions and table sorting', async 
         { type: 'serverVless/update', id: 7, key: 'show', value: 0 },
     ]);
     const tree = page.renderDesktopTable([server], page.props.serverGroup.groups, true);
-    tree.props.onDragEnd(1, 3);
+    tree.props.onSortEnd(1, 3);
     assert.deepEqual(normalize(actions.at(-1)), {
         type: 'serverManage/sort',
         fromIndex: 1,

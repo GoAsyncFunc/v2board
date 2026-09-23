@@ -64,7 +64,12 @@ async function loadPaymentModule(relativePath) {
             if (id === 'antd/lib/switch') return 'Switch';
             if (id === 'antd/lib/table') return 'Table';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
-            if (id.includes('Sortable')) return 'Sortable';
+            if (id.includes('Sortable'))
+                return {
+                    __esModule: true,
+                    default: 'Sortable',
+                    TableDragHandle: 'TableDragHandle',
+                };
             if (id.includes('MainLayout')) return 'MainLayout';
             if (id === './components/PaymentEditor')
                 return {
@@ -80,7 +85,7 @@ async function loadPaymentModule(relativePath) {
                 const PaymentList = ({ dispatch, payment, renderEditor }) => ({
                     type: 'Sortable',
                     props: {
-                        onDragEnd: (fromIndex, toIndex) =>
+                        onSortEnd: (fromIndex, toIndex) =>
                             dispatch({ type: 'payment/sort', fromIndex, toIndex }),
                         children: {
                             type: 'Table',
@@ -255,7 +260,7 @@ test('Payment page preserves fetch, enable, delete and sort actions', async () =
         (node) => node.type === 'a' && node.children.includes('删除'),
     )[0].props.onClick();
     runtime.confirmations[0].onOk();
-    sortable.props.onDragEnd(0, 2);
+    sortable.props.onSortEnd(0, 2);
 
     assert.deepEqual(normalize(actions), [
         { type: 'payment/fetch' },

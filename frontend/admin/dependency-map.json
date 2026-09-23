@@ -537,7 +537,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
-    "to": "components/common/Sortable.tsx"
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
@@ -829,7 +829,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
-    "to": "components/common/Sortable.tsx"
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
@@ -989,11 +989,15 @@
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
-    "to": "components/common/Sortable.tsx"
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
     "to": "pages/plan/components/PlanListColumns.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanListColumns.tsx",
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/plan/components/PlanListColumns.tsx",
@@ -1066,6 +1070,10 @@
   {
     "from": "pages/server/manage/components/ServerManageActions.tsx",
     "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
+  },
+  {
+    "from": "pages/server/manage/components/ServerManageColumns.tsx",
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
@@ -1409,7 +1417,7 @@
   },
   {
     "from": "pages/server/manage/index.tsx",
-    "to": "components/common/Sortable.tsx"
+    "to": "components/common/SortableTable.tsx"
   },
   {
     "from": "pages/server/manage/index.tsx",

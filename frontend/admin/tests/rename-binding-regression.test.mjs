@@ -67,7 +67,7 @@ for (const file of [
     'admin/src/pages/server/manage/editors/Security/TlsCertificateSettings.tsx',
     'admin/src/pages/server/manage/editors/Security/TlsRealitySettings.tsx',
     'admin/src/pages/server/manage/editors/Security/EncryptionSettings.tsx',
-    'admin/src/components/common/Sortable.tsx',
+    'admin/src/components/common/SortableTable.tsx',
     'admin/src/pages/server/manage/editors/TrojanEditor.tsx',
     'admin/src/pages/server/manage/editors/Trojan/GeneralFields.tsx',
     'admin/src/pages/server/manage/editors/Trojan/RelationshipFields.tsx',

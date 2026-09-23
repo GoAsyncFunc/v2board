@@ -1,11 +1,10 @@
 import React from 'react';
 import Divider from 'antd/lib/divider';
-import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import Sortable from '../../../../components/common/Sortable';
+import SortableTable, { TableDragHandle } from '../../../../components/common/SortableTable';
 import { createPaymentNotifyColumn } from './PaymentNotifyColumn';
 import type { AdminDispatch } from '../../../../types/store';
 import type { PaymentRecord, PaymentState } from '../../../../types/payment';
@@ -24,7 +23,7 @@ export default function PaymentList({ dispatch, payment, renderEditor }: Payment
             key: 'id',
             render: (id: PaymentRecord['id']) => (
                 <>
-                    <Icon type="menu" style={{ cursor: 'move' }} /> {id}
+                    <TableDragHandle title="拖动排序" /> {id}
                 </>
             ),
         },
@@ -83,12 +82,12 @@ export default function PaymentList({ dispatch, payment, renderEditor }: Payment
     ];
 
     return (
-        <Sortable
-            onDragEnd={(fromIndex, toIndex) =>
+        <SortableTable
+            records={payment.payments}
+            getRowKey={(record) => String(record.id ?? '')}
+            onSortEnd={(fromIndex, toIndex) =>
                 dispatch({ type: 'payment/sort', fromIndex, toIndex })
             }
-            nodeSelector="tr"
-            handleSelector="i"
         >
             <Table<PaymentRecord>
                 tableLayout="auto"
@@ -97,6 +96,6 @@ export default function PaymentList({ dispatch, payment, renderEditor }: Payment
                 pagination={false}
                 scroll={{ x: 1300 }}
             />
-        </Sortable>
+        </SortableTable>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { Prompt } from 'react-router-dom';
-import Sortable from '../../../components/common/Sortable';
+import SortableTable from '../../../components/common/SortableTable';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
 import MainLayout from '../../../layouts/MainLayout';
@@ -151,12 +151,12 @@ export class ServerManagePage extends React.Component<
         sortMode: boolean,
     ): React.ReactElement {
         return (
-            <Sortable
-                onDragEnd={(fromIndex, toIndex) =>
+            <SortableTable
+                records={servers}
+                getRowKey={(server) => String(server.id ?? '')}
+                onSortEnd={(fromIndex, toIndex) =>
                     this.props.dispatch({ type: 'serverManage/sort', fromIndex, toIndex })
                 }
-                nodeSelector="tr"
-                handleSelector="i"
             >
                 <ContextMenuTable
                     onContextMenu={(server) => {
@@ -183,7 +183,7 @@ export class ServerManagePage extends React.Component<
                 >
                     {this.renderContextMenu()}
                 </ContextMenuTable>
-            </Sortable>
+            </SortableTable>
         );
     }
 

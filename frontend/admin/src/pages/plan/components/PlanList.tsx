@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ContextMenuTable from '../../../components/common/ContextMenuTable';
-import Sortable from '../../../components/common/Sortable';
+import SortableTable from '../../../components/common/SortableTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { PlanFieldValue, PlanRecord, PlanState } from '../../../types/plan';
 import type { PlanGroup } from './PlanGroupColumn';
@@ -51,12 +51,12 @@ export class PlanList extends React.Component<PlanListProps> {
     render(): React.ReactNode {
         const { plans } = this.props.plan;
         return (
-            <Sortable
-                onDragEnd={(fromIndex, toIndex) =>
+            <SortableTable
+                records={plans}
+                getRowKey={(plan) => String(plan.id ?? '')}
+                onSortEnd={(fromIndex, toIndex) =>
                     this.props.dispatch({ type: 'plan/sort', fromIndex, toIndex })
                 }
-                nodeSelector="tr"
-                handleSelector="i"
             >
                 <ContextMenuTable
                     onContextMenu={(plan) => {
@@ -71,7 +71,7 @@ export class PlanList extends React.Component<PlanListProps> {
                 >
                     {createPlanContextMenu(this.contextPlan, this.listActions())}
                 </ContextMenuTable>
-            </Sortable>
+            </SortableTable>
         );
     }
 }
