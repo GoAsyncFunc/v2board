@@ -1090,6 +1090,21 @@ test('admin components use business domains and connected editors use the canoni
     }
 });
 
+test('filter drawer controls are split into semantic common components', async () => {
+    const commonDirectory = new URL('../src/components/common/', import.meta.url);
+    for (const componentName of ['FilterCondition.tsx', 'FilterValueInput.tsx']) {
+        assert.ok(
+            (await fs.readdir(commonDirectory)).includes(componentName),
+            `common components should include ${componentName}`,
+        );
+    }
+    const drawerSource = await fs.readFile(
+        new URL('../src/components/common/FilterDrawer.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(drawerSource, /import FilterCondition from ['"]\.\/FilterCondition['"]/);
+});
+
 test('V2Node editor composes focused field modules', async () => {
     const editorSource = await fs.readFile(
         new URL('../src/pages/server/manage/editors/V2NodeEditor.tsx', import.meta.url),

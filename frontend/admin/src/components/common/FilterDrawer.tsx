@@ -1,14 +1,10 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import DatePicker from 'antd/lib/date-picker';
-import Divider from 'antd/lib/divider';
 import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
-import Input from 'antd/lib/input';
 import notification from 'antd/lib/notification';
-import Select from 'antd/lib/select';
-import moment from 'moment';
 import type { FilterField, FilterItem, FilterValue } from '../../types/filter';
+import FilterCondition from './FilterCondition';
 
 const DrawerWithFooter = Drawer as React.ComponentType<
     React.ComponentProps<typeof Drawer> & { footer?: React.ReactNode }
@@ -90,97 +86,19 @@ export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawe
         this.setState({ filter: [] }, () => this.apply());
     }
 
-    renderValueInput(
-        filterItem: FilterItem,
-        index: number,
-        fieldConfig: FilterField,
-    ): React.ReactElement {
-        if (fieldConfig.type === 'select') {
-            const options = fieldConfig.options;
-            if (!options) throw new TypeError('Filter select options were not provided');
-            return (
-                <Select
-                    value={filterItem.value || undefined}
-                    style={{ width: '100%' }}
-                    placeholder="请选择值"
-                    onChange={(value) => this.changeFilter(index, 'value', value)}
-                >
-                    {options.map((option) => (
-                        <Select.Option
-                            key={`${option.key}-${option.value}`}
-                            value={option.value as string | number | undefined}
-                        >
-                            {option.key}
-                        </Select.Option>
-                    ))}
-                </Select>
-            );
-        }
-        if (fieldConfig.type === 'date') {
-            return (
-                <DatePicker
-                    style={{ width: '100%' }}
-                    onChange={(date) => this.changeFilter(index, 'value', date && date.format('X'))}
-                    showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
-                />
-            );
-        }
-        return (
-            <Input
-                style={{ width: '100%' }}
-                value={filterItem.value || undefined}
-                placeholder="值"
-                onChange={(event) => this.changeFilter(index, 'value', event.target.value)}
-            />
-        );
-    }
-
     renderFilter(filterItem: FilterItem, index: number): React.ReactElement {
         const fieldConfig =
             this.props.keys.find((field) => field.key === filterItem.key) || this.props.keys[0];
         return (
-            <React.Fragment key={`${filterItem.key}-${index}`}>
-                <Divider type="horizontal">
-                    条件{index + 1}{' '}
-                    <Icon
-                        type="delete"
-                        style={{ color: '#ff4d4f' }}
-                        onClick={() => this.remove(index)}
-                    />
-                </Divider>
-                <div className="form-group">
-                    <label>字段名</label>
-                    <Select
-                        value={filterItem.key}
-                        style={{ width: '100%' }}
-                        onChange={(key) => this.changeFilter(index, 'key', key)}
-                    >
-                        {this.props.keys.map((field) => (
-                            <Select.Option key={field.key} value={field.key}>
-                                {field.title}
-                            </Select.Option>
-                        ))}
-                    </Select>
-                </div>
-                <div className="form-group">
-                    <label>条件</label>
-                    <Select
-                        value={filterItem.condition}
-                        style={{ width: '100%' }}
-                        onChange={(condition) => this.changeFilter(index, 'condition', condition)}
-                    >
-                        {fieldConfig.condition.map((condition) => (
-                            <Select.Option key={condition} value={condition}>
-                                {condition}
-                            </Select.Option>
-                        ))}
-                    </Select>
-                </div>
-                <div className="form-group">
-                    <label>欲检索内容</label>
-                    {this.renderValueInput(filterItem, index, fieldConfig)}
-                </div>
-            </React.Fragment>
+            <FilterCondition
+                key={`${filterItem.key}-${index}`}
+                filterItem={filterItem}
+                index={index}
+                fields={this.props.keys}
+                field={fieldConfig}
+                onChange={(itemIndex, field, value) => this.changeFilter(itemIndex, field, value)}
+                onRemove={(itemIndex) => this.remove(itemIndex)}
+            />
         );
     }
 

@@ -188,6 +188,14 @@
     "to": "runtime/pluginRuntime.ts"
   },
   {
+    "from": "components/common/FilterCondition.tsx",
+    "to": "components/common/FilterValueInput.tsx"
+  },
+  {
+    "from": "components/common/FilterDrawer.tsx",
+    "to": "components/common/FilterCondition.tsx"
+  },
+  {
     "from": "components/order/AssignOrderEditor.tsx",
     "to": "config/adminSettings.ts"
   },

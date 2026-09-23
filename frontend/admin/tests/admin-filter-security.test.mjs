@@ -48,6 +48,7 @@ test('FilterDrawer preserves validation and field reset behavior', async () => {
         if (id === 'antd/lib/input') return 'Input';
         if (id === 'antd/lib/notification') return { error: (config) => errors.push(config) };
         if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
+        if (id.includes('FilterCondition')) return 'FilterCondition';
         if (id === 'moment') return () => ({ format: () => '0' });
         if (id.includes('iconStyles')) return {};
         throw new Error(id);
@@ -85,6 +86,52 @@ test('FilterDrawer preserves validation and field reset behavior', async () => {
     drawer.apply();
     assert.deepEqual(accepted, [[{ key: 'status', condition: '=', value: 1 }]]);
     assert.equal(drawer.state.visible, false);
+});
+
+test('FilterValueInput renders text, select, and date controls with semantic updates', async () => {
+    const updates = [];
+    const component = await load(
+        '../src/components/common/FilterValueInput.tsx',
+        (id) => {
+            if (id === 'antd/lib/date-picker') return 'DatePicker';
+            if (id === 'antd/lib/input') return 'Input';
+            if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
+            if (id === 'moment') return (value, format) => ({ value, format });
+            throw new Error(id);
+        },
+    );
+    const onChange = (...update) => updates.push(update);
+    const filterItem = { key: 'status', condition: '=', value: '' };
+    const baseProps = { filterItem, index: 2, onChange };
+
+    const textInput = component.FilterValueInput({
+        ...baseProps,
+        field: { key: 'email', title: '邮箱', condition: ['模糊'] },
+    });
+    textInput.props.onChange({ target: { value: 'admin@example.com' } });
+    assert.deepEqual(updates.pop(), [2, 'value', 'admin@example.com']);
+
+    const selectInput = component.FilterValueInput({
+        ...baseProps,
+        field: {
+            key: 'status',
+            title: '状态',
+            condition: ['='],
+            type: 'select',
+            options: [{ key: '正常', value: 1 }],
+        },
+    });
+    selectInput.props.onChange(1);
+    assert.deepEqual(updates.pop(), [2, 'value', 1]);
+    assert.equal(selectInput.children.flat(Infinity)[0].props.value, 1);
+
+    const dateInput = component.FilterValueInput({
+        ...baseProps,
+        field: { key: 'created_at', title: '创建时间', condition: ['='], type: 'date' },
+    });
+    dateInput.props.onChange({ format: (pattern) => (pattern === 'X' ? '1700000000' : '') });
+    assert.deepEqual(updates.pop(), [2, 'value', '1700000000']);
+    assert.equal(dateInput.props.showTime.defaultValue.value, '00:00:00');
 });
 
 test('TLS and encryption settings retain defaults and emit complete updates', async () => {
