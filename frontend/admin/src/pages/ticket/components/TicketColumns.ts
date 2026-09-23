@@ -1,7 +1,7 @@
-import moment from 'moment';
 import type React from 'react';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { TicketLevel, TicketRecord, TicketTimestamp } from '../../../types/ticket';
+import { formatDateTime } from '../../../utils/dateTime';
 
 export function renderTicketLevel(
     levels: readonly React.ReactNode[],
@@ -11,11 +11,11 @@ export function renderTicketLevel(
 }
 
 export function formatTicketCreatedAt(value: TicketTimestamp): string {
-    return moment(1000 * (value as number)).format('YYYY/MM/DD HH:mm');
+    return formatDateTime(value);
 }
 
 export function formatTicketUpdatedAt(value: TicketTimestamp): string {
-    return moment(1000 * (value as number)).format('YYYY/MM/DD HH:mm');
+    return formatDateTime(value);
 }
 
 export function createReadonlyTicketColumns(

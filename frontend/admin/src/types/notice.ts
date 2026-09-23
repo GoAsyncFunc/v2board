@@ -1,4 +1,6 @@
-export type NoticeTimestamp = number | string | null | undefined;
+import type { UnixTimestamp } from './date';
+
+export type NoticeTimestamp = UnixTimestamp;
 
 export interface NoticeRecord {
     id?: string | number;

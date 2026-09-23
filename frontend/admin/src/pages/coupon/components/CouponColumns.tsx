@@ -1,14 +1,14 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import moment from 'moment';
 import type { CouponRecord } from '../../../types/promotion';
+import { formatDateTime } from '../../../utils/dateTime';
 
 // Read and format the start before accessing the end, as in the original renderer.
 // Missing timestamps and null records deliberately keep their existing behavior.
 export function formatCouponValidity(coupon: CouponRecord): string {
-    const startsAt = moment(1000 * (coupon.started_at as number)).format('YYYY/MM/DD HH:mm');
-    const endsAt = moment(1000 * (coupon.ended_at as number)).format('YYYY/MM/DD HH:mm');
+    const startsAt = formatDateTime(coupon.started_at);
+    const endsAt = formatDateTime(coupon.ended_at);
     return `${startsAt} ~ ${endsAt}`;
 }
 

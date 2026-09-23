@@ -4,18 +4,21 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
+import { loadDateTimeFormatter } from './helpers/load-date-time.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React = { createElement: (type, props, ...children) => ({ type, props, children }) };
 const Tag = 'Tag';
 const moment = value => ({ format: pattern => `${value}:${pattern}` });
 async function load(original) {
   const module = { exports: {} };
+  const dateTime = original ? null : await loadDateTimeFormatter(moment);
   const file = new URL(original ? './fixtures/pages/admin-coupon-display.cjs' : '../src/pages/coupon/components/CouponColumns.tsx', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'tsx' })).code, { module, exports: module.exports, require(id) {
     if (id === 'react') return React;
     if (id === 'antd/lib/tag') return Tag;
     if (id.includes('antdTag')) return { a: 'Tag' };
+    if (id.includes('utils/dateTime')) return dateTime;
     if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
   } });

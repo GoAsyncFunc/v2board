@@ -1,5 +1,7 @@
+import type { UnixTimestamp } from './date';
+
 export type TicketId = string | number;
-export type TicketTimestamp = number | string | null | undefined;
+export type TicketTimestamp = UnixTimestamp;
 export type TicketLevel = string | number | null | undefined;
 
 export interface TicketMessage {

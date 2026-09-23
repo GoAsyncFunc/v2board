@@ -1,9 +1,9 @@
-import moment from 'moment';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { NoticeRecord, NoticeTimestamp } from '../../../types/notice';
+import { formatDateTime } from '../../../utils/dateTime';
 
 export function formatNoticeCreatedAt(value: NoticeTimestamp): string {
-    return moment(1000 * (value as number)).format('YYYY/MM/DD HH:mm');
+    return formatDateTime(value);
 }
 
 export function createReadonlyNoticeColumns(): Record<

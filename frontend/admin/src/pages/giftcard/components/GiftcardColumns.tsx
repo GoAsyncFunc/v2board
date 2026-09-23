@@ -1,8 +1,8 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import moment from 'moment';
 import type { GiftcardPlan, GiftcardRecord } from '../../../types/promotion';
+import { formatDateTime } from '../../../utils/dateTime';
 
 export function giftcardTypeText(type: GiftcardRecord['type']): string {
     switch (type) {
@@ -52,8 +52,8 @@ export function renderGiftcardLimit(limit: GiftcardRecord['limit_use']) {
 }
 
 export function formatGiftcardValidity(card: GiftcardRecord): string {
-    const startsAt = moment(1000 * (card.started_at as number)).format('YYYY/MM/DD HH:mm');
-    const endsAt = moment(1000 * (card.ended_at as number)).format('YYYY/MM/DD HH:mm');
+    const startsAt = formatDateTime(card.started_at);
+    const endsAt = formatDateTime(card.ended_at);
     return `${startsAt} ~ ${endsAt}`;
 }
 

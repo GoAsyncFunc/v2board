@@ -4,10 +4,12 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
+import { loadDateTimeFormatter } from './helpers/load-date-time.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const moment = (value) => ({ format: (pattern) => `${value}:${pattern}` });
 async function load(original) {
     const module = { exports: {} };
+    const dateTime = original ? null : await loadDateTimeFormatter(moment);
     const file = new URL(
         original
             ? './fixtures/pages/admin-knowledge-display.cjs'
@@ -21,6 +23,7 @@ async function load(original) {
             module,
             exports: module.exports,
             require(id) {
+                if (id.includes('utils/dateTime')) return dateTime;
                 if (id === 'moment' || id.includes('77642f52')) return moment;
                 throw Error(id);
             },

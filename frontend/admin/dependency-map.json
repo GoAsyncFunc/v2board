@@ -672,6 +672,10 @@
     "to": "types/api.ts"
   },
   {
+    "from": "pages/coupon/components/CouponColumns.tsx",
+    "to": "utils/dateTime.ts"
+  },
+  {
     "from": "pages/coupon/components/CouponEditor.tsx",
     "to": "pages/coupon/components/CouponBasicFields.tsx"
   },
@@ -760,6 +764,10 @@
     "to": "services/request.ts"
   },
   {
+    "from": "pages/giftcard/components/GiftcardColumns.tsx",
+    "to": "utils/dateTime.ts"
+  },
+  {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
     "to": "pages/giftcard/components/GiftcardBasicFields.tsx"
   },
@@ -808,6 +816,10 @@
     "to": "app/navigation.ts"
   },
   {
+    "from": "pages/knowledge/components/KnowledgeColumns.ts",
+    "to": "utils/dateTime.ts"
+  },
+  {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
     "to": "components/common/MarkdownEditor.tsx"
   },
@@ -842,6 +854,10 @@
   {
     "from": "pages/knowledge/index.tsx",
     "to": "pages/knowledge/components/KnowledgeList.tsx"
+  },
+  {
+    "from": "pages/notice/components/NoticeColumns.ts",
+    "to": "utils/dateTime.ts"
   },
   {
     "from": "pages/notice/components/NoticeEditor.tsx",
@@ -1469,10 +1485,6 @@
   },
   {
     "from": "pages/ticket/[id].tsx",
-    "to": "components/common/DateTimeDisplay.ts"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
     "to": "components/user/TrafficPanel.tsx"
   },
   {
@@ -1482,6 +1494,14 @@
   {
     "from": "pages/ticket/[id].tsx",
     "to": "styles/ticketDetail.ts"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
+    "to": "utils/dateTime.ts"
+  },
+  {
+    "from": "pages/ticket/components/TicketColumns.ts",
+    "to": "utils/dateTime.ts"
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",

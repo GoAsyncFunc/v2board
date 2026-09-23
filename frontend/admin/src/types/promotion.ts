@@ -1,3 +1,5 @@
+import type { UnixTimestamp } from './date';
+
 export interface CouponRecord {
     [field: string]: string | number | boolean | string[] | null | undefined;
     id?: string | number;
@@ -11,8 +13,8 @@ export interface CouponRecord {
     limit_plan_ids?: string[] | null;
     limit_period?: string[] | null;
     generate_count?: string | number;
-    started_at?: number | string | null;
-    ended_at?: number | string | null;
+    started_at?: UnixTimestamp;
+    ended_at?: UnixTimestamp;
 }
 
 export interface GiftcardPlan {
@@ -30,8 +32,8 @@ export interface GiftcardRecord {
     plan_id?: string | number | null;
     limit_use?: string | number | null;
     generate_count?: string | number;
-    started_at?: number | string | null;
-    ended_at?: number | string | null;
+    started_at?: UnixTimestamp;
+    ended_at?: UnixTimestamp;
 }
 
 export interface PromotionPagination {

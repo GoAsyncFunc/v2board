@@ -1,4 +1,6 @@
-export type KnowledgeTimestamp = number | string | null | undefined;
+import type { UnixTimestamp } from './date';
+
+export type KnowledgeTimestamp = UnixTimestamp;
 
 export interface KnowledgeRecord {
     [field: string]: string | number | boolean | null | undefined;
