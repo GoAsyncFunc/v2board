@@ -46,3 +46,11 @@ test('timestamp coercion trace matches original', async () => {
   assert.deepEqual(currentInput.trace, originalInput.trace);
   assert.deepEqual(originalInput.trace, ['number']);
 });
+
+test('formatDateTime accepts the original full-precision display format', async () => {
+  const { formatDateTime } = await load(false);
+  assert.equal(
+    formatDateTime(1700000000, 'YYYY-MM-DD HH:mm:ss'),
+    '1700000000000:YYYY-MM-DD HH:mm:ss',
+  );
+});

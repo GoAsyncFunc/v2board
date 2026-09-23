@@ -2,10 +2,10 @@ import React from 'react';
 import Badge from 'antd/lib/badge';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import moment from 'moment';
-import type { UserGroupOption, UserRecord } from '../../../types/user';
+import { formatDateTime } from '../../../utils/dateTime';
+import type { UserTimestamp } from '../../../types/user';
 
-export type UserTimestamp = number | string | null | undefined;
+export type { UserTimestamp } from '../../../types/user';
 
 export interface UserListRecord {
     email?: string | null;
@@ -13,13 +13,11 @@ export interface UserListRecord {
 }
 
 export function formatUserLastOnline(lastSeen: UserTimestamp): string {
-    return lastSeen
-        ? `最后在线${moment(1000 * (lastSeen as number)).format('YYYY-MM-DD HH:mm:ss')}`
-        : '从未在线';
+    return lastSeen ? `最后在线${formatDateTime(lastSeen, 'YYYY-MM-DD HH:mm:ss')}` : '从未在线';
 }
 
 export function renderUserOnlineStatus(lastSeen: UserTimestamp): 'default' | 'success' {
-    return new Date().getTime() / 1e3 - 600 > (lastSeen as number) ? 'default' : 'success';
+    return new Date().getTime() / 1e3 - 600 > Number(lastSeen) ? 'default' : 'success';
 }
 
 // Readonly email/online column; no sorter, filter or event handlers.

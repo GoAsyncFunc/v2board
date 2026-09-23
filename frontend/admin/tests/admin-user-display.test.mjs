@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform as esbuildTransform } from 'esbuild';
 import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
+import { loadDateTimeFormatter } from './helpers/load-date-time.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 
 const fixedNow = 1700000000000;
@@ -18,6 +19,7 @@ const deps = { createElement: React.createElement, Tooltip, Badge, moment };
 
 async function load(original) {
   const module = { exports: {} };
+  const dateTime = original ? null : await loadDateTimeFormatter(moment);
   const file = new URL(original ? './fixtures/pages/admin-user-display.cjs' : '../src/pages/user/components/UserDisplayColumns.tsx', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'tsx' })).code, {
@@ -27,6 +29,7 @@ async function load(original) {
       if (id === 'antd/lib/badge') return Badge;
       if (id.includes('antdTooltip')) return { a: Tooltip };
       if (id.includes('antdBadge')) return { a: Badge };
+      if (id.includes('utils/dateTime')) return dateTime;
       if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
     },

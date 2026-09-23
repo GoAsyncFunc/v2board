@@ -1,4 +1,7 @@
 import type { FilterItem } from './filter';
+import type { UnixTimestamp } from './date';
+
+export type UserTimestamp = UnixTimestamp;
 
 export interface InvitingUserReference {
     email?: string;
@@ -28,7 +31,7 @@ export interface UserRecord {
     speed_limit?: string | number | null;
     created_at?: number;
     updated_at?: number;
-    t?: number | string | null;
+    t?: UserTimestamp;
     password?: string;
     invite_user_email?: string;
     invite_user?: InvitingUserReference | null;
