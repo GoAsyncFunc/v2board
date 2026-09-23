@@ -21335,13 +21335,13 @@ a.text-xplay-lighter:hover {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(./static/fa-regular-400.aa66d0e0.eot);
+    src: url(./static/fontawesome-regular-400.eot);
     src:
-        url(./static/fa-regular-400.aa66d0e0.eot?#iefix) format('embedded-opentype'),
-        url(./static/fa-regular-400.ac21cac3.woff2) format('woff2'),
-        url(./static/fa-regular-400.5623624d.woff) format('woff'),
-        url(./static/fa-regular-400.285a9d2a.ttf) format('truetype'),
-        url(./static/fa-regular-400.6b5ed912.svg#fontawesome) format('svg');
+        url(./static/fontawesome-regular-400.eot?#iefix) format('embedded-opentype'),
+        url(./static/fontawesome-regular-400.woff2) format('woff2'),
+        url(./static/fontawesome-regular-400.woff) format('woff'),
+        url(./static/fontawesome-regular-400.ttf) format('truetype'),
+        url(./static/fontawesome-regular-400.svg#fontawesome) format('svg');
 }
 .far {
     font-family: Font Awesome\5 Free;
@@ -21352,13 +21352,13 @@ a.text-xplay-lighter:hover {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url(./static/fa-solid-900.42e1fbd2.eot);
+    src: url(./static/fontawesome-solid-900.eot);
     src:
-        url(./static/fa-solid-900.42e1fbd2.eot?#iefix) format('embedded-opentype'),
-        url(./static/fa-solid-900.d6d8d5da.woff2) format('woff2'),
-        url(./static/fa-solid-900.3ded831d.woff) format('woff'),
-        url(./static/fa-solid-900.896e20e2.ttf) format('truetype'),
-        url(./static/fa-solid-900.649208f1.svg#fontawesome) format('svg');
+        url(./static/fontawesome-solid-900.eot?#iefix) format('embedded-opentype'),
+        url(./static/fontawesome-solid-900.woff2) format('woff2'),
+        url(./static/fontawesome-solid-900.woff) format('woff'),
+        url(./static/fontawesome-solid-900.ttf) format('truetype'),
+        url(./static/fontawesome-solid-900.svg#fontawesome) format('svg');
 }
 .fa,
 .fas {
@@ -21370,13 +21370,13 @@ a.text-xplay-lighter:hover {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(./static/fa-brands-400.14c590d1.eot);
+    src: url(./static/fontawesome-brands-400.eot);
     src:
-        url(./static/fa-brands-400.14c590d1.eot?#iefix) format('embedded-opentype'),
-        url(./static/fa-brands-400.3e1b2a65.woff2) format('woff2'),
-        url(./static/fa-brands-400.df02c782.woff) format('woff'),
-        url(./static/fa-brands-400.5e8aa9ea.ttf) format('truetype'),
-        url(./static/fa-brands-400.91fd86e5.svg#fontawesome) format('svg');
+        url(./static/fontawesome-brands-400.eot?#iefix) format('embedded-opentype'),
+        url(./static/fontawesome-brands-400.woff2) format('woff2'),
+        url(./static/fontawesome-brands-400.woff) format('woff'),
+        url(./static/fontawesome-brands-400.ttf) format('truetype'),
+        url(./static/fontawesome-brands-400.svg#fontawesome) format('svg');
 }
 .fab {
     font-family: Font Awesome\5 Brands;
@@ -21384,13 +21384,13 @@ a.text-xplay-lighter:hover {
 }
 @font-face {
     font-family: simple-line-icons;
-    src: url(./static/Simple-Line-Icons.f33df365.eot);
+    src: url(./static/simple-line-icons.eot);
     src:
-        url(./static/Simple-Line-Icons.f33df365.eot#iefix) format('embedded-opentype'),
-        url(./static/Simple-Line-Icons.0cb0b9c5.woff2) format('woff2'),
-        url(./static/Simple-Line-Icons.d2285965.ttf) format('truetype'),
-        url(./static/Simple-Line-Icons.78f07e2c.woff) format('woff'),
-        url(./static/Simple-Line-Icons.ed67e5a3.svg#simple-line-icons) format('svg');
+        url(./static/simple-line-icons.eot#iefix) format('embedded-opentype'),
+        url(./static/simple-line-icons.woff2) format('woff2'),
+        url(./static/simple-line-icons.ttf) format('truetype'),
+        url(./static/simple-line-icons.woff) format('woff'),
+        url(./static/simple-line-icons.svg#simple-line-icons) format('svg');
     font-weight: 400;
     font-style: normal;
 }

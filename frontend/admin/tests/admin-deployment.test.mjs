@@ -112,6 +112,13 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
             /\.[A-Za-z_-][\w-]*___[A-Za-z0-9_-]{4,}/,
             `${file} has generated CSS-module names`,
         );
+        for (const [, referencedAsset] of css.matchAll(/url\((?:['"])?([^)'"\s]+)/g)) {
+            const assetPath = referencedAsset.split(/[?#]/, 1)[0];
+            if (!assetPath.startsWith('./')) continue;
+
+            assert.doesNotMatch(assetPath, /\.[a-f0-9]{8}\./, `${file} has a hashed asset name`);
+            await fs.access(new URL(assetPath.slice(2), assetDirectory));
+        }
     }
 });
 
