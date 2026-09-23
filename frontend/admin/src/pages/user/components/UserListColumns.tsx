@@ -2,8 +2,8 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import moment from 'moment';
 import type { UserGroupOption, UserRecord } from '../../../types/user';
+import { formatDateTime } from '../../../utils/dateTime';
 import { createReadonlyUserEmailColumn } from './UserDisplayColumns';
 
 export function createUserListColumns(
@@ -91,11 +91,7 @@ export function createUserListColumns(
                             : 'green'
                     }
                 >
-                    {expiresAt
-                        ? moment(1000 * Number(expiresAt)).format('YYYY/MM/DD HH:mm')
-                        : expiresAt === null
-                          ? '长期有效'
-                          : '-'}
+                    {expiresAt ? formatDateTime(expiresAt) : expiresAt === null ? '长期有效' : '-'}
                 </Tag>
             ),
         },
@@ -111,7 +107,7 @@ export function createUserListColumns(
             dataIndex: 'created_at',
             key: 'created_at',
             sorter: true,
-            render: (createdAt: number) => moment(1000 * createdAt).format('YYYY/MM/DD HH:mm'),
+            render: (createdAt: UserRecord['created_at']) => formatDateTime(createdAt),
         },
         {
             title: '操作',

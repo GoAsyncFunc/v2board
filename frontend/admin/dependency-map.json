@@ -1588,6 +1588,10 @@
     "to": "pages/user/components/UserDisplayColumns.tsx"
   },
   {
+    "from": "pages/user/components/UserListColumns.tsx",
+    "to": "utils/dateTime.ts"
+  },
+  {
     "from": "pages/user/components/UserToolbar.tsx",
     "to": "pages/user/components/SendMailEditor.tsx"
   },

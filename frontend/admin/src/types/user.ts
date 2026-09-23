@@ -22,15 +22,15 @@ export interface UserRecord {
     alive_ip?: number | null;
     device_limit?: number | string | null;
     ips?: string | null;
-    expired_at?: string | number | null;
+    expired_at?: UserTimestamp;
     balance?: string | number;
     commission_balance?: string | number;
     commission_type?: string | number;
     commission_rate?: string | number | null;
     discount?: string | number | null;
     speed_limit?: string | number | null;
-    created_at?: number;
-    updated_at?: number;
+    created_at?: UserTimestamp;
+    updated_at?: UserTimestamp;
     t?: UserTimestamp;
     password?: string;
     invite_user_email?: string;
