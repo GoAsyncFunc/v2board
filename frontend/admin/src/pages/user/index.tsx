@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import type { PaginationConfig } from 'antd/lib/table/interface';
+import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
-import { UserList, type UserSorter } from './components/UserList';
+import { UserList } from './components/UserList';
 import UserToolbar from './components/UserToolbar';
 import type { FilterField, FilterValue } from '../../types/filter';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
@@ -41,7 +41,7 @@ export class UserPage extends React.Component<UserPageProps> {
         this.props.dispatch({ type: 'user/setState', payload: { filter: [] } });
     }
 
-    tableOnChange(pagination: PaginationConfig, sorter: UserSorter): void {
+    tableOnChange(pagination: PaginationConfig, sorter: SorterResult<UserRecord>): void {
         setPreference('user_manage_page_size', pagination.pageSize);
         this.props.dispatch({
             type: 'user/changeTable',

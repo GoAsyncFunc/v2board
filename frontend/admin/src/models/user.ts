@@ -21,7 +21,7 @@ import type { UserModuleState } from '../types/user';
 const initialState: UserModuleState = {
     userInfo: {},
     getUserInfoLoading: false,
-    pagination: { pageSize: (getPreference('user_manage_page_size') as number) || 10, current: 1 },
+    pagination: { pageSize: Number(getPreference('user_manage_page_size')) || 10, current: 1 },
     filter: [],
     users: [],
     fetchLoading: false,

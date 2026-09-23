@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
-import type { ColumnProps, PaginationConfig } from 'antd/lib/table/interface';
+import type { ColumnProps, PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import ContextMenuTable from '../../../components/common/ContextMenuTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 import type { FilterValue } from '../../../types/filter';
@@ -9,16 +9,11 @@ import type { UserGroupOption, UserModuleState, UserRecord } from '../../../type
 import { UserActionDropdown, UserContextMenu, type UserListActions } from './UserListActions';
 import { createUserListColumns } from './UserListColumns';
 
-export interface UserSorter {
-    order?: 'ascend' | 'descend';
-    columnKey?: React.Key;
-}
-
 export interface UserListProps {
     dispatch: AdminDispatch;
     user: UserModuleState;
     serverGroup: { groups: UserGroupOption[] };
-    onTableChange: (pagination: PaginationConfig, sorter: UserSorter) => void;
+    onTableChange: (pagination: PaginationConfig, sorter: SorterResult<UserRecord>) => void;
     onUserFilter: (key: string, condition: string, value: FilterValue, clear?: boolean) => void;
     onOrderFilter: (key: string, condition: string, value: FilterValue) => void;
     onResetSecret: (user?: UserRecord) => void;
@@ -59,7 +54,7 @@ export class UserList extends React.Component<UserListProps> {
                 ))}
                 scroll={{ x: 1500 }}
                 onChange={(nextPagination, _filters, sorter) =>
-                    this.props.onTableChange(nextPagination, sorter as UserSorter)
+                    this.props.onTableChange(nextPagination, sorter)
                 }
             >
                 <UserContextMenu user={this.contextUser} actions={this.listActions()} />
