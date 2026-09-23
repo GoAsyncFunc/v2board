@@ -858,7 +858,9 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(planDirectory)).includes('components'));
     assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanList.tsx'));
-    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanGroupColumn.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('components/', planDirectory))).includes('PlanGroupColumn.tsx'),
+    );
     assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanPriceColumns.ts'));
     assert.ok(
         (await fs.readdir(new URL('components/', planDirectory))).includes('PlanResourceColumns.tsx'),
@@ -920,6 +922,7 @@ test('admin pages select from the canonical root state', async () => {
     const ticketComponentsDirectory = new URL('components/', ticketDirectory);
     assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketList.tsx'));
     assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketColumns.ts'));
+    assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketMessageList.tsx'));
     await assert.rejects(fs.access(new URL('../src/pages/content/Knowledge.tsx', import.meta.url)));
     await assert.rejects(
         fs.access(new URL('../src/components/content/NoticeDisplayColumns.ts', import.meta.url)),

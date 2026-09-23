@@ -1517,15 +1517,15 @@
   },
   {
     "from": "pages/ticket/[id].tsx",
+    "to": "pages/ticket/components/TicketMessageList.tsx"
+  },
+  {
+    "from": "pages/ticket/[id].tsx",
     "to": "pages/user/components/UserEditor.tsx"
   },
   {
     "from": "pages/ticket/[id].tsx",
     "to": "styles/ticketDetail.ts"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "utils/dateTime.ts"
   },
   {
     "from": "pages/ticket/components/TicketColumns.ts",
@@ -1534,6 +1534,14 @@
   {
     "from": "pages/ticket/components/TicketList.tsx",
     "to": "pages/ticket/components/TicketColumns.ts"
+  },
+  {
+    "from": "pages/ticket/components/TicketMessageList.tsx",
+    "to": "styles/ticketDetail.ts"
+  },
+  {
+    "from": "pages/ticket/components/TicketMessageList.tsx",
+    "to": "utils/dateTime.ts"
   },
   {
     "from": "pages/ticket/index.tsx",

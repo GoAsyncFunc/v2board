@@ -5,9 +5,9 @@ import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
 import message from 'antd/lib/message';
 import { ticketDetailClassNames as styles } from '../../styles/ticketDetail';
+import TicketMessageList from './components/TicketMessageList';
 import UserEditor from '../user/components/UserEditor';
 import TrafficPanel from '../../components/user/TrafficPanel';
-import { formatDateTime } from '../../utils/dateTime';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { TicketId, TicketMessage, TicketRecord, TicketState } from '../../types/ticket';
 
@@ -18,50 +18,7 @@ interface TicketDetailChatProps {
 }
 
 export class TicketDetailChat extends React.Component<TicketDetailChatProps> {
-    chatCount = 0;
-    chatRef = React.createRef<HTMLDivElement>();
     messageRef = React.createRef<HTMLInputElement>();
-
-    constructor(props: TicketDetailChatProps) {
-        super(props);
-    }
-
-    componentDidMount() {
-        this.scrollToLatestMessage();
-    }
-
-    componentDidUpdate() {
-        const messageCount = this.props.ticket?.message?.length || 0;
-        if (this.chatCount !== messageCount) {
-            this.chatCount = messageCount;
-            this.scrollToLatestMessage();
-        }
-    }
-
-    scrollToLatestMessage() {
-        const chat = this.chatRef.current;
-        if (chat) chat.scrollTo(0, chat.scrollHeight);
-    }
-
-    renderMessage(message: TicketMessage, index: number): React.ReactNode {
-        const timestamp = (
-            <div className={`font-size-sm text-muted my-2${message.is_me ? ' text-right' : ''}`}>
-                {formatDateTime(message.created_at)}
-            </div>
-        );
-        return (
-            <div key={message.id || index}>
-                {timestamp}
-                <div className={message.is_me ? 'text-right ml-4' : 'mr-4'}>
-                    <div
-                        className={`d-inline-block px-3 py-2 mb-2 mw-100 rounded text-left ${message.is_me ? 'bg-gray-lighter' : 'bg-success-lighter'}`}
-                    >
-                        {message.message}
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     render() {
         const { ticket } = this.props;
@@ -83,12 +40,7 @@ export class TicketDetailChat extends React.Component<TicketDetailChatProps> {
                         </TrafficPanel>
                     </div>
                 </div>
-                <div
-                    ref={this.chatRef}
-                    className={`bg-white js-chat-messages block-content block-content-full text-wrap-break-word overflow-y-auto ${styles.content}`}
-                >
-                    {ticket?.message?.map((message, index) => this.renderMessage(message, index))}
-                </div>
+                <TicketMessageList messages={ticket?.message || []} />
                 <div className={`js-chat-form block-content p-2 bg-body-dark ${styles.input}`}>
                     <input
                         ref={this.messageRef}
