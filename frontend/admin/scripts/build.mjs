@@ -5,7 +5,13 @@ import { build } from 'esbuild';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(appRoot, 'dist');
-const uiVersion = process.env.UI_VERSION || 'admin-source-20260922.1326';
+
+export function createUiVersion(date = new Date()) {
+  const timestamp = date.toISOString().slice(0, 19).replace(/[-:T]/g, '');
+  return `admin-source-${timestamp.slice(0, 8)}.${timestamp.slice(8)}`;
+}
+
+const uiVersion = process.env.UI_VERSION || createUiVersion();
 
 export async function buildApp() {
   await fs.rm(destination, { recursive: true, force: true });
