@@ -60,8 +60,8 @@ try {
                 try {
                     const page = await context.newPage();
                     const errors = [];
-                    page.on('pageerror', error => errors.push(error.message));
-                    await page.route('**/*', async route => {
+                    page.on('pageerror', (error) => errors.push(error.message));
+                    await page.route('**/*', async (route) => {
                         const url = new URL(route.request().url());
                         if (url.origin !== 'http://ui.test') {
                             errors.push('External request');
@@ -74,30 +74,39 @@ try {
                             });
                         }
                         if (url.pathname === '/test.js') {
-                            return route.fulfill({ contentType: 'application/javascript', body: bundle });
+                            return route.fulfill({
+                                contentType: 'application/javascript',
+                                body: bundle,
+                            });
                         }
                         return route.abort();
                     });
                     await page.goto(`http://ui.test/?mode=${mode}&state=${state}`);
                     await page.waitForFunction(() => window.ready);
                     await page.waitForTimeout(200);
-                    screenshots.push(await page.screenshot({
-                        path: path.join(outputDirectory, `${width}-${state}-${mode}.png`),
-                        fullPage: true,
-                    }));
+                    screenshots.push(
+                        await page.screenshot({
+                            path: path.join(outputDirectory, `${width}-${state}-${mode}.png`),
+                            fullPage: true,
+                        }),
+                    );
                     if (errors.length) throw new Error(errors.join('; '));
                 } finally {
                     await context.close();
                 }
             }
 
-            const [original, restored] = screenshots.map(image => PNG.sync.read(image));
+            const [original, restored] = screenshots.map((image) => PNG.sync.read(image));
             if (original.width !== restored.width || original.height !== restored.height) {
                 throw new Error('Screenshot dimensions differ');
             }
             let differingPixels = 0;
             for (let index = 0; index < original.data.length; index += 4) {
-                if (!original.data.subarray(index, index + 4).equals(restored.data.subarray(index, index + 4))) {
+                if (
+                    !original.data
+                        .subarray(index, index + 4)
+                        .equals(restored.data.subarray(index, index + 4))
+                ) {
                     differingPixels += 1;
                 }
             }
@@ -107,7 +116,7 @@ try {
     }
 
     await fs.writeFile(path.join(outputDirectory, 'report.json'), JSON.stringify(report, null, 2));
-    if (report.some(result => result.differingPixels > 10)) {
+    if (report.some((result) => result.differingPixels > 10)) {
         throw new Error('Visual mismatch');
     }
 } finally {

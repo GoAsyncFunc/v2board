@@ -10,9 +10,9 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
-    "check:format": "prettier --check \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\"",
+    "check:format": "prettier --check \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
     "check:types": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
     "test": "node --test tests/*.test.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
     "deploy:test": "bash scripts/deploy-test.sh"
