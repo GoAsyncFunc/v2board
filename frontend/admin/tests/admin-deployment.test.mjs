@@ -28,7 +28,7 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
 
     assert.equal(
         (rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length,
-        10,
+        11,
     );
     for (const resource of [
         'assets/admin/antd.css',
@@ -37,6 +37,7 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
         'assets/admin/vendor/animate.css',
         'assets/admin/vendor/simplebar.css',
         'assets/admin/vendor/bootstrap.css',
+        'assets/admin/vendor/plugin-adapters.css',
         'assets/admin/markdown-editor.css',
         'assets/admin/umi.css',
         'settings.js',
@@ -57,7 +58,7 @@ test('Admin release template can be advanced without changing the legacy fallbac
     const firstRelease = rewriteAdminTemplate(template, '/assets/restored-first/admin/');
     const secondRelease = rewriteAdminTemplate(firstRelease, '/assets/restored-second/admin/');
 
-    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 10);
+    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 11);
     assert.doesNotMatch(secondRelease, /restored-first/);
     assert.match(secondRelease, /href="\/assets\/admin\/components\.chunk\.css\?v=/);
     assert.match(secondRelease, /src="\/assets\/admin\/umi\.js\?v=/);
@@ -98,7 +99,7 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
     assert.match(page, /ticketDetailClassNames as styles/);
 });
 
-test('Admin global stylesheet keeps icon libraries in dedicated vendor sources', async () => {
+test('Admin global stylesheet keeps third-party libraries in dedicated vendor sources', async () => {
     const globalStyles = await fs.readFile(
         new URL('../src/styles/global.css', import.meta.url),
         'utf8',
@@ -123,6 +124,10 @@ test('Admin global stylesheet keeps icon libraries in dedicated vendor sources',
         new URL('../src/styles/vendor/bootstrap.css', import.meta.url),
         'utf8',
     );
+    const pluginAdapterStyles = await fs.readFile(
+        new URL('../src/styles/vendor/plugin-adapters.css', import.meta.url),
+        'utf8',
+    );
 
     assert.doesNotMatch(globalStyles, /^\.fa-[\w-]+:before/m);
     assert.doesNotMatch(globalStyles, /^\.si-[\w-]+:before/m);
@@ -144,6 +149,13 @@ test('Admin global stylesheet keeps icon libraries in dedicated vendor sources',
     assert.match(bootstrapStyles, /^\.container-xl\s*\{/m);
     assert.match(bootstrapStyles, /^\.btn-primary\s*\{/m);
     assert.match(bootstrapStyles, /^@media print\s*\{/m);
+    assert.doesNotMatch(globalStyles, /^\.datepicker\s*\{/m);
+    assert.doesNotMatch(globalStyles, /^\.select2-container\b/m);
+    assert.doesNotMatch(globalStyles, /^\.slick-slider\s*\{/m);
+    assert.match(pluginAdapterStyles, /^\.datepicker\s*\{/m);
+    assert.match(pluginAdapterStyles, /\.select2-container\b/);
+    assert.match(pluginAdapterStyles, /\.slick-slider\b/);
+    assert.match(pluginAdapterStyles, /\.flatpickr-weekdays\s*\{/);
 });
 
 test('Admin-owned CSS assets are readable and contain no generated CSS-module hashes', async () => {
@@ -176,6 +188,10 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
         {
             source: new URL('../src/styles/vendor/bootstrap.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/bootstrap.css',
+        },
+        {
+            source: new URL('../src/styles/vendor/plugin-adapters.css', import.meta.url),
+            publishedPath: 'assets/admin/vendor/plugin-adapters.css',
         },
         {
             source: new URL('../src/styles/themes/black.css', import.meta.url),
@@ -235,7 +251,7 @@ test('Admin deploy archive and release copy include the full static build', asyn
     assert.match(script, /cp -R "\$stage\/dist\/\." "\$release\/"/);
     assert.match(
         script,
-        /assets\/admin\/antd\.css \\\s+assets\/admin\/vendor\/fontawesome\.css \\\s+assets\/admin\/vendor\/simple-line-icons\.css \\\s+assets\/admin\/vendor\/animate\.css \\\s+assets\/admin\/vendor\/simplebar\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/vendor\/bootstrap\.css \\\s+assets\/admin\/umi\.css/,
+        /assets\/admin\/antd\.css \\\s+assets\/admin\/vendor\/fontawesome\.css \\\s+assets\/admin\/vendor\/simple-line-icons\.css \\\s+assets\/admin\/vendor\/animate\.css \\\s+assets\/admin\/vendor\/simplebar\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/vendor\/bootstrap\.css \\\s+assets\/admin\/vendor\/plugin-adapters\.css \\\s+assets\/admin\/umi\.css/,
     );
     assert.match(script, /admin HTML does not reference \$resource/);
     assert.match(script, /unexpected content type \$content_type/);
@@ -249,6 +265,6 @@ test('unexpected Admin Blade asset layouts fail instead of deploying partial pat
     assert.throws(
         () =>
             rewriteAdminTemplate('<link href="/admin-build/app.css">', '/assets/restored-x/admin/'),
-        /Expected 10 source-build asset references/,
+        /Expected 11 source-build asset references/,
     );
 });

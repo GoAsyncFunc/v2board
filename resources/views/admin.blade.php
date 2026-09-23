@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/admin-build/assets/admin/vendor/simplebar.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/markdown-editor.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/vendor/bootstrap.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/vendor/plugin-adapters.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/umi.css?v={{$version}}">
     @else
         <link rel="stylesheet" href="/assets/admin/components.chunk.css?v={{$version}}">
