@@ -1,42 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as echarts from 'echarts/core';
-import type { EChartsType } from 'echarts/core';
-import { BarChart, LineChart } from 'echarts/charts';
-import {
-    DatasetComponent,
-    GridComponent,
-    LegendComponent,
-    TooltipComponent,
-    TransformComponent,
-} from 'echarts/components';
-import { LabelLayout } from 'echarts/features';
-import { SVGRenderer } from 'echarts/renderers';
 import history from '../../app/navigation';
 import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
-import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../types/monitoring';
+import type { DashboardStats } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import DashboardAlerts from './components/DashboardAlerts';
 import DashboardNavigation from './components/DashboardNavigation';
-import DashboardOverview from './components/DashboardOverview';
-import { createRankChartOption, RankChart } from './components/DashboardServerRank';
-import { createOrderChartOption } from './chartOptions';
+import DashboardCharts from './components/DashboardCharts';
+import { createRankChartOption } from './components/DashboardServerRank';
 
 export { createRankChartOption } from './components/DashboardServerRank';
-
-echarts.use([
-    LineChart,
-    BarChart,
-    GridComponent,
-    TooltipComponent,
-    LegendComponent,
-    DatasetComponent,
-    TransformComponent,
-    LabelLayout,
-    SVGRenderer,
-]);
 
 interface DashboardConfig {
     site: { currency?: string };
@@ -54,101 +29,21 @@ interface DashboardState {
 
 export class DashboardPage extends React.Component<DashboardProps, DashboardState> {
     state: DashboardState = {};
-    orderChart = React.createRef<HTMLDivElement>();
-    serverLastRankChart = React.createRef<HTMLDivElement>();
-    serverTodayRankChart = React.createRef<HTMLDivElement>();
-    userTodayRankChart = React.createRef<HTMLDivElement>();
-    userLastRankChart = React.createRef<HTMLDivElement>();
-    orderChartObject?: EChartsType;
-    serverLastRankChartObject?: EChartsType;
-    serverTodayRankChartObject?: EChartsType;
-    userTodayRankChartObject?: EChartsType;
-    userLastRankChartObject?: EChartsType;
+    dashboardCharts = React.createRef<DashboardCharts>();
 
     constructor(props: DashboardProps) {
         super(props);
         this.chartResize = this.chartResize.bind(this);
     }
 
-    renderOrderChart(data: OrderChartRecord[]): void {
-        this.orderChartObject = echarts.init(this.orderChart.current, 'vintage', {
-            renderer: 'svg',
-        });
-        this.orderChartObject.setOption(createOrderChartOption(data));
-    }
-
-    renderRankChart(
-        ref: React.RefObject<HTMLDivElement>,
-        propertyName:
-            | 'serverLastRankChartObject'
-            | 'serverTodayRankChartObject'
-            | 'userTodayRankChartObject'
-            | 'userLastRankChartObject',
-        data: RankChartRecord[],
-        getLabel: (item: RankChartRecord) => string | undefined,
-    ): void {
-        const chart = echarts.init(ref.current);
-        this[propertyName] = chart;
-        chart.setOption(createRankChartOption(data, getLabel));
-    }
-
     chartResize(): void {
-        [
-            this.orderChartObject,
-            this.serverLastRankChartObject,
-            this.serverTodayRankChartObject,
-            this.userTodayRankChartObject,
-            this.userLastRankChartObject,
-        ].forEach((chart) => chart?.resize());
+        this.dashboardCharts.current?.resizeCharts();
     }
 
     async componentDidMount(): Promise<void> {
         await this.checkQueue();
         this.props.dispatch({ type: 'stat/getOverride' });
-        this.props.dispatch({
-            type: 'stat/getOrder',
-            complete: (data: OrderChartRecord[]) => this.renderOrderChart(data),
-        });
-        this.props.dispatch({
-            type: 'stat/getServerLastRank',
-            complete: (data: RankChartRecord[]) =>
-                this.renderRankChart(
-                    this.serverLastRankChart,
-                    'serverLastRankChartObject',
-                    data,
-                    (item) => item.server_name,
-                ),
-        });
-        this.props.dispatch({
-            type: 'stat/getServerTodayRank',
-            complete: (data: RankChartRecord[]) =>
-                this.renderRankChart(
-                    this.serverTodayRankChart,
-                    'serverTodayRankChartObject',
-                    data,
-                    (item) => item.server_name,
-                ),
-        });
-        this.props.dispatch({
-            type: 'stat/getUserTodayRank',
-            complete: (data: RankChartRecord[]) =>
-                this.renderRankChart(
-                    this.userTodayRankChart,
-                    'userTodayRankChartObject',
-                    data,
-                    (item) => item.email,
-                ),
-        });
-        this.props.dispatch({
-            type: 'stat/getUserLastRank',
-            complete: (data: RankChartRecord[]) =>
-                this.renderRankChart(
-                    this.userLastRankChart,
-                    'userLastRankChartObject',
-                    data,
-                    (item) => item.email,
-                ),
-        });
+        this.dashboardCharts.current?.loadCharts();
         this.props.dispatch({ type: 'config/fetch', key: 'site' });
         window.addEventListener('resize', this.chartResize);
     }
@@ -193,25 +88,12 @@ export class DashboardPage extends React.Component<DashboardProps, DashboardStat
                     onOpenCommissions={() => this.showPendingCommissionOrders()}
                 />
                 <DashboardNavigation />
-                <DashboardOverview
+                <DashboardCharts
+                    ref={this.dashboardCharts}
                     stat={stat}
                     currency={config.site.currency}
-                    orderChart={this.orderChart}
+                    dispatch={this.props.dispatch}
                 />
-                <div className="row mt-xl-3">
-                    <RankChart
-                        title="今日节点流量排行"
-                        chartRef={this.serverTodayRankChart}
-                        extraClass="pr-xl-1"
-                    />
-                    <RankChart title="昨日节点流量排行" chartRef={this.serverLastRankChart} />
-                    <RankChart
-                        title="今日用户流量排行"
-                        chartRef={this.userTodayRankChart}
-                        extraClass="pr-xl-1"
-                    />
-                    <RankChart title="昨日用户流量排行" chartRef={this.userLastRankChart} />
-                </div>
             </MainLayout>
         );
     }

@@ -114,6 +114,8 @@ async function loadDashboard() {
                         }, []),
                     }),
                 };
+            if (id === './components/DashboardCharts')
+                return { __esModule: true, default: 'DashboardCharts' };
             if (id.includes('MoneyDisplay'))
                 return {
                     formatIncome: (value) => `income:${value}`,
@@ -148,6 +150,72 @@ async function loadDashboard() {
         },
     });
     return { ...module.exports, actions, historyEvents: actions, charts, listeners };
+}
+
+async function loadDashboardCharts() {
+    const source = await fs.readFile(
+        new URL('../src/pages/dashboard/components/DashboardCharts.tsx', import.meta.url),
+        'utf8',
+    );
+    const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+    const charts = [];
+    const module = { exports: {} };
+    const React = createReact();
+    vm.runInNewContext(code, {
+        module,
+        exports: module.exports,
+        React,
+        require(id) {
+            if (id === 'react') return React;
+            if (id === 'echarts/core')
+                return {
+                    use() {},
+                    init: (element, theme, options) => {
+                        const chart = {
+                            element,
+                            theme,
+                            options,
+                            setOption(option) {
+                                chart.option = option;
+                            },
+                            resize() {
+                                chart.resized = true;
+                            },
+                        };
+                        charts.push(chart);
+                        return chart;
+                    },
+                };
+            if (id === 'echarts/charts') return { BarChart: 'BarChart', LineChart: 'LineChart' };
+            if (id === 'echarts/components')
+                return {
+                    DatasetComponent: 'Dataset',
+                    GridComponent: 'Grid',
+                    LegendComponent: 'Legend',
+                    TooltipComponent: 'Tooltip',
+                    TransformComponent: 'Transform',
+                };
+            if (id === 'echarts/features') return { LabelLayout: 'LabelLayout' };
+            if (id === 'echarts/renderers') return { SVGRenderer: 'SVGRenderer' };
+            if (id.includes('DashboardOverview')) return 'DashboardOverview';
+            if (id.includes('DashboardServerRank'))
+                return {
+                    createRankChartOption: (data, getLabel) => ({
+                        yAxis: { data: [...data].reverse().map(getLabel) },
+                        series: [{ data: [...data].reverse().map((item) => item.total) }],
+                    }),
+                    RankChart: 'RankChart',
+                };
+            if (id.includes('chartOptions'))
+                return {
+                    createOrderChartOption: (data) => ({
+                        series: [{ data: data.map((item) => item.value) }],
+                    }),
+                };
+            throw new Error(id);
+        },
+    });
+    return { DashboardCharts: module.exports.default, charts };
 }
 
 async function loadDashboardAlerts() {
@@ -237,19 +305,28 @@ test('Dashboard builds ranked chart options in reverse display order', async () 
     assert.equal(option.tooltip.formatter([{ value: 3 }]), '3 GB');
 });
 
-test('Dashboard dispatches all stat/config loads and cleans up resize listener', async () => {
+test('Dashboard preserves post-queue request order and resize listener lifecycle', async () => {
     const runtime = await loadDashboard();
     const actions = [];
+    const chartRuntime = await loadDashboardCharts();
     const page = new runtime.DashboardPage({
         dispatch: (action) => actions.push(action),
         stat: {},
         config: { site: { currency: '¥' } },
     });
-    page.orderChart.current = {};
-    page.serverLastRankChart.current = {};
-    page.serverTodayRankChart.current = {};
-    page.userTodayRankChart.current = {};
-    page.userLastRankChart.current = {};
+    const chartWorkspace = new chartRuntime.DashboardCharts({
+        dispatch: (action) => actions.push(action),
+        stat: {},
+    });
+    for (const ref of [
+        chartWorkspace.orderChart,
+        chartWorkspace.serverLastRankChart,
+        chartWorkspace.serverTodayRankChart,
+        chartWorkspace.userTodayRankChart,
+        chartWorkspace.userLastRankChart,
+    ])
+        ref.current = {};
+    page.dashboardCharts.current = chartWorkspace;
 
     await page.componentDidMount();
     assert.deepEqual(
@@ -273,12 +350,63 @@ test('Dashboard dispatches all stat/config loads and cleans up resize listener',
     actions
         .find((action) => action.type === 'stat/getServerTodayRank')
         .complete([{ server_name: 'Node A', total: 4 }]);
-    assert.equal(runtime.charts.length, 2);
-    assert.equal(runtime.charts[0].option.series[0].data[0], 3);
-    assert.equal(runtime.charts[1].option.yAxis.data[0], 'Node A');
+    assert.equal(chartRuntime.charts.length, 2);
+    assert.equal(chartRuntime.charts[0].option.series[0].data[0], 3);
+    assert.equal(chartRuntime.charts[1].option.yAxis.data[0], 'Node A');
 
+    page.chartResize();
+    assert.equal(
+        chartRuntime.charts.every((chart) => chart.resized),
+        true,
+    );
     page.componentWillUnmount();
     assert.equal(runtime.listeners.has('resize'), false);
+});
+
+test('DashboardCharts owns chart panels, data callbacks and resize behavior', async () => {
+    const runtime = await loadDashboardCharts();
+    const actions = [];
+    const charts = new runtime.DashboardCharts({
+        dispatch: (action) => actions.push(action),
+        stat: {},
+        currency: '¥',
+    });
+    for (const ref of [
+        charts.orderChart,
+        charts.serverLastRankChart,
+        charts.serverTodayRankChart,
+        charts.userTodayRankChart,
+        charts.userLastRankChart,
+    ])
+        ref.current = {};
+
+    const tree = charts.render();
+    assert.equal(nodes(tree, (node) => node.type === 'DashboardOverview').length, 1);
+    assert.equal(nodes(tree, (node) => node.type === 'RankChart').length, 4);
+    charts.loadCharts();
+    assert.deepEqual(
+        actions.map((action) => action.type),
+        [
+            'stat/getOrder',
+            'stat/getServerLastRank',
+            'stat/getServerTodayRank',
+            'stat/getUserTodayRank',
+            'stat/getUserLastRank',
+        ],
+    );
+    for (const action of actions) {
+        action.complete(
+            action.type === 'stat/getOrder'
+                ? [{ type: 'paid', date: '2026-09-19', value: 3 }]
+                : [{ total: 4, server_name: 'Node A', email: 'user@example.test' }],
+        );
+    }
+    assert.equal(runtime.charts.length, 5);
+    charts.resizeCharts();
+    assert.equal(
+        runtime.charts.every((chart) => chart.resized),
+        true,
+    );
 });
 
 test('Dashboard pending commission alert keeps the original order filters and route', async () => {

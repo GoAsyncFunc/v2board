@@ -724,6 +724,18 @@
     "to": "pages/coupon/components/CouponList.tsx"
   },
   {
+    "from": "pages/dashboard/components/DashboardCharts.tsx",
+    "to": "pages/dashboard/chartOptions.ts"
+  },
+  {
+    "from": "pages/dashboard/components/DashboardCharts.tsx",
+    "to": "pages/dashboard/components/DashboardOverview.tsx"
+  },
+  {
+    "from": "pages/dashboard/components/DashboardCharts.tsx",
+    "to": "pages/dashboard/components/DashboardServerRank.tsx"
+  },
+  {
     "from": "pages/dashboard/components/DashboardNavigation.tsx",
     "to": "app/navigation.ts"
   },
@@ -745,19 +757,15 @@
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/chartOptions.ts"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
     "to": "pages/dashboard/components/DashboardAlerts.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardNavigation.tsx"
+    "to": "pages/dashboard/components/DashboardCharts.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardOverview.tsx"
+    "to": "pages/dashboard/components/DashboardNavigation.tsx"
   },
   {
     "from": "pages/dashboard/index.tsx",

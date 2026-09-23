@@ -843,6 +843,7 @@ test('admin pages select from the canonical root state', async () => {
     const dashboardComponentsDirectory = new URL('components/', dashboardDirectory);
     for (const component of [
         'DashboardAlerts.tsx',
+        'DashboardCharts.tsx',
         'DashboardNavigation.tsx',
         'DashboardOverview.tsx',
         'DashboardServerRank.tsx',
