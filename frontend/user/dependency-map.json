@@ -849,6 +849,10 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
+    "to": "components/auth/AuthBrand.tsx"
+  },
+  {
+    "from": "pages/auth/ForgetPassword.tsx",
     "to": "components/common/LanguageSelector.tsx"
   },
   {
@@ -870,6 +874,10 @@
   {
     "from": "pages/auth/Login.tsx",
     "to": "app/routerHistory.ts"
+  },
+  {
+    "from": "pages/auth/Login.tsx",
+    "to": "components/auth/AuthBrand.tsx"
   },
   {
     "from": "pages/auth/Login.tsx",

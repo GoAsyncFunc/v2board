@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import history from '../../app/routerHistory';
+import AuthBrand from '../../components/auth/AuthBrand';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
@@ -64,28 +65,11 @@ export class UserLogin extends React.Component<LoginPageProps> {
                                     <div className="row no-gutters">
                                         <div className="col-md-12 order-md-1 bg-white">
                                             <div className="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
-                                                <div className="mb-3 text-center">
-                                                    <a
-                                                        className="font-size-h1"
-                                                        href="javascript:void(0);"
-                                                    >
-                                                        {logo ? (
-                                                            <img
-                                                                className="v2board-logo mb-3"
-                                                                src={logo}
-                                                            />
-                                                        ) : (
-                                                            <span className="text-dark">
-                                                                {title || 'V2Board'}
-                                                            </span>
-                                                        )}
-                                                    </a>
-                                                    {description && (
-                                                        <p className="font-size-sm text-muted mb-3">
-                                                            {description}
-                                                        </p>
-                                                    )}
-                                                </div>
+                                                <AuthBrand
+                                                    logo={logo}
+                                                    title={title}
+                                                    description={description}
+                                                />
                                                 <div className="form-group">
                                                     <input
                                                         type="text"
