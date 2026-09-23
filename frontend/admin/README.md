@@ -40,6 +40,7 @@ npm run build
 - `app.js.map`：source map
 - `source-build.json`：本次构建输入清单
 - 从锁定版本 `antd` 依赖发布的 `assets/admin/antd.css`
+- 从源码 vendor 样式发布的 `assets/admin/vendor/fontawesome.css` 和 `assets/admin/vendor/simple-line-icons.css`
 - 从 `src/styles/` 发布的全局和主题样式
 - `assets/admin/markdown-editor.css`：由锁定版本 `react-markdown-editor-lite` 的官方样式生成，并按项目 Browserslist 目标补齐浏览器前缀
 
@@ -81,7 +82,7 @@ src/pages/       按业务域组织的管理端页面
 src/routes/      管理端路由表和路由类型
 src/runtime/     DVA、插件和路由运行时
 src/services/    API 请求与下载服务
-src/styles/      Admin 全局样式、主题样式和样式常量
+src/styles/      Admin 自有全局样式、第三方 vendor 样式、主题样式和样式常量
 src/types/       API、状态和业务实体类型
 src/utils/       浏览器、日期和站点工具
 tests/           独立回归测试与 fixture

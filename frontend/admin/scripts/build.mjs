@@ -14,6 +14,8 @@ export const antdStylesheetPath = 'node_modules/antd/dist/antd.css';
 export const antdStylesheetOutput = 'assets/admin/antd.css';
 const stylesheetBuildEntries = [
     ['src/styles/global.css', 'assets/admin/umi.css'],
+    ['src/styles/vendor/fontawesome.css', 'assets/admin/vendor/fontawesome.css'],
+    ['src/styles/vendor/simple-line-icons.css', 'assets/admin/vendor/simple-line-icons.css'],
     ['src/styles/themes/black.css', 'assets/admin/theme/black.css'],
     ['src/styles/themes/darkblue.css', 'assets/admin/theme/darkblue.css'],
     ['src/styles/themes/default.css', 'assets/admin/theme/default.css'],
@@ -104,6 +106,8 @@ export async function buildApp() {
                 standaloneBuild: true,
                 stylesheets: [
                     antdStylesheetOutput,
+                    'assets/admin/vendor/fontawesome.css',
+                    'assets/admin/vendor/simple-line-icons.css',
                     markdownEditorStylesheetOutput,
                     'assets/admin/umi.css',
                 ],

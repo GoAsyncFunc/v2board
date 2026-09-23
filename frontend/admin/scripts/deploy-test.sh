@@ -109,6 +109,8 @@ if ! page=$(curl --max-time 30 -fsS "$site_url$admin_path"); then
 fi
 for resource in \
   assets/admin/antd.css \
+  assets/admin/vendor/fontawesome.css \
+  assets/admin/vendor/simple-line-icons.css \
   assets/admin/markdown-editor.css \
   assets/admin/umi.css \
   settings.js \
