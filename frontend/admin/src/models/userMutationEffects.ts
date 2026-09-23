@@ -31,11 +31,11 @@ const endpoint = (action: string): string => `/${window.settings.secure_path}/us
 
 export function* update({ params, callback }: UpdateAction, { put }: UserTools): UserEffect {
     yield put({ type: 'setState', payload: { updateLoading: true } });
-    params.transfer_enable = 1073741824 * (params.transfer_enable as number);
-    params.u = Math.round(1073741824 * (params.u as number));
-    params.d = Math.round(1073741824 * (params.d as number));
-    params.balance = Math.round(100 * (params.balance as number));
-    params.commission_balance = Math.round(100 * (params.commission_balance as number));
+    params.transfer_enable = 1073741824 * Number(params.transfer_enable);
+    params.u = Math.round(1073741824 * Number(params.u));
+    params.d = Math.round(1073741824 * Number(params.d));
+    params.balance = Math.round(100 * Number(params.balance));
+    params.commission_balance = Math.round(100 * Number(params.commission_balance));
     if (params.invite_user) delete params.invite_user;
     const updateForm = Object.entries(params).reduce<FormRecord>((form, [field, value]) => {
         form[field] = value as FormValue;

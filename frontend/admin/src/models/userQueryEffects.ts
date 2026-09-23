@@ -32,10 +32,10 @@ const userEndpoint = (action: string): string => `/${window.settings.secure_path
 export function formatUser(user: UserRecord, includeTotal = false): UserRecord {
     user.password = '';
     for (const field of ['transfer_enable', 'u', 'd'] as const)
-        user[field] = ((user[field] as number) / 1073741824).toFixed(2);
-    if (includeTotal) user.total_used = ((user.total_used as number) / 1073741824).toFixed(2);
-    user.commission_balance = ((user.commission_balance as number) / 100).toFixed(2);
-    user.balance = ((user.balance as number) / 100).toFixed(2);
+        user[field] = (Number(user[field]) / 1073741824).toFixed(2);
+    if (includeTotal) user.total_used = (Number(user.total_used) / 1073741824).toFixed(2);
+    user.commission_balance = (Number(user.commission_balance) / 100).toFixed(2);
+    user.balance = (Number(user.balance) / 100).toFixed(2);
     return user;
 }
 
