@@ -5,16 +5,13 @@ import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import { formatMessage } from '../../locales/i18n';
-import { isExpired, parseJson } from '../../utils/siteHelpers';
+import { isExpired } from '../../utils/siteHelpers';
 import { router } from '../../app/navigation';
-import {
-    PeriodSelector,
-    couponDiscount,
-    totalAmount,
-} from '../../components/commerce/checkout/Pricing';
-import { CouponInput, CouponDiscount } from '../../components/commerce/checkout/Coupon';
-import OrderSummary from '../../components/commerce/checkout/OrderSummary';
-import type { PlanFeature, PlanPeriod } from '../../types/plan';
+import { couponDiscount, totalAmount } from '../../components/commerce/checkout/Pricing';
+import { CouponDiscount } from '../../components/commerce/checkout/Coupon';
+import PlanPurchaseDetails from '../../components/subscription/checkout/PlanPurchaseDetails';
+import PlanOrderSidebar from '../../components/subscription/checkout/PlanOrderSidebar';
+import type { PlanPeriod } from '../../types/plan';
 import type { UserDispatch, UserRootState } from '../../types/store';
 
 const message = (id: string): string => formatMessage({ id });
@@ -104,7 +101,6 @@ export class PlanDetailPage extends React.Component<PlanDetailProps> {
     render() {
         const { plan, selectPeriod: period, fetchLoading: loading } = this.props.plan;
         const { config } = this.props.comm;
-        const content = parseJson<PlanFeature[]>(plan.content || '');
         return (
             <MainLayout {...this.props} title={message('配置订阅')}>
                 <main id="main-container">
@@ -115,75 +111,27 @@ export class PlanDetailPage extends React.Component<PlanDetailProps> {
                             </div>
                         ) : plan.renew || this.props.user.userInfo.plan_id !== plan.id ? (
                             <div className="row" id="cashier">
-                                <div className="col-md-8 col-sm-12">
-                                    <div
-                                        className="block block-link-pop block-rounded py-3"
-                                        style={{ backgroundColor: '#fff' }}
-                                    >
-                                        <h4 className="mb-0 px-3">{plan.name}</h4>
-                                        {content && typeof content === 'object' ? (
-                                            <div className="v2board-plan-content px-3">
-                                                {content.map((feature, index) => (
-                                                    <div
-                                                        key={index}
-                                                        style={{
-                                                            textAlign: 'left',
-                                                            marginBottom: 8,
-                                                            opacity: feature.support ? 1 : 0.3,
-                                                        }}
-                                                    >
-                                                        <i
-                                                            className={
-                                                                feature.support
-                                                                    ? 'si si-check text-primary'
-                                                                    : 'si si-close text-primary'
-                                                            }
-                                                            style={{
-                                                                fontSize: 21,
-                                                                verticalAlign: 'sub',
-                                                            }}
-                                                        />
-                                                        <span style={{ paddingLeft: 8 }}>
-                                                            {feature.feature}
-                                                        </span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        ) : (
-                                            <div
-                                                dangerouslySetInnerHTML={{
-                                                    __html: plan.content || '',
-                                                }}
-                                                className="v2board-plan-content"
-                                            />
-                                        )}
-                                    </div>
-                                    <PeriodSelector
-                                        plan={plan}
-                                        period={period}
-                                        currencySymbol={config.currency_symbol}
-                                        onSelect={(selectPeriod) =>
-                                            this.props.dispatch({
-                                                type: 'plan/setState',
-                                                payload: { selectPeriod },
-                                            })
-                                        }
-                                    />
-                                </div>
-                                <div className="col-md-4 col-sm-12">
-                                    <CouponInput
-                                        inputRef={this.couponInput}
-                                        onCheck={() => this.couponCheck()}
-                                    />
-                                    <OrderSummary
-                                        plan={plan}
-                                        period={period}
-                                        coupon={this.props.coupon.coupon}
-                                        config={config}
-                                        saving={this.props.order.saveLoading}
-                                        onOrder={() => this.preOrder()}
-                                    />
-                                </div>
+                                <PlanPurchaseDetails
+                                    plan={plan}
+                                    period={period}
+                                    currencySymbol={config.currency_symbol}
+                                    onSelectPeriod={(selectPeriod) =>
+                                        this.props.dispatch({
+                                            type: 'plan/setState',
+                                            payload: { selectPeriod },
+                                        })
+                                    }
+                                />
+                                <PlanOrderSidebar
+                                    plan={plan}
+                                    period={period}
+                                    coupon={this.props.coupon.coupon}
+                                    config={config}
+                                    couponInput={this.couponInput}
+                                    saving={this.props.order.saveLoading}
+                                    onCheckCoupon={() => this.couponCheck()}
+                                    onOrder={() => this.preOrder()}
+                                />
                             </div>
                         ) : (
                             <div className="row">

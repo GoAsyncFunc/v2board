@@ -500,6 +500,22 @@
     "to": "utils/subscription.ts"
   },
   {
+    "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
+    "to": "components/commerce/checkout/Coupon.tsx"
+  },
+  {
+    "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
+    "to": "components/commerce/checkout/OrderSummary.tsx"
+  },
+  {
+    "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
+    "to": "components/commerce/checkout/Pricing.tsx"
+  },
+  {
+    "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
     "from": "components/support/KnowledgeArticleList.tsx",
     "to": "components/common/DateTimeDisplay.ts"
   },
@@ -1081,11 +1097,15 @@
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "components/commerce/checkout/OrderSummary.tsx"
+    "to": "components/commerce/checkout/Pricing.tsx"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "components/commerce/checkout/Pricing.tsx"
+    "to": "components/subscription/checkout/PlanOrderSidebar.tsx"
+  },
+  {
+    "from": "pages/subscription/PlanDetail.tsx",
+    "to": "components/subscription/checkout/PlanPurchaseDetails.tsx"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",

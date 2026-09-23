@@ -41,6 +41,8 @@ test('user business components live outside the vendor compatibility layer', asy
         '../src/components/auth/RegistrationForm.tsx',
         '../src/components/common/Recaptcha.tsx',
         '../src/components/subscription/SubscribeImporter.tsx',
+        '../src/components/subscription/checkout/PlanOrderSidebar.tsx',
+        '../src/components/subscription/checkout/PlanPurchaseDetails.tsx',
         '../src/components/account/TelegramBindModal.tsx',
         '../src/components/dashboard/DashboardSubscription.tsx',
         '../src/components/common/LoadingContainer.tsx',
@@ -360,6 +362,18 @@ test('user root state names every registered business model', async () => {
         assert.match(knowledge, new RegExp(`components/support/${component}`));
     }
     assert.doesNotMatch(knowledge, /markdown-it|antd\/lib\/(drawer|message)/);
+
+    const planDetail = await fs.readFile(
+        new URL('../src/pages/subscription/PlanDetail.tsx', import.meta.url),
+        'utf8',
+    );
+    for (const component of ['PlanOrderSidebar', 'PlanPurchaseDetails']) {
+        assert.match(planDetail, new RegExp(`components/subscription/checkout/${component}`));
+    }
+    assert.doesNotMatch(
+        planDetail,
+        /dangerouslySetInnerHTML|components\/commerce\/checkout\/OrderSummary/,
+    );
 });
 
 test('user Redux selectors share the canonical root state contract', async () => {
