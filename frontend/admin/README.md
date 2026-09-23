@@ -40,8 +40,9 @@ npm run build
 - `app.js.map`：source map
 - `source-build.json`：本次构建输入清单
 - 从 `public/` 复制的静态资源，以及从 `src/styles/` 发布的全局和主题样式
+- `assets/admin/markdown-editor.css`：由锁定版本 `react-markdown-editor-lite` 的官方样式生成，并按项目 Browserslist 目标补齐浏览器前缀
 
-构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，保持现有运行时 URL 不变。
+构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，保持现有运行时 URL 不变。Markdown 编辑器样式由其固定 npm 依赖单独提供；旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变。
 
 ## 格式化
 
@@ -62,7 +63,7 @@ npm run check:types
 npm run build
 ```
 
-当前管理端回归测试为 1128 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归测试为 1129 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 ## 目录结构
 

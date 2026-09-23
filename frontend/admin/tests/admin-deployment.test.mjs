@@ -26,9 +26,10 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
     const release = '/assets/restored-20260923-120000/admin/';
     const rewritten = rewriteAdminTemplate(template, release);
 
-    assert.equal((rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length, 4);
+    assert.equal((rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length, 5);
     for (const resource of [
         'assets/admin/components.chunk.css',
+        'assets/admin/markdown-editor.css',
         'assets/admin/umi.css',
         'settings.js',
         'app.js',
@@ -48,17 +49,14 @@ test('Admin release template can be advanced without changing the legacy fallbac
     const firstRelease = rewriteAdminTemplate(template, '/assets/restored-first/admin/');
     const secondRelease = rewriteAdminTemplate(firstRelease, '/assets/restored-second/admin/');
 
-    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 4);
+    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 5);
     assert.doesNotMatch(secondRelease, /restored-first/);
     assert.match(secondRelease, /href="\/assets\/admin\/components\.chunk\.css\?v=/);
     assert.match(secondRelease, /src="\/assets\/admin\/umi\.js\?v=/);
 });
 
 test('Admin build publishes semantic ticket CSS with its matching React class names', async () => {
-    const css = await fs.readFile(
-        new URL('../src/styles/global.css', import.meta.url),
-        'utf8',
-    );
+    const css = await fs.readFile(new URL('../src/styles/global.css', import.meta.url), 'utf8');
     const page = await fs.readFile(
         new URL('../src/pages/ticket/[id].tsx', import.meta.url),
         'utf8',
@@ -99,7 +97,10 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
             source: new URL('../public/assets/admin/components.chunk.css', import.meta.url),
             publishedPath: 'assets/admin/components.chunk.css',
         },
-        { source: new URL('../src/styles/global.css', import.meta.url), publishedPath: 'assets/admin/umi.css' },
+        {
+            source: new URL('../src/styles/global.css', import.meta.url),
+            publishedPath: 'assets/admin/umi.css',
+        },
         {
             source: new URL('../src/styles/themes/black.css', import.meta.url),
             publishedPath: 'assets/admin/theme/black.css',
@@ -156,7 +157,10 @@ test('Admin deploy archive and release copy include the full static build', asyn
 
     assert.match(script, /tar -czf "\$archive" -C "\$local_stage" dist admin\.blade\.php/);
     assert.match(script, /cp -R "\$stage\/dist\/\." "\$release\/"/);
-    assert.match(script, /assets\/admin\/components\.chunk\.css \\\s+assets\/admin\/umi\.css/);
+    assert.match(
+        script,
+        /assets\/admin\/components\.chunk\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/umi\.css/,
+    );
     assert.match(script, /admin HTML does not reference \$resource/);
     assert.match(script, /unexpected content type \$content_type/);
     assert.match(script, /rollback_release\(\)/);
@@ -169,6 +173,6 @@ test('unexpected Admin Blade asset layouts fail instead of deploying partial pat
     assert.throws(
         () =>
             rewriteAdminTemplate('<link href="/admin-build/app.css">', '/assets/restored-x/admin/'),
-        /Expected 4 source-build asset references/,
+        /Expected 5 source-build asset references/,
     );
 });
