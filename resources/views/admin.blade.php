@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="/admin-build/assets/admin/antd.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/vendor/fontawesome.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/vendor/simple-line-icons.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/vendor/animate.css?v={{$version}}">
+        <link rel="stylesheet" href="/admin-build/assets/admin/vendor/simplebar.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/markdown-editor.css?v={{$version}}">
         <link rel="stylesheet" href="/admin-build/assets/admin/umi.css?v={{$version}}">
     @else

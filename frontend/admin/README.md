@@ -40,7 +40,7 @@ npm run build
 - `app.js.map`：source map
 - `source-build.json`：本次构建输入清单
 - 从锁定版本 `antd` 依赖发布的 `assets/admin/antd.css`
-- 从源码 vendor 样式发布的 `assets/admin/vendor/fontawesome.css` 和 `assets/admin/vendor/simple-line-icons.css`
+- 从源码 vendor 样式发布的 Font Awesome、Simple Line Icons、动画库和 SimpleBar 核心样式
 - 从 `src/styles/` 发布的全局和主题样式
 - `assets/admin/markdown-editor.css`：由锁定版本 `react-markdown-editor-lite` 的官方样式生成，并按项目 Browserslist 目标补齐浏览器前缀
 

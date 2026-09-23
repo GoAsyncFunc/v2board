@@ -111,6 +111,8 @@ for resource in \
   assets/admin/antd.css \
   assets/admin/vendor/fontawesome.css \
   assets/admin/vendor/simple-line-icons.css \
+  assets/admin/vendor/animate.css \
+  assets/admin/vendor/simplebar.css \
   assets/admin/markdown-editor.css \
   assets/admin/umi.css \
   settings.js \
