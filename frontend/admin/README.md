@@ -50,7 +50,7 @@ npm run format
 npm run check:format
 ```
 
-格式化范围仅包含本项目的 `src/**/*.ts` 和 `src/**/*.tsx`，规则由 `.prettierrc.json` 固定。
+格式化范围包含本项目的 `src/**/*.ts`、`src/**/*.tsx` 和 `public/assets/admin/**/*.css`，规则由 `.prettierrc.json` 与根目录 `.editorconfig` 共同决定。
 
 ## 测试
 
@@ -68,6 +68,7 @@ npm run build
 
 ```text
 public/          独立静态资源和 settings.js
+public/assets/   Admin 样式及按字体家族整理的字体资源
 scripts/         构建、开发、对照检查、部署和线上验证工具
 src/app/         启动和状态容器
 src/components/  跨页面复用的管理端组件
