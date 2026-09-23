@@ -1788,6 +1788,10 @@
     "to": "runtime/pluginRuntime.ts"
   },
   {
+    "from": "runtime/routeRenderer.tsx",
+    "to": "runtime/routeInitialProps.tsx"
+  },
+  {
     "from": "services/request.ts",
     "to": "config/siteSettings.ts"
   },

@@ -32,6 +32,8 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/pluginRuntime.ts',
         '../src/runtime/routerBindings.tsx',
         '../src/runtime/routeRenderer.tsx',
+        '../src/runtime/routeInitialProps.tsx',
+        '../src/runtime/routeTypes.ts',
         '../src/services/fetchResponse.ts',
         '../src/services/request.ts',
         '../src/services/download.ts',
@@ -527,6 +529,10 @@ test('admin plugin runtime separates callable hooks from route and configuration
         new URL('../src/runtime/routeRenderer.tsx', import.meta.url),
         'utf8',
     );
+    const routeTypes = await fs.readFile(
+        new URL('../src/runtime/routeTypes.ts', import.meta.url),
+        'utf8',
+    );
     const bootstrap = await fs.readFile(
         new URL('../src/app/bootstrap.tsx', import.meta.url),
         'utf8',
@@ -534,7 +540,8 @@ test('admin plugin runtime separates callable hooks from route and configuration
     assert.match(pluginRuntime, /export type PluginCallback/);
     assert.match(pluginRuntime, /export interface PluginConfiguration/);
     assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
-    assert.match(routeRuntime, /Partial<AdminRootState>/);
+    assert.match(routeTypes, /Partial<AdminRootState>/);
+    assert.match(routeRuntime, /from ['"]\.\/routeTypes['"]/);
     assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
     assert.match(bootstrap, /apply<React\.ReactElement>/);
     assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);

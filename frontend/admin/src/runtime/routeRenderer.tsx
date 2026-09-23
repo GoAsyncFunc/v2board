@@ -1,40 +1,25 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import type { RouteComponentProps, RouteProps, SwitchProps } from 'react-router-dom';
+import type { RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
-import type { AdminRouteComponent, AdminRouteConfig } from '../routes/types';
-import type { AdminRootState, AdminStore } from '../types/store';
+import type { AdminRouteConfig } from '../routes/types';
+import type {
+    DynamicRouteProps,
+    RouteComponentStatics,
+    RouteMatchProps,
+    RouteRenderFunction,
+    RouteRenderProps,
+} from './routeTypes';
+import { hasInitialPropsLoaded, withInitialProps } from './routeInitialProps';
 
-export type DynamicRouteProps = Partial<AdminRootState> & {
-    store?: AdminStore;
-    fetchingProps?: boolean;
-    render?: RouteRenderFunction;
-};
-type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;
+export type { DynamicRouteProps, InitialRoutePropsContext, RouteRenderProps } from './routeTypes';
 
-export interface InitialRoutePropsContext extends DynamicRouteProps {
-    isServer: false;
-    route: RouteMatchProps['match'];
-    location: RouteMatchProps['location'];
-    prevInitialProps: DynamicRouteProps;
-}
-
-interface RouteComponentStatics {
-    getInitialProps?: (
-        context: InitialRoutePropsContext,
-    ) => Promise<DynamicRouteProps | null | undefined>;
-    wrappedWithInitialProps?: boolean;
-}
-
-export type RouteRenderProps = RouteMatchProps & DynamicRouteProps;
-type RouteRenderFunction = (props: RouteRenderProps) => React.ReactNode;
 type RenderRouteProps = Omit<RouteProps, 'render'> &
     DynamicRouteProps & {
         render: RouteRenderFunction;
     };
 
 const routeComponentCache = new WeakMap<AdminRouteConfig, React.ElementType>();
-let initialPropsLoaded = false;
 
 function renderRoute({
     path,
@@ -80,65 +65,6 @@ function createNestedRouteComponent(route: AdminRouteConfig): React.ElementType 
     return NestedRoute;
 }
 
-interface InitialPropsRouteState {
-    extraProps: DynamicRouteProps & { fetchingProps?: boolean };
-}
-
-function withInitialProps(
-    Component: AdminRouteComponent,
-    extraProps: DynamicRouteProps,
-    routeProps: DynamicRouteProps,
-): AdminRouteComponent {
-    const componentStatics = Component as RouteComponentStatics;
-    if (componentStatics.wrappedWithInitialProps) return Component;
-
-    class InitialPropsRoute extends React.Component<RouteMatchProps, InitialPropsRouteState> {
-        static wrappedWithInitialProps = true;
-        wrappedWithInitialProps = true;
-        state: InitialPropsRouteState = { extraProps: { ...extraProps } };
-
-        constructor(props: RouteMatchProps) {
-            super(props);
-            initialPropsLoaded =
-                initialPropsLoaded || !window.g_useSSR || props.history?.action !== 'POP';
-        }
-
-        componentDidMount(): void {
-            if (initialPropsLoaded) void this.loadInitialProps();
-        }
-
-        componentDidUpdate(previousProps: RouteMatchProps): void {
-            if (previousProps.location.pathname !== this.props.location.pathname) {
-                initialPropsLoaded = true;
-                void this.loadInitialProps();
-            }
-        }
-
-        componentWillUnmount(): void {
-            initialPropsLoaded = true;
-        }
-
-        async loadInitialProps(): Promise<void> {
-            this.setState({ extraProps: { ...this.state.extraProps, fetchingProps: true } });
-            const nextProps = await componentStatics.getInitialProps?.({
-                isServer: false,
-                route: this.props.match,
-                location: this.props.location,
-                prevInitialProps: this.state.extraProps,
-                ...routeProps,
-            });
-            this.setState({ extraProps: { ...(nextProps || {}), fetchingProps: false } });
-        }
-
-        render(): React.ReactNode {
-            const RenderComponent = Component as React.ElementType;
-            return <RenderComponent {...this.props} {...this.state.extraProps} />;
-        }
-    }
-
-    return InitialPropsRoute as AdminRouteComponent;
-}
-
 export default function routeRenderer(
     routes: AdminRouteConfig[] | null | undefined,
     incomingRouteProps: DynamicRouteProps = {},
@@ -179,7 +105,7 @@ export default function routeRenderer(
                             });
                             if (!route.component) return nestedChildren;
 
-                            if (initialPropsLoaded) routeProps = {};
+                            if (hasInitialPropsLoaded()) routeProps = {};
                             const modifiedProps = apply<
                                 RouteRenderProps,
                                 { route: AdminRouteConfig }
