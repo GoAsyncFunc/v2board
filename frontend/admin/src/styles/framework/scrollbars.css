@@ -1,0 +1,13 @@
+.simplebar-scrollbar {
+    left: auto;
+    right: 2px;
+    width: 5px;
+}
+.simplebar-scrollbar:before {
+    left: 0;
+    right: 0;
+    background: rgba(1, 17, 35, 0.75);
+}
+.sidebar-dark #sidebar .simplebar-scrollbar:before {
+    background: #fff;
+}

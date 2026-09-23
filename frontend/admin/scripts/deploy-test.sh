@@ -121,6 +121,9 @@ for resource in \
   assets/admin/framework/layout.css \
   assets/admin/framework/components.css \
   assets/admin/framework/utilities.css \
+  assets/admin/framework/accessibility.css \
+  assets/admin/framework/scrollbars.css \
+  assets/admin/framework/rtl.css \
   assets/admin/umi.css \
   settings.js \
   app.js; do

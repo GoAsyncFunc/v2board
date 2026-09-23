@@ -6,8 +6,8 @@ const adminBuildReference = /\/admin-build\/|\/assets\/restored-[^/]+\/admin\//g
 export function rewriteAdminTemplate(source, releaseBasePath) {
     const normalizedBasePath = `/${releaseBasePath.replace(/^\/+|\/+$/g, '')}/`;
     const references = source.match(adminBuildReference) || [];
-    if (references.length !== 16) {
-        throw new Error(`Expected 16 source-build asset references, found ${references.length}`);
+    if (references.length !== 19) {
+        throw new Error(`Expected 19 source-build asset references, found ${references.length}`);
     }
     return source.replace(adminBuildReference, normalizedBasePath);
 }

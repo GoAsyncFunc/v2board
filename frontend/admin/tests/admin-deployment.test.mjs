@@ -28,7 +28,7 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
 
     assert.equal(
         (rewritten.match(/\/assets\/restored-20260923-120000\/admin\//g) || []).length,
-        16,
+        19,
     );
     for (const resource of [
         'assets/admin/antd.css',
@@ -44,6 +44,9 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
         'assets/admin/framework/layout.css',
         'assets/admin/framework/components.css',
         'assets/admin/framework/utilities.css',
+        'assets/admin/framework/accessibility.css',
+        'assets/admin/framework/scrollbars.css',
+        'assets/admin/framework/rtl.css',
         'assets/admin/umi.css',
         'settings.js',
         'app.js',
@@ -63,7 +66,7 @@ test('Admin release template can be advanced without changing the legacy fallbac
     const firstRelease = rewriteAdminTemplate(template, '/assets/restored-first/admin/');
     const secondRelease = rewriteAdminTemplate(firstRelease, '/assets/restored-second/admin/');
 
-    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 16);
+    assert.equal((secondRelease.match(/\/assets\/restored-second\/admin\//g) || []).length, 19);
     assert.doesNotMatch(secondRelease, /restored-first/);
     assert.match(secondRelease, /href="\/assets\/admin\/components\.chunk\.css\?v=/);
     assert.match(secondRelease, /src="\/assets\/admin\/umi\.js\?v=/);
@@ -107,9 +110,9 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
     assert.match(page, /ticketDetailClassNames as styles/);
 });
 
-test('Admin global stylesheet keeps third-party libraries in dedicated vendor sources', async () => {
-    const globalStyles = await fs.readFile(
-        new URL('../src/styles/global.css', import.meta.url),
+test('Admin project stylesheet keeps third-party libraries in dedicated vendor sources', async () => {
+    const projectStyles = await fs.readFile(
+        new URL('../src/styles/project-overrides.css', import.meta.url),
         'utf8',
     );
     const fontAwesomeStyles = await fs.readFile(
@@ -137,29 +140,28 @@ test('Admin global stylesheet keeps third-party libraries in dedicated vendor so
         'utf8',
     );
 
-    assert.doesNotMatch(globalStyles, /^\.fa-[\w-]+:before/m);
-    assert.doesNotMatch(globalStyles, /^\.si-[\w-]+:before/m);
-    assert.doesNotMatch(globalStyles, /@font-face\s*\{[^}]*Font Awesome/is);
-    assert.doesNotMatch(globalStyles, /@font-face\s*\{[^}]*simple-line-icons/is);
+    assert.doesNotMatch(projectStyles, /^\.fa-[\w-]+:before/m);
+    assert.doesNotMatch(projectStyles, /^\.si-[\w-]+:before/m);
+    assert.doesNotMatch(projectStyles, /@font-face\s*\{[^}]*Font Awesome/is);
+    assert.doesNotMatch(projectStyles, /@font-face\s*\{[^}]*simple-line-icons/is);
     assert.match(fontAwesomeStyles, /^\.fa-bars:before/m);
     assert.match(fontAwesomeStyles, /@font-face\s*\{[^}]*Font Awesome/is);
     assert.match(simpleLineIconStyles, /^\.si-login:before/m);
     assert.match(simpleLineIconStyles, /@font-face\s*\{[^}]*simple-line-icons/is);
-    assert.doesNotMatch(globalStyles, /^\.animated\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\[data-simplebar\]\s*\{/m);
-    assert.match(globalStyles, /^\.simplebar-scrollbar\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.animated\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\[data-simplebar\]\s*\{/m);
     assert.match(animationStyles, /^\.animated\s*\{/m);
     assert.match(animationStyles, /^@keyframes bounce\s*\{/m);
     assert.match(simplebarStyles, /^\[data-simplebar\]\s*\{/m);
     assert.match(simplebarStyles, /^\.simplebar-wrapper\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.container-xl\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.btn-primary\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.container-xl\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.btn-primary\s*\{/m);
     assert.match(bootstrapStyles, /^\.container-xl\s*\{/m);
     assert.match(bootstrapStyles, /^\.btn-primary\s*\{/m);
     assert.match(bootstrapStyles, /^@media print\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.datepicker\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.select2-container\b/m);
-    assert.doesNotMatch(globalStyles, /^\.slick-slider\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.datepicker\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.select2-container\b/m);
+    assert.doesNotMatch(projectStyles, /^\.slick-slider\s*\{/m);
     assert.match(pluginAdapterStyles, /^\.datepicker\s*\{/m);
     assert.match(pluginAdapterStyles, /\.select2-container\b/);
     assert.match(pluginAdapterStyles, /\.slick-slider\b/);
@@ -167,8 +169,8 @@ test('Admin global stylesheet keeps third-party libraries in dedicated vendor so
 });
 
 test('Admin framework styles keep foundations and shell layout out of the component stylesheet', async () => {
-    const globalStyles = await fs.readFile(
-        new URL('../src/styles/global.css', import.meta.url),
+    const projectStyles = await fs.readFile(
+        new URL('../src/styles/project-overrides.css', import.meta.url),
         'utf8',
     );
     const coreStyles = await fs.readFile(
@@ -187,20 +189,32 @@ test('Admin framework styles keep foundations and shell layout out of the compon
         new URL('../src/styles/framework/utilities.css', import.meta.url),
         'utf8',
     );
+    const accessibilityStyles = await fs.readFile(
+        new URL('../src/styles/framework/accessibility.css', import.meta.url),
+        'utf8',
+    );
+    const scrollbarStyles = await fs.readFile(
+        new URL('../src/styles/framework/scrollbars.css', import.meta.url),
+        'utf8',
+    );
+    const rtlStyles = await fs.readFile(
+        new URL('../src/styles/framework/rtl.css', import.meta.url),
+        'utf8',
+    );
 
-    assert.doesNotMatch(globalStyles, /^#root,/m);
-    assert.doesNotMatch(globalStyles, /^#page-container\s*\{/m);
-    assert.doesNotMatch(globalStyles, /#sidebar\s*\{[^}]*position:\s*fixed/s);
+    assert.doesNotMatch(projectStyles, /^#root,/m);
+    assert.doesNotMatch(projectStyles, /^#page-container\s*\{/m);
+    assert.doesNotMatch(projectStyles, /#sidebar\s*\{[^}]*position:\s*fixed/s);
     assert.match(coreStyles, /^#root,/m);
     assert.match(coreStyles, /^\.btn-hero-primary\s*\{/m);
     assert.match(coreStyles, /^\.nav-tabs-alt\s*\{/m);
     assert.match(layoutStyles, /^#page-container\s*\{/m);
     assert.match(layoutStyles, /#sidebar\s*\{[^}]*position:\s*fixed/s);
     assert.match(layoutStyles, /^#side-overlay\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.hero\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.block\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.bg-black-5\s*\{/m);
-    assert.doesNotMatch(globalStyles, /^\.text-primary-dark\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.hero\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.block\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.bg-black-5\s*\{/m);
+    assert.doesNotMatch(projectStyles, /^\.text-primary-dark\s*\{/m);
     assert.match(componentStyles, /^\.hero\s*\{/m);
     assert.match(componentStyles, /^\.block\s*\{/m);
     assert.match(componentStyles, /^\.nav-main\s*\{/m);
@@ -208,8 +222,10 @@ test('Admin framework styles keep foundations and shell layout out of the compon
     assert.match(utilityStyles, /^\.bg-black-5\s*\{/m);
     assert.match(utilityStyles, /^\.font-w600\s*\{/m);
     assert.match(utilityStyles, /^\.text-primary-dark\s*\{/m);
-    assert.match(globalStyles, /^#page-container\.rtl-support\s*\{/m);
-    assert.match(globalStyles, /^\.v2board-background\s*\{/m);
+    assert.match(accessibilityStyles, /^\.sr-only\s*\{/m);
+    assert.match(scrollbarStyles, /^\.simplebar-scrollbar\s*\{/m);
+    assert.match(rtlStyles, /^#page-container\.rtl-support\s*\{/m);
+    assert.match(projectStyles, /^\.v2board-background\s*\{/m);
 });
 
 test('Admin-owned CSS assets are readable and contain no generated CSS-module hashes', async () => {
@@ -240,7 +256,19 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
             publishedPath: 'assets/admin/framework/utilities.css',
         },
         {
-            source: new URL('../src/styles/global.css', import.meta.url),
+            source: new URL('../src/styles/framework/accessibility.css', import.meta.url),
+            publishedPath: 'assets/admin/framework/accessibility.css',
+        },
+        {
+            source: new URL('../src/styles/framework/scrollbars.css', import.meta.url),
+            publishedPath: 'assets/admin/framework/scrollbars.css',
+        },
+        {
+            source: new URL('../src/styles/framework/rtl.css', import.meta.url),
+            publishedPath: 'assets/admin/framework/rtl.css',
+        },
+        {
+            source: new URL('../src/styles/project-overrides.css', import.meta.url),
             publishedPath: 'assets/admin/umi.css',
         },
         {
@@ -325,7 +353,7 @@ test('Admin deploy archive and release copy include the full static build', asyn
     assert.match(script, /cp -R "\$stage\/dist\/\." "\$release\/"/);
     assert.match(
         script,
-        /assets\/admin\/antd\.css \\\s+assets\/admin\/vendor\/fontawesome\.css \\\s+assets\/admin\/vendor\/simple-line-icons\.css \\\s+assets\/admin\/vendor\/animate\.css \\\s+assets\/admin\/vendor\/simplebar\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/vendor\/bootstrap\.css \\\s+assets\/admin\/vendor\/plugin-adapters\.css \\\s+assets\/admin\/pages\/ticket-detail\.css \\\s+assets\/admin\/framework\/core\.css \\\s+assets\/admin\/framework\/layout\.css \\\s+assets\/admin\/framework\/components\.css \\\s+assets\/admin\/framework\/utilities\.css \\\s+assets\/admin\/umi\.css/,
+        /assets\/admin\/antd\.css \\\s+assets\/admin\/vendor\/fontawesome\.css \\\s+assets\/admin\/vendor\/simple-line-icons\.css \\\s+assets\/admin\/vendor\/animate\.css \\\s+assets\/admin\/vendor\/simplebar\.css \\\s+assets\/admin\/markdown-editor\.css \\\s+assets\/admin\/vendor\/bootstrap\.css \\\s+assets\/admin\/vendor\/plugin-adapters\.css \\\s+assets\/admin\/pages\/ticket-detail\.css \\\s+assets\/admin\/framework\/core\.css \\\s+assets\/admin\/framework\/layout\.css \\\s+assets\/admin\/framework\/components\.css \\\s+assets\/admin\/framework\/utilities\.css \\\s+assets\/admin\/framework\/accessibility\.css \\\s+assets\/admin\/framework\/scrollbars\.css \\\s+assets\/admin\/framework\/rtl\.css \\\s+assets\/admin\/umi\.css/,
     );
     assert.match(script, /admin HTML does not reference \$resource/);
     assert.match(script, /unexpected content type \$content_type/);
@@ -339,6 +367,6 @@ test('unexpected Admin Blade asset layouts fail instead of deploying partial pat
     assert.throws(
         () =>
             rewriteAdminTemplate('<link href="/admin-build/app.css">', '/assets/restored-x/admin/'),
-        /Expected 16 source-build asset references/,
+        /Expected 19 source-build asset references/,
     );
 });
