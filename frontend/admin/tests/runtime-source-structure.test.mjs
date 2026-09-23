@@ -605,6 +605,19 @@ test('admin request transport does not depend on the rendering library', async (
     assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
 });
 
+test('Header account menu is isolated under its owning layout', async () => {
+    const headerComponentsDirectory = new URL('../src/layouts/Header/components/', import.meta.url);
+    assert.ok((await fs.readdir(headerComponentsDirectory)).includes('HeaderAccountMenu.tsx'));
+    const headerSource = await fs.readFile(
+        new URL('../src/layouts/Header/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        headerSource,
+        /import HeaderAccountMenu from ['"]\.\/components\/HeaderAccountMenu['"]/,
+    );
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(

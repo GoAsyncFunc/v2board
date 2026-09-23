@@ -4,6 +4,7 @@ import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader
 import { clearToken, getPreference, setPreference } from '../../utils/siteHelpers';
 import history from '../../app/history';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
+import HeaderAccountMenu from './components/HeaderAccountMenu';
 
 export interface HeaderSearchConfig {
     placeholder: string;
@@ -122,38 +123,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                         {this.state.loading ? (
                             <div className="spinner-grow text-primary" />
                         ) : (
-                            <div className="dropdown d-inline-block">
-                                <button
-                                    type="button"
-                                    className={darkHeader ? 'btn btn-primary' : 'btn'}
-                                    id="page-header-user-dropdown"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    onClick={() => this.showAvatarMenu()}
-                                >
-                                    <i className="far fa fa-user-circle" />
-                                    <span className="d-none d-lg-inline ml-1">
-                                        {user.userInfo.email}
-                                    </span>
-                                    <i className="fa fa-fw fa-angle-down ml-1" />
-                                </button>
-                                <div
-                                    className={`dropdown-menu dropdown-menu-right dropdown-menu-lg p-0 ${showAvatarMenu && 'show'}`}
-                                    aria-labelledby="page-header-user-dropdown"
-                                >
-                                    <div className="p-2">
-                                        <a
-                                            className="dropdown-item d-flex justify-content-between align-items-center"
-                                            href="javascript:void(0);"
-                                            onClick={() => this.logout()}
-                                        >
-                                            登出
-                                            <i className="fa fa-fw fa-sign-out-alt text-danger ml-1" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <HeaderAccountMenu
+                                email={user.userInfo.email}
+                                darkHeader={darkHeader}
+                                expanded={showAvatarMenu}
+                                onToggle={() => this.showAvatarMenu()}
+                                onLogout={() => this.logout()}
+                            />
                         )}
                     </div>
                 </div>

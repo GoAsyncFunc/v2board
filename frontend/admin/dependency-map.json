@@ -213,6 +213,10 @@
   },
   {
     "from": "layouts/Header/index.tsx",
+    "to": "layouts/Header/components/HeaderAccountMenu.tsx"
+  },
+  {
+    "from": "layouts/Header/index.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {

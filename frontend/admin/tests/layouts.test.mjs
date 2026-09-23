@@ -17,7 +17,10 @@ async function load(target,original){
   setState(value,callback){this.state={...this.state,...value};if(callback)callback();}
   forceUpdate(){trace.push(['update']);}
  }
- const React={Component,createElement(type,props,...children){return {type:typeof type==='function'?(type.displayName||type.name):type,props:props||{},children};}};
+ const React={Component,createElement(type,props,...children){
+  if(typeof type==='function'&&type.name==='HeaderAccountMenu')return type({...props,children});
+  return {type:typeof type==='function'?(type.displayName||type.name):type,props:props||{},children};
+ }};
  const connect=selector=>cls=>{const method=cls.prototype.renderMenu?'Sidebar':cls.prototype.darkMode?'Header':'MainLayout';classes[method]=cls;const wrapper=function(){};wrapper.displayName='Connected'+method;return wrapper;};
  function evaluate(file){
   if(cache.has(file))return cache.get(file);
@@ -42,6 +45,7 @@ async function load(target,original){
    if(id==='antd/lib/locale-provider/zh_CN'||id.includes('antdZhCnLocale'))return {__esModule:true,default:'zh-CN',a:'zh-CN'};
    if(id==='../Sidebar'||id==='../Header')return evaluate(path.join(home,'src/layouts',id.slice(3),'index.tsx'));
    if(id==='../../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
+   if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
   };
@@ -49,6 +53,7 @@ async function load(target,original){
   cache.set(file,module.exports);return module.exports;
  }
  const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name,'index.tsx'));
+ if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
  if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
  const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
@@ -70,6 +75,7 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
   header.componentDidMount();header.darkMode();header.logout();
   if(target==='user')header.showDropmenu('showAvatarMenu');else header.showAvatarMenu();
   assert.equal(header.state.showAvatarMenu,true);
+  const expandedHeader=normalize(header.render());
   subject.document.onclick({});assert.equal(header.state.showAvatarMenu,false);
   const sidebar=new subject.classes.Sidebar(props);
   const menu=modern
@@ -77,7 +83,7 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
    : sidebar.renderMenu('item','Plan','/plan',null);
   menu.children[0].props.onClick();
   const main=new subject.classes.MainLayout(props);main.componentDidMount();
-  return normalize(subject.trace);
+  return {trace:normalize(subject.trace),expandedHeader};
  }
  assert.deepEqual(actions(next,true),actions(old,false));
 });
