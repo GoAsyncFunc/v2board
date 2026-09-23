@@ -2,6 +2,7 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import { FormGroup } from './FormGroup';
 import type { UserRecord } from '../../../types/user';
+import { toInputDefaultValue } from './formValues';
 
 export interface UserTrafficFieldsProps {
     user: Partial<UserRecord>;
@@ -18,7 +19,7 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
                         type="number"
                         addonAfter="GB"
                         placeholder="已用上行"
-                        defaultValue={user.u as string | number | undefined}
+                        defaultValue={user.u}
                         onChange={(event) => onChange('u', event.target.value)}
                     />
                 </div>
@@ -28,7 +29,7 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
                         type="number"
                         addonAfter="GB"
                         placeholder="已用下行"
-                        defaultValue={user.d as string | number | undefined}
+                        defaultValue={user.d}
                         onChange={(event) => onChange('d', event.target.value)}
                     />
                 </div>
@@ -37,7 +38,7 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
                 <Input
                     type="number"
                     addonAfter="GB"
-                    defaultValue={user.transfer_enable as string | number | undefined}
+                    defaultValue={toInputDefaultValue(user.transfer_enable)}
                     placeholder="请输入流量"
                     onChange={(event) => onChange('transfer_enable', event.target.value)}
                 />
@@ -45,7 +46,7 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
             <FormGroup label="设备数限制">
                 <Input
                     placeholder="留空则不限制"
-                    defaultValue={user.device_limit as string | number | undefined}
+                    defaultValue={toInputDefaultValue(user.device_limit)}
                     onChange={(event) => onChange('device_limit', event.target.value)}
                 />
             </FormGroup>

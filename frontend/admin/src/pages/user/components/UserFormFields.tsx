@@ -11,6 +11,7 @@ import type { UserPlanOption, UserRecord } from '../../../types/user';
 import { FormGroup } from './FormGroup';
 import { UserMoneyFields } from './UserMoneyFields';
 import { UserTrafficFields } from './UserTrafficFields';
+import { toInputDefaultValue } from './formValues';
 
 export interface UserFormFieldsProps {
     user: Partial<UserRecord>;
@@ -95,7 +96,7 @@ export function UserFormFields({ user, plans, onChange }: UserFormFieldsProps): 
             <FormGroup label="推荐返利比例">
                 <Input
                     addonAfter="%"
-                    defaultValue={user.commission_rate as string | number | undefined}
+                    defaultValue={toInputDefaultValue(user.commission_rate)}
                     placeholder="请输入推荐返利比例(为空则跟随站点设置返利比例)"
                     onChange={(event) => onChange('commission_rate', event.target.value)}
                 />
@@ -112,7 +113,7 @@ export function UserFormFields({ user, plans, onChange }: UserFormFieldsProps): 
             >
                 <Input
                     addonAfter="%"
-                    defaultValue={user.discount as string | number | undefined}
+                    defaultValue={toInputDefaultValue(user.discount)}
                     placeholder="请输入专享折扣比例"
                     onChange={(event) => onChange('discount', event.target.value)}
                 />
@@ -120,7 +121,7 @@ export function UserFormFields({ user, plans, onChange }: UserFormFieldsProps): 
             <FormGroup label="限速">
                 <Input
                     addonAfter="Mbps"
-                    defaultValue={user.speed_limit as string | number | undefined}
+                    defaultValue={toInputDefaultValue(user.speed_limit)}
                     placeholder="留空则不限制"
                     onChange={(event) => onChange('speed_limit', event.target.value)}
                 />

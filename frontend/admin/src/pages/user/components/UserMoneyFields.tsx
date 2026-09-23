@@ -16,7 +16,7 @@ export function UserMoneyFields({ user, onChange }: UserMoneyFieldsProps): React
                     type="number"
                     addonAfter="¥"
                     placeholder="余额"
-                    defaultValue={user.balance as string | number | undefined}
+                    defaultValue={user.balance}
                     onChange={(event) => onChange('balance', event.target.value)}
                 />
             </div>
@@ -26,7 +26,7 @@ export function UserMoneyFields({ user, onChange }: UserMoneyFieldsProps): React
                     type="number"
                     addonAfter="¥"
                     placeholder="推广佣金"
-                    defaultValue={user.commission_balance as string | number | undefined}
+                    defaultValue={user.commission_balance}
                     onChange={(event) => onChange('commission_balance', event.target.value)}
                 />
             </div>

@@ -1548,6 +1548,10 @@
     "to": "pages/user/components/UserTrafficFields.tsx"
   },
   {
+    "from": "pages/user/components/UserFormFields.tsx",
+    "to": "pages/user/components/formValues.ts"
+  },
+  {
     "from": "pages/user/components/UserGenerator.tsx",
     "to": "components/common/NullableSelectOption.tsx"
   },
@@ -1598,6 +1602,10 @@
   {
     "from": "pages/user/components/UserTrafficFields.tsx",
     "to": "pages/user/components/FormGroup.tsx"
+  },
+  {
+    "from": "pages/user/components/UserTrafficFields.tsx",
+    "to": "pages/user/components/formValues.ts"
   },
   {
     "from": "pages/user/index.tsx",
