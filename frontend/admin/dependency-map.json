@@ -244,6 +244,10 @@
     "to": "config/siteSettings.ts"
   },
   {
+    "from": "layouts/Sidebar/index.tsx",
+    "to": "layouts/Sidebar/components/SidebarNavigation.tsx"
+  },
+  {
     "from": "main.ts",
     "to": "app/bootstrap.tsx"
   },

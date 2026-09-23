@@ -5,6 +5,7 @@ import type { NavigationItem } from '../../config/navigation';
 import history from '../../app/history';
 import type { AdminDispatch } from '../../types/store';
 import '../../config/siteSettings';
+import SidebarNavigation from './components/SidebarNavigation';
 
 interface SidebarOwnProps {
     location: { pathname: string };
@@ -22,41 +23,9 @@ interface SidebarState {
 export class Sidebar extends React.Component<SidebarProps, SidebarState> {
     state: SidebarState = { navigation: createNavigation() };
 
-    renderMenu(item: NavigationItem): React.ReactElement {
-        if (item.type === 'heading') {
-            return (
-                <li key={`heading:${item.title}`} className="nav-main-heading">
-                    {item.title}
-                </li>
-            );
-        }
-
-        if (item.type === 'href') {
-            return (
-                <li key={`href:${item.href}`} className="nav-main-item">
-                    <a className="nav-main-link" target="_blank" href={item.href} rel="noreferrer">
-                        {item.icon}
-                        <span className="nav-main-link-name">{item.title}</span>
-                    </a>
-                </li>
-            );
-        }
-
-        const activeClassName = this.props.location.pathname === item.href && 'active';
-        return (
-            <li key={`item:${item.href}`} className="nav-main-item">
-                <a
-                    className={`nav-main-link ${activeClassName}`}
-                    onClick={() => {
-                        history.push(item.href);
-                        this.props.dispatch({ type: 'layout/showNav', show: false });
-                    }}
-                >
-                    {item.icon}
-                    <span className="nav-main-link-name">{item.title}</span>
-                </a>
-            </li>
-        );
+    navigateTo(href: string): void {
+        history.push(href);
+        this.props.dispatch({ type: 'layout/showNav', show: false });
     }
 
     render(): React.ReactNode {
@@ -82,9 +51,11 @@ export class Sidebar extends React.Component<SidebarProps, SidebarState> {
                     </div>
                 </div>
                 <div className="content-side content-side-full">
-                    <ul className="nav-main">
-                        {this.state.navigation.map((item) => this.renderMenu(item))}
-                    </ul>
+                    <SidebarNavigation
+                        items={this.state.navigation}
+                        pathname={this.props.location.pathname}
+                        onNavigate={(href) => this.navigateTo(href)}
+                    />
                 </div>
                 <div className="v2board-copyright">{siteTitle} v1.7.5</div>
             </nav>

@@ -18,10 +18,10 @@ async function load(target,original){
   forceUpdate(){trace.push(['update']);}
  }
  const React={Component,createElement(type,props,...children){
-  if(typeof type==='function'&&type.name==='HeaderAccountMenu')return type({...props,children});
+  if(typeof type==='function'&&(type.name==='HeaderAccountMenu'||type.name==='SidebarNavigation'))return type({...props,children});
   return {type:typeof type==='function'?(type.displayName||type.name):type,props:props||{},children};
  }};
- const connect=selector=>cls=>{const method=cls.prototype.renderMenu?'Sidebar':cls.prototype.darkMode?'Header':'MainLayout';classes[method]=cls;const wrapper=function(){};wrapper.displayName='Connected'+method;return wrapper;};
+ const connect=selector=>cls=>{const method=cls.prototype.renderMenu||cls.prototype.navigateTo?'Sidebar':cls.prototype.darkMode?'Header':'MainLayout';classes[method]=cls;const wrapper=function(){};wrapper.displayName='Connected'+method;return wrapper;};
  function evaluate(file){
   if(cache.has(file))return cache.get(file);
   const module={exports:{}};cache.set(file,module.exports);
@@ -46,6 +46,7 @@ async function load(target,original){
    if(id==='../Sidebar'||id==='../Header')return evaluate(path.join(home,'src/layouts',id.slice(3),'index.tsx'));
    if(id==='../../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
    if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
+   if(id.includes('SidebarNavigation'))return evaluate(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
   };
@@ -54,6 +55,7 @@ async function load(target,original){
  }
  const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name,'index.tsx'));
  if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
+ if(!original)paths.push(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));
  if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
  const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
@@ -78,10 +80,8 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
   const expandedHeader=normalize(header.render());
   subject.document.onclick({});assert.equal(header.state.showAvatarMenu,false);
   const sidebar=new subject.classes.Sidebar(props);
-  const menu=modern
-   ? sidebar.renderMenu({type:'item',title:'Plan',href:'/plan'})
-   : sidebar.renderMenu('item','Plan','/plan',null);
-  menu.children[0].props.onClick();
+  if(modern)sidebar.navigateTo('/plan');
+  else sidebar.renderMenu('item','Plan','/plan',null).children[0].props.onClick();
   const main=new subject.classes.MainLayout(props);main.componentDidMount();
   return {trace:normalize(subject.trace),expandedHeader};
  }

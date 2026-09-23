@@ -618,6 +618,19 @@ test('Header account menu is isolated under its owning layout', async () => {
     );
 });
 
+test('Sidebar navigation is isolated under its owning layout', async () => {
+    const sidebarComponentsDirectory = new URL('../src/layouts/Sidebar/components/', import.meta.url);
+    assert.ok((await fs.readdir(sidebarComponentsDirectory)).includes('SidebarNavigation.tsx'));
+    const sidebarSource = await fs.readFile(
+        new URL('../src/layouts/Sidebar/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        sidebarSource,
+        /import SidebarNavigation from ['"]\.\/components\/SidebarNavigation['"]/,
+    );
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(
