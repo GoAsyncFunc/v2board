@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import history from '../../app/routerHistory';
-import AuthBrand from '../../components/auth/AuthBrand';
+import AuthPageShell from '../../components/auth/AuthPageShell';
 import RegistrationForm from '../../components/auth/RegistrationForm';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
@@ -98,107 +98,69 @@ export class RegisterPage extends React.Component<RegistrationPageProps, Registr
         const inviteCode = this.props.location.query.code;
         const { background_url: backgroundUrl, logo, title, description } = window.settings;
 
+        const footer = (
+            <>
+                <a
+                    className="font-size-sm text-muted"
+                    href="javascript:void(0);"
+                    onClick={() => history.push('/login')}
+                >
+                    {formatMessage({ id: '返回登入' })}
+                </a>
+                <LanguageSelector>
+                    <span className="v2board-login-i18n-btn">
+                        <i className="si si-globe pr-1" />
+                        <span
+                            className="font-size-sm text-muted"
+                            style={{ verticalAlign: 'text-bottom' }}
+                        >
+                            {currentLocaleLabel()}
+                        </span>
+                    </span>
+                </LanguageSelector>
+            </>
+        );
+
         return (
-            <div id="page-container">
-                <main id="main-container">
-                    <div
-                        className="v2board-background"
-                        style={{ backgroundImage: backgroundUrl && `url(${backgroundUrl})` }}
-                    />
-                    <div className="no-gutters v2board-auth-box">
-                        <div className="" style={{ maxWidth: 450, width: '100%', margin: 'auto' }}>
-                            <div className="mx-2 mx-sm-0">
-                                <div
-                                    className="block block-rounded block-transparent block-fx-pop w-100 mb-0 overflow-hidden bg-image"
-                                    style={{ boxShadow: '0 0.5rem 2rem #0000000d' }}
-                                >
-                                    <div className="row no-gutters">
-                                        <div className="col-md-12 order-md-1 bg-white">
-                                            <div className="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
-                                                <AuthBrand
-                                                    logo={logo}
-                                                    title={title}
-                                                    description={description}
-                                                />
-                                                {getCommConfigLoading ? (
-                                                    <div className="content content-full text-center">
-                                                        <div
-                                                            className="spinner-grow text-primary"
-                                                            role="status"
-                                                        >
-                                                            <span className="sr-only">
-                                                                Loading...
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                ) : (
-                                                    <RegistrationForm
-                                                        commConfig={commConfig}
-                                                        emailCodeInput={this.emailCodeInput}
-                                                        emailInput={this.emailInput}
-                                                        emailSuffix={emailSuffix}
-                                                        inviteCode={inviteCode}
-                                                        inviteInput={this.inviteInput}
-                                                        onEmailSuffixChange={(value) =>
-                                                            this.props.dispatch({
-                                                                type: 'guest/setState',
-                                                                payload: {
-                                                                    selectEmailSuffix: value,
-                                                                },
-                                                            })
-                                                        }
-                                                        onRegister={(data) => this.register(data)}
-                                                        onSendEmailVerify={(data) =>
-                                                            this.sendEmailVerify(data)
-                                                        }
-                                                        onToggleTerms={() =>
-                                                            this.setState({
-                                                                tosChecked: !this.state.tosChecked,
-                                                            })
-                                                        }
-                                                        passwordInput={this.passwordInput}
-                                                        registerLoading={registerLoading}
-                                                        repeatedPasswordInput={
-                                                            this.repeatedPasswordInput
-                                                        }
-                                                        sendEmailVerifyLoading={
-                                                            sendEmailVerifyLoading
-                                                        }
-                                                        sendEmailVerifyTimeout={
-                                                            this.state.sendEmailVerifyTimeout
-                                                        }
-                                                        tosChecked={Boolean(this.state.tosChecked)}
-                                                    />
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-left bg-gray-lighter p-3 px-4">
-                                        <a
-                                            className="font-size-sm text-muted"
-                                            href="javascript:void(0);"
-                                            onClick={() => history.push('/login')}
-                                        >
-                                            {formatMessage({ id: '返回登入' })}
-                                        </a>
-                                        <LanguageSelector>
-                                            <span className="v2board-login-i18n-btn">
-                                                <i className="si si-globe pr-1" />
-                                                <span
-                                                    className="font-size-sm text-muted"
-                                                    style={{ verticalAlign: 'text-bottom' }}
-                                                >
-                                                    {currentLocaleLabel()}
-                                                </span>
-                                            </span>
-                                        </LanguageSelector>
-                                    </div>
-                                </div>
-                            </div>
+            <AuthPageShell
+                backgroundUrl={backgroundUrl}
+                logo={logo}
+                title={title}
+                description={description}
+                footer={footer}
+            >
+                {getCommConfigLoading ? (
+                    <div className="content content-full text-center">
+                        <div className="spinner-grow text-primary" role="status">
+                            <span className="sr-only">Loading...</span>
                         </div>
                     </div>
-                </main>
-            </div>
+                ) : (
+                    <RegistrationForm
+                        commConfig={commConfig}
+                        emailCodeInput={this.emailCodeInput}
+                        emailInput={this.emailInput}
+                        emailSuffix={emailSuffix}
+                        inviteCode={inviteCode}
+                        inviteInput={this.inviteInput}
+                        onEmailSuffixChange={(value) =>
+                            this.props.dispatch({
+                                type: 'guest/setState',
+                                payload: { selectEmailSuffix: value },
+                            })
+                        }
+                        onRegister={(data) => this.register(data)}
+                        onSendEmailVerify={(data) => this.sendEmailVerify(data)}
+                        onToggleTerms={() => this.setState({ tosChecked: !this.state.tosChecked })}
+                        passwordInput={this.passwordInput}
+                        registerLoading={registerLoading}
+                        repeatedPasswordInput={this.repeatedPasswordInput}
+                        sendEmailVerifyLoading={sendEmailVerifyLoading}
+                        sendEmailVerifyTimeout={this.state.sendEmailVerifyTimeout}
+                        tosChecked={Boolean(this.state.tosChecked)}
+                    />
+                )}
+            </AuthPageShell>
         );
     }
 }

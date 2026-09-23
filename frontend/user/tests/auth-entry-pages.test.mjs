@@ -56,7 +56,7 @@ test('Login restores token login, session check, keyboard submit and navigation'
             if (id.includes('Icon') || id === 'antd/lib/icon')
                 return { __esModule: true, default: 'Icon', Icon: 'Icon' };
             if (id.includes('routerHistory')) return { push: (route) => routes.push(route) };
-            if (id.includes('/components/auth/AuthBrand')) return 'AuthBrand';
+            if (id.includes('/components/auth/AuthPageShell')) return 'AuthPageShell';
             if (id.includes('i18n'))
                 return {
                     formatMessage: ({ id: messageId }) => messageId,
@@ -91,14 +91,15 @@ test('Login restores token login, session check, keyboard submit and navigation'
     });
 
     const tree = page.render();
+    const shell = findNodes(tree, (node) => node.type === 'AuthPageShell')[0];
+    assert.equal(shell.props.backgroundUrl, '/background.png');
+    assert.equal(shell.props.title, 'Demo');
+    assert.equal(shell.props.description, 'Description');
     assert.equal(
-        findNodes(tree, (node) => node.props.className === 'v2board-background')[0].props.style
-            .backgroundImage,
-        'url(/background.png)',
+        findNodes(shell.props.footer, (node) => node.type === 'LanguageSelector').length,
+        1,
     );
-    assert.equal(findNodes(tree, (node) => node.type === 'AuthBrand').length, 1);
-    assert.equal(findNodes(tree, (node) => node.type === 'LanguageSelector').length, 1);
-    const links = findNodes(tree, (node) => node.type === 'a' && node.props.onClick);
+    const links = findNodes(shell.props.footer, (node) => node.type === 'a' && node.props.onClick);
     links[0].props.onClick();
     links[1].props.onClick();
     assert.deepEqual(routes, ['/register', '/forgetpassword']);

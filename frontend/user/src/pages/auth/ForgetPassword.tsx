@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import history from '../../app/routerHistory';
-import AuthBrand from '../../components/auth/AuthBrand';
+import AuthPageShell from '../../components/auth/AuthPageShell';
 import Recaptcha from '../../components/common/Recaptcha';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
@@ -78,137 +78,111 @@ export class ForgetPasswordPage extends React.Component<
         const { sendEmailVerifyTimeout } = this.state;
         const { background_url: backgroundUrl, logo, title, description } = window.settings;
 
+        const footer = (
+            <>
+                <a
+                    className="font-size-sm text-muted"
+                    href="javascript:void(0);"
+                    onClick={() => history.push('/login')}
+                >
+                    {translate('返回登入')}
+                </a>
+                <LanguageSelector>
+                    <span className="v2board-login-i18n-btn">
+                        <i className="si si-globe pr-1" />
+                        <span
+                            className="font-size-sm text-muted"
+                            style={{ verticalAlign: 'text-bottom' }}
+                        >
+                            {currentLocaleLabel()}
+                        </span>
+                    </span>
+                </LanguageSelector>
+            </>
+        );
+
         return (
-            <div id="page-container">
-                <main id="main-container">
-                    <div
-                        className="v2board-background"
-                        style={{ backgroundImage: backgroundUrl && `url(${backgroundUrl})` }}
+            <AuthPageShell
+                backgroundUrl={backgroundUrl}
+                logo={logo}
+                title={title}
+                description={description}
+                footer={footer}
+            >
+                <div className="form-group">
+                    <input
+                        type="text"
+                        className="form-control form-control-alt"
+                        placeholder={translate('邮箱')}
+                        ref={this.emailInput}
                     />
-                    <div className="no-gutters v2board-auth-box">
-                        <div className="" style={{ maxWidth: 450, width: '100%', margin: 'auto' }}>
-                            <div className="mx-2 mx-sm-0">
-                                <div
-                                    className="block block-rounded block-transparent block-fx-pop w-100 mb-0 overflow-hidden bg-image"
-                                    style={{ boxShadow: '0 0.5rem 2rem #0000000d' }}
-                                >
-                                    <div className="row no-gutters">
-                                        <div className="col-md-12 order-md-1 bg-white">
-                                            <div className="block-content block-content-full px-lg-4 py-md-4 py-lg-4">
-                                                <AuthBrand
-                                                    logo={logo}
-                                                    title={title}
-                                                    description={description}
-                                                />
-                                                <div className="form-group">
-                                                    <input
-                                                        type="text"
-                                                        className="form-control form-control-alt"
-                                                        placeholder={translate('邮箱')}
-                                                        ref={this.emailInput}
-                                                    />
-                                                </div>
-                                                <div className="form-group form-row">
-                                                    <div className="col-9">
-                                                        <input
-                                                            type="text"
-                                                            className="form-control form-control-alt"
-                                                            placeholder={translate('邮箱验证码')}
-                                                            ref={this.emailCodeInput}
-                                                        />
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <Recaptcha
-                                                            visible={Boolean(
-                                                                commConfig.is_recaptcha,
-                                                            )}
-                                                            callback={(data) =>
-                                                                this.sendEmailVerify(data)
-                                                            }
-                                                        >
-                                                            <button
-                                                                type="submit"
-                                                                disabled={
-                                                                    sendEmailVerifyTimeout !== 60 ||
-                                                                    sendEmailVerifyLoading
-                                                                }
-                                                                className="btn btn-block btn-primary"
-                                                            >
-                                                                {sendEmailVerifyTimeout === 60 ? (
-                                                                    sendEmailVerifyLoading ? (
-                                                                        <Icon type="loading" />
-                                                                    ) : (
-                                                                        translate('发送')
-                                                                    )
-                                                                ) : (
-                                                                    sendEmailVerifyTimeout
-                                                                )}
-                                                            </button>
-                                                        </Recaptcha>
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="password"
-                                                        className="form-control form-control-alt"
-                                                        placeholder={translate('密码')}
-                                                        ref={this.passwordInput}
-                                                    />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input
-                                                        type="password"
-                                                        className="form-control form-control-alt"
-                                                        placeholder={translate('密码')}
-                                                        ref={this.repeatedPasswordInput}
-                                                    />
-                                                </div>
-                                                <div className="form-group mb-0">
-                                                    <button
-                                                        disabled={forgetLoading}
-                                                        type="submit"
-                                                        className="btn btn-block btn-primary font-w400"
-                                                        onClick={() => this.forget()}
-                                                    >
-                                                        {forgetLoading ? (
-                                                            <Icon type="loading" />
-                                                        ) : (
-                                                            <span>
-                                                                <i className="si si-support mr-1" />
-                                                                {translate('重置密码')}
-                                                            </span>
-                                                        )}
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-left bg-gray-lighter p-3 px-4">
-                                        <a
-                                            className="font-size-sm text-muted"
-                                            href="javascript:void(0);"
-                                            onClick={() => history.push('/login')}
-                                        >
-                                            {translate('返回登入')}
-                                        </a>
-                                        <LanguageSelector>
-                                            <span className="v2board-login-i18n-btn">
-                                                <i className="si si-globe pr-1" />
-                                                <span
-                                                    className="font-size-sm text-muted"
-                                                    style={{ verticalAlign: 'text-bottom' }}
-                                                >
-                                                    {currentLocaleLabel()}
-                                                </span>
-                                            </span>
-                                        </LanguageSelector>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div className="form-group form-row">
+                    <div className="col-9">
+                        <input
+                            type="text"
+                            className="form-control form-control-alt"
+                            placeholder={translate('邮箱验证码')}
+                            ref={this.emailCodeInput}
+                        />
                     </div>
-                </main>
-            </div>
+                    <div className="col-3">
+                        <Recaptcha
+                            visible={Boolean(commConfig.is_recaptcha)}
+                            callback={(data) => this.sendEmailVerify(data)}
+                        >
+                            <button
+                                type="submit"
+                                disabled={sendEmailVerifyTimeout !== 60 || sendEmailVerifyLoading}
+                                className="btn btn-block btn-primary"
+                            >
+                                {sendEmailVerifyTimeout === 60 ? (
+                                    sendEmailVerifyLoading ? (
+                                        <Icon type="loading" />
+                                    ) : (
+                                        translate('发送')
+                                    )
+                                ) : (
+                                    sendEmailVerifyTimeout
+                                )}
+                            </button>
+                        </Recaptcha>
+                    </div>
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        className="form-control form-control-alt"
+                        placeholder={translate('密码')}
+                        ref={this.passwordInput}
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        className="form-control form-control-alt"
+                        placeholder={translate('密码')}
+                        ref={this.repeatedPasswordInput}
+                    />
+                </div>
+                <div className="form-group mb-0">
+                    <button
+                        disabled={forgetLoading}
+                        type="submit"
+                        className="btn btn-block btn-primary font-w400"
+                        onClick={() => this.forget()}
+                    >
+                        {forgetLoading ? (
+                            <Icon type="loading" />
+                        ) : (
+                            <span>
+                                <i className="si si-support mr-1" />
+                                {translate('重置密码')}
+                            </span>
+                        )}
+                    </button>
+                </div>
+            </AuthPageShell>
         );
     }
 }

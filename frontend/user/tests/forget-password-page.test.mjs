@@ -42,7 +42,7 @@ async function loadPage() {
             if (id.includes('Icon.js') || id === 'antd/lib/icon')
                 return { __esModule: true, default: 'Icon', Icon: 'Icon' };
             if (id.includes('routerHistory')) return { push: (route) => routes.push(route) };
-            if (id.includes('/components/auth/AuthBrand')) return 'AuthBrand';
+            if (id.includes('/components/auth/AuthPageShell')) return 'AuthPageShell';
             if (id.includes('Recaptcha')) return 'Recaptcha';
             if (id.includes('i18n'))
                 return { formatMessage: ({ id }) => id, getLocale: () => 'zh-CN' };
@@ -122,7 +122,7 @@ test('Verification presents success and starts its countdown only after successf
 
 test('Forgot password retains branding, pending buttons, language control and login navigation', async () => {
     const { page, routes, window } = await loadPage();
-    assert.equal(nodes(page.render(), (node) => node.type === 'AuthBrand').length, 1);
+    assert.equal(nodes(page.render(), (node) => node.type === 'AuthPageShell').length, 1);
     window.settings = {
         title: 'Demo',
         logo: '/logo.png',
@@ -131,18 +131,14 @@ test('Forgot password retains branding, pending buttons, language control and lo
     };
     page.props.passport = { sendEmailVerifyLoading: true, forgetLoading: true };
     const tree = page.render();
-    const brand = nodes(tree, (node) => node.type === 'AuthBrand')[0];
-    assert.equal(brand.props.title, 'Demo');
-    assert.equal(brand.props.logo, '/logo.png');
-    assert.equal(brand.props.description, 'Description');
-    assert.equal(
-        nodes(tree, (node) => node.props.className === 'v2board-background')[0].props.style
-            .backgroundImage,
-        'url(/bg.png)',
-    );
-    assert.equal(nodes(tree, (node) => node.type === 'LanguageSelector').length, 1);
+    const shell = nodes(tree, (node) => node.type === 'AuthPageShell')[0];
+    assert.equal(shell.props.title, 'Demo');
+    assert.equal(shell.props.logo, '/logo.png');
+    assert.equal(shell.props.description, 'Description');
+    assert.equal(shell.props.backgroundUrl, '/bg.png');
+    assert.equal(nodes(shell.props.footer, (node) => node.type === 'LanguageSelector').length, 1);
     assert.ok(nodes(tree, (node) => node.type === 'button').every((node) => node.props.disabled));
     assert.equal(nodes(tree, (node) => node.type === 'Icon').length, 2);
-    nodes(tree, (node) => node.type === 'a' && node.props.onClick)[0].props.onClick();
+    nodes(shell.props.footer, (node) => node.type === 'a' && node.props.onClick)[0].props.onClick();
     assert.deepEqual(routes, ['/login']);
 });

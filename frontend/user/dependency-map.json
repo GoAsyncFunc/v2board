@@ -264,6 +264,10 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/auth/AuthPageShell.tsx",
+    "to": "components/auth/AuthBrand.tsx"
+  },
+  {
     "from": "components/auth/RegistrationForm.tsx",
     "to": "components/common/Recaptcha.tsx"
   },
@@ -849,7 +853,7 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "components/auth/AuthBrand.tsx"
+    "to": "components/auth/AuthPageShell.tsx"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
@@ -877,7 +881,7 @@
   },
   {
     "from": "pages/auth/Login.tsx",
-    "to": "components/auth/AuthBrand.tsx"
+    "to": "components/auth/AuthPageShell.tsx"
   },
   {
     "from": "pages/auth/Login.tsx",
@@ -901,7 +905,7 @@
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "components/auth/AuthBrand.tsx"
+    "to": "components/auth/AuthPageShell.tsx"
   },
   {
     "from": "pages/auth/Register.tsx",
