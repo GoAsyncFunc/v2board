@@ -8,6 +8,16 @@ import { rewriteAdminTemplate } from '../scripts/rewrite-admin-template.mjs';
 
 const repoRoot = new URL('../../../', import.meta.url);
 
+test('Admin runtime configuration uses the single package-owned settings entry point', async () => {
+    const settings = await fs.readFile(new URL('../public/settings.js', import.meta.url), 'utf8');
+
+    assert.match(settings, /window\.settings\s*=/);
+    await assert.rejects(
+        fs.access(new URL('../public/assets/admin/env.example.js', import.meta.url)),
+        { code: 'ENOENT' },
+    );
+});
+
 test('versioned Admin release rewrites every source-build asset reference', async () => {
     const template = await fs.readFile(
         new URL('resources/views/admin.blade.php', repoRoot),
