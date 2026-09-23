@@ -40,6 +40,10 @@ class UserRoute
             $router->get ('/invite/save', 'V1\\User\\InviteController@save');
             $router->get ('/invite/fetch', 'V1\\User\\InviteController@fetch');
             $router->get ('/invite/details', 'V1\\User\\InviteController@details');
+            // Tutorial
+            $router->get ('/tutorial/getSubscribeUrl', 'V1\\User\\TutorialController@getSubscribeUrl');
+            $router->get ('/tutorial/getAppleID', 'V1\\User\\TutorialController@getAppleID');
+            $router->get ('/tutorial/fetch', 'V1\\User\\TutorialController@fetch');
             // Notice
             $router->get ('/notice/fetch', 'V1\\User\\NoticeController@fetch');
             // Ticket

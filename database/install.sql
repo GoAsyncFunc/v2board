@@ -99,6 +99,20 @@ CREATE TABLE `v2_knowledge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='知識庫';
 
 
+DROP TABLE IF EXISTS `v2_tutorial`;
+CREATE TABLE `v2_tutorial` (
+                             `id` int(11) NOT NULL AUTO_INCREMENT,
+                             `category_id` int(11) NOT NULL,
+                             `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+                             `steps` text,
+                             `show` tinyint(1) NOT NULL DEFAULT '0',
+                             `sort` int(11) DEFAULT NULL,
+                             `created_at` int(11) NOT NULL,
+                             `updated_at` int(11) NOT NULL,
+                             PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 DROP TABLE IF EXISTS `v2_log`;
 CREATE TABLE `v2_log` (
                           `id` int(11) NOT NULL AUTO_INCREMENT,
