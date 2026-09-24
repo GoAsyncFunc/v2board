@@ -510,24 +510,9 @@ test('user transport and utility layers are presentation independent', async () 
     assert.match(requestPresentationSource, /setRequestFailurePresenter/);
 });
 
-test('user restored component styles use semantic selectors and ship with the build', async () => {
-    const stylesheet = await fs.readFile(
-        new URL('../src/styles/components.css', import.meta.url),
-        'utf8',
-    );
-    assert.match(stylesheet, /\.subscribe-import-list \.subscribe-import-item/);
-    assert.match(stylesheet, /\.ticket-detail-content/);
-    assert.match(stylesheet, /\.ticket-detail-input/);
-    assert.doesNotMatch(stylesheet, /___[A-Za-z0-9_-]{4,}/);
-
+test('user published component styles use semantic selectors', async () => {
     const index = await fs.readFile(new URL('../index.html', import.meta.url), 'utf8');
-    assert.match(index, /href="\/styles\/components\.css"/);
-
-    const buildScript = await fs.readFile(
-        new URL('../scripts/build.mjs', import.meta.url),
-        'utf8',
-    );
-    assert.match(buildScript, /src\/styles\/components\.css/);
+    assert.match(index, /href="\/theme\/default\/assets\/umi\.css"/);
 
     const publishedThemeStyles = await fs.readFile(
         new URL('../public/theme/default/assets/umi.css', import.meta.url),

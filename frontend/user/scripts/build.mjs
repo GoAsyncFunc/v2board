@@ -11,11 +11,6 @@ export async function buildApp() {
   await fs.mkdir(destination, { recursive: true });
   await fs.cp(path.join(appRoot, 'public'), destination, { recursive: true });
   await fs.copyFile(path.join(appRoot, 'index.html'), path.join(destination, 'index.html'));
-  await fs.mkdir(path.join(destination, 'styles'), { recursive: true });
-  await fs.copyFile(
-    path.join(appRoot, 'src/styles/components.css'),
-    path.join(destination, 'styles/components.css'),
-  );
 
   const result = await build({
     absWorkingDir: appRoot,
