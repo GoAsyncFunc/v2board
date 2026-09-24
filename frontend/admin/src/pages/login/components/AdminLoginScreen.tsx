@@ -51,7 +51,10 @@ export function AdminLoginScreen({
                                                     href="javascript:void(0);"
                                                 >
                                                     {logo ? (
-                                                        <img className="v2board-logo mb-3" src={logo} />
+                                                        <img
+                                                            className="v2board-logo mb-3"
+                                                            src={logo}
+                                                        />
                                                     ) : (
                                                         <span className="text-dark">
                                                             {title || 'V2Board'}
