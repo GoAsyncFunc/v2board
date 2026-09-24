@@ -1,4 +1,4 @@
-import Index from '../pages/index';
+import AdminHomeRedirect from '../pages/AdminHomeRedirect';
 import Login from '../pages/login';
 import Order from '../pages/order';
 import Plan from '../pages/plan';
@@ -26,7 +26,7 @@ const adminRoutes: AdminRouteConfig[] = [
     { path: '/coupon', exact: true, component: Coupon },
     { path: '/giftcard', exact: true, component: Giftcard },
     { path: '/dashboard', exact: true, component: Dashboard },
-    { path: '/', exact: true, component: Index },
+    { path: '/', exact: true, component: AdminHomeRedirect },
     { path: '/knowledge', exact: true, component: Knowledge },
     { path: '/login', exact: true, component: Login },
     { path: '/notice', exact: true, component: Notice },

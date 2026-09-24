@@ -469,7 +469,10 @@ test('Dashboard alert actions route tickets and delegate commission filtering', 
 });
 
 test('Admin home redirects to login on mount', async () => {
-    const source = await fs.readFile(new URL('../src/pages/index.tsx', import.meta.url), 'utf8');
+    const source = await fs.readFile(
+        new URL('../src/pages/AdminHomeRedirect.tsx', import.meta.url),
+        'utf8',
+    );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
     const actions = [];
     const module = { exports: {} };

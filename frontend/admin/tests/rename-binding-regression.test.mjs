@@ -159,7 +159,7 @@ for (const file of [
     'admin/src/pages/knowledge/components/KnowledgeList.tsx',
     'admin/src/pages/knowledge/components/KnowledgeColumns.ts',
     'admin/src/pages/knowledge/components/KnowledgeEditor.tsx',
-    'admin/src/pages/index.tsx',
+    'admin/src/pages/AdminHomeRedirect.tsx',
     'admin/src/pages/notice/index.tsx',
     'admin/src/pages/notice/components/NoticeList.tsx',
     'admin/src/pages/notice/components/NoticeColumns.ts',

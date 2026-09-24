@@ -752,6 +752,10 @@
     "to": "utils/siteHelpers.ts"
   },
   {
+    "from": "pages/AdminHomeRedirect.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
     "from": "pages/config/payment/components/PaymentBasicFields.tsx",
     "to": "types/payment.ts"
   },
@@ -1378,10 +1382,6 @@
   {
     "from": "pages/giftcard/index.tsx",
     "to": "types/store.ts"
-  },
-  {
-    "from": "pages/index.tsx",
-    "to": "app/navigation.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeColumns.ts",
@@ -2993,6 +2993,10 @@
   },
   {
     "from": "routes/index.ts",
+    "to": "pages/AdminHomeRedirect.tsx"
+  },
+  {
+    "from": "routes/index.ts",
     "to": "pages/config/payment/index.tsx"
   },
   {
@@ -3014,10 +3018,6 @@
   {
     "from": "routes/index.ts",
     "to": "pages/giftcard/index.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/index.tsx"
   },
   {
     "from": "routes/index.ts",
