@@ -75,6 +75,20 @@ while (pendingInputs.length) {
         }
     }
 }
+const sourceFiles = ts.sys
+    .readDirectory(path.join(appRoot, 'src'), ['.ts', '.tsx', '.d.ts'])
+    .map((filePath) => path.relative(appRoot, filePath).split(path.sep).join('/'));
+const unreachableBusinessSources = sourceFiles.filter(
+    (sourcePath) =>
+        sourcePath.startsWith('src/') &&
+        !sourcePath.endsWith('.d.ts') &&
+        !reachableInputs.has(sourcePath),
+);
+if (unreachableBusinessSources.length) {
+    throw new Error(
+        `Unreachable User business sources: ${unreachableBusinessSources.slice(0, 5).join(', ')}`,
+    );
+}
 const dependencyMap = [...edges.values()].sort((left, right) => {
     if (left.from !== right.from) return left.from < right.from ? -1 : 1;
     if (left.to !== right.to) return left.to < right.to ? -1 : 1;
