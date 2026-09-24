@@ -1,75 +1,14 @@
 import React from 'react';
-import Switch from 'antd/lib/switch';
-import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, ConfigValue, SafeConfig } from '../../../../types/config';
-
-interface TextSettingProps {
-    title: string;
-    description: string;
-    placeholder: string;
-    value?: Exclude<ConfigValue, null>;
-    onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    multiline?: boolean;
-    rows?: number;
-}
-
-function TextSetting({
-    title,
-    description,
-    placeholder,
-    value,
-    onChange,
-    multiline = false,
-    rows = 4,
-}: TextSettingProps) {
-    const field = multiline ? (
-        <textarea
-            rows={rows}
-            className="form-control"
-            placeholder={placeholder}
-            defaultValue={value}
-            onChange={onChange}
-        />
-    ) : (
-        <input
-            type="text"
-            className="form-control"
-            placeholder={placeholder}
-            defaultValue={value}
-            onChange={onChange}
-        />
-    );
-    return (
-        <ConfigRow title={title} description={description}>
-            {field}
-        </ConfigRow>
-    );
-}
-
-interface ToggleSettingProps {
-    title: string;
-    description: string;
-    value?: string | number;
-    onChange: (value: number) => void;
-}
-
-function ToggleSetting({ title, description, value, onChange }: ToggleSettingProps) {
-    return (
-        <ConfigRow title={title} description={description}>
-            <Switch
-                checked={Boolean(parseInt(String(value), 10))}
-                onChange={(enabled) => onChange(enabled ? 1 : 0)}
-            />
-        </ConfigRow>
-    );
-}
+import { TextSetting, ToggleSetting } from './SafeConfigFields';
+import SafeConfigLimits from './SafeConfigLimits';
+import type { ConfigChangeHandler, SafeConfig } from '../../../../types/config';
 
 interface SafeConfigTabProps {
     safe: SafeConfig;
     onChange: ConfigChangeHandler<SafeConfig>;
 }
 
-export default function SafeConfigTab({ safe, onChange }: SafeConfigTabProps) {
+export default function SafeConfigTab({ safe, onChange }: SafeConfigTabProps): React.ReactElement {
     return (
         <div>
             <ToggleSetting
@@ -139,54 +78,7 @@ export default function SafeConfigTab({ safe, onChange }: SafeConfigTabProps) {
                     />
                 </>
             )}
-            <ToggleSetting
-                title="IP注册限制"
-                description="开启后如果IP注册账户达到规则要求将会被限制注册，请注意IP判断可能因为CDN或前置代理导致问题。"
-                value={safe.register_limit_by_ip_enable}
-                onChange={(value) => onChange('register_limit_by_ip_enable', value)}
-            />
-            {safe.register_limit_by_ip_enable && (
-                <>
-                    <TextSetting
-                        title="次数"
-                        description="达到注册次数后开启惩罚。"
-                        placeholder="请输入"
-                        value={safe.register_limit_count}
-                        onChange={(event) => onChange('register_limit_count', event.target.value)}
-                    />
-                    <TextSetting
-                        title="惩罚时间(分钟)"
-                        description="需要等待惩罚时间过后才可以再次注册。"
-                        placeholder="请输入"
-                        value={safe.register_limit_expire}
-                        onChange={(event) => onChange('register_limit_expire', event.target.value)}
-                    />
-                </>
-            )}
-            <ToggleSetting
-                title="防爆破限制"
-                description="开启后如果该账户尝试登陆失败次数过多将会被限制。"
-                value={safe.password_limit_enable}
-                onChange={(value) => onChange('password_limit_enable', value)}
-            />
-            {safe.password_limit_enable && (
-                <>
-                    <TextSetting
-                        title="次数"
-                        description="达到失败次数后开启惩罚。"
-                        placeholder="请输入"
-                        value={safe.password_limit_count}
-                        onChange={(event) => onChange('password_limit_count', event.target.value)}
-                    />
-                    <TextSetting
-                        title="惩罚时间(分钟)"
-                        description="需要等待惩罚时间过后才可以再次登陆。"
-                        placeholder="请输入"
-                        value={safe.password_limit_expire}
-                        onChange={(event) => onChange('password_limit_expire', event.target.value)}
-                    />
-                </>
-            )}
+            <SafeConfigLimits safe={safe} onChange={onChange} />
         </div>
     );
 }

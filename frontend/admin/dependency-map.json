@@ -600,8 +600,20 @@
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
-    "from": "pages/config/system/components/SafeConfigTab.tsx",
+    "from": "pages/config/system/components/SafeConfigFields.tsx",
     "to": "pages/config/system/components/ConfigRow.tsx"
+  },
+  {
+    "from": "pages/config/system/components/SafeConfigLimits.tsx",
+    "to": "pages/config/system/components/SafeConfigFields.tsx"
+  },
+  {
+    "from": "pages/config/system/components/SafeConfigTab.tsx",
+    "to": "pages/config/system/components/SafeConfigFields.tsx"
+  },
+  {
+    "from": "pages/config/system/components/SafeConfigTab.tsx",
+    "to": "pages/config/system/components/SafeConfigLimits.tsx"
   },
   {
     "from": "pages/config/system/components/ServerConfigTab.tsx",
