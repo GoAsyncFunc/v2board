@@ -1,5 +1,5 @@
 import React from 'react';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { localeSettings as settings } from '../../config/localeSettings';
 import { parseJson } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';

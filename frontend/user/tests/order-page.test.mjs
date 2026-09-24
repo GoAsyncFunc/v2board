@@ -17,7 +17,7 @@ function setup(cancelLoading, mobile=false){
   if(id.includes('MainLayout'))return 'Layout';
   if(id.includes('MobileList'))return {Item:{Brief:'Brief'}};
   if(id.includes('siteHelpers'))return {isMobile:()=>mobile};
-  if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
+  if((id.includes('routerHistory') || id.includes('../app/history')))return {push:route=>trace.push(['navigate',route])};
   if(id.includes('DateTimeDisplay'))return {formatDateTimeSeconds:value=>`date:${value}`};
   if(id.includes('MoneyDisplay'))return {formatPrice:value=>(value/100).toFixed(2)};
   if(id.includes('localeSettings'))return {localeSettings:{orderStatusText:{0:()=> '待支付',2:()=> '已取消'}}};

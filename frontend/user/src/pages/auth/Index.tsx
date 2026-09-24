@@ -1,5 +1,5 @@
 import React from 'react';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 
 export class HomePage extends React.Component {
     componentDidMount(): void {

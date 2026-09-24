@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../../layouts/MainLayout';
 import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { calculateUsage } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
 import { createNodeColumns } from '../../components/subscription/NodeColumns';

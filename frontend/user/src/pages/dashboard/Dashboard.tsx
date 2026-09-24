@@ -8,7 +8,7 @@ import DashboardNoticeSection from '../../components/dashboard/DashboardNoticeSe
 import DashboardShortcuts from '../../components/dashboard/DashboardShortcuts';
 import DashboardSubscription from '../../components/dashboard/DashboardSubscription';
 import MainLayout from '../../layouts/MainLayout';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { formatMessage } from '../../locales/i18n';
 import {
     hasSubscriptionUsage,

@@ -1,4 +1,4 @@
-import history from '../app/routerHistory';
+import history from '../app/history';
 import { get, post } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';

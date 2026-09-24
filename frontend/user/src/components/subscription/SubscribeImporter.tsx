@@ -14,7 +14,7 @@ import {
     isWindows,
 } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { subscribeImporterStyles as styles } from '../../styles/subscribeImporter';
 
 interface SubscribeImporterProps {

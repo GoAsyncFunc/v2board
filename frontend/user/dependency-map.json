@@ -88,10 +88,6 @@
     "to": "app/store.tsx"
   },
   {
-    "from": "app/routerHistory.ts",
-    "to": "app/history.ts"
-  },
-  {
     "from": "app/store.tsx",
     "to": "app/history.ts"
   },
@@ -277,7 +273,7 @@
   },
   {
     "from": "components/commerce/OrderColumns.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "components/commerce/OrderColumns.tsx",
@@ -469,7 +465,7 @@
   },
   {
     "from": "components/subscription/PlanCard.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "components/subscription/PlanCard.tsx",
@@ -489,7 +485,7 @@
   },
   {
     "from": "components/subscription/SubscribeImporter.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "components/subscription/SubscribeImporter.tsx",
@@ -653,7 +649,7 @@
   },
   {
     "from": "models/orderEffects.ts",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "models/orderEffects.ts",
@@ -665,7 +661,7 @@
   },
   {
     "from": "models/passport.ts",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "models/passport.ts",
@@ -705,7 +701,7 @@
   },
   {
     "from": "models/sessionEffects.ts",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "models/sessionEffects.ts",
@@ -737,7 +733,7 @@
   },
   {
     "from": "models/ticket.ts",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "models/ticket.ts",
@@ -769,7 +765,7 @@
   },
   {
     "from": "models/userAccountEffects.ts",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "models/userAccountEffects.ts",
@@ -873,11 +869,11 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "app/notifications.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/notifications.ts"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
@@ -901,11 +897,11 @@
   },
   {
     "from": "pages/auth/Index.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/auth/Login.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/auth/Login.tsx",
@@ -925,11 +921,11 @@
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "app/notifications.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/notifications.ts"
   },
   {
     "from": "pages/auth/Register.tsx",
@@ -953,7 +949,7 @@
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/commerce/Order.tsx",
@@ -1033,7 +1029,7 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
@@ -1065,7 +1061,7 @@
   },
   {
     "from": "pages/subscription/Node.tsx",
-    "to": "app/routerHistory.ts"
+    "to": "app/history.ts"
   },
   {
     "from": "pages/subscription/Node.tsx",

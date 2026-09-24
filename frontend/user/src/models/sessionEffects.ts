@@ -1,5 +1,5 @@
 import { get } from '../services/request';
-import history from '../app/routerHistory';
+import history from '../app/history';
 import { getToken, clearToken } from '../utils/siteHelpers';
 import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';

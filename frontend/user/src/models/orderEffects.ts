@@ -1,5 +1,5 @@
 import { get, post } from '../services/request';
-import history from '../app/routerHistory';
+import history from '../app/history';
 import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { OrderRecord } from '../types/commerce';

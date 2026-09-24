@@ -28,7 +28,7 @@ async function load(target,original){
    if(id==='react-redux'||id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
    if(id==='../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
-   if(id.includes('routerHistory'))return {push:route=>trace.push(['navigate',route])};
+   if((id.includes('routerHistory') || id.includes('../app/history')))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
    if(id==='../components/common/LanguageSelector'||id.includes('LanguageSelector'))return {__esModule:true,default:'LanguageSelector',a:'LanguageSelector',LanguageSelector:'LanguageSelector'};
    if(id.includes('siteHelpers'))return {e:()=> '0',d:()=> '0',q:(...a)=>trace.push(['pref',...a]),i:(...a)=>trace.push(['pref',...a]),g:()=>trace.push(['clearToken']),getCookie:()=> '0',setCookie:(...a)=>trace.push(['pref',...a])};

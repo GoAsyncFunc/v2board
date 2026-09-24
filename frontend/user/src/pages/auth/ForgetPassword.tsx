@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import AuthPageShell from '../../components/auth/AuthPageShell';
 import Recaptcha from '../../components/common/Recaptcha';
 import { formatMessage, getLocale } from '../../locales/i18n';

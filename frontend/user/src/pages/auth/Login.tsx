@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import AuthPageShell from '../../components/auth/AuthPageShell';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';

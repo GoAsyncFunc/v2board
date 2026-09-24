@@ -169,6 +169,7 @@ test('user model composition uses named business effects instead of module alias
         await assert.rejects(fs.access(new URL(`../src/models/${removedEffect}`, import.meta.url)));
     }
     await assert.rejects(fs.access(new URL('../src/services/fetchResponse.ts', import.meta.url)));
+    await assert.rejects(fs.access(new URL('../src/app/routerHistory.ts', import.meta.url)));
     const accountEffects = await fs.readFile(
         new URL('../src/models/userAccountEffects.ts', import.meta.url),
         'utf8',

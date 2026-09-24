@@ -27,7 +27,7 @@ async function run(original,scenario){
  if(id.includes('reactRuntime')||id.includes('6d69595a'))return {};
   if(id.includes('types/api'))return {isSuccessfulResponse:response=>response.code===200};
  if(id.includes('request'))return {get,post,a:get,b:post};
-  if(id.includes('routerHistory'))return {push:value=>trace.push(['navigate',value])};
+  if((id.includes('routerHistory') || id.includes('../app/history')))return {push:value=>trace.push(['navigate',value])};
   if(id==='antd/lib/message')return {__esModule:true,default:{success:value=>trace.push(['success',value])}};
   if(id.includes('antdMessage'))return {a:{success:value=>trace.push(['success',value])}};
   if(id.includes('77642f52'))return value=>({format:format=>{trace.push(['date',value,format]);return 'fixture-date';}});

@@ -23,7 +23,7 @@ async function run(target,original,scenario){
  vm.runInNewContext(code,{module,exports:module.exports,api,helpers,history,window,require:id=>{
   if(id.includes('types/api'))return {isSuccessfulResponse:value=>value.code===200};
   if(id.includes('request'))return api;
-  if(id.includes('routerHistory'))return history;
+  if((id.includes('routerHistory') || id.includes('../app/history')))return history;
   if(id.includes('siteHelpers'))return helpers;
         throw Error(id);
  }},{filename:file,timeout:2000});

@@ -25,7 +25,7 @@ const bundle = (
                             args.path === 'react' ||
                             args.path === 'react-redux' ||
                             args.path === 'antd/lib/message' ||
-                            args.path.includes('routerHistory') ||
+                            args.path.includes('history') ||
                             args.path.includes('siteHelpers') ||
                             args.path.includes('/locales/i18n') ||
                             args.path.includes('/vendor/') ||
@@ -142,7 +142,7 @@ function setup(mode) {
                     getToken: () => 'fixture-token',
                     clearToken: () => events.push(['clear-token']),
                 };
-            if (id.includes('routerHistory'))
+            if ((id.includes('routerHistory') || id.includes('../app/history')))
                 return { push: (value) => events.push(['navigate', value]) };
             if (id.endsWith('/vendor/utilities.js')) return { loadable: () => null };
             if (id.includes('reactLoadableRuntime')) return () => null;

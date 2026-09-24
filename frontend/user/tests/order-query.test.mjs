@@ -31,7 +31,7 @@ async function run(original, scenario) {
                 if (id.includes('types/api'))
                     return { isSuccessfulResponse: (response) => response.code === 200 };
                 if (id.includes('request')) return api;
-                if (id.includes('routerHistory')) return { push() {} };
+                if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push() {} };
                 throw Error(id);
             },
         },

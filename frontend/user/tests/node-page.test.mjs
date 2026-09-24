@@ -19,7 +19,7 @@ async function load(original) {
       if (id.includes('NodeColumns')) return evaluate('columns');
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
       if (id === 'react-redux' || id.includes('reactRedux')) return { c: () => component => component, connect: () => component => component };
-      if (id.includes('routerHistory')) return { push: route => trace.push(['navigate', route]) };
+      if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]), calculateUsage: (...args) => trace.push(['usage', ...args]) };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       for (const [key, label] of [['antdTable', 'Table'], ['antdTag', 'Tag'], ['antdBadge', 'Badge'], ['antdTooltip', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label, [label]: label };

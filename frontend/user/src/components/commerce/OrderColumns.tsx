@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Badge from 'antd/lib/badge';
 import Tag from 'antd/lib/tag';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { formatDateTime } from '../common/DateTimeDisplay';
 import { formatPrice } from '../common/MoneyDisplay';
 import { localeSettings as settings } from '../../config/localeSettings';

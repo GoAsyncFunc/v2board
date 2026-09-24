@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import AuthPageShell from '../../components/auth/AuthPageShell';
 import RegistrationForm from '../../components/auth/RegistrationForm';
 import { formatMessage, getLocale } from '../../locales/i18n';

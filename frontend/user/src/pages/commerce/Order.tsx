@@ -5,7 +5,7 @@ import Badge from 'antd/lib/badge';
 import Table from 'antd/lib/table';
 import Modal from 'antd/lib/modal';
 import { connect } from 'react-redux';
-import history from '../../app/routerHistory';
+import history from '../../app/history';
 import { formatDateTimeSeconds } from '../../components/common/DateTimeDisplay';
 import { formatPrice } from '../../components/common/MoneyDisplay';
 import { localeSettings as settings } from '../../config/localeSettings';
