@@ -674,6 +674,17 @@ test('ticket detail keeps chat presentation in the ticket components directory',
     assert.doesNotMatch(detailSource, /TicketMessageList|UserEditor|TrafficPanel/);
 });
 
+test('ticket list keeps filters and search controls in a dedicated toolbar', async () => {
+    const ticketComponentsDirectory = new URL('../src/pages/ticket/components/', import.meta.url);
+    assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketToolbar.tsx'));
+    const ticketSource = await fs.readFile(
+        new URL('../src/pages/ticket/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(ticketSource, /import TicketToolbar from ['"]\.\/components\/TicketToolbar['"]/);
+    assert.doesNotMatch(ticketSource, /from ['"]antd\/lib\/(input|radio)['"]/);
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(

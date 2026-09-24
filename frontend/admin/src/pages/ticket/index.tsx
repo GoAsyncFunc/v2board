@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Input from 'antd/lib/input';
-import Radio from 'antd/lib/radio';
-import type { RadioChangeEvent } from 'antd/lib/radio/interface';
 import MainLayout from '../../layouts/MainLayout';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../types/ticket';
 import { TicketList } from './components/TicketList';
+import TicketToolbar from './components/TicketToolbar';
 
 interface TicketPageProps {
     dispatch: AdminDispatch;
@@ -74,25 +72,11 @@ export class TicketPage extends React.Component<TicketPageProps> {
                 <LoadingContainer loading={fetchLoading}>
                     <div className="block border-bottom">
                         <div className="bg-white">
-                            <div className="p-3">
-                                <Radio.Group
-                                    value={filterState.status}
-                                    onChange={(event: RadioChangeEvent) =>
-                                        this.filter('status', event.target.value)
-                                    }
-                                >
-                                    <Radio.Button value={0}>已开启</Radio.Button>
-                                    <Radio.Button value={1}>已关闭</Radio.Button>
-                                </Radio.Group>
-                                <div style={{ float: 'right' }}>
-                                    <Input
-                                        placeholder="输入邮箱搜索"
-                                        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                                            this.search('email', event.target.value)
-                                        }
-                                    />
-                                </div>
-                            </div>
+                            <TicketToolbar
+                                filter={filterState}
+                                onStatusChange={(status) => this.filter('status', status)}
+                                onEmailSearch={(email) => this.search('email', email)}
+                            />
                             <TicketList
                                 dispatch={this.props.dispatch}
                                 ticket={this.props.ticket}

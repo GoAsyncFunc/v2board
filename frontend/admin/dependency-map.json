@@ -1584,6 +1584,10 @@
     "to": "pages/ticket/components/TicketList.tsx"
   },
   {
+    "from": "pages/ticket/index.tsx",
+    "to": "pages/ticket/components/TicketToolbar.tsx"
+  },
+  {
     "from": "pages/user/components/UserDisplayColumns.tsx",
     "to": "utils/dateTime.ts"
   },

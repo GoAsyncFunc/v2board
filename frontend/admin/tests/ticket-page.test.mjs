@@ -25,8 +25,6 @@ async function loadPage(userAgent = 'desktop') {
       if (id === 'react') return React;
       if (id === 'react-redux') return { connect: () => Page => Page };
       if (id === 'antd/lib/table') return 'Table';
-      if (id === 'antd/lib/input') return 'Input';
-      if (id === 'antd/lib/radio') return { Group: 'RadioGroup', Button: 'RadioButton' };
       if (id === 'antd/lib/badge') return 'Badge';
       if (id === 'antd/lib/divider') return 'Divider';
       if (id.includes('MainLayout')) return 'Layout';
@@ -41,6 +39,7 @@ async function loadPage(userAgent = 'desktop') {
         function TicketList() {}
         return { TicketList };
       }
+      if (id.includes('TicketToolbar')) return 'TicketToolbar';
       if (id.includes('dateTime')) return {};
       throw new Error(id);
     },
@@ -72,10 +71,10 @@ test('Ticket page fetches, filters, searches and preserves table actions', async
   assert.deepEqual(runtime.actions.at(-1), {
     type: 'ticket/filter', pagination: { current: 2, pageSize: 20 }, filter: { status: [1] },
   });
-  const group = nodes(page.render(), node => node.type === 'RadioGroup')[0];
-  group.props.onChange({ target: { value: 1 } });
+  const toolbar = nodes(page.render(), node => node.type === 'TicketToolbar')[0];
+  toolbar.props.onStatusChange(1);
   assert.deepEqual(runtime.actions.at(-1), { type: 'ticket/filter', filter: { status: 1 }, pagination: { pageSize: 10, current: 1 } });
-  nodes(page.render(), node => node.type === 'Input')[0].props.onChange({ target: { value: 'user@example.test' } });
+  toolbar.props.onEmailSearch('user@example.test');
   assert.equal(runtime.timers[0].delay, 300);
   runtime.timers[0].callback();
   assert.equal(runtime.actions.at(-1).filter.email, 'user@example.test');
