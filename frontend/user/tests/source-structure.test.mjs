@@ -143,6 +143,9 @@ test('user model composition uses named business effects instead of module alias
         new URL('../src/models/orderEffects.ts', import.meta.url),
         'utf8',
     );
+    for (const removedEffect of ['orderQueryEffects.ts', 'orderPaymentEffects.ts']) {
+        await assert.rejects(fs.access(new URL(`../src/models/${removedEffect}`, import.meta.url)));
+    }
     const accountEffects = await fs.readFile(
         new URL('../src/models/userAccountEffects.ts', import.meta.url),
         'utf8',
