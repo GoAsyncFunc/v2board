@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import notification from 'antd/lib/notification';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { DnsSettings } from './Vmess/DnsSettings';
 import { RuleSettings } from './Vmess/RuleSettings';
 import { TlsSettings } from './Vmess/TlsSettings';
@@ -94,7 +94,7 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -129,7 +129,7 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                             提交
                         </Button>
                     </div>
-                    <CompatibleDrawer
+                    <ServerEditorDrawer
                         closable={false}
                         id="server-child-settings"
                         width="80%"
@@ -142,8 +142,8 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
                             childDrawer={childDrawer}
                             onChange={(field, value) => this.updateServer(field, value)}
                         />
-                    </CompatibleDrawer>
-                </CompatibleDrawer>
+                    </ServerEditorDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

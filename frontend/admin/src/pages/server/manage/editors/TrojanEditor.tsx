@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { TrojanNetworkSettings } from './Trojan/NetworkSettings';
 import { TrojanGeneralFields } from './Trojan/GeneralFields';
 import { TrojanRelationshipFields } from './Trojan/RelationshipFields';
@@ -68,7 +68,7 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -100,7 +100,7 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
                             提交
                         </Button>
                     </div>
-                    <CompatibleDrawer
+                    <ServerEditorDrawer
                         closable={false}
                         id="server-network-settings"
                         width="80%"
@@ -113,8 +113,8 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
                             value={server.network_settings}
                             onChange={(value) => this.updateServer('network_settings', value)}
                         />
-                    </CompatibleDrawer>
-                </CompatibleDrawer>
+                    </ServerEditorDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

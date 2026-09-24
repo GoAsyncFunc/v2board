@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import V2NodeGeneralFields from './V2Node/GeneralFields';
 import V2NodeProtocolFields from './V2Node/ProtocolFields';
 import V2NodeProtocolSpecificFields from './V2Node/ProtocolSpecificFields';
@@ -95,7 +95,7 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
         return (
             <>
                 {React.cloneElement(this.props.children, { onClick: () => this.open() })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -134,7 +134,7 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                             提交
                         </Button>
                     </div>
-                    <CompatibleDrawer
+                    <ServerEditorDrawer
                         closable={false}
                         id="server"
                         width="80%"
@@ -147,8 +147,8 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
                             childDrawer={childDrawer}
                             onChange={(field, value) => this.updateServer(field, value)}
                         />
-                    </CompatibleDrawer>
-                </CompatibleDrawer>
+                    </ServerEditorDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import notification from 'antd/lib/notification';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import VlessGeneralFields from './Vless/GeneralFields';
 import VlessRelationshipFields from './Vless/RelationshipFields';
 import { VlessChildSettingsPanel } from './Vless/ChildSettingsPanel';
@@ -80,7 +80,7 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
         return (
             <>
                 {React.cloneElement(this.props.children, { onClick: () => this.open() })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -110,7 +110,7 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
                             提交
                         </Button>
                     </div>
-                    <CompatibleDrawer
+                    <ServerEditorDrawer
                         closable={false}
                         id="server"
                         width="80%"
@@ -124,8 +124,8 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
                             onChange={(field, value) => this.updateServer(field, value)}
                             onOpenSettings={(title, panel) => this.showChildDrawer(title, panel)}
                         />
-                    </CompatibleDrawer>
-                </CompatibleDrawer>
+                    </ServerEditorDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

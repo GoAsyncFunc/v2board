@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { AnyTlsPaddingScheme } from './AnyTls/PaddingScheme';
 import { AnyTlsGeneralFields } from './AnyTls/GeneralFields';
 import { AnyTlsRelationshipFields } from './AnyTls/RelationshipFields';
@@ -55,7 +55,7 @@ export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEdito
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -94,7 +94,7 @@ export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEdito
                             提交
                         </Button>
                     </div>
-                    <CompatibleDrawer
+                    <ServerEditorDrawer
                         closable={false}
                         id="server"
                         width="80%"
@@ -106,8 +106,8 @@ export class AnyTlsEditor extends React.Component<AnyTlsEditorProps, AnyTlsEdito
                             value={server.padding_scheme}
                             onChange={(value) => this.updateServer('padding_scheme', value)}
                         />
-                    </CompatibleDrawer>
-                </CompatibleDrawer>
+                    </ServerEditorDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { TuicGeneralFields } from './Tuic/GeneralFields';
 import { TuicRelationshipFields } from './Tuic/RelationshipFields';
 import { TuicTransportSettings } from './Tuic/TransportSettings';
@@ -59,7 +59,7 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -92,7 +92,7 @@ export class TuicEditor extends React.Component<TuicEditorProps, TuicEditorState
                             提交
                         </Button>
                     </div>
-                </CompatibleDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

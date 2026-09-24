@@ -1981,7 +1981,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
@@ -2009,10 +2009,6 @@
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
-  },
-  {
-    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
     "to": "pages/server/manage/editors/Hysteria/GeneralFields.tsx"
   },
   {
@@ -2022,6 +2018,10 @@
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
     "to": "pages/server/manage/editors/Hysteria/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/HysteriaEditor.tsx",
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
@@ -2121,7 +2121,7 @@
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
@@ -2165,7 +2165,7 @@
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
@@ -2205,7 +2205,7 @@
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
@@ -2357,7 +2357,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
@@ -2433,7 +2433,7 @@
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
@@ -2517,7 +2517,7 @@
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
-    "to": "pages/server/manage/editors/CompatibleDrawer.tsx"
+    "to": "pages/server/manage/editors/ServerEditorDrawer.tsx"
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",

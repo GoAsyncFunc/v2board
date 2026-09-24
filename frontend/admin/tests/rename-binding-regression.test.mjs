@@ -51,7 +51,7 @@ for (const file of [
     'admin/src/pages/server/manage/editors/Hysteria/GeneralFields.tsx',
     'admin/src/pages/server/manage/editors/Hysteria/RelationshipFields.tsx',
     'admin/src/pages/server/manage/editors/ServerEditorRegistry.tsx',
-    'admin/src/pages/server/manage/editors/CompatibleDrawer.tsx',
+    'admin/src/pages/server/manage/editors/ServerEditorDrawer.tsx',
     'admin/src/pages/server/manage/components/ServerManageActions.tsx',
     'admin/src/pages/server/manage/components/ServerManageColumns.tsx',
     'admin/src/pages/server/manage/components/ServerManageMobileList.tsx',

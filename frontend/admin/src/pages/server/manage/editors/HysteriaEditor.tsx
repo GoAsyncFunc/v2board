@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { HysteriaObfuscationSettings } from './Hysteria/ObfuscationSettings';
 import { HysteriaGeneralFields } from './Hysteria/GeneralFields';
 import { HysteriaRelationshipFields } from './Hysteria/RelationshipFields';
@@ -52,7 +52,7 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -85,7 +85,7 @@ export class HysteriaEditor extends React.Component<HysteriaEditorProps, Hysteri
                             提交
                         </Button>
                     </div>
-                </CompatibleDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }

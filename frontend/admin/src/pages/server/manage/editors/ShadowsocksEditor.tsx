@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
-import CompatibleDrawer from './CompatibleDrawer';
+import ServerEditorDrawer from './ServerEditorDrawer';
 import { ShadowsocksSecuritySettings } from './Shadowsocks/SecuritySettings';
 import { ShadowsocksGeneralFields } from './Shadowsocks/GeneralFields';
 import { ShadowsocksRelationshipFields } from './Shadowsocks/RelationshipFields';
@@ -65,7 +65,7 @@ export class ShadowsocksEditor extends React.Component<
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.setState({ visible: true }),
                 })}
-                <CompatibleDrawer
+                <ServerEditorDrawer
                     id="server"
                     maskClosable
                     title={server.id ? '编辑节点' : '新建节点'}
@@ -99,7 +99,7 @@ export class ShadowsocksEditor extends React.Component<
                             提交
                         </Button>
                     </div>
-                </CompatibleDrawer>
+                </ServerEditorDrawer>
             </>
         );
     }
