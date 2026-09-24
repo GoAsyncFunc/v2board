@@ -45,6 +45,7 @@ test('user business components live outside the vendor compatibility layer', asy
         '../src/components/subscription/checkout/PlanPurchaseDetails.tsx',
         '../src/components/account/TelegramBindModal.tsx',
         '../src/components/dashboard/DashboardSubscription.tsx',
+        '../src/components/dashboard/DashboardNoticeSection.tsx',
         '../src/components/common/LoadingContainer.tsx',
         '../src/components/commerce/checkout/StripePaymentForm.tsx',
     ];
@@ -316,12 +317,17 @@ test('user root state names every registered business model', async () => {
     assert.match(dashboard, /Pick<UserRootState/);
     for (const component of [
         'DashboardAlerts',
-        'DashboardNoticeCard',
+        'DashboardNoticeSection',
         'DashboardShortcuts',
         'DashboardSubscription',
     ]) {
         assert.match(dashboard, new RegExp(`components/dashboard/${component}`));
     }
+    const dashboardNoticeSection = await fs.readFile(
+        new URL('../src/components/dashboard/DashboardNoticeSection.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(dashboardNoticeSection, /DashboardNoticeCard/);
     assert.doesNotMatch(dashboard, /components\/subscription\/SubscribeImporter/);
     assert.doesNotMatch(dashboard, /antd\/lib\/button/);
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Carousel from 'antd/lib/carousel';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
 import DashboardAlerts from '../../components/dashboard/DashboardAlerts';
-import DashboardNoticeCard from '../../components/dashboard/DashboardNoticeCard';
+import DashboardNoticeSection from '../../components/dashboard/DashboardNoticeSection';
 import DashboardShortcuts from '../../components/dashboard/DashboardShortcuts';
 import DashboardSubscription from '../../components/dashboard/DashboardSubscription';
 import MainLayout from '../../layouts/MainLayout';
@@ -110,33 +109,10 @@ export class DashboardPage extends React.Component<
                             onNavigate={(path) => history.push(path)}
                             onResetPackage={() => this.resetPackage()}
                         />
-                        {notices.length > 0 && (
-                            <div className="row mb-3 mb-md-0">
-                                <div className="col-12 mb-sm-4">
-                                    {notices.length > 1 ? (
-                                        <Carousel autoplay>
-                                            {notices.map((notice) => (
-                                                <div key={notice.id || notice.created_at}>
-                                                    <DashboardNoticeCard
-                                                        notice={notice}
-                                                        onOpen={(selectedNotice) =>
-                                                            this.modalVisible(selectedNotice)
-                                                        }
-                                                    />
-                                                </div>
-                                            ))}
-                                        </Carousel>
-                                    ) : (
-                                        <DashboardNoticeCard
-                                            notice={notices[0]}
-                                            onOpen={(selectedNotice) =>
-                                                this.modalVisible(selectedNotice)
-                                            }
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                        )}
+                        <DashboardNoticeSection
+                            notices={notices}
+                            onOpen={(selectedNotice) => this.modalVisible(selectedNotice)}
+                        />
                         <div className="row mb-3 mb-md-0">
                             <div className="col-xl-12">
                                 <div className="block block-rounded js-appear-enabled">

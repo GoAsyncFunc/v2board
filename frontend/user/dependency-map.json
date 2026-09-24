@@ -428,6 +428,10 @@
     "to": "locales/i18n.ts"
   },
   {
+    "from": "components/dashboard/DashboardNoticeSection.tsx",
+    "to": "components/dashboard/DashboardNoticeCard.tsx"
+  },
+  {
     "from": "components/dashboard/DashboardShortcuts.tsx",
     "to": "components/subscription/SubscribeImporter.tsx"
   },
@@ -1049,7 +1053,7 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "components/dashboard/DashboardNoticeCard.tsx"
+    "to": "components/dashboard/DashboardNoticeSection.tsx"
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
