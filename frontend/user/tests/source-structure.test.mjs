@@ -108,6 +108,9 @@ test('user production source contains no compiler-style module imports', async (
         false,
     );
     for (const file of sourceFiles.filter((entry) => /\.(?:ts|tsx)$/.test(entry.pathname))) {
+        const fileName = file.pathname.split('/').pop() || '';
+        assert.doesNotMatch(fileName, /^[0-9a-f]{6,}\.[^.]+$/i, file.pathname);
+        assert.doesNotMatch(fileName, /___[A-Za-z0-9_-]{4,}/, file.pathname);
         const source = await fs.readFile(file, 'utf8');
         assert.doesNotMatch(source, /\brequire\s*\(/, file.pathname);
         assert.doesNotMatch(source, /React\.createElement\s*\(/, file.pathname);
