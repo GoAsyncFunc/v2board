@@ -408,6 +408,10 @@
     "to": "utils/siteHelpers.ts"
   },
   {
+    "from": "components/common/MobileList.tsx",
+    "to": "components/common/MobileListItem.tsx"
+  },
+  {
     "from": "components/dashboard/DashboardAlerts.tsx",
     "to": "locales/i18n.ts"
   },
