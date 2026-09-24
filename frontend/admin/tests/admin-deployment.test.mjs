@@ -121,27 +121,27 @@ test('Admin project stylesheet keeps third-party libraries in dedicated vendor s
         'utf8',
     );
     const fontAwesomeStyles = await fs.readFile(
-        new URL('../src/styles/vendor/fontawesome.css', import.meta.url),
+        new URL('../src/styles/third-party/fontawesome.css', import.meta.url),
         'utf8',
     );
     const simpleLineIconStyles = await fs.readFile(
-        new URL('../src/styles/vendor/simple-line-icons.css', import.meta.url),
+        new URL('../src/styles/third-party/simple-line-icons.css', import.meta.url),
         'utf8',
     );
     const animationStyles = await fs.readFile(
-        new URL('../src/styles/vendor/animate.css', import.meta.url),
+        new URL('../src/styles/third-party/animate.css', import.meta.url),
         'utf8',
     );
     const simplebarStyles = await fs.readFile(
-        new URL('../src/styles/vendor/simplebar.css', import.meta.url),
+        new URL('../src/styles/third-party/simplebar.css', import.meta.url),
         'utf8',
     );
     const bootstrapStyles = await fs.readFile(
-        new URL('../src/styles/vendor/bootstrap.css', import.meta.url),
+        new URL('../src/styles/third-party/bootstrap.css', import.meta.url),
         'utf8',
     );
     const pluginAdapterStyles = await fs.readFile(
-        new URL('../src/styles/vendor/plugin-adapters.css', import.meta.url),
+        new URL('../src/styles/third-party/plugin-adapters.css', import.meta.url),
         'utf8',
     );
 
@@ -277,27 +277,27 @@ test('Admin-owned CSS assets are readable and contain no generated CSS-module ha
             publishedPath: 'assets/admin/umi.css',
         },
         {
-            source: new URL('../src/styles/vendor/fontawesome.css', import.meta.url),
+            source: new URL('../src/styles/third-party/fontawesome.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/fontawesome.css',
         },
         {
-            source: new URL('../src/styles/vendor/simple-line-icons.css', import.meta.url),
+            source: new URL('../src/styles/third-party/simple-line-icons.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/simple-line-icons.css',
         },
         {
-            source: new URL('../src/styles/vendor/animate.css', import.meta.url),
+            source: new URL('../src/styles/third-party/animate.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/animate.css',
         },
         {
-            source: new URL('../src/styles/vendor/simplebar.css', import.meta.url),
+            source: new URL('../src/styles/third-party/simplebar.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/simplebar.css',
         },
         {
-            source: new URL('../src/styles/vendor/bootstrap.css', import.meta.url),
+            source: new URL('../src/styles/third-party/bootstrap.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/bootstrap.css',
         },
         {
-            source: new URL('../src/styles/vendor/plugin-adapters.css', import.meta.url),
+            source: new URL('../src/styles/third-party/plugin-adapters.css', import.meta.url),
             publishedPath: 'assets/admin/vendor/plugin-adapters.css',
         },
         {
