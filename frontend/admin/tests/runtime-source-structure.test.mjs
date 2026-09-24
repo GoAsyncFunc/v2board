@@ -860,7 +860,6 @@ test('admin pages select from the canonical root state', async () => {
     const paymentComponentsDirectory = new URL('components/', paymentDirectory);
     assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentList.tsx'));
     assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentEditor.tsx'));
-    assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentDisplayColumns.ts'));
     assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentNotifyColumn.tsx'));
     const themeDirectory = new URL('config/theme/', pagesDirectory);
     assert.ok((await fs.readdir(themeDirectory)).includes('components'));

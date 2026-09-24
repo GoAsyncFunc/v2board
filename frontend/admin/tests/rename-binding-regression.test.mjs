@@ -112,7 +112,6 @@ for (const file of [
     'admin/src/layouts/MainLayout/index.tsx',
     'admin/src/layouts/Sidebar/index.tsx',
     'admin/src/pages/config/payment/index.tsx',
-    'admin/src/pages/config/payment/components/PaymentDisplayColumns.ts',
     'admin/src/pages/config/payment/components/PaymentNotifyColumn.tsx',
     'admin/src/pages/config/payment/components/PaymentList.tsx',
     'admin/src/pages/config/payment/components/PaymentEditor.tsx',
