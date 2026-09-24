@@ -509,3 +509,23 @@ test('user transport and utility layers are presentation independent', async () 
     assert.match(notificationSource, /from ['"]antd\/lib\/notification['"]/);
     assert.match(requestPresentationSource, /setRequestFailurePresenter/);
 });
+
+test('user restored component styles use semantic selectors and ship with the build', async () => {
+    const stylesheet = await fs.readFile(
+        new URL('../src/styles/components.css', import.meta.url),
+        'utf8',
+    );
+    assert.match(stylesheet, /\.subscribe-import-list \.subscribe-import-item/);
+    assert.match(stylesheet, /\.ticket-detail-content/);
+    assert.match(stylesheet, /\.ticket-detail-input/);
+    assert.doesNotMatch(stylesheet, /___[A-Za-z0-9_-]{4,}/);
+
+    const index = await fs.readFile(new URL('../index.html', import.meta.url), 'utf8');
+    assert.match(index, /href="\/styles\/components\.css"/);
+
+    const buildScript = await fs.readFile(
+        new URL('../scripts/build.mjs', import.meta.url),
+        'utf8',
+    );
+    assert.match(buildScript, /src\/styles\/components\.css/);
+});
