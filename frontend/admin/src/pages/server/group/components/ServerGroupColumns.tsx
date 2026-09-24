@@ -1,13 +1,13 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { LegacyDisplayValue, ServerGroupOption } from '../../../../types/server';
+import type { ServerGroupCountValue, ServerGroupOption } from '../../../../types/server';
 
 export type ServerGroupRecord = ServerGroupOption;
 
 // A synchronous element helper, not a wrapper component. Preserve the Fragment,
 // icon style and uncoerced child (including null/undefined or invalid children).
-export function renderGroupCount(iconType: string, count: LegacyDisplayValue) {
+export function renderGroupCount(iconType: string, count: ServerGroupCountValue) {
     return (
         <React.Fragment>
             <Icon type={iconType} style={{ cursor: 'move' }} /> {count}
@@ -27,13 +27,13 @@ export function createReadonlyServerGroupColumns(): Record<
             title: '用户数量',
             dataIndex: 'user_count',
             key: 'user_count',
-            render: (value: LegacyDisplayValue) => renderGroupCount('user', value),
+            render: (value: ServerGroupCountValue) => renderGroupCount('user', value),
         },
         server_count: {
             title: '节点数量',
             dataIndex: 'server_count',
             key: 'server_count',
-            render: (value: LegacyDisplayValue) => renderGroupCount('database', value),
+            render: (value: ServerGroupCountValue) => renderGroupCount('database', value),
         },
     };
 }

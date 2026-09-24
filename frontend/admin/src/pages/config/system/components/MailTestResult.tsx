@@ -39,12 +39,12 @@ export default function MailTestResult({ log }: MailTestResultProps): React.Reac
     );
 }
 
-interface LegacyMessageApi {
+interface MailNotificationApi {
     error(options: { title: string; content: React.ReactNode }): void;
     success(options: { title: string; content: React.ReactNode }): void;
 }
 
-const message = notification as LegacyMessageApi;
+const message = notification as MailNotificationApi;
 
 export function showMailTestResult(log: MailTestLog): void {
     const error = log.error;
