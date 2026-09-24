@@ -32,12 +32,10 @@ async function loadPage() {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Page) => Page };
-            if (id === 'antd/lib/table') return 'Table';
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
             if (id.includes('QueueOverview')) return 'QueueOverview';
-            if (id.includes('QueueColumns') || id === './components/QueueColumns')
-                return { createReadonlyQueueColumns: () => [{ key: 'name' }] };
+            if (id.includes('QueueWorkloadTable')) return 'QueueWorkloadTable';
             throw new Error(id);
         },
     });
@@ -85,9 +83,9 @@ test('Queue page renders counters, status, and filters the default workload', as
         dispatch: runtime.dispatch,
     });
     const tree = page.render();
-    const tables = nodes(tree, (node) => node.type === 'Table');
-    assert.equal(tables.length, 1);
-    assert.deepEqual(tables[0].props.dataSource, [{ name: 'emails', jobs: 3 }]);
+    const workloadTables = nodes(tree, (node) => node.type === 'QueueWorkloadTable');
+    assert.equal(workloadTables.length, 1);
+    assert.deepEqual(workloadTables[0].props.workload, queueWorkload);
     const overview = nodes(tree, (node) => node.type === 'QueueOverview');
     assert.equal(overview.length, 1);
     assert.deepEqual(overview[0].props.queueStats, {

@@ -663,6 +663,20 @@ test('queue monitoring keeps its statistics overview in a typed component', asyn
     assert.doesNotMatch(queueSource, /当前作业量/);
 });
 
+test('queue monitoring keeps workload table composition in a dedicated component', async () => {
+    const queueComponentsDirectory = new URL('../src/pages/queue/components/', import.meta.url);
+    assert.ok((await fs.readdir(queueComponentsDirectory)).includes('QueueWorkloadTable.tsx'));
+    const queueSource = await fs.readFile(
+        new URL('../src/pages/queue/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        queueSource,
+        /import QueueWorkloadTable from ['"]\.\/components\/QueueWorkloadTable['"]/
+    );
+    assert.doesNotMatch(queueSource, /当前作业详情|createReadonlyQueueColumns/);
+});
+
 test('ticket detail keeps chat presentation in the ticket components directory', async () => {
     const ticketComponentsDirectory = new URL('../src/pages/ticket/components/', import.meta.url);
     assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketDetailChat.tsx'));

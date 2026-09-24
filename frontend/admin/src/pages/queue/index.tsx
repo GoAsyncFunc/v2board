@@ -1,11 +1,10 @@
 import React from 'react';
 import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
-import Table from 'antd/lib/table';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import { createReadonlyQueueColumns } from './components/QueueColumns';
 import QueueOverview from './components/QueueOverview';
-import type { QueueWorkload, SystemMonitoringState } from '../../types/monitoring';
+import QueueWorkloadTable from './components/QueueWorkloadTable';
+import type { SystemMonitoringState } from '../../types/monitoring';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 
 interface QueuePageProps {
@@ -38,22 +37,7 @@ export class QueuePage extends React.Component<QueuePageProps> {
                     <QueueOverview queueStats={queueStats} />
                 </LoadingContainer>
                 <LoadingContainer loading={!queueWorkload}>
-                    <div className="block block-rounded">
-                        <div className="block-header block-header-default">
-                            <h3 className="block-title">当前作业详情</h3>
-                        </div>
-                        <div className="block-content p-0">
-                            <Table<QueueWorkload>
-                                columns={createReadonlyQueueColumns()}
-                                dataSource={
-                                    queueWorkload
-                                        ? queueWorkload.filter((queue) => queue.name !== 'default')
-                                        : undefined
-                                }
-                                pagination={false}
-                            />
-                        </div>
-                    </div>
+                    <QueueWorkloadTable workload={queueWorkload} />
                 </LoadingContainer>
             </MainLayout>
         );

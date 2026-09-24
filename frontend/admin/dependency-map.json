@@ -1068,6 +1068,10 @@
     "to": "pages/plan/components/PlanList.tsx"
   },
   {
+    "from": "pages/queue/components/QueueWorkloadTable.tsx",
+    "to": "pages/queue/components/QueueColumns.ts"
+  },
+  {
     "from": "pages/queue/index.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -1077,11 +1081,11 @@
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "pages/queue/components/QueueColumns.ts"
+    "to": "pages/queue/components/QueueOverview.tsx"
   },
   {
     "from": "pages/queue/index.tsx",
-    "to": "pages/queue/components/QueueOverview.tsx"
+    "to": "pages/queue/components/QueueWorkloadTable.tsx"
   },
   {
     "from": "pages/server/group/components/ServerGroupList.tsx",
