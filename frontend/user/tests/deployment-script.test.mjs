@@ -9,5 +9,7 @@ test('user deployment publishes versioned static assets with the application', (
     assert.match(script, /cp -R \"\$stage\/theme\" \"\$release\//);
     assert.match(script, /assets\/restored-\{stamp\}\/user\/theme\/default\/assets/);
     assert.match(script, /theme\/default\/assets\/components\.chunk\.css/);
+    assert.match(script, /user HTML does not reference/);
+    assert.match(script, /grep -Fq "\/assets\/restored-\$stamp\/user\/\$resource"/);
     assert.match(script, /rm -rf '\$release'/);
 });

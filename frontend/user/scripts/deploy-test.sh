@@ -100,6 +100,11 @@ if [ "$code" != 200 ]; then
   echo "Rolled back: user endpoint returned $code"
   exit 1
 fi
+if ! page=$(curl --max-time 30 -fsS "$site_url/"); then
+  bash "$backup/rollback.sh"
+  echo "Rolled back: user HTML could not be fetched"
+  exit 1
+fi
 for resource in \
   theme/default/assets/components.chunk.css \
   theme/default/assets/umi.css \
@@ -107,6 +112,11 @@ for resource in \
   theme/default/assets/i18n/zh-CN.js \
   app.js; do
   resource_url=$site_url/assets/restored-$stamp/user/$resource
+  if ! grep -Fq "/assets/restored-$stamp/user/$resource" <<<"$page"; then
+    bash "$backup/rollback.sh"
+    echo "Rolled back: user HTML does not reference $resource"
+    exit 1
+  fi
   if ! headers=$(curl --max-time 30 -fsSI "$resource_url"); then
     bash "$backup/rollback.sh"
     echo "Rolled back: user resource $resource could not be fetched"
