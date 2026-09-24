@@ -1080,6 +1080,10 @@
     "to": "pages/queue/components/QueueColumns.ts"
   },
   {
+    "from": "pages/queue/index.tsx",
+    "to": "pages/queue/components/QueueOverview.tsx"
+  },
+  {
     "from": "pages/server/group/components/ServerGroupList.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },

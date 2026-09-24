@@ -35,6 +35,7 @@ async function loadPage() {
             if (id === 'antd/lib/table') return 'Table';
             if (id.includes('MainLayout')) return 'Layout';
             if (id.includes('LoadingContainer')) return 'LoadingContainer';
+            if (id.includes('QueueOverview')) return 'QueueOverview';
             if (id.includes('QueueColumns') || id === './components/QueueColumns')
                 return { createReadonlyQueueColumns: () => [{ key: 'name' }] };
             throw new Error(id);
@@ -87,7 +88,12 @@ test('Queue page renders counters, status, and filters the default workload', as
     const tables = nodes(tree, (node) => node.type === 'Table');
     assert.equal(tables.length, 1);
     assert.deepEqual(tables[0].props.dataSource, [{ name: 'emails', jobs: 3 }]);
-    assert.match(JSON.stringify(tree), /当前作业量/);
-    assert.match(JSON.stringify(tree), /运行中/);
-    assert.match(JSON.stringify(tree), /si-check text-success/);
+    const overview = nodes(tree, (node) => node.type === 'QueueOverview');
+    assert.equal(overview.length, 1);
+    assert.deepEqual(overview[0].props.queueStats, {
+        jobsPerMinute: 2,
+        recentJobs: 10,
+        failedJobs: 1,
+        status: true,
+    });
 });

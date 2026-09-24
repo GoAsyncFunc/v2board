@@ -652,6 +652,17 @@ test('admin login keeps presentation in a dedicated screen component', async () 
     assert.doesNotMatch(loginSource, /from ['"]antd\/lib\/icon['"]/);
 });
 
+test('queue monitoring keeps its statistics overview in a typed component', async () => {
+    const queueComponentsDirectory = new URL('../src/pages/queue/components/', import.meta.url);
+    assert.ok((await fs.readdir(queueComponentsDirectory)).includes('QueueOverview.tsx'));
+    const queueSource = await fs.readFile(
+        new URL('../src/pages/queue/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(queueSource, /import QueueOverview from ['"]\.\/components\/QueueOverview['"]/);
+    assert.doesNotMatch(queueSource, /当前作业量/);
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(
