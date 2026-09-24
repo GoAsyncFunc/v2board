@@ -160,7 +160,8 @@ class Loon
         }
         if ($server['tls'] === 1) {
             array_push($config, 'over-tls=true');
-            array_push($config, "flow={$server['flow']}");
+            if (!empty($server['flow']))
+                array_push($config, "flow={$server['flow']}");
             if ($server['tls_settings']) {
                 $tlsSettings = $server['tls_settings'];
                 if (!empty($tlsSettings['allow_insecure'] ?? 0))
@@ -169,7 +170,8 @@ class Loon
                     array_push($config, "tls-name={$tlsSettings['server_name']}");
             }
         }elseif($server['tls'] === 2){
-            array_push($config, "flow={$server['flow']}");
+            if (!empty($server['flow']))
+                array_push($config, "flow={$server['flow']}");
             if ($server['tls_settings']) {
                 $tlsSettings = $server['tls_settings'];
                 if (isset($tlsSettings['public_key']) && !empty($tlsSettings['public_key']))

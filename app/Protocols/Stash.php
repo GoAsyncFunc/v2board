@@ -211,7 +211,9 @@ class Stash
         $array['server'] = $server['host'];
         $array['port'] = $server['port'];
         $array['uuid'] = $uuid;
-        $array['flow'] = $server['flow'] ?? null;
+        if (!empty($server['flow'])) {
+            $array['flow'] = $server['flow'];
+        }
         $array['udp'] = true;
 
         if ($server['tls']) {
@@ -230,7 +232,9 @@ class Stash
                    $array['reality-opts']['support-x25519mlkem768'] = true;
                 }
                 $array['skip-cert-verify'] = ($tlsSettings['allow_insecure'] ?? 0) == 1 ? true : false;
-                $array['client-fingerprint'] = $tlsSettings['fingerprint'] ?? null;
+                // REALITY is uTLS-based; mihomo refuses to dial without a
+                // fingerprint ("please set a client-fingerprint").
+                $array['client-fingerprint'] = !empty($tlsSettings['fingerprint']) ? $tlsSettings['fingerprint'] : 'chrome';
             }
         }
 
