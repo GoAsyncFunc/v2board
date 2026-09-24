@@ -7,7 +7,7 @@ import type {
     ServerRecord,
     ServerRouteOption,
 } from '../../../../../types/server';
-import type { UpdateVmessServer } from './types';
+import type { UpdateVmessServer } from '../types';
 
 interface VmessRelationshipFieldsProps {
     server: ServerRecord;

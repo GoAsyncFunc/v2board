@@ -7,7 +7,7 @@ import V2NodeProtocolFields from './V2Node/ProtocolFields';
 import V2NodeProtocolSpecificFields from './V2Node/ProtocolSpecificFields';
 import V2NodeRelationshipFields from './V2Node/RelationshipFields';
 import { V2NodeChildSettingsPanel } from './V2Node/ChildSettingsPanel';
-import type { V2NodeSettingsPanel } from './V2Node/types';
+import type { V2NodeSettingsPanel } from './types';
 import type {
     ChildDrawerState,
     ServerEditorProps,

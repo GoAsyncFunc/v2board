@@ -62,6 +62,7 @@ for (const file of [
     'admin/src/pages/user/components/SendMailEditor.tsx',
     'admin/src/pages/user/components/UserFilterDrawer.tsx',
     'admin/src/pages/server/manage/editors/ServerSecuritySettings.tsx',
+    'admin/src/pages/server/manage/editors/types.ts',
     'admin/src/pages/server/manage/editors/Security/TlsSettings.tsx',
     'admin/src/pages/server/manage/editors/Security/TlsAdvancedSettings.tsx',
     'admin/src/pages/server/manage/editors/Security/TlsCertificateSettings.tsx',

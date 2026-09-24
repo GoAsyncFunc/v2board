@@ -3,7 +3,7 @@ import Icon from 'antd/lib/icon';
 import JsonEditor from '../../../../../components/common/JsonEditor';
 import { TlsSettings, EncryptionSettings } from '../ServerSecuritySettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
-import type { OpenVlessSettings, UpdateVlessServer } from './types';
+import type { OpenVlessSettings, UpdateVlessServer } from '../types';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

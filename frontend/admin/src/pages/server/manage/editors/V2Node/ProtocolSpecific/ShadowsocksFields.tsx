@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
 import type { ServerRecord } from '../../../../../../types/server';
-import type { UpdateV2Node } from '../types';
+import type { UpdateV2Node } from '../../types';
 
 const CIPHERS = [
     'aes-128-gcm',
