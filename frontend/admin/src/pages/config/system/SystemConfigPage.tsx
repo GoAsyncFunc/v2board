@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
-import MainLayout from '../../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import SystemConfigTabs from './components/SystemConfigTabs';
 import { showMailTestResult } from './components/MailTestResult';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';

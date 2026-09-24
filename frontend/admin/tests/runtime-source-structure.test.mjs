@@ -606,7 +606,7 @@ test('admin request transport does not depend on the rendering library', async (
         'utf8',
     );
     const headerSource = await fs.readFile(
-        new URL('../src/layouts/Header/index.tsx', import.meta.url),
+        new URL('../src/layouts/Header/HeaderLayout.tsx', import.meta.url),
         'utf8',
     );
     const presentationSource = await fs.readFile(
@@ -623,7 +623,7 @@ test('Header account menu is isolated under its owning layout', async () => {
     const headerComponentsDirectory = new URL('../src/layouts/Header/components/', import.meta.url);
     assert.ok((await fs.readdir(headerComponentsDirectory)).includes('HeaderAccountMenu.tsx'));
     const headerSource = await fs.readFile(
-        new URL('../src/layouts/Header/index.tsx', import.meta.url),
+        new URL('../src/layouts/Header/HeaderLayout.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -636,7 +636,7 @@ test('Header search overlay is isolated under its owning layout', async () => {
     const headerComponentsDirectory = new URL('../src/layouts/Header/components/', import.meta.url);
     assert.ok((await fs.readdir(headerComponentsDirectory)).includes('HeaderSearchOverlay.tsx'));
     const headerSource = await fs.readFile(
-        new URL('../src/layouts/Header/index.tsx', import.meta.url),
+        new URL('../src/layouts/Header/HeaderLayout.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -653,7 +653,7 @@ test('Sidebar navigation is isolated under its owning layout', async () => {
     );
     assert.ok((await fs.readdir(sidebarComponentsDirectory)).includes('SidebarNavigation.tsx'));
     const sidebarSource = await fs.readFile(
-        new URL('../src/layouts/Sidebar/index.tsx', import.meta.url),
+        new URL('../src/layouts/Sidebar/SidebarLayout.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -666,7 +666,7 @@ test('admin login keeps presentation in a dedicated screen component', async () 
     const loginComponentsDirectory = new URL('../src/pages/login/components/', import.meta.url);
     assert.ok((await fs.readdir(loginComponentsDirectory)).includes('AdminLoginScreen.tsx'));
     const loginSource = await fs.readFile(
-        new URL('../src/pages/login/index.tsx', import.meta.url),
+        new URL('../src/pages/login/LoginPage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -680,7 +680,7 @@ test('queue monitoring keeps its statistics overview in a typed component', asyn
     const queueComponentsDirectory = new URL('../src/pages/queue/components/', import.meta.url);
     assert.ok((await fs.readdir(queueComponentsDirectory)).includes('QueueOverview.tsx'));
     const queueSource = await fs.readFile(
-        new URL('../src/pages/queue/index.tsx', import.meta.url),
+        new URL('../src/pages/queue/QueuePage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(queueSource, /import QueueOverview from ['"]\.\/components\/QueueOverview['"]/);
@@ -691,7 +691,7 @@ test('queue monitoring keeps workload table composition in a dedicated component
     const queueComponentsDirectory = new URL('../src/pages/queue/components/', import.meta.url);
     assert.ok((await fs.readdir(queueComponentsDirectory)).includes('QueueWorkloadTable.tsx'));
     const queueSource = await fs.readFile(
-        new URL('../src/pages/queue/index.tsx', import.meta.url),
+        new URL('../src/pages/queue/QueuePage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -719,7 +719,7 @@ test('ticket list keeps filters and search controls in a dedicated toolbar', asy
     const ticketComponentsDirectory = new URL('../src/pages/ticket/components/', import.meta.url);
     assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketToolbar.tsx'));
     const ticketSource = await fs.readFile(
-        new URL('../src/pages/ticket/index.tsx', import.meta.url),
+        new URL('../src/pages/ticket/TicketPage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(ticketSource, /import TicketToolbar from ['"]\.\/components\/TicketToolbar['"]/);
@@ -828,7 +828,7 @@ test('admin pages select from the canonical root state', async () => {
         const files = await fs.readdir(domainDirectory, { withFileTypes: true });
         if (!['config', 'server'].includes(domain)) {
             assert.ok(
-                files.some((entry) => entry.name === 'index.tsx'),
+                files.some((entry) => entry.name.endsWith('Page.tsx')),
                 `${domain} should expose an index page`,
             );
         }
@@ -876,7 +876,7 @@ test('admin pages select from the canonical root state', async () => {
         ),
     );
     const systemDirectory = new URL('config/system/', pagesDirectory);
-    assert.ok((await fs.readdir(systemDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(systemDirectory)).includes('SystemConfigPage.tsx'));
     assert.ok((await fs.readdir(systemDirectory)).includes('components'));
     const systemComponentsDirectory = new URL('components/', systemDirectory);
     for (const component of [
@@ -933,28 +933,28 @@ test('admin pages select from the canonical root state', async () => {
         );
     }
     const knowledgeDirectory = new URL('knowledge/', pagesDirectory);
-    assert.ok((await fs.readdir(knowledgeDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(knowledgeDirectory)).includes('KnowledgePage.tsx'));
     assert.ok((await fs.readdir(knowledgeDirectory)).includes('components'));
     const knowledgeComponentsDirectory = new URL('components/', knowledgeDirectory);
     assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeList.tsx'));
     assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeColumns.ts'));
     assert.ok((await fs.readdir(knowledgeComponentsDirectory)).includes('KnowledgeEditor.tsx'));
     const couponDirectory = new URL('coupon/', pagesDirectory);
-    assert.ok((await fs.readdir(couponDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(couponDirectory)).includes('CouponPage.tsx'));
     assert.ok((await fs.readdir(couponDirectory)).includes('components'));
     const couponComponentsDirectory = new URL('components/', couponDirectory);
     assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponList.tsx'));
     assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponColumns.tsx'));
     assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponEditor.tsx'));
     const giftcardDirectory = new URL('giftcard/', pagesDirectory);
-    assert.ok((await fs.readdir(giftcardDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('GiftcardPage.tsx'));
     assert.ok((await fs.readdir(giftcardDirectory)).includes('components'));
     const giftcardComponentsDirectory = new URL('components/', giftcardDirectory);
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardList.tsx'));
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardColumns.tsx'));
     assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardEditor.tsx'));
     const dashboardDirectory = new URL('dashboard/', pagesDirectory);
-    assert.ok((await fs.readdir(dashboardDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(dashboardDirectory)).includes('DashboardPage.tsx'));
     assert.ok((await fs.readdir(dashboardDirectory)).includes('components'));
     const dashboardComponentsDirectory = new URL('components/', dashboardDirectory);
     for (const component of [
@@ -970,7 +970,7 @@ test('admin pages select from the canonical root state', async () => {
         );
     }
     const planDirectory = new URL('plan/', pagesDirectory);
-    assert.ok((await fs.readdir(planDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(planDirectory)).includes('PlanPage.tsx'));
     assert.ok((await fs.readdir(planDirectory)).includes('components'));
     assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanList.tsx'));
     assert.ok(
@@ -986,7 +986,7 @@ test('admin pages select from the canonical root state', async () => {
     );
     assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanEditor.tsx'));
     const orderDirectory = new URL('order/', pagesDirectory);
-    assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(orderDirectory)).includes('OrderPage.tsx'));
     assert.ok((await fs.readdir(orderDirectory)).includes('components'));
     assert.ok(
         (await fs.readdir(new URL('components/', orderDirectory))).includes(
@@ -1007,7 +1007,7 @@ test('admin pages select from the canonical root state', async () => {
         (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderDetailBody.tsx'),
     );
     const userDirectory = new URL('user/', pagesDirectory);
-    assert.ok((await fs.readdir(userDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(userDirectory)).includes('UserPage.tsx'));
     assert.ok((await fs.readdir(userDirectory)).includes('components'));
     const userComponentsDirectory = new URL('components/', userDirectory);
     for (const component of [
@@ -1032,7 +1032,7 @@ test('admin pages select from the canonical root state', async () => {
         );
     }
     const noticeDirectory = new URL('notice/', pagesDirectory);
-    assert.ok((await fs.readdir(noticeDirectory)).includes('index.tsx'));
+    assert.ok((await fs.readdir(noticeDirectory)).includes('NoticePage.tsx'));
     assert.ok((await fs.readdir(noticeDirectory)).includes('components'));
     const noticeComponentsDirectory = new URL('components/', noticeDirectory);
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeList.tsx'));
@@ -1102,7 +1102,7 @@ test('admin components use business domains and connected editors use the canoni
     );
 
     const serverManagePage = await fs.readFile(
-        new URL('../src/pages/server/manage/index.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/ServerManagePage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(serverManagePage, /from ['"]\.\/editors\/ServerEditorRegistry['"]/);
@@ -1158,8 +1158,8 @@ test('admin components use business domains and connected editors use the canoni
     }
 
     const connectedSources = [
-        '../src/layouts/Header/index.tsx',
-        '../src/layouts/MainLayout/index.tsx',
+        '../src/layouts/Header/HeaderLayout.tsx',
+        '../src/layouts/MainLayout/MainLayout.tsx',
         '../src/pages/server/manage/editors/AnyTlsEditor.tsx',
         '../src/components/order/AssignOrderEditor.tsx',
         '../src/pages/server/manage/editors/HysteriaEditor.tsx',

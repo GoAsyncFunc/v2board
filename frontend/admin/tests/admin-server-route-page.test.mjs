@@ -94,7 +94,7 @@ async function loadModule(relativePath) {
     return module.exports;
 }
 
-const loadPage = () => loadModule('../src/pages/server/route/index.tsx');
+const loadPage = () => loadModule('../src/pages/server/route/ServerRoutePage.tsx');
 const loadEditor = () => loadModule('../src/pages/server/route/components/RouteEditor.tsx');
 
 test('Route editor normalizes match values and closes after save', async () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import history from '../../app/navigation';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
 import type { DashboardStats } from '../../types/monitoring';

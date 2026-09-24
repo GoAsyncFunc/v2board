@@ -48,7 +48,7 @@ async function loadConfig() {
         ['email', '../src/pages/config/system/components/EmailConfigTab.tsx'],
         ['server', '../src/pages/config/system/components/ServerConfigTab.tsx'],
         ['tabs', '../src/pages/config/system/components/SystemConfigTabs.tsx'],
-        ['page', '../src/pages/config/system/index.tsx'],
+        ['page', '../src/pages/config/system/SystemConfigPage.tsx'],
     ]) {
         const { code } = await transform(
             await fs.readFile(new URL(file, import.meta.url), 'utf8'),

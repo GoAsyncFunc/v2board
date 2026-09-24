@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { KnowledgeState } from '../../types/knowledge';
 import ConnectedKnowledgeEditor from './components/KnowledgeEditor';

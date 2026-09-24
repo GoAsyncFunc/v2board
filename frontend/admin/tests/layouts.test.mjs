@@ -43,7 +43,8 @@ async function load(target,original){
    if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
    if(id==='antd/lib/config-provider'||id.includes('antdConfigProvider'))return {__esModule:true,default:'ConfigProvider',a:'ConfigProvider'};
    if(id==='antd/lib/locale-provider/zh_CN'||id.includes('antdZhCnLocale'))return {__esModule:true,default:'zh-CN',a:'zh-CN'};
-   if(id==='../Sidebar'||id==='../Header')return evaluate(path.join(home,'src/layouts',id.slice(3),'index.tsx'));
+   if(id==='../Sidebar'||id==='../Sidebar/SidebarLayout')return evaluate(path.join(home,'src/layouts/Sidebar/SidebarLayout.tsx'));
+   if(id==='../Header'||id==='../Header/HeaderLayout')return evaluate(path.join(home,'src/layouts/Header/HeaderLayout.tsx'));
    if(id==='../../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
    if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
    if(id.includes('HeaderSearchOverlay'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
@@ -54,7 +55,11 @@ async function load(target,original){
   vm.runInNewContext(code,{module,exports:module.exports,require,window,document,Math},{filename:file,timeout:3000});
   cache.set(file,module.exports);return module.exports;
  }
- const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name,'index.tsx'));
+ const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:[
+  path.join(home,'src/layouts/MainLayout/MainLayout.tsx'),
+  path.join(home,'src/layouts/Sidebar/SidebarLayout.tsx'),
+  path.join(home,'src/layouts/Header/HeaderLayout.tsx'),
+ ];
  if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
  if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
  if(!original)paths.push(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));

@@ -152,7 +152,7 @@ async function loadPaymentModule(relativePath) {
     return { ...module.exports, confirmations };
 }
 
-const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/index.tsx');
+const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/PaymentConfigPage.tsx');
 const loadPaymentEditor = () =>
     loadPaymentModule('../src/pages/config/payment/components/PaymentEditor.tsx');
 
@@ -203,7 +203,7 @@ async function loadThemeModule(relativePath) {
     return { ...module.exports, requests, successMessages };
 }
 
-const loadThemePage = () => loadThemeModule('../src/pages/config/theme/index.tsx');
+const loadThemePage = () => loadThemeModule('../src/pages/config/theme/ThemeConfigPage.tsx');
 const loadThemeEditor = () =>
     loadThemeModule('../src/pages/config/theme/components/ThemeConfigEditor.tsx');
 

@@ -89,7 +89,9 @@ async function loadModule(relativePath, localModules = {}) {
 
 async function loadPage(pageName) {
     const pagePath =
-        pageName === 'Coupon' ? '../src/pages/coupon/index.tsx' : '../src/pages/giftcard/index.tsx';
+        pageName === 'Coupon'
+            ? '../src/pages/coupon/CouponPage.tsx'
+            : '../src/pages/giftcard/GiftcardPage.tsx';
     return loadModule(pagePath, {
         modal: {
             __esModule: true,

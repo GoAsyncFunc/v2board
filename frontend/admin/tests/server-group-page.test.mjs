@@ -6,7 +6,7 @@ import { transform } from 'esbuild';
 
 async function loadPage() {
     const source = await fs.readFile(
-        new URL('../src/pages/server/group/index.tsx', import.meta.url),
+        new URL('../src/pages/server/group/ServerGroupPage.tsx', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });

@@ -104,7 +104,7 @@ test('admin business boundary types avoid broad object placeholders', async () =
     const relativePaths = [
         'types/user.ts',
         'types/monitoring.ts',
-        'pages/server/manage/index.tsx',
+        'pages/server/manage/ServerManagePage.tsx',
         'components/common/ContextMenuTable.tsx',
         'pages/server/route/components/RouteActionColumn.ts',
         'pages/server/route/components/ServerRouteColumns.ts',
@@ -121,7 +121,7 @@ test('admin business boundary types avoid broad object placeholders', async () =
         'utf8',
     );
     const managePage = await fs.readFile(
-        path.join(sourceRoot, 'pages', 'server', 'manage', 'index.tsx'),
+        path.join(sourceRoot, 'pages', 'server', 'manage', 'ServerManagePage.tsx'),
         'utf8',
     );
     assert.match(userTypes, /invite_user\?: InvitingUserReference \| null/);

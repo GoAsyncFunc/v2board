@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';

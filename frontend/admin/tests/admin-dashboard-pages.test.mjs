@@ -22,7 +22,7 @@ function createReact() {
 
 async function loadDashboard() {
     const source = await fs.readFile(
-        new URL('../src/pages/dashboard/index.tsx', import.meta.url),
+        new URL('../src/pages/dashboard/DashboardPage.tsx', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });

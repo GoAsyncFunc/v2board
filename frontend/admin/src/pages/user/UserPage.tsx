@@ -6,7 +6,7 @@ import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import history from '../../app/navigation';
 import { setPreference } from '../../utils/siteHelpers';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
 import { UserList } from './components/UserList';
 import UserToolbar from './components/UserToolbar';

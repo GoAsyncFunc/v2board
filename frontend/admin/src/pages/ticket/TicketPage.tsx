@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../types/ticket';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainLayout from '../../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import { post } from '../../../services/request';
 import { isSuccessfulResponse } from '../../../types/api';
 import ConnectedThemeConfigEditor, { ThemeConfigEditor } from './components/ThemeConfigEditor';

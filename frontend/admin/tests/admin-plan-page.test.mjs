@@ -93,7 +93,7 @@ async function loadModule(relativePath, localModules = {}) {
 }
 
 async function loadPage() {
-    return loadModule('../src/pages/plan/index.tsx', {
+    return loadModule('../src/pages/plan/PlanPage.tsx', {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
         list: { __esModule: true, default: 'PlanList', PlanList: 'PlanList' },
     });

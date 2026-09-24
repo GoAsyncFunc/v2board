@@ -35,7 +35,7 @@ function createReact() {
 
 async function loadPage() {
     const source = await fs.readFile(
-        new URL('../src/pages/server/manage/index.tsx', import.meta.url),
+        new URL('../src/pages/server/manage/ServerManagePage.tsx', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });

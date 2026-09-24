@@ -86,7 +86,7 @@ async function loadModule(relativePath, localComponents = {}) {
 }
 
 async function loadPage() {
-    return loadModule('../src/pages/knowledge/index.tsx', {
+    return loadModule('../src/pages/knowledge/KnowledgePage.tsx', {
         drawer: { __esModule: true, default: 'KnowledgeEditor' },
         list: { __esModule: true, default: 'KnowledgeList', KnowledgeList: 'KnowledgeList' },
     });

@@ -61,7 +61,7 @@ async function loadModule(relativePath, localModules = {}) {
 }
 
 async function loadPage() {
-    return loadModule('../src/pages/notice/index.tsx', {
+    return loadModule('../src/pages/notice/NoticePage.tsx', {
         modal: { __esModule: true, default: 'NoticeEditor', NoticeEditor: 'NoticeEditor' },
         list: { __esModule: true, default: 'NoticeList', NoticeList: 'NoticeList' },
     });

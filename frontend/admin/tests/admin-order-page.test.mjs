@@ -114,7 +114,7 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
 }
 
 async function loadPage() {
-    return loadModule('../src/pages/order/index.tsx', {
+    return loadModule('../src/pages/order/OrderPage.tsx', {
         list: { __esModule: true, OrderList: 'OrderList' },
         filter: { __esModule: true, default: 'OrderFilterDrawer' },
         detail: {

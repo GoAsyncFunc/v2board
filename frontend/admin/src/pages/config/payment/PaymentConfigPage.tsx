@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../../components/common/LoadingContainer';
-import MainLayout from '../../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import PaymentList from './components/PaymentList';
 import ConnectedPaymentEditor, { PaymentEditor } from './components/PaymentEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';

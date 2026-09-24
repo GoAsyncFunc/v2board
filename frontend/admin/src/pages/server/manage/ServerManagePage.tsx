@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Prompt } from 'react-router-dom';
 import LoadingContainer from '../../../components/common/LoadingContainer';
 import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpers';
-import MainLayout from '../../../layouts/MainLayout';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import { serverModelNamespace } from './editors/ServerEditorRegistry';
 import ServerManageWorkspace from './components/ServerManageWorkspace';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';

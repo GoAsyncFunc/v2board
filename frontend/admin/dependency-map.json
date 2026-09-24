@@ -236,68 +236,68 @@
     "to": "types/lookup.ts"
   },
   {
-    "from": "layouts/Header/index.tsx",
+    "from": "layouts/Header/HeaderLayout.tsx",
     "to": "app/history.ts"
   },
   {
-    "from": "layouts/Header/index.tsx",
+    "from": "layouts/Header/HeaderLayout.tsx",
     "to": "layouts/Header/components/HeaderAccountMenu.tsx"
   },
   {
-    "from": "layouts/Header/index.tsx",
+    "from": "layouts/Header/HeaderLayout.tsx",
     "to": "layouts/Header/components/HeaderSearchOverlay.tsx"
   },
   {
-    "from": "layouts/Header/index.tsx",
+    "from": "layouts/Header/HeaderLayout.tsx",
     "to": "types/store.ts"
   },
   {
-    "from": "layouts/Header/index.tsx",
+    "from": "layouts/Header/HeaderLayout.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "layouts/MainLayout/index.tsx",
+    "from": "layouts/MainLayout/MainLayout.tsx",
     "to": "app/history.ts"
   },
   {
-    "from": "layouts/MainLayout/index.tsx",
-    "to": "layouts/Header/index.tsx"
+    "from": "layouts/MainLayout/MainLayout.tsx",
+    "to": "layouts/Header/HeaderLayout.tsx"
   },
   {
-    "from": "layouts/MainLayout/index.tsx",
-    "to": "layouts/Sidebar/index.tsx"
+    "from": "layouts/MainLayout/MainLayout.tsx",
+    "to": "layouts/Sidebar/SidebarLayout.tsx"
   },
   {
-    "from": "layouts/MainLayout/index.tsx",
+    "from": "layouts/MainLayout/MainLayout.tsx",
     "to": "types/session.ts"
   },
   {
-    "from": "layouts/MainLayout/index.tsx",
+    "from": "layouts/MainLayout/MainLayout.tsx",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "layouts/Sidebar/SidebarLayout.tsx",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "layouts/Sidebar/SidebarLayout.tsx",
+    "to": "config/navigation.tsx"
+  },
+  {
+    "from": "layouts/Sidebar/SidebarLayout.tsx",
+    "to": "config/siteSettings.ts"
+  },
+  {
+    "from": "layouts/Sidebar/SidebarLayout.tsx",
+    "to": "layouts/Sidebar/components/SidebarNavigation.tsx"
+  },
+  {
+    "from": "layouts/Sidebar/SidebarLayout.tsx",
     "to": "types/store.ts"
   },
   {
     "from": "layouts/Sidebar/components/SidebarNavigation.tsx",
     "to": "config/navigation.tsx"
-  },
-  {
-    "from": "layouts/Sidebar/index.tsx",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "layouts/Sidebar/index.tsx",
-    "to": "config/navigation.tsx"
-  },
-  {
-    "from": "layouts/Sidebar/index.tsx",
-    "to": "config/siteSettings.ts"
-  },
-  {
-    "from": "layouts/Sidebar/index.tsx",
-    "to": "layouts/Sidebar/components/SidebarNavigation.tsx"
-  },
-  {
-    "from": "layouts/Sidebar/index.tsx",
-    "to": "types/store.ts"
   },
   {
     "from": "main.ts",
@@ -756,6 +756,30 @@
     "to": "app/navigation.ts"
   },
   {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
+  },
+  {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "pages/config/payment/components/PaymentEditor.tsx"
+  },
+  {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "pages/config/payment/components/PaymentList.tsx"
+  },
+  {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "types/payment.ts"
+  },
+  {
+    "from": "pages/config/payment/PaymentConfigPage.tsx",
+    "to": "types/store.ts"
+  },
+  {
     "from": "pages/config/payment/components/PaymentBasicFields.tsx",
     "to": "types/payment.ts"
   },
@@ -804,27 +828,23 @@
     "to": "types/payment.ts"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "from": "pages/config/system/SystemConfigPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/config/system/SystemConfigPage.tsx",
+    "to": "pages/config/system/components/MailTestResult.tsx"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/components/PaymentEditor.tsx"
+    "from": "pages/config/system/SystemConfigPage.tsx",
+    "to": "pages/config/system/components/SystemConfigTabs.tsx"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "pages/config/payment/components/PaymentList.tsx"
+    "from": "pages/config/system/SystemConfigPage.tsx",
+    "to": "types/config.ts"
   },
   {
-    "from": "pages/config/payment/index.tsx",
-    "to": "types/payment.ts"
-  },
-  {
-    "from": "pages/config/payment/index.tsx",
+    "from": "pages/config/system/SystemConfigPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1024,56 +1044,60 @@
     "to": "types/config.ts"
   },
   {
-    "from": "pages/config/system/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/components/MailTestResult.tsx"
-  },
-  {
-    "from": "pages/config/system/index.tsx",
-    "to": "pages/config/system/components/SystemConfigTabs.tsx"
-  },
-  {
-    "from": "pages/config/system/index.tsx",
-    "to": "types/config.ts"
-  },
-  {
-    "from": "pages/config/system/index.tsx",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
-    "to": "types/theme.ts"
-  },
-  {
-    "from": "pages/config/theme/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
-  },
-  {
-    "from": "pages/config/theme/index.tsx",
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
     "to": "pages/config/theme/components/ThemeConfigEditor.tsx"
   },
   {
-    "from": "pages/config/theme/index.tsx",
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
     "to": "services/request.ts"
   },
   {
-    "from": "pages/config/theme/index.tsx",
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
     "to": "types/api.ts"
   },
   {
-    "from": "pages/config/theme/index.tsx",
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
     "to": "types/store.ts"
   },
   {
-    "from": "pages/config/theme/index.tsx",
+    "from": "pages/config/theme/ThemeConfigPage.tsx",
     "to": "types/theme.ts"
+  },
+  {
+    "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
+    "to": "types/theme.ts"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "pages/coupon/components/CouponEditor.tsx"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "pages/coupon/components/CouponList.tsx"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "types/promotion.ts"
+  },
+  {
+    "from": "pages/coupon/CouponPage.tsx",
+    "to": "types/store.ts"
   },
   {
     "from": "pages/coupon/components/CouponBasicFields.tsx",
@@ -1160,27 +1184,43 @@
     "to": "types/promotion.ts"
   },
   {
-    "from": "pages/coupon/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "app/navigation.ts"
   },
   {
-    "from": "pages/coupon/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "config/siteSettings.ts"
   },
   {
-    "from": "pages/coupon/index.tsx",
-    "to": "pages/coupon/components/CouponEditor.tsx"
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/coupon/index.tsx",
-    "to": "pages/coupon/components/CouponList.tsx"
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "pages/dashboard/components/DashboardAlerts.tsx"
   },
   {
-    "from": "pages/coupon/index.tsx",
-    "to": "types/promotion.ts"
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "pages/dashboard/components/DashboardCharts.tsx"
   },
   {
-    "from": "pages/coupon/index.tsx",
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "pages/dashboard/components/DashboardNavigation.tsx"
+  },
+  {
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "pages/dashboard/components/DashboardServerRank.tsx"
+  },
+  {
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "pages/dashboard/DashboardPage.tsx",
+    "to": "types/monitoring.ts"
+  },
+  {
+    "from": "pages/dashboard/DashboardPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1232,43 +1272,31 @@
     "to": "types/monitoring.ts"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "app/navigation.ts"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "config/siteSettings.ts"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "pages/giftcard/components/GiftcardEditor.tsx"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardAlerts.tsx"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "pages/giftcard/components/GiftcardList.tsx"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardCharts.tsx"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "types/config.ts"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardNavigation.tsx"
+    "from": "pages/giftcard/GiftcardPage.tsx",
+    "to": "types/promotion.ts"
   },
   {
-    "from": "pages/dashboard/index.tsx",
-    "to": "pages/dashboard/components/DashboardServerRank.tsx"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
-    "to": "types/monitoring.ts"
-  },
-  {
-    "from": "pages/dashboard/index.tsx",
+    "from": "pages/giftcard/GiftcardPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1356,31 +1384,27 @@
     "to": "types/promotion.ts"
   },
   {
-    "from": "pages/giftcard/index.tsx",
+    "from": "pages/knowledge/KnowledgePage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/knowledge/KnowledgePage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "pages/giftcard/components/GiftcardEditor.tsx"
+    "from": "pages/knowledge/KnowledgePage.tsx",
+    "to": "pages/knowledge/components/KnowledgeEditor.tsx"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "pages/giftcard/components/GiftcardList.tsx"
+    "from": "pages/knowledge/KnowledgePage.tsx",
+    "to": "pages/knowledge/components/KnowledgeList.tsx"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "types/config.ts"
+    "from": "pages/knowledge/KnowledgePage.tsx",
+    "to": "types/knowledge.ts"
   },
   {
-    "from": "pages/giftcard/index.tsx",
-    "to": "types/promotion.ts"
-  },
-  {
-    "from": "pages/giftcard/index.tsx",
+    "from": "pages/knowledge/KnowledgePage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1436,39 +1460,39 @@
     "to": "types/store.ts"
   },
   {
-    "from": "pages/knowledge/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/knowledge/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
-  },
-  {
-    "from": "pages/knowledge/index.tsx",
-    "to": "pages/knowledge/components/KnowledgeEditor.tsx"
-  },
-  {
-    "from": "pages/knowledge/index.tsx",
-    "to": "pages/knowledge/components/KnowledgeList.tsx"
-  },
-  {
-    "from": "pages/knowledge/index.tsx",
-    "to": "types/knowledge.ts"
-  },
-  {
-    "from": "pages/knowledge/index.tsx",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "pages/login/index.tsx",
+    "from": "pages/login/LoginPage.tsx",
     "to": "pages/login/components/AdminLoginScreen.tsx"
   },
   {
-    "from": "pages/login/index.tsx",
+    "from": "pages/login/LoginPage.tsx",
     "to": "types/session.ts"
   },
   {
-    "from": "pages/login/index.tsx",
+    "from": "pages/login/LoginPage.tsx",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
+    "to": "components/common/LoadingContainer.tsx"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
+    "to": "pages/notice/components/NoticeEditor.tsx"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
+    "to": "pages/notice/components/NoticeList.tsx"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
+    "to": "types/notice.ts"
+  },
+  {
+    "from": "pages/notice/NoticePage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1516,27 +1540,35 @@
     "to": "types/notice.ts"
   },
   {
-    "from": "pages/notice/index.tsx",
+    "from": "pages/order/OrderPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/notice/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/order/OrderPage.tsx",
+    "to": "components/order/AssignOrderEditor.tsx"
   },
   {
-    "from": "pages/notice/index.tsx",
-    "to": "pages/notice/components/NoticeEditor.tsx"
+    "from": "pages/order/OrderPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/notice/index.tsx",
-    "to": "pages/notice/components/NoticeList.tsx"
+    "from": "pages/order/OrderPage.tsx",
+    "to": "pages/order/components/OrderDetailModal.tsx"
   },
   {
-    "from": "pages/notice/index.tsx",
-    "to": "types/notice.ts"
+    "from": "pages/order/OrderPage.tsx",
+    "to": "pages/order/components/OrderFilterDrawer.tsx"
   },
   {
-    "from": "pages/notice/index.tsx",
+    "from": "pages/order/OrderPage.tsx",
+    "to": "pages/order/components/OrderList.tsx"
+  },
+  {
+    "from": "pages/order/OrderPage.tsx",
+    "to": "types/order.ts"
+  },
+  {
+    "from": "pages/order/OrderPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1616,35 +1648,27 @@
     "to": "types/store.ts"
   },
   {
-    "from": "pages/order/index.tsx",
+    "from": "pages/plan/PlanPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/order/index.tsx",
-    "to": "components/order/AssignOrderEditor.tsx"
+    "from": "pages/plan/PlanPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/order/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/plan/PlanPage.tsx",
+    "to": "pages/plan/components/PlanEditor.tsx"
   },
   {
-    "from": "pages/order/index.tsx",
-    "to": "pages/order/components/OrderDetailModal.tsx"
+    "from": "pages/plan/PlanPage.tsx",
+    "to": "pages/plan/components/PlanList.tsx"
   },
   {
-    "from": "pages/order/index.tsx",
-    "to": "pages/order/components/OrderFilterDrawer.tsx"
+    "from": "pages/plan/PlanPage.tsx",
+    "to": "types/plan.ts"
   },
   {
-    "from": "pages/order/index.tsx",
-    "to": "pages/order/components/OrderList.tsx"
-  },
-  {
-    "from": "pages/order/index.tsx",
-    "to": "types/order.ts"
-  },
-  {
-    "from": "pages/order/index.tsx",
+    "from": "pages/plan/PlanPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1756,27 +1780,27 @@
     "to": "types/plan.ts"
   },
   {
-    "from": "pages/plan/index.tsx",
+    "from": "pages/queue/QueuePage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/plan/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/queue/QueuePage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/plan/index.tsx",
-    "to": "pages/plan/components/PlanEditor.tsx"
+    "from": "pages/queue/QueuePage.tsx",
+    "to": "pages/queue/components/QueueOverview.tsx"
   },
   {
-    "from": "pages/plan/index.tsx",
-    "to": "pages/plan/components/PlanList.tsx"
+    "from": "pages/queue/QueuePage.tsx",
+    "to": "pages/queue/components/QueueWorkloadTable.tsx"
   },
   {
-    "from": "pages/plan/index.tsx",
-    "to": "types/plan.ts"
+    "from": "pages/queue/QueuePage.tsx",
+    "to": "types/monitoring.ts"
   },
   {
-    "from": "pages/plan/index.tsx",
+    "from": "pages/queue/QueuePage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1796,27 +1820,31 @@
     "to": "types/monitoring.ts"
   },
   {
-    "from": "pages/queue/index.tsx",
+    "from": "pages/server/group/ServerGroupPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/queue/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/server/group/ServerGroupPage.tsx",
+    "to": "components/common/PermissionGroupEditor.tsx"
   },
   {
-    "from": "pages/queue/index.tsx",
-    "to": "pages/queue/components/QueueOverview.tsx"
+    "from": "pages/server/group/ServerGroupPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/queue/index.tsx",
-    "to": "pages/queue/components/QueueWorkloadTable.tsx"
+    "from": "pages/server/group/ServerGroupPage.tsx",
+    "to": "pages/server/group/components/ServerGroupColumns.tsx"
   },
   {
-    "from": "pages/queue/index.tsx",
-    "to": "types/monitoring.ts"
+    "from": "pages/server/group/ServerGroupPage.tsx",
+    "to": "pages/server/group/components/ServerGroupList.tsx"
   },
   {
-    "from": "pages/queue/index.tsx",
+    "from": "pages/server/group/ServerGroupPage.tsx",
+    "to": "types/server.ts"
+  },
+  {
+    "from": "pages/server/group/ServerGroupPage.tsx",
     "to": "types/store.ts"
   },
   {
@@ -1832,32 +1860,32 @@
     "to": "pages/server/group/components/ServerGroupColumns.tsx"
   },
   {
-    "from": "pages/server/group/index.tsx",
+    "from": "pages/server/manage/ServerManagePage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/server/group/index.tsx",
-    "to": "components/common/PermissionGroupEditor.tsx"
+    "from": "pages/server/manage/ServerManagePage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/server/group/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/server/manage/ServerManagePage.tsx",
+    "to": "pages/server/manage/components/ServerManageWorkspace.tsx"
   },
   {
-    "from": "pages/server/group/index.tsx",
-    "to": "pages/server/group/components/ServerGroupColumns.tsx"
+    "from": "pages/server/manage/ServerManagePage.tsx",
+    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
   },
   {
-    "from": "pages/server/group/index.tsx",
-    "to": "pages/server/group/components/ServerGroupList.tsx"
-  },
-  {
-    "from": "pages/server/group/index.tsx",
+    "from": "pages/server/manage/ServerManagePage.tsx",
     "to": "types/server.ts"
   },
   {
-    "from": "pages/server/group/index.tsx",
+    "from": "pages/server/manage/ServerManagePage.tsx",
     "to": "types/store.ts"
+  },
+  {
+    "from": "pages/server/manage/ServerManagePage.tsx",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/server/manage/components/ServerManageActions.tsx",
@@ -2560,32 +2588,28 @@
     "to": "types/server.ts"
   },
   {
-    "from": "pages/server/manage/index.tsx",
+    "from": "pages/server/route/ServerRoutePage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/server/manage/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/server/route/ServerRoutePage.tsx",
+    "to": "config/adminSettings.ts"
   },
   {
-    "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/components/ServerManageWorkspace.tsx"
+    "from": "pages/server/route/ServerRoutePage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/server/manage/index.tsx",
-    "to": "pages/server/manage/editors/ServerEditorRegistry.tsx"
+    "from": "pages/server/route/ServerRoutePage.tsx",
+    "to": "pages/server/route/components/RouteEditor.tsx"
   },
   {
-    "from": "pages/server/manage/index.tsx",
-    "to": "types/server.ts"
+    "from": "pages/server/route/ServerRoutePage.tsx",
+    "to": "pages/server/route/components/ServerRouteList.tsx"
   },
   {
-    "from": "pages/server/manage/index.tsx",
+    "from": "pages/server/route/ServerRoutePage.tsx",
     "to": "types/store.ts"
-  },
-  {
-    "from": "pages/server/manage/index.tsx",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/server/route/components/RouteActionColumn.ts",
@@ -2636,28 +2660,28 @@
     "to": "pages/server/route/components/ServerRouteColumns.ts"
   },
   {
-    "from": "pages/server/route/index.tsx",
+    "from": "pages/ticket/TicketPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/server/route/index.tsx",
-    "to": "config/adminSettings.ts"
+    "from": "pages/ticket/TicketPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/server/route/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/ticket/TicketPage.tsx",
+    "to": "pages/ticket/components/TicketList.tsx"
   },
   {
-    "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/components/RouteEditor.tsx"
+    "from": "pages/ticket/TicketPage.tsx",
+    "to": "pages/ticket/components/TicketToolbar.tsx"
   },
   {
-    "from": "pages/server/route/index.tsx",
-    "to": "pages/server/route/components/ServerRouteList.tsx"
-  },
-  {
-    "from": "pages/server/route/index.tsx",
+    "from": "pages/ticket/TicketPage.tsx",
     "to": "types/store.ts"
+  },
+  {
+    "from": "pages/ticket/TicketPage.tsx",
+    "to": "types/ticket.ts"
   },
   {
     "from": "pages/ticket/[id].tsx",
@@ -2728,28 +2752,56 @@
     "to": "types/ticket.ts"
   },
   {
-    "from": "pages/ticket/index.tsx",
+    "from": "pages/user/UserPage.tsx",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/ticket/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
+    "from": "pages/user/UserPage.tsx",
+    "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/ticket/index.tsx",
-    "to": "pages/ticket/components/TicketList.tsx"
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/SendMailEditor.tsx"
   },
   {
-    "from": "pages/ticket/index.tsx",
-    "to": "pages/ticket/components/TicketToolbar.tsx"
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/UserEditor.tsx"
   },
   {
-    "from": "pages/ticket/index.tsx",
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/UserFilterDrawer.tsx"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/UserGenerator.tsx"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/UserList.tsx"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
+    "to": "pages/user/components/UserToolbar.tsx"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
+    "to": "types/filter.ts"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
     "to": "types/store.ts"
   },
   {
-    "from": "pages/ticket/index.tsx",
-    "to": "types/ticket.ts"
+    "from": "pages/user/UserPage.tsx",
+    "to": "types/user.ts"
+  },
+  {
+    "from": "pages/user/UserPage.tsx",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/user/components/SendMailEditor.tsx",
@@ -2940,120 +2992,72 @@
     "to": "types/user.ts"
   },
   {
-    "from": "pages/user/index.tsx",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "components/common/LoadingContainer.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "layouts/MainLayout/index.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/SendMailEditor.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/UserEditor.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/UserFilterDrawer.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/UserGenerator.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/UserList.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "pages/user/components/UserToolbar.tsx"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "types/filter.ts"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "types/user.ts"
-  },
-  {
-    "from": "pages/user/index.tsx",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "routes/index.ts",
     "to": "pages/AdminHomeRedirect.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/payment/index.tsx"
+    "to": "pages/config/payment/PaymentConfigPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/system/index.tsx"
+    "to": "pages/config/system/SystemConfigPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/config/theme/index.tsx"
+    "to": "pages/config/theme/ThemeConfigPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/coupon/index.tsx"
+    "to": "pages/coupon/CouponPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/dashboard/index.tsx"
+    "to": "pages/dashboard/DashboardPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/giftcard/index.tsx"
+    "to": "pages/giftcard/GiftcardPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/knowledge/index.tsx"
+    "to": "pages/knowledge/KnowledgePage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/login/index.tsx"
+    "to": "pages/login/LoginPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/notice/index.tsx"
+    "to": "pages/notice/NoticePage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/order/index.tsx"
+    "to": "pages/order/OrderPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/plan/index.tsx"
+    "to": "pages/plan/PlanPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/queue/index.tsx"
+    "to": "pages/queue/QueuePage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/group/index.tsx"
+    "to": "pages/server/group/ServerGroupPage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/manage/index.tsx"
+    "to": "pages/server/manage/ServerManagePage.tsx"
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/server/route/index.tsx"
+    "to": "pages/server/route/ServerRoutePage.tsx"
+  },
+  {
+    "from": "routes/index.ts",
+    "to": "pages/ticket/TicketPage.tsx"
   },
   {
     "from": "routes/index.ts",
@@ -3061,11 +3065,7 @@
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/ticket/index.tsx"
-  },
-  {
-    "from": "routes/index.ts",
-    "to": "pages/user/index.tsx"
+    "to": "pages/user/UserPage.tsx"
   },
   {
     "from": "routes/index.ts",

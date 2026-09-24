@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import { connect } from 'react-redux';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import QueueOverview from './components/QueueOverview';
