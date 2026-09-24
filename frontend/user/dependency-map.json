@@ -1368,7 +1368,7 @@
     "to": "types/store.ts"
   },
   {
-    "from": "pages/auth/Index.tsx",
+    "from": "pages/auth/HomePage.tsx",
     "to": "app/history.ts"
   },
   {
@@ -1757,7 +1757,7 @@
   },
   {
     "from": "routes/index.ts",
-    "to": "pages/auth/Index.tsx"
+    "to": "pages/auth/HomePage.tsx"
   },
   {
     "from": "routes/index.ts",
