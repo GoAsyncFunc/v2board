@@ -13,7 +13,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "routes/index.ts"
+    "to": "routes/userRoutes.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -1740,67 +1740,67 @@
     "to": "types/ticket.ts"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/account/Invite.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/account/Profile.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/account/Traffic.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/auth/ForgetPassword.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/auth/HomePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/auth/Login.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/auth/Register.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/commerce/Order.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/commerce/OrderDetail.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/dashboard/Dashboard.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/subscription/Node.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/subscription/Plan.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/subscription/PlanDetail.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/support/Knowledge.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/support/Ticket.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/userRoutes.ts",
     "to": "pages/support/TicketDetail.tsx"
   },
   {
@@ -1825,7 +1825,7 @@
   },
   {
     "from": "runtime/routeRenderer.tsx",
-    "to": "routes/index.ts"
+    "to": "routes/userRoutes.ts"
   },
   {
     "from": "runtime/routeRenderer.tsx",

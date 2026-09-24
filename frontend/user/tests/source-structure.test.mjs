@@ -119,7 +119,7 @@ test('user production source contains no compiler-style module imports', async (
 
 test('user route definitions live in the dedicated routes directory', async () => {
     const routeSource = await fs.readFile(
-        new URL('../src/routes/index.ts', import.meta.url),
+        new URL('../src/routes/userRoutes.ts', import.meta.url),
         'utf8',
     );
     assert.match(routeSource, /export interface UserRoute/);

@@ -18,7 +18,7 @@ export type NavigationItem =
     | { title: React.ReactNode; type: 'heading'; icon?: React.ReactNode }
     | { title: React.ReactNode; type: 'item'; href: string; icon?: React.ReactNode };
 
-// Item order controls sidebar order. Routes are registered separately in routes/index.ts.
+// Item order controls sidebar order. Routes are registered separately in userRoutes.ts.
 export const navigationItems: NavigationDefinition[] = [
     {
         title: '仪表盘',

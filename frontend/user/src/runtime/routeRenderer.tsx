@@ -1,7 +1,7 @@
 import React from 'react';
 import type { RouteComponentProps } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
-import type { UserRoute } from '../routes';
+import type { UserRoute } from '../routes/userRoutes';
 import type { UserRootState, UserStore } from '../types/store';
 import { apply } from './pluginRuntime';
 

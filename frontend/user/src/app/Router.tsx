@@ -37,7 +37,7 @@ import {
 import type { IntlApi, LanguageContextValue } from '../locales/i18n';
 import * as plugins from '../runtime/pluginRuntime';
 import history from './history';
-import userRoutes from '../routes';
+import userRoutes from '../routes/userRoutes';
 import type { UserStore } from '../types/store';
 import type { RouteRendererProps } from '../runtime/routeRenderer';
 
