@@ -528,4 +528,21 @@ test('user restored component styles use semantic selectors and ship with the bu
         'utf8',
     );
     assert.match(buildScript, /src\/styles\/components\.css/);
+
+    const publishedThemeStyles = await fs.readFile(
+        new URL('../public/theme/default/assets/umi.css', import.meta.url),
+        'utf8',
+    );
+    assert.doesNotMatch(publishedThemeStyles, /___[A-Za-z0-9_-]{4,}/);
+    for (const selector of [
+        'subscribe-import-list',
+        'subscribe-import-item',
+        'ticket-detail-content',
+        'ticket-detail-input',
+        'ticket-detail-tag',
+        'ticket-detail-bubble',
+        'ticket-detail-time',
+    ]) {
+        assert.match(publishedThemeStyles, new RegExp(`\\.${selector}\\b`));
+    }
 });
