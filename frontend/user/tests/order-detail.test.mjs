@@ -68,3 +68,11 @@ for(const scenario of ['mount','method','stripe-key','checkout','stripe-missing'
   results.push(clean({trace,state:page.state,order:page.props.order,timers:timers.size}));
  }assert.deepEqual(results[1],results[0]);
 });
+
+test('Order detail keeps cashier presentation in a dedicated view component', async () => {
+ const pageSource=await fs.readFile(new URL('../src/pages/commerce/OrderDetail.tsx', import.meta.url),'utf8');
+ const viewSource=await fs.readFile(new URL('../src/pages/commerce/components/OrderDetailView.tsx', import.meta.url),'utf8');
+ assert.match(pageSource,/import OrderDetailView from ['"]\.\/components\/OrderDetailView['"]/);
+ assert.doesNotMatch(pageSource,/OrderPaymentSummary|CheckoutPaymentSection|PaymentQrModal/);
+ assert.match(viewSource,/export default function OrderDetailView/);
+});

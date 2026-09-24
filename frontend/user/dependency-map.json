@@ -993,34 +993,46 @@
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/commerce/checkout/CheckoutPaymentSection.tsx"
-  },
-  {
-    "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/commerce/checkout/OrderInfo.tsx"
-  },
-  {
-    "from": "pages/commerce/OrderDetail.tsx",
-    "to": "components/commerce/checkout/OrderPaymentSummary.tsx"
-  },
-  {
-    "from": "pages/commerce/OrderDetail.tsx",
     "to": "components/commerce/checkout/OrderStatusResult.tsx"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
+    "to": "locales/i18n.ts"
+  },
+  {
+    "from": "pages/commerce/OrderDetail.tsx",
+    "to": "pages/commerce/components/OrderDetailView.tsx"
+  },
+  {
+    "from": "pages/commerce/components/OrderDetailView.tsx",
+    "to": "components/commerce/checkout/CheckoutPaymentSection.tsx"
+  },
+  {
+    "from": "pages/commerce/components/OrderDetailView.tsx",
+    "to": "components/commerce/checkout/OrderInfo.tsx"
+  },
+  {
+    "from": "pages/commerce/components/OrderDetailView.tsx",
+    "to": "components/commerce/checkout/OrderPaymentSummary.tsx"
+  },
+  {
+    "from": "pages/commerce/components/OrderDetailView.tsx",
+    "to": "components/commerce/checkout/OrderStatusResult.tsx"
+  },
+  {
+    "from": "pages/commerce/components/OrderDetailView.tsx",
     "to": "components/commerce/checkout/PaymentQrModal.tsx"
   },
   {
-    "from": "pages/commerce/OrderDetail.tsx",
+    "from": "pages/commerce/components/OrderDetailView.tsx",
     "to": "components/commerce/checkout/ProductInfo.tsx"
   },
   {
-    "from": "pages/commerce/OrderDetail.tsx",
+    "from": "pages/commerce/components/OrderDetailView.tsx",
     "to": "layouts/MainLayout.tsx"
   },
   {
-    "from": "pages/commerce/OrderDetail.tsx",
+    "from": "pages/commerce/components/OrderDetailView.tsx",
     "to": "locales/i18n.ts"
   },
   {

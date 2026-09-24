@@ -1,16 +1,11 @@
-import OrderInfo from '../../components/commerce/checkout/OrderInfo';
-import ProductInfo from '../../components/commerce/checkout/ProductInfo';
-import OrderPaymentSummary from '../../components/commerce/checkout/OrderPaymentSummary';
-import CheckoutPaymentSection from '../../components/commerce/checkout/CheckoutPaymentSection';
 import OrderStatusResult, {
     orderResultProps,
 } from '../../components/commerce/checkout/OrderStatusResult';
-import PaymentQrModal from '../../components/commerce/checkout/PaymentQrModal';
 import React from 'react';
-import MainLayout from '../../layouts/MainLayout';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import { formatMessage } from '../../locales/i18n';
+import OrderDetailView from './components/OrderDetailView';
 import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from '../../types/payment';
 import type { PaymentMethod } from '../../types/commerce';
 import type { UserDispatch, UserRootState } from '../../types/store';
@@ -162,82 +157,30 @@ export class OrderDetailPage extends React.Component<OrderDetailProps, PaymentSt
             detailsLoading,
             cancelLoading,
         } = this.props.order;
-        const { config } = this.props.comm;
-        const { stripe } = this.state;
-        const selectedPayment: Partial<CheckoutPaymentMethod> =
-            methods.find((method) => method.id === selectedMethod) || {};
         return (
-            <MainLayout {...this.props} title={formatMessage({ id: '订单详情' })}>
-                <main id={'main-container'}>
-                    <div className={'content content-full'}>
-                        {detailsLoading ? (
-                            <div className={'spinner-grow text-primary'} role={'status'}>
-                                <span className={'sr-only'}>{'Loading...'}</span>
-                            </div>
-                        ) : (
-                            <div className={'row'} id={'cashier'}>
-                                <div
-                                    className={0 === order.status ? 'col-md-8 col-sm-12' : 'col-12'}
-                                >
-                                    {0 !== order.status && (
-                                        <div className={'block block-rounded'}>
-                                            <div className={'block-content pt-0'}>
-                                                {<OrderStatusResult status={order.status} />}
-                                            </div>
-                                        </div>
-                                    )}
-                                    <ProductInfo
-                                        order={order}
-                                        config={config}
-                                        cancelLoading={cancelLoading}
-                                        dispatch={this.props.dispatch}
-                                    />
-                                    <OrderInfo
-                                        order={order}
-                                        config={config}
-                                        cancelLoading={cancelLoading}
-                                        dispatch={this.props.dispatch}
-                                    />
-                                    {0 === order.status && (
-                                        <CheckoutPaymentSection
-                                            methods={methods}
-                                            selectedMethod={selectedMethod}
-                                            stripePublicKey={this.state.pk}
-                                            onSelect={(id) => this.changePaymentMethod(id)}
-                                            onStripeToken={(error, token) =>
-                                                this.stripeCallback(error, token)
-                                            }
-                                        />
-                                    )}
-                                </div>
-                                {0 === order.status && (
-                                    <OrderPaymentSummary
-                                        order={order}
-                                        config={config}
-                                        checkoutLoading={checkoutLoading}
-                                        selectedPayment={selectedPayment}
-                                        stripe={stripe}
-                                        onCheckout={() => this.checkout()}
-                                    />
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </main>
-                <PaymentQrModal
-                    visible={qrVisible}
-                    payUrl={typeof payUrl === 'string' ? payUrl : undefined}
-                    onCancel={() =>
-                        this.props.dispatch({
-                            type: 'order/setState',
-                            payload: {
-                                qrcodeModalVisible: false,
-                                payUrl: undefined,
-                            },
-                        })
-                    }
-                />
-            </MainLayout>
+            <OrderDetailView
+                dispatch={this.props.dispatch}
+                order={order}
+                config={this.props.comm.config}
+                methods={methods}
+                selectedMethod={selectedMethod}
+                qrVisible={qrVisible}
+                payUrl={typeof payUrl === 'string' ? payUrl : undefined}
+                checkoutLoading={checkoutLoading}
+                detailsLoading={detailsLoading}
+                cancelLoading={cancelLoading}
+                stripe={this.state.stripe}
+                stripePublicKey={this.state.pk}
+                onSelectPayment={(id) => this.changePaymentMethod(id)}
+                onStripeToken={(error, token) => this.stripeCallback(error, token)}
+                onCheckout={() => this.checkout()}
+                onCancelQr={() =>
+                    this.props.dispatch({
+                        type: 'order/setState',
+                        payload: { qrcodeModalVisible: false, payUrl: undefined },
+                    })
+                }
+            />
         );
     }
 }
