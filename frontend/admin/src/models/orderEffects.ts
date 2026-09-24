@@ -36,7 +36,7 @@ interface AssignOrderAction {
 }
 
 type OrderQueryEffect = ModelEffect<ApiResponse<OrderRecord[]> | OrderState>;
-type OrderMutationEffect = ModelEffect<ApiResponse<unknown>>;
+type OrderMutationEffect = ModelEffect<ApiResponse>;
 
 const orderEndpoint = (action: string): string => `/${window.settings.secure_path}/order/${action}`;
 
