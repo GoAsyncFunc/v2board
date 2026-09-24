@@ -439,13 +439,9 @@ test('admin model composition uses named business effects instead of module alia
         assert.doesNotMatch(source, /\bname:\s*['"]/);
     }
 
-    const protocolFactory = await fs.readFile(
-        new URL('createServerProtocolModel.ts', modelDirectory),
-        'utf8',
-    );
-    assert.match(protocolFactory, /interface ServerProtocolModelOptions\s*{\s*namespace: string;/);
-    assert.match(protocolFactory, /return\s*{\s*namespace,/);
-    assert.doesNotMatch(protocolFactory, /\bname:\s*string/);
+    assert.match(protocolSource, /interface ServerProtocolModelOptions\s*{\s*namespace: string;/);
+    assert.match(protocolSource, /return\s*{\s*namespace,/);
+    assert.doesNotMatch(protocolSource, /\bname:\s*string/);
 
     const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
     assert.match(store, /model\.namespace !== registeredNamespace/);

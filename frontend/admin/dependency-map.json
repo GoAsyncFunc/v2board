@@ -264,14 +264,6 @@
     "to": "types/api.ts"
   },
   {
-    "from": "models/createServerProtocolModel.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/createServerProtocolModel.ts",
-    "to": "types/api.ts"
-  },
-  {
     "from": "models/dashboardStatistics.ts",
     "to": "services/request.ts"
   },
@@ -373,7 +365,11 @@
   },
   {
     "from": "models/serverProtocolModels.ts",
-    "to": "models/createServerProtocolModel.ts"
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverProtocolModels.ts",
+    "to": "types/api.ts"
   },
   {
     "from": "models/serverRoute.ts",
