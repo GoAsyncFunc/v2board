@@ -1,15 +1,13 @@
 import {
     addFilter as addOrderFilter,
+    assign as assignOrder,
+    cancel as cancelOrder,
     changeTable as changeOrderTable,
     fetch as fetchOrders,
     filter as filterOrders,
-} from './orderQueryEffects';
-import {
-    assign as assignOrder,
-    cancel as cancelOrder,
     paid as markOrderPaid,
     update as updateOrder,
-} from './orderMutationEffects';
+} from './orderEffects';
 import type { OrderState } from '../types/order';
 
 const initialState: OrderState = {

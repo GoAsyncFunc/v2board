@@ -1,13 +1,14 @@
-import { get } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { get, post } from '../services/request';
+import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/api';
 import type { FilterItem, FilterValue } from '../types/filter';
-import type { OrderPagination, OrderRecord, OrderState } from '../types/order';
-import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { AssignOrderParams, OrderPagination, OrderRecord, OrderState } from '../types/order';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/effects';
 import type { AdminAction, AdminRootState } from '../types/store';
 
 type OrderStoreState = Pick<AdminRootState, 'order'>;
 type OrderQueryAction = AdminAction | { filter: FilterItem[] };
 interface QueryEffectTools extends ModelEffectTools<OrderStoreState, OrderQueryAction> {}
+interface MutationEffectTools extends PutEffectTools {}
 
 interface FilterAction {
     filter: FilterItem[];
@@ -21,13 +22,28 @@ interface AddFilterAction {
 interface ChangeTableAction {
     pagination: Partial<OrderPagination>;
 }
-type OrderQueryYield = ApiResponse<OrderRecord[]> | OrderState;
-type OrderQueryEffect = ModelEffect<OrderQueryYield>;
+interface UpdateOrderAction {
+    tradeNo: string | number;
+    key: string;
+    value: FormValue;
+}
+interface TradeNumberAction {
+    tradeNo: string | number;
+}
+interface AssignOrderAction {
+    params: AssignOrderParams;
+    callback?: () => void;
+}
+
+type OrderQueryEffect = ModelEffect<ApiResponse<OrderRecord[]> | OrderState>;
+type OrderMutationEffect = ModelEffect<ApiResponse<unknown>>;
+
+const orderEndpoint = (action: string): string => `/${window.settings.secure_path}/order/${action}`;
 
 export function* fetch(_action: AdminAction, { put, select }: QueryEffectTools): OrderQueryEffect {
     const orderState = (yield select((state) => state.order)) as OrderState;
     yield put({ type: 'setState', payload: { fetchLoading: true } });
-    const response = (yield get<OrderRecord[]>(`/${window.settings.secure_path}/order/fetch`, {
+    const response = (yield get<OrderRecord[]>(orderEndpoint('fetch'), {
         filter: orderState.filter,
         ...orderState.pagination,
     })) as ApiResponse<OrderRecord[]>;
@@ -77,4 +93,46 @@ export function* changeTable(
         payload: { pagination: { ...orderState.pagination, ...pagination } },
     });
     yield put({ type: 'fetch' });
+}
+
+export function* update(
+    { tradeNo, key, value }: UpdateOrderAction,
+    { put }: MutationEffectTools,
+): OrderMutationEffect {
+    const response = yield post(orderEndpoint('update'), {
+        trade_no: tradeNo,
+        [key]: value,
+    });
+    if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
+}
+
+export function* paid(
+    { tradeNo }: TradeNumberAction,
+    { put }: MutationEffectTools,
+): OrderMutationEffect {
+    const response = yield post(orderEndpoint('paid'), { trade_no: tradeNo });
+    if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
+}
+
+export function* cancel(
+    { tradeNo }: TradeNumberAction,
+    { put }: MutationEffectTools,
+): OrderMutationEffect {
+    const response = yield post(orderEndpoint('cancel'), { trade_no: tradeNo });
+    if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
+}
+
+export function* assign(
+    { params, callback }: AssignOrderAction,
+    { put }: MutationEffectTools,
+): OrderMutationEffect {
+    yield put({ type: 'setState', payload: { assignLoading: true } });
+    const response = yield post(orderEndpoint('assign'), {
+        ...params,
+        total_amount: 100 * params.total_amount,
+    });
+    yield put({ type: 'setState', payload: { assignLoading: false } });
+    if (!isSuccessfulResponse(response)) return;
+    yield put({ type: 'fetch' });
+    callback?.();
 }

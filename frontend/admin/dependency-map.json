@@ -305,26 +305,14 @@
   },
   {
     "from": "models/order.ts",
-    "to": "models/orderMutationEffects.ts"
+    "to": "models/orderEffects.ts"
   },
   {
-    "from": "models/order.ts",
-    "to": "models/orderQueryEffects.ts"
-  },
-  {
-    "from": "models/orderMutationEffects.ts",
+    "from": "models/orderEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderMutationEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/orderQueryEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/orderQueryEffects.ts",
+    "from": "models/orderEffects.ts",
     "to": "types/api.ts"
   },
   {

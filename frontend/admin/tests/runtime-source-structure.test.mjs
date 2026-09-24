@@ -374,8 +374,8 @@ test('admin model composition uses named business effects instead of module alia
         new URL('../src/models/order.ts', import.meta.url),
         'utf8',
     );
-    const orderMutations = await fs.readFile(
-        new URL('../src/models/orderMutationEffects.ts', import.meta.url),
+    const orderEffects = await fs.readFile(
+        new URL('../src/models/orderEffects.ts', import.meta.url),
         'utf8',
     );
 
@@ -384,7 +384,7 @@ test('admin model composition uses named business effects instead of module alia
         assert.doesNotMatch(source, /\bexports\./);
     }
     for (const effect of ['update', 'paid', 'cancel', 'assign']) {
-        assert.match(orderMutations, new RegExp(`export function\\* ${effect}\\b`));
+        assert.match(orderEffects, new RegExp(`export function\\* ${effect}\\b`));
     }
     assert.doesNotMatch(orderModel, /\bpost\(|window\.settings/);
 
