@@ -40,6 +40,11 @@ class Stash
             if (($item['type'] ?? null) === 'v2node' && isset($item['protocol'])) {
                 $item['type'] = $item['protocol'];
             }
+            // Stash 内核不支持 HTTPUpgrade 承载（仅 tcp/ws/h2/http/grpc/xhttp），
+            // 跳过以免下发连不上又看不出原因的节点。
+            if (($item['network'] ?? 'tcp') === 'httpupgrade') {
+                continue;
+            }
             if ($item['type'] === 'shadowsocks') {
                 array_push($proxy, self::buildShadowsocks($user['uuid'], $item));
                 array_push($proxies, $item['name']);

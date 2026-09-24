@@ -303,6 +303,17 @@ class ClashNyanpasu
                     $array['ws-opts']['headers'] = ['Host' => $wsSettings['headers']['Host']];
             }
         }
+        if ($server['network'] === 'httpupgrade') {
+            // mihomo has no dedicated `network: httpupgrade`; Xray's HTTPUpgrade
+            // transport is expressed as a WebSocket with this flag.
+            $array['network'] = 'ws';
+            $array['ws-opts'] = ['v2ray-http-upgrade' => true];
+            $huSettings = $server['network_settings'] ?? [];
+            if (isset($huSettings['path']) && !empty($huSettings['path']))
+                $array['ws-opts']['path'] = $huSettings['path'];
+            if (isset($huSettings['host']) && !empty($huSettings['host']))
+                $array['ws-opts']['headers'] = ['Host' => $huSettings['host']];
+        }
         if ($server['network'] === 'grpc') {
             $array['network'] = 'grpc';
             if ($server['network_settings']) {
