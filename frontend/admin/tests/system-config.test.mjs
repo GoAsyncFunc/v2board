@@ -121,6 +121,9 @@ async function loadConfig() {
                     };
                 }
                 if (id === './SafeConfigLimits') return () => null;
+                if (id === './InviteCommissionDistribution') {
+                    return 'InviteCommissionDistribution 一级邀请人比例 二级邀请人比例 三级邀请人比例';
+                }
                 if (id.includes('SiteConfigTab')) return components.site;
                 if (id.includes('SafeConfigTab')) return components.safe;
                 if (id.includes('SubscribeConfigTab')) return components.subscribe;
@@ -583,6 +586,23 @@ test('Invite config tab preserves invitation, withdrawal and distribution contro
         ['invite_commission', 20],
         ['commission_withdraw_method', ['支付宝', '贝宝']],
     ]);
+});
+
+test('Invite config keeps distribution levels in a dedicated component', async () => {
+    const tabSource = await fs.readFile(
+        new URL('../src/pages/config/system/components/InviteConfigTab.tsx', import.meta.url),
+        'utf8',
+    );
+    const distributionSource = await fs.readFile(
+        new URL(
+            '../src/pages/config/system/components/InviteCommissionDistribution.tsx',
+            import.meta.url,
+        ),
+        'utf8',
+    );
+    assert.match(tabSource, /InviteCommissionDistribution/);
+    assert.match(distributionSource, /commission_distribution_l1/);
+    assert.match(distributionSource, /commission_distribution_l3/);
 });
 
 test('Frontend config tab maps theme switches, color and background settings', async () => {

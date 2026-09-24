@@ -880,6 +880,7 @@ test('admin pages select from the canonical root state', async () => {
         'EmailConfigTab.tsx',
         'FrontendConfigTab.tsx',
         'InviteConfigTab.tsx',
+        'InviteCommissionDistribution.tsx',
         'MailTestResult.tsx',
         'SafeConfigTab.tsx',
         'SafeConfigFields.tsx',

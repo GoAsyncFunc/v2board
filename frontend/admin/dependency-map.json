@@ -600,6 +600,10 @@
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
+    "from": "pages/config/system/components/InviteConfigTab.tsx",
+    "to": "pages/config/system/components/InviteCommissionDistribution.tsx"
+  },
+  {
     "from": "pages/config/system/components/SafeConfigFields.tsx",
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
