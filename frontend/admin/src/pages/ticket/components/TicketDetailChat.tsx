@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
-import { ticketDetailClassNames as styles } from '../../../styles/ticketDetail';
+import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailStyles';
 import TicketMessageList from './TicketMessageList';
 import UserEditor from '../../user/components/UserEditor';
 import TrafficPanel from '../../../components/user/TrafficPanel';

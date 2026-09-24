@@ -6,7 +6,7 @@ import { transform } from 'esbuild';
 
 async function loadFormValues() {
     const source = await fs.readFile(
-        new URL('../src/pages/user/components/formValues.ts', import.meta.url),
+        new URL('../src/pages/user/components/userFormValues.ts', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'ts' });

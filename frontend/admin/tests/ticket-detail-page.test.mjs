@@ -52,7 +52,7 @@ async function loadPage() {
             destroy: () => messages.push(['destroy']),
           },
         };
-      if (id.includes('styles/ticketDetail'))
+      if (id.includes('styles/ticketDetailStyles'))
         return {
           ticketDetailClassNames: {
             tag: 'tag',
@@ -90,7 +90,7 @@ async function loadChat() {
       if (id === 'antd/lib/divider') return 'Divider';
       if (id === 'antd/lib/icon') return 'Icon';
       if (id === 'antd/lib/tooltip') return 'Tooltip';
-      if (id.includes('styles/ticketDetail'))
+      if (id.includes('styles/ticketDetailStyles'))
         return { ticketDetailClassNames: { tag: 'tag', controls: 'ctrl', input: 'input' } };
       if (id.includes('UserEditor') || id.includes('/components/UserEditor')) return 'UserEditor';
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
@@ -115,7 +115,7 @@ async function loadMessageList() {
     React,
     require(id) {
       if (id === 'react') return React;
-      if (id.includes('styles/ticketDetail')) return { ticketDetailClassNames: { content: 'content' } };
+      if (id.includes('styles/ticketDetailStyles')) return { ticketDetailClassNames: { content: 'content' } };
       if (id.includes('utils/dateTime')) return { formatDateTime: value => `date:${value}` };
       throw new Error(id);
     },

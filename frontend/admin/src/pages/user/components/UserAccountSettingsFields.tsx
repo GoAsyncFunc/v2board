@@ -9,7 +9,7 @@ import moment from 'moment';
 import NullableSelectOption from '../../../components/common/NullableSelectOption';
 import type { UserPlanOption, UserRecord } from '../../../types/user';
 import { FormGroup } from './FormGroup';
-import { toInputDefaultValue } from './formValues';
+import { toInputDefaultValue } from './userFormValues';
 
 export interface UserAccountSettingsFieldsProps {
     user: Partial<UserRecord>;
