@@ -62,7 +62,7 @@ npm run check:types
 npm run build
 ```
 
-当前用户端回归基线为 769 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
+当前用户端回归基线为 770 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
 
 ## 目录结构
 
@@ -94,7 +94,7 @@ dist/            本地构建产物，不提交 Git
 
 ## 测试服务器部署
 
-部署脚本会先构建 User，只上传 `app.js`，备份用户端 Blade 入口，切换到带时间戳的发布目录，清理 Laravel 视图缓存并检查首页 HTTP 状态。它不会修改 Admin 入口。
+部署脚本会先构建 User，将 `app.js`、source map、构建清单和 `theme/` 静态资源一起发布到独立时间戳目录，备份用户端 Blade 入口，切换页面中的 CSS、i18n 和脚本资源路径，清理 Laravel 视图缓存并检查首页及关键静态资源 HTTP 状态。它不会修改 Admin 入口。
 
 ```sh
 DEPLOY_HOST=root@5.104.86.24 npm run deploy:test

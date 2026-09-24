@@ -13,7 +13,7 @@ trap 'rm -f "$archive"' EXIT
 
 cd "$app_root"
 npm run build
-tar -czf "$archive" -C dist app.js app.js.map source-build.json
+tar -czf "$archive" -C dist app.js app.js.map source-build.json settings.js theme
 scp "$archive" "$deploy_host:$remote_archive"
 
 ssh "$deploy_host" bash -s -- "$remote_archive" "$site" "$site_url" "$backup_root" "$git_commit" <<'REMOTE'
@@ -34,6 +34,8 @@ mkdir -p "$backup" "$release"
 tar -czf "$backup/template.tar.gz" -C "$site" "$template"
 tar -xzf "$artifact" -C "$stage"
 cp "$stage/app.js" "$stage/app.js.map" "$stage/source-build.json" "$release/"
+cp -R "$stage/theme" "$release/"
+cp "$stage/settings.js" "$release/"
 app_sha256=$(sha256sum "$release/app.js" | cut -d' ' -f1)
 deployed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 cat > "$release/deployment.json" <<EOF
@@ -69,6 +71,11 @@ elif len(old_matches) == 3:
 else:
     raise RuntimeError(f'Unexpected user entry: restored={len(restored_matches)}, old={len(old_matches)}')
 
+source = source.replace(
+    '/theme/{{$theme}}/assets',
+    f'/assets/restored-{stamp}/user/theme/default/assets',
+)
+
 path.write_text(source)
 PY
 
@@ -78,6 +85,7 @@ cat > "$backup/rollback.sh" <<EOF
 #!/usr/bin/env bash
 set -euo pipefail
 tar -xzf '$backup/template.tar.gz' -C '$site'
+rm -rf '$release'
 docker exec -w /www/v2board v2board-legacy-dev php artisan view:clear
 EOF
 chmod 700 "$backup/rollback.sh"
@@ -92,6 +100,25 @@ if [ "$code" != 200 ]; then
   echo "Rolled back: user endpoint returned $code"
   exit 1
 fi
+for resource in \
+  theme/default/assets/components.chunk.css \
+  theme/default/assets/umi.css \
+  theme/default/assets/theme/default.css \
+  theme/default/assets/i18n/zh-CN.js \
+  app.js; do
+  resource_url=$site_url/assets/restored-$stamp/user/$resource
+  if ! headers=$(curl --max-time 30 -fsSI "$resource_url"); then
+    bash "$backup/rollback.sh"
+    echo "Rolled back: user resource $resource could not be fetched"
+    exit 1
+  fi
+  code=$(tr -d '\r' <<<"$headers" | awk '/^HTTP\// {status=$2} END{print status}')
+  if [ "$code" != 200 ]; then
+    bash "$backup/rollback.sh"
+    echo "Rolled back: user resource $resource returned $code"
+    exit 1
+  fi
+done
 printf 'APPLICATION=user\nRELEASE=%s\nBACKUP=%s\nROLLBACK=%s\nGIT_COMMIT=%s\nAPP_SHA256=%s\n' \
   "$release" "$backup" "$backup/rollback.sh" "$git_commit" "$app_sha256"
 REMOTE

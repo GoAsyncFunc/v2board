@@ -6,11 +6,10 @@ import { getCookie } from '../utils/siteHelpers';
 message.config({ maxCount: 1 });
 
 const { host, theme } = window.settings;
+const assetsPath = window.settings.assets_path || '/theme/default/assets';
 const stylesheet = document.createElement('link');
 stylesheet.rel = 'stylesheet';
-stylesheet.href = host
-    ? `./theme/${theme.color}.css`
-    : `/theme/default/assets/theme/${theme.color}.css`;
+stylesheet.href = host ? `./theme/${theme.color}.css` : `${assetsPath}/theme/${theme.color}.css`;
 document.head.appendChild(stylesheet);
 
 const savedLocale = getCookie('i18n');
