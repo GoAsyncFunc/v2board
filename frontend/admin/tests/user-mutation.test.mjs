@@ -24,7 +24,7 @@ async function run(original, scenario) {
     const message = { success: (value) => trace.push(['success', value]) };
     const file = original
         ? path.join(home, 'tests/fixtures/models/admin-user-mutation.cjs')
-        : path.join(home, 'src/models/userMutationEffects.ts');
+        : path.join(home, 'src/models/userEffects.ts');
     const text = await fs.readFile(file, 'utf8');
     const code = original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code;
     const module = { exports: {} };
@@ -41,6 +41,15 @@ async function run(original, scenario) {
                 if (id.includes('antdMessage')) return { a: message };
                 if (id === 'antd/lib/message') return message;
                 if (id.includes('types/api')) return api;
+                if (id.includes('types/effects')) return {};
+                if (id.includes('types/filter')) return {};
+                if (id.includes('types/session')) return {};
+                if (id.includes('types/store')) return {};
+                if (id.includes('types/user')) return {};
+                if (id.includes('services/download')) return { downloadCsv() {} };
+                if (id === 'moment') return () => ({ format: () => 'fixture' });
+                if (id.includes('app/navigation')) return { push() {} };
+                if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 throw Error(id);
             },
         },

@@ -1,12 +1,11 @@
 import { getPreference } from '../utils/siteHelpers';
-import { checkLogin, getUserInfo } from './sessionEffects';
 import {
     addFilter as addUserFilter,
     changeTable as changeUserTable,
     fetch as fetchUsers,
     filter as filterUsers,
     getUserInfoById,
-} from './userQueryEffects';
+} from './userEffects';
 import {
     allDel as deleteFilteredUsers,
     ban as banFilteredUsers,
@@ -14,8 +13,10 @@ import {
     resetSecret as resetUserSecret,
     sendMail as sendMailToUsers,
     update as updateUser,
-} from './userMutationEffects';
-import { dumpCSV as exportUsersCsv, generate as generateUsers } from './userExportEffects';
+    dumpCSV as exportUsersCsv,
+    generate as generateUsers,
+} from './userEffects';
+import { checkLogin, getUserInfo } from './userEffects';
 import type { UserModuleState } from '../types/user';
 
 const initialState: UserModuleState = {

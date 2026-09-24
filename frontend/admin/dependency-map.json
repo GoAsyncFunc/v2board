@@ -396,22 +396,6 @@
     "to": "types/api.ts"
   },
   {
-    "from": "models/sessionEffects.ts",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "models/system.ts",
     "to": "services/request.ts"
   },
@@ -441,51 +425,31 @@
   },
   {
     "from": "models/user.ts",
-    "to": "models/sessionEffects.ts"
-  },
-  {
-    "from": "models/user.ts",
-    "to": "models/userExportEffects.ts"
-  },
-  {
-    "from": "models/user.ts",
-    "to": "models/userMutationEffects.ts"
-  },
-  {
-    "from": "models/user.ts",
-    "to": "models/userQueryEffects.ts"
+    "to": "models/userEffects.ts"
   },
   {
     "from": "models/user.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/userExportEffects.ts",
+    "from": "models/userEffects.ts",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "models/userEffects.ts",
     "to": "services/download.ts"
   },
   {
-    "from": "models/userExportEffects.ts",
+    "from": "models/userEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/userExportEffects.ts",
+    "from": "models/userEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/userMutationEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/userMutationEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/userQueryEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/userQueryEffects.ts",
-    "to": "types/api.ts"
+    "from": "models/userEffects.ts",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentEditor.tsx",

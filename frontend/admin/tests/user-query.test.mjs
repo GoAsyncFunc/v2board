@@ -26,7 +26,7 @@ async function run(original, scenario) {
     api.a = api.get;
     const file = original
         ? path.join(home, 'tests/fixtures/models/admin-user-query.cjs')
-        : path.join(home, 'src/models/userQueryEffects.ts');
+        : path.join(home, 'src/models/userEffects.ts');
     const source = await fs.readFile(file, 'utf8');
     const code = original
         ? source
@@ -42,6 +42,15 @@ async function run(original, scenario) {
             require: (id) => {
                 if (id.includes('request')) return api;
                 if (id.includes('types/api')) return api;
+                if (id.includes('types/effects')) return {};
+                if (id.includes('types/filter')) return {};
+                if (id.includes('types/session')) return {};
+                if (id.includes('types/store')) return {};
+                if (id.includes('types/user')) return {};
+                if (id.includes('services/download')) return { downloadCsv() {} };
+                if (id === 'moment') return () => ({ format: () => 'fixture' });
+                if (id.includes('app/navigation')) return { push() {} };
+                if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 throw Error(id);
             },
         },
