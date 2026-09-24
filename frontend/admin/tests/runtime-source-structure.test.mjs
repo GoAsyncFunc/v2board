@@ -36,7 +36,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/routeTypes.ts',
         '../src/services/request.ts',
         '../src/services/download.ts',
-        '../src/routes/index.ts',
+        '../src/routes/adminRoutes.ts',
         '../src/routes/types.ts',
         '../src/types/api.ts',
         '../src/types/dva.ts',
@@ -80,7 +80,7 @@ test('admin application runtime uses typed source modules outside vendor', async
 
 test('admin route definitions live in the dedicated routes directory', async () => {
     const routeSource = await fs.readFile(
-        new URL('../src/routes/index.ts', import.meta.url),
+        new URL('../src/routes/adminRoutes.ts', import.meta.url),
         'utf8',
     );
     const routeTypeSource = await fs.readFile(

@@ -3,7 +3,7 @@ import type { Action, Location, UnregisterCallback } from 'history';
 import routeRenderer from '../runtime/routeRenderer';
 import { routerBindings } from '../runtime/dvaApplication';
 import * as plugins from '../runtime/pluginRuntime';
-import adminRoutes from '../routes';
+import adminRoutes from '../routes/adminRoutes';
 import history from './history';
 import type { AdminStore } from '../types/store';
 import type { DynamicRouteProps } from '../runtime/routeRenderer';

@@ -5,7 +5,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "routes/index.ts"
+    "to": "routes/adminRoutes.ts"
   },
   {
     "from": "app/Router.tsx",
@@ -2992,83 +2992,83 @@
     "to": "types/user.ts"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/AdminHomeRedirect.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/config/payment/PaymentConfigPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/config/system/SystemConfigPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/config/theme/ThemeConfigPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/coupon/CouponPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/dashboard/DashboardPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/giftcard/GiftcardPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/knowledge/KnowledgePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/login/LoginPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/notice/NoticePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/order/OrderPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/plan/PlanPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/queue/QueuePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/server/group/ServerGroupPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/server/manage/ServerManagePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/server/route/ServerRoutePage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/ticket/TicketPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/ticket/[id].tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "pages/user/UserPage.tsx"
   },
   {
-    "from": "routes/index.ts",
+    "from": "routes/adminRoutes.ts",
     "to": "routes/types.ts"
   },
   {
