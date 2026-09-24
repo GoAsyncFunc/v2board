@@ -92,6 +92,28 @@ test('user business components live outside the vendor compatibility layer', asy
     }
 });
 
+test('user production source contains no compiler-style module imports', async () => {
+    const sourceRoot = new URL('../src/', import.meta.url);
+    const sourceFiles = [];
+    async function collect(directory) {
+        for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+            const path = new URL(`${entry.name}${entry.isDirectory() ? '/' : ''}`, directory);
+            if (entry.isDirectory()) await collect(path);
+            else sourceFiles.push(path);
+        }
+    }
+    await collect(sourceRoot);
+    assert.equal(
+        sourceFiles.some((file) => /\.(?:js|jsx)$/.test(file.pathname)),
+        false,
+    );
+    for (const file of sourceFiles.filter((entry) => /\.(?:ts|tsx)$/.test(entry.pathname))) {
+        const source = await fs.readFile(file, 'utf8');
+        assert.doesNotMatch(source, /\brequire\s*\(/, file.pathname);
+        assert.doesNotMatch(source, /React\.createElement\s*\(/, file.pathname);
+    }
+});
+
 test('user route definitions live in the dedicated routes directory', async () => {
     const routeSource = await fs.readFile(
         new URL('../src/routes/index.ts', import.meta.url),
