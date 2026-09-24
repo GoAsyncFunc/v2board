@@ -1628,8 +1628,12 @@
     "to": "pages/user/components/formValues.ts"
   },
   {
-    "from": "pages/user/components/UserGenerator.tsx",
+    "from": "pages/user/components/UserGenerationForm.tsx",
     "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "pages/user/components/UserGenerator.tsx",
+    "to": "pages/user/components/UserGenerationForm.tsx"
   },
   {
     "from": "pages/user/components/UserList.tsx",
