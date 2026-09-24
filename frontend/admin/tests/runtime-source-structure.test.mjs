@@ -886,6 +886,7 @@ test('admin pages select from the canonical root state', async () => {
         'SafeConfigLimits.tsx',
         'ServerConfigTab.tsx',
         'SiteConfigTab.tsx',
+        'SiteTrialSettings.tsx',
         'SubscribeConfigTab.tsx',
         'SystemConfigTabs.tsx',
         'TelegramConfigTab.tsx',

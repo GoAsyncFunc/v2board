@@ -74,6 +74,38 @@ async function loadConfig() {
                 if (id === 'antd/lib/switch') return 'Switch';
                 if (id === 'antd/lib/tabs') return { TabPane: 'TabPane' };
                 if (id.includes('ConfigRow')) return components.row;
+                if (id === './SiteTrialSettings') {
+                    return ({ site, plans, onChange }) => ({
+                        type: 'SiteTrialSettings',
+                        props: {},
+                        children: [
+                            {
+                                type: 'select',
+                                props: {
+                                    value: site.try_out_plan_id,
+                                    onChange: (event) =>
+                                        onChange('try_out_plan_id', event.target.value),
+                                },
+                                children: plans.map((plan) => ({
+                                    type: 'option',
+                                    props: { value: plan.id },
+                                    children: [plan.name],
+                                })),
+                            },
+                            site.try_out_plan_id !== 0
+                                ? {
+                                      type: 'input',
+                                      props: {
+                                          defaultValue: site.try_out_hour,
+                                          onChange: (event) =>
+                                              onChange('try_out_hour', event.target.value),
+                                      },
+                                      children: [],
+                                  }
+                                : null,
+                        ],
+                    });
+                }
                 if (id === './SafeConfigFields') {
                     return {
                         TextSetting: ({ value, onChange, multiline }) => ({
@@ -340,6 +372,20 @@ test('Site config tab maps each control to its semantic setting key', async () =
         ['logo', 'logo'],
         ['try_out_hour', '48'],
     ]);
+});
+
+test('Site config keeps trial settings in a dedicated component', async () => {
+    const tabSource = await fs.readFile(
+        new URL('../src/pages/config/system/components/SiteConfigTab.tsx', import.meta.url),
+        'utf8',
+    );
+    const trialSource = await fs.readFile(
+        new URL('../src/pages/config/system/components/SiteTrialSettings.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(tabSource, /SiteTrialSettings/);
+    assert.match(trialSource, /try_out_plan_id/);
+    assert.match(trialSource, /try_out_hour/);
 });
 
 test('Safe config tab exposes conditional security controls and semantic updates', async () => {

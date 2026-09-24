@@ -1,6 +1,7 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
+import SiteTrialSettings from './SiteTrialSettings';
 import type {
     ConfigChangeHandler,
     ConfigValue,
@@ -123,35 +124,7 @@ export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabPr
                     onChange={(enabled) => onChange('stop_register', enabled ? 1 : 0)}
                 />
             </ConfigRow>
-            <ConfigRow
-                title="注册试用"
-                description="选择需要试用的订阅，如果没有选项请先前往订阅管理添加。"
-            >
-                <select
-                    className="form-control"
-                    value={site.try_out_plan_id}
-                    placeholder="请选择试用订阅"
-                    onChange={(event) => onChange('try_out_plan_id', event.target.value)}
-                >
-                    <option value={0}>关闭</option>
-                    {plans.map((plan) => (
-                        <option key={plan.id} value={plan.id}>
-                            {plan.name}
-                        </option>
-                    ))}
-                </select>
-            </ConfigRow>
-            {site.try_out_plan_id !== 0 && (
-                <ConfigRow isChildren title="试用时间(小时)">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="请输入"
-                        defaultValue={site.try_out_hour}
-                        onChange={(event) => onChange('try_out_hour', event.target.value)}
-                    />
-                </ConfigRow>
-            )}
+            <SiteTrialSettings site={site} plans={plans} onChange={onChange} />
             <TextSetting
                 title="货币单位"
                 description="仅用于展示使用，更改后系统中所有的货币单位都将发生变更。"

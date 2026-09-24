@@ -624,6 +624,14 @@
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
+    "from": "pages/config/system/components/SiteConfigTab.tsx",
+    "to": "pages/config/system/components/SiteTrialSettings.tsx"
+  },
+  {
+    "from": "pages/config/system/components/SiteTrialSettings.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
+  },
+  {
     "from": "pages/config/system/components/SubscribeConfigTab.tsx",
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
