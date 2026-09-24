@@ -857,10 +857,14 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
+    "to": "pages/knowledge/components/KnowledgeForm.tsx"
+  },
+  {
+    "from": "pages/knowledge/components/KnowledgeForm.tsx",
     "to": "components/common/MarkdownEditor.tsx"
   },
   {
-    "from": "pages/knowledge/components/KnowledgeEditor.tsx",
+    "from": "pages/knowledge/components/KnowledgeForm.tsx",
     "to": "config/adminSettings.ts"
   },
   {

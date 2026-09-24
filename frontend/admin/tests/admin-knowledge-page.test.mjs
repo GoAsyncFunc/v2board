@@ -37,6 +37,7 @@ async function loadModule(relativePath, localComponents = {}) {
             if (id === 'react-redux') return { connect: () => (Component) => Component };
             if (id.endsWith('/components/KnowledgeEditor')) return localComponents.drawer;
             if (id === './KnowledgeEditor') return localComponents.drawer;
+            if (id === './KnowledgeForm') return { __esModule: true, default: 'KnowledgeForm' };
             if (id.endsWith('/components/KnowledgeList')) return localComponents.list;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/divider') return 'Divider';
@@ -153,6 +154,19 @@ test('KnowledgeEditor preserves fetch, form, save, and reset behavior', async ()
         type: 'knowledge/setState',
         payload: { knowledge: {} },
     });
+});
+
+test('KnowledgeEditor keeps article fields in a dedicated form component', async () => {
+    const editorSource = await fs.readFile(
+        new URL('../src/pages/knowledge/components/KnowledgeEditor.tsx', import.meta.url),
+        'utf8',
+    );
+    const formSource = await fs.readFile(
+        new URL('../src/pages/knowledge/components/KnowledgeForm.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(editorSource, /import KnowledgeForm/);
+    assert.match(formSource, /interface KnowledgeFormProps/);
 });
 
 test('KnowledgeList preserves visibility, delete, and sort actions', async () => {
