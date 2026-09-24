@@ -15,17 +15,19 @@ import order from '../models/order';
 import passport from '../models/passport';
 import payment from '../models/payment';
 import plan from '../models/plan';
-import serverAnyTLS from '../models/serverAnyTls';
 import serverGroup from '../models/serverGroup';
-import serverHysteria from '../models/serverHysteria';
 import serverManage from '../models/serverManage';
 import serverRoute from '../models/serverRoute';
-import serverShadowsocks from '../models/serverShadowsocks';
-import serverTrojan from '../models/serverTrojan';
-import serverTuic from '../models/serverTuic';
-import serverV2node from '../models/serverV2Node';
-import serverVless from '../models/serverVless';
-import serverVmess from '../models/serverVmess';
+import {
+    serverAnyTLS,
+    serverHysteria,
+    serverShadowsocks,
+    serverTrojan,
+    serverTuic,
+    serverV2node,
+    serverVless,
+    serverVmess,
+} from '../models/serverProtocolModels';
 import dashboardStatistics from '../models/dashboardStatistics';
 import system from '../models/system';
 import theme from '../models/theme';

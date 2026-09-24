@@ -117,15 +117,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverAnyTls.ts"
-  },
-  {
-    "from": "app/store.tsx",
     "to": "models/serverGroup.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverHysteria.ts"
   },
   {
     "from": "app/store.tsx",
@@ -133,31 +125,11 @@
   },
   {
     "from": "app/store.tsx",
+    "to": "models/serverProtocolModels.ts"
+  },
+  {
+    "from": "app/store.tsx",
     "to": "models/serverRoute.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverShadowsocks.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverTrojan.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverTuic.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverV2Node.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverVless.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverVmess.ts"
   },
   {
     "from": "app/store.tsx",
@@ -396,20 +368,12 @@
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverAnyTls.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
     "from": "models/serverGroup.ts",
     "to": "services/request.ts"
   },
   {
     "from": "models/serverGroup.ts",
     "to": "types/api.ts"
-  },
-  {
-    "from": "models/serverHysteria.ts",
-    "to": "models/createServerProtocolModel.ts"
   },
   {
     "from": "models/serverManage.ts",
@@ -420,36 +384,16 @@
     "to": "types/api.ts"
   },
   {
+    "from": "models/serverProtocolModels.ts",
+    "to": "models/createServerProtocolModel.ts"
+  },
+  {
     "from": "models/serverRoute.ts",
     "to": "services/request.ts"
   },
   {
     "from": "models/serverRoute.ts",
     "to": "types/api.ts"
-  },
-  {
-    "from": "models/serverShadowsocks.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
-    "from": "models/serverTrojan.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
-    "from": "models/serverTuic.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
-    "from": "models/serverV2Node.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
-    "from": "models/serverVless.ts",
-    "to": "models/createServerProtocolModel.ts"
-  },
-  {
-    "from": "models/serverVmess.ts",
-    "to": "models/createServerProtocolModel.ts"
   },
   {
     "from": "models/sessionEffects.ts",

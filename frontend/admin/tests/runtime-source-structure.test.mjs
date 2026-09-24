@@ -420,18 +420,23 @@ test('admin model composition uses named business effects instead of module alia
     }
 
     const protocolModels = [
-        ['serverAnyTls', 'serverAnyTLS'],
-        ['serverHysteria', 'serverHysteria'],
-        ['serverShadowsocks', 'serverShadowsocks'],
-        ['serverTrojan', 'serverTrojan'],
-        ['serverTuic', 'serverTuic'],
-        ['serverV2Node', 'serverV2node'],
-        ['serverVless', 'serverVless'],
-        ['serverVmess', 'serverVmess'],
+        ['serverAnyTLS', 'anytls'],
+        ['serverHysteria', 'hysteria'],
+        ['serverShadowsocks', 'shadowsocks'],
+        ['serverTrojan', 'trojan'],
+        ['serverTuic', 'tuic'],
+        ['serverV2node', 'v2node'],
+        ['serverVless', 'vless'],
+        ['serverVmess', 'vmess'],
     ];
-    for (const [file, namespace] of protocolModels) {
-        const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');
+    const protocolSource = await fs.readFile(
+        new URL('serverProtocolModels.ts', modelDirectory),
+        'utf8',
+    );
+    for (const [namespace, protocol] of protocolModels) {
+        const source = protocolSource;
         assert.match(source, new RegExp(`namespace: ['"]${namespace}['"]`));
+        assert.match(source, new RegExp(`protocol: ['"]${protocol}['"]`));
         assert.doesNotMatch(source, /\bname:\s*['"]/);
     }
 
