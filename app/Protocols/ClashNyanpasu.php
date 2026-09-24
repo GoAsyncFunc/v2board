@@ -262,6 +262,10 @@ class ClashNyanpasu
                    $array['reality-opts'] = [];
                    $array['reality-opts']['public-key'] = $tlsSettings['public_key'];
                    $array['reality-opts']['short-id'] = $tlsSettings['short_id'];
+                   // Xray-core >= v26.9.8 REALITY rejects any ClientHello that does
+                   // not carry the X25519MLKEM768 key share. mihomo strips it unless
+                   // this flag is set, which makes REALITY nodes unreachable.
+                   $array['reality-opts']['support-x25519mlkem768'] = true;
                 }
                 if (!empty($tlsSettings['ech'])) {
                     if ($tlsSettings['ech'] === 'cloudflare') {
