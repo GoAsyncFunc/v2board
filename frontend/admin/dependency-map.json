@@ -1600,6 +1600,18 @@
     "to": "pages/ticket/components/TicketToolbar.tsx"
   },
   {
+    "from": "pages/user/components/UserAccountSettingsFields.tsx",
+    "to": "components/common/NullableSelectOption.tsx"
+  },
+  {
+    "from": "pages/user/components/UserAccountSettingsFields.tsx",
+    "to": "pages/user/components/FormGroup.tsx"
+  },
+  {
+    "from": "pages/user/components/UserAccountSettingsFields.tsx",
+    "to": "pages/user/components/formValues.ts"
+  },
+  {
     "from": "pages/user/components/UserDisplayColumns.tsx",
     "to": "utils/dateTime.ts"
   },
@@ -1613,11 +1625,11 @@
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
-    "to": "components/common/NullableSelectOption.tsx"
+    "to": "pages/user/components/FormGroup.tsx"
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
-    "to": "pages/user/components/FormGroup.tsx"
+    "to": "pages/user/components/UserAccountSettingsFields.tsx"
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
@@ -1626,10 +1638,6 @@
   {
     "from": "pages/user/components/UserFormFields.tsx",
     "to": "pages/user/components/UserTrafficFields.tsx"
-  },
-  {
-    "from": "pages/user/components/UserFormFields.tsx",
-    "to": "pages/user/components/formValues.ts"
   },
   {
     "from": "pages/user/components/UserGenerationForm.tsx",

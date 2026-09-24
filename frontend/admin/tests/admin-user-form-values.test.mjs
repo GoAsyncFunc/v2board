@@ -35,3 +35,16 @@ test('user editor inputs use explicit null handling instead of type assertions',
         assert.doesNotMatch(source, /as string \| number \| undefined/);
     }
 });
+
+test('user account settings fields stay in a dedicated component', async () => {
+    const userForm = await fs.readFile(
+        new URL('../src/pages/user/components/UserFormFields.tsx', import.meta.url),
+        'utf8',
+    );
+    const accountSettings = await fs.readFile(
+        new URL('../src/pages/user/components/UserAccountSettingsFields.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(userForm, /UserAccountSettingsFields/);
+    assert.match(accountSettings, /export interface UserAccountSettingsFieldsProps/);
+});

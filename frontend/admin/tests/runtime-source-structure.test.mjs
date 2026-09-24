@@ -640,7 +640,10 @@ test('Header search overlay is isolated under its owning layout', async () => {
 });
 
 test('Sidebar navigation is isolated under its owning layout', async () => {
-    const sidebarComponentsDirectory = new URL('../src/layouts/Sidebar/components/', import.meta.url);
+    const sidebarComponentsDirectory = new URL(
+        '../src/layouts/Sidebar/components/',
+        import.meta.url,
+    );
     assert.ok((await fs.readdir(sidebarComponentsDirectory)).includes('SidebarNavigation.tsx'));
     const sidebarSource = await fs.readFile(
         new URL('../src/layouts/Sidebar/index.tsx', import.meta.url),
@@ -661,7 +664,7 @@ test('admin login keeps presentation in a dedicated screen component', async () 
     );
     assert.match(
         loginSource,
-        /import AdminLoginScreen from ['"]\.\/components\/AdminLoginScreen['"]/
+        /import AdminLoginScreen from ['"]\.\/components\/AdminLoginScreen['"]/,
     );
     assert.doesNotMatch(loginSource, /from ['"]antd\/lib\/icon['"]/);
 });
@@ -686,7 +689,7 @@ test('queue monitoring keeps workload table composition in a dedicated component
     );
     assert.match(
         queueSource,
-        /import QueueWorkloadTable from ['"]\.\/components\/QueueWorkloadTable['"]/
+        /import QueueWorkloadTable from ['"]\.\/components\/QueueWorkloadTable['"]/,
     );
     assert.doesNotMatch(queueSource, /当前作业详情|createReadonlyQueueColumns/);
 });
@@ -698,7 +701,10 @@ test('ticket detail keeps chat presentation in the ticket components directory',
         new URL('../src/pages/ticket/[id].tsx', import.meta.url),
         'utf8',
     );
-    assert.match(detailSource, /import TicketDetailChat from ['"]\.\/components\/TicketDetailChat['"]/);
+    assert.match(
+        detailSource,
+        /import TicketDetailChat from ['"]\.\/components\/TicketDetailChat['"]/,
+    );
     assert.doesNotMatch(detailSource, /TicketMessageList|UserEditor|TrafficPanel/);
 });
 
@@ -852,18 +858,10 @@ test('admin pages select from the canonical root state', async () => {
     const paymentDirectory = new URL('config/payment/', pagesDirectory);
     assert.ok((await fs.readdir(paymentDirectory)).includes('components'));
     const paymentComponentsDirectory = new URL('components/', paymentDirectory);
-    assert.ok(
-        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentList.tsx'),
-    );
-    assert.ok(
-        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentEditor.tsx'),
-    );
-    assert.ok(
-        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentDisplayColumns.ts'),
-    );
-    assert.ok(
-        (await fs.readdir(paymentComponentsDirectory)).includes('PaymentNotifyColumn.tsx'),
-    );
+    assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentList.tsx'));
+    assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentEditor.tsx'));
+    assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentDisplayColumns.ts'));
+    assert.ok((await fs.readdir(paymentComponentsDirectory)).includes('PaymentNotifyColumn.tsx'));
     const themeDirectory = new URL('config/theme/', pagesDirectory);
     assert.ok((await fs.readdir(themeDirectory)).includes('components'));
     assert.ok(
@@ -902,9 +900,7 @@ test('admin pages select from the canonical root state', async () => {
     const serverGroupDirectory = new URL('server/group/', pagesDirectory);
     assert.ok((await fs.readdir(serverGroupDirectory)).includes('components'));
     const serverGroupComponentsDirectory = new URL('components/', serverGroupDirectory);
-    assert.ok(
-        (await fs.readdir(serverGroupComponentsDirectory)).includes('ServerGroupList.tsx'),
-    );
+    assert.ok((await fs.readdir(serverGroupComponentsDirectory)).includes('ServerGroupList.tsx'));
     assert.ok(
         (await fs.readdir(serverGroupComponentsDirectory)).includes('ServerGroupColumns.tsx'),
     );
@@ -969,16 +965,22 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok(
         (await fs.readdir(new URL('components/', planDirectory))).includes('PlanGroupColumn.tsx'),
     );
-    assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanPriceColumns.ts'));
     assert.ok(
-        (await fs.readdir(new URL('components/', planDirectory))).includes('PlanResourceColumns.tsx'),
+        (await fs.readdir(new URL('components/', planDirectory))).includes('PlanPriceColumns.ts'),
+    );
+    assert.ok(
+        (await fs.readdir(new URL('components/', planDirectory))).includes(
+            'PlanResourceColumns.tsx',
+        ),
     );
     assert.ok((await fs.readdir(new URL('components/', planDirectory))).includes('PlanEditor.tsx'));
     const orderDirectory = new URL('order/', pagesDirectory);
     assert.ok((await fs.readdir(orderDirectory)).includes('index.tsx'));
     assert.ok((await fs.readdir(orderDirectory)).includes('components'));
     assert.ok(
-        (await fs.readdir(new URL('components/', orderDirectory))).includes('OrderFilterDrawer.tsx'),
+        (await fs.readdir(new URL('components/', orderDirectory))).includes(
+            'OrderFilterDrawer.tsx',
+        ),
     );
     assert.ok((await fs.readdir(new URL('components/', orderDirectory))).includes('OrderList.tsx'));
     assert.ok(
@@ -1004,6 +1006,7 @@ test('admin pages select from the canonical root state', async () => {
         'UserEditor.tsx',
         'UserFilterDrawer.tsx',
         'UserFormFields.tsx',
+        'UserAccountSettingsFields.tsx',
         'UserGenerator.tsx',
         'UserList.tsx',
         'UserListActions.tsx',
@@ -1282,10 +1285,7 @@ test('Vmess editor composes focused field and settings modules', async () => {
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
-        new URL(
-            '../src/pages/server/manage/editors/Vmess/RelationshipFields.tsx',
-            import.meta.url,
-        ),
+        new URL('../src/pages/server/manage/editors/Vmess/RelationshipFields.tsx', import.meta.url),
         'utf8',
     );
     const networkFieldsSource = await fs.readFile(
@@ -1297,10 +1297,7 @@ test('Vmess editor composes focused field and settings modules', async () => {
         'utf8',
     );
     const childSettingsSource = await fs.readFile(
-        new URL(
-            '../src/pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx',
-            import.meta.url,
-        ),
+        new URL('../src/pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx', import.meta.url),
         'utf8',
     );
     const dnsSettingsSource = await fs.readFile(
@@ -1356,17 +1353,11 @@ test('Vless editor composes focused general and relationship field modules', asy
         'utf8',
     );
     const relationshipFieldsSource = await fs.readFile(
-        new URL(
-            '../src/pages/server/manage/editors/Vless/RelationshipFields.tsx',
-            import.meta.url,
-        ),
+        new URL('../src/pages/server/manage/editors/Vless/RelationshipFields.tsx', import.meta.url),
         'utf8',
     );
     const childSettingsSource = await fs.readFile(
-        new URL(
-            '../src/pages/server/manage/editors/Vless/ChildSettingsPanel.tsx',
-            import.meta.url,
-        ),
+        new URL('../src/pages/server/manage/editors/Vless/ChildSettingsPanel.tsx', import.meta.url),
         'utf8',
     );
 
