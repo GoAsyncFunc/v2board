@@ -663,6 +663,17 @@ test('queue monitoring keeps its statistics overview in a typed component', asyn
     assert.doesNotMatch(queueSource, /当前作业量/);
 });
 
+test('ticket detail keeps chat presentation in the ticket components directory', async () => {
+    const ticketComponentsDirectory = new URL('../src/pages/ticket/components/', import.meta.url);
+    assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketDetailChat.tsx'));
+    const detailSource = await fs.readFile(
+        new URL('../src/pages/ticket/[id].tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(detailSource, /import TicketDetailChat from ['"]\.\/components\/TicketDetailChat['"]/);
+    assert.doesNotMatch(detailSource, /TicketMessageList|UserEditor|TrafficPanel/);
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(

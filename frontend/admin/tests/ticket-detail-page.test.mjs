@@ -64,12 +64,41 @@ async function loadPage() {
       if (id.includes('UserEditor') || id.includes('/components/UserEditor')) return 'UserEditor';
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
       if (id.includes('TicketMessageList')) return { __esModule: true, default: 'TicketMessageList' };
+      if (id.includes('TicketDetailChat')) return { __esModule: true, default: 'TicketDetailChat' };
       if (id.includes('utils/dateTime')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('iconStyles')) return {};
       throw new Error(id);
     },
   });
   return { ...module.exports, timers, clearedTimers, messages };
+}
+
+async function loadChat() {
+  const source = await fs.readFile(
+    new URL('../src/pages/ticket/components/TicketDetailChat.tsx', import.meta.url),
+    'utf8',
+  );
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+  const module = { exports: {} };
+  const React = createReact();
+  vm.runInNewContext(code, {
+    module,
+    exports: module.exports,
+    React,
+    require(id) {
+      if (id === 'react') return React;
+      if (id === 'antd/lib/divider') return 'Divider';
+      if (id === 'antd/lib/icon') return 'Icon';
+      if (id === 'antd/lib/tooltip') return 'Tooltip';
+      if (id.includes('styles/ticketDetail'))
+        return { ticketDetailClassNames: { tag: 'tag', controls: 'ctrl', input: 'input' } };
+      if (id.includes('UserEditor') || id.includes('/components/UserEditor')) return 'UserEditor';
+      if (id.includes('TrafficPanel')) return 'TrafficPanel';
+      if (id.includes('TicketMessageList')) return { __esModule: true, default: 'TicketMessageList' };
+      throw new Error(id);
+    },
+  });
+  return module.exports;
 }
 
 async function loadMessageList() {
@@ -140,9 +169,10 @@ test('Ticket detail fetches, refreshes, replies and clears its timer', async () 
 
 test('Ticket message list scrolls, formats messages, and chat reply input clears after Enter', async () => {
   const runtime = await loadPage();
+  const chatRuntime = await loadChat();
   const messageListRuntime = await loadMessageList();
   const keyDownCalls = [];
-  const chat = new runtime.TicketDetailChat({
+  const chat = new chatRuntime.TicketDetailChat({
     ticket: {
       id: 42,
       subject: 'Support',

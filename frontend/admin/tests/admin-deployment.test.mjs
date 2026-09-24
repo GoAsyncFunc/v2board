@@ -81,6 +81,10 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
         new URL('../src/pages/ticket/[id].tsx', import.meta.url),
         'utf8',
     );
+    const chat = await fs.readFile(
+        new URL('../src/pages/ticket/components/TicketDetailChat.tsx', import.meta.url),
+        'utf8',
+    );
     const styles = await fs.readFile(
         new URL('../src/styles/ticketDetail.ts', import.meta.url),
         'utf8',
@@ -107,7 +111,8 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
     for (const assetPath of new Set(staticAssets)) {
         await fs.access(new URL(`../public/assets/admin/${assetPath.slice(2)}`, import.meta.url));
     }
-    assert.match(page, /ticketDetailClassNames as styles/);
+    assert.match(page, /import TicketDetailChat from ['"]\.\/components\/TicketDetailChat['"]/);
+    assert.match(chat, /ticketDetailClassNames as styles/);
 });
 
 test('Admin project stylesheet keeps third-party libraries in dedicated vendor sources', async () => {

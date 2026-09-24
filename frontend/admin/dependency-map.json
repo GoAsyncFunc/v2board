@@ -1537,23 +1537,27 @@
   },
   {
     "from": "pages/ticket/[id].tsx",
-    "to": "components/user/TrafficPanel.tsx"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "pages/ticket/components/TicketMessageList.tsx"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "pages/user/components/UserEditor.tsx"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "styles/ticketDetail.ts"
+    "to": "pages/ticket/components/TicketDetailChat.tsx"
   },
   {
     "from": "pages/ticket/components/TicketColumns.ts",
     "to": "utils/dateTime.ts"
+  },
+  {
+    "from": "pages/ticket/components/TicketDetailChat.tsx",
+    "to": "components/user/TrafficPanel.tsx"
+  },
+  {
+    "from": "pages/ticket/components/TicketDetailChat.tsx",
+    "to": "pages/ticket/components/TicketMessageList.tsx"
+  },
+  {
+    "from": "pages/ticket/components/TicketDetailChat.tsx",
+    "to": "pages/user/components/UserEditor.tsx"
+  },
+  {
+    "from": "pages/ticket/components/TicketDetailChat.tsx",
+    "to": "styles/ticketDetail.ts"
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",
