@@ -108,7 +108,7 @@ test('Login restores token login, session check, keyboard submit and navigation'
 });
 
 test('Home page redirects without configured content and decodes configured HTML', async () => {
-    const code = await compile('../src/pages/auth/Index.tsx');
+    const code = await compile('../src/pages/auth/HomePage.tsx');
     const routes = [];
     const React = createReact();
     const window = {

@@ -2,7 +2,7 @@ import Invite from '../pages/account/Invite';
 import Profile from '../pages/account/Profile';
 import Traffic from '../pages/account/Traffic';
 import ForgetPassword from '../pages/auth/ForgetPassword';
-import Index from '../pages/auth/Index';
+import HomePage from '../pages/auth/HomePage';
 import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
 import Order from '../pages/commerce/Order';
@@ -18,7 +18,7 @@ import TicketDetail from '../pages/support/TicketDetail';
 type UserRouteComponent =
     | typeof Dashboard
     | typeof ForgetPassword
-    | typeof Index
+    | typeof HomePage
     | typeof Invite
     | typeof Knowledge
     | typeof Login
@@ -42,7 +42,7 @@ export interface UserRoute {
 const routes: UserRoute[] = [
     { path: '/dashboard', exact: true, component: Dashboard },
     { path: '/forgetpassword', exact: true, component: ForgetPassword },
-    { path: '/', exact: true, component: Index },
+    { path: '/', exact: true, component: HomePage },
     { path: '/invite', exact: true, component: Invite },
     { path: '/knowledge', exact: true, component: Knowledge },
     { path: '/login', exact: true, component: Login },
