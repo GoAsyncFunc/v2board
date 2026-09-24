@@ -1249,10 +1249,6 @@
   },
   {
     "from": "services/request.ts",
-    "to": "services/fetchResponse.ts"
-  },
-  {
-    "from": "services/request.ts",
     "to": "utils/siteHelpers.ts"
   }
 ]

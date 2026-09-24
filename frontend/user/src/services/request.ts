@@ -1,4 +1,3 @@
-import { fetchResponse } from './fetchResponse';
 import { getLocale } from '../locales/i18n';
 import { getToken, clearToken } from '../utils/siteHelpers';
 import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/api';
@@ -46,7 +45,7 @@ export async function request<Data = JsonValue>(
     const url = endpoint.includes('http')
         ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?')
         : serviceHost + endpoint;
-    const response: Response = await fetchResponse(url, options);
+    const response: Response = await globalThis.fetch(url, options);
     const data: ApiResponse<Data> = await response.json();
     if (response.status === 403) {
         clearToken();
