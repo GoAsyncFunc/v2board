@@ -124,6 +124,32 @@ async function loadConfig() {
                 if (id === './InviteCommissionDistribution') {
                     return 'InviteCommissionDistribution 一级邀请人比例 二级邀请人比例 三级邀请人比例';
                 }
+                if (id === './SubscribeLinkValidity') {
+                    return ({ subscribe, onChange }) =>
+                        subscribe.show_subscribe_method == 2
+                            ? {
+                                  type: 'SubscribeLinkValidity',
+                                  props: {
+                                      children: [
+                                          '订阅链接有效时间(分钟)',
+                                          {
+                                              type: 'input',
+                                              props: {
+                                                  defaultValue: subscribe.show_subscribe_expire,
+                                                  onChange: (event) =>
+                                                      onChange(
+                                                          'show_subscribe_expire',
+                                                          event.target.value,
+                                                      ),
+                                              },
+                                              children: [],
+                                          },
+                                      ],
+                                  },
+                                  children: [],
+                              }
+                            : null;
+                }
                 if (id.includes('SiteConfigTab')) return components.site;
                 if (id.includes('SafeConfigTab')) return components.safe;
                 if (id.includes('SubscribeConfigTab')) return components.subscribe;
@@ -485,7 +511,6 @@ test('Subscribe config tab maps reset, event and link mode controls', async () =
         collect(node.props?.children);
     };
     collect(tree);
-    assert.match(JSON.stringify(tree), /订阅链接有效时间/);
     controls
         .find((control) => control.props.value === 0 && control.type === 'select')
         .props.onChange({ target: { value: '4' } });
@@ -500,6 +525,20 @@ test('Subscribe config tab maps reset, event and link mode controls', async () =
         ['show_subscribe_method', '1'],
         ['show_subscribe_expire', '60'],
     ]);
+});
+
+test('Subscribe config keeps expiring link settings in a dedicated component', async () => {
+    const tabSource = await fs.readFile(
+        new URL('../src/pages/config/system/components/SubscribeConfigTab.tsx', import.meta.url),
+        'utf8',
+    );
+    const linkSource = await fs.readFile(
+        new URL('../src/pages/config/system/components/SubscribeLinkValidity.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(tabSource, /SubscribeLinkValidity/);
+    assert.match(linkSource, /show_subscribe_method/);
+    assert.match(linkSource, /show_subscribe_expire/);
 });
 
 test('Deposit config tab splits reward rules and saves them under deposit', async () => {

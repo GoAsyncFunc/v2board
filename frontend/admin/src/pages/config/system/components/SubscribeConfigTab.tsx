@@ -1,6 +1,7 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
+import SubscribeLinkValidity from './SubscribeLinkValidity';
 import type { ConfigChangeHandler, SubscribeConfig } from '../../../../types/config';
 
 interface ToggleSettingProps {
@@ -135,21 +136,7 @@ export default function SubscribeConfigTab({ subscribe, onChange }: SubscribeCon
                 options={linkModeOptions}
                 onChange={(value) => onChange('show_subscribe_method', value)}
             />
-            {subscribe.show_subscribe_method == 2 && (
-                <ConfigRow
-                    isChildren
-                    title="订阅链接有效时间(分钟)"
-                    description="订阅链接获取后经过该时间将失效。"
-                >
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="请输入"
-                        defaultValue={subscribe.show_subscribe_expire}
-                        onChange={(event) => onChange('show_subscribe_expire', event.target.value)}
-                    />
-                </ConfigRow>
-            )}
+            <SubscribeLinkValidity subscribe={subscribe} onChange={onChange} />
         </div>
     );
 }

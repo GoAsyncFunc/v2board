@@ -640,6 +640,14 @@
     "to": "pages/config/system/components/ConfigRow.tsx"
   },
   {
+    "from": "pages/config/system/components/SubscribeConfigTab.tsx",
+    "to": "pages/config/system/components/SubscribeLinkValidity.tsx"
+  },
+  {
+    "from": "pages/config/system/components/SubscribeLinkValidity.tsx",
+    "to": "pages/config/system/components/ConfigRow.tsx"
+  },
+  {
     "from": "pages/config/system/components/SystemConfigTabs.tsx",
     "to": "pages/config/system/components/AppConfigTab.tsx"
   },
