@@ -649,30 +649,18 @@
   },
   {
     "from": "models/order.ts",
-    "to": "models/orderPaymentEffects.ts"
+    "to": "models/orderEffects.ts"
   },
   {
-    "from": "models/order.ts",
-    "to": "models/orderQueryEffects.ts"
-  },
-  {
-    "from": "models/orderPaymentEffects.ts",
+    "from": "models/orderEffects.ts",
     "to": "app/routerHistory.ts"
   },
   {
-    "from": "models/orderPaymentEffects.ts",
+    "from": "models/orderEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderPaymentEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/orderQueryEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/orderQueryEffects.ts",
+    "from": "models/orderEffects.ts",
     "to": "types/api.ts"
   },
   {

@@ -139,6 +139,10 @@ test('user model composition uses named business effects instead of module alias
         new URL('../src/models/order.ts', import.meta.url),
         'utf8',
     );
+    const orderEffects = await fs.readFile(
+        new URL('../src/models/orderEffects.ts', import.meta.url),
+        'utf8',
+    );
     const accountEffects = await fs.readFile(
         new URL('../src/models/userAccountEffects.ts', import.meta.url),
         'utf8',
@@ -151,6 +155,18 @@ test('user model composition uses named business effects instead of module alias
     for (const source of [userModel, orderModel]) {
         assert.doesNotMatch(source, /import \* as /);
         assert.doesNotMatch(source, /\bexports\./);
+    }
+    for (const effect of [
+        'detail',
+        'check',
+        'getPaymentMethod',
+        'fetch',
+        'save',
+        'checkout',
+        'checkoutByStripe',
+        'cancel',
+    ]) {
+        assert.match(orderEffects, new RegExp(`export function\\* ${effect}\\b`));
     }
     for (const effect of [
         'update',

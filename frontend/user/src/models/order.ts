@@ -3,13 +3,11 @@ import {
     detail as fetchOrderDetail,
     fetch as fetchOrders,
     getPaymentMethod as fetchPaymentMethods,
-} from './orderQueryEffects';
-import {
     cancel as cancelOrder,
     checkout as checkoutOrder,
     checkoutByStripe,
     save as saveOrder,
-} from './orderPaymentEffects';
+} from './orderEffects';
 import type { OrderModelState } from '../types/payment';
 import type { StateUpdate } from '../types/queryModels';
 
