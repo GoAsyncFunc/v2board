@@ -58,9 +58,9 @@ interface CheckLoginAction {
 }
 
 type UserYield =
-    UserModuleState | ApiResponse<unknown> | ApiResponse<UserRecord> | ApiResponse<UserRecord[]>;
+    UserModuleState | ApiResponse | ApiResponse<UserRecord> | ApiResponse<UserRecord[]>;
 type UserEffect = ModelEffect<UserYield>;
-type ExportResponse = ApiResponse<unknown> & { buffer?: BlobPart };
+type ExportResponse = ApiResponse & { buffer?: BlobPart };
 
 const userEndpoint = (action: string): string => `/${window.settings.secure_path}/user/${action}`;
 
@@ -148,7 +148,7 @@ export function* update({ params, callback }: UpdateAction, { put }: UserTools):
         form[field] = value as FormValue;
         return form;
     }, {});
-    const response = (yield post(userEndpoint('update'), updateForm)) as ApiResponse<unknown>;
+    const response = (yield post(userEndpoint('update'), updateForm)) as ApiResponse;
     yield put({ type: 'setState', payload: { updateLoading: false } });
     if (!isSuccessfulResponse(response)) return;
     yield put({ type: 'fetch' });
@@ -164,7 +164,7 @@ export function* sendMail(
     const response = (yield post(userEndpoint('sendMail'), {
         filter: userState.filter,
         ...params,
-    })) as ApiResponse<unknown>;
+    })) as ApiResponse;
     yield put({ type: 'setState', payload: { sendMailLoading: false } });
     if (!isSuccessfulResponse(response)) return;
     complete?.();
@@ -173,7 +173,7 @@ export function* sendMail(
 
 function* runBatchAction(action: 'ban' | 'allDel', { put, select }: UserTools): UserEffect {
     const { filter } = (yield select((state) => state.user)) as UserModuleState;
-    const response = (yield post(userEndpoint(action), { filter })) as ApiResponse<unknown>;
+    const response = (yield post(userEndpoint(action), { filter })) as ApiResponse;
     if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
 }
 
@@ -189,7 +189,7 @@ export function* resetSecret(
     { id, complete }: UserIdAction & CallbackAction,
     { put }: UserTools,
 ): UserEffect {
-    const response = (yield post(userEndpoint('resetSecret'), { id })) as ApiResponse<unknown>;
+    const response = (yield post(userEndpoint('resetSecret'), { id })) as ApiResponse;
     if (!isSuccessfulResponse(response)) return;
     complete?.();
     yield put({ type: 'fetch' });
@@ -199,7 +199,7 @@ export function* delUser(
     { id, complete }: UserIdAction & CallbackAction,
     { put }: UserTools,
 ): UserEffect {
-    const response = (yield post(userEndpoint('delUser'), { id })) as ApiResponse<unknown>;
+    const response = (yield post(userEndpoint('delUser'), { id })) as ApiResponse;
     if (!isSuccessfulResponse(response)) return;
     complete?.();
     yield put({ type: 'fetch' });
