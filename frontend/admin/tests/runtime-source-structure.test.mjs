@@ -625,6 +625,20 @@ test('Header account menu is isolated under its owning layout', async () => {
     );
 });
 
+test('Header search overlay is isolated under its owning layout', async () => {
+    const headerComponentsDirectory = new URL('../src/layouts/Header/components/', import.meta.url);
+    assert.ok((await fs.readdir(headerComponentsDirectory)).includes('HeaderSearchOverlay.tsx'));
+    const headerSource = await fs.readFile(
+        new URL('../src/layouts/Header/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        headerSource,
+        /import HeaderSearchOverlay, \{ type HeaderSearchConfig \} from ['"]\.\/components\/HeaderSearchOverlay['"]/,
+    );
+    assert.doesNotMatch(headerSource, /overlay-header|input-group-prepend/);
+});
+
 test('Sidebar navigation is isolated under its owning layout', async () => {
     const sidebarComponentsDirectory = new URL('../src/layouts/Sidebar/components/', import.meta.url);
     assert.ok((await fs.readdir(sidebarComponentsDirectory)).includes('SidebarNavigation.tsx'));

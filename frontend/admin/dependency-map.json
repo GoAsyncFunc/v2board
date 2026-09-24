@@ -225,6 +225,10 @@
   },
   {
     "from": "layouts/Header/index.tsx",
+    "to": "layouts/Header/components/HeaderSearchOverlay.tsx"
+  },
+  {
+    "from": "layouts/Header/index.tsx",
     "to": "utils/siteHelpers.ts"
   },
   {

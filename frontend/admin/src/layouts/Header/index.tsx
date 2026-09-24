@@ -5,12 +5,9 @@ import { clearToken, getPreference, setPreference } from '../../utils/siteHelper
 import history from '../../app/history';
 import type { AdminDispatch, AdminRootState } from '../../types/store';
 import HeaderAccountMenu from './components/HeaderAccountMenu';
+import HeaderSearchOverlay, { type HeaderSearchConfig } from './components/HeaderSearchOverlay';
 
-export interface HeaderSearchConfig {
-    placeholder: string;
-    defaultValue?: string;
-    onChange: (value: string) => void;
-}
+export type { HeaderSearchConfig } from './components/HeaderSearchOverlay';
 
 interface HeaderOwnProps {
     title?: React.ReactNode;
@@ -134,30 +131,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                     </div>
                 </div>
                 {search && (
-                    <div className={`overlay-header bg-dark ${showSearchBar ? 'show' : ''}`}>
-                        <div className="content-header bg-dark">
-                            <div className="w-100">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <button
-                                            type="button"
-                                            className="btn btn-dark"
-                                            onClick={() => this.setState({ showSearchBar: false })}
-                                        >
-                                            <i className="fa fa-fw fa-times-circle" />
-                                        </button>
-                                    </div>
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        placeholder={search.placeholder}
-                                        onChange={(event) => search.onChange(event.target.value)}
-                                        defaultValue={search.defaultValue}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <HeaderSearchOverlay
+                        search={search}
+                        visible={showSearchBar}
+                        onClose={() => this.setState({ showSearchBar: false })}
+                    />
                 )}
             </header>
         );
