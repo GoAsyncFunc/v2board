@@ -41,8 +41,11 @@ async function loadComponent(componentName) {
             if (id === 'antd/lib/select') return Select;
             if (id === 'antd/lib/notification') return { error() {} };
             if (id.startsWith('antd/')) return id;
-            if (id === './ServerSecuritySettings')
+            if (id === './Security/TlsSettings' || id === './Security/EncryptionSettings')
                 return { TlsSettings: 'TlsSettings', EncryptionSettings: 'EncryptionSettings' };
+            if (id === './Vmess/DnsSettings') return { DnsSettings: 'DnsSettings' };
+            if (id === './Vmess/RuleSettings') return { RuleSettings: 'RuleSettings' };
+            if (id === './Vmess/TlsSettings') return { TlsSettings: 'TlsSettings' };
             if (id.endsWith('.js')) return {};
             return { __esModule: true, default: id };
         },

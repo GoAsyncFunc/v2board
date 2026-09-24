@@ -2104,18 +2104,6 @@
     "to": "types/server.ts"
   },
   {
-    "from": "pages/server/manage/editors/ServerSecuritySettings.tsx",
-    "to": "pages/server/manage/editors/Security/EncryptionSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/editors/ServerSecuritySettings.tsx",
-    "to": "pages/server/manage/editors/Security/TlsSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/editors/ServerSecuritySettings.tsx",
-    "to": "types/server.ts"
-  },
-  {
     "from": "pages/server/manage/editors/Shadowsocks/GeneralFields.tsx",
     "to": "components/common/PermissionGroupEditor.tsx"
   },
@@ -2245,7 +2233,11 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/editors/ServerSecuritySettings.tsx"
+    "to": "pages/server/manage/editors/Security/EncryptionSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/Security/TlsSettings.tsx"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
@@ -2405,7 +2397,11 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/editors/ServerSecuritySettings.tsx"
+    "to": "pages/server/manage/editors/Security/EncryptionSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/Security/TlsSettings.tsx"
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
@@ -2465,7 +2461,15 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/editors/Vmess/SettingsEditors.tsx"
+    "to": "pages/server/manage/editors/Vmess/DnsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/Vmess/RuleSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/Vmess/TlsSettings.tsx"
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
@@ -2508,18 +2512,6 @@
     "to": "types/server.ts"
   },
   {
-    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/editors/Vmess/DnsSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/editors/Vmess/RuleSettings.tsx"
-  },
-  {
-    "from": "pages/server/manage/editors/Vmess/SettingsEditors.tsx",
-    "to": "pages/server/manage/editors/Vmess/TlsSettings.tsx"
-  },
-  {
     "from": "pages/server/manage/editors/Vmess/TlsSettings.tsx",
     "to": "types/server.ts"
   },
@@ -2530,6 +2522,10 @@
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
     "to": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/DnsSettings.tsx"
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
@@ -2545,7 +2541,11 @@
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
-    "to": "pages/server/manage/editors/Vmess/SettingsEditors.tsx"
+    "to": "pages/server/manage/editors/Vmess/RuleSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/Vmess/TlsSettings.tsx"
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",

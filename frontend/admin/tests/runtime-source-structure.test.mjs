@@ -148,8 +148,8 @@ test('admin production source has no compiler-generated module or style identifi
 });
 
 test('server security editors are organized as named source modules', async () => {
-    const compatibilitySource = await fs.readFile(
-        new URL('../src/pages/server/manage/editors/ServerSecuritySettings.tsx', import.meta.url),
+    const vlessChildSource = await fs.readFile(
+        new URL('../src/pages/server/manage/editors/Vless/ChildSettingsPanel.tsx', import.meta.url),
         'utf8',
     );
     const tlsSource = await fs.readFile(
@@ -184,11 +184,8 @@ test('server security editors are organized as named source modules', async () =
         ),
         'utf8',
     );
-    assert.match(compatibilitySource, /export \{ TlsSettings \} from '\.\/Security\/TlsSettings'/);
-    assert.match(
-        compatibilitySource,
-        /export \{ EncryptionSettings \} from '\.\/Security\/EncryptionSettings'/,
-    );
+    assert.match(vlessChildSource, /from ['"]\.\.\/Security\/TlsSettings['"]/);
+    assert.match(vlessChildSource, /from ['"]\.\.\/Security\/EncryptionSettings['"]/);
     assert.match(tlsSource, /export class TlsSettings/);
     assert.match(tlsSource, /<TlsAdvancedSettings/);
     assert.match(tlsAdvancedSource, /export function TlsAdvancedSettings/);
@@ -197,7 +194,14 @@ test('server security editors are organized as named source modules', async () =
     assert.match(tlsCertificateSource, /export function TlsCertificateSettings/);
     assert.match(tlsRealitySource, /export function TlsRealitySettings/);
     assert.match(encryptionSource, /export class EncryptionSettings/);
-    assert.doesNotMatch(compatibilitySource, /class (?:TlsSettings|EncryptionSettings)/);
+    await assert.rejects(
+        fs.access(
+            new URL(
+                '../src/pages/server/manage/editors/ServerSecuritySettings.tsx',
+                import.meta.url,
+            ),
+        ),
+    );
 });
 
 test('Trojan transport settings live in a focused protocol module', async () => {
@@ -1112,7 +1116,6 @@ test('admin components use business domains and connected editors use the canoni
         'AnyTlsEditor.tsx',
         'HysteriaEditor.tsx',
         'ServerEditorRegistry.tsx',
-        'ServerSecuritySettings.tsx',
         'ShadowsocksEditor.tsx',
         'TrojanEditor.tsx',
         'TuicEditor.tsx',
@@ -1299,10 +1302,6 @@ test('Vmess editor composes focused field and settings modules', async () => {
         new URL('../src/pages/server/manage/editors/Vmess/NetworkFields.tsx', import.meta.url),
         'utf8',
     );
-    const settingsEditorsSource = await fs.readFile(
-        new URL('../src/pages/server/manage/editors/Vmess/SettingsEditors.tsx', import.meta.url),
-        'utf8',
-    );
     const childSettingsSource = await fs.readFile(
         new URL('../src/pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx', import.meta.url),
         'utf8',
@@ -1323,7 +1322,9 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.equal((editorSource.match(/<VmessGeneralFields/g) || []).length, 1);
     assert.match(editorSource, /<VmessNetworkFields/);
     assert.match(editorSource, /<VmessRelationshipFields/);
-    assert.match(editorSource, /from ['"]\.\/Vmess\/SettingsEditors['"]/);
+    assert.match(editorSource, /from ['"]\.\/Vmess\/DnsSettings['"]/);
+    assert.match(editorSource, /from ['"]\.\/Vmess\/RuleSettings['"]/);
+    assert.match(editorSource, /from ['"]\.\/Vmess\/TlsSettings['"]/);
     assert.doesNotMatch(editorSource, /class DnsSettings|class RuleSettings|class TlsSettings/);
     assert.match(generalFieldsSource, /function VmessGeneralFields/);
     assert.match(relationshipFieldsSource, /function VmessRelationshipFields/);
@@ -1333,7 +1334,14 @@ test('Vmess editor composes focused field and settings modules', async () => {
     assert.match(dnsSettingsSource, /export class DnsSettings/);
     assert.match(ruleSettingsSource, /export class RuleSettings/);
     assert.match(tlsSettingsSource, /export class TlsSettings/);
-    assert.match(settingsEditorsSource, /export \{ DnsSettings \} from '\.\/DnsSettings'/);
+    await assert.rejects(
+        fs.access(
+            new URL(
+                '../src/pages/server/manage/editors/Vmess/SettingsEditors.tsx',
+                import.meta.url,
+            ),
+        ),
+    );
     assert.doesNotMatch(editorSource, /<JsonEditor|renderChildDrawer/);
 });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import JsonEditor from '../../../../../components/common/JsonEditor';
-import { TlsSettings, EncryptionSettings } from '../ServerSecuritySettings';
+import { TlsSettings } from '../Security/TlsSettings';
+import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
 import type { UpdateV2Node } from '../types';
 

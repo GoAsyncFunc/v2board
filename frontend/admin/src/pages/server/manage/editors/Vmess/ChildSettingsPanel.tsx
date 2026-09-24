@@ -1,7 +1,9 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import JsonEditor from '../../../../../components/common/JsonEditor';
-import { DnsSettings, RuleSettings, TlsSettings } from './SettingsEditors';
+import { DnsSettings } from './DnsSettings';
+import { RuleSettings } from './RuleSettings';
+import { TlsSettings } from './TlsSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
 
 const NETWORK_PRESETS: Record<string, string> = {
