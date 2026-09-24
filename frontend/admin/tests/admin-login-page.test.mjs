@@ -37,6 +37,7 @@ async function loadLogin() {
       if (id === 'react-redux') return { connect: () => Component => Component };
       if (id === 'antd/lib/modal') return { info: options => modals.push(options) };
       if (id === 'antd/lib/icon') return 'Icon';
+      if (id.includes('AdminLoginScreen')) return { __esModule: true, default: 'AdminLoginScreen' };
       return {};
     },
   });
@@ -72,4 +73,56 @@ test('Admin login opens the password recovery instructions', async () => {
   assert.equal(runtime.modals.length, 1);
   assert.equal(runtime.modals[0].title, '忘记密码');
   assert.equal(runtime.modals[0].okText, '我知道了');
+});
+
+test('Admin login screen keeps form presentation and callbacks explicit', async () => {
+  const source = await fs.readFile(
+    new URL('../src/pages/login/components/AdminLoginScreen.tsx', import.meta.url),
+    'utf8',
+  );
+  const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
+  const module = { exports: {} };
+  const React = createReact();
+  vm.runInNewContext(code, {
+    module,
+    exports: module.exports,
+    React,
+    require(id) {
+      if (id === 'react') return React;
+      if (id === 'antd/lib/icon') return 'Icon';
+      return {};
+    },
+  });
+
+  const onSubmit = () => {};
+  const onForgotPassword = () => {};
+  const tree = module.exports.AdminLoginScreen({
+    backgroundUrl: 'background.jpg',
+    logo: 'logo.svg',
+    title: 'Admin',
+    emailInput: { current: null },
+    passwordInput: { current: null },
+    loginLoading: false,
+    onEmailChange: () => {},
+    onPasswordChange: () => {},
+    onSubmit,
+    onForgotPassword,
+  });
+
+  const find = (node, predicate) => {
+    if (!node || typeof node !== 'object') return null;
+    if (predicate(node)) return node;
+    for (const child of node.children || []) {
+      const match = find(child, predicate);
+      if (match) return match;
+    }
+    return null;
+  };
+
+  const password = find(tree, candidate => candidate.type === 'input' && candidate.props.placeholder === '密码');
+  const submit = find(tree, candidate => candidate.type === 'button');
+  const forgot = find(tree, candidate => candidate.type === 'a' && candidate.props.onClick === onForgotPassword);
+  assert.equal(password.props.type, 'password');
+  assert.equal(submit.props.onClick, onSubmit);
+  assert.equal(typeof forgot.props.onClick, 'function');
 });

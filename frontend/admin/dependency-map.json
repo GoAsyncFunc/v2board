@@ -888,6 +888,10 @@
     "to": "pages/knowledge/components/KnowledgeList.tsx"
   },
   {
+    "from": "pages/login/index.tsx",
+    "to": "pages/login/components/AdminLoginScreen.tsx"
+  },
+  {
     "from": "pages/notice/components/NoticeColumns.ts",
     "to": "utils/dateTime.ts"
   },

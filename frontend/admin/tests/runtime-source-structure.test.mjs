@@ -638,6 +638,20 @@ test('Sidebar navigation is isolated under its owning layout', async () => {
     );
 });
 
+test('admin login keeps presentation in a dedicated screen component', async () => {
+    const loginComponentsDirectory = new URL('../src/pages/login/components/', import.meta.url);
+    assert.ok((await fs.readdir(loginComponentsDirectory)).includes('AdminLoginScreen.tsx'));
+    const loginSource = await fs.readFile(
+        new URL('../src/pages/login/index.tsx', import.meta.url),
+        'utf8',
+    );
+    assert.match(
+        loginSource,
+        /import AdminLoginScreen from ['"]\.\/components\/AdminLoginScreen['"]/
+    );
+    assert.doesNotMatch(loginSource, /from ['"]antd\/lib\/icon['"]/);
+});
+
 test('admin models depend on API contracts separately from request transport', async () => {
     const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(
