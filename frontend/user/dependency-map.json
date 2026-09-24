@@ -557,6 +557,10 @@
   },
   {
     "from": "layouts/Header.tsx",
+    "to": "layouts/components/HeaderSearchOverlay.tsx"
+  },
+  {
+    "from": "layouts/Header.tsx",
     "to": "locales/i18n.ts"
   },
   {

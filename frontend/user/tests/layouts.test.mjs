@@ -17,7 +17,7 @@ async function load(target,original){
   setState(value,callback){this.state={...this.state,...value};if(callback)callback();}
   forceUpdate(){trace.push(['update']);}
  }
- const React={Component,createElement(type,props,...children){return {type:typeof type==='function'?(type.displayName||type.name):type,props:props||{},children};}};
+ const React={Component,createElement(type,props,...children){if(typeof type==='function'&&type.name==='HeaderSearchOverlay')return type({...props,children});return {type:typeof type==='function'?(type.displayName||type.name):type,props:props||{},children};}};
  const connect=selector=>cls=>{const method=cls.prototype.renderMenu?'Sidebar':cls.prototype.darkMode?'Header':'MainLayout';classes[method]=cls;const wrapper=function(){};wrapper.displayName='Connected'+method;return wrapper;};
  function evaluate(file){
   if(cache.has(file))return cache.get(file);
@@ -39,6 +39,7 @@ async function load(target,original){
    if(id.includes('antdConfigProvider'))return {a:'ConfigProvider'};
    if(id.includes('antdZhCnLocale'))return {a:'zh-CN'};
    if(id==='./Sidebar'||id==='./Header')return evaluate(path.join(home,'src/layouts',id.slice(2)+'.tsx'));
+   if(id.includes('HeaderSearchOverlay'))return evaluate(path.join(home,'src/layouts/components/HeaderSearchOverlay.tsx'));
    if(id==='../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
    if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
@@ -47,6 +48,7 @@ async function load(target,original){
   cache.set(file,module.exports);return module.exports;
  }
  const paths=original?[path.join(home,'tests/fixtures/layouts',target+'.jsx')]:['MainLayout','Sidebar','Header'].map(name=>path.join(home,'src/layouts',name+'.tsx'));
+ if(!original)paths.push(path.join(home,'src/layouts/components/HeaderSearchOverlay.tsx'));
  if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
  const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
@@ -78,4 +80,12 @@ test(`${target}: sidebar/header/layout rendering and behavior match original`,as
   return normalize(subject.trace);
  }
  assert.deepEqual(actions(next,true),actions(old,false));
+});
+
+test('user header keeps search presentation in a dedicated layout component', async () => {
+ const headerSource=await fs.readFile(new URL('../src/layouts/Header.tsx', import.meta.url),'utf8');
+ const overlaySource=await fs.readFile(new URL('../src/layouts/components/HeaderSearchOverlay.tsx', import.meta.url),'utf8');
+ assert.match(headerSource,/import HeaderSearchOverlay, \{ type HeaderSearchConfig \} from ['"]\.\/components\/HeaderSearchOverlay['"]/);
+ assert.doesNotMatch(headerSource,/overlay-header|input-group-prepend/);
+ assert.match(overlaySource,/export default function HeaderSearchOverlay/);
 });

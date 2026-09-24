@@ -4,13 +4,10 @@ import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader
 import { getCookie, setCookie } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import LanguageSelector from '../components/common/LanguageSelector';
+import HeaderSearchOverlay, { type HeaderSearchConfig } from './components/HeaderSearchOverlay';
 import type { UserDispatch, UserRootState } from '../types/store';
 
-export interface HeaderSearchConfig {
-    placeholder: string;
-    defaultValue?: string;
-    onChange: (value: string) => void;
-}
+export type { HeaderSearchConfig } from './components/HeaderSearchOverlay';
 
 interface HeaderOwnProps {
     title?: React.ReactNode;
@@ -173,32 +170,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
                     </div>
                 </div>
                 {search && (
-                    <div
-                        className={`overlay-header bg-dark ${this.state.showSearchBar ? 'show' : ''}`}
-                    >
-                        <div className="content-header bg-dark">
-                            <div className="w-100">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <button
-                                            type="button"
-                                            className="btn btn-dark"
-                                            onClick={() => this.setState({ showSearchBar: false })}
-                                        >
-                                            <i className="fa fa-fw fa-times-circle" />
-                                        </button>
-                                    </div>
-                                    <input
-                                        type="text"
-                                        className="form-control border-0"
-                                        placeholder={search.placeholder}
-                                        onChange={(event) => search.onChange(event.target.value)}
-                                        defaultValue={search.defaultValue}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <HeaderSearchOverlay
+                        search={search}
+                        visible={this.state.showSearchBar}
+                        onClose={() => this.setState({ showSearchBar: false })}
+                    />
                 )}
             </header>
         );
