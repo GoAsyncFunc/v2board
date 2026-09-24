@@ -7,7 +7,6 @@ import type {
     JsonValue,
 } from '../types/api';
 import { clearToken, getToken } from '../utils/siteHelpers';
-import { fetchResponse } from './fetchResponse';
 
 interface ApiPayload<Data = JsonValue> {
     data?: Data;
@@ -70,7 +69,7 @@ export async function request<Data = JsonValue>(
     const url = endpoint.includes('http')
         ? endpoint + (endpoint.indexOf('?') > 0 ? '&' : '?')
         : siteSettings.serviceHost + endpoint;
-    const response = await fetchResponse(url, options);
+    const response = await globalThis.fetch(url, options);
     // Keep exact content-type handling for parity; widening this is a separate behavior change.
     const data: ApiPayload<Data> =
         response.headers.get('content-type') === 'application/json'

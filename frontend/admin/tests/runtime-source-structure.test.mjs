@@ -34,7 +34,6 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/routeRenderer.tsx',
         '../src/runtime/routeInitialProps.tsx',
         '../src/runtime/routeTypes.ts',
-        '../src/services/fetchResponse.ts',
         '../src/services/request.ts',
         '../src/services/download.ts',
         '../src/routes/index.ts',
