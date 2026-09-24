@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: V2Board User API
+  version: source-2026-09-22
+  description: 用户端 SPA 使用的 V2Board API。字段以当前仓库 frontend/user 与 Laravel 控制器为准。
+servers:
+  - url: /api/v1
+tags:
+  - name: Guest
+  - name: Passport
+  - name: User
+paths:
+  /guest/comm/config:
+    get:
+      tags: [Guest]
+      security: []
+      responses:
+        '200':
+          description: 公共站点配置
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ApiResponse'}
+  /passport/auth/login:
+    post:
+      tags: [Passport]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: {type: string, format: email}
+                password: {type: string, minLength: 8}
+      responses:
+        '200': {description: 登录成功, content: {application/json: {schema: {$ref: '#/components/schemas/AuthResponse'}}}}
+  /passport/auth/register:
+    post:
+      tags: [Passport]
+      security: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: {type: string, format: email}
+                password: {type: string, minLength: 8}
+                invite_code: {type: string}
+                email_code: {type: string, minLength: 6, maxLength: 6}
+                recaptcha_data: {type: string}
+      responses: {'200': {description: 注册成功, content: {application/json: {schema: {$ref: '#/components/schemas/AuthResponse'}}}}}
+  /passport/auth/forget:
+    post:
+      tags: [Passport]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [email, password, email_code]
+              properties:
+                email: {type: string, format: email}
+                password: {type: string, minLength: 8}
+                email_code: {type: string, minLength: 6, maxLength: 6}
+      responses: {'200': {description: 重置成功, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /passport/comm/sendEmailVerify:
+    post:
+      tags: [Passport]
+      security: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email: {type: string, format: email}
+                recaptcha_data: {type: string}
+                isforget: {type: integer}
+      responses: {'200': {description: 发送成功, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/checkLogin:
+    get:
+      tags: [User]
+      responses: {'200': {description: 会话状态, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/info:
+    get:
+      tags: [User]
+      responses: {'200': {description: 用户资料, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/getSubscribe:
+    get:
+      tags: [User]
+      responses: {'200': {description: 订阅信息, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/plan/fetch:
+    get:
+      tags: [User]
+      parameters:
+        - {name: id, in: query, required: false, schema: {type: integer}}
+      responses: {'200': {description: 套餐列表或详情, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/order/save:
+    post:
+      tags: [User]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [plan_id, period]
+              properties:
+                plan_id: {type: integer}
+                period: {type: string}
+                coupon_code: {type: string}
+                deposit_amount: {type: integer}
+      responses: {'200': {description: 创建订单, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/order/checkout:
+    post:
+      tags: [User]
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [trade_no, method]
+              properties:
+                trade_no: {type: string}
+                method: {oneOf: [{type: integer}, {type: string}]}
+                token: {type: string, description: Stripe token}
+      responses: {'200': {description: 发起支付, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/ticket/fetch:
+    get:
+      tags: [User]
+      parameters: [{name: id, in: query, schema: {oneOf: [{type: integer}, {type: string}]}}]
+      responses: {'200': {description: 工单列表或详情, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /user/server/fetch:
+    get:
+      tags: [User]
+      responses: {'200': {description: 可用节点, content: {application/json: {schema: {$ref: '#/components/schemas/ApiResponse'}}}}}
+  /client/subscribe:
+    get:
+      tags: [User]
+      security: []
+      parameters:
+        - {name: token, in: query, required: true, schema: {type: string}}
+        - {name: flag, in: query, required: false, schema: {type: string}}
+      responses: {'200': {description: 协议订阅内容, content: {text/plain: {}, text/yaml: {}, application/json: {}}}}
+components:
+  securitySchemes:
+    AuthData:
+      type: apiKey
+      in: header
+      name: authorization
+      description: 登录或 token2Login 返回的 data.auth_data
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        data: {}
+        total: {type: integer}
+        message: {type: string}
+        msg: {type: string}
+        errors: {type: object, additionalProperties: {type: array, items: {type: string}}}
+    AuthResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            auth_data: {type: string}
+            token: {type: string}
+            is_admin: {type: boolean}
+security:
+  - AuthData: []
