@@ -60,7 +60,7 @@ interface CheckLoginAction {
 type UserYield =
     UserModuleState | ApiResponse | ApiResponse<UserRecord> | ApiResponse<UserRecord[]>;
 type UserEffect = ModelEffect<UserYield>;
-type ExportResponse = ApiResponse & { buffer?: BlobPart };
+type ExportResponse = ApiResponse & { buffer: BlobPart };
 
 const userEndpoint = (action: string): string => `/${window.settings.secure_path}/user/${action}`;
 
@@ -211,10 +211,7 @@ export function* generate({ params, callback }: GenerateAction, { put }: UserToo
     yield put({ type: 'setState', payload: { generateLoading: false } });
     if (!isSuccessfulResponse(response)) return;
     if (params.generate_count)
-        downloadCsv(
-            response.buffer as BlobPart,
-            `USER ${moment().format('YYYY-MM-DD HH:mm:ss')}.csv`,
-        );
+        downloadCsv(response.buffer, `USER ${moment().format('YYYY-MM-DD HH:mm:ss')}.csv`);
     yield put({ type: 'fetch' });
     if (typeof callback === 'function') callback();
 }
@@ -225,7 +222,7 @@ export function* dumpCSV({ start, finish }: DumpCsvAction, { select }: UserTools
     const response = (yield post(userEndpoint('dumpCSV'), { filter })) as ExportResponse;
     finish?.();
     if (!isSuccessfulResponse(response)) return;
-    downloadCsv(response.buffer as BlobPart, moment().format('YYYY-MM-DD HH:mm:ss') + '.csv');
+    downloadCsv(response.buffer, moment().format('YYYY-MM-DD HH:mm:ss') + '.csv');
 }
 
 export function* checkLogin(
