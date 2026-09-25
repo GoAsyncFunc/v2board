@@ -18,7 +18,7 @@ export function PlanResourceFields({
                 <Input
                     addonAfter="GB"
                     placeholder="请输入套餐流量"
-                    value={record.transfer_enable as string | number | undefined}
+                    value={record.transfer_enable ?? undefined}
                     onChange={(event) => onChange('transfer_enable', event.target.value)}
                 />
             </div>
@@ -26,7 +26,7 @@ export function PlanResourceFields({
                 <label>设备数限制</label>
                 <Input
                     placeholder="留空则不限制"
-                    value={record.device_limit as string | number | undefined}
+                    value={record.device_limit ?? undefined}
                     onChange={(event) => onChange('device_limit', event.target.value)}
                 />
             </div>
@@ -34,7 +34,7 @@ export function PlanResourceFields({
                 <label>最大容纳用户量</label>
                 <Input
                     placeholder="留空则不限制"
-                    value={record.capacity_limit as string | number | undefined}
+                    value={record.capacity_limit ?? undefined}
                     onChange={(event) => onChange('capacity_limit', event.target.value)}
                 />
             </div>
@@ -43,7 +43,7 @@ export function PlanResourceFields({
                 <Input
                     addonAfter="Mbps"
                     placeholder="留空则不限制"
-                    value={record.speed_limit as string | number | undefined}
+                    value={record.speed_limit ?? undefined}
                     onChange={(event) => onChange('speed_limit', event.target.value)}
                 />
             </div>

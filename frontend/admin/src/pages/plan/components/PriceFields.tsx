@@ -5,9 +5,9 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
-import type { PlanRecord } from '../../../types/planContracts';
+import type { PlanPriceField, PlanRecord } from '../../../types/planContracts';
 
-export const PLAN_PRICE_FIELDS: Array<[string, string]> = [
+export const PLAN_PRICE_FIELDS: Array<[PlanPriceField, string]> = [
     ['month_price', '月付'],
     ['quarter_price', '季付'],
     ['half_year_price', '半年'],
@@ -41,11 +41,7 @@ export default function PlanPriceFields({
                         <div className="form-group">
                             <label>{label}</label>
                             <Input
-                                value={
-                                    record[field] !== null
-                                        ? (record[field] as string | number)
-                                        : undefined
-                                }
+                                value={record[field] !== null ? record[field] : undefined}
                                 onChange={(event) => onPriceChange(field, event.target.value)}
                             />
                         </div>
@@ -64,11 +60,7 @@ export default function PlanPriceFields({
                             <label>{label}</label>
                             <Input
                                 addonAfter={currencySymbol}
-                                value={
-                                    record[field] !== null
-                                        ? (record[field] as string | number)
-                                        : undefined
-                                }
+                                value={record[field] !== null ? record[field] : undefined}
                                 onChange={(event) => onPriceChange(field, event.target.value)}
                             />
                         </div>

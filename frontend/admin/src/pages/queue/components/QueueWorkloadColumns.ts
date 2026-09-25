@@ -3,7 +3,7 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { QueueName, QueueWait, QueueWorkload } from '../../../types/monitoringContracts';
 
-const QUEUE_NAME_LABELS: Record<string, string> = {
+const QUEUE_NAME_LABELS: Readonly<Record<PropertyKey, string>> = {
     order_handle: '订单队列',
     send_email: '邮件队列',
     send_email_mass: '邮件群发队列',
@@ -14,7 +14,7 @@ const QUEUE_NAME_LABELS: Record<string, string> = {
 
 // Direct property lookup: unknown names return undefined, as in the original.
 export function formatQueueName(value: QueueName): string | undefined {
-    return QUEUE_NAME_LABELS[value as string];
+    return typeof value === 'symbol' ? QUEUE_NAME_LABELS[value] : QUEUE_NAME_LABELS[String(value)];
 }
 
 // Preserve the original implicit string coercion (`e + "s"`), including

@@ -179,3 +179,33 @@ test('admin configuration normalization has an explicit typed boundary', async (
     assert.match(source, /payload: normalizeConfigData\(response\.data\)/);
     assert.doesNotMatch(source, /data as Partial<AdminConfigState>/);
 });
+
+test('admin display and plan fields use declared value contracts', async () => {
+    const money = await fs.readFile(
+        path.join(sourceRoot, 'components', 'common', 'MoneyDisplay.ts'),
+        'utf8',
+    );
+    const queue = await fs.readFile(
+        path.join(sourceRoot, 'pages', 'queue', 'components', 'QueueWorkloadColumns.ts'),
+        'utf8',
+    );
+    const prices = await fs.readFile(
+        path.join(sourceRoot, 'pages', 'plan', 'components', 'PriceFields.tsx'),
+        'utf8',
+    );
+    const resources = await fs.readFile(
+        path.join(sourceRoot, 'pages', 'plan', 'components', 'PlanResourceFields.tsx'),
+        'utf8',
+    );
+
+    assert.match(money, /Number\(value\) \/ 100/);
+    assert.doesNotMatch(money, /value as number/);
+    assert.match(queue, /Readonly<Record<PropertyKey, string>>/);
+    assert.doesNotMatch(queue, /value as string/);
+    assert.match(prices, /PlanPriceField/);
+    assert.doesNotMatch(prices, /record\[field\] as string \| number/);
+    assert.doesNotMatch(
+        resources,
+        /record\.(?:transfer_enable|device_limit|capacity_limit|speed_limit) as/,
+    );
+});
