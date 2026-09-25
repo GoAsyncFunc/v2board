@@ -4,19 +4,55 @@ import { chromium } from '@playwright/test';
 
 const baseUrl = process.env.TEST_BASE || 'http://5.104.86.24:7003';
 const adminPath = process.env.ADMIN_PATH || '/4434144c';
+const buildPrefix = process.env.BUILD_PREFIX || '/admin-build';
 const email = process.env.TEST_EMAIL;
 const password = process.env.TEST_PASSWORD;
 const outputDirectory = path.resolve('test-results');
 const routes = ['/dashboard', '/plan', '/order', '/user', '/notice', '/ticket'];
+const origin = new URL(baseUrl).origin;
+
+function collectResponseFailures(page, failures) {
+    page.on('response', (response) => {
+        if (!response.url().startsWith(origin)) return;
+        const { pathname } = new URL(response.url());
+        const status = response.status();
+        if (pathname.startsWith(buildPrefix) && status >= 400) {
+            failures.push(`static asset ${pathname} responded ${status}`);
+        }
+        if (pathname.startsWith('/api/') && status >= 500) {
+            failures.push(`api ${pathname} responded ${status}`);
+        }
+    });
+}
 
 const browser = await chromium.launch({ channel: process.env.BROWSER_CHANNEL || 'chrome' });
 try {
-    const page = await browser.newPage({
+    // Permission control: an unauthenticated visitor must not reach the dashboard.
+    // The admin client answers a rejected request by clearing the token and
+    // reloading onto the home route, which redirects to the login page.
+    const anonymousContext = await browser.newContext({
         viewport: { width: 1440, height: 1000 },
         locale: 'zh-CN',
     });
+    const anonymousPage = await anonymousContext.newPage();
+    await anonymousPage.goto(`${baseUrl}${adminPath}#/dashboard`, {
+        waitUntil: 'domcontentloaded',
+        timeout: 60000,
+    });
+    await anonymousPage.waitForURL((url) => url.hash.includes('/login'), { timeout: 60000 });
+    await anonymousPage.locator('input[type="password"]').waitFor({ timeout: 30000 });
+    console.log('admin: unauthenticated dashboard access falls back to the login page');
+    await anonymousContext.close();
+
+    const context = await browser.newContext({
+        viewport: { width: 1440, height: 1000 },
+        locale: 'zh-CN',
+    });
+    const page = await context.newPage();
     const errors = [];
+    const responseFailures = [];
     page.on('pageerror', (error) => errors.push(error.message));
+    collectResponseFailures(page, responseFailures);
 
     await page.goto(`${baseUrl}${adminPath}#/login`, { waitUntil: 'networkidle', timeout: 60000 });
     await page.locator('input[type="password"]').waitFor();
@@ -41,14 +77,33 @@ try {
             }
             console.log(`admin ${route}: rendered ${text.length} text characters`);
         }
+
+        // Main edit page: the plan editor drawer must open from the list page.
+        await page.goto(`${baseUrl}${adminPath}#/plan`, {
+            waitUntil: 'networkidle',
+            timeout: 60000,
+        });
+        await page.getByRole('button', { name: '添加订阅' }).click();
+        await page
+            .locator('.ant-drawer-title', { hasText: '新建订阅' })
+            .waitFor({ timeout: 30000 });
+        await page.locator('.ant-drawer-close').last().click();
+        await page
+            .locator('.ant-drawer-title', { hasText: '新建订阅' })
+            .waitFor({ state: 'hidden', timeout: 30000 });
+        console.log('admin: plan editor drawer opens and closes');
     }
 
+    if (responseFailures.length) {
+        throw new Error(`Failed same-origin responses: ${responseFailures.join('; ')}`);
+    }
     if (errors.length) throw new Error(`Uncaught browser errors: ${errors.join('; ')}`);
     await fs.mkdir(outputDirectory, { recursive: true });
     await page.screenshot({
         path: path.join(outputDirectory, 'deployed-admin.png'),
         fullPage: true,
     });
+    await context.close();
 } finally {
     await browser.close();
 }

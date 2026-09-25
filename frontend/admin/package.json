@@ -16,7 +16,8 @@
     "test": "node --test tests/*.test.mjs",
     "check:visual": "node scripts/check-visual.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
-    "deploy:test": "bash scripts/deploy-test.sh"
+    "deploy:test": "bash scripts/deploy-test.sh",
+    "deploy:local": "bash scripts/deploy-local.sh"
   },
   "dependencies": {
     "antd": "3.26.20",
