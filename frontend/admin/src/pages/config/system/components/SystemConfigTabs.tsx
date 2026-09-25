@@ -16,7 +16,7 @@ import type {
     ConfigGroupKey,
     ConfigValue,
     PlanSummary,
-} from '../../../../types/config';
+} from '../../../../types/configurationValues';
 
 interface SystemConfigTabsProps {
     config: AdminConfigState;

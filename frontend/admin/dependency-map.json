@@ -333,7 +333,7 @@
   },
   {
     "from": "models/configuration.ts",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "models/configuration.ts",
@@ -837,7 +837,7 @@
   },
   {
     "from": "pages/config/system/SystemConfigPage.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/SystemConfigPage.tsx",
@@ -849,7 +849,7 @@
   },
   {
     "from": "pages/config/system/components/AppConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/DepositConfigTab.tsx",
@@ -857,7 +857,7 @@
   },
   {
     "from": "pages/config/system/components/DepositConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/EmailConfigTab.tsx",
@@ -865,7 +865,7 @@
   },
   {
     "from": "pages/config/system/components/EmailConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/FrontendConfigTab.tsx",
@@ -873,7 +873,7 @@
   },
   {
     "from": "pages/config/system/components/FrontendConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/InviteCommissionDistribution.tsx",
@@ -881,7 +881,7 @@
   },
   {
     "from": "pages/config/system/components/InviteCommissionDistribution.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/InviteConfigTab.tsx",
@@ -893,11 +893,11 @@
   },
   {
     "from": "pages/config/system/components/InviteConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/MailTestResult.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SafeConfigFields.tsx",
@@ -905,7 +905,7 @@
   },
   {
     "from": "pages/config/system/components/SafeConfigFields.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SafeConfigLimits.tsx",
@@ -913,7 +913,7 @@
   },
   {
     "from": "pages/config/system/components/SafeConfigLimits.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SafeConfigTab.tsx",
@@ -925,7 +925,7 @@
   },
   {
     "from": "pages/config/system/components/SafeConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/ServerConfigTab.tsx",
@@ -933,7 +933,7 @@
   },
   {
     "from": "pages/config/system/components/ServerConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SiteConfigTab.tsx",
@@ -945,7 +945,7 @@
   },
   {
     "from": "pages/config/system/components/SiteConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SiteTrialSettings.tsx",
@@ -953,7 +953,7 @@
   },
   {
     "from": "pages/config/system/components/SiteTrialSettings.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SubscribeConfigTab.tsx",
@@ -965,7 +965,7 @@
   },
   {
     "from": "pages/config/system/components/SubscribeConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SubscribeLinkValidity.tsx",
@@ -973,7 +973,7 @@
   },
   {
     "from": "pages/config/system/components/SubscribeLinkValidity.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/SystemConfigTabs.tsx",
@@ -1021,7 +1021,7 @@
   },
   {
     "from": "pages/config/system/components/SystemConfigTabs.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/TelegramConfigTab.tsx",
@@ -1029,7 +1029,7 @@
   },
   {
     "from": "pages/config/system/components/TelegramConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/system/components/TicketConfigTab.tsx",
@@ -1037,7 +1037,7 @@
   },
   {
     "from": "pages/config/system/components/TicketConfigTab.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
@@ -1129,7 +1129,7 @@
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
@@ -1165,7 +1165,7 @@
   },
   {
     "from": "pages/coupon/components/CouponRestrictionsFields.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/coupon/components/CouponRestrictionsFields.tsx",
@@ -1289,7 +1289,7 @@
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
@@ -1333,7 +1333,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
@@ -1353,7 +1353,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
@@ -1369,7 +1369,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardPlanField.tsx",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardPlanField.tsx",
@@ -3177,7 +3177,7 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/config.ts"
+    "to": "types/configurationValues.ts"
   },
   {
     "from": "types/store.ts",

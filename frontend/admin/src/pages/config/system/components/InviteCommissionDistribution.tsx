@@ -1,6 +1,10 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, InviteConfig, ConfigValue } from '../../../../types/config';
+import type {
+    ConfigChangeHandler,
+    InviteConfig,
+    ConfigValue,
+} from '../../../../types/configurationValues';
 
 interface InviteCommissionDistributionProps {
     invite: InviteConfig;

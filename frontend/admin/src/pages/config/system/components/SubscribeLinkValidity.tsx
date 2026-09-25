@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, SubscribeConfig } from '../../../../types/config';
+import type { ConfigChangeHandler, SubscribeConfig } from '../../../../types/configurationValues';
 
 interface SubscribeLinkValidityProps {
     subscribe: SubscribeConfig;

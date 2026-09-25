@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
 import { settings } from '../../../config/adminSettings';
-import type { PlanSummary } from '../../../types/config';
+import type { PlanSummary } from '../../../types/configurationValues';
 import type { CouponRecord } from '../../../types/promotion';
 
 export interface CouponRestrictionsFieldsProps {

@@ -7,7 +7,7 @@ import type {
     ConfigValue,
     PlanSummary,
     SiteConfig,
-} from '../../../../types/config';
+} from '../../../../types/configurationValues';
 
 interface TextSettingProps {
     title: string;

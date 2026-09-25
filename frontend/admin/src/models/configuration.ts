@@ -7,7 +7,7 @@ import type {
     InviteConfig,
     MailTestLog,
     SiteConfig,
-} from '../types/config';
+} from '../types/configurationValues';
 import type { AdminAction, AdminRootState } from '../types/store';
 import type { ModelEffect, ModelEffectTools } from '../types/effects';
 

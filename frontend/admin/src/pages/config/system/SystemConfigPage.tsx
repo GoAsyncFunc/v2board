@@ -5,7 +5,11 @@ import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import SystemConfigTabs from './components/SystemConfigTabs';
 import { showMailTestResult } from './components/MailTestResult';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
-import type { AdminConfigState, ConfigGroupKey, ConfigValue } from '../../../types/config';
+import type {
+    AdminConfigState,
+    ConfigGroupKey,
+    ConfigValue,
+} from '../../../types/configurationValues';
 
 interface SystemConfigPageProps {
     dispatch: AdminDispatch;

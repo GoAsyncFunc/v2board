@@ -1,6 +1,6 @@
 import React from 'react';
 import notification from 'antd/lib/message';
-import type { MailTestLog } from '../../../../types/config';
+import type { MailTestLog } from '../../../../types/configurationValues';
 
 interface MailTestResultProps {
     log: MailTestLog;

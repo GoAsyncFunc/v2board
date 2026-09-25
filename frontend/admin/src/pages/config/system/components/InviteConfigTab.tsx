@@ -2,7 +2,11 @@ import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
 import InviteCommissionDistribution from './InviteCommissionDistribution';
-import type { ConfigChangeHandler, ConfigValue, InviteConfig } from '../../../../types/config';
+import type {
+    ConfigChangeHandler,
+    ConfigValue,
+    InviteConfig,
+} from '../../../../types/configurationValues';
 
 interface TextSettingProps {
     title: string;

@@ -1,6 +1,10 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, SiteConfig, PlanSummary } from '../../../../types/config';
+import type {
+    ConfigChangeHandler,
+    SiteConfig,
+    PlanSummary,
+} from '../../../../types/configurationValues';
 
 interface SiteTrialSettingsProps {
     site: SiteConfig;

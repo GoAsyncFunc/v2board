@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, TicketConfig } from '../../../../types/config';
+import type { ConfigChangeHandler, TicketConfig } from '../../../../types/configurationValues';
 
 interface TicketConfigTabProps {
     ticket: TicketConfig;
