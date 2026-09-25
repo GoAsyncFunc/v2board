@@ -143,6 +143,8 @@ test('admin production source has no compiler-generated module or style identifi
         assert.doesNotMatch(text, /(?:from|require\()\s*['"][^'"]+\.(?:js|jsx)['"]/);
         assert.doesNotMatch(text, /(?:vendor\/modules|webpackJsonp|moduleId|interopDefault)/);
         assert.doesNotMatch(text, /(?:className|class)\s*=?.*___[A-Za-z0-9_-]{4,}/);
+        assert.doesNotMatch(text, /@ts-(?:ignore|expect-error)/);
+        assert.doesNotMatch(text, /\bany\b/);
     }
     assert.doesNotMatch(sourceText.join('\n'), /\b(?:var|let|const)\s+[rioaslc](?:\s*,|\s*=)/);
 });

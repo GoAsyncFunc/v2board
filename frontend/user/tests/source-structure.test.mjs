@@ -114,6 +114,8 @@ test('user production source contains no compiler-style module imports', async (
         const source = await fs.readFile(file, 'utf8');
         assert.doesNotMatch(source, /\brequire\s*\(/, file.pathname);
         assert.doesNotMatch(source, /React\.createElement\s*\(/, file.pathname);
+        assert.doesNotMatch(source, /@ts-(?:ignore|expect-error)/, file.pathname);
+        assert.doesNotMatch(source, /\bany\b/, file.pathname);
     }
 });
 
