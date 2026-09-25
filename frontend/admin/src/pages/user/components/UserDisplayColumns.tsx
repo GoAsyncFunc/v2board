@@ -20,7 +20,7 @@ export function renderUserOnlineStatus(lastSeen: UserTimestamp): 'default' | 'su
     return new Date().getTime() / 1e3 - 600 > Number(lastSeen) ? 'default' : 'success';
 }
 
-// Readonly email/online column; no sorter, filter or event handlers.
+// Email/online column; no sorter, filter, or event handlers.
 export function createUserEmailColumn<
     RecordType extends UserListRecord = UserListRecord,
 >(): ColumnProps<RecordType> {

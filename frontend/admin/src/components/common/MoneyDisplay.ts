@@ -1,4 +1,4 @@
-// Readonly income/count display shared by admin pages; no events or requests.
+// Income/count display shared by admin pages; no events, requests, or table actions.
 import type { DisplayScalar } from '../../types/monitoringContracts';
 
 export function formatIncome(value: DisplayScalar): string {

@@ -38,13 +38,13 @@ export class GiftCardList extends React.Component<GiftCardListProps> {
 
     render(): React.ReactNode {
         const { giftcard, plan } = this.props;
-        const readonlyColumns = createGiftCardColumns(plan.plans);
+        const tableColumns = createGiftCardColumns(plan.plans);
         const columns: ColumnProps<GiftCardRecord>[] = [
-            readonlyColumns.id,
-            readonlyColumns.name,
-            readonlyColumns.type,
-            readonlyColumns.value,
-            readonlyColumns.plan_id,
+            tableColumns.id,
+            tableColumns.name,
+            tableColumns.type,
+            tableColumns.value,
+            tableColumns.plan_id,
             {
                 title: '卡密',
                 dataIndex: 'code',
@@ -61,8 +61,8 @@ export class GiftCardList extends React.Component<GiftCardListProps> {
                     </Tag>
                 ),
             },
-            readonlyColumns.limit_use,
-            readonlyColumns.started_at,
+            tableColumns.limit_use,
+            tableColumns.started_at,
             {
                 title: '操作',
                 dataIndex: 'action',

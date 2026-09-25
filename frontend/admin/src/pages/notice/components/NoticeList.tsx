@@ -15,7 +15,7 @@ interface NoticeListProps {
     onEdit: (record: NoticeRecord) => void;
 }
 
-const readonlyColumns = createNoticeColumns();
+const tableColumns = createNoticeColumns();
 
 export class NoticeList extends React.Component<NoticeListProps> {
     show(id: string | number | undefined): void {
@@ -29,7 +29,7 @@ export class NoticeList extends React.Component<NoticeListProps> {
     render(): React.ReactNode {
         const { notices } = this.props;
         const columns: ColumnProps<NoticeRecord>[] = [
-            readonlyColumns.id,
+            tableColumns.id,
             {
                 title: '显示',
                 dataIndex: 'show',
@@ -38,8 +38,8 @@ export class NoticeList extends React.Component<NoticeListProps> {
                     <Switch size="small" checked={value} onChange={() => this.show(record.id)} />
                 ),
             },
-            readonlyColumns.title,
-            readonlyColumns.created_at,
+            tableColumns.title,
+            tableColumns.created_at,
             {
                 title: '操作',
                 dataIndex: 'action',

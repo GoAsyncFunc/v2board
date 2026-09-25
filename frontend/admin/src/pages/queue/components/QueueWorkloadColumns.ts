@@ -1,4 +1,4 @@
-// Readonly queue workload columns, extracted unchanged from the admin Queue page.
+// Queue workload columns extracted from the admin Queue page.
 // Only pure display cells are here: no events, requests, sorting or pagination.
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { QueueName, QueueWait, QueueWorkload } from '../../../types/monitoringContracts';

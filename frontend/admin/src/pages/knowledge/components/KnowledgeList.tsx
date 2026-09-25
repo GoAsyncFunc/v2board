@@ -11,7 +11,7 @@ import type { AdminDispatch, AdminRootState } from '../../../types/storeContract
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledgeContracts';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
 
-const readonlyColumns = createKnowledgeColumns();
+const tableColumns = createKnowledgeColumns();
 
 interface KnowledgeListProps {
     dispatch: AdminDispatch;
@@ -36,7 +36,7 @@ export class KnowledgeList extends React.Component<KnowledgeListProps> {
                 key: 'sort',
                 render: () => <TableDragHandle title="拖动排序" />,
             },
-            readonlyColumns.id,
+            tableColumns.id,
             {
                 title: '显示',
                 dataIndex: 'show',
@@ -45,9 +45,9 @@ export class KnowledgeList extends React.Component<KnowledgeListProps> {
                     <Switch size="small" checked={visible} onChange={() => this.show(article.id)} />
                 ),
             },
-            readonlyColumns.title,
-            readonlyColumns.category,
-            readonlyColumns.updated_at,
+            tableColumns.title,
+            tableColumns.category,
+            tableColumns.updated_at,
             {
                 title: '操作',
                 dataIndex: 'action',

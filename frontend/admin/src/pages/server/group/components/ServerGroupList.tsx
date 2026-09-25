@@ -10,14 +10,14 @@ interface ServerGroupListProps {
     onDelete: (id: string | number) => void;
 }
 
-const readonlyColumns = createServerGroupColumns();
+const tableColumns = createServerGroupColumns();
 
 export default function ServerGroupList({ groups, onDelete }: ServerGroupListProps) {
     const columns: ColumnProps<ServerGroupRecord>[] = [
-        readonlyColumns.id,
-        readonlyColumns.name,
-        readonlyColumns.user_count,
-        readonlyColumns.server_count,
+        tableColumns.id,
+        tableColumns.name,
+        tableColumns.user_count,
+        tableColumns.server_count,
         {
             title: '操作',
             dataIndex: 'action',

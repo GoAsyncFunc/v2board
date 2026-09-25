@@ -27,11 +27,11 @@ export interface TicketListProps {
 
 export class TicketList extends React.Component<TicketListProps> {
     columns(filterState: TicketFilterState): ColumnProps<TicketRecord>[] {
-        const readonlyColumns = createTicketColumns(['低', '中', '高']);
+        const tableColumns = createTicketColumns(['低', '中', '高']);
         return [
-            readonlyColumns.id,
-            readonlyColumns.subject,
-            readonlyColumns.level,
+            tableColumns.id,
+            tableColumns.subject,
+            tableColumns.level,
             {
                 title: '工单状态',
                 dataIndex: 'reply_status',
@@ -56,8 +56,8 @@ export class TicketList extends React.Component<TicketListProps> {
                         </span>
                     ),
             } as ColumnProps<TicketRecord>,
-            readonlyColumns.created_at,
-            readonlyColumns.updated_at,
+            tableColumns.created_at,
+            tableColumns.updated_at,
             {
                 title: '操作',
                 dataIndex: 'action',

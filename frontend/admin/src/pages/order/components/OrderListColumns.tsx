@@ -11,7 +11,7 @@ import type { OrderRecord } from '../../../types/orderContracts';
 import { ConnectedOrderDetailModal } from './OrderDetailModal';
 import { createOrderColumns } from './OrderColumns';
 
-const readonlyColumns = createOrderColumns<OrderRecord>();
+const tableColumns = createOrderColumns<OrderRecord>();
 const ORDER_BADGE_STATUS = ['error', 'processing', 'default', 'success', 'default'] as const;
 const COMMISSION_BADGE_STATUS = ['default', 'processing', 'success', 'error'] as const;
 
@@ -115,10 +115,10 @@ export function createOrderListColumns(dispatch: AdminDispatch): ColumnProps<Ord
                 </ConnectedOrderDetailModal>
             ),
         },
-        readonlyColumns.type,
+        tableColumns.type,
         { title: '订阅计划', dataIndex: 'plan_name', key: 'plan_name' },
-        readonlyColumns.period,
-        readonlyColumns.total_amount,
+        tableColumns.period,
+        tableColumns.total_amount,
         {
             title: (
                 <span>
@@ -131,7 +131,7 @@ export function createOrderListColumns(dispatch: AdminDispatch): ColumnProps<Ord
             key: 'status',
             render: (status: number, order) => renderOrderStatus(dispatch, status, order),
         },
-        readonlyColumns.commission_balance,
+        tableColumns.commission_balance,
         {
             title: (
                 <span>
@@ -145,6 +145,6 @@ export function createOrderListColumns(dispatch: AdminDispatch): ColumnProps<Ord
             key: 'commission_status',
             render: (status: number, order) => renderCommissionStatus(dispatch, status, order),
         },
-        readonlyColumns.created_at,
+        tableColumns.created_at,
     ];
 }

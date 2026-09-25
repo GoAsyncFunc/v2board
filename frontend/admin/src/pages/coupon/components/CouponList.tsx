@@ -41,9 +41,9 @@ export class CouponList extends React.Component<CouponListProps> {
 
     render(): React.ReactNode {
         const { coupon } = this.props;
-        const readonlyColumns = createCouponColumns();
+        const tableColumns = createCouponColumns();
         const columns: ColumnProps<CouponRecord>[] = [
-            readonlyColumns.id,
+            tableColumns.id,
             {
                 title: '启用',
                 dataIndex: 'show',
@@ -52,8 +52,8 @@ export class CouponList extends React.Component<CouponListProps> {
                     <Switch size="small" checked={enabled} onChange={() => this.show(row.id)} />
                 ),
             },
-            readonlyColumns.name,
-            readonlyColumns.type,
+            tableColumns.name,
+            tableColumns.type,
             {
                 title: '券码',
                 dataIndex: 'code',
@@ -70,8 +70,8 @@ export class CouponList extends React.Component<CouponListProps> {
                     </Tag>
                 ),
             },
-            readonlyColumns.limit_use,
-            readonlyColumns.started_at,
+            tableColumns.limit_use,
+            tableColumns.started_at,
             {
                 title: '操作',
                 dataIndex: 'action',

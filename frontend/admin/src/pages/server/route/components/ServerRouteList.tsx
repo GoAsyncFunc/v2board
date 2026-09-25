@@ -13,7 +13,7 @@ interface ServerRouteListProps {
     onDelete: (id: string | number | undefined) => void;
 }
 
-const readonlyColumns = createServerRouteColumns<ServerRouteRecord>();
+const tableColumns = createServerRouteColumns<ServerRouteRecord>();
 
 export default function ServerRouteList({
     routes,
@@ -22,9 +22,9 @@ export default function ServerRouteList({
     onDelete,
 }: ServerRouteListProps) {
     const columns: ColumnProps<ServerRouteRecord>[] = [
-        readonlyColumns.id,
-        readonlyColumns.remarks,
-        readonlyColumns.match,
+        tableColumns.id,
+        tableColumns.remarks,
+        tableColumns.match,
         createRouteActionColumn<ServerRouteRecord>(routeActionText),
         {
             title: '操作',
