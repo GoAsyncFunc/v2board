@@ -215,17 +215,17 @@ test('user model composition uses named business effects instead of module alias
 
     const modelDirectory = new URL('../src/models/', import.meta.url);
     const modelFiles = [
-        { file: 'communication', namespace: 'comm' },
+        { file: 'communicationModel', namespace: 'comm' },
         { file: 'coupon', namespace: 'coupon' },
-        { file: 'guest', namespace: 'guest' },
+        { file: 'guestAccessModel', namespace: 'guest' },
         { file: 'invite', namespace: 'invite' },
         { file: 'knowledge', namespace: 'knowledge' },
-        { file: 'layout', namespace: 'layout' },
+        { file: 'layoutModel', namespace: 'layout' },
         { file: 'notice', namespace: 'notice' },
         { file: 'order', namespace: 'order' },
-        { file: 'passport', namespace: 'passport' },
+        { file: 'authenticationModel', namespace: 'passport' },
         { file: 'plan', namespace: 'plan' },
-        { file: 'server', namespace: 'server' },
+        { file: 'serverCatalogModel', namespace: 'server' },
         { file: 'trafficStatistics', namespace: 'stat' },
         { file: 'telegram', namespace: 'telegram' },
         { file: 'ticket', namespace: 'ticket' },

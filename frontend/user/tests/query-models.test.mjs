@@ -12,7 +12,13 @@ const cases = [
 ];
 
 async function load(entry, response, fail = false) {
-  const source = await fs.readFile(new URL(`../src/models/${entry.file || entry.name}.ts`, import.meta.url), 'utf8');
+  const modelFileNames = {
+    server: 'serverCatalogModel',
+  };
+  const source = await fs.readFile(
+    new URL(`../src/models/${entry.file || modelFileNames[entry.name] || entry.name}.ts`, import.meta.url),
+    'utf8',
+  );
   const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
   const events = [];
   const module = { exports: {} };

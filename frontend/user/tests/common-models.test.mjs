@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadCommunicationModel(trace) {
-  const source = await fs.readFile(new URL('../src/models/communication.ts', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/models/communicationModel.ts', import.meta.url), 'utf8');
   const code = (await transform(source, { format: 'cjs', loader: 'ts', target: 'es2018' })).code;
   const request = method => (url, data) => {
     trace.push(['request', method, url, structuredClone(data)]);

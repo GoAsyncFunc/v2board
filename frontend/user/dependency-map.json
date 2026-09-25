@@ -105,7 +105,11 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/communication.ts"
+    "to": "models/authenticationModel.ts"
+  },
+  {
+    "from": "app/store.tsx",
+    "to": "models/communicationModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -113,7 +117,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/guest.ts"
+    "to": "models/guestAccessModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -125,7 +129,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/layout.ts"
+    "to": "models/layoutModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -137,15 +141,11 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/passport.ts"
-  },
-  {
-    "from": "app/store.tsx",
     "to": "models/plan.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/server.ts"
+    "to": "models/serverCatalogModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -860,19 +860,43 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/communication.ts",
+    "from": "models/authenticationModel.ts",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/communication.ts",
+    "from": "models/authenticationModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/communication.ts",
+    "from": "models/authenticationModel.ts",
+    "to": "types/auth.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/communication.ts",
+    "from": "models/authenticationModel.ts",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "models/communicationModel.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/communicationModel.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/communicationModel.ts",
+    "to": "types/queryState.ts"
+  },
+  {
+    "from": "models/communicationModel.ts",
     "to": "types/userDomainContracts.ts"
   },
   {
@@ -892,23 +916,23 @@
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/guest.ts",
+    "from": "models/guestAccessModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/guest.ts",
+    "from": "models/guestAccessModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/guest.ts",
+    "from": "models/guestAccessModel.ts",
     "to": "types/auth.ts"
   },
   {
-    "from": "models/guest.ts",
+    "from": "models/guestAccessModel.ts",
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/guest.ts",
+    "from": "models/guestAccessModel.ts",
     "to": "types/userDomainContracts.ts"
   },
   {
@@ -944,7 +968,7 @@
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/layout.ts",
+    "from": "models/layoutModel.ts",
     "to": "types/contentState.ts"
   },
   {
@@ -1004,30 +1028,6 @@
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/passport.ts",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/auth.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/queryState.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "models/plan.ts",
     "to": "app/navigation.ts"
   },
@@ -1056,19 +1056,19 @@
     "to": "types/userDomainContracts.ts"
   },
   {
-    "from": "models/server.ts",
+    "from": "models/serverCatalogModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/server.ts",
+    "from": "models/serverCatalogModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/server.ts",
+    "from": "models/serverCatalogModel.ts",
     "to": "types/commerce.ts"
   },
   {
-    "from": "models/server.ts",
+    "from": "models/serverCatalogModel.ts",
     "to": "types/queryState.ts"
   },
   {
