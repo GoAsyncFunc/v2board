@@ -5,7 +5,7 @@ import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { LoginSessionData } from '../types/auth';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 import type { SessionUserState, UserInfo } from '../types/user';
 
 type SessionAction = StateUpdate<SessionUserState> | { type: 'user/getUserInfo' };

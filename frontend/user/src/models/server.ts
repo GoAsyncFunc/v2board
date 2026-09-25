@@ -1,7 +1,7 @@
 import { get } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { NodeRecord } from '../types/commerce';
-import type { QueryEffects, QueryGenerator, ServerState, StateUpdate } from '../types/queryModels';
+import type { QueryEffects, QueryGenerator, ServerState, StateUpdate } from '../types/queryState';
 
 const initialState: ServerState = { servers: [], fetchLoading: false };
 

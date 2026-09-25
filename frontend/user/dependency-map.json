@@ -205,7 +205,7 @@
   },
   {
     "from": "components/account/TelegramBindModal.tsx",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "components/account/TelegramBindModal.tsx",
@@ -837,7 +837,7 @@
   },
   {
     "from": "layouts/MainLayout.tsx",
-    "to": "types/contentModels.ts"
+    "to": "types/contentState.ts"
   },
   {
     "from": "layouts/MainLayout.tsx",
@@ -873,7 +873,7 @@
   },
   {
     "from": "models/communication.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/coupon.ts",
@@ -885,11 +885,11 @@
   },
   {
     "from": "models/coupon.ts",
-    "to": "types/contentModels.ts"
+    "to": "types/contentState.ts"
   },
   {
     "from": "models/coupon.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/guest.ts",
@@ -909,7 +909,7 @@
   },
   {
     "from": "models/guest.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/invite.ts",
@@ -925,7 +925,7 @@
   },
   {
     "from": "models/invite.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/knowledge.ts",
@@ -941,11 +941,11 @@
   },
   {
     "from": "models/knowledge.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/layout.ts",
-    "to": "types/contentModels.ts"
+    "to": "types/contentState.ts"
   },
   {
     "from": "models/notice.ts",
@@ -957,7 +957,7 @@
   },
   {
     "from": "models/notice.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/notice.ts",
@@ -973,7 +973,7 @@
   },
   {
     "from": "models/order.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/orderEffects.ts",
@@ -1001,7 +1001,7 @@
   },
   {
     "from": "models/orderEffects.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/passport.ts",
@@ -1021,7 +1021,7 @@
   },
   {
     "from": "models/passport.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/passport.ts",
@@ -1053,7 +1053,7 @@
   },
   {
     "from": "models/plan.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/server.ts",
@@ -1069,7 +1069,7 @@
   },
   {
     "from": "models/server.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/sessionEffects.ts",
@@ -1089,7 +1089,7 @@
   },
   {
     "from": "models/sessionEffects.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/sessionEffects.ts",
@@ -1109,7 +1109,7 @@
   },
   {
     "from": "models/telegram.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/ticket.ts",
@@ -1129,7 +1129,7 @@
   },
   {
     "from": "models/ticket.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/ticket.ts",
@@ -1149,7 +1149,7 @@
   },
   {
     "from": "models/trafficStatistics.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/tutorial.ts",
@@ -1161,11 +1161,11 @@
   },
   {
     "from": "models/tutorial.ts",
-    "to": "types/contentModels.ts"
+    "to": "types/contentState.ts"
   },
   {
     "from": "models/tutorial.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/user.ts",
@@ -1181,7 +1181,7 @@
   },
   {
     "from": "models/user.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/user.ts",
@@ -1325,7 +1325,7 @@
   },
   {
     "from": "pages/account/Traffic.tsx",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "pages/account/Traffic.tsx",
@@ -1864,11 +1864,11 @@
     "to": "types/commerce.ts"
   },
   {
-    "from": "types/contentModels.ts",
+    "from": "types/contentState.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "types/contentModels.ts",
+    "from": "types/contentState.ts",
     "to": "types/commerce.ts"
   },
   {
@@ -1897,7 +1897,7 @@
   },
   {
     "from": "types/modelContracts.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "types/payment.ts",
@@ -1920,15 +1920,15 @@
     "to": "types/commerce.ts"
   },
   {
-    "from": "types/queryModels.ts",
+    "from": "types/queryState.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "types/queryModels.ts",
+    "from": "types/queryState.ts",
     "to": "types/commerce.ts"
   },
   {
-    "from": "types/queryModels.ts",
+    "from": "types/queryState.ts",
     "to": "types/subscription.ts"
   },
   {
@@ -1937,7 +1937,7 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/contentModels.ts"
+    "to": "types/contentState.ts"
   },
   {
     "from": "types/store.ts",
@@ -1957,7 +1957,7 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "types/store.ts",
@@ -1985,7 +1985,7 @@
   },
   {
     "from": "types/userModelContracts.ts",
-    "to": "types/queryModels.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "types/userModelContracts.ts",

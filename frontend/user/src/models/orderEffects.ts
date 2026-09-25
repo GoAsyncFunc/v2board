@@ -11,7 +11,7 @@ import type {
     OrderModelState,
     OrderSaveParams,
 } from '../types/payment';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 
 type OrderAction =
     StateUpdate<OrderModelState> | { type: 'fetch' } | { type: 'details'; tradeNo: string };

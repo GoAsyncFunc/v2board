@@ -9,7 +9,7 @@ import {
     save as saveOrder,
 } from './orderEffects';
 import type { OrderModelState } from '../types/payment';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 
 const initialState: OrderModelState = {
     fetchLoading: true,

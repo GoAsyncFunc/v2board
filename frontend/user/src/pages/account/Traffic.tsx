@@ -4,7 +4,7 @@ import Table from 'antd/lib/table';
 import { connect } from 'react-redux';
 import { formatMessage } from '../../locales/i18n';
 import { createTrafficColumns } from '../../components/account/TrafficColumns';
-import type { TrafficState } from '../../types/queryModels';
+import type { TrafficState } from '../../types/queryState';
 import type { UserDispatch, UserRootState } from '../../types/store';
 
 interface TrafficStateProps {

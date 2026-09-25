@@ -1,7 +1,7 @@
 import { post } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
-import type { CouponState } from '../types/contentModels';
-import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryModels';
+import type { CouponState } from '../types/contentState';
+import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
 
 const initialState: CouponState = { coupon: {}, checkLoading: false };
 export default {

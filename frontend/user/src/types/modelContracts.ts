@@ -3,7 +3,7 @@ import type { ApiResponse } from './api';
 import type { CommunicationConfig } from './auth';
 import type { NumericValue } from './commerce';
 import type { CatalogPlan, PlanPeriod } from './plan';
-import type { StateUpdate } from './queryModels';
+import type { StateUpdate } from './queryState';
 
 export interface UserCommunicationConfig {
     commission_distribution_enable?: boolean | number;

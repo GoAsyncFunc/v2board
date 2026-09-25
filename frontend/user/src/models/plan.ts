@@ -5,7 +5,7 @@ import { isSuccessfulResponse } from '../types/api';
 import type { ApiResponse } from '../types/api';
 import type { PlanEffects, PlanGenerator, PlanRecord, PlanState } from '../types/modelContracts';
 import type { PlanPeriod } from '../types/plan';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 
 const initialState: PlanState = {
     plans: [],

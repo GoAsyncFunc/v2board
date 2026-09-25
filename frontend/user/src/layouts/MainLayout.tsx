@@ -7,7 +7,7 @@ import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
 import history from '../app/history';
-import type { LayoutState } from '../types/contentModels';
+import type { LayoutState } from '../types/contentState';
 import type { UserDispatch, UserRootState } from '../types/store';
 
 interface MainLayoutOwnProps {

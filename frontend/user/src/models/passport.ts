@@ -13,7 +13,7 @@ import type {
     SendEmailVerificationAction,
     TokenLoginAction,
 } from '../types/auth';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 
 type PassportEffectAction = StateUpdate<PassportState> | { type: 'user/getUserInfo' };
 interface PassportEffects {

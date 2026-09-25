@@ -1,7 +1,7 @@
 import { get } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { TrafficRecord } from '../types/commerce';
-import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '../types/queryModels';
+import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '../types/queryState';
 
 const initialState: TrafficState = { traffics: [], getTrafficLogLoading: false };
 

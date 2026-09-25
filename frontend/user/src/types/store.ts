@@ -1,10 +1,10 @@
 import type { PassportState } from './auth';
 import type { CommunicationState, GuestState, PlanState } from './modelContracts';
-import type { CouponState, LayoutState, TutorialState } from './contentModels';
+import type { CouponState, LayoutState, TutorialState } from './contentState';
 import type { InviteState } from './invite';
 import type { KnowledgeState } from './knowledge';
 import type { OrderModelState } from './payment';
-import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryModels';
+import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryState';
 import type { TicketState } from './ticket';
 import type { UserState } from './user';
 import type { RouterState } from './router';

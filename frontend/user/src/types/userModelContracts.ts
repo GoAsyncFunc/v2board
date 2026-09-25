@@ -1,6 +1,6 @@
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from './api';
-import type { StateUpdate } from './queryModels';
+import type { StateUpdate } from './queryState';
 import type { UserState } from './user';
 
 export type UserModelAction =

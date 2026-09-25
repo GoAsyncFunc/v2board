@@ -1,7 +1,7 @@
 import { get } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { UserNotice } from '../types/subscription';
-import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../types/queryModels';
+import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
 
 const initialState: NoticeState = { notices: [] };
 

@@ -3,7 +3,7 @@ import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { CommissionRecord, InviteState } from '../types/invite';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 
 type InviteAction = StateUpdate<InviteState> | { type: 'fetch' };
 interface InviteEffects {

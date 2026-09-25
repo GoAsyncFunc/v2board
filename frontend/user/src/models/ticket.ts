@@ -4,7 +4,7 @@ import { isSuccessfulResponse } from '../types/api';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/api';
 import type { TicketRecord } from '../types/commerce';
-import type { StateUpdate } from '../types/queryModels';
+import type { StateUpdate } from '../types/queryState';
 import type {
     TicketConversation,
     TicketId,
