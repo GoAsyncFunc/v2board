@@ -3,7 +3,7 @@
 
 <head>
     @if (config('v2board.user_source_build', false))
-        <link rel="stylesheet" href="/user-build/theme/default/assets/components.chunk.css?v={{$version}}">
+        <link rel="stylesheet" href="/user-build/theme/default/assets/antd.css?v={{$version}}">
         <link rel="stylesheet" href="/user-build/theme/default/assets/umi.css?v={{$version}}">
     @else
         <link rel="stylesheet" href="/theme/{{$theme}}/assets/components.chunk.css?v={{$version}}">

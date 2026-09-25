@@ -5,11 +5,21 @@ import { build } from 'esbuild';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(appRoot, 'dist');
+export const antdStylesheetPath = 'node_modules/antd/dist/antd.css';
+export const antdStylesheetOutput = 'theme/default/assets/antd.css';
 
 export async function buildApp() {
   await fs.rm(destination, { recursive: true, force: true });
   await fs.mkdir(destination, { recursive: true });
   await fs.cp(path.join(appRoot, 'public'), destination, { recursive: true });
+  await fs.rm(
+    path.join(destination, 'theme/default/assets/components.chunk.css'),
+    { force: true },
+  );
+  await fs.copyFile(
+    path.join(appRoot, antdStylesheetPath),
+    path.join(destination, antdStylesheetOutput),
+  );
   await fs.copyFile(path.join(appRoot, 'index.html'), path.join(destination, 'index.html'));
 
   const result = await build({
@@ -29,7 +39,7 @@ export async function buildApp() {
     logLevel: 'warning',
   });
 
-  const inputs = Object.keys(result.metafile.inputs);
+  const inputs = [...Object.keys(result.metafile.inputs), antdStylesheetPath];
   const escapedInputs = inputs.filter(input => path.isAbsolute(input) || input.startsWith('../'));
   if (escapedInputs.length) {
     throw new Error(`User build used files outside its package: ${escapedInputs.slice(0, 5).join(', ')}`);

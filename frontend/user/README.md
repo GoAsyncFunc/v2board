@@ -41,6 +41,8 @@ npm run build
 - `source-build.json`：本次构建输入清单
 - 从 `public/` 复制的静态资源
 
+源码构建从锁定版本的 `antd` 依赖生成 `theme/default/assets/antd.css`，不会把历史 `components.chunk.css` 带入源码构建；后者只在 Laravel fallback 分支使用。
+
 构建器会拒绝读取本项目目录之外的输入。
 
 ## 格式化

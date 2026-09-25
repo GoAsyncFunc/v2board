@@ -106,7 +106,7 @@ if ! page=$(curl --max-time 30 -fsS "$site_url/"); then
   exit 1
 fi
 for resource in \
-  theme/default/assets/components.chunk.css \
+  theme/default/assets/antd.css \
   theme/default/assets/umi.css \
   theme/default/assets/theme/default.css \
   theme/default/assets/i18n/zh-CN.js \

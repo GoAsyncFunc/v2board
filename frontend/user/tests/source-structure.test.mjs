@@ -512,6 +512,8 @@ test('user transport and utility layers are presentation independent', async () 
 
 test('user published component styles use semantic selectors', async () => {
     const index = await fs.readFile(new URL('../index.html', import.meta.url), 'utf8');
+    assert.match(index, /href="\/theme\/default\/assets\/antd\.css"/);
+    assert.doesNotMatch(index, /components\.chunk\.css/);
     assert.match(index, /href="\/theme\/default\/assets\/umi\.css"/);
 
     const publishedThemeStyles = await fs.readFile(

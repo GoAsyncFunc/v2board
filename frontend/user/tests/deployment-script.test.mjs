@@ -12,7 +12,7 @@ test('user deployment publishes versioned static assets with the application', (
     assert.match(script, /-C dist app\.js app\.js\.map source-build\.json settings\.js theme/);
     assert.match(script, /cp -R \"\$stage\/theme\" \"\$release\//);
     assert.match(script, /assets\/restored-\{stamp\}\/user\/theme\/default\/assets/);
-    assert.match(script, /theme\/default\/assets\/components\.chunk\.css/);
+    assert.match(script, /theme\/default\/assets\/antd\.css/);
     assert.match(script, /user HTML does not reference/);
     assert.match(script, /grep -Fq "\/assets\/restored-\$stamp\/user\/\$resource"/);
     assert.match(script, /rm -rf '\$release'/);
@@ -21,6 +21,7 @@ test('user deployment publishes versioned static assets with the application', (
 test('user Blade entry selects the source build independently from the legacy fallback', () => {
     assert.match(template, /config\('v2board\.user_source_build', false\)/g);
     assert.match(template, /\/user-build\/app\.js/);
+    assert.match(template, /\/user-build\/theme\/default\/assets\/antd\.css/);
     assert.match(template, /\/theme\/\{\{\$theme\}\}\/assets\/umi\.js/);
     assert.match(template, /assets_path:\s*'\{\{config\('v2board\.user_source_build'/);
 });
