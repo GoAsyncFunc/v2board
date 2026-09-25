@@ -49,7 +49,7 @@ async function load(target,original){
    if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
    if(id.includes('HeaderSearchOverlay'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
    if(id.includes('SidebarNavigation'))return evaluate(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));
-   if(/Styles|474e4e74|request|siteSettings/.test(id))return {};
+   if(/Styles|474e4e74|apiClient|siteSettings/.test(id))return {};
    throw Error('Unexpected dependency '+id);
   };
   vm.runInNewContext(code,{module,exports:module.exports,require,window,document,Math},{filename:file,timeout:3000});

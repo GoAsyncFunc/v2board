@@ -1,4 +1,4 @@
-import { get, post } from '../services/request';
+import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
 import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';

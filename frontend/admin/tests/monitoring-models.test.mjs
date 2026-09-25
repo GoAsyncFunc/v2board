@@ -24,7 +24,7 @@ async function loadModel(name) {
     plugins: [{
       name: 'request-mock',
       setup(builder) {
-        builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
+        builder.onResolve({ filter: /services\/apiClient$/ }, () => ({ path: 'request', namespace: 'test' }));
         builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({
           loader: 'js',
           contents: `exports.get = url => globalThis.recordRequest(url);exports.isSuccessfulResponse=response=>response.code===200;`,

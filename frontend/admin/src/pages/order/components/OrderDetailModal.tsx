@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'antd/lib/modal';
 import { connect } from 'react-redux';
 import history from '../../../app/navigation';
-import { get, post } from '../../../services/request';
+import { get, post } from '../../../services/apiClient';
 import { isSuccessfulResponse } from '../../../types/apiContracts';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import OrderDetailBody from './OrderDetailBody';

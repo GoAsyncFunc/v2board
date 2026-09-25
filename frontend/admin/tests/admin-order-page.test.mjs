@@ -56,7 +56,7 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
             if (id.includes('app/navigation')) {
                 return { __esModule: true, default: { push: (route) => routes.push(route) } };
             }
-            if (id.includes('services/request')) {
+            if (id.includes('services/apiClient')) {
                 return {
                     post: async (endpoint, data) => {
                         requests.push({ method: 'post', endpoint, data });

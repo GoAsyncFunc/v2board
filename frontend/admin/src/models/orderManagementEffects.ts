@@ -1,4 +1,4 @@
-import { get, post } from '../services/request';
+import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/apiContracts';
 import type { FilterItem, FilterValue } from '../types/filterContracts';
 import type {

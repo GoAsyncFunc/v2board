@@ -65,7 +65,7 @@
   },
   {
     "from": "app/requestPresentation.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "app/rootRuntime.tsx",
@@ -221,7 +221,7 @@
   },
   {
     "from": "components/user/TrafficPanel.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "components/user/TrafficPanel.tsx",
@@ -309,7 +309,7 @@
   },
   {
     "from": "models/adminAuthenticationModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/adminAuthenticationModel.ts",
@@ -329,7 +329,7 @@
   },
   {
     "from": "models/adminPassportModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/adminPassportModel.ts",
@@ -349,7 +349,7 @@
   },
   {
     "from": "models/configurationModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/configurationModel.ts",
@@ -369,7 +369,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/couponModel.ts",
@@ -389,7 +389,7 @@
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
@@ -409,7 +409,7 @@
   },
   {
     "from": "models/giftCardModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/giftCardModel.ts",
@@ -429,7 +429,7 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -461,7 +461,7 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/noticeModel.ts",
@@ -481,7 +481,7 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -517,7 +517,7 @@
   },
   {
     "from": "models/paymentModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/paymentModel.ts",
@@ -541,7 +541,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -561,7 +561,7 @@
   },
   {
     "from": "models/queueMonitoringModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/queueMonitoringModel.ts",
@@ -581,7 +581,7 @@
   },
   {
     "from": "models/serverGroupModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/serverGroupModel.ts",
@@ -601,7 +601,7 @@
   },
   {
     "from": "models/serverManagementModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/serverManagementModel.ts",
@@ -621,7 +621,7 @@
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
@@ -637,7 +637,7 @@
   },
   {
     "from": "models/serverRouteModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/serverRouteModel.ts",
@@ -661,7 +661,7 @@
   },
   {
     "from": "models/themeModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/themeModel.ts",
@@ -681,7 +681,7 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -705,11 +705,11 @@
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "services/download.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/csvDownloadService.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
@@ -1049,7 +1049,7 @@
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
@@ -1213,7 +1213,7 @@
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
@@ -1593,7 +1593,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
@@ -3128,15 +3128,15 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "config/siteSettings.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "types/apiContracts.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "utils/siteHelpers.ts"
   },
   {

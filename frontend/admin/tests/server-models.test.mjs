@@ -43,7 +43,7 @@ async function loadModel(modelName) {
             {
                 name: 'request-mock',
                 setup(builder) {
-                    builder.onResolve({ filter: /services\/request$/ }, () => ({
+                    builder.onResolve({ filter: /services\/apiClient$/ }, () => ({
                         path: 'request-mock',
                         namespace: 'test',
                     }));

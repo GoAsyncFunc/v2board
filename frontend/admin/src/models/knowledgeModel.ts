@@ -1,4 +1,4 @@
-import { get, post } from '../services/request';
+import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../types/knowledgeContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';

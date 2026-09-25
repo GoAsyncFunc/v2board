@@ -8,7 +8,7 @@ import { build } from 'esbuild';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 async function load() {
   const result = await build({ absWorkingDir: root, entryPoints: ['src/models/paymentModel.ts'], bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent', plugins: [{ name: 'request', setup(builder) {
-    builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
+    builder.onResolve({ filter: /services\/apiClient$/ }, () => ({ path: 'request', namespace: 'test' }));
     builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
   } }] });
   const requests = []; const context = { module: { exports: {} }, exports: {}, window: { settings: { secure_path: 'admin' } }, request(method, url, data) { requests.push([method, url, structuredClone(data)]); return { request: true }; } };

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import history from '../../app/navigation';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
-import { get } from '../../services/request';
+import { get } from '../../services/apiClient';
 import { siteSettings } from '../../config/siteSettings';
 import type { DashboardStats } from '../../types/monitoringContracts';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';

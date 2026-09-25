@@ -5,7 +5,7 @@ const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/70307045.js"),
     i = interopDefault(r),
-    o = require("../services/request.js"),
+    o = require("../services/apiClient.js"),
     a = require("../vendor/modules/adminSettingsRuntime.js");
 function s() {
     s = function () {

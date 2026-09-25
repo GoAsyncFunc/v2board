@@ -34,7 +34,7 @@ async function run(original, scenario) {
             api,
             window: { settings: { secure_path: 'fixture-admin' } },
             require(id) {
-                if (id.includes('request')) return api;
+        if (id.includes('apiClient')) return api;
                 if (id.includes('types/apiContracts')) return api;
                 throw Error(id);
             },

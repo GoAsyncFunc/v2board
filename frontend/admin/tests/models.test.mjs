@@ -60,7 +60,7 @@ async function load(target, name, original, trace, response) {
             };
         if (id.includes('70307045')) return Object.assign;
         if (id.includes('reactRuntime')) return {};
-        if (id.includes('request'))
+        if (id.includes('apiClient'))
             return {
                 a: get,
                 b: post,

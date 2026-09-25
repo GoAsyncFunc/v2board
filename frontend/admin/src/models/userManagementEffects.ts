@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { get, post } from '../services/request';
-import { downloadCsv } from '../services/download';
+import { get, post } from '../services/apiClient';
+import { downloadCsv } from '../services/csvDownloadService';
 import {
     isSuccessfulResponse,
     type ApiResponse,

@@ -17,7 +17,7 @@ function run(effect, action, { status = 200, reject = false } = {}) {
             exports: module.exports,
             window: { settings: { secure_path: 'fixture-admin' } },
             require(id) {
-                if (id.includes('services/request'))
+                if (id.includes('services/apiClient'))
                     return {
                         post(endpoint, params) {
                             trace.push(['post', endpoint, structuredClone(params)]);

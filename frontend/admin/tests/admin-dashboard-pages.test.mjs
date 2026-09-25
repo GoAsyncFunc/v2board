@@ -78,7 +78,7 @@ async function loadDashboard() {
             if (id.includes('routerHistory') || id.includes('app/navigation'))
                 return { __esModule: true, default: history, push: history.push };
             if (id.includes('MainLayout')) return 'MainLayout';
-            if (id.includes('services/request'))
+            if (id.includes('services/apiClient'))
                 return { get: async () => ({ status: 'running' }) };
             if (id.includes('siteSettings'))
                 return { siteSettings: { serviceHost: 'https://service.example.test/api/v1' } };

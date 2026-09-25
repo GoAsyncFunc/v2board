@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import { post } from '../../../services/request';
+import { post } from '../../../services/apiClient';
 import { isSuccessfulResponse } from '../../../types/apiContracts';
 import ConnectedThemeConfigEditor, { ThemeConfigEditor } from './components/ThemeConfigEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';

@@ -1,5 +1,5 @@
 import notification from 'antd/lib/notification';
-import { setRequestFailurePresenter, type RequestFailurePresentation } from '../services/request';
+import { setRequestFailurePresenter, type RequestFailurePresentation } from '../services/apiClient';
 
 export function presentRequestFailure({
     title,

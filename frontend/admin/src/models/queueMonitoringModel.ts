@@ -1,4 +1,4 @@
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type {
     QueueStats,

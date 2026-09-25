@@ -23,7 +23,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
             exports: module.exports,
             window: { settings: { secure_path: 'fixture-admin' } },
             require(id) {
-                if (id.includes('request'))
+                if (id.includes('apiClient'))
                     return {
                         post(url, data) {
                             trace.push(['post', url, structuredClone(data)]);
@@ -34,7 +34,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                     return { isSuccessfulResponse: (value) => value.code === 200 };
                 if (id.includes('77642f52')) return () => ({ format: () => '2026-01-02 03:04:05' });
                 if (id === 'moment') return () => ({ format: () => '2026-01-02 03:04:05' });
-                if (id.includes('download'))
+                if (id.includes('csvDownloadService'))
                     return { downloadCsv: (...args) => trace.push(['download', ...args]) };
                 if (id.includes('app/navigation')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };

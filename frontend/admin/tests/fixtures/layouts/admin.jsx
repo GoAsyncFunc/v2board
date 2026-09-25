@@ -182,7 +182,7 @@ var u = Object(l["c"])(e => {
       layout: t
     };
   })(c),
-  h = (require("../services/request.js"), require("../vendor/modules/6e444349.js")),
+  h = (require("../services/apiClient.js"), require("../vendor/modules/6e444349.js")),
   f = require("../vendor/siteHelpers.js"),
   d = window.settings.theme;
 class p extends o.a.Component {

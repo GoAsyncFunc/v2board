@@ -44,12 +44,12 @@ async function run(target, original, scenario) {
             history,
             window,
             require: (id) => {
-                if (id.includes('request')) return api;
+                if (id.includes('apiClient')) return api;
                 if (id.includes('types/apiContracts')) return api;
                 if (id.includes('routerHistory') || id.includes('app/navigation')) return history;
                 if (id.includes('siteHelpers')) return helpers;
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
-                if (id.includes('services/download')) return { downloadCsv() {} };
+                if (id.includes('services/csvDownloadService')) return { downloadCsv() {} };
                 if (
                     id.includes('types/modelEffectContracts') ||
                     id.includes('types/filterContracts') ||

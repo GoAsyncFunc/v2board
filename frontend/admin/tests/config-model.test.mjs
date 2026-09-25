@@ -20,7 +20,7 @@ async function load() {
     plugins: [{
       name: 'config-model-dependencies',
       setup(builder) {
-        builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
+    builder.onResolve({ filter: /services\/apiClient$/ }, () => ({ path: 'request', namespace: 'test' }));
         builder.onResolve({ filter: /^antd\/lib\/message$/ }, () => ({ path: 'message', namespace: 'test' }));
         builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
         builder.onLoad({ filter: /^message$/, namespace: 'test' }, () => ({ loader: 'js', contents: `module.exports={success:value=>globalThis.notify('success',value),error:value=>globalThis.notify('error',value)};` }));

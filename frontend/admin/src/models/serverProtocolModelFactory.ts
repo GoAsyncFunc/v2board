@@ -1,4 +1,4 @@
-import { post } from '../services/request';
+import { post } from '../services/apiClient';
 import {
     isSuccessfulResponse,
     type ApiResponse,

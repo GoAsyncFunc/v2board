@@ -37,7 +37,7 @@ async function run(original, scenario) {
             message,
             window: { settings: { secure_path: 'fixture-admin' } },
             require: (id) => {
-                if (id.includes('request')) return api;
+                if (id.includes('apiClient')) return api;
                 if (id.includes('antdMessage')) return { a: message };
                 if (id === 'antd/lib/message') return message;
                 if (id.includes('types/apiContracts')) return api;
@@ -46,7 +46,7 @@ async function run(original, scenario) {
                 if (id.includes('types/authenticationContracts')) return {};
                 if (id.includes('types/storeContracts')) return {};
                 if (id.includes('types/userContracts')) return {};
-                if (id.includes('services/download')) return { downloadCsv() {} };
+                if (id.includes('services/csvDownloadService')) return { downloadCsv() {} };
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
                 if (id.includes('app/navigation')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };

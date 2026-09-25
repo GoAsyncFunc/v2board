@@ -188,7 +188,7 @@ async function loadThemeModule(relativePath) {
                     default: 'ConnectedThemeConfigEditor',
                     ThemeConfigEditor: 'ThemeConfigEditor',
                 };
-            if (id.includes('services/request'))
+            if (id.includes('services/apiClient'))
                 return {
                     post: async (endpoint, data) => {
                         requests.push({ endpoint, data });

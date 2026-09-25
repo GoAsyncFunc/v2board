@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const home = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const result = await build({
-    entryPoints: [path.join(home, 'src/services/download.ts')],
+    entryPoints: [path.join(home, 'src/services/csvDownloadService.ts')],
     bundle: true,
     write: false,
     format: 'iife',

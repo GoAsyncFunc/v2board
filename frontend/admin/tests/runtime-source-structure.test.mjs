@@ -34,8 +34,8 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/routeRenderer.tsx',
         '../src/runtime/routeInitialProps.tsx',
         '../src/runtime/routeRuntimeTypes.ts',
-        '../src/services/request.ts',
-        '../src/services/download.ts',
+        '../src/services/apiClient.ts',
+        '../src/services/csvDownloadService.ts',
         '../src/routes/adminRoutes.ts',
         '../src/routes/routeConfig.ts',
         '../src/types/apiContracts.ts',
@@ -57,9 +57,9 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/pluginRuntime.js',
         '../src/runtime/routerBindings.js',
         '../src/runtime/routeRenderer.js',
-        '../src/services/request.js',
-        '../src/services/request.d.ts',
-        '../src/services/download.js',
+        '../src/services/apiClient.js',
+        '../src/services/apiClient.d.ts',
+        '../src/services/csvDownloadService.js',
         '../src/app/routes.js',
         '../src/app/routes.ts',
         '../src/app/moduleInterop.js',
@@ -611,7 +611,7 @@ test('admin business contracts do not depend on rendering components', async () 
 
 test('admin request transport does not depend on the rendering library', async () => {
     const requestSource = await fs.readFile(
-        new URL('../src/services/request.ts', import.meta.url),
+        new URL('../src/services/apiClient.ts', import.meta.url),
         'utf8',
     );
     const headerSource = await fs.readFile(
@@ -741,7 +741,7 @@ test('admin models depend on API contracts separately from request transport', a
         'utf8',
     );
     const requestSource = await fs.readFile(
-        new URL('../src/services/request.ts', import.meta.url),
+        new URL('../src/services/apiClient.ts', import.meta.url),
         'utf8',
     );
     assert.match(apiSource, /export interface ApiResponse/);

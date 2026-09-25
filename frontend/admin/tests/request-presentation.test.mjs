@@ -16,7 +16,7 @@ test('admin request presentation registers the Ant Design error adapter', () => 
     exports: module.exports,
     require(id) {
       if (id === 'antd/lib/notification') return { error: options => notifications.push(options) };
-      if (id === '../services/request') return {
+      if (id === '../services/apiClient') return {
         setRequestFailurePresenter: nextPresenter => { presenter = nextPresenter; },
       };
       throw new Error(`Unexpected dependency ${id}`);
