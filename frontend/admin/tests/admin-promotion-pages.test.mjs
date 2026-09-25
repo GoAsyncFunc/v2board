@@ -226,7 +226,7 @@ test('GiftCard page composes the typed list and editor modules', async () => {
     const giftcards = [{ id: 22, name: 'Annual card' }];
     const page = new GiftCardPage({
         dispatch: (action) => actions.push(action),
-        giftcard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
+        giftCard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [{ id: 6, name: 'Pro' }] },
     });
 
@@ -235,7 +235,7 @@ test('GiftCard page composes the typed list and editor modules', async () => {
     const tree = page.render();
     const list = nodes(tree, (node) => node.type === 'GiftCardList')[0];
     const editor = nodes(tree, (node) => node.type === 'GiftCardEditor')[0];
-    assert.equal(list.props.giftcard, page.props.giftcard);
+    assert.equal(list.props.giftCard, page.props.giftCard);
     assert.equal(editor.props.visible, false);
 
     list.props.onEdit(giftcards[0]);
@@ -252,7 +252,7 @@ test('GiftCard list preserves edit, delete, sort, and copy behavior', async () =
     const giftcards = [{ id: 22, name: 'Annual card', code: 'CARD22' }];
     const list = new GiftCardList({
         dispatch: (action) => actions.push(action),
-        giftcard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
+        giftCard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [] },
         onEdit: (record) => edited.push(record),
     });
@@ -283,7 +283,7 @@ test('GiftCard editor preserves type updates, generate payload, and close callba
     let closed = 0;
     const editor = new GiftCardEditor({
         dispatch: (action) => actions.push(action),
-        giftcard: { giftcards: [], fetchLoading: false, saveLoading: false, pagination: {} },
+        giftCard: { giftcards: [], fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [] },
         visible: true,
         onClose: () => {

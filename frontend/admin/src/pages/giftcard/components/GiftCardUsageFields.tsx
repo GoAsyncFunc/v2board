@@ -3,12 +3,12 @@ import Input from 'antd/lib/input';
 import type { GiftCardRecord } from '../../../types/promotionContracts';
 
 export interface GiftCardUsageFieldsProps {
-    giftcard: GiftCardRecord;
+    giftCard: GiftCardRecord;
     onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
 export function GiftCardUsageFields({
-    giftcard,
+    giftCard,
     onChange,
 }: GiftCardUsageFieldsProps): React.ReactElement {
     return (
@@ -17,7 +17,7 @@ export function GiftCardUsageFields({
             <Input
                 id="giftcard-limit"
                 placeholder="限制最大使用次数，用完则无法使用(为空则不限制)"
-                value={giftcard.limit_use ?? undefined}
+                value={giftCard.limit_use ?? undefined}
                 onChange={(event) => onChange({ limit_use: event.target.value })}
             />
         </div>

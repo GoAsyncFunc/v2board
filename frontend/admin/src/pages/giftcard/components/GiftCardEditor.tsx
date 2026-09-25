@@ -36,7 +36,7 @@ export function getGiftCardValueSuffix(type: GiftCardRecord['type']): string {
 
 interface GiftCardEditorProps {
     dispatch: AdminDispatch;
-    giftcard: GiftCardState;
+    giftCard: GiftCardState;
     plan: { plans: PlanSummary[] };
     record?: GiftCardRecord;
     visible: boolean;
@@ -73,7 +73,7 @@ export class GiftCardEditor extends React.Component<GiftCardEditorProps, GiftCar
 
     render(): React.ReactNode {
         const { submit } = this.state;
-        const { giftcard, plan } = this.props;
+        const { giftCard, plan } = this.props;
         const validityRange = createValidityRange(submit.started_at, submit.ended_at);
         const valueSuffix = getGiftCardValueSuffix(submit.type);
         return (
@@ -82,21 +82,21 @@ export class GiftCardEditor extends React.Component<GiftCardEditorProps, GiftCar
                 visible={this.props.visible}
                 onCancel={this.props.onClose}
                 onOk={() => this.generate()}
-                okText={giftcard.saveLoading ? <Icon type="loading" /> : '提交'}
+                okText={giftCard.saveLoading ? <Icon type="loading" /> : '提交'}
                 cancelText="取消"
             >
                 <div>
                     <GiftCardBasicFields
-                        giftcard={submit}
+                        giftCard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
                     <GiftCardValueFields
-                        giftcard={submit}
+                        giftCard={submit}
                         valueSuffix={valueSuffix}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
                     <GiftCardPlanField
-                        giftcard={submit}
+                        giftCard={submit}
                         plans={plan.plans}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
@@ -117,11 +117,11 @@ export class GiftCardEditor extends React.Component<GiftCardEditorProps, GiftCar
                         />
                     </div>
                     <GiftCardUsageFields
-                        giftcard={submit}
+                        giftCard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
                     <GiftCardGenerationField
-                        giftcard={submit}
+                        giftCard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
                 </div>
@@ -131,6 +131,6 @@ export class GiftCardEditor extends React.Component<GiftCardEditorProps, GiftCar
 }
 
 export default connect((state: AdminRootState) => ({
-    giftcard: state.giftcard,
+    giftCard: state.giftcard,
     plan: state.plan,
 }))(GiftCardEditor);

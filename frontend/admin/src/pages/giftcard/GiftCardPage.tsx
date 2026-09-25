@@ -12,7 +12,7 @@ import { GiftCardList } from './components/GiftCardList';
 
 interface GiftCardPageProps {
     dispatch: AdminDispatch;
-    giftcard: GiftCardState;
+    giftCard: GiftCardState;
     plan: { plans: PlanSummary[] };
 }
 
@@ -38,10 +38,10 @@ export class GiftCardPage extends React.Component<GiftCardPageProps, GiftCardPag
     };
 
     render(): React.ReactNode {
-        const { giftcard } = this.props;
+        const { giftCard } = this.props;
         return (
             <MainLayout {...this.props} title="礼品卡管理">
-                <LoadingContainer loading={giftcard.fetchLoading}>
+                <LoadingContainer loading={giftCard.fetchLoading}>
                     <div className="block border-bottom">
                         <div className="bg-white">
                             <div style={{ padding: 15 }}>
@@ -51,7 +51,7 @@ export class GiftCardPage extends React.Component<GiftCardPageProps, GiftCardPag
                             </div>
                             <GiftCardList
                                 dispatch={this.props.dispatch}
-                                giftcard={giftcard}
+                                giftCard={giftCard}
                                 plan={this.props.plan}
                                 onEdit={this.openEditor}
                             />
@@ -72,6 +72,6 @@ export { GiftCardEditor } from './components/GiftCardEditor';
 export { GiftCardList } from './components/GiftCardList';
 
 export default connect((state: AdminRootState) => ({
-    giftcard: state.giftcard,
+    giftCard: state.giftcard,
     plan: state.plan,
 }))(GiftCardPage);

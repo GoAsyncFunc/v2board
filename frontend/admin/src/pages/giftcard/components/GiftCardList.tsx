@@ -15,7 +15,7 @@ import { createGiftCardColumns } from './GiftCardColumns';
 
 interface GiftCardListProps {
     dispatch: AdminDispatch;
-    giftcard: GiftCardState;
+    giftCard: GiftCardState;
     plan: { plans: PlanSummary[] };
     onEdit: (record: GiftCardRecord) => void;
 }
@@ -37,7 +37,7 @@ export class GiftCardList extends React.Component<GiftCardListProps> {
     }
 
     render(): React.ReactNode {
-        const { giftcard, plan } = this.props;
+        const { giftCard, plan } = this.props;
         const tableColumns = createGiftCardColumns(plan.plans);
         const columns: ColumnProps<GiftCardRecord>[] = [
             tableColumns.id,
@@ -97,11 +97,11 @@ export class GiftCardList extends React.Component<GiftCardListProps> {
         return (
             <Table<GiftCardRecord>
                 tableLayout="auto"
-                dataSource={giftcard.giftcards}
+                dataSource={giftCard.giftcards}
                 columns={columns}
                 scroll={{ x: 1050 }}
                 pagination={{
-                    ...giftcard.pagination,
+                    ...giftCard.pagination,
                     size: 'small',
                     showSizeChanger: true,
                     pageSizeOptions: ['10', '50', '100', '150'],
@@ -113,6 +113,6 @@ export class GiftCardList extends React.Component<GiftCardListProps> {
 }
 
 export default connect((state: AdminRootState) => ({
-    giftcard: state.giftcard,
+    giftCard: state.giftcard,
     plan: state.plan,
 }))(GiftCardList);

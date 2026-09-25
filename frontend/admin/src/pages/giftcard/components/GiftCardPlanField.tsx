@@ -4,26 +4,26 @@ import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import type { GiftCardRecord } from '../../../types/promotionContracts';
 
 export interface GiftCardPlanFieldProps {
-    giftcard: GiftCardRecord;
+    giftCard: GiftCardRecord;
     plans: PlanSummary[];
     onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
 export function GiftCardPlanField({
-    giftcard,
+    giftCard,
     plans,
     onChange,
 }: GiftCardPlanFieldProps): React.ReactElement | null {
-    if (giftcard.type !== 5) return null;
+    if (giftCard.type !== 5) return null;
     return (
         <div className="form-group">
             <label htmlFor="giftcard-plan">指定订阅</label>
             <Select
                 id="giftcard-plan"
                 value={
-                    giftcard.plan_id === null || giftcard.plan_id === undefined
+                    giftCard.plan_id === null || giftCard.plan_id === undefined
                         ? undefined
-                        : String(giftcard.plan_id)
+                        : String(giftCard.plan_id)
                 }
                 onChange={(planId: string) =>
                     onChange({ plan_id: planId && planId.length ? planId : null })

@@ -4,13 +4,13 @@ import Select from 'antd/lib/select';
 import type { GiftCardRecord } from '../../../types/promotionContracts';
 
 export interface GiftCardValueFieldsProps {
-    giftcard: GiftCardRecord;
+    giftCard: GiftCardRecord;
     valueSuffix: string;
     onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
 export function GiftCardValueFields({
-    giftcard,
+    giftCard,
     valueSuffix,
     onChange,
 }: GiftCardValueFieldsProps): React.ReactElement {
@@ -23,7 +23,7 @@ export function GiftCardValueFields({
                 addonBefore={
                     <Select
                         style={{ width: 140 }}
-                        value={giftcard.type}
+                        value={giftCard.type}
                         onChange={(type: 1 | 2 | 3 | 4 | 5) => onChange({ type })}
                     >
                         <Select.Option value={1}>增加账户余额</Select.Option>
@@ -34,9 +34,9 @@ export function GiftCardValueFields({
                     </Select>
                 }
                 addonAfter={valueSuffix}
-                disabled={giftcard.type === 4}
-                placeholder={giftcard.type === 5 ? '一次性套餐输入0' : '请输入值'}
-                value={giftcard.type === 4 ? 0 : giftcard.value}
+                disabled={giftCard.type === 4}
+                placeholder={giftCard.type === 5 ? '一次性套餐输入0' : '请输入值'}
+                value={giftCard.type === 4 ? 0 : giftCard.value}
                 onChange={(event) => onChange({ value: event.target.value })}
             />
         </div>
