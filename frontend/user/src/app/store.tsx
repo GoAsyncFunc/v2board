@@ -4,7 +4,7 @@ import type { DvaApplication } from '../runtime/dvaApplication';
 import loadingPlugin from '../runtime/loadingPlugin';
 import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
-import comm from '../models/communication';
+import communicationModel from '../models/communication';
 import coupon from '../models/coupon';
 import guest from '../models/guest';
 import invite from '../models/invite';
@@ -15,7 +15,7 @@ import order from '../models/order';
 import passport from '../models/passport';
 import plan from '../models/plan';
 import server from '../models/server';
-import stat from '../models/trafficStatistics';
+import trafficStatisticsModel from '../models/trafficStatistics';
 import telegram from '../models/telegram';
 import ticket from '../models/ticket';
 import tutorial from '../models/tutorial';
@@ -31,7 +31,7 @@ interface DvaConfig {
 }
 
 const models = {
-    comm,
+    comm: communicationModel,
     coupon,
     guest,
     invite,
@@ -42,7 +42,7 @@ const models = {
     passport,
     plan,
     server,
-    stat,
+    stat: trafficStatisticsModel,
     telegram,
     ticket,
     tutorial,
