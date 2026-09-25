@@ -788,11 +788,11 @@
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/support/TicketReadonlyColumns.tsx",
+    "from": "components/support/TicketColumns.tsx",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "components/support/TicketReadonlyColumns.tsx",
+    "from": "components/support/TicketColumns.tsx",
     "to": "types/commerceContracts.ts"
   },
   {
@@ -1701,7 +1701,7 @@
   },
   {
     "from": "pages/support/Ticket.tsx",
-    "to": "components/support/TicketReadonlyColumns.tsx"
+    "to": "components/support/TicketColumns.tsx"
   },
   {
     "from": "pages/support/Ticket.tsx",

@@ -36,7 +36,7 @@ async function loadPage() {
             if (id.includes('InviteDisplayColumns'))
                 return {
                     createInviteCodeDateColumn: () => ({ key: 'created_at' }),
-                    createReadonlyCommissionColumns: () => [{ key: 'commission' }],
+                    createCommissionColumns: () => [{ key: 'commission' }],
                 };
             if (id.includes('MoneyDisplay'))
                 return { formatMoney: (value) => (value / 100).toFixed(2) };
@@ -174,7 +174,7 @@ async function loadInviteComponent(fileName) {
             if (id.includes('InviteDisplayColumns'))
                 return {
                     createInviteCodeDateColumn: () => ({ key: 'created_at' }),
-                    createReadonlyCommissionColumns: () => [{ key: 'commission' }],
+                    createCommissionColumns: () => [{ key: 'commission' }],
                 };
             if (id.includes('MoneyDisplay'))
                 return { formatMoney: (value) => (value / 100).toFixed(2) };

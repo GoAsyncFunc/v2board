@@ -40,10 +40,8 @@ export function formatTicketUpdatedAt(value: NumericValue): string {
     return moment(1000 * Number(value)).format('YYYY/MM/DD HH:mm');
 }
 
-// Readonly columns only; the 操作 column (view/close events) stays in the page.
-export function createReadonlyTicketColumns(
-    levels: readonly string[],
-): ColumnProps<TicketRecord>[] {
+// The 操作 column (view/close events) stays in the page because it owns the page actions.
+export function createTicketColumns(levels: readonly string[]): ColumnProps<TicketRecord>[] {
     return [
         { title: '#', dataIndex: 'id', key: 'id' },
         { title: message('主题'), dataIndex: 'subject', key: 'subject' },

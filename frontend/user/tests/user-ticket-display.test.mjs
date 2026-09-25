@@ -16,7 +16,7 @@ const deps = { createElement: React.createElement, Badge, formatMessage, moment,
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/user-ticket-display.cjs' : '../src/components/support/TicketReadonlyColumns.tsx', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/user-ticket-display.cjs' : '../src/components/support/TicketColumns.tsx', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'tsx' })).code, {
     module, exports: module.exports, require(id) {
@@ -27,7 +27,7 @@ async function load(original) {
         throw Error(id);
     },
   });
-  return original ? module.exports(deps) : module.exports.createReadonlyTicketColumns(levels);
+  return original ? module.exports(deps) : module.exports.createTicketColumns(levels);
 }
 function normalize(value) {
   if (Array.isArray(value)) return Array.from(value, normalize);

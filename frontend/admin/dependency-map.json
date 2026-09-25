@@ -1272,115 +1272,115 @@
     "to": "types/monitoringContracts.ts"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
+    "from": "pages/giftcard/GiftCardPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
+    "from": "pages/giftcard/GiftCardPage.tsx",
     "to": "layouts/MainLayout/MainLayout.tsx"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
-    "to": "pages/giftcard/components/GiftcardEditor.tsx"
+    "from": "pages/giftcard/GiftCardPage.tsx",
+    "to": "pages/giftcard/components/GiftCardEditor.tsx"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
-    "to": "pages/giftcard/components/GiftcardList.tsx"
+    "from": "pages/giftcard/GiftCardPage.tsx",
+    "to": "pages/giftcard/components/GiftCardList.tsx"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
+    "from": "pages/giftcard/GiftCardPage.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
+    "from": "pages/giftcard/GiftCardPage.tsx",
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "pages/giftcard/GiftcardPage.tsx",
+    "from": "pages/giftcard/GiftCardPage.tsx",
     "to": "types/systemConfigurationContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardBasicFields.tsx",
+    "from": "pages/giftcard/components/GiftCardBasicFields.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardColumns.tsx",
+    "from": "pages/giftcard/components/GiftCardColumns.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardColumns.tsx",
+    "from": "pages/giftcard/components/GiftCardColumns.tsx",
     "to": "utils/dateTimeFormatter.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "pages/giftcard/components/GiftcardBasicFields.tsx"
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
+    "to": "pages/giftcard/components/GiftCardBasicFields.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "pages/giftcard/components/GiftcardGenerationField.tsx"
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
+    "to": "pages/giftcard/components/GiftCardGenerationField.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "pages/giftcard/components/GiftcardPlanField.tsx"
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
+    "to": "pages/giftcard/components/GiftCardPlanField.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "pages/giftcard/components/GiftcardUsageFields.tsx"
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
+    "to": "pages/giftcard/components/GiftCardUsageFields.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "pages/giftcard/components/GiftcardValueFields.tsx"
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
+    "to": "pages/giftcard/components/GiftCardValueFields.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardEditor.tsx",
+    "from": "pages/giftcard/components/GiftCardEditor.tsx",
     "to": "types/systemConfigurationContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardGenerationField.tsx",
+    "from": "pages/giftcard/components/GiftCardGenerationField.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardList.tsx",
-    "to": "pages/giftcard/components/GiftcardColumns.tsx"
+    "from": "pages/giftcard/components/GiftCardList.tsx",
+    "to": "pages/giftcard/components/GiftCardColumns.tsx"
   },
   {
-    "from": "pages/giftcard/components/GiftcardList.tsx",
+    "from": "pages/giftcard/components/GiftCardList.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardList.tsx",
+    "from": "pages/giftcard/components/GiftCardList.tsx",
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardList.tsx",
+    "from": "pages/giftcard/components/GiftCardList.tsx",
     "to": "types/systemConfigurationContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardList.tsx",
+    "from": "pages/giftcard/components/GiftCardList.tsx",
     "to": "utils/clipboardService.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardPlanField.tsx",
+    "from": "pages/giftcard/components/GiftCardPlanField.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardPlanField.tsx",
+    "from": "pages/giftcard/components/GiftCardPlanField.tsx",
     "to": "types/systemConfigurationContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardUsageFields.tsx",
+    "from": "pages/giftcard/components/GiftCardUsageFields.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
-    "from": "pages/giftcard/components/GiftcardValueFields.tsx",
+    "from": "pages/giftcard/components/GiftCardValueFields.tsx",
     "to": "types/promotionContracts.ts"
   },
   {
@@ -3017,7 +3017,7 @@
   },
   {
     "from": "routes/adminRoutes.ts",
-    "to": "pages/giftcard/GiftcardPage.tsx"
+    "to": "pages/giftcard/GiftCardPage.tsx"
   },
   {
     "from": "routes/adminRoutes.ts",

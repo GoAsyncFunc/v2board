@@ -24,7 +24,7 @@ export function createInviteCodeDateColumn(): ColumnProps<InviteCode> {
     };
 }
 
-export function createReadonlyCommissionColumns(): ColumnProps<CommissionRecord>[] {
+export function createCommissionColumns(): ColumnProps<CommissionRecord>[] {
     return [
         {
             title: message('发放时间'),

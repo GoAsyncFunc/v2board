@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'antd/lib/table';
 import { formatMessage } from '../../../locales/i18n';
-import { createReadonlyCommissionColumns } from '../InviteDisplayColumns';
+import { createCommissionColumns } from '../InviteDisplayColumns';
 import type { CommissionRecord, InviteState } from '../../../types/invitationContracts';
 
 interface InviteCommissionHistoryProps {
@@ -29,7 +29,7 @@ export default function InviteCommissionHistory({
                     <div className="block-content p-0">
                         <Table
                             tableLayout="auto"
-                            columns={createReadonlyCommissionColumns()}
+                            columns={createCommissionColumns()}
                             dataSource={records}
                             loading={detailsLoading}
                             pagination={{

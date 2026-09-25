@@ -36,7 +36,7 @@ async function load(name) {
       if (id.includes('/Icon') || id === 'antd/lib/icon') return { __esModule: true, default: 'Icon', Icon: 'Icon' };
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
-      if (id.includes('TicketReadonlyColumns')) return { createReadonlyTicketColumns: () => [] };
+      if (id.includes('TicketColumns')) return { createTicketColumns: () => [] };
       if (id.includes('DateTimeDisplay')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('/content.js')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input' } };
       if (id.includes('styles/ticketDetailStyles')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input', bubble: 'bubble', time: 'time' } };

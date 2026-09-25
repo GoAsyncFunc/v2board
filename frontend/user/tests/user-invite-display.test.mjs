@@ -23,7 +23,7 @@ async function load(original) {
   });
   return original
     ? module.exports(deps)
-    : { codeDate: module.exports.createInviteCodeDateColumn(), commission: module.exports.createReadonlyCommissionColumns() };
+    : { codeDate: module.exports.createInviteCodeDateColumn(), commission: module.exports.createCommissionColumns() };
 }
 
 for (const field of ['created_at']) for (const time of [0, null, undefined, 1700000000, -999999999, Infinity, NaN, '1700000000', 'invalid']) {

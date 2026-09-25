@@ -7,7 +7,7 @@ import Table from 'antd/lib/table';
 import Icon from 'antd/lib/icon';
 import MainLayout from '../../layouts/MainLayout';
 import { formatMessage } from '../../locales/i18n';
-import { createReadonlyTicketColumns } from '../../components/support/TicketReadonlyColumns';
+import { createTicketColumns } from '../../components/support/TicketColumns';
 import type { TicketDraft, TicketState } from '../../types/ticketContracts';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
@@ -62,7 +62,7 @@ export class TicketPage extends React.Component<TicketStateProps & { dispatch: U
             formatMessage({ id: '中' }),
             formatMessage({ id: '高' }),
         ];
-        const columns = createReadonlyTicketColumns(levels);
+        const columns = createTicketColumns(levels);
 
         return (
             <MainLayout {...this.props} title={formatMessage({ id: '我的工单' })}>
