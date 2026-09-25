@@ -204,7 +204,7 @@ test('user model composition uses named business effects instead of module alias
         'update',
         'changePassword',
         'newPeriod',
-        'redeemGiftcard',
+        'redeemGiftCard',
         'resetSecurity',
         'transfer',
     ]) {
@@ -384,7 +384,7 @@ test('user root state names every registered business model', async () => {
         'utf8',
     );
     for (const component of [
-        'ProfileGiftcard',
+        'ProfileGiftCard',
         'ProfileNotificationSettings',
         'ProfilePasswordForm',
         'ProfileSecurityReset',

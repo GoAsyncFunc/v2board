@@ -1,6 +1,6 @@
-import type { GiftcardRedemptionResponse } from '../types/userContracts';
+import type { GiftCardRedemptionResponse } from '../types/userContracts';
 
-export function describeGiftcardRedemption({ type, value }: GiftcardRedemptionResponse): string {
+export function describeGiftCardRedemption({ type, value }: GiftCardRedemptionResponse): string {
     switch (type) {
         case 1:
             return `账户余额 ${(Number(value) / 100).toFixed(2)}`;

@@ -2,13 +2,13 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import { formatMessage } from '../../../locales/i18n';
 
-interface ProfileGiftcardProps {
+interface ProfileGiftCardProps {
     giftcardRef: React.RefObject<HTMLInputElement>;
     loading?: boolean;
     onRedeem: () => void;
 }
 
-export default function ProfileGiftcard({ giftcardRef, loading, onRedeem }: ProfileGiftcardProps) {
+export default function ProfileGiftCard({ giftcardRef, loading, onRedeem }: ProfileGiftCardProps) {
     return (
         <div className="row mb-3 mb-md-0">
             <div className="col-md-12">

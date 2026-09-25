@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import ProfileGiftcard from '../../components/account/profile/ProfileGiftcard';
+import ProfileGiftCard from '../../components/account/profile/ProfileGiftCard';
 import ProfileNotificationSettings from '../../components/account/profile/ProfileNotificationSettings';
 import ProfilePasswordForm from '../../components/account/profile/ProfilePasswordForm';
 import ProfileSecurityReset from '../../components/account/profile/ProfileSecurityReset';
@@ -14,8 +14,8 @@ import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/apiClient';
 import { isSuccessfulResponse } from '../../types/apiContracts';
 import { formatMessage } from '../../locales/i18n';
-import { describeGiftcardRedemption } from '../../utils/giftcard';
-import type { GiftcardRedemptionResponse, UserSetting } from '../../types/userContracts';
+import { describeGiftCardRedemption } from '../../utils/giftCard';
+import type { GiftCardRedemptionResponse, UserSetting } from '../../types/userContracts';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
@@ -57,7 +57,7 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
         });
     }
 
-    redeemGiftcard() {
+    redeemGiftCard() {
         const giftcard = readInputValue(this.giftcardRef, 'Giftcard');
         if (!giftcard.length) {
             message.error(formatMessage({ id: '请输入礼品卡' }));
@@ -66,9 +66,9 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
         this.props.dispatch({
             type: 'user/redeemgiftcard',
             giftcard,
-            complete: (redemption: GiftcardRedemptionResponse) =>
+            complete: (redemption: GiftCardRedemptionResponse) =>
                 message.success(
-                    `${formatMessage({ id: '兑换成功' })}: ${describeGiftcardRedemption(redemption)}`,
+                    `${formatMessage({ id: '兑换成功' })}: ${describeGiftCardRedemption(redemption)}`,
                 ),
         });
     }
@@ -152,10 +152,10 @@ export class ProfilePage extends React.Component<ProfileStateProps & { dispatch:
                             onDeposit={() => this.deposit()}
                             onSettingChange={(key, value) => this.update(key, value)}
                         />
-                        <ProfileGiftcard
+                        <ProfileGiftCard
                             giftcardRef={this.giftcardRef}
                             loading={userState.redeemgiftcardLoading}
-                            onRedeem={() => this.redeemGiftcard()}
+                            onRedeem={() => this.redeemGiftCard()}
                         />
                         <ProfilePasswordForm
                             oldPasswordRef={this.oldPasswordRef}

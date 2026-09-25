@@ -6,7 +6,7 @@ import {
 import {
     changePassword,
     newPeriod as startNewSubscriptionPeriod,
-    redeemGiftcard,
+    redeemGiftCard,
     resetSecurity,
     transfer as transferCommission,
     update as updateUserSetting,
@@ -43,7 +43,7 @@ export default {
         update: updateUserSetting,
         changePassword,
         newPeriod: startNewSubscriptionPeriod,
-        redeemgiftcard: redeemGiftcard,
+        redeemgiftcard: redeemGiftCard,
         resetSecurity,
         transfer: transferCommission,
     },

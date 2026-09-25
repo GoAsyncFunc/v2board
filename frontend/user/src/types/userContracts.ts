@@ -39,7 +39,7 @@ export interface UserState extends SessionUserState {
 
 export type UserSetting = 'auto_renewal' | 'remind_expire' | 'remind_traffic';
 
-export interface GiftcardRedemptionResponse {
+export interface GiftCardRedemptionResponse {
     type?: number;
     value?: number;
 }

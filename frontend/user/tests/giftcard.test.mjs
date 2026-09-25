@@ -4,11 +4,11 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-const source = await fs.readFile(new URL('../src/utils/giftcard.ts', import.meta.url), 'utf8');
+const source = await fs.readFile(new URL('../src/utils/giftCard.ts', import.meta.url), 'utf8');
 const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 const module = { exports: {} };
 vm.runInNewContext(code, { module, exports: module.exports });
-const { describeGiftcardRedemption } = module.exports;
+const { describeGiftCardRedemption } = module.exports;
 
 for (const [type, value, expected] of [
   [1, 1234, '账户余额 12.34'],
@@ -19,6 +19,6 @@ for (const [type, value, expected] of [
   [99, 1, '未知类型'],
 ]) {
   test(`giftcard redemption type ${type} has a readable description`, () => {
-    assert.equal(describeGiftcardRedemption({ type, value }), expected);
+    assert.equal(describeGiftCardRedemption({ type, value }), expected);
   });
 }

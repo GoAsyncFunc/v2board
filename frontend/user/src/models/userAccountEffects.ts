@@ -1,7 +1,7 @@
 import history from '../app/history';
 import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import type { GiftcardRedemptionResponse, UserSetting } from '../types/userContracts';
+import type { GiftCardRedemptionResponse, UserSetting } from '../types/userContracts';
 import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';
 
 interface CompletionAction {
@@ -18,9 +18,9 @@ interface ChangePasswordAction extends CompletionAction {
     newPassword: string;
 }
 
-interface RedeemGiftcardAction {
+interface RedeemGiftCardAction {
     giftcard: string;
-    complete?: (redemption: GiftcardRedemptionResponse) => void;
+    complete?: (redemption: GiftCardRedemptionResponse) => void;
 }
 
 interface TransferCommissionAction {
@@ -67,14 +67,14 @@ export function* newPeriod(
     history.push('/dashboard');
 }
 
-export function* redeemGiftcard(
-    { giftcard, complete }: RedeemGiftcardAction,
+export function* redeemGiftCard(
+    { giftcard, complete }: RedeemGiftCardAction,
     { put }: UserModelEffectTools,
 ): UserModelEffect<boolean> {
     yield put({ type: 'setState', payload: { redeemgiftcardLoading: true } });
     const response = (yield post<boolean>('/user/redeemgiftcard', {
         giftcard,
-    })) as ApiResponse<boolean> & GiftcardRedemptionResponse;
+    })) as ApiResponse<boolean> & GiftCardRedemptionResponse;
     yield put({ type: 'setState', payload: { redeemgiftcardLoading: false } });
     if (!isSuccessfulResponse(response)) return;
     yield put({ type: 'user/getUserInfo' });

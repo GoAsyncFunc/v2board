@@ -43,7 +43,7 @@ async function load(responseCode = 200) {
     if (id.includes('types/apiContracts')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
     if (id.includes('MoneyDisplay')) return { formatMoney: amount => (amount / 100).toFixed(2) };
-    if (id.includes('utils/giftcard')) return { describeGiftcardRedemption: ({ type, value }) => type === 1 ? `账户余额 ${(value / 100).toFixed(2)}` : '未知类型' };
+    if (id.includes('utils/giftCard')) return { describeGiftCardRedemption: ({ type, value }) => type === 1 ? `账户余额 ${(value / 100).toFixed(2)}` : '未知类型' };
     throw Error(id);
   } });
   const page = new module.exports.ProfilePage({
@@ -99,11 +99,11 @@ test('Profile startup and password validation preserve request fields', async ()
 test('Giftcard rejects empty input and submits the original entered code', async () => {
   const { page, actions, notices } = await load();
   page.giftcardRef.current = { value: '' };
-  page.redeemGiftcard();
+  page.redeemGiftCard();
   assert.equal(actions.length, 0);
   assert.deepEqual(notices, [['error', '请输入礼品卡']]);
   page.giftcardRef.current.value = 'CARD-123';
-  page.redeemGiftcard();
+  page.redeemGiftCard();
   assert.equal(actions[0].type, 'user/redeemgiftcard');
   assert.equal(actions[0].giftcard, 'CARD-123');
   actions[0].complete({ type: 1, value: 1234 });
@@ -139,7 +139,7 @@ test('Profile page composes the account presentation sections', async () => {
     .map(node => node.type);
   assert.deepEqual(sectionNames, [
     'ProfileWallet',
-    'ProfileGiftcard',
+    'ProfileGiftCard',
     'ProfilePasswordForm',
     'ProfileNotificationSettings',
     'ProfileTelegram',

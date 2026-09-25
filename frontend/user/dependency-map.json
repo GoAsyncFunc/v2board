@@ -292,7 +292,7 @@
     "to": "types/invitationContracts.ts"
   },
   {
-    "from": "components/account/profile/ProfileGiftcard.tsx",
+    "from": "components/account/profile/ProfileGiftCard.tsx",
     "to": "locales/i18n.ts"
   },
   {
@@ -1261,7 +1261,7 @@
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "components/account/profile/ProfileGiftcard.tsx"
+    "to": "components/account/profile/ProfileGiftCard.tsx"
   },
   {
     "from": "pages/account/Profile.tsx",
@@ -1309,7 +1309,7 @@
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "utils/giftcard.ts"
+    "to": "utils/giftCard.ts"
   },
   {
     "from": "pages/account/Traffic.tsx",
@@ -1992,7 +1992,7 @@
     "to": "types/userContracts.ts"
   },
   {
-    "from": "utils/giftcard.ts",
+    "from": "utils/giftCard.ts",
     "to": "types/userContracts.ts"
   },
   {
