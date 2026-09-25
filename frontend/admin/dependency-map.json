@@ -1429,11 +1429,11 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeForm.tsx",
-    "to": "components/common/MarkdownEditor.tsx"
+    "to": "config/adminSettings.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeForm.tsx",
-    "to": "config/adminSettings.ts"
+    "to": "pages/knowledge/components/KnowledgeMarkdownEditor.tsx"
   },
   {
     "from": "pages/knowledge/components/KnowledgeForm.tsx",
@@ -1989,7 +1989,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTls/PaddingScheme.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "to": "pages/server/manage/editors/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/editors/AnyTls/RelationshipFields.tsx",
@@ -2181,7 +2181,7 @@
   },
   {
     "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "to": "pages/server/manage/editors/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
@@ -2257,7 +2257,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "to": "pages/server/manage/editors/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
@@ -2421,7 +2421,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "to": "pages/server/manage/editors/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
@@ -2485,7 +2485,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
-    "to": "components/common/JsonEditor.tsx"
+    "to": "pages/server/manage/editors/JsonEditor.tsx"
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",

@@ -10,7 +10,7 @@ test('knowledge page lazy loader resolves the typed Markdown editor default expo
     assert.match(source, /import Loadable from 'react-loadable';/);
     assert.match(
         source,
-        /import\('\.\.\/\.\.\/\.\.\/components\/common\/MarkdownEditor'\)\.then\(\(?module\)?\s*=>\s*module\.default\)/,
+        /import\('\.\/KnowledgeMarkdownEditor'\)\.then\(\(?module\)?\s*=>\s*module\.default\)/,
     );
     assert.doesNotMatch(source, /vendor\/utilities/);
 });

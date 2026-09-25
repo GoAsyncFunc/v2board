@@ -10,8 +10,7 @@ import type { KnowledgeRecord } from '../../../types/knowledgeContracts';
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;
 
 const MarkdownEditor: React.ComponentType<MarkdownEditorProps> = Loadable({
-    loader: () =>
-        import('../../../components/common/MarkdownEditor').then((module) => module.default),
+    loader: () => import('./KnowledgeMarkdownEditor').then((module) => module.default),
     loading: () => null,
 });
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });

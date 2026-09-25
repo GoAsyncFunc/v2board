@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
-import JsonEditor from '../../../../../components/common/JsonEditor';
+import JsonEditor from '../JsonEditor';
 import { DnsSettings } from './DnsSettings';
 import { RuleSettings } from './RuleSettings';
 import { TlsSettings } from './TlsSettings';

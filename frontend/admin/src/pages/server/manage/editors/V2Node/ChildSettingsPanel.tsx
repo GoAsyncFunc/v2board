@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonEditor from '../../../../../components/common/JsonEditor';
+import JsonEditor from '../JsonEditor';
 import { TlsSettings } from '../Security/TlsSettings';
 import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
