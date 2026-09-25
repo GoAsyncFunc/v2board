@@ -137,7 +137,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverManagement.ts"
+    "to": "models/serverManagementModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -600,23 +600,23 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/serverManagement.ts",
+    "from": "models/serverManagementModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverManagement.ts",
+    "from": "models/serverManagementModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverManagement.ts",
+    "from": "models/serverManagementModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/serverManagement.ts",
+    "from": "models/serverManagementModel.ts",
     "to": "types/serverContracts.ts"
   },
   {
-    "from": "models/serverManagement.ts",
+    "from": "models/serverManagementModel.ts",
     "to": "types/store.ts"
   },
   {

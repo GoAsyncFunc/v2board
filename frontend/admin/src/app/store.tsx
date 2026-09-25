@@ -16,7 +16,7 @@ import passport from '../models/adminPassportModel';
 import payment from '../models/paymentModel';
 import plan from '../models/planModel';
 import serverGroup from '../models/serverGroupModel';
-import serverManage from '../models/serverManagement';
+import serverManage from '../models/serverManagementModel';
 import serverRoute from '../models/serverRouteModel';
 import {
     serverAnyTLS,

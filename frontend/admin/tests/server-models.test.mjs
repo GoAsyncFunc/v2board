@@ -20,7 +20,7 @@ const protocolModelExports = {
 
 async function loadModel(modelName) {
     const modelFileName = modelName === 'serverManage'
-        ? 'serverManagement'
+        ? 'serverManagementModel'
         : modelName === 'serverGroup'
           ? 'serverGroupModel'
           : modelName === 'serverRoute'

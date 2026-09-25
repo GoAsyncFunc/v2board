@@ -414,7 +414,7 @@ test('admin model composition uses named business effects instead of module alia
             ['userModel', 'user'],
         ].map(([file, namespace]) => ({ file, namespace })),
         { file: 'queueMonitoringModel', namespace: 'system' },
-        { file: 'serverManagement', namespace: 'serverManage' },
+        { file: 'serverManagementModel', namespace: 'serverManage' },
         { file: 'dashboardStatisticsModel', namespace: 'stat' },
         { file: 'layoutModel', namespace: 'layout' },
         { file: 'adminPassportModel', namespace: 'passport' },
