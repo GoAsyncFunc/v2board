@@ -6,7 +6,7 @@ import type {
     SystemMonitoringState,
 } from '../types/monitoringContracts';
 import type { AdminAction } from '../types/storeContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
 
 interface SystemEffectTools extends PutEffectTools {}
 

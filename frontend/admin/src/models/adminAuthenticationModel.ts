@@ -5,7 +5,7 @@ import type {
     AdminLoginData,
     AdministratorAuthenticationState,
 } from '../types/authenticationContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
 
 interface AdministratorAuthenticationLoginAction {
     action: FormRecord;

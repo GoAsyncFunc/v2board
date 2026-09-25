@@ -51,7 +51,7 @@ async function run(target, original, scenario) {
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
                 if (id.includes('services/download')) return { downloadCsv() {} };
                 if (
-                    id.includes('types/modelEffects') ||
+                    id.includes('types/modelEffectContracts') ||
                     id.includes('types/filterContracts') ||
                     id.includes('types/storeContracts') ||
                     id.includes('types/userContracts')

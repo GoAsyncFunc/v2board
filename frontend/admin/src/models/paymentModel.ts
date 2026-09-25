@@ -8,7 +8,7 @@ import {
 import '../config/adminSettings';
 import type { PaymentForm, PaymentRecord, PaymentState } from '../types/paymentContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
 
 type PaymentRootState = Pick<AdminRootState, 'payment'>;
 interface PaymentTools extends ModelEffectTools<PaymentRootState> {}

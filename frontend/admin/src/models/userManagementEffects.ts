@@ -10,7 +10,7 @@ import {
 import type { FilterItem } from '../types/filterContracts';
 import type { AdminLoginData, AdminUserInfo } from '../types/authenticationContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffectContracts';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/userContracts';
 import history from '../app/navigation';
 import { getToken } from '../utils/siteHelpers';

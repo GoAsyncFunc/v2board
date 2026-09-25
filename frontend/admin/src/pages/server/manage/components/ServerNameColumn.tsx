@@ -2,7 +2,7 @@ import React from 'react';
 import Badge from 'antd/lib/badge';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
-import type { PropertyLookup } from '../../../../types/propertyLookups';
+import type { PropertyLookup } from '../../../../types/propertyLookupContracts';
 
 export type ServerStatus = React.ComponentProps<typeof Badge>['status'];
 export type ServerStatusMap = PropertyLookup<ServerStatus>;

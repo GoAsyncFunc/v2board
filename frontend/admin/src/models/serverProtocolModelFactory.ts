@@ -6,7 +6,7 @@ import {
     type FormValue,
 } from '../types/apiContracts';
 import type { ServerId, ServerProtocolState } from '../types/serverContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
 
 interface ServerProtocolModelOptions {
     namespace: string;

@@ -2,7 +2,7 @@ import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../types/knowledgeContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
 
 type KnowledgeRootState = Pick<AdminRootState, 'knowledge'>;
 interface KnowledgeTools extends ModelEffectTools<KnowledgeRootState> {}

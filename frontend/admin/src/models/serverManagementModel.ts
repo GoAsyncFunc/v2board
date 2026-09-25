@@ -2,7 +2,7 @@ import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
 import type { ManagedServerRecord, ServerManageState } from '../types/serverContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
 
 type ServerManageStoreState = Pick<AdminRootState, 'serverManage'>;
 

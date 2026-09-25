@@ -7,7 +7,7 @@ import type {
     OrderRecord,
     OrderState,
 } from '../types/orderContracts';
-import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffectContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 
 type OrderStoreState = Pick<AdminRootState, 'order'>;

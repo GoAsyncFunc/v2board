@@ -9,7 +9,7 @@ import type {
     PlanState,
 } from '../types/planContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
 
 type PlanRootState = Pick<AdminRootState, 'plan'>;
 interface PlanTools extends ModelEffectTools<PlanRootState> {}

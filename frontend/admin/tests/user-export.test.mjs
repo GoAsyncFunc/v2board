@@ -39,7 +39,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                 if (id.includes('app/navigation')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 if (
-                    id.includes('types/modelEffects') ||
+                    id.includes('types/modelEffectContracts') ||
                     id.includes('types/filterContracts') ||
                     id.includes('types/authenticationContracts') ||
                     id.includes('types/storeContracts') ||

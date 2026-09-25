@@ -41,7 +41,7 @@ async function run(original, scenario) {
                 if (id.includes('antdMessage')) return { a: message };
                 if (id === 'antd/lib/message') return message;
                 if (id.includes('types/apiContracts')) return api;
-                if (id.includes('types/modelEffects')) return {};
+                if (id.includes('types/modelEffectContracts')) return {};
                 if (id.includes('types/filterContracts')) return {};
                 if (id.includes('types/authenticationContracts')) return {};
                 if (id.includes('types/storeContracts')) return {};
