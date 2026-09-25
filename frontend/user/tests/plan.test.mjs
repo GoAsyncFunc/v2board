@@ -14,7 +14,7 @@ async function run(original,scenario){
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,require(id){
   if(id.includes('types/apiContracts'))return {isSuccessfulResponse:value=>value.code===200};
-  if(id.includes('request'))return {a:get,get};
+  if(id.includes('apiClient'))return {a:get,get};
   if(id.includes('localeSettings'))return settings;
   if(id.includes('app/navigation'))return {router:{push:route=>trace.push(['navigate',route])}};
   if(id.includes('4172412b'))return {router:{push:route=>trace.push(['navigate',route])}};

@@ -11,7 +11,7 @@ require("../vendor/modules/6d69595a.js");
 var r = require("../vendor/modules/antdMessage.js"),
   o = require("../vendor/modules/70307045.js"),
   i = interopDefault(o),
-  a = require("../services/request.js"),
+  a = require("../services/apiClient.js"),
   s = require("../vendor/routerHistory.js"),
   c = interopDefault(s),
   u = require("../vendor/siteHelpers.js"),

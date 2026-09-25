@@ -8,7 +8,7 @@ import { formatMessage } from '../../locales/i18n';
 import { createNodeColumns } from '../../components/subscription/NodeColumns';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
-import '../../services/request';
+import '../../services/apiClient';
 const message = (id: string): string => formatMessage({ id });
 
 type NodePageStateProps = Pick<UserRootState, 'server' | 'user' | 'order'>;

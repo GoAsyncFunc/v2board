@@ -26,7 +26,7 @@ async function load(entry, response, fail = false) {
   const module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
     if (id.includes('types/apiContracts')) return { isSuccessfulResponse: value => value.code === 200 };
-    if (id.includes('services/request')) return { get: async endpoint => {
+    if (id.includes('services/apiClient')) return { get: async endpoint => {
       events.push(['request', endpoint]);
       if (fail) throw Error('Offline');
       return response;

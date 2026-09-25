@@ -1,4 +1,4 @@
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import type { UserNotice } from '../types/subscription';
 import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';

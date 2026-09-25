@@ -487,7 +487,7 @@ test('user model layer does not import rendering notifications', async () => {
 
 test('user transport and utility layers are presentation independent', async () => {
     const requestSource = await fs.readFile(
-        new URL('../src/services/request.ts', import.meta.url),
+        new URL('../src/services/apiClient.ts', import.meta.url),
         'utf8',
     );
     const helperSource = await fs.readFile(

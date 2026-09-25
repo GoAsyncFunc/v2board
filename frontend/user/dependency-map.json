@@ -89,7 +89,7 @@
   },
   {
     "from": "app/requestPresentation.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "app/rootRuntime.tsx",
@@ -861,7 +861,7 @@
   },
   {
     "from": "models/communicationModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/communicationModel.ts",
@@ -877,7 +877,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/couponModel.ts",
@@ -893,7 +893,7 @@
   },
   {
     "from": "models/guestAccessModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/guestAccessModel.ts",
@@ -913,7 +913,7 @@
   },
   {
     "from": "models/invitationModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/invitationModel.ts",
@@ -929,7 +929,7 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -949,7 +949,7 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/noticeModel.ts",
@@ -969,7 +969,7 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -1013,7 +1013,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -1033,7 +1033,7 @@
   },
   {
     "from": "models/serverCatalogModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/serverCatalogModel.ts",
@@ -1049,7 +1049,7 @@
   },
   {
     "from": "models/telegramModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/telegramModel.ts",
@@ -1065,7 +1065,7 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -1085,7 +1085,7 @@
   },
   {
     "from": "models/trafficStatisticsModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/trafficStatisticsModel.ts",
@@ -1101,7 +1101,7 @@
   },
   {
     "from": "models/tutorialModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/tutorialModel.ts",
@@ -1121,7 +1121,7 @@
   },
   {
     "from": "models/userAccountEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/userAccountEffects.ts",
@@ -1161,7 +1161,7 @@
   },
   {
     "from": "models/userPassportModel.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/userPassportModel.ts",
@@ -1185,7 +1185,7 @@
   },
   {
     "from": "models/userSessionEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/userSessionEffects.ts",
@@ -1209,7 +1209,7 @@
   },
   {
     "from": "models/userSubscriptionEffects.ts",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1293,7 +1293,7 @@
   },
   {
     "from": "pages/account/Profile.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "pages/account/Profile.tsx",
@@ -1605,7 +1605,7 @@
   },
   {
     "from": "pages/subscription/Node.tsx",
-    "to": "services/request.ts"
+    "to": "services/apiClient.ts"
   },
   {
     "from": "pages/subscription/Node.tsx",
@@ -1844,15 +1844,15 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "locales/i18n.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "types/apiContracts.ts"
   },
   {
-    "from": "services/request.ts",
+    "from": "services/apiClient.ts",
     "to": "utils/siteHelpers.ts"
   },
   {

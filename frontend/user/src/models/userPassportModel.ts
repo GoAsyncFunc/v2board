@@ -1,4 +1,4 @@
-import { get, post } from '../services/request';
+import { get, post } from '../services/apiClient';
 import history from '../app/history';
 import { setToken } from '../utils/siteHelpers';
 import { isSuccessfulResponse } from '../types/apiContracts';

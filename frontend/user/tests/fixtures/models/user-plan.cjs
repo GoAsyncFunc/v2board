@@ -8,7 +8,7 @@ const React = require("../vendor/modules/reactRuntime.js");
 markEsModule(legacyExports);
 var r = require("../vendor/modules/70307045.js"),
   o = interopDefault(r),
-  i = require("../services/request.js"),
+  i = require("../services/apiClient.js"),
   a = require("../vendor/localeSettings.js"),
   s = require("../vendor/modules/4172412b.js");
 function c() {

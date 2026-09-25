@@ -11,7 +11,7 @@ async function run(effect, action, response, reject = false) {
   const events = [], module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
     if (id.includes('types/apiContracts')) return { isSuccessfulResponse: value => value.code === 200 };
-    if (id.includes('services/request')) {
+    if (id.includes('services/apiClient')) {
       const request = method => async (url, params) => {
         events.push([method, url, structuredClone(params)]);
         if (reject) throw Error('Offline');

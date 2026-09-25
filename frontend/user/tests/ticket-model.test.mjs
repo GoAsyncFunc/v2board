@@ -20,7 +20,7 @@ async function loadModel(trace) {
     require(id) {
       if (id.includes('types/apiContracts')) return { isSuccessfulResponse: response => response.code === 200 };
       if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: route => trace.push(['navigate', route]) };
-      if (id.includes('request')) return { get: request('GET'), post: request('POST') };
+      if (id.includes('apiClient')) return { get: request('GET'), post: request('POST') };
       throw new Error(`Unexpected dependency ${id}`);
     },
   });

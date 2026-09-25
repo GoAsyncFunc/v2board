@@ -1,4 +1,4 @@
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { localeSettings } from '../config/localeSettings';
 import { router } from '../app/navigation';
 import { isSuccessfulResponse } from '../types/apiContracts';

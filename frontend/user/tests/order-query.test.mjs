@@ -30,7 +30,7 @@ async function run(original, scenario) {
             require(id) {
                 if (id.includes('types/apiContracts'))
                     return { isSuccessfulResponse: (response) => response.code === 200 };
-                if (id.includes('request')) return api;
+                if (id.includes('apiClient')) return api;
                 if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push() {} };
                 throw Error(id);
             },

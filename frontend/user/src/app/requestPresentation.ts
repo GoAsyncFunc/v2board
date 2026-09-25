@@ -1,5 +1,5 @@
 import { formatMessage } from '../locales/i18n';
-import { setRequestFailurePresenter, type RequestFailurePresentation } from '../services/request';
+import { setRequestFailurePresenter, type RequestFailurePresentation } from '../services/apiClient';
 import { notify } from './notifications';
 
 export function presentRequestFailure({

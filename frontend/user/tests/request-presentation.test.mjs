@@ -16,7 +16,7 @@ test('user request presentation localizes and registers request failures', () =>
     exports: module.exports,
     require(id) {
       if (id.includes('locales/i18n')) return { formatMessage: ({ id }) => `translated:${id}` };
-      if (id === '../services/request') return {
+      if (id === '../services/apiClient') return {
         setRequestFailurePresenter: nextPresenter => { presenter = nextPresenter; },
       };
       if (id === './notifications') return { notify: (...args) => notifications.push(args) };

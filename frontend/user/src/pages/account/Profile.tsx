@@ -11,7 +11,7 @@ import ProfileTelegram, {
 } from '../../components/account/profile/ProfileTelegram';
 import ProfileWallet from '../../components/account/profile/ProfileWallet';
 import MainLayout from '../../layouts/MainLayout';
-import { get } from '../../services/request';
+import { get } from '../../services/apiClient';
 import { isSuccessfulResponse } from '../../types/apiContracts';
 import { formatMessage } from '../../locales/i18n';
 import { describeGiftcardRedemption } from '../../utils/giftcard';

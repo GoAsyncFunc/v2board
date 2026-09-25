@@ -1,4 +1,4 @@
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import type { CommunicationConfig } from '../types/auth';
 import type { GuestState, ModelEffects, ModelGenerator } from '../types/userDomainContracts';

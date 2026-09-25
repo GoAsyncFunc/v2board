@@ -23,7 +23,7 @@ async function load(original) {
       if (id.includes('siteHelpers')) return { f: (...args) => trace.push(['usage', ...args]), calculateUsage: (...args) => trace.push(['usage', ...args]) };
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       for (const [key, label] of [['antdTable', 'Table'], ['antdTag', 'Tag'], ['antdBadge', 'Badge'], ['antdTooltip', 'Tooltip'], ['/Icon', 'Icon']]) if (id.includes(key)) return { a: label, [label]: label };
-      if (/67395956|2b424a64|41776870|35446d6f|iconStyles|request|77642f52|2f497261/.test(id)) return {};
+      if (/67395956|2b424a64|41776870|35446d6f|iconStyles|apiClient|77642f52|2f497261/.test(id)) return {};
       if (id.includes('6a65685a')) return Object.assign;
       if (id.includes('moduleInterop')) return { markEsModule: o => Object.defineProperty(o, '__esModule', { value: true }), interopDefault: obj => { const fn = () => obj; Object.defineProperty(fn, 'a', { get: fn }); return fn; } };
         throw Error(id);

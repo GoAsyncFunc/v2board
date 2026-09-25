@@ -1,4 +1,4 @@
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import type { NodeRecord } from '../types/commerce';
 import type { QueryEffects, QueryGenerator, ServerState, StateUpdate } from '../types/queryState';

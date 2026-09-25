@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { get } from '../services/request';
+import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import { formatBytes } from '../utils/siteHelpers';
 import type { UserSubscription } from '../types/subscription';

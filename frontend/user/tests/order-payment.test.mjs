@@ -33,7 +33,7 @@ async function run(original, scenario) {
         if (id === 'p0pE') return Object.assign;
         if (id.includes('types/apiContracts'))
             return { isSuccessfulResponse: (response) => response.code === 200 };
-        if (id === 't3Un' || id.includes('request')) return { b: post, post };
+        if (id === 't3Un' || id.includes('apiClient')) return { b: post, post };
         if (id === '3a4m' || (id.includes('routerHistory') || id.includes('../app/history'))) return history;
         if (id === 'antd/lib/message') return { __esModule: true, default: message };
         if (id === 'tsqr' || id.includes('antdMessage')) return { a: message };

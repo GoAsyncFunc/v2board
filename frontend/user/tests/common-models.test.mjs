@@ -17,7 +17,7 @@ async function loadCommunicationModel(trace) {
     exports: module.exports,
     require(id) {
       if (id.includes('types/apiContracts')) return { isSuccessfulResponse: response => response.code === 200 };
-      if (id.includes('request')) return { get: request('GET'), post: request('POST') };
+      if (id.includes('apiClient')) return { get: request('GET'), post: request('POST') };
       throw new Error(`Unexpected dependency ${id}`);
     },
   });

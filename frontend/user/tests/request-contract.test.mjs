@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-const source = await fs.readFile(new URL('../src/services/request.ts', import.meta.url), 'utf8');
+const source = await fs.readFile(new URL('../src/services/apiClient.ts', import.meta.url), 'utf8');
 const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 
 function setup({ token = 'test-token', host, status = 200, body = { data: { id: 7 } } } = {}) {

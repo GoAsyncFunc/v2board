@@ -1,4 +1,4 @@
-import { get, post } from '../services/request';
+import { get, post } from '../services/apiClient';
 import history from '../app/history';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';

@@ -39,7 +39,7 @@ async function load(responseCode = 200) {
       return { __esModule: true, default: Modal, Modal };
     }
     if (id.includes('MainLayout')) return 'Layout';
-    if (id.includes('/request')) return { get: async path => { requests.push(path); return { code: responseCode }; } };
+    if (id.includes('/apiClient')) return { get: async path => { requests.push(path); return { code: responseCode }; } };
     if (id.includes('types/apiContracts')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
     if (id.includes('MoneyDisplay')) return { formatMoney: amount => (amount / 100).toFixed(2) };
