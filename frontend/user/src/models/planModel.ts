@@ -18,15 +18,18 @@ const initialState: PlanState = {
     selectPeriod: undefined,
     fetchLoading: true,
 };
-const planPeriods = Object.keys(localeSettings.periodText) as PlanPeriod[];
+const planPeriods = Object.keys(localeSettings.periodText);
+
+function isPlanPeriod(value: string): value is PlanPeriod {
+    return planPeriods.includes(value);
+}
 
 export function choosePeriod(plan: PlanRecord, currentPeriod?: PlanPeriod): PlanPeriod | undefined {
     if (currentPeriod) return currentPeriod;
     let selected: PlanPeriod | undefined;
     // The original reverse scan leaves the earliest eligible API property selected.
     for (const key of Object.keys(plan).reverse()) {
-        if (planPeriods.includes(key as PlanPeriod) && plan[key] !== null)
-            selected = key as PlanPeriod;
+        if (isPlanPeriod(key) && plan[key] !== null) selected = key;
     }
     return selected;
 }

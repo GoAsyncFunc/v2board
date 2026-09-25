@@ -74,3 +74,10 @@ test('user price display uses explicit numeric coercion', async () => {
     assert.doesNotMatch(source, /value as number/);
     assert.match(source, /Number\(value\) \/ 100/);
 });
+
+test('user plan model narrows dynamic period keys with a named type guard', async () => {
+    const source = await fs.readFile(path.join(sourceRoot, 'models', 'planModel.ts'), 'utf8');
+
+    assert.match(source, /function isPlanPeriod\(value: string\): value is PlanPeriod/);
+    assert.doesNotMatch(source, /key as PlanPeriod/);
+});
