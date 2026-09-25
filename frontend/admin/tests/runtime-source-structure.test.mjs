@@ -33,11 +33,11 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/runtime/routerBindings.tsx',
         '../src/runtime/routeRenderer.tsx',
         '../src/runtime/routeInitialProps.tsx',
-        '../src/runtime/routeTypes.ts',
+        '../src/runtime/routeRuntimeTypes.ts',
         '../src/services/request.ts',
         '../src/services/download.ts',
         '../src/routes/adminRoutes.ts',
-        '../src/routes/types.ts',
+        '../src/routes/routeConfig.ts',
         '../src/types/api.ts',
         '../src/types/dva.ts',
         '../src/types/dvaCore.d.ts',
@@ -84,7 +84,7 @@ test('admin route definitions live in the dedicated routes directory', async () 
         'utf8',
     );
     const routeTypeSource = await fs.readFile(
-        new URL('../src/routes/types.ts', import.meta.url),
+        new URL('../src/routes/routeConfig.ts', import.meta.url),
         'utf8',
     );
     assert.match(routeSource, /const adminRoutes: AdminRouteConfig\[\]/);
@@ -537,7 +537,7 @@ test('admin plugin runtime separates callable hooks from route and configuration
         'utf8',
     );
     const routeTypes = await fs.readFile(
-        new URL('../src/runtime/routeTypes.ts', import.meta.url),
+        new URL('../src/runtime/routeRuntimeTypes.ts', import.meta.url),
         'utf8',
     );
     const bootstrap = await fs.readFile(
@@ -548,7 +548,7 @@ test('admin plugin runtime separates callable hooks from route and configuration
     assert.match(pluginRuntime, /export interface PluginConfiguration/);
     assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
     assert.match(routeTypes, /Partial<AdminRootState>/);
-    assert.match(routeRuntime, /from ['"]\.\/routeTypes['"]/);
+    assert.match(routeRuntime, /from ['"]\.\/routeRuntimeTypes['"]/);
     assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
     assert.match(bootstrap, /apply<React\.ReactElement>/);
     assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);

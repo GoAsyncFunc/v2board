@@ -17,7 +17,7 @@ import ServerGroup from '../pages/server/group/ServerGroupPage';
 import ServerManage from '../pages/server/manage/ServerManagePage';
 import ServerRoute from '../pages/server/route/ServerRoutePage';
 import User from '../pages/user/UserPage';
-import type { AdminRouteConfig } from './types';
+import type { AdminRouteConfig } from './routeConfig';
 
 const adminRoutes: AdminRouteConfig[] = [
     { path: '/config/payment', exact: true, component: ConfigPayment },

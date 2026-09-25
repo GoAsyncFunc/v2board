@@ -3069,7 +3069,7 @@
   },
   {
     "from": "routes/adminRoutes.ts",
-    "to": "routes/types.ts"
+    "to": "routes/routeConfig.ts"
   },
   {
     "from": "runtime/dvaApplication.tsx",
@@ -3093,15 +3093,15 @@
   },
   {
     "from": "runtime/routeInitialProps.tsx",
-    "to": "routes/types.ts"
+    "to": "routes/routeConfig.ts"
   },
   {
     "from": "runtime/routeInitialProps.tsx",
-    "to": "runtime/routeTypes.ts"
+    "to": "runtime/routeRuntimeTypes.ts"
   },
   {
     "from": "runtime/routeRenderer.tsx",
-    "to": "routes/types.ts"
+    "to": "routes/routeConfig.ts"
   },
   {
     "from": "runtime/routeRenderer.tsx",
@@ -3113,10 +3113,10 @@
   },
   {
     "from": "runtime/routeRenderer.tsx",
-    "to": "runtime/routeTypes.ts"
+    "to": "runtime/routeRuntimeTypes.ts"
   },
   {
-    "from": "runtime/routeTypes.ts",
+    "from": "runtime/routeRuntimeTypes.ts",
     "to": "types/store.ts"
   },
   {

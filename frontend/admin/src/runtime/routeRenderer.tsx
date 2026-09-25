@@ -2,17 +2,21 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
-import type { AdminRouteConfig } from '../routes/types';
+import type { AdminRouteConfig } from '../routes/routeConfig';
 import type {
     DynamicRouteProps,
     RouteComponentStatics,
     RouteMatchProps,
     RouteRenderFunction,
     RouteRenderProps,
-} from './routeTypes';
+} from './routeRuntimeTypes';
 import { hasInitialPropsLoaded, withInitialProps } from './routeInitialProps';
 
-export type { DynamicRouteProps, InitialRoutePropsContext, RouteRenderProps } from './routeTypes';
+export type {
+    DynamicRouteProps,
+    InitialRoutePropsContext,
+    RouteRenderProps,
+} from './routeRuntimeTypes';
 
 type RenderRouteProps = Omit<RouteProps, 'render'> &
     DynamicRouteProps & {
