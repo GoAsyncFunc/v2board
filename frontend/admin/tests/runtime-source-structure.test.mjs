@@ -378,7 +378,7 @@ test('Tuic editor fields live in focused protocol modules', async () => {
 test('admin model composition uses named business effects instead of module aliases', async () => {
     const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(
-        new URL('../src/models/order.ts', import.meta.url),
+        new URL('../src/models/orderModel.ts', import.meta.url),
         'utf8',
     );
     const orderEffects = await fs.readFile(
@@ -400,19 +400,19 @@ test('admin model composition uses named business effects instead of module alia
         { file: 'administratorAuthentication', namespace: 'auth' },
         { file: 'configurationModel', namespace: 'config' },
         ...[
-            'coupon',
-            'giftcard',
-            'knowledge',
-            'notice',
-            'order',
-            'payment',
-            'plan',
-            'serverGroup',
-            'serverRoute',
-            'theme',
-            'ticket',
-            'user',
-        ].map((namespace) => ({ file: namespace, namespace })),
+            ['couponModel', 'coupon'],
+            ['giftCardModel', 'giftcard'],
+            ['knowledgeModel', 'knowledge'],
+            ['noticeModel', 'notice'],
+            ['orderModel', 'order'],
+            ['paymentModel', 'payment'],
+            ['planModel', 'plan'],
+            ['serverGroupModel', 'serverGroup'],
+            ['serverRouteModel', 'serverRoute'],
+            ['themeModel', 'theme'],
+            ['ticketModel', 'ticket'],
+            ['user', 'user'],
+        ].map(([file, namespace]) => ({ file, namespace })),
         { file: 'queueMonitoringModel', namespace: 'system' },
         { file: 'serverManagement', namespace: 'serverManage' },
         { file: 'dashboardStatisticsModel', namespace: 'stat' },

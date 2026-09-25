@@ -93,7 +93,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/coupon.ts"
+    "to": "models/couponModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -101,11 +101,11 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/giftcard.ts"
+    "to": "models/giftCardModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/knowledge.ts"
+    "to": "models/knowledgeModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -113,19 +113,19 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/notice.ts"
+    "to": "models/noticeModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/order.ts"
+    "to": "models/orderModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/payment.ts"
+    "to": "models/paymentModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/plan.ts"
+    "to": "models/planModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -133,7 +133,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverGroup.ts"
+    "to": "models/serverGroupModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -145,15 +145,15 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverRoute.ts"
+    "to": "models/serverRouteModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/theme.ts"
+    "to": "models/themeModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/ticket.ts"
+    "to": "models/ticketModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -368,23 +368,23 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/coupon.ts",
+    "from": "models/couponModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/coupon.ts",
+    "from": "models/couponModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/coupon.ts",
+    "from": "models/couponModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/coupon.ts",
+    "from": "models/couponModel.ts",
     "to": "types/promotion.ts"
   },
   {
-    "from": "models/coupon.ts",
+    "from": "models/couponModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -408,43 +408,43 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/giftcard.ts",
+    "from": "models/giftCardModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/giftcard.ts",
+    "from": "models/giftCardModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/giftcard.ts",
+    "from": "models/giftCardModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/giftcard.ts",
+    "from": "models/giftCardModel.ts",
     "to": "types/promotion.ts"
   },
   {
-    "from": "models/giftcard.ts",
+    "from": "models/giftCardModel.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/knowledge.ts",
+    "from": "models/knowledgeModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/knowledge.ts",
+    "from": "models/knowledgeModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/knowledge.ts",
+    "from": "models/knowledgeModel.ts",
     "to": "types/knowledge.ts"
   },
   {
-    "from": "models/knowledge.ts",
+    "from": "models/knowledgeModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/knowledge.ts",
+    "from": "models/knowledgeModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -460,32 +460,24 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/notice.ts",
+    "from": "models/noticeModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/notice.ts",
+    "from": "models/noticeModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/notice.ts",
+    "from": "models/noticeModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/notice.ts",
+    "from": "models/noticeModel.ts",
     "to": "types/notice.ts"
   },
   {
-    "from": "models/notice.ts",
+    "from": "models/noticeModel.ts",
     "to": "types/store.ts"
-  },
-  {
-    "from": "models/order.ts",
-    "to": "models/orderEffects.ts"
-  },
-  {
-    "from": "models/order.ts",
-    "to": "types/order.ts"
   },
   {
     "from": "models/orderEffects.ts",
@@ -512,51 +504,59 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/orderModel.ts",
+    "to": "models/orderEffects.ts"
+  },
+  {
+    "from": "models/orderModel.ts",
+    "to": "types/order.ts"
+  },
+  {
+    "from": "models/paymentModel.ts",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/paymentModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/paymentModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/paymentModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/paymentModel.ts",
     "to": "types/payment.ts"
   },
   {
-    "from": "models/payment.ts",
+    "from": "models/paymentModel.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "types/plan.ts"
   },
   {
-    "from": "models/plan.ts",
+    "from": "models/planModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -580,23 +580,23 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/serverGroupModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/serverGroupModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/serverGroupModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/serverGroupModel.ts",
     "to": "types/serverContracts.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/serverGroupModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -636,67 +636,67 @@
     "to": "types/serverContracts.ts"
   },
   {
-    "from": "models/serverRoute.ts",
+    "from": "models/serverRouteModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverRoute.ts",
+    "from": "models/serverRouteModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverRoute.ts",
+    "from": "models/serverRouteModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/serverRoute.ts",
+    "from": "models/serverRouteModel.ts",
     "to": "types/serverContracts.ts"
   },
   {
-    "from": "models/serverRoute.ts",
+    "from": "models/serverRouteModel.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "config/adminSettings.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/theme.ts",
+    "from": "models/themeModel.ts",
     "to": "types/theme.ts"
   },
   {
-    "from": "models/ticket.ts",
+    "from": "models/ticketModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/ticket.ts",
+    "from": "models/ticketModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/ticket.ts",
+    "from": "models/ticketModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/ticket.ts",
+    "from": "models/ticketModel.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/ticket.ts",
+    "from": "models/ticketModel.ts",
     "to": "types/ticket.ts"
   },
   {

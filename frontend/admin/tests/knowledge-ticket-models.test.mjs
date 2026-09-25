@@ -9,7 +9,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const clone = value => structuredClone(value);
 
 async function load(name) {
-  const output = await build({ absWorkingDir: root, entryPoints: [`src/models/${name}.ts`], bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent', plugins: [{ name: 'model-dependencies', setup(builder) {
+  const modelFileName = `${name}Model`;
+  const output = await build({ absWorkingDir: root, entryPoints: [`src/models/${modelFileName}.ts`], bundle: true, write: false, platform: 'node', format: 'cjs', logLevel: 'silent', plugins: [{ name: 'model-dependencies', setup(builder) {
     builder.onResolve({ filter: /services\/request$/ }, () => ({ path: 'request', namespace: 'test' }));
     builder.onLoad({ filter: /^request$/, namespace: 'test' }, () => ({ loader: 'js', contents: `exports.get=(url,data)=>globalThis.request('GET',url,data);exports.post=(url,data)=>globalThis.request('POST',url,data);exports.isSuccessfulResponse=response=>response.code===200;` }));
   } }] });
