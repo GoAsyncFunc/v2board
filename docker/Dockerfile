@@ -23,6 +23,12 @@ RUN printf '%s\n' \
     '    AllowOverride None' \
     '    Require all granted' \
     '</Directory>' \
+    'Alias /user-build/ /var/www/html/frontend/user/dist/' \
+    '<Directory /var/www/html/frontend/user/dist/>' \
+    '    Options FollowSymLinks' \
+    '    AllowOverride None' \
+    '    Require all granted' \
+    '</Directory>' \
     > /etc/apache2/conf-available/v2board-admin-build.conf \
     && a2enconf v2board-admin-build
 

@@ -2,8 +2,13 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/theme/{{$theme}}/assets/components.chunk.css?v={{$version}}">
-    <link rel="stylesheet" href="/theme/{{$theme}}/assets/umi.css?v={{$version}}">
+    @if (config('v2board.user_source_build', false))
+        <link rel="stylesheet" href="/user-build/theme/default/assets/components.chunk.css?v={{$version}}">
+        <link rel="stylesheet" href="/user-build/theme/default/assets/umi.css?v={{$version}}">
+    @else
+        <link rel="stylesheet" href="/theme/{{$theme}}/assets/components.chunk.css?v={{$version}}">
+        <link rel="stylesheet" href="/theme/{{$theme}}/assets/umi.css?v={{$version}}">
+    @endif
     @if (file_exists(public_path("/theme/{$theme}/assets/custom.css")))
         <link rel="stylesheet" href="/theme/{{$theme}}/assets/custom.css?v={{$version}}">
     @endif
@@ -23,7 +28,7 @@
     <script>
         window.settings = {
             title: '{{$title}}',
-            assets_path: '/theme/{{$theme}}/assets',
+            assets_path: '{{config('v2board.user_source_build', false) ? '/user-build/theme/default/assets' : "/theme/{$theme}/assets"}}',
             theme: {
                 sidebar: '{{$theme_config['theme_sidebar']}}',
                 header: '{{$theme_config['theme_header']}}',
@@ -44,21 +49,28 @@
             logo: '{{$logo}}'
         }
     </script>
-    <script src="/theme/{{$theme}}/assets/i18n/zh-CN.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/zh-TW.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/en-US.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/ja-JP.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/vi-VN.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/ko-KR.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/fa-IR.js?v={{$version}}"></script>
+    @php ($assetRoot = config('v2board.user_source_build', false)
+        ? '/user-build/theme/default/assets'
+        : "/theme/{$theme}/assets")
+    <script src="{{$assetRoot}}/i18n/zh-CN.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/zh-TW.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/en-US.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/ja-JP.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/vi-VN.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/ko-KR.js?v={{$version}}"></script>
+    <script src="{{$assetRoot}}/i18n/fa-IR.js?v={{$version}}"></script>
 </head>
 
 <body>
 <div id="root"></div>
 {!! $theme_config['custom_html'] !!}
-<script src="/theme/{{$theme}}/assets/vendors.async.js?v={{$version}}"></script>
-<script src="/theme/{{$theme}}/assets/components.async.js?v={{$version}}"></script>
-<script src="/theme/{{$theme}}/assets/umi.js?v={{$version}}"></script>
+@if (config('v2board.user_source_build', false))
+    <script src="/user-build/app.js?v={{$version}}"></script>
+@else
+    <script src="/theme/{{$theme}}/assets/vendors.async.js?v={{$version}}"></script>
+    <script src="/theme/{{$theme}}/assets/components.async.js?v={{$version}}"></script>
+    <script src="/theme/{{$theme}}/assets/umi.js?v={{$version}}"></script>
+@endif
 @if (file_exists(public_path("/theme/{$theme}/assets/custom.js")))
     <script src="/theme/{{$theme}}/assets/custom.js?v={{$version}}"></script>
 @endif

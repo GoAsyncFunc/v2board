@@ -27,6 +27,7 @@ services:
       V2BOARD_ADMIN_PASSWORD: admin123456
       V2BOARD_SECURE_PATH: admin
       V2BOARD_ADMIN_SOURCE_BUILD: "true"
+      V2BOARD_USER_SOURCE_BUILD: "true"
       V2BOARD_UI_VERSION: admin-source-20260922.1326
       UI_VERSION: admin-source-20260922.1326
     volumes:

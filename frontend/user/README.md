@@ -18,7 +18,7 @@ npm ci
 
 ## 配置
 
-运行时站点配置位于 `public/settings.js`。不要直接编辑 `dist/`，该目录每次构建都会重建。
+运行时站点配置位于 `public/settings.js`。生产 Blade 入口通过 `v2board.user_source_build` 选择源码构建或历史 Umi 回退资源；不要直接编辑 `dist/`，该目录每次构建都会重建。
 
 ## 本地开发
 

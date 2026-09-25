@@ -33,6 +33,7 @@ set_env SESSION_DRIVER "${SESSION_DRIVER:-redis}"
 set_env QUEUE_CONNECTION "${QUEUE_CONNECTION:-redis}"
 set_env SECURE_PATH "${V2BOARD_SECURE_PATH:-admin}"
 set_env ADMIN_SOURCE_BUILD "${V2BOARD_ADMIN_SOURCE_BUILD:-true}"
+set_env USER_SOURCE_BUILD "${V2BOARD_USER_SOURCE_BUILD:-true}"
 set_env UI_VERSION "${V2BOARD_UI_VERSION:-admin-source-20260922.1326}"
 
 if [ ! -d vendor ]; then
@@ -60,6 +61,7 @@ return [
     'frontend_theme' => 'default',
     'secure_path' => '${V2BOARD_SECURE_PATH:-admin}',
     'admin_source_build' => filter_var('${V2BOARD_ADMIN_SOURCE_BUILD:-true}', FILTER_VALIDATE_BOOLEAN),
+    'user_source_build' => filter_var('${V2BOARD_USER_SOURCE_BUILD:-true}', FILTER_VALIDATE_BOOLEAN),
     'ui_version' => '${V2BOARD_UI_VERSION:-admin-source-20260922.1326}',
     'subscribe_path' => '/api/v1/client/subscribe',
 ];
