@@ -14,6 +14,7 @@
     "check:types": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
     "test": "node --test tests/*.test.mjs",
+    "check:visual": "node scripts/check-visual.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
     "deploy:test": "bash scripts/deploy-test.sh"
   },
