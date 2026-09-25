@@ -58,6 +58,13 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
     assert.match(rewritten, /\/assets\/admin\/umi\.js\?v=/);
 });
 
+test('Admin rollback removes only the versioned release before restoring the template', async () => {
+    const script = await fs.readFile(new URL('../scripts/deploy-test.sh', import.meta.url), 'utf8');
+
+    assert.match(script, /rm -rf '\$release'/);
+    assert.match(script, /tar -xzf '\$backup\/template\.tar\.gz' -C '\$site'/);
+});
+
 test('Admin release template can be advanced without changing the legacy fallback', async () => {
     const template = await fs.readFile(
         new URL('resources/views/admin.blade.php', repoRoot),

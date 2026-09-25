@@ -76,6 +76,7 @@ chown --reference="$site/resources/views" "$site/$template"
 cat > "$backup/rollback.sh" <<EOF
 #!/usr/bin/env bash
 set -euo pipefail
+rm -rf '$release'
 tar -xzf '$backup/template.tar.gz' -C '$site'
 docker exec -w /www/v2board v2board-legacy-dev php artisan view:clear
 EOF

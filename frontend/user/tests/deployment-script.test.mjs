@@ -10,11 +10,15 @@ const template = await fs.readFile(
 
 test('user deployment publishes versioned static assets with the application', () => {
     assert.match(script, /-C dist app\.js app\.js\.map source-build\.json settings\.js theme/);
+    assert.match(script, /remote_archive=\/tmp\/v2board-user-ui-\$stamp\.tar\.gz/);
     assert.match(script, /cp -R \"\$stage\/theme\" \"\$release\//);
     assert.match(script, /assets\/restored-\{stamp\}\/user\/theme\/default\/assets/);
     assert.match(script, /theme\/default\/assets\/antd\.css/);
     assert.match(script, /user HTML does not reference/);
     assert.match(script, /grep -Fq "\/assets\/restored-\$stamp\/user\/\$resource"/);
+    assert.match(script, /ui_version=.*source-build\.json/);
+    assert.match(script, /"ui_version": "\$ui_version"/);
+    assert.match(script, /UI_VERSION=%s/);
     assert.match(script, /rm -rf '\$release'/);
 });
 

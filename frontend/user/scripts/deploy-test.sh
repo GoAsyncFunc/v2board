@@ -7,7 +7,8 @@ site=${DEPLOY_SITE:-/data/v2board-legacy-dev/www/v2board}
 backup_root=${DEPLOY_BACKUP_ROOT:-/data/v2board-legacy-dev/ui-backups}
 site_url=${DEPLOY_SITE_URL:-http://127.0.0.1:7003}
 archive=$(mktemp /tmp/v2board-user-ui.XXXXXX)
-remote_archive=/tmp/v2board-user-ui.tar.gz
+stamp=$(date -u +%Y%m%d-%H%M%S)-$$
+remote_archive=/tmp/v2board-user-ui-$stamp.tar.gz
 git_commit=$(git rev-parse HEAD)
 trap 'rm -f "$archive"' EXIT
 
@@ -16,14 +17,14 @@ npm run build
 tar -czf "$archive" -C dist app.js app.js.map source-build.json settings.js theme
 scp "$archive" "$deploy_host:$remote_archive"
 
-ssh "$deploy_host" bash -s -- "$remote_archive" "$site" "$site_url" "$backup_root" "$git_commit" <<'REMOTE'
+ssh "$deploy_host" bash -s -- "$remote_archive" "$site" "$site_url" "$backup_root" "$git_commit" "$stamp" <<'REMOTE'
 set -euo pipefail
 artifact=$1
 site=$2
 site_url=$3
 backup_root=$4
 git_commit=$5
-stamp=$(date +%Y%m%d-%H%M%S)
+stamp=$6
 backup=$backup_root/user-$stamp
 stage=$(mktemp -d /tmp/v2board-user-ui.XXXXXX)
 trap 'rm -f "$artifact"; rm -rf "$stage"' EXIT
@@ -37,11 +38,13 @@ cp "$stage/app.js" "$stage/app.js.map" "$stage/source-build.json" "$release/"
 cp -R "$stage/theme" "$release/"
 cp "$stage/settings.js" "$release/"
 app_sha256=$(sha256sum "$release/app.js" | cut -d' ' -f1)
+ui_version=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["uiVersion"])' "$release/source-build.json")
 deployed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 cat > "$release/deployment.json" <<EOF
 {
   "application": "user",
   "deployed_at": "$deployed_at",
+  "ui_version": "$ui_version",
   "git_commit": "$git_commit",
   "app_sha256": "$app_sha256"
 }
@@ -129,6 +132,6 @@ for resource in \
     exit 1
   fi
 done
-printf 'APPLICATION=user\nRELEASE=%s\nBACKUP=%s\nROLLBACK=%s\nGIT_COMMIT=%s\nAPP_SHA256=%s\n' \
-  "$release" "$backup" "$backup/rollback.sh" "$git_commit" "$app_sha256"
+printf 'APPLICATION=user\nRELEASE=%s\nBACKUP=%s\nROLLBACK=%s\nGIT_COMMIT=%s\nUI_VERSION=%s\nAPP_SHA256=%s\n' \
+  "$release" "$backup" "$backup/rollback.sh" "$git_commit" "$ui_version" "$app_sha256"
 REMOTE

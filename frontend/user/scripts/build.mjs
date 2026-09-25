@@ -8,6 +8,11 @@ const destination = path.join(appRoot, 'dist');
 export const antdStylesheetPath = 'node_modules/antd/dist/antd.css';
 export const antdStylesheetOutput = 'theme/default/assets/antd.css';
 
+export function createUiVersion(date = new Date()) {
+    const timestamp = date.toISOString().slice(0, 19).replace(/[-:T]/g, '');
+    return `user-source-${timestamp.slice(0, 8)}.${timestamp.slice(8)}`;
+}
+
 export async function buildApp() {
     await fs.rm(destination, { recursive: true, force: true });
     await fs.mkdir(destination, { recursive: true });
@@ -50,7 +55,16 @@ export async function buildApp() {
 
     await fs.writeFile(
         path.join(destination, 'source-build.json'),
-        `${JSON.stringify({ application: 'user', inputs, standaloneBuild: true }, null, 2)}\n`,
+        `${JSON.stringify(
+            {
+                application: 'user',
+                inputs,
+                standaloneBuild: true,
+                uiVersion: process.env.UI_VERSION || createUiVersion(),
+            },
+            null,
+            2,
+        )}\n`,
     );
     console.log(`user: ${inputs.length} source/dependency files -> dist/app.js`);
 }
