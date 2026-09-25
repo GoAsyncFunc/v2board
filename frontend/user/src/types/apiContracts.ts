@@ -17,9 +17,16 @@ export interface SuccessfulApiResponse<Data = JsonValue> extends ApiResponse<Dat
     data: Data;
 }
 
-export function isSuccessfulResponse<Response extends ApiResponse<unknown>>(
+type ResponseData<Response> = Response extends { data?: infer Data } ? NonNullable<Data> : never;
+
+export type SuccessfulResponse<Response extends { code: number }> = Response & {
+    code: 200;
+    data: ResponseData<Response>;
+};
+
+export function isSuccessfulResponse<Response extends { code: number }>(
     response: Response,
-): response is Response & SuccessfulApiResponse<Exclude<Response['data'], undefined>> {
+): response is SuccessfulResponse<Response> {
     return response.code === 200;
 }
 
