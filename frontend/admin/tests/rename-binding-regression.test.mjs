@@ -108,7 +108,7 @@ for (const file of [
     'admin/src/pages/server/manage/editors/Vless/RelationshipFields.tsx',
     'admin/src/pages/server/manage/editors/Vless/ChildSettingsPanel.tsx',
     'admin/src/app/Router.tsx',
-    'admin/src/config/navigation.tsx',
+    'admin/src/config/navigationConfig.tsx',
     'admin/src/layouts/Header/HeaderLayout.tsx',
     'admin/src/layouts/MainLayout/MainLayout.tsx',
     'admin/src/layouts/Sidebar/SidebarLayout.tsx',

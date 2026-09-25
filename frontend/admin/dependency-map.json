@@ -281,7 +281,7 @@
   },
   {
     "from": "layouts/Sidebar/SidebarLayout.tsx",
-    "to": "config/navigation.tsx"
+    "to": "config/navigationConfig.tsx"
   },
   {
     "from": "layouts/Sidebar/SidebarLayout.tsx",
@@ -297,7 +297,7 @@
   },
   {
     "from": "layouts/Sidebar/components/SidebarNavigation.tsx",
-    "to": "config/navigation.tsx"
+    "to": "config/navigationConfig.tsx"
   },
   {
     "from": "main.ts",

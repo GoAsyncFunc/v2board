@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createNavigation } from '../../config/navigation';
-import type { NavigationItem } from '../../config/navigation';
+import { createNavigation } from '../../config/navigationConfig';
+import type { NavigationItem } from '../../config/navigationConfig';
 import history from '../../app/history';
 import type { AdminDispatch } from '../../types/storeContracts';
 import '../../config/siteSettings';

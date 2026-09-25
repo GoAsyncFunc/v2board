@@ -45,7 +45,7 @@ async function load(target,original){
    if(id==='antd/lib/locale-provider/zh_CN'||id.includes('antdZhCnLocale'))return {__esModule:true,default:'zh-CN',a:'zh-CN'};
    if(id==='../Sidebar'||id==='../Sidebar/SidebarLayout')return evaluate(path.join(home,'src/layouts/Sidebar/SidebarLayout.tsx'));
    if(id==='../Header'||id==='../Header/HeaderLayout')return evaluate(path.join(home,'src/layouts/Header/HeaderLayout.tsx'));
-   if(id==='../../config/navigation')return evaluate(path.join(home,'src/config/navigation.tsx'));
+   if(id==='../../config/navigationConfig')return evaluate(path.join(home,'src/config/navigationConfig.tsx'));
    if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
    if(id.includes('HeaderSearchOverlay'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
    if(id.includes('SidebarNavigation'))return evaluate(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));
@@ -63,7 +63,7 @@ async function load(target,original){
  if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
  if(!original)paths.push(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
  if(!original)paths.push(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));
- if(!original)paths.push(path.join(home,'src/config/navigation.tsx'));
+ if(!original)paths.push(path.join(home,'src/config/navigationConfig.tsx'));
  const compiled=new Map();for(const file of paths)compiled.set(file,(await transform(await fs.readFile(file,'utf8'),{loader:file.endsWith('.tsx')?'tsx':'jsx',format:'cjs',jsxFactory:'React.createElement'})).code);
  evaluate(paths[0]);return {classes,trace,document};
 }
