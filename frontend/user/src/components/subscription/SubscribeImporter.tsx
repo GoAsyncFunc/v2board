@@ -15,7 +15,7 @@ import {
 } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
 import history from '../../app/history';
-import { subscribeImporterStyles as styles } from '../../styles/subscribeImporter';
+import { subscribeImporterStyles as styles } from '../../styles/subscribeImporterStyles';
 
 interface SubscribeImporterProps {
     children: React.ReactElement;

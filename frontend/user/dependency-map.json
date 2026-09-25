@@ -701,7 +701,7 @@
   },
   {
     "from": "components/subscription/SubscribeImporter.tsx",
-    "to": "styles/subscribeImporter.ts"
+    "to": "styles/subscribeImporterStyles.ts"
   },
   {
     "from": "components/subscription/SubscribeImporter.tsx",
@@ -1729,7 +1729,7 @@
   },
   {
     "from": "pages/support/TicketDetail.tsx",
-    "to": "styles/ticketDetail.ts"
+    "to": "styles/ticketDetailStyles.ts"
   },
   {
     "from": "pages/support/TicketDetail.tsx",

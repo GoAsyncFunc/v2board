@@ -68,7 +68,7 @@ async function load(file, platform = {}) {
             if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
             if (id.includes('subscribeStyles'))
                 return { subscribeStyles: { item: 'item', oneClickSubscribe: 'subscribe' } };
-            if (id.includes('styles/subscribeImporter'))
+            if (id.includes('styles/subscribeImporterStyles'))
                 return {
                     subscribeImporterStyles: { item: 'item', oneClickSubscribe: 'subscribe' },
                 };

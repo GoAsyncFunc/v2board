@@ -39,7 +39,7 @@ async function load(name) {
       if (id.includes('TicketReadonlyColumns')) return { createReadonlyTicketColumns: () => [] };
       if (id.includes('DateTimeDisplay')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('/content.js')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input' } };
-      if (id.includes('styles/ticketDetail')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input', bubble: 'bubble', time: 'time' } };
+      if (id.includes('styles/ticketDetailStyles')) return { ticketDetailStyles: { tag: 'tag', content: 'content', input: 'input', bubble: 'bubble', time: 'time' } };
       if (id.includes('iconStyles')) return {};
       throw Error(id);
     },
