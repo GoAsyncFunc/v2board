@@ -9,9 +9,10 @@ const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const copy = value => structuredClone(value);
 
 async function loadModel(name) {
+  const modelFileNames = { system: 'queueMonitoringModel' };
   const result = await build({
     absWorkingDir: appRoot,
-    entryPoints: [`src/models/${name}.ts`],
+    entryPoints: [`src/models/${modelFileNames[name] || name}.ts`],
     bundle: true,
     write: false,
     platform: 'node',

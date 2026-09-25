@@ -411,11 +411,11 @@ test('admin model composition uses named business effects instead of module alia
             'plan',
             'serverGroup',
             'serverRoute',
-            'system',
             'theme',
             'ticket',
             'user',
         ].map((namespace) => ({ file: namespace, namespace })),
+        { file: 'queueMonitoringModel', namespace: 'system' },
         { file: 'serverManagement', namespace: 'serverManage' },
         { file: 'dashboardStatistics', namespace: 'stat' },
     ];

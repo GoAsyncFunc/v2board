@@ -129,6 +129,10 @@
   },
   {
     "from": "app/store.tsx",
+    "to": "models/queueMonitoringModel.ts"
+  },
+  {
+    "from": "app/store.tsx",
     "to": "models/serverGroup.ts"
   },
   {
@@ -142,10 +146,6 @@
   {
     "from": "app/store.tsx",
     "to": "models/serverRoute.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/system.ts"
   },
   {
     "from": "app/store.tsx",
@@ -560,99 +560,99 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/queueMonitoringModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/queueMonitoringModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverGroup.ts",
+    "from": "models/queueMonitoringModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/serverGroup.ts",
-    "to": "types/server.ts"
-  },
-  {
-    "from": "models/serverGroup.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "models/serverManagement.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/serverManagement.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/serverManagement.ts",
-    "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/serverManagement.ts",
-    "to": "types/server.ts"
-  },
-  {
-    "from": "models/serverManagement.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/server.ts"
-  },
-  {
-    "from": "models/serverRoute.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/serverRoute.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/serverRoute.ts",
-    "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/serverRoute.ts",
-    "to": "types/server.ts"
-  },
-  {
-    "from": "models/serverRoute.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "models/system.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/system.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/system.ts",
-    "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/system.ts",
+    "from": "models/queueMonitoringModel.ts",
     "to": "types/monitoring.ts"
   },
   {
-    "from": "models/system.ts",
+    "from": "models/queueMonitoringModel.ts",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
+    "to": "types/modelEffects.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
+    "to": "types/server.ts"
+  },
+  {
+    "from": "models/serverGroup.ts",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "models/serverManagement.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverManagement.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/serverManagement.ts",
+    "to": "types/modelEffects.ts"
+  },
+  {
+    "from": "models/serverManagement.ts",
+    "to": "types/server.ts"
+  },
+  {
+    "from": "models/serverManagement.ts",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "models/serverProtocolModels.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverProtocolModels.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/serverProtocolModels.ts",
+    "to": "types/modelEffects.ts"
+  },
+  {
+    "from": "models/serverProtocolModels.ts",
+    "to": "types/server.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
+    "to": "types/modelEffects.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
+    "to": "types/server.ts"
+  },
+  {
+    "from": "models/serverRoute.ts",
     "to": "types/store.ts"
   },
   {

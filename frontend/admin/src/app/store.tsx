@@ -29,7 +29,7 @@ import {
     serverVmess,
 } from '../models/serverProtocolModels';
 import dashboardStatistics from '../models/dashboardStatistics';
-import system from '../models/system';
+import system from '../models/queueMonitoringModel';
 import theme from '../models/theme';
 import ticket from '../models/ticket';
 import user from '../models/user';
