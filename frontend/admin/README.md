@@ -18,7 +18,7 @@ npm ci
 
 ## 配置
 
-运行时站点配置位于 `public/settings.js`。测试环境的后台入口默认是 `/4434144c`，可通过 `ADMIN_PATH` 覆盖。不要直接编辑 `dist/`，该目录每次构建都会重建。
+运行时站点配置位于 `public/settings.js`。测试环境的后台入口默认是 `/4434144c`，可通过 `ADMIN_PATH` 覆盖；本地 Docker 栈的 `secure_path` 为 `admin`。不要直接编辑 `dist/`，该目录每次构建都会重建。
 
 ## 本地开发
 
@@ -74,7 +74,13 @@ npm run build
 npm run check:visual
 ```
 
-当前管理端回归测试为 1154 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 771 项测试，两个项目合计 1925 项；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归测试为 1163 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 777 项测试，两个项目合计 1940 项；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+
+测试数量以实际执行为准，可用以下命令复现（循环生成的用例会被计入）：
+
+```sh
+node --test --test-reporter=spec tests/*.test.mjs | grep -E '^ℹ (tests|pass|fail|skipped)'
+```
 
 `npm run check:visual` 会以并发方式执行全部 Admin 局部视觉和行为对照脚本，默认并发数为 4。可使用 `VISUAL_CHECK_CONCURRENCY=2` 调低资源占用，也可以只检查一个业务项，例如 `npm run check:visual -- server-name`。单项脚本仍保留在 `scripts/` 中，便于定位失败原因。
 
@@ -98,13 +104,66 @@ src/types/       API、状态和业务实体类型
 src/utils/       浏览器、日期和站点工具
 tests/           独立回归测试与 fixture
 dist/            本地构建产物，不提交 Git
+.releases/       本地部署的版本目录与备份，不提交 Git
 ```
 
 `dependency-map.json` 是当前入口可达的项目内依赖基线，由 `npm run check:dependencies` 校验。项目不再保留 Webpack 模块 ID、旧 `.jsx` 路由清单或嵌套包边界。
 
+目录按业务职责划分，各概念的归属位置如下：
+
+| 概念 | 位置 |
+| --- | --- |
+| 组件 | `src/components/`（仅跨页面复用）与各页面下的 `components/` |
+| 布局 | `src/layouts/` |
+| 页面 | `src/pages/` |
+| 服务 / API | `src/services/apiClient.ts`、`src/services/csvDownloadService.ts` |
+| 模型 / 状态 | `src/models/` 与 `src/app/applicationStore.tsx` |
+| 路由 | `src/routes/` |
+| 配置 | `src/config/`（导航、站点与后台设置） |
+| 工具 | `src/utils/` |
+| 类型 | `src/types/` |
+| 样式 | `src/styles/` |
+| 静态资源 | `public/`，构建时复制到 `dist/` |
+| 常量 | 当前集中在 `src/config/`；出现独立常量模块时再建 `src/constants/` |
+| hooks | 当前无自定义 hook；出现第一个真实 hook 时再建 `src/hooks/` |
+| 多语言 | 管理端为纯中文界面，不使用 i18n，因此没有 `src/locales/` |
+
+为避免不可达源码破坏 `check:dependencies`，上述保留目录在出现真实模块前不会创建空目录。
+
 `src/pages/` 参考 `v2board-admin1` 按业务路由组织：`login`、`dashboard`、`config/payment`、`config/system`、`config/theme`、`server/group`、`server/manage`、`server/route`、`plan`、`order`、`coupon`、`giftcard`、`user`、`notice`、`ticket`、`knowledge` 和 `queue`。页面入口按业务名称命名，工单详情使用 `ticket/TicketDetailPage.tsx`；复杂页面的页面专属组件统一放在对应目录的 `components/` 下，列表、筛选、编辑器、展示列和字段模块使用语义化文件名。新增页面应放入对应业务域，不再使用 `auth`、`commerce`、`promotion`、`content` 等混合目录，也不再直接平铺业务页面文件。
 
 `src/components/` 只保留跨页面复用的 `common`、`order` 和 `user` 组件。订单分配编辑器位于 `src/components/order/`；Server 管理编辑器位于 `src/pages/server/manage/editors/`，Server 列表展示和操作位于 `src/pages/server/manage/components/`；系统配置组件位于 `src/pages/config/system/components/`，支付、订单、计划、优惠券、礼品卡、用户、公告和知识库组件也分别位于各自页面的 `components/` 下。只服务单一页面的列表列定义、编辑器和操作逻辑应放在对应页面目录内。
+
+## 本地部署
+
+测试环境的 Docker 栈（容器 `v2board-app`）把本仓库挂载到 `/var/www/html`，并通过 Apache alias `/admin-build/` 直接指向 `frontend/admin/dist/`。因此 `npm run build` 之后构建产物即刻生效，无需拷贝文件。
+
+`npm run deploy:local` 在此基础上补齐版本记录与回滚能力：
+
+```sh
+npm run deploy:local
+```
+
+脚本按以下顺序执行：备份当前 `dist/`（构建会先清空该目录，因此备份必须先于构建）→ 构建 → 快照到 `.releases/<时间戳>/` → 写入 `deployment.json` → 生成可执行的回滚脚本 → 检查 `/admin` 页面和 `/admin-build/app.js` → 按 `KEEP_RELEASES` 清理旧版本。它不会修改任何 Blade 模板，也不会改动 `scripts/deploy-test.sh`。
+
+可选变量：
+
+- `DEPLOY_SITE_URL`：健康检查地址，默认 `http://127.0.0.1:7003`
+- `DEPLOY_BUILD_PREFIX`：构建资源前缀，默认 `/admin-build`
+- `DEPLOY_HEALTH_PATH`：健康检查页面，默认 `/admin`（对应后端 `secure_path`）
+- `KEEP_RELEASES`：保留的版本数量，默认 `5`
+
+成功后输出 `APPLICATION`、`RELEASE`、`BACKUP`、`ROLLBACK`、`GIT_COMMIT`、`UI_VERSION` 和 `APP_SHA256`。需要回滚时执行输出的 `ROLLBACK` 脚本，它会用备份恢复上一版 `dist/`。
+
+部署后做浏览器验证：
+
+```sh
+TEST_BASE=http://127.0.0.1:7003 ADMIN_PATH=/admin \
+  TEST_EMAIL=admin@example.com TEST_PASSWORD=admin123456 \
+  npm run check:deployed
+```
+
+该检查覆盖未登录访问后台必须回落到登录页、登录页渲染、Dashboard 与主要列表页渲染、套餐编辑器抽屉开关、静态资源不得 4xx、同源 API 不得 5xx，以及浏览器控制台无未捕获错误。未提供 `TEST_EMAIL`/`TEST_PASSWORD` 时只做未登录与登录页检查。
 
 ## 测试服务器部署
 
@@ -119,7 +178,7 @@ DEPLOY_HOST=root@5.104.86.24 npm run deploy:test
 - `DEPLOY_SITE`：服务器项目目录，默认 `/data/v2board-legacy-dev/www/v2board`
 - `DEPLOY_BACKUP_ROOT`：备份目录，默认 `/data/v2board-legacy-dev/ui-backups`
 - `DEPLOY_SITE_URL`：服务器本机健康检查地址，默认 `http://127.0.0.1:7003`
-- `ADMIN_PATH`：后台入口，默认 `/4434144c`
+- `ADMIN_PATH`：后台入口，默认 `/4434144c`；测试 Docker 栈的 `secure_path` 为 `admin`，本地验证时需覆盖为 `/admin`
 
 成功后终端会输出 `RELEASE`、`BACKUP`、`ROLLBACK`、`GIT_COMMIT`、`UI_VERSION` 和 `APP_SHA256`，并在版本目录写入 `deployment.json`。发生模板、缓存、页面或静态资源检查失败时脚本会自动执行回滚；需要手动回滚时，在服务器运行输出的 `ROLLBACK` 脚本。
 
@@ -138,3 +197,5 @@ npm run check:deployed
 - 后台地址返回 404：确认本地或部署环境使用的 `ADMIN_PATH` 与后端 `secure_path` 一致。
 - 部署后仍显示旧页面：确认终端输出的 `RELEASE` 与服务器 `deployment.json` 一致，并清理浏览器缓存后重新访问。
 - 需要回滚：在服务器执行当前部署输出的 `ROLLBACK` 脚本，该脚本会恢复 Blade 入口并清理 Laravel 视图缓存。
+- 本地部署后仍是旧页面：确认 `.releases/` 下最新时间戳目录的 `deployment.json` 与终端输出的 `RELEASE` 一致，并强制刷新浏览器。
+- 本地部署健康检查失败：脚本会自动回滚。检查 `DEPLOY_SITE_URL` 是否指向运行中的 Docker 栈，以及 `DEPLOY_HEALTH_PATH` 是否与后端 `secure_path` 一致。
