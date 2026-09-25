@@ -11,7 +11,7 @@ import type { AdminDispatch, AdminRootState } from '../../../types/storeContract
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotionContracts';
 import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import { copyText } from '../../../utils/clipboardService';
-import { createReadonlyGiftcardColumns } from './GiftcardColumns';
+import { createGiftcardColumns } from './GiftcardColumns';
 
 interface GiftcardListProps {
     dispatch: AdminDispatch;
@@ -38,7 +38,7 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
 
     render(): React.ReactNode {
         const { giftcard, plan } = this.props;
-        const readonlyColumns = createReadonlyGiftcardColumns(plan.plans);
+        const readonlyColumns = createGiftcardColumns(plan.plans);
         const columns: ColumnProps<GiftcardRecord>[] = [
             readonlyColumns.id,
             readonlyColumns.name,

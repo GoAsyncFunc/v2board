@@ -3,7 +3,7 @@
 export function formatPlanPrice(value: number | null): string {
     return value !== null ? value.toFixed(2) : '-';
 }
-export function createReadonlyPlanPriceColumns() {
+export function createPlanPriceColumns() {
     return {
         month_price: {
             title: '月付',

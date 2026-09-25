@@ -47,7 +47,7 @@ export function renderOrderPeriod(
     return <Tag>{settings.periodText[order.period]}</Tag>;
 }
 
-export function createReadonlyOrderColumns<
+export function createOrderColumns<
     RecordType extends OrderDisplayRecord = OrderDisplayRecord,
 >(): Record<string, ColumnProps<RecordType>> {
     return {

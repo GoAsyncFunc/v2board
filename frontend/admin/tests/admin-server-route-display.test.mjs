@@ -20,7 +20,7 @@ async function load(original) {
     );
     return original
         ? module.exports()
-        : Object.values(module.exports.createReadonlyServerRouteColumns());
+        : Object.values(module.exports.createServerRouteColumns());
 }
 for (const [index, match] of [
     '',

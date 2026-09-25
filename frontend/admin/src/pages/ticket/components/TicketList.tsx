@@ -12,7 +12,7 @@ import type {
     TicketRecord,
     TicketState,
 } from '../../../types/ticketContracts';
-import { createReadonlyTicketColumns } from './TicketColumns';
+import { createTicketColumns } from './TicketColumns';
 
 export interface TicketListProps {
     dispatch: AdminDispatch;
@@ -27,7 +27,7 @@ export interface TicketListProps {
 
 export class TicketList extends React.Component<TicketListProps> {
     columns(filterState: TicketFilterState): ColumnProps<TicketRecord>[] {
-        const readonlyColumns = createReadonlyTicketColumns(['低', '中', '高']);
+        const readonlyColumns = createTicketColumns(['低', '中', '高']);
         return [
             readonlyColumns.id,
             readonlyColumns.subject,

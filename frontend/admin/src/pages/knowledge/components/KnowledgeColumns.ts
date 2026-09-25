@@ -6,7 +6,7 @@ export function formatKnowledgeUpdatedAt(value: KnowledgeTimestamp): string {
     return formatDateTime(value);
 }
 
-export function createReadonlyKnowledgeColumns(): Record<
+export function createKnowledgeColumns(): Record<
     'id' | 'title' | 'category' | 'updated_at',
     ColumnProps<KnowledgeRecord>
 > {

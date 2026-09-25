@@ -14,7 +14,7 @@ async function load(original) {
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require(id) { if (id.includes('utils/dateTimeFormatter')) return dateTime; if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id); } });
-  return original ? module.exports(() => moment) : Object.values(module.exports.createReadonlyNoticeColumns());
+  return original ? module.exports(() => moment) : Object.values(module.exports.createNoticeColumns());
 }
 const normalize = value => JSON.parse(JSON.stringify(value, (key, value) => typeof value === 'function' ? '[render]' : value));
 for (const fail of [false, true]) test(`notice date coercion ${fail}`, async () => {

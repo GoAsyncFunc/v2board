@@ -3,14 +3,14 @@ import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
-import { createReadonlyServerGroupColumns, type ServerGroupRecord } from './ServerGroupColumns';
+import { createServerGroupColumns, type ServerGroupRecord } from './ServerGroupColumns';
 
 interface ServerGroupListProps {
     groups: ServerGroupRecord[];
     onDelete: (id: string | number) => void;
 }
 
-const readonlyColumns = createReadonlyServerGroupColumns();
+const readonlyColumns = createServerGroupColumns();
 
 export default function ServerGroupList({ groups, onDelete }: ServerGroupListProps) {
     const columns: ColumnProps<ServerGroupRecord>[] = [

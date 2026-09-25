@@ -80,7 +80,7 @@ async function loadSource(path, extra = {}) {
                     setPreference: (key, value) => preferences.push({ key, value }),
                 };
             if (id.includes('UserDisplayColumns'))
-                return { createReadonlyUserEmailColumn: () => ({ key: 'email' }) };
+                return { createUserEmailColumn: () => ({ key: 'email' }) };
             if (id.includes('/components/UserFilterDrawer'))
                 return {
                     __esModule: true,

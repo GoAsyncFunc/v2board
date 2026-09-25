@@ -3,7 +3,7 @@ import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createRouteActionColumn } from './RouteActionColumn';
-import { createReadonlyServerRouteColumns } from './ServerRouteColumns';
+import { createServerRouteColumns } from './ServerRouteColumns';
 import type { ServerRouteRecord } from './RouteEditor';
 
 interface ServerRouteListProps {
@@ -13,7 +13,7 @@ interface ServerRouteListProps {
     onDelete: (id: string | number | undefined) => void;
 }
 
-const readonlyColumns = createReadonlyServerRouteColumns<ServerRouteRecord>();
+const readonlyColumns = createServerRouteColumns<ServerRouteRecord>();
 
 export default function ServerRouteList({
     routes,

@@ -22,7 +22,7 @@ async function load(original) {
     if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
   } });
-  return original ? module.exports({ a: React }, { a: 'Tag' }, () => moment) : Object.values(module.exports.createReadonlyCouponColumns());
+  return original ? module.exports({ a: React }, { a: 'Tag' }, () => moment) : Object.values(module.exports.createCouponColumns());
 }
 const normalize = value => JSON.parse(JSON.stringify(value, (key, value) => typeof value === 'function' ? '[render]' : value));
 const records = [];

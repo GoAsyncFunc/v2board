@@ -61,7 +61,7 @@ async function loadPage() {
             }
             if (id.includes('ServerGroupColumns') || id === './ServerGroupColumns')
                 return {
-                    createReadonlyServerGroupColumns: () => ({
+                    createServerGroupColumns: () => ({
                         id: { key: 'id' },
                         name: { key: 'name' },
                         user_count: { key: 'user_count' },

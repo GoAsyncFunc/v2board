@@ -16,7 +16,7 @@ export function renderGroupCount(iconType: string, count: ServerGroupCountValue)
 }
 
 // Counts are rendered directly: no coercion, fallback or added interaction.
-export function createReadonlyServerGroupColumns(): Record<
+export function createServerGroupColumns(): Record<
     'id' | 'name' | 'user_count' | 'server_count',
     ColumnProps<ServerGroupRecord>
 > {

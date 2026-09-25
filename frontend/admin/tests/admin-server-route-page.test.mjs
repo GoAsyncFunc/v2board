@@ -62,7 +62,7 @@ async function loadModule(relativePath) {
             }
             if (id.includes('ServerRouteColumns') || id === './ServerRouteColumns')
                 return {
-                    createReadonlyServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),
+                    createServerRouteColumns: () => ({ id: {}, remarks: {}, match: {} }),
                 };
             if (id === './components/ServerRouteList') {
                 const ServerRouteList = ({ routes, renderEditor, onDelete }) => ({

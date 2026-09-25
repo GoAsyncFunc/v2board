@@ -7,7 +7,7 @@ import Modal from 'antd/lib/modal';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { NoticeRecord } from '../../../types/noticeContracts';
-import { createReadonlyNoticeColumns } from './NoticeColumns';
+import { createNoticeColumns } from './NoticeColumns';
 
 interface NoticeListProps {
     dispatch: AdminDispatch;
@@ -15,7 +15,7 @@ interface NoticeListProps {
     onEdit: (record: NoticeRecord) => void;
 }
 
-const readonlyColumns = createReadonlyNoticeColumns();
+const readonlyColumns = createNoticeColumns();
 
 export class NoticeList extends React.Component<NoticeListProps> {
     show(id: string | number | undefined): void {

@@ -114,8 +114,8 @@ async function loadList(pageName) {
     return loadModule(relativePath, {
         columns: {
             __esModule: true,
-            createReadonlyCouponColumns: () => readonlyCouponColumns,
-            createReadonlyGiftcardColumns: () => readonlyGiftcardColumns,
+            createCouponColumns: () => readonlyCouponColumns,
+            createGiftcardColumns: () => readonlyGiftcardColumns,
         },
     });
 }

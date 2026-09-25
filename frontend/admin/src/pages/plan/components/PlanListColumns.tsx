@@ -10,11 +10,11 @@ import type { AdminDispatch } from '../../../types/storeContracts';
 import type { PlanFieldValue, PlanRecord } from '../../../types/planContracts';
 import PlanEditor from './PlanEditor';
 import { createPlanGroupColumn, type PlanGroup } from './PlanGroupColumn';
-import { createReadonlyPlanPriceColumns } from './PlanPriceColumns';
+import { createPlanPriceColumns } from './PlanPriceColumns';
 import { createPlanResourceColumns } from './PlanResourceColumns';
 
 const resourceColumns = createPlanResourceColumns();
-const priceColumns = createReadonlyPlanPriceColumns();
+const priceColumns = createPlanPriceColumns();
 
 export interface PlanListActions {
     onDrop: (id: number | string | undefined) => void;

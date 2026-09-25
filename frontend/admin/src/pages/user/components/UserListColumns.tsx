@@ -4,7 +4,7 @@ import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { UserGroupOption, UserRecord } from '../../../types/userContracts';
 import { formatDateTime } from '../../../utils/dateTimeFormatter';
-import { createReadonlyUserEmailColumn } from './UserDisplayColumns';
+import { createUserEmailColumn } from './UserDisplayColumns';
 
 export function createUserListColumns(
     groups: UserGroupOption[],
@@ -12,7 +12,7 @@ export function createUserListColumns(
 ): ColumnProps<UserRecord>[] {
     return [
         { title: 'ID', dataIndex: 'id', key: 'id', sorter: true },
-        createReadonlyUserEmailColumn<UserRecord>(),
+        createUserEmailColumn<UserRecord>(),
         {
             title: '状态',
             dataIndex: 'banned',

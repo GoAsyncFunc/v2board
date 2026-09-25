@@ -17,7 +17,7 @@ export function formatRouteMatchCount(match: RouteMatch): string {
             : match.length;
     return `匹配 ${count} 条规则`;
 }
-export function createReadonlyServerRouteColumns<
+export function createServerRouteColumns<
     RecordType extends ReadonlyServerRouteRecord = ReadonlyServerRouteRecord,
 >(): Record<string, ColumnProps<RecordType>> {
     return {

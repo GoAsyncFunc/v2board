@@ -69,7 +69,7 @@ async function loadPage() {
 
 async function loadList() {
     return loadModule('../src/pages/notice/components/NoticeList.tsx', {
-        columns: { __esModule: true, createReadonlyNoticeColumns: () => readonlyColumns },
+        columns: { __esModule: true, createNoticeColumns: () => readonlyColumns },
     });
 }
 

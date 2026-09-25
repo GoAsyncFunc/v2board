@@ -34,7 +34,7 @@ async function load(original) {
         throw Error(id);
     },
   });
-  return original ? module.exports(deps) : module.exports.createReadonlyUserEmailColumn();
+  return original ? module.exports(deps) : module.exports.createUserEmailColumn();
 }
 
 function normalize(value) {

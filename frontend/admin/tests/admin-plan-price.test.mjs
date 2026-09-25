@@ -10,7 +10,7 @@ async function load(original) {
   const file = new URL(original ? './fixtures/pages/admin-plan-price.cjs' : '../src/pages/plan/components/PlanPriceColumns.ts', import.meta.url);
   const source = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? source : (await transform(source, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports });
-  return original ? module.exports() : Object.values(module.exports.createReadonlyPlanPriceColumns());
+  return original ? module.exports() : Object.values(module.exports.createPlanPriceColumns());
 }
 const fields = ['month_price','quarter_price','half_year_price','year_price','two_year_price','three_year_price','onetime_price','reset_price'];
 const values = [1.235, 0, null, undefined, -99.99, '12.34', '', NaN, Infinity, -Infinity, Number.MAX_VALUE, false];

@@ -14,7 +14,7 @@ async function load(original,plans){
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};if(id==='moment'||id.includes('77642f52'))return moment;
   if(id.includes('utils/dateTimeFormatter'))return dateTime;
         throw Error(id);}});
- return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createReadonlyGiftcardColumns(plans));
+ return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createGiftcardColumns(plans));
 }
 function normalize(value){if(Array.isArray(value))return Array.from(value,normalize);if(typeof value==='function')return '[render]';if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,normalize(v)]));return value;}
 const lookupCases = [

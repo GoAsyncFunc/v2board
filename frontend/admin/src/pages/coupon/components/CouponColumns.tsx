@@ -19,7 +19,7 @@ export function renderCouponLimit(limit: CouponRecord['limit_use']) {
     return <Tag>{limit !== null ? limit : '无限'}</Tag>;
 }
 
-export function createReadonlyCouponColumns(): Record<
+export function createCouponColumns(): Record<
     'id' | 'name' | 'type' | 'limit_use' | 'started_at',
     ColumnProps<CouponRecord>
 > {

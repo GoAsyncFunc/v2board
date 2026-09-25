@@ -33,7 +33,7 @@ async function load(original) {
     );
     return original
         ? module.exports({ a: React }, { a: 'Icon' })
-        : Object.values(module.exports.createReadonlyServerGroupColumns());
+        : Object.values(module.exports.createServerGroupColumns());
 }
 function normalize(value) {
     if (Array.isArray(value)) return Array.from(value, normalize);

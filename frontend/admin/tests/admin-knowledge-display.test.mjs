@@ -31,7 +31,7 @@ async function load(original) {
     );
     return original
         ? module.exports(() => moment)
-        : Object.values(module.exports.createReadonlyKnowledgeColumns());
+        : Object.values(module.exports.createKnowledgeColumns());
 }
 const normalize = (value) =>
     JSON.parse(

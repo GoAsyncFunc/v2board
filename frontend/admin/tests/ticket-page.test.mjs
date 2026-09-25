@@ -30,7 +30,7 @@ async function loadPage(userAgent = 'desktop') {
       if (id.includes('MainLayout')) return 'Layout';
       if (id.includes('LoadingContainer')) return 'LoadingContainer';
       if (id.includes('TicketColumns')) return {
-        createReadonlyTicketColumns: () => ({
+        createTicketColumns: () => ({
           id: { key: 'id' }, subject: { key: 'subject' }, level: { key: 'level' },
           created_at: { key: 'created_at' }, updated_at: { key: 'updated_at' },
         }),

@@ -12,7 +12,7 @@ async function columns(original, suppliedSettings=settings){
  const source=await fs.readFile(file,'utf8');const module={exports:{}};
  vm.runInNewContext(original?source:(await transform(source,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id==='moment')return moment;if(id.includes('antdTag'))return Tag;if(id.includes('adminSettingsRuntime'))return suppliedSettings;if(id.includes('config/adminSettings'))return {settings:suppliedSettings.a};if(id.includes('77642f52'))return moment;
         throw Error(id);}});
- return original?module.exports({a:React},Tag,suppliedSettings,()=>moment):Object.values(module.exports.createReadonlyOrderColumns());
+ return original?module.exports({a:React},Tag,suppliedSettings,()=>moment):Object.values(module.exports.createOrderColumns());
 }
 for(const statuses of [[0],[1,2],[3,3]])for(const fail of [false,true])test(`commission short-circuit ${statuses}/${fail}`,async()=>{
  const results=[];for(const original of [true,false]){

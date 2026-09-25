@@ -59,7 +59,7 @@ async function loadModule(relativePath, localComponents = {}) {
             if (id === 'react-loadable') return () => 'MarkdownEditor';
             if (id.includes('KnowledgeColumns') || id === './columns') {
                 return {
-                    createReadonlyKnowledgeColumns: () =>
+                    createKnowledgeColumns: () =>
                         Object.fromEntries(
                             ['id', 'title', 'category', 'updated_at'].map((key) => [
                                 key,

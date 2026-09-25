@@ -12,7 +12,7 @@ async function load(original){
  const dateTime=original?null:await loadDateTimeFormatter(moment);
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id.includes('utils/dateTimeFormatter'))return dateTime;if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});
- return original?module.exports(['低','中','高'],()=>moment):Object.values(module.exports.createReadonlyTicketColumns(['低','中','高']));
+ return original?module.exports(['低','中','高'],()=>moment):Object.values(module.exports.createTicketColumns(['低','中','高']));
 }
 for (const level of [0, 1, 99, '1', Symbol('level')]) test(`ticket level coercion ${String(level)}`, async () => {
   const results=[]; for (const original of [true,false]) { const column=(await load(original)).find(c=>c.key==='level'); let value,error; try { value=column.render(level); } catch(e) { error=e.name; } results.push({value,error}); } assert.deepEqual(results[1],results[0]);
@@ -34,7 +34,7 @@ test('ticket list composes status filters and delegates row actions', async () =
  vm.runInNewContext(code,{module,exports:module.exports,React,Date,require(id){
    if(id==='react')return React;if(id==='react-redux')return {connect:()=>Component=>Component};
    if(id==='antd/lib/table')return 'Table';if(id==='antd/lib/badge')return 'Badge';if(id==='antd/lib/divider')return 'Divider';
-   if(id.includes('TicketColumns'))return {createReadonlyTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
+   if(id.includes('TicketColumns'))return {createTicketColumns:()=>({id:{key:'id'},subject:{key:'subject'},level:{key:'level'},created_at:{key:'created_at'},updated_at:{key:'updated_at'}})};
    throw Error(id);
  }});
  const open=[];const close=[];const change=[];const List=module.exports.TicketList;

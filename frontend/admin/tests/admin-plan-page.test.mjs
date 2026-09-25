@@ -104,7 +104,7 @@ async function loadList() {
         modal: { __esModule: true, default: 'PlanEditor', PlanEditor: 'PlanEditor' },
         groupColumns: { createPlanGroupColumn: () => ({ key: 'group_id' }) },
         priceColumns: {
-            createReadonlyPlanPriceColumns: () =>
+            createPlanPriceColumns: () =>
                 Object.fromEntries(
                     [
                         'month_price',

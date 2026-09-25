@@ -6,7 +6,7 @@ export function formatNoticeCreatedAt(value: NoticeTimestamp): string {
     return formatDateTime(value);
 }
 
-export function createReadonlyNoticeColumns(): Record<
+export function createNoticeColumns(): Record<
     'id' | 'title' | 'created_at',
     ColumnProps<NoticeRecord>
 > {

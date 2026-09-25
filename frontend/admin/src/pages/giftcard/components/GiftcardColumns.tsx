@@ -57,7 +57,7 @@ export function formatGiftcardValidity(card: GiftcardRecord): string {
     return `${startsAt} ~ ${endsAt}`;
 }
 
-export function createReadonlyGiftcardColumns(
+export function createGiftcardColumns(
     plans: GiftcardPlan[] | null | undefined,
 ): Record<
     'id' | 'name' | 'type' | 'value' | 'plan_id' | 'limit_use' | 'started_at',

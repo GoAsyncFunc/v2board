@@ -9,9 +9,9 @@ import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch } from '../../../types/storeContracts';
 import type { OrderRecord } from '../../../types/orderContracts';
 import { ConnectedOrderDetailModal } from './OrderDetailModal';
-import { createReadonlyOrderColumns } from './OrderColumns';
+import { createOrderColumns } from './OrderColumns';
 
-const readonlyColumns = createReadonlyOrderColumns<OrderRecord>();
+const readonlyColumns = createOrderColumns<OrderRecord>();
 const ORDER_BADGE_STATUS = ['error', 'processing', 'default', 'success', 'default'] as const;
 const COMMISSION_BADGE_STATUS = ['default', 'processing', 'success', 'error'] as const;
 

@@ -5,13 +5,13 @@ import Modal from 'antd/lib/modal';
 import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import { createReadonlyKnowledgeColumns } from './KnowledgeColumns';
+import { createKnowledgeColumns } from './KnowledgeColumns';
 import SortableTable, { TableDragHandle } from '../../../components/common/SortableTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledgeContracts';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
 
-const readonlyColumns = createReadonlyKnowledgeColumns();
+const readonlyColumns = createKnowledgeColumns();
 
 interface KnowledgeListProps {
     dispatch: AdminDispatch;

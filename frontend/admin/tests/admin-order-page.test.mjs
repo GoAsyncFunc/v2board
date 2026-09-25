@@ -129,7 +129,7 @@ async function loadList() {
     const orderListColumns = await loadModule('../src/pages/order/components/OrderListColumns.tsx', {
         detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
         columns: {
-            createReadonlyOrderColumns: () => ({
+            createOrderColumns: () => ({
                 type: { key: 'type' },
                 period: { key: 'period' },
                 total_amount: { key: 'total_amount' },

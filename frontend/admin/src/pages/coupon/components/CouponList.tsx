@@ -11,7 +11,7 @@ import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { CouponRecord, CouponState } from '../../../types/promotionContracts';
 import { copyText } from '../../../utils/clipboardService';
-import { createReadonlyCouponColumns } from './CouponColumns';
+import { createCouponColumns } from './CouponColumns';
 
 interface CouponListProps {
     dispatch: AdminDispatch;
@@ -41,7 +41,7 @@ export class CouponList extends React.Component<CouponListProps> {
 
     render(): React.ReactNode {
         const { coupon } = this.props;
-        const readonlyColumns = createReadonlyCouponColumns();
+        const readonlyColumns = createCouponColumns();
         const columns: ColumnProps<CouponRecord>[] = [
             readonlyColumns.id,
             {

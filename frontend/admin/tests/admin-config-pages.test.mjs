@@ -140,7 +140,7 @@ async function loadPaymentModule(relativePath) {
                 return { createPaymentNotifyColumn: () => ({ key: 'notify_url' }) };
             if (id.includes('PaymentDisplayColumns'))
                 return {
-                    createReadonlyPaymentColumns: () => ({
+                    createPaymentColumns: () => ({
                         name: { key: 'name' },
                         payment: { key: 'payment' },
                     }),

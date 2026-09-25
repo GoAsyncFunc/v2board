@@ -18,7 +18,7 @@ export function formatTicketUpdatedAt(value: TicketTimestamp): string {
     return formatDateTime(value);
 }
 
-export function createReadonlyTicketColumns(
+export function createTicketColumns(
     levels: readonly React.ReactNode[],
 ): Record<'id' | 'subject' | 'level' | 'created_at' | 'updated_at', ColumnProps<TicketRecord>> {
     return {

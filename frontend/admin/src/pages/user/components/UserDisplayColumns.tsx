@@ -21,7 +21,7 @@ export function renderUserOnlineStatus(lastSeen: UserTimestamp): 'default' | 'su
 }
 
 // Readonly email/online column; no sorter, filter or event handlers.
-export function createReadonlyUserEmailColumn<
+export function createUserEmailColumn<
     RecordType extends UserListRecord = UserListRecord,
 >(): ColumnProps<RecordType> {
     return {
