@@ -410,13 +410,13 @@ test('admin model composition uses named business effects instead of module alia
             'payment',
             'plan',
             'serverGroup',
-            'serverManage',
             'serverRoute',
             'system',
             'theme',
             'ticket',
             'user',
         ].map((namespace) => ({ file: namespace, namespace })),
+        { file: 'serverManagement', namespace: 'serverManage' },
         { file: 'dashboardStatistics', namespace: 'stat' },
     ];
     for (const { file, namespace } of directModels) {

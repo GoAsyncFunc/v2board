@@ -19,12 +19,13 @@ const protocolModelExports = {
 };
 
 async function loadModel(modelName) {
+    const modelFileName = modelName === 'serverManage' ? 'serverManagement' : modelName;
     const result = await build({
         absWorkingDir: appRoot,
         entryPoints: [
             protocolModelExports[modelName]
                 ? 'src/models/serverProtocolModels.ts'
-                : `src/models/${modelName}.ts`,
+                : `src/models/${modelFileName}.ts`,
         ],
         bundle: true,
         write: false,
