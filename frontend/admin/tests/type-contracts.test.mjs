@@ -209,3 +209,31 @@ test('admin display and plan fields use declared value contracts', async () => {
         /record\.(?:transfer_enable|device_limit|capacity_limit|speed_limit) as/,
     );
 });
+
+test('admin and user loading plugins normalize dynamic action keys explicitly', async () => {
+    for (const project of ['admin', 'user']) {
+        const source = await fs.readFile(
+            path.resolve(sourceRoot, '..', '..', project, 'src', 'runtime', 'loadingPlugin.ts'),
+            'utf8',
+        );
+        assert.match(source, /const modelNamespace = String\(payload\.namespace\)/);
+        assert.match(source, /const actionType = String\(payload\.actionType\)/);
+        assert.doesNotMatch(source, /payload\.(?:namespace|actionType) as string/);
+    }
+});
+
+test('admin filter controls use explicit field lookup and option values', async () => {
+    const input = await fs.readFile(
+        path.join(sourceRoot, 'components', 'common', 'FilterValueInput.tsx'),
+        'utf8',
+    );
+    const drawer = await fs.readFile(
+        path.join(sourceRoot, 'components', 'common', 'FilterDrawer.tsx'),
+        'utf8',
+    );
+
+    assert.match(input, /value=\{option\.value \?\? undefined\}/);
+    assert.match(drawer, /if \(!fieldConfig\) throw new TypeError/);
+    assert.doesNotMatch(drawer, /value as string/);
+    assert.doesNotMatch(drawer, /find\([\s\S]*\) as FilterField/);
+});

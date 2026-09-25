@@ -30,7 +30,7 @@ export function FilterValueInput({
                 {field.options.map((option) => (
                     <Select.Option
                         key={`${option.key}-${option.value}`}
-                        value={option.value as string | number | undefined}
+                        value={option.value ?? undefined}
                     >
                         {option.key}
                     </Select.Option>

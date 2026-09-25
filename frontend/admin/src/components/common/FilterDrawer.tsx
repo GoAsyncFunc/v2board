@@ -46,12 +46,11 @@ export class FilterDrawer extends React.Component<FilterDrawerProps, FilterDrawe
         const filter = this.state.filter.map((item, itemIndex) => {
             if (itemIndex !== index) return item;
             if (field === 'key') {
-                const fieldConfig = this.props.keys.find(
-                    (candidate) => candidate.key === value,
-                ) as FilterField;
+                const fieldConfig = this.props.keys.find((candidate) => candidate.key === value);
+                if (!fieldConfig) throw new TypeError('Filter field was not provided');
                 return {
                     ...item,
-                    key: value as string,
+                    key: String(value),
                     condition: fieldConfig.condition[0],
                     value: '',
                 };

@@ -50,8 +50,8 @@ export default function createLoadingPlugin(options: LoadingPluginOptions = {}):
         action: LoadingAction = { type: '' },
     ): LoadingState {
         const payload = action.payload || {};
-        const modelNamespace = payload.namespace as string;
-        const actionType = payload.actionType as string;
+        const modelNamespace = String(payload.namespace);
+        const actionType = String(payload.actionType);
         if (action.type === SHOW_LOADING) {
             return {
                 ...state,
