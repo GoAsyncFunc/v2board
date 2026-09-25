@@ -1804,16 +1804,16 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "pages/queue/components/QueueColumns.ts",
-    "to": "types/monitoringContracts.ts"
-  },
-  {
     "from": "pages/queue/components/QueueOverview.tsx",
     "to": "types/monitoringContracts.ts"
   },
   {
+    "from": "pages/queue/components/QueueWorkloadColumns.ts",
+    "to": "types/monitoringContracts.ts"
+  },
+  {
     "from": "pages/queue/components/QueueWorkloadTable.tsx",
-    "to": "pages/queue/components/QueueColumns.ts"
+    "to": "pages/queue/components/QueueWorkloadColumns.ts"
   },
   {
     "from": "pages/queue/components/QueueWorkloadTable.tsx",

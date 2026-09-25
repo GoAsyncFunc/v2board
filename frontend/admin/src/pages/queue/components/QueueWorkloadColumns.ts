@@ -23,7 +23,7 @@ export function formatQueueWait(value: QueueWait): string {
     return value + 's';
 }
 
-export function createReadonlyQueueColumns(): ColumnProps<QueueWorkload>[] {
+export function createQueueWorkloadColumns(): ColumnProps<QueueWorkload>[] {
     return [
         { title: '队列名称', dataIndex: 'name', key: 'name', render: formatQueueName },
         { title: '作业量', dataIndex: 'processes', key: 'processes' },

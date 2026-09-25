@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from 'antd/lib/table';
-import { createReadonlyQueueColumns } from './QueueColumns';
+import { createQueueWorkloadColumns } from './QueueWorkloadColumns';
 import type { QueueWorkload } from '../../../types/monitoringContracts';
 
 interface QueueWorkloadTableProps {
@@ -19,7 +19,7 @@ export default function QueueWorkloadTable({
             </div>
             <div className="block-content p-0">
                 <Table<QueueWorkload>
-                    columns={createReadonlyQueueColumns()}
+                    columns={createQueueWorkloadColumns()}
                     dataSource={visibleWorkload}
                     pagination={false}
                 />

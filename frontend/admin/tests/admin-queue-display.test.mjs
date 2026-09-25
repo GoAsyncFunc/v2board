@@ -11,7 +11,7 @@ async function load(original) {
     const file = new URL(
         original
             ? './fixtures/pages/admin-queue-display.cjs'
-            : '../src/pages/queue/components/QueueColumns.ts',
+            : '../src/pages/queue/components/QueueWorkloadColumns.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');
@@ -25,7 +25,7 @@ async function load(original) {
             },
         },
     );
-    return original ? module.exports() : module.exports.createReadonlyQueueColumns();
+    return original ? module.exports() : module.exports.createQueueWorkloadColumns();
 }
 const normalize = (value) =>
     JSON.parse(
