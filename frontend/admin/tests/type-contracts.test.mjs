@@ -131,3 +131,13 @@ test('admin business boundary types avoid broad object placeholders', async () =
     assert.match(monitoringTypes, /interface CoercibleQueueWait/);
     assert.match(managePage, /type ServerProtocolAction = 'copy' \| 'drop' \| 'update'/);
 });
+
+test('admin plan model narrows configured price fields and numeric values explicitly', async () => {
+    const source = await fs.readFile(path.join(sourceRoot, 'models', 'planModel.ts'), 'utf8');
+
+    assert.match(source, /function isPlanPriceField\(value: string\): value is PlanPriceField/);
+    assert.match(source, /Math\.round\(100 \* Number\(price\)\)/);
+    assert.match(source, /Number\(price\) \/ 100/);
+    assert.doesNotMatch(source, /Object\.keys\(settings\.periodText\) as PlanPriceField\[\]/);
+    assert.doesNotMatch(source, /plan\[period\] as number/);
+});

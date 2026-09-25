@@ -33,14 +33,19 @@ type PlanEffect = ModelEffect<PlanYield>;
 
 const endpoint = (action: string): string => `/${window.settings.secure_path}/plan/${action}`;
 const initialState: PlanState = { plans: [], fetchLoading: false };
+const configuredPlanPriceFields = Object.keys(settings.periodText);
+
+function isPlanPriceField(value: string): value is PlanPriceField {
+    return configuredPlanPriceFields.includes(value);
+}
 
 // Preserve mutation, null handling and JavaScript numeric coercion used by the edit form.
 export function convertPrices(plan: PlanRecord, toMinorUnits: boolean): PlanRecord {
-    for (const period of Object.keys(settings.periodText) as PlanPriceField[]) {
-        if (plan[period] !== null) {
-            plan[period] = toMinorUnits
-                ? Math.round(100 * (plan[period] as number))
-                : (plan[period] as number) / 100;
+    for (const field of configuredPlanPriceFields) {
+        if (!isPlanPriceField(field)) continue;
+        const price = plan[field];
+        if (price !== null) {
+            plan[field] = toMinorUnits ? Math.round(100 * Number(price)) : Number(price) / 100;
         }
     }
     return plan;
