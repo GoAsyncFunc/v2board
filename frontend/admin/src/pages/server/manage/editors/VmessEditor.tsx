@@ -10,6 +10,10 @@ import { VmessChildSettingsPanel } from './Vmess/ChildSettingsPanel';
 import VmessGeneralFields from './Vmess/GeneralFields';
 import VmessNetworkFields from './Vmess/NetworkFields';
 import VmessRelationshipFields from './Vmess/RelationshipFields';
+import {
+    formatServerJsonStateValue,
+    prepareServerJsonRequestValue,
+} from './serverJsonEditorValues';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -20,9 +24,7 @@ import type { AdminRootState } from '../../../../types/storeContracts';
 
 function prepareServer(record?: ServerRecord): ServerRecord {
     const server = record ? { ...record } : { tls: 0, rate: 1 };
-    if (server.networkSettings && typeof server.networkSettings === 'object') {
-        server.networkSettings = JSON.stringify(server.networkSettings, null, 2);
-    }
+    server.networkSettings = formatServerJsonStateValue(server.networkSettings);
     return server;
 }
 
@@ -65,11 +67,7 @@ export class VmessEditor extends React.Component<VmessEditorProps, VmessEditorSt
             const { server } = this.state;
             const params = {
                 ...server,
-                networkSettings: server.networkSettings
-                    ? typeof server.networkSettings === 'string'
-                        ? JSON.parse(server.networkSettings)
-                        : server.networkSettings
-                    : null,
+                networkSettings: prepareServerJsonRequestValue(server.networkSettings),
                 dnsSettings: server.dnsSettings?.servers?.length ? server.dnsSettings : null,
             };
             this.props.dispatch({

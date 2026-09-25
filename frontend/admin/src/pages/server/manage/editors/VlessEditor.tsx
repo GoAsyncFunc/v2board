@@ -6,6 +6,10 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import VlessGeneralFields from './Vless/GeneralFields';
 import VlessRelationshipFields from './Vless/RelationshipFields';
 import { VlessChildSettingsPanel } from './Vless/ChildSettingsPanel';
+import {
+    formatServerJsonStateValue,
+    prepareServerJsonRequestValue,
+} from './serverJsonEditorValues';
 import type {
     ChildDrawerState,
     ServerEditorProps,
@@ -35,8 +39,7 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
 
     open(): void {
         const server = { ...this.state.server };
-        if (server.network_settings && typeof server.network_settings === 'object')
-            server.network_settings = JSON.stringify(server.network_settings, null, 2);
+        server.network_settings = formatServerJsonStateValue(server.network_settings);
         this.setState({ visible: true, server });
     }
 
@@ -56,11 +59,7 @@ export class VlessEditor extends React.Component<VlessEditorProps, VlessEditorSt
     save(): void {
         try {
             const payload = { ...this.state.server };
-            payload.network_settings = payload.network_settings
-                ? typeof payload.network_settings === 'string'
-                    ? JSON.parse(payload.network_settings)
-                    : payload.network_settings
-                : null;
+            payload.network_settings = prepareServerJsonRequestValue(payload.network_settings);
             this.props.dispatch({
                 type: 'serverVless/save',
                 params: payload,

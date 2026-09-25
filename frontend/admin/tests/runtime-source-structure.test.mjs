@@ -1370,11 +1370,9 @@ test('Trojan network settings use the server model value contract', async () => 
         'utf8',
     );
     assert.match(networkSource, /value\?: ServerRecord\['network_settings'\]/);
-    assert.match(
-        networkSource,
-        /formatNetworkSettings\(value: ServerRecord\['network_settings'\]\)/,
-    );
-    assert.doesNotMatch(networkSource, /value\?: unknown|formatNetworkSettings\(value: unknown\)/);
+    assert.match(networkSource, /formatServerJsonEditorValue\(value\)/);
+    assert.match(networkSource, /from ['"]\.\.\/serverJsonEditorValues['"]/);
+    assert.doesNotMatch(networkSource, /value\?: unknown|formatNetworkSettings\(/);
 });
 
 test('Vless editor composes focused general and relationship field modules', async () => {

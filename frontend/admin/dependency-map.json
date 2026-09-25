@@ -2185,6 +2185,10 @@
   },
   {
     "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
     "to": "types/serverContracts.ts"
   },
   {
@@ -2206,6 +2210,10 @@
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
     "to": "pages/server/manage/editors/Trojan/RelationshipFields.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/TrojanEditor.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
@@ -2270,6 +2278,10 @@
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
     "to": "pages/server/manage/editors/serverEditorTypes.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
@@ -2413,6 +2425,10 @@
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/V2NodeEditor.tsx",
     "to": "types/serverContracts.ts"
   },
   {
@@ -2434,6 +2450,10 @@
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
     "to": "pages/server/manage/editors/serverEditorTypes.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
@@ -2477,6 +2497,10 @@
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/VlessEditor.tsx",
     "to": "types/serverContracts.ts"
   },
   {
@@ -2498,6 +2522,10 @@
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
     "to": "pages/server/manage/editors/Vmess/TlsSettings.tsx"
+  },
+  {
+    "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
@@ -2577,6 +2605,10 @@
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
+    "to": "pages/server/manage/editors/serverJsonEditorValues.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/VmessEditor.tsx",
     "to": "types/serverContracts.ts"
   },
   {
@@ -2585,6 +2617,10 @@
   },
   {
     "from": "pages/server/manage/editors/serverEditorTypes.ts",
+    "to": "types/serverContracts.ts"
+  },
+  {
+    "from": "pages/server/manage/editors/serverJsonEditorValues.ts",
     "to": "types/serverContracts.ts"
   },
   {

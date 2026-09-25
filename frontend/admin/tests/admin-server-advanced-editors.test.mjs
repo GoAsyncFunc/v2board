@@ -22,6 +22,20 @@ const React = {
 
 const Input = Object.assign('Input', { TextArea: 'Input.TextArea' });
 const Select = Object.assign('Select', { Option: 'Select.Option' });
+const serverJsonEditorValues = {
+    formatServerJsonEditorValue(value) {
+        if (typeof value === 'string') return value;
+        return value ? JSON.stringify(value, null, 2) : '';
+    },
+    formatServerJsonStateValue(value) {
+        if (typeof value === 'string' || !value) return value;
+        return JSON.stringify(value, null, 2);
+    },
+    prepareServerJsonRequestValue(value) {
+        if (!value) return null;
+        return typeof value === 'string' ? JSON.parse(value) : value;
+    },
+};
 
 async function loadComponent(componentName) {
     const source = await fs.readFile(
@@ -46,6 +60,7 @@ async function loadComponent(componentName) {
             if (id === './Vmess/DnsSettings') return { DnsSettings: 'DnsSettings' };
             if (id === './Vmess/RuleSettings') return { RuleSettings: 'RuleSettings' };
             if (id === './Vmess/TlsSettings') return { TlsSettings: 'TlsSettings' };
+            if (id === './serverJsonEditorValues') return serverJsonEditorValues;
             if (id.endsWith('.js')) return {};
             return { __esModule: true, default: id };
         },

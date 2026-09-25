@@ -5,6 +5,7 @@ import { DnsSettings } from './DnsSettings';
 import { RuleSettings } from './RuleSettings';
 import { TlsSettings } from './TlsSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
+import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(
@@ -37,12 +38,7 @@ export function VmessChildSettingsPanel({
     onChange,
 }: VmessChildSettingsPanelProps): React.ReactElement | null {
     if (childDrawer.type === 'networkSettings') {
-        const value =
-            typeof server.networkSettings === 'string'
-                ? server.networkSettings
-                : server.networkSettings
-                  ? JSON.stringify(server.networkSettings, null, 2)
-                  : '';
+        const value = formatServerJsonEditorValue(server.networkSettings);
         return (
             <div id="v2ray-protocol">
                 <div className="form-group">

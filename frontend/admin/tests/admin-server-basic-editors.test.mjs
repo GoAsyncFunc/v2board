@@ -24,6 +24,17 @@ function createReact() {
   };
 }
 
+const serverJsonEditorValues = {
+  formatServerJsonStateValue(value) {
+    if (typeof value === 'string' || !value) return value;
+    return JSON.stringify(value, null, 2);
+  },
+  prepareServerJsonRequestValue(value) {
+    if (!value) return null;
+    return typeof value === 'string' ? JSON.parse(value) : value;
+  },
+};
+
 async function loadEditor(file) {
   const source = await fs.readFile(new URL(`../src/pages/server/manage/editors/${file}.tsx`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
@@ -37,6 +48,7 @@ async function loadEditor(file) {
       if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Select.Option' });
       if (id === 'antd/lib/input') return Object.assign('Input', { TextArea: 'Input.TextArea' });
       if (id.startsWith('antd/')) return id;
+      if (id === './serverJsonEditorValues') return serverJsonEditorValues;
       return { __esModule: true, default: id };
     },
   });

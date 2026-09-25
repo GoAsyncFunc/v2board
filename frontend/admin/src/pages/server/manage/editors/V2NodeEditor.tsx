@@ -7,6 +7,10 @@ import V2NodeProtocolFields from './V2Node/ProtocolFields';
 import V2NodeProtocolSpecificFields from './V2Node/ProtocolSpecificFields';
 import V2NodeRelationshipFields from './V2Node/RelationshipFields';
 import { V2NodeChildSettingsPanel } from './V2Node/ChildSettingsPanel';
+import {
+    formatServerJsonStateValue,
+    prepareServerJsonRequestValue,
+} from './serverJsonEditorValues';
 import type { V2NodeSettingsPanel } from './serverEditorTypes';
 import type {
     ChildDrawerState,
@@ -48,8 +52,7 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
 
     open(): void {
         const server = { ...this.state.server };
-        if (server.network_settings && typeof server.network_settings === 'object')
-            server.network_settings = JSON.stringify(server.network_settings, null, 2);
+        server.network_settings = formatServerJsonStateValue(server.network_settings);
         this.setState({ visible: true, server });
     }
 
@@ -72,11 +75,7 @@ export class V2NodeEditor extends React.Component<V2NodeEditorProps, V2NodeEdito
 
     save(): void {
         const payload = JSON.parse(JSON.stringify(this.state.server));
-        payload.network_settings = payload.network_settings
-            ? typeof payload.network_settings === 'string'
-                ? JSON.parse(payload.network_settings)
-                : payload.network_settings
-            : null;
+        payload.network_settings = prepareServerJsonRequestValue(payload.network_settings);
         delete payload.install_command;
         this.props.dispatch({
             type: 'serverV2node/save',

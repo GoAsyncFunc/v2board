@@ -5,6 +5,7 @@ import { TlsSettings } from '../Security/TlsSettings';
 import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
 import type { OpenVlessSettings, UpdateVlessServer } from '../serverEditorTypes';
+import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(
@@ -42,12 +43,7 @@ export function VlessChildSettingsPanel({
     onChange,
 }: VlessChildSettingsPanelProps): React.ReactElement | null {
     if (childDrawer.type === 'network_settings') {
-        const value =
-            typeof server.network_settings === 'string'
-                ? server.network_settings
-                : server.network_settings
-                  ? JSON.stringify(server.network_settings, null, 2)
-                  : '';
+        const value = formatServerJsonEditorValue(server.network_settings);
         return (
             <div id="v2ray-protocol">
                 <div className="form-group">

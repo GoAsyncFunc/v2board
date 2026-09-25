@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import JsonEditor from '../JsonEditor';
+import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
 import type { ServerRecord } from '../../../../../types/serverContracts';
 
 export const NETWORK_PRESETS: Record<string, string> = {
@@ -14,11 +15,6 @@ export interface TrojanNetworkSettingsProps {
     value?: ServerRecord['network_settings'];
     onChange: (value: string) => void;
     onClose?: () => void;
-}
-
-function formatNetworkSettings(value: ServerRecord['network_settings']): string {
-    if (typeof value === 'string') return value;
-    return value ? JSON.stringify(value, null, 2) : '';
 }
 
 export function TrojanNetworkSettings({
@@ -44,7 +40,7 @@ export function TrojanNetworkSettings({
                     showPrintMargin
                     showGutter
                     highlightActiveLine
-                    value={formatNetworkSettings(value)}
+                    value={formatServerJsonEditorValue(value)}
                     onChange={onChange}
                     setOptions={{
                         enableBasicAutocompletion: false,

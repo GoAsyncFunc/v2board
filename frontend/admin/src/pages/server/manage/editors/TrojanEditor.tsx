@@ -5,6 +5,10 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { TrojanNetworkSettings } from './Trojan/NetworkSettings';
 import { TrojanGeneralFields } from './Trojan/GeneralFields';
 import { TrojanRelationshipFields } from './Trojan/RelationshipFields';
+import {
+    formatServerJsonStateValue,
+    prepareServerJsonRequestValue,
+} from './serverJsonEditorValues';
 import type {
     ServerEditorProps,
     ServerRecord,
@@ -14,9 +18,7 @@ import type { AdminRootState } from '../../../../types/storeContracts';
 
 function prepareServer(record?: ServerRecord): ServerRecord {
     const server = record ? { ...record } : { tls: 0, rate: 1 };
-    if (server.network_settings && typeof server.network_settings === 'object') {
-        server.network_settings = JSON.stringify(server.network_settings, null, 2);
-    }
+    server.network_settings = formatServerJsonStateValue(server.network_settings);
     return server;
 }
 
@@ -51,11 +53,7 @@ export class TrojanEditor extends React.Component<TrojanEditorProps, TrojanEdito
         const { server } = this.state;
         const params = {
             ...server,
-            network_settings: server.network_settings
-                ? typeof server.network_settings === 'string'
-                    ? JSON.parse(server.network_settings)
-                    : server.network_settings
-                : null,
+            network_settings: prepareServerJsonRequestValue(server.network_settings),
         };
         this.props.dispatch({ type: 'serverTrojan/save', params, callback: () => this.toggle() });
     }

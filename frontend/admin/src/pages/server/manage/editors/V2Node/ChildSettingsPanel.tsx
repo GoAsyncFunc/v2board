@@ -4,6 +4,7 @@ import { TlsSettings } from '../Security/TlsSettings';
 import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
 import type { UpdateV2Node } from '../serverEditorTypes';
+import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(
@@ -72,8 +73,7 @@ function JsonSettingsEditor({
     id: string;
     onChange: UpdateV2Node;
 }): React.ReactElement {
-    const editorValue =
-        typeof value === 'string' ? value : value == null ? '' : JSON.stringify(value, null, 2);
+    const editorValue = formatServerJsonEditorValue(value);
     return (
         <div id={id}>
             <div className="form-group">
