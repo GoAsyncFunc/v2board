@@ -6,7 +6,7 @@ import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import { formatMessage } from '../../locales/i18n';
 import { isExpired } from '../../utils/siteHelpers';
-import { router } from '../../app/navigation';
+import { router } from '../../app/navigationService';
 import { couponDiscount, totalAmount } from '../../components/commerce/checkout/Pricing';
 import { CouponDiscount } from '../../components/commerce/checkout/Coupon';
 import PlanPurchaseDetails from '../../components/subscription/checkout/PlanPurchaseDetails';

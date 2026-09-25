@@ -1,6 +1,6 @@
 import { get } from '../services/apiClient';
 import { localeSettings } from '../config/localeSettings';
-import { router } from '../app/navigation';
+import { router } from '../app/navigationService';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import type { ApiResponse } from '../types/apiContracts';
 import type {

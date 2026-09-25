@@ -160,7 +160,7 @@
     "to": "app/history.ts"
   },
   {
-    "from": "app/navigation.ts",
+    "from": "app/navigationService.ts",
     "to": "app/history.ts"
   },
   {
@@ -469,7 +469,7 @@
   },
   {
     "from": "components/commerce/checkout/OrderStatusResult.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "components/commerce/checkout/OrderStatusResult.tsx",
@@ -1005,7 +1005,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -1637,7 +1637,7 @@
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/subscription/PlanDetail.tsx",

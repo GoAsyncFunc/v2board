@@ -100,7 +100,7 @@ async function load(original, trace, expired) {
                                 }
                             },
                         };
-                    if (id.includes('app/navigation'))
+                    if (id.includes('app/navigationService'))
                         return { router: { push: (route) => trace.push(['navigate', route]) } };
                     if (id.includes('4172412b'))
                         return { router: { push: (route) => trace.push(['navigate', route]) } };
