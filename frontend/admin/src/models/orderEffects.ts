@@ -2,7 +2,7 @@ import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/api';
 import type { FilterItem, FilterValue } from '../types/filter';
 import type { AssignOrderParams, OrderPagination, OrderRecord, OrderState } from '../types/order';
-import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
 import type { AdminAction, AdminRootState } from '../types/store';
 
 type OrderStoreState = Pick<AdminRootState, 'order'>;

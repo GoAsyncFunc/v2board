@@ -8,7 +8,7 @@ import type {
     PromotionSort,
 } from '../types/promotion';
 import type { AdminAction, AdminRootState } from '../types/store';
-import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type GiftcardRootState = Pick<AdminRootState, 'giftcard'>;
 interface GiftcardTools extends ModelEffectTools<GiftcardRootState> {}

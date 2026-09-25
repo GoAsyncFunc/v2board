@@ -8,7 +8,7 @@ import type {
     TicketState,
 } from '../types/ticket';
 import type { AdminAction, AdminRootState } from '../types/store';
-import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type TicketRootState = Pick<AdminRootState, 'ticket' | 'user'>;
 interface TicketTools extends ModelEffectTools<TicketRootState> {}

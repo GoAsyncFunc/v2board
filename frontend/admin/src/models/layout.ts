@@ -1,6 +1,6 @@
 import type { LayoutState } from '../types/session';
 import type { AdminRootState } from '../types/store';
-import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 interface ShowNavigationAction {
     show?: boolean;

@@ -10,7 +10,7 @@ import {
 import type { FilterItem } from '../types/filter';
 import type { AdminLoginData, AdminUserInfo } from '../types/session';
 import type { AdminAction, AdminRootState } from '../types/store';
-import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/user';
 import history from '../app/navigation';
 import { getToken } from '../utils/siteHelpers';

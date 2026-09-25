@@ -2,7 +2,7 @@ import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
 import type { ServerId, ServerRouteOption, ServerRouteState } from '../types/server';
 import type { AdminAction } from '../types/store';
-import type { ModelEffect, PutEffectTools } from '../types/effects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface ServerRouteEffectTools extends PutEffectTools {}
 

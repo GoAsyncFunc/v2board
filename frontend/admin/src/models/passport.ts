@@ -3,7 +3,7 @@ import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
 import type { AdminLoginData, PassportState } from '../types/session';
-import type { ModelEffect, PutEffectTools } from '../types/effects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface PassportLoginAction {
     email: string;

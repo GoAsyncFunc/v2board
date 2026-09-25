@@ -1,4 +1,4 @@
-import type { PropertyLabelMap } from '../types/lookup';
+import type { PropertyLabelMap } from '../types/propertyLookups';
 
 export interface AdminSettings {
     i18nText: PropertyLabelMap;

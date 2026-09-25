@@ -9,7 +9,7 @@ import type {
     SiteConfig,
 } from '../types/configurationValues';
 import type { AdminAction, AdminRootState } from '../types/store';
-import type { ModelEffect, ModelEffectTools } from '../types/effects';
+import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type ConfigRootState = Pick<AdminRootState, 'config'>;
 interface ConfigTools extends ModelEffectTools<ConfigRootState> {}

@@ -3,7 +3,7 @@ import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import '../config/adminSettings';
 import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
 import type { AdminAction } from '../types/store';
-import type { ModelEffect, PutEffectTools } from '../types/effects';
+import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface ThemeEffectTools extends PutEffectTools {}
 interface ThemeNameAction {

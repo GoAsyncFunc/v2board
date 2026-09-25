@@ -510,7 +510,7 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
     const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
     const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
     const effectTypes = await fs.readFile(
-        new URL('../src/types/effects.ts', import.meta.url),
+        new URL('../src/types/modelEffects.ts', import.meta.url),
         'utf8',
     );
     const loadingRuntime = await fs.readFile(

@@ -233,7 +233,7 @@
   },
   {
     "from": "config/adminSettings.ts",
-    "to": "types/lookup.ts"
+    "to": "types/propertyLookups.ts"
   },
   {
     "from": "layouts/Header/HeaderLayout.tsx",
@@ -317,7 +317,7 @@
   },
   {
     "from": "models/administratorAuthentication.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/administratorAuthentication.ts",
@@ -337,7 +337,7 @@
   },
   {
     "from": "models/configurationModel.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/configurationModel.ts",
@@ -353,7 +353,7 @@
   },
   {
     "from": "models/coupon.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/coupon.ts",
@@ -373,7 +373,7 @@
   },
   {
     "from": "models/dashboardStatistics.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/dashboardStatistics.ts",
@@ -393,7 +393,7 @@
   },
   {
     "from": "models/giftcard.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/giftcard.ts",
@@ -413,11 +413,11 @@
   },
   {
     "from": "models/knowledge.ts",
-    "to": "types/effects.ts"
+    "to": "types/knowledge.ts"
   },
   {
     "from": "models/knowledge.ts",
-    "to": "types/knowledge.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/knowledge.ts",
@@ -425,7 +425,7 @@
   },
   {
     "from": "models/layout.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/layout.ts",
@@ -445,7 +445,7 @@
   },
   {
     "from": "models/notice.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/notice.ts",
@@ -473,11 +473,11 @@
   },
   {
     "from": "models/orderEffects.ts",
-    "to": "types/effects.ts"
+    "to": "types/filter.ts"
   },
   {
     "from": "models/orderEffects.ts",
-    "to": "types/filter.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/orderEffects.ts",
@@ -501,7 +501,7 @@
   },
   {
     "from": "models/passport.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/passport.ts",
@@ -525,7 +525,7 @@
   },
   {
     "from": "models/payment.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/payment.ts",
@@ -549,7 +549,7 @@
   },
   {
     "from": "models/plan.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/plan.ts",
@@ -569,7 +569,7 @@
   },
   {
     "from": "models/serverGroup.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/serverGroup.ts",
@@ -589,7 +589,7 @@
   },
   {
     "from": "models/serverManagement.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/serverManagement.ts",
@@ -609,7 +609,7 @@
   },
   {
     "from": "models/serverProtocolModels.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/serverProtocolModels.ts",
@@ -625,7 +625,7 @@
   },
   {
     "from": "models/serverRoute.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/serverRoute.ts",
@@ -645,7 +645,7 @@
   },
   {
     "from": "models/system.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/system.ts",
@@ -669,7 +669,7 @@
   },
   {
     "from": "models/theme.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/theme.ts",
@@ -689,7 +689,7 @@
   },
   {
     "from": "models/ticket.ts",
-    "to": "types/effects.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/ticket.ts",
@@ -729,11 +729,11 @@
   },
   {
     "from": "models/userEffects.ts",
-    "to": "types/effects.ts"
+    "to": "types/filter.ts"
   },
   {
     "from": "models/userEffects.ts",
-    "to": "types/filter.ts"
+    "to": "types/modelEffects.ts"
   },
   {
     "from": "models/userEffects.ts",
@@ -1969,7 +1969,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerNameColumn.tsx",
-    "to": "types/lookup.ts"
+    "to": "types/propertyLookups.ts"
   },
   {
     "from": "pages/server/manage/components/ServerRateColumn.tsx",
@@ -2613,7 +2613,7 @@
   },
   {
     "from": "pages/server/route/components/RouteActionColumn.ts",
-    "to": "types/lookup.ts"
+    "to": "types/propertyLookups.ts"
   },
   {
     "from": "pages/server/route/components/RouteActionField.tsx",
@@ -3144,16 +3144,16 @@
     "to": "types/store.ts"
   },
   {
-    "from": "types/effects.ts",
+    "from": "types/knowledge.ts",
+    "to": "types/date.ts"
+  },
+  {
+    "from": "types/modelEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "types/effects.ts",
+    "from": "types/modelEffects.ts",
     "to": "types/store.ts"
-  },
-  {
-    "from": "types/knowledge.ts",
-    "to": "types/date.ts"
   },
   {
     "from": "types/notice.ts",
