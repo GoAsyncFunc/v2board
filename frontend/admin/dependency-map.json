@@ -752,10 +752,6 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "pages/AdminHomeRedirect.tsx",
-    "to": "app/navigation.ts"
-  },
-  {
     "from": "pages/config/payment/PaymentConfigPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -1182,6 +1178,10 @@
   {
     "from": "pages/coupon/components/CouponValueFields.tsx",
     "to": "types/promotion.ts"
+  },
+  {
+    "from": "pages/dashboard/AdminHomeRedirect.tsx",
+    "to": "app/navigation.ts"
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
@@ -2993,10 +2993,6 @@
   },
   {
     "from": "routes/adminRoutes.ts",
-    "to": "pages/AdminHomeRedirect.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
     "to": "pages/config/payment/PaymentConfigPage.tsx"
   },
   {
@@ -3010,6 +3006,10 @@
   {
     "from": "routes/adminRoutes.ts",
     "to": "pages/coupon/CouponPage.tsx"
+  },
+  {
+    "from": "routes/adminRoutes.ts",
+    "to": "pages/dashboard/AdminHomeRedirect.tsx"
   },
   {
     "from": "routes/adminRoutes.ts",

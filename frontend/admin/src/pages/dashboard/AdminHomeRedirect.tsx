@@ -1,5 +1,5 @@
 import React from 'react';
-import history from '../app/navigation';
+import history from '../../app/navigation';
 
 export default class AdminHomeRedirect extends React.Component {
     componentDidMount(): void {

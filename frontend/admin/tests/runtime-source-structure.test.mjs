@@ -820,7 +820,7 @@ test('admin pages select from the canonical root state', async () => {
         domainEntries
             .filter((entry) => entry.isFile() && entry.name.endsWith('.tsx'))
             .map((entry) => entry.name),
-        ['AdminHomeRedirect.tsx'],
+        [],
     );
 
     for (const domain of expectedDomains) {

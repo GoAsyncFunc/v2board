@@ -1,4 +1,4 @@
-import AdminHomeRedirect from '../pages/AdminHomeRedirect';
+import AdminHomeRedirect from '../pages/dashboard/AdminHomeRedirect';
 import Login from '../pages/login/LoginPage';
 import Order from '../pages/order/OrderPage';
 import Plan from '../pages/plan/PlanPage';
