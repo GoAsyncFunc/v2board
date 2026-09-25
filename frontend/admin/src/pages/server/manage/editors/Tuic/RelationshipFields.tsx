@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import type { ServerRecord, ServerRouteOption } from '../../../../../types/server';
+import type { ServerRecord, ServerRouteOption } from '../../../../../types/serverContracts';
 
 export interface TuicRelationshipFieldsProps {
     server: ServerRecord;

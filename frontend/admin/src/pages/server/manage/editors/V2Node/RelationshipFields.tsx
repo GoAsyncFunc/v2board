@@ -6,7 +6,7 @@ import type {
     ManagedServerRecord,
     ServerRecord,
     ServerRouteOption,
-} from '../../../../../types/server';
+} from '../../../../../types/serverContracts';
 import type { UpdateV2Node } from '../serverEditorTypes';
 
 interface V2NodeRelationshipFieldsProps {

@@ -5,7 +5,7 @@ import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
 import { UserFormFields } from './UserFormFields';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
-import type { UserModuleState, UserPlanOption, UserRecord } from '../../../types/user';
+import type { UserModuleState, UserPlanOption, UserRecord } from '../../../types/userContracts';
 
 interface UserEditorOwnProps {
     userId?: string | number;

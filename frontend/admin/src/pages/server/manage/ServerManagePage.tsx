@@ -12,7 +12,7 @@ import type {
     ServerGroupState,
     ServerManageState,
     ServerRecord,
-} from '../../../types/server';
+} from '../../../types/serverContracts';
 
 type ServerProtocolAction = 'copy' | 'drop' | 'update';
 interface ServerUpdatePayload<Key extends keyof ServerRecord = keyof ServerRecord> {

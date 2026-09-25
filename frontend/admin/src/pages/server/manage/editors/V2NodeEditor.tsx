@@ -13,7 +13,7 @@ import type {
     ServerEditorProps,
     ServerRecord,
     ServerSaveState,
-} from '../../../../types/server';
+} from '../../../../types/serverContracts';
 import type { AdminRootState } from '../../../../types/store';
 
 const TLS_PROTOCOLS = ['anytls', 'hysteria2', 'trojan', 'tuic'];

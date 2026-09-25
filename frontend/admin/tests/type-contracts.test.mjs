@@ -59,7 +59,10 @@ test('admin source uses explicit nullable and successful-response contracts', as
 });
 
 test('server security settings use protocol-specific fields instead of a generic string index', async () => {
-    const typeSource = await fs.readFile(path.join(sourceRoot, 'types', 'server.ts'), 'utf8');
+    const typeSource = await fs.readFile(
+        path.join(sourceRoot, 'types', 'serverContracts.ts'),
+        'utf8',
+    );
     const componentSource = await fs.readFile(
         path.join(
             sourceRoot,
@@ -102,7 +105,7 @@ test('server security settings use protocol-specific fields instead of a generic
 
 test('admin business boundary types avoid broad object placeholders', async () => {
     const relativePaths = [
-        'types/user.ts',
+        'types/userContracts.ts',
         'types/monitoring.ts',
         'pages/server/manage/ServerManagePage.tsx',
         'components/common/ContextMenuTable.tsx',
@@ -115,7 +118,10 @@ test('admin business boundary types avoid broad object placeholders', async () =
         assert.doesNotMatch(source, /:\s*object\b|extends\s+object\b|=\s*object\b/, relativePath);
     }
 
-    const userTypes = await fs.readFile(path.join(sourceRoot, 'types', 'user.ts'), 'utf8');
+    const userTypes = await fs.readFile(
+        path.join(sourceRoot, 'types', 'userContracts.ts'),
+        'utf8',
+    );
     const monitoringTypes = await fs.readFile(
         path.join(sourceRoot, 'types', 'monitoring.ts'),
         'utf8',

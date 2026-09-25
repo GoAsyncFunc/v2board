@@ -5,7 +5,11 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { TuicGeneralFields } from './Tuic/GeneralFields';
 import { TuicRelationshipFields } from './Tuic/RelationshipFields';
 import { TuicTransportSettings } from './Tuic/TransportSettings';
-import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
+import type {
+    ServerEditorProps,
+    ServerRecord,
+    ServerSaveState,
+} from '../../../../types/serverContracts';
 import type { AdminRootState } from '../../../../types/store';
 
 interface TuicEditorProps extends ServerEditorProps {

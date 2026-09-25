@@ -1,6 +1,6 @@
 import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
-import type { ServerGroupOption, ServerGroupState, ServerId } from '../types/server';
+import type { ServerGroupOption, ServerGroupState, ServerId } from '../types/serverContracts';
 import type { AdminAction } from '../types/store';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 

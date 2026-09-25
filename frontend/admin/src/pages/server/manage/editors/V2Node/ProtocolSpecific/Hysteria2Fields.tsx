@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { ServerRecord } from '../../../../../../types/server';
+import type { ServerRecord } from '../../../../../../types/serverContracts';
 import type { UpdateV2Node } from '../../serverEditorTypes';
 
 export function Hysteria2Fields({

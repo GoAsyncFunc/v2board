@@ -17,7 +17,7 @@ import type {
     UserModuleState,
     UserPlanOption,
     UserRecord,
-} from '../../types/user';
+} from '../../types/userContracts';
 
 interface UserPageProps {
     dispatch: AdminDispatch;

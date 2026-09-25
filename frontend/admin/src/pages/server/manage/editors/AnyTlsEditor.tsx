@@ -5,7 +5,11 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { AnyTlsPaddingScheme } from './AnyTls/PaddingScheme';
 import { AnyTlsGeneralFields } from './AnyTls/GeneralFields';
 import { AnyTlsRelationshipFields } from './AnyTls/RelationshipFields';
-import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
+import type {
+    ServerEditorProps,
+    ServerRecord,
+    ServerSaveState,
+} from '../../../../types/serverContracts';
 import type { AdminRootState } from '../../../../types/store';
 
 interface AnyTlsEditorProps extends ServerEditorProps {

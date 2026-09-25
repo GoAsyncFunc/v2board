@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { NodeTlsSettings } from '../../../../../types/server';
+import type { NodeTlsSettings } from '../../../../../types/serverContracts';
 
 type SecurityInputValue = string | number | null | undefined;
 

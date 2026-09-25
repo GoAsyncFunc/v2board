@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { UserGroupOption, UserRecord } from '../../../types/user';
+import type { UserGroupOption, UserRecord } from '../../../types/userContracts';
 import { formatDateTime } from '../../../utils/dateTime';
 import { createReadonlyUserEmailColumn } from './UserDisplayColumns';
 

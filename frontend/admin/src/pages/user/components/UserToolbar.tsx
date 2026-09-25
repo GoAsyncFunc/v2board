@@ -8,7 +8,7 @@ import UserFilterDrawer from './UserFilterDrawer';
 import SendMailEditor from './SendMailEditor';
 import UserGenerator from './UserGenerator';
 import type { FilterItem } from '../../../types/filter';
-import type { UserPlanOption } from '../../../types/user';
+import type { UserPlanOption } from '../../../types/userContracts';
 
 interface UserToolbarProps {
     filter: FilterItem[];

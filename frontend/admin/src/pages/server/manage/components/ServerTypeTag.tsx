@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
-import type { ServerProtocolType } from '../../../../types/server';
+import type { ServerProtocolType } from '../../../../types/serverContracts';
 
 export function renderServerTypeTag(
     type: ServerProtocolType | string | null | undefined,

@@ -11,7 +11,7 @@ import type {
     ManagedServerRecord,
     ServerGroupOption,
     ServerRecord,
-} from '../../../../types/server';
+} from '../../../../types/serverContracts';
 import { SERVER_TYPE_FILTERS } from '../editors/ServerEditorRegistry';
 import { createServerNameColumn } from './ServerNameColumn';
 import { createServerRateColumn } from './ServerRateColumn';

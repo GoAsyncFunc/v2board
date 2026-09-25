@@ -7,7 +7,7 @@ import LoadingContainer from '../../../components/common/LoadingContainer';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
 import ServerGroupList from './components/ServerGroupList';
 import type { ServerGroupRecord } from './components/ServerGroupColumns';
-import type { ServerGroupState } from '../../../types/server';
+import type { ServerGroupState } from '../../../types/serverContracts';
 import type { AdminDispatch, AdminRootState } from '../../../types/store';
 
 interface ServerGroupPageProps {

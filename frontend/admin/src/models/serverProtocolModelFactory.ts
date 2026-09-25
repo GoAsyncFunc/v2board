@@ -5,7 +5,7 @@ import {
     type FormRecord,
     type FormValue,
 } from '../types/api';
-import type { ServerId, ServerProtocolState } from '../types/server';
+import type { ServerId, ServerProtocolState } from '../types/serverContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface ServerProtocolModelOptions {

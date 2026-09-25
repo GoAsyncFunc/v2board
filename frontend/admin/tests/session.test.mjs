@@ -54,7 +54,7 @@ async function run(target, original, scenario) {
                     id.includes('types/modelEffects') ||
                     id.includes('types/filter') ||
                     id.includes('types/store') ||
-                    id.includes('types/user')
+                    id.includes('types/userContracts')
                 )
                     return {};
                 throw Error(id);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { ServerGroupCountValue, ServerGroupOption } from '../../../../types/server';
+import type { ServerGroupCountValue, ServerGroupOption } from '../../../../types/serverContracts';
 
 export type ServerGroupRecord = ServerGroupOption;
 

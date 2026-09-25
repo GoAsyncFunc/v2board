@@ -43,7 +43,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                     id.includes('types/filter') ||
                     id.includes('types/session') ||
                     id.includes('types/store') ||
-                    id.includes('types/user')
+                    id.includes('types/userContracts')
                 )
                     return {};
                 throw Error(id);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { UserPlanOption, UserRecord } from '../../../types/user';
+import type { UserPlanOption, UserRecord } from '../../../types/userContracts';
 import { FormGroup } from './FormGroup';
 import { UserAccountSettingsFields } from './UserAccountSettingsFields';
 import { UserMoneyFields } from './UserMoneyFields';

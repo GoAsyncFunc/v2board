@@ -2,7 +2,11 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
-import type { EchMode, NodeTlsSettings, TlsFingerprint } from '../../../../../types/server';
+import type {
+    EchMode,
+    NodeTlsSettings,
+    TlsFingerprint,
+} from '../../../../../types/serverContracts';
 
 export interface TlsAdvancedSettingsProps {
     settings: NodeTlsSettings;

@@ -593,7 +593,7 @@
   },
   {
     "from": "models/serverGroup.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "models/serverGroup.ts",
@@ -613,7 +613,7 @@
   },
   {
     "from": "models/serverManagement.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "models/serverManagement.ts",
@@ -633,7 +633,7 @@
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "models/serverRoute.ts",
@@ -649,7 +649,7 @@
   },
   {
     "from": "models/serverRoute.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "models/serverRoute.ts",
@@ -705,7 +705,7 @@
   },
   {
     "from": "models/user.ts",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "models/user.ts",
@@ -745,7 +745,7 @@
   },
   {
     "from": "models/userEffects.ts",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "models/userEffects.ts",
@@ -1841,7 +1841,7 @@
   },
   {
     "from": "pages/server/group/ServerGroupPage.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/group/ServerGroupPage.tsx",
@@ -1849,7 +1849,7 @@
   },
   {
     "from": "pages/server/group/components/ServerGroupColumns.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/group/components/ServerGroupList.tsx",
@@ -1877,7 +1877,7 @@
   },
   {
     "from": "pages/server/manage/ServerManagePage.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/ServerManagePage.tsx",
@@ -1893,7 +1893,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageActions.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
@@ -1917,7 +1917,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
@@ -1933,7 +1933,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageMobileList.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/components/ServerManageToolbar.tsx",
@@ -1965,7 +1965,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageWorkspace.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/components/ServerNameColumn.tsx",
@@ -1973,11 +1973,11 @@
   },
   {
     "from": "pages/server/manage/components/ServerRateColumn.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/components/ServerTypeTag.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/AnyTls/GeneralFields.tsx",
@@ -1985,7 +1985,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTls/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/AnyTls/PaddingScheme.tsx",
@@ -1993,7 +1993,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTls/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
@@ -2013,7 +2013,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
@@ -2025,15 +2025,15 @@
   },
   {
     "from": "pages/server/manage/editors/Hysteria/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Hysteria/ObfuscationSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Hysteria/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
@@ -2053,7 +2053,7 @@
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
@@ -2061,19 +2061,19 @@
   },
   {
     "from": "pages/server/manage/editors/Security/EncryptionSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Security/TlsAdvancedSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Security/TlsCertificateSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Security/TlsRealitySettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Security/TlsSettings.tsx",
@@ -2089,7 +2089,7 @@
   },
   {
     "from": "pages/server/manage/editors/Security/TlsSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
@@ -2129,7 +2129,7 @@
   },
   {
     "from": "pages/server/manage/editors/ServerEditorRegistry.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Shadowsocks/GeneralFields.tsx",
@@ -2137,15 +2137,15 @@
   },
   {
     "from": "pages/server/manage/editors/Shadowsocks/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Shadowsocks/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Shadowsocks/SecuritySettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
@@ -2165,7 +2165,7 @@
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
@@ -2177,7 +2177,7 @@
   },
   {
     "from": "pages/server/manage/editors/Trojan/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
@@ -2185,11 +2185,11 @@
   },
   {
     "from": "pages/server/manage/editors/Trojan/NetworkSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Trojan/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
@@ -2209,7 +2209,7 @@
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
@@ -2221,15 +2221,15 @@
   },
   {
     "from": "pages/server/manage/editors/Tuic/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Tuic/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Tuic/TransportSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
@@ -2249,7 +2249,7 @@
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
@@ -2273,7 +2273,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/GeneralFields.tsx",
@@ -2285,7 +2285,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
@@ -2301,7 +2301,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx",
@@ -2309,7 +2309,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx",
@@ -2317,7 +2317,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx",
@@ -2325,7 +2325,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/TuicFields.tsx",
@@ -2333,7 +2333,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/TuicFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/VlessFields.tsx",
@@ -2341,7 +2341,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/VlessFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
@@ -2365,7 +2365,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/RelationshipFields.tsx",
@@ -2373,7 +2373,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/TransportFields.tsx",
@@ -2381,7 +2381,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/TransportFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
@@ -2413,7 +2413,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
@@ -2437,7 +2437,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/GeneralFields.tsx",
@@ -2449,7 +2449,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/RelationshipFields.tsx",
@@ -2457,7 +2457,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
@@ -2477,7 +2477,7 @@
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
@@ -2501,11 +2501,11 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/DnsSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/GeneralFields.tsx",
@@ -2517,7 +2517,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/GeneralFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/NetworkFields.tsx",
@@ -2525,7 +2525,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/NetworkFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/RelationshipFields.tsx",
@@ -2533,15 +2533,15 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/RelationshipFields.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/RuleSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/TlsSettings.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
@@ -2577,7 +2577,7 @@
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
@@ -2585,7 +2585,7 @@
   },
   {
     "from": "pages/server/manage/editors/serverEditorTypes.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "pages/server/route/ServerRoutePage.tsx",
@@ -2797,7 +2797,7 @@
   },
   {
     "from": "pages/user/UserPage.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/UserPage.tsx",
@@ -2809,7 +2809,7 @@
   },
   {
     "from": "pages/user/components/SendMailEditor.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
@@ -2825,11 +2825,11 @@
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserDisplayColumns.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserDisplayColumns.tsx",
@@ -2845,7 +2845,7 @@
   },
   {
     "from": "pages/user/components/UserEditor.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserFilterDrawer.tsx",
@@ -2857,7 +2857,7 @@
   },
   {
     "from": "pages/user/components/UserFilterDrawer.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
@@ -2877,7 +2877,7 @@
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserGenerationForm.tsx",
@@ -2893,7 +2893,7 @@
   },
   {
     "from": "pages/user/components/UserGenerator.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserList.tsx",
@@ -2917,7 +2917,7 @@
   },
   {
     "from": "pages/user/components/UserList.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
@@ -2937,7 +2937,7 @@
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
@@ -2949,7 +2949,7 @@
   },
   {
     "from": "pages/user/components/UserListColumns.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserListColumns.tsx",
@@ -2957,7 +2957,7 @@
   },
   {
     "from": "pages/user/components/UserMoneyFields.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserToolbar.tsx",
@@ -2977,7 +2977,7 @@
   },
   {
     "from": "pages/user/components/UserToolbar.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",
@@ -2989,7 +2989,7 @@
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "routes/adminRoutes.ts",
@@ -3168,12 +3168,12 @@
     "to": "types/date.ts"
   },
   {
-    "from": "types/server.ts",
+    "from": "types/serverContracts.ts",
     "to": "types/store.ts"
   },
   {
     "from": "types/session.ts",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "types/store.ts",
@@ -3213,7 +3213,7 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/server.ts"
+    "to": "types/serverContracts.ts"
   },
   {
     "from": "types/store.ts",
@@ -3229,18 +3229,18 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/user.ts"
+    "to": "types/userContracts.ts"
   },
   {
     "from": "types/ticket.ts",
     "to": "types/date.ts"
   },
   {
-    "from": "types/user.ts",
+    "from": "types/userContracts.ts",
     "to": "types/date.ts"
   },
   {
-    "from": "types/user.ts",
+    "from": "types/userContracts.ts",
     "to": "types/filter.ts"
   },
   {

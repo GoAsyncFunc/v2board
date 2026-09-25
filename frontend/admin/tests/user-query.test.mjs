@@ -46,7 +46,7 @@ async function run(original, scenario) {
                 if (id.includes('types/filter')) return {};
                 if (id.includes('types/session')) return {};
                 if (id.includes('types/store')) return {};
-                if (id.includes('types/user')) return {};
+                if (id.includes('types/userContracts')) return {};
                 if (id.includes('services/download')) return { downloadCsv() {} };
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
                 if (id.includes('app/navigation')) return { push() {} };

@@ -1,4 +1,4 @@
-import type { UserRecord } from './user';
+import type { UserRecord } from './userContracts';
 
 export interface AdminLoginData {
     auth_data: string;

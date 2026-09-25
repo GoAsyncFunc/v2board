@@ -6,7 +6,7 @@ import type {
     ManagedServerRecord,
     ServerGroupOption,
     ServerRecord,
-} from '../../../../types/server';
+} from '../../../../types/serverContracts';
 import { createServerManageColumns, createServerSortColumns } from './ServerManageColumns';
 import ServerManageMobileList from './ServerManageMobileList';
 import {

@@ -9,7 +9,7 @@ import V2NodeEditor from './V2NodeEditor';
 import VlessEditor from './VlessEditor';
 import VmessEditor from './VmessEditor';
 import { renderServerTypeTag } from '../components/ServerTypeTag';
-import type { ServerProtocolType, ServerRecord } from '../../../../types/server';
+import type { ServerProtocolType, ServerRecord } from '../../../../types/serverContracts';
 
 type ServerEditorComponent = React.ComponentType<{
     children: React.ReactElement;

@@ -3,7 +3,7 @@ import Input from 'antd/lib/input';
 import { TlsAdvancedSettings } from './TlsAdvancedSettings';
 import { TlsCertificateSettings } from './TlsCertificateSettings';
 import { TlsRealitySettings } from './TlsRealitySettings';
-import type { NodeTlsSettings } from '../../../../../types/server';
+import type { NodeTlsSettings } from '../../../../../types/serverContracts';
 
 export interface TlsSettingsProps {
     settings?: NodeTlsSettings | null;

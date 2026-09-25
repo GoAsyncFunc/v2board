@@ -3,9 +3,9 @@ import Badge from 'antd/lib/badge';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { formatDateTime } from '../../../utils/dateTime';
-import type { UserTimestamp } from '../../../types/user';
+import type { UserTimestamp } from '../../../types/userContracts';
 
-export type { UserTimestamp } from '../../../types/user';
+export type { UserTimestamp } from '../../../types/userContracts';
 
 export interface UserListRecord {
     email?: string | null;

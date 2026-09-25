@@ -5,7 +5,11 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { ShadowsocksSecuritySettings } from './Shadowsocks/SecuritySettings';
 import { ShadowsocksGeneralFields } from './Shadowsocks/GeneralFields';
 import { ShadowsocksRelationshipFields } from './Shadowsocks/RelationshipFields';
-import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
+import type {
+    ServerEditorProps,
+    ServerRecord,
+    ServerSaveState,
+} from '../../../../types/serverContracts';
 import type { AdminRootState } from '../../../../types/store';
 
 interface ShadowsocksEditorProps extends ServerEditorProps {

@@ -4,7 +4,7 @@ import JsonEditor from '../../../../../components/common/JsonEditor';
 import { DnsSettings } from './DnsSettings';
 import { RuleSettings } from './RuleSettings';
 import { TlsSettings } from './TlsSettings';
-import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
+import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

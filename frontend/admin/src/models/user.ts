@@ -17,7 +17,7 @@ import {
     generate as generateUsers,
 } from './userEffects';
 import { checkLogin, getUserInfo } from './userEffects';
-import type { UserModuleState } from '../types/user';
+import type { UserModuleState } from '../types/userContracts';
 
 const initialState: UserModuleState = {
     userInfo: {},

@@ -2,7 +2,7 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import PermissionGroupEditor from '../../../../../components/common/PermissionGroupEditor';
-import type { ServerGroupOption, ServerRecord } from '../../../../../types/server';
+import type { ServerGroupOption, ServerRecord } from '../../../../../types/serverContracts';
 import type { OpenVlessSettings, UpdateVlessServer } from '../serverEditorTypes';
 
 interface VlessGeneralFieldsProps {

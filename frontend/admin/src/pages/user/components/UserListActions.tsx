@@ -7,7 +7,7 @@ import TrafficPanel from '../../../components/user/TrafficPanel';
 import { copyToClipboard } from '../../../utils/siteHelpers';
 import UserEditor from './UserEditor';
 import type { FilterValue } from '../../../types/filter';
-import type { UserRecord } from '../../../types/user';
+import type { UserRecord } from '../../../types/userContracts';
 
 export interface UserListActions {
     onResetSecret: (user?: UserRecord) => void;

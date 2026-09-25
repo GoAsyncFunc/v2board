@@ -5,7 +5,11 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { TrojanNetworkSettings } from './Trojan/NetworkSettings';
 import { TrojanGeneralFields } from './Trojan/GeneralFields';
 import { TrojanRelationshipFields } from './Trojan/RelationshipFields';
-import type { ServerEditorProps, ServerRecord, ServerSaveState } from '../../../../types/server';
+import type {
+    ServerEditorProps,
+    ServerRecord,
+    ServerSaveState,
+} from '../../../../types/serverContracts';
 import type { AdminRootState } from '../../../../types/store';
 
 function prepareServer(record?: ServerRecord): ServerRecord {

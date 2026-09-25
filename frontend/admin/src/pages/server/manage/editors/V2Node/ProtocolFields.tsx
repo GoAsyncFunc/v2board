@@ -1,6 +1,6 @@
 import React from 'react';
 import { Fragment } from 'react';
-import type { ServerRecord } from '../../../../../types/server';
+import type { ServerRecord } from '../../../../../types/serverContracts';
 import type { OpenV2NodeSettings, UpdateV2Node } from '../serverEditorTypes';
 import V2NodeProtocolSelectionFields from './ProtocolSelectionFields';
 import V2NodeTransportFields from './TransportFields';

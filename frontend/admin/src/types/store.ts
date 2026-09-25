@@ -12,11 +12,11 @@ import type {
     ServerManageState,
     ServerProtocolState,
     ServerRouteState,
-} from './server';
+} from './serverContracts';
 import type { AdministratorAuthenticationState, LayoutState, PassportState } from './session';
 import type { ThemeState } from './theme';
 import type { TicketState } from './ticket';
-import type { UserModuleState } from './user';
+import type { UserModuleState } from './userContracts';
 
 export interface AdminAction {
     type: string;

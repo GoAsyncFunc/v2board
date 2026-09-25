@@ -3,7 +3,7 @@ import { Hysteria2Fields } from './ProtocolSpecific/Hysteria2Fields';
 import { TuicFields } from './ProtocolSpecific/TuicFields';
 import { ShadowsocksFields } from './ProtocolSpecific/ShadowsocksFields';
 import { VlessFields } from './ProtocolSpecific/VlessFields';
-import type { ServerRecord } from '../../../../../types/server';
+import type { ServerRecord } from '../../../../../types/serverContracts';
 import type { OpenV2NodeSettings, UpdateV2Node } from '../serverEditorTypes';
 
 interface V2NodeProtocolSpecificFieldsProps {
