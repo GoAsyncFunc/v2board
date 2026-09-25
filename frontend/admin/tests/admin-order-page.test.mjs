@@ -53,7 +53,7 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
             if (id === 'react-redux') return { connect: () => (Component) => Component };
             if (id === 'antd/lib/button') return Button;
             if (id === 'antd/lib/menu') return Menu;
-            if (id.includes('app/navigation')) {
+            if (id.includes('app/navigationService')) {
                 return { __esModule: true, default: { push: (route) => routes.push(route) } };
             }
             if (id.includes('services/apiClient')) {

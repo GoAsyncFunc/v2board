@@ -1,6 +1,6 @@
 import { post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import history from '../app/navigation';
+import history from '../app/navigationService';
 import { setToken } from '../utils/siteHelpers';
 import type { AdminLoginData, PassportState } from '../types/authenticationContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';

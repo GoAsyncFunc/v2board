@@ -1,6 +1,6 @@
 import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
-import history from '../app/navigation';
+import history from '../app/navigationService';
 import type {
     AdminLoginData,
     AdministratorAuthenticationState,

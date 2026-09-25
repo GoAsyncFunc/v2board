@@ -70,7 +70,7 @@ async function loadSource(path, extra = {}) {
                 return Object.assign('Select', { Option: 'Select.Option' });
             if (id.startsWith('antd/')) return id;
             if (id === 'moment') return (value) => ({ format: (pattern) => `${pattern}:${value}` });
-            if (id.includes('routerHistory') || id.includes('app/navigation'))
+            if (id.includes('routerHistory') || id.includes('app/navigationService'))
                 return { __esModule: true, default: { push: (path) => routes.push(path) } };
             if (id.includes('siteHelpers'))
                 return {

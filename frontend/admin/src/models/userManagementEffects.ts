@@ -12,7 +12,7 @@ import type { AdminLoginData, AdminUserInfo } from '../types/authenticationContr
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffectContracts';
 import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/userContracts';
-import history from '../app/navigation';
+import history from '../app/navigationService';
 import { getToken } from '../utils/siteHelpers';
 
 type UserRootState = Pick<AdminRootState, 'user'>;

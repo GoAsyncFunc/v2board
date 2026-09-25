@@ -4,7 +4,7 @@ import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
 import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import LoadingContainer from '../../components/common/LoadingContainer';
-import history from '../../app/navigation';
+import history from '../../app/navigationService';
 import { setPreference } from '../../utils/siteHelpers';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';

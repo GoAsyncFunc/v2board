@@ -24,7 +24,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/app/historyFactory.ts',
         '../src/app/store.tsx',
         '../src/app/dvaConfig.ts',
-        '../src/app/navigation.ts',
+        '../src/app/navigationService.ts',
         '../src/app/requestPresentation.ts',
         '../src/app/rootRuntime.tsx',
         '../src/runtime/dvaApplication.tsx',

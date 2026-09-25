@@ -36,7 +36,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                 if (id === 'moment') return () => ({ format: () => '2026-01-02 03:04:05' });
                 if (id.includes('csvDownloadService'))
                     return { downloadCsv: (...args) => trace.push(['download', ...args]) };
-                if (id.includes('app/navigation')) return { push() {} };
+                if (id.includes('app/navigationService')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 if (
                     id.includes('types/modelEffectContracts') ||

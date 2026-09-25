@@ -75,7 +75,7 @@ async function loadDashboard() {
             if (id === 'echarts/features') return { LabelLayout: 'LabelLayout' };
             if (id === 'echarts/renderers') return { SVGRenderer: 'SVGRenderer' };
             if (id.includes('reactRedux')) return { connect: () => (Component) => Component };
-            if (id.includes('routerHistory') || id.includes('app/navigation'))
+            if (id.includes('routerHistory') || id.includes('app/navigationService'))
                 return { __esModule: true, default: history, push: history.push };
             if (id.includes('MainLayout')) return 'MainLayout';
             if (id.includes('services/apiClient'))
@@ -240,7 +240,7 @@ async function loadDashboardAlerts() {
                         children,
                     }),
                 };
-            if (id.includes('app/navigation')) return { __esModule: true, default: history };
+            if (id.includes('app/navigationService')) return { __esModule: true, default: history };
             throw new Error(id);
         },
     });
@@ -489,7 +489,7 @@ test('Admin home redirects to login on mount', async () => {
                     },
                     createElement: () => ({}),
                 };
-            if (id.includes('routerHistory') || id.includes('app/navigation'))
+            if (id.includes('routerHistory') || id.includes('app/navigationService'))
                 return { push: (path) => actions.push(path) };
             throw new Error(id);
         },

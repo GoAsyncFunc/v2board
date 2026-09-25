@@ -70,7 +70,7 @@ async function load(target, name, original, trace, response) {
             };
         if (id.includes('types/apiContracts'))
             return { isSuccessfulResponse: (response) => response.code === 200 };
-        if (id.includes('routerHistory') || id.includes('app/navigation')) return history;
+        if (id.includes('routerHistory') || id.includes('app/navigationService')) return history;
         if (id.includes('siteHelpers')) return helpers;
         throw Error('Unexpected dependency ' + id);
     };

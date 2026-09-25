@@ -1,5 +1,5 @@
 import React from 'react';
-import history from '../../../app/navigation';
+import history from '../../../app/navigationService';
 import type { DashboardStats } from '../../../types/monitoringContracts';
 
 interface DashboardAlertsProps {

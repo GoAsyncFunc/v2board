@@ -48,7 +48,7 @@ async function run(original, scenario) {
                 if (id.includes('types/userContracts')) return {};
                 if (id.includes('services/csvDownloadService')) return { downloadCsv() {} };
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
-                if (id.includes('app/navigation')) return { push() {} };
+                if (id.includes('app/navigationService')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 throw Error(id);
             },

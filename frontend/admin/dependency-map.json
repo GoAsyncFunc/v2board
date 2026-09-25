@@ -60,7 +60,7 @@
     "to": "app/history.ts"
   },
   {
-    "from": "app/navigation.ts",
+    "from": "app/navigationService.ts",
     "to": "app/history.ts"
   },
   {
@@ -305,7 +305,7 @@
   },
   {
     "from": "models/adminAuthenticationModel.ts",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "models/adminAuthenticationModel.ts",
@@ -325,7 +325,7 @@
   },
   {
     "from": "models/adminPassportModel.ts",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "models/adminPassportModel.ts",
@@ -701,7 +701,7 @@
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
@@ -1181,11 +1181,11 @@
   },
   {
     "from": "pages/dashboard/AdminHomeRedirect.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
@@ -1229,7 +1229,7 @@
   },
   {
     "from": "pages/dashboard/components/DashboardAlerts.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardAlerts.tsx",
@@ -1257,7 +1257,7 @@
   },
   {
     "from": "pages/dashboard/components/DashboardNavigation.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardOverview.tsx",
@@ -1585,7 +1585,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
@@ -2753,7 +2753,7 @@
   },
   {
     "from": "pages/user/UserPage.tsx",
-    "to": "app/navigation.ts"
+    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/user/UserPage.tsx",
