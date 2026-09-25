@@ -11,7 +11,7 @@ const clone = value => structuredClone(value);
 async function load() {
   const result = await build({
     absWorkingDir: root,
-    entryPoints: ['src/models/configuration.ts'],
+    entryPoints: ['src/models/configurationModel.ts'],
     bundle: true,
     write: false,
     platform: 'node',

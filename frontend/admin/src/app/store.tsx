@@ -5,7 +5,7 @@ import loadingPlugin from '../runtime/loadingPlugin';
 import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
 import administratorAuthentication from '../models/administratorAuthentication';
-import configurationModel from '../models/configuration';
+import configurationModel from '../models/configurationModel';
 import coupon from '../models/coupon';
 import giftcard from '../models/giftcard';
 import knowledge from '../models/knowledge';
