@@ -39,6 +39,9 @@ export interface DashboardStats {
     commission_pending_total?: DisplayScalar;
 }
 
+export type DashboardIncomeKey =
+    'month_income' | 'last_month_income' | 'commission_last_month_payout';
+
 export interface QueueStats {
     jobsPerMinute?: number;
     recentJobs?: number;

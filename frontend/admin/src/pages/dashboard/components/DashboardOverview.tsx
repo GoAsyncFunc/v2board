@@ -1,6 +1,12 @@
 import React from 'react';
 import { formatIncome, formatLiveCount } from '../../../components/common/MoneyDisplay';
-import type { DashboardStats } from '../../../types/monitoringContracts';
+import type { DashboardIncomeKey, DashboardStats } from '../../../types/monitoringContracts';
+
+const dashboardIncomeFields: Array<[DashboardIncomeKey, string]> = [
+    ['month_income', '本月收入'],
+    ['last_month_income', '上月收入'],
+    ['commission_last_month_payout', '上月佣金支出'],
+];
 
 export default function DashboardOverview({
     stat,
@@ -53,11 +59,7 @@ export default function DashboardOverview({
                 <div className="block border-bottom mb-0 v2board-stats-bar">
                     <div className="block-content block-content-full">
                         <div className="d-flex align-items-center">
-                            {[
-                                ['month_income', '本月收入'],
-                                ['last_month_income', '上月收入'],
-                                ['commission_last_month_payout', '上月佣金支出'],
-                            ].map(([key, label], index) => (
+                            {dashboardIncomeFields.map(([key, label], index) => (
                                 <div
                                     className={
                                         index
@@ -67,8 +69,7 @@ export default function DashboardOverview({
                                     key={key}
                                 >
                                     <p className="fs-3 text-dark mb-0">
-                                        {formatIncome(stat[key as keyof DashboardStats] as number)}{' '}
-                                        {currency}
+                                        {formatIncome(stat[key])} {currency}
                                     </p>
                                     <p className="text-muted mb-0">{label}</p>
                                 </div>
