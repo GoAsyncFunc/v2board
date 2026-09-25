@@ -27,7 +27,7 @@ import {
     serverV2node,
     serverVless,
     serverVmess,
-} from '../models/serverProtocolModelFactory';
+} from '../models/serverProtocolModels';
 import dashboardStatistics from '../models/dashboardStatisticsModel';
 import system from '../models/queueMonitoringModel';
 import theme from '../models/themeModel';

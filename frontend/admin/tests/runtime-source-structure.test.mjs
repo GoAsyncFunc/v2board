@@ -441,7 +441,7 @@ test('admin model composition uses named business effects instead of module alia
         ['serverVmess', 'vmess'],
     ];
     const protocolSource = await fs.readFile(
-        new URL('serverProtocolModelFactory.ts', modelDirectory),
+        new URL('serverProtocolModels.ts', modelDirectory),
         'utf8',
     );
     for (const [namespace, protocol] of protocolModels) {

@@ -89,7 +89,7 @@
   },
   {
     "from": "app/applicationStore.tsx",
-    "to": "models/serverProtocolModelFactory.ts"
+    "to": "models/serverProtocolModels.ts"
   },
   {
     "from": "app/applicationStore.tsx",
@@ -620,19 +620,19 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "models/serverProtocolModelFactory.ts",
+    "from": "models/serverProtocolModels.ts",
     "to": "services/apiClient.ts"
   },
   {
-    "from": "models/serverProtocolModelFactory.ts",
+    "from": "models/serverProtocolModels.ts",
     "to": "types/apiContracts.ts"
   },
   {
-    "from": "models/serverProtocolModelFactory.ts",
+    "from": "models/serverProtocolModels.ts",
     "to": "types/modelEffectContracts.ts"
   },
   {
-    "from": "models/serverProtocolModelFactory.ts",
+    "from": "models/serverProtocolModels.ts",
     "to": "types/serverContracts.ts"
   },
   {
