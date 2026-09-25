@@ -62,9 +62,10 @@ npm run check:format
 npm test
 npm run check:types
 npm run build
+npm run check:visual
 ```
 
-当前用户端回归基线为 771 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。
+当前用户端回归基线为 771 项。测试、fixture 和检查工具均在本目录内。`scripts/check-user-*.mjs` 用于局部视觉或行为对照；实际页面回归使用生产构建和内置浏览器完成，部分局部对照脚本需要本机 Chrome。`npm run check:visual` 会并行执行全部 User 局部检查，默认并发数为 3；可使用 `VISUAL_CHECK_CONCURRENCY=1` 调低资源占用，也可以追加检查名称，例如 `npm run check:visual -- ticket-display`。
 
 ## 目录结构
 

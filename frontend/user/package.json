@@ -6,10 +6,11 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
-    "check:format": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "check:format": "prettier --check \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",
     "check:types": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",
     "test": "node --test tests/*.test.mjs",
+    "check:visual": "node scripts/check-visual.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
     "deploy:test": "bash scripts/deploy-test.sh"
   },
