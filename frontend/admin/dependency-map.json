@@ -85,6 +85,10 @@
   },
   {
     "from": "app/store.tsx",
+    "to": "models/authenticationModel.ts"
+  },
+  {
+    "from": "app/store.tsx",
     "to": "models/configurationModel.ts"
   },
   {
@@ -105,7 +109,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/layout.ts"
+    "to": "models/layoutModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -114,10 +118,6 @@
   {
     "from": "app/store.tsx",
     "to": "models/order.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/passport.ts"
   },
   {
     "from": "app/store.tsx",
@@ -324,6 +324,30 @@
     "to": "types/session.ts"
   },
   {
+    "from": "models/authenticationModel.ts",
+    "to": "app/navigation.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
+    "to": "types/modelEffects.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
+    "to": "types/session.ts"
+  },
+  {
+    "from": "models/authenticationModel.ts",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
     "from": "models/configurationModel.ts",
     "to": "services/request.ts"
   },
@@ -424,15 +448,15 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/layout.ts",
+    "from": "models/layoutModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/layout.ts",
+    "from": "models/layoutModel.ts",
     "to": "types/session.ts"
   },
   {
-    "from": "models/layout.ts",
+    "from": "models/layoutModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -486,30 +510,6 @@
   {
     "from": "models/orderEffects.ts",
     "to": "types/store.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "app/navigation.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "types/session.ts"
-  },
-  {
-    "from": "models/passport.ts",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/payment.ts",

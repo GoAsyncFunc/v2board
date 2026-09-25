@@ -403,10 +403,8 @@ test('admin model composition uses named business effects instead of module alia
             'coupon',
             'giftcard',
             'knowledge',
-            'layout',
             'notice',
             'order',
-            'passport',
             'payment',
             'plan',
             'serverGroup',
@@ -418,6 +416,8 @@ test('admin model composition uses named business effects instead of module alia
         { file: 'queueMonitoringModel', namespace: 'system' },
         { file: 'serverManagement', namespace: 'serverManage' },
         { file: 'dashboardStatisticsModel', namespace: 'stat' },
+        { file: 'layoutModel', namespace: 'layout' },
+        { file: 'authenticationModel', namespace: 'passport' },
     ];
     for (const { file, namespace } of directModels) {
         const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');

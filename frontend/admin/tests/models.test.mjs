@@ -11,8 +11,12 @@ const home = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const copy = (value) => structuredClone(value);
 async function load(target, name, original, trace, response) {
     const fixture = path.join(home, 'tests/fixtures/models', `${target}-${name}.cjs`);
-    const typedModelName =
-        target === 'admin' && name === 'auth' ? 'administratorAuthentication' : name;
+    const typedModelNames = {
+        auth: 'administratorAuthentication',
+        layout: 'layoutModel',
+        passport: 'authenticationModel',
+    };
+    const typedModelName = typedModelNames[name] || name;
     const typedSource = path.join(home, 'src/models', typedModelName + '.ts');
     const file = original
         ? fixture
