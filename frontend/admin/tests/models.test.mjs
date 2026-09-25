@@ -12,7 +12,7 @@ const copy = (value) => structuredClone(value);
 async function load(target, name, original, trace, response) {
     const fixture = path.join(home, 'tests/fixtures/models', `${target}-${name}.cjs`);
     const typedModelNames = {
-        auth: 'administratorAuthentication',
+        auth: 'adminAuthenticationModel',
         layout: 'layoutModel',
         passport: 'authenticationModel',
     };

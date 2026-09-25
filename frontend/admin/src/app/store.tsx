@@ -4,7 +4,7 @@ import type { DvaApplication } from '../runtime/dvaApplication';
 import loadingPlugin from '../runtime/loadingPlugin';
 import { mergeConfig } from '../runtime/pluginRuntime';
 import history from './history';
-import administratorAuthentication from '../models/administratorAuthentication';
+import adminAuthenticationModel from '../models/adminAuthenticationModel';
 import configurationModel from '../models/configurationModel';
 import coupon from '../models/couponModel';
 import giftcard from '../models/giftCardModel';
@@ -44,7 +44,7 @@ interface DvaConfig {
 }
 
 const models = {
-    auth: administratorAuthentication,
+    auth: adminAuthenticationModel,
     config: configurationModel,
     coupon,
     giftcard,

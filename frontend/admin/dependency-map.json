@@ -81,7 +81,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/administratorAuthentication.ts"
+    "to": "models/adminAuthenticationModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -304,23 +304,23 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/administratorAuthentication.ts",
+    "from": "models/adminAuthenticationModel.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/administratorAuthentication.ts",
+    "from": "models/adminAuthenticationModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/administratorAuthentication.ts",
+    "from": "models/adminAuthenticationModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/administratorAuthentication.ts",
+    "from": "models/adminAuthenticationModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/administratorAuthentication.ts",
+    "from": "models/adminAuthenticationModel.ts",
     "to": "types/session.ts"
   },
   {
