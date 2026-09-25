@@ -376,7 +376,7 @@ test('Tuic editor fields live in focused protocol modules', async () => {
 });
 
 test('admin model composition uses named business effects instead of module aliases', async () => {
-    const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
+    const userModel = await fs.readFile(new URL('../src/models/userModel.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(
         new URL('../src/models/orderModel.ts', import.meta.url),
         'utf8',
@@ -411,13 +411,13 @@ test('admin model composition uses named business effects instead of module alia
             ['serverRouteModel', 'serverRoute'],
             ['themeModel', 'theme'],
             ['ticketModel', 'ticket'],
-            ['user', 'user'],
+            ['userModel', 'user'],
         ].map(([file, namespace]) => ({ file, namespace })),
         { file: 'queueMonitoringModel', namespace: 'system' },
         { file: 'serverManagement', namespace: 'serverManage' },
         { file: 'dashboardStatisticsModel', namespace: 'stat' },
         { file: 'layoutModel', namespace: 'layout' },
-        { file: 'authenticationModel', namespace: 'passport' },
+        { file: 'adminPassportModel', namespace: 'passport' },
     ];
     for (const { file, namespace } of directModels) {
         const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');

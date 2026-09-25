@@ -12,7 +12,7 @@ import knowledge from '../models/knowledgeModel';
 import layout from '../models/layoutModel';
 import notice from '../models/noticeModel';
 import order from '../models/orderModel';
-import passport from '../models/authenticationModel';
+import passport from '../models/adminPassportModel';
 import payment from '../models/paymentModel';
 import plan from '../models/planModel';
 import serverGroup from '../models/serverGroupModel';
@@ -32,7 +32,7 @@ import dashboardStatistics from '../models/dashboardStatisticsModel';
 import system from '../models/queueMonitoringModel';
 import theme from '../models/themeModel';
 import ticket from '../models/ticketModel';
-import user from '../models/user';
+import user from '../models/userModel';
 import type { AdminStore } from '../types/store';
 import type { DvaOptions, DvaPlugin } from '../types/dva';
 

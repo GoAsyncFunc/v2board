@@ -85,7 +85,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/authenticationModel.ts"
+    "to": "models/adminPassportModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -157,7 +157,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/user.ts"
+    "to": "models/userModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -324,27 +324,27 @@
     "to": "types/session.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "types/session.ts"
   },
   {
-    "from": "models/authenticationModel.ts",
+    "from": "models/adminPassportModel.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
@@ -700,18 +700,6 @@
     "to": "types/ticket.ts"
   },
   {
-    "from": "models/user.ts",
-    "to": "models/userManagementEffects.ts"
-  },
-  {
-    "from": "models/user.ts",
-    "to": "types/userContracts.ts"
-  },
-  {
-    "from": "models/user.ts",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "models/userManagementEffects.ts",
     "to": "app/navigation.ts"
   },
@@ -749,6 +737,18 @@
   },
   {
     "from": "models/userManagementEffects.ts",
+    "to": "utils/siteHelpers.ts"
+  },
+  {
+    "from": "models/userModel.ts",
+    "to": "models/userManagementEffects.ts"
+  },
+  {
+    "from": "models/userModel.ts",
+    "to": "types/userContracts.ts"
+  },
+  {
+    "from": "models/userModel.ts",
     "to": "utils/siteHelpers.ts"
   },
   {

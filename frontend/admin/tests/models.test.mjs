@@ -14,7 +14,7 @@ async function load(target, name, original, trace, response) {
     const typedModelNames = {
         auth: 'adminAuthenticationModel',
         layout: 'layoutModel',
-        passport: 'authenticationModel',
+        passport: 'adminPassportModel',
     };
     const typedModelName = typedModelNames[name] || name;
     const typedSource = path.join(home, 'src/models', typedModelName + '.ts');
