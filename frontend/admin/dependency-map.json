@@ -2660,6 +2660,18 @@
     "to": "pages/server/route/components/ServerRouteColumns.ts"
   },
   {
+    "from": "pages/ticket/TicketDetailPage.tsx",
+    "to": "pages/ticket/components/TicketDetailChat.tsx"
+  },
+  {
+    "from": "pages/ticket/TicketDetailPage.tsx",
+    "to": "types/store.ts"
+  },
+  {
+    "from": "pages/ticket/TicketDetailPage.tsx",
+    "to": "types/ticket.ts"
+  },
+  {
     "from": "pages/ticket/TicketPage.tsx",
     "to": "components/common/LoadingContainer.tsx"
   },
@@ -2681,18 +2693,6 @@
   },
   {
     "from": "pages/ticket/TicketPage.tsx",
-    "to": "types/ticket.ts"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "pages/ticket/components/TicketDetailChat.tsx"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "pages/ticket/[id].tsx",
     "to": "types/ticket.ts"
   },
   {
@@ -3057,11 +3057,11 @@
   },
   {
     "from": "routes/adminRoutes.ts",
-    "to": "pages/ticket/TicketPage.tsx"
+    "to": "pages/ticket/TicketDetailPage.tsx"
   },
   {
     "from": "routes/adminRoutes.ts",
-    "to": "pages/ticket/[id].tsx"
+    "to": "pages/ticket/TicketPage.tsx"
   },
   {
     "from": "routes/adminRoutes.ts",

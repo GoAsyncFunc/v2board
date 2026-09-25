@@ -8,7 +8,7 @@ import ConfigTheme from '../pages/config/theme/ThemeConfigPage';
 import Knowledge from '../pages/knowledge/KnowledgePage';
 import Notice from '../pages/notice/NoticePage';
 import Ticket from '../pages/ticket/TicketPage';
-import TicketDetail from '../pages/ticket/[id]';
+import TicketDetail from '../pages/ticket/TicketDetailPage';
 import Dashboard from '../pages/dashboard/DashboardPage';
 import Queue from '../pages/queue/QueuePage';
 import Coupon from '../pages/coupon/CouponPage';

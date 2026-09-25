@@ -705,7 +705,7 @@ test('ticket detail keeps chat presentation in the ticket components directory',
     const ticketComponentsDirectory = new URL('../src/pages/ticket/components/', import.meta.url);
     assert.ok((await fs.readdir(ticketComponentsDirectory)).includes('TicketDetailChat.tsx'));
     const detailSource = await fs.readFile(
-        new URL('../src/pages/ticket/[id].tsx', import.meta.url),
+        new URL('../src/pages/ticket/TicketDetailPage.tsx', import.meta.url),
         'utf8',
     );
     assert.match(
@@ -1038,7 +1038,7 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeList.tsx'));
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeColumns.ts'));
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeEditor.tsx'));
-    assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('[id].tsx'));
+    assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('TicketDetailPage.tsx'));
     const ticketDirectory = new URL('ticket/', pagesDirectory);
     assert.ok((await fs.readdir(ticketDirectory)).includes('components'));
     const ticketComponentsDirectory = new URL('components/', ticketDirectory);

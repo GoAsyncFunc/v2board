@@ -189,7 +189,7 @@ for (const file of [
     'admin/src/pages/ticket/TicketPage.tsx',
     'admin/src/pages/ticket/components/TicketList.tsx',
     'admin/src/pages/ticket/components/TicketColumns.ts',
-    'admin/src/pages/ticket/[id].tsx',
+    'admin/src/pages/ticket/TicketDetailPage.tsx',
     'admin/src/pages/user/UserPage.tsx',
 ]) {
     const localFile = file.replace(/^admin\//, '');

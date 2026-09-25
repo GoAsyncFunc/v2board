@@ -78,7 +78,7 @@ test('Admin build publishes semantic ticket CSS with its matching React class na
         'utf8',
     );
     const page = await fs.readFile(
-        new URL('../src/pages/ticket/[id].tsx', import.meta.url),
+        new URL('../src/pages/ticket/TicketDetailPage.tsx', import.meta.url),
         'utf8',
     );
     const chat = await fs.readFile(
