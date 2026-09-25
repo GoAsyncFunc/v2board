@@ -2269,7 +2269,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
@@ -2281,7 +2281,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/GeneralFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/GeneralFields.tsx",
@@ -2297,7 +2297,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolFields.tsx",
@@ -2305,7 +2305,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSelectionFields.tsx",
@@ -2313,7 +2313,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/Hysteria2Fields.tsx",
@@ -2321,7 +2321,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/ShadowsocksFields.tsx",
@@ -2329,7 +2329,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/TuicFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/TuicFields.tsx",
@@ -2337,7 +2337,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/VlessFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecific/VlessFields.tsx",
@@ -2361,7 +2361,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ProtocolSpecificFields.tsx",
@@ -2369,7 +2369,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/RelationshipFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/RelationshipFields.tsx",
@@ -2377,7 +2377,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2Node/TransportFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/TransportFields.tsx",
@@ -2409,7 +2409,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
@@ -2433,7 +2433,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
@@ -2445,7 +2445,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/GeneralFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/GeneralFields.tsx",
@@ -2453,7 +2453,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vless/RelationshipFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/RelationshipFields.tsx",
@@ -2513,7 +2513,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/GeneralFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/GeneralFields.tsx",
@@ -2521,7 +2521,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/NetworkFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/NetworkFields.tsx",
@@ -2529,7 +2529,7 @@
   },
   {
     "from": "pages/server/manage/editors/Vmess/RelationshipFields.tsx",
-    "to": "pages/server/manage/editors/types.ts"
+    "to": "pages/server/manage/editors/serverEditorTypes.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/RelationshipFields.tsx",
@@ -2584,7 +2584,7 @@
     "to": "types/store.ts"
   },
   {
-    "from": "pages/server/manage/editors/types.ts",
+    "from": "pages/server/manage/editors/serverEditorTypes.ts",
     "to": "types/server.ts"
   },
   {

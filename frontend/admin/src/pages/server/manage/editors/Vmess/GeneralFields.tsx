@@ -5,7 +5,7 @@ import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
 import PermissionGroupEditor from '../../../../../components/common/PermissionGroupEditor';
 import type { ServerGroupOption, ServerRecord } from '../../../../../types/server';
-import type { OpenVmessSettings, UpdateVmessServer } from '../types';
+import type { OpenVmessSettings, UpdateVmessServer } from '../serverEditorTypes';
 
 interface VmessGeneralFieldsProps {
     server: ServerRecord;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
 import type { ServerRecord } from '../../../../../types/server';
-import type { OpenVmessSettings, UpdateVmessServer } from '../types';
+import type { OpenVmessSettings, UpdateVmessServer } from '../serverEditorTypes';
 
 export interface VmessNetworkFieldsProps {
     server: ServerRecord;

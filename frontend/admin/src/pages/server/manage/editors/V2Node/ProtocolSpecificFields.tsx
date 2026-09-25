@@ -4,7 +4,7 @@ import { TuicFields } from './ProtocolSpecific/TuicFields';
 import { ShadowsocksFields } from './ProtocolSpecific/ShadowsocksFields';
 import { VlessFields } from './ProtocolSpecific/VlessFields';
 import type { ServerRecord } from '../../../../../types/server';
-import type { OpenV2NodeSettings, UpdateV2Node } from '../types';
+import type { OpenV2NodeSettings, UpdateV2Node } from '../serverEditorTypes';
 
 interface V2NodeProtocolSpecificFieldsProps {
     server: ServerRecord;

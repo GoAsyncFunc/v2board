@@ -7,7 +7,7 @@ import type {
     ServerRecord,
     ServerRouteOption,
 } from '../../../../../types/server';
-import type { UpdateVlessServer } from '../types';
+import type { UpdateVlessServer } from '../serverEditorTypes';
 
 interface VlessRelationshipFieldsProps {
     server: ServerRecord;

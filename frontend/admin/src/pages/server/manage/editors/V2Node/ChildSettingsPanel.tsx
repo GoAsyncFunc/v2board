@@ -3,7 +3,7 @@ import JsonEditor from '../../../../../components/common/JsonEditor';
 import { TlsSettings } from '../Security/TlsSettings';
 import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
-import type { UpdateV2Node } from '../types';
+import type { UpdateV2Node } from '../serverEditorTypes';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

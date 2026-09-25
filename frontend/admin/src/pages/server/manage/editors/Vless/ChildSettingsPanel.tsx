@@ -4,7 +4,7 @@ import JsonEditor from '../../../../../components/common/JsonEditor';
 import { TlsSettings } from '../Security/TlsSettings';
 import { EncryptionSettings } from '../Security/EncryptionSettings';
 import type { ChildDrawerState, ServerRecord } from '../../../../../types/server';
-import type { OpenVlessSettings, UpdateVlessServer } from '../types';
+import type { OpenVlessSettings, UpdateVlessServer } from '../serverEditorTypes';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

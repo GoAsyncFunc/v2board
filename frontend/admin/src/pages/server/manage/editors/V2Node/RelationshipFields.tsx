@@ -7,7 +7,7 @@ import type {
     ServerRecord,
     ServerRouteOption,
 } from '../../../../../types/server';
-import type { UpdateV2Node } from '../types';
+import type { UpdateV2Node } from '../serverEditorTypes';
 
 interface V2NodeRelationshipFieldsProps {
     server: ServerRecord;
