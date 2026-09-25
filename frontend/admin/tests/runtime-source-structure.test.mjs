@@ -39,7 +39,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/routes/adminRoutes.ts',
         '../src/routes/routeConfig.ts',
         '../src/types/apiContracts.ts',
-        '../src/types/dva.ts',
+        '../src/types/dvaRuntimeContracts.ts',
         '../src/types/dvaCore.d.ts',
         '../src/utils/clipboard.ts',
     ];
@@ -499,7 +499,7 @@ test('admin application runtime is implemented as typed TSX components', async (
 test('admin DVA runtime uses named contracts instead of broad object placeholders', async () => {
     const contractPaths = [
         '../src/types/storeContracts.ts',
-        '../src/types/dva.ts',
+        '../src/types/dvaRuntimeContracts.ts',
         '../src/types/dvaCore.d.ts',
         '../src/runtime/dvaApplication.tsx',
         '../src/runtime/loadingPlugin.ts',
@@ -514,7 +514,10 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
         new URL('../src/types/storeContracts.ts', import.meta.url),
         'utf8',
     );
-    const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+    const dvaTypes = await fs.readFile(
+        new URL('../src/types/dvaRuntimeContracts.ts', import.meta.url),
+        'utf8',
+    );
     const effectTypes = await fs.readFile(
         new URL('../src/types/modelEffects.ts', import.meta.url),
         'utf8',

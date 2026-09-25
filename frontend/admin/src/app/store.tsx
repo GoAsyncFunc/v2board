@@ -34,7 +34,7 @@ import theme from '../models/themeModel';
 import ticket from '../models/ticketModel';
 import user from '../models/userModel';
 import type { AdminStore } from '../types/storeContracts';
-import type { DvaOptions, DvaPlugin } from '../types/dva';
+import type { DvaOptions, DvaPlugin } from '../types/dvaRuntimeContracts';
 
 export interface AdminDvaApplication extends DvaApplication {}
 

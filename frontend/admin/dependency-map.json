@@ -173,7 +173,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "types/dva.ts"
+    "to": "types/dvaRuntimeContracts.ts"
   },
   {
     "from": "app/store.tsx",
@@ -677,7 +677,7 @@
   },
   {
     "from": "models/themeModel.ts",
-    "to": "types/theme.ts"
+    "to": "types/themeContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -1061,7 +1061,7 @@
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
-    "to": "types/theme.ts"
+    "to": "types/themeContracts.ts"
   },
   {
     "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
@@ -1069,7 +1069,7 @@
   },
   {
     "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
-    "to": "types/theme.ts"
+    "to": "types/themeContracts.ts"
   },
   {
     "from": "pages/coupon/CouponPage.tsx",
@@ -3077,7 +3077,7 @@
   },
   {
     "from": "runtime/dvaApplication.tsx",
-    "to": "types/dva.ts"
+    "to": "types/dvaRuntimeContracts.ts"
   },
   {
     "from": "runtime/dvaApplication.tsx",
@@ -3085,7 +3085,7 @@
   },
   {
     "from": "runtime/loadingPlugin.ts",
-    "to": "types/dva.ts"
+    "to": "types/dvaRuntimeContracts.ts"
   },
   {
     "from": "runtime/loadingPlugin.ts",
@@ -3144,7 +3144,7 @@
     "to": "types/userContracts.ts"
   },
   {
-    "from": "types/dva.ts",
+    "from": "types/dvaRuntimeContracts.ts",
     "to": "types/storeContracts.ts"
   },
   {
@@ -3221,7 +3221,7 @@
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/theme.ts"
+    "to": "types/themeContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",

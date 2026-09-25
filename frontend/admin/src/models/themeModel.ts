@@ -1,7 +1,7 @@
 import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import '../config/adminSettings';
-import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
+import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/themeContracts';
 import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 

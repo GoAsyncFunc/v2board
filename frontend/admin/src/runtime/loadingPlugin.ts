@@ -5,7 +5,7 @@ import type {
     DvaEffectIterator,
     DvaPlugin,
     DvaSagaEffects,
-} from '../types/dva';
+} from '../types/dvaRuntimeContracts';
 import type { AdminAction } from '../types/storeContracts';
 
 const SHOW_LOADING = '@@DVA_LOADING/SHOW';

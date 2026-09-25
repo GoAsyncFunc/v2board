@@ -5,7 +5,7 @@ import { post } from '../../../services/request';
 import { isSuccessfulResponse } from '../../../types/apiContracts';
 import ConnectedThemeConfigEditor, { ThemeConfigEditor } from './components/ThemeConfigEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { ThemeState } from '../../../types/theme';
+import type { ThemeState } from '../../../types/themeContracts';
 
 interface ThemePageProps {
     dispatch: AdminDispatch;

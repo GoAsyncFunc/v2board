@@ -10,7 +10,7 @@ import type {
     ThemeConfigValue,
     ThemeField,
     ThemeState,
-} from '../../../../types/theme';
+} from '../../../../types/themeContracts';
 
 function toInputValue(value: ThemeConfigValue): string | number | undefined {
     if (value === null || value === undefined) return undefined;

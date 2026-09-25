@@ -18,7 +18,7 @@ import type {
     LayoutState,
     PassportState,
 } from './authenticationContracts';
-import type { ThemeState } from './theme';
+import type { ThemeState } from './themeContracts';
 import type { TicketState } from './ticketContracts';
 import type { UserModuleState } from './userContracts';
 
