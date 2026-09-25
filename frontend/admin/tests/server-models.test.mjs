@@ -24,7 +24,7 @@ async function loadModel(modelName) {
         absWorkingDir: appRoot,
         entryPoints: [
             protocolModelExports[modelName]
-                ? 'src/models/serverProtocolModels.ts'
+                ? 'src/models/serverProtocolModelFactory.ts'
                 : `src/models/${modelFileName}.ts`,
         ],
         bundle: true,

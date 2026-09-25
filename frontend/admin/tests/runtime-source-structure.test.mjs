@@ -417,7 +417,7 @@ test('admin model composition uses named business effects instead of module alia
         ].map((namespace) => ({ file: namespace, namespace })),
         { file: 'queueMonitoringModel', namespace: 'system' },
         { file: 'serverManagement', namespace: 'serverManage' },
-        { file: 'dashboardStatistics', namespace: 'stat' },
+        { file: 'dashboardStatisticsModel', namespace: 'stat' },
     ];
     for (const { file, namespace } of directModels) {
         const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');
@@ -436,7 +436,7 @@ test('admin model composition uses named business effects instead of module alia
         ['serverVmess', 'vmess'],
     ];
     const protocolSource = await fs.readFile(
-        new URL('serverProtocolModels.ts', modelDirectory),
+        new URL('serverProtocolModelFactory.ts', modelDirectory),
         'utf8',
     );
     for (const [namespace, protocol] of protocolModels) {

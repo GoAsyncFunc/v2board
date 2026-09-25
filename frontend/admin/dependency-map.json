@@ -93,7 +93,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/dashboardStatistics.ts"
+    "to": "models/dashboardStatisticsModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -141,7 +141,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/serverProtocolModels.ts"
+    "to": "models/serverProtocolModelFactory.ts"
   },
   {
     "from": "app/store.tsx",
@@ -364,23 +364,23 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/dashboardStatistics.ts",
+    "from": "models/dashboardStatisticsModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/dashboardStatistics.ts",
+    "from": "models/dashboardStatisticsModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/dashboardStatistics.ts",
+    "from": "models/dashboardStatisticsModel.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/dashboardStatistics.ts",
+    "from": "models/dashboardStatisticsModel.ts",
     "to": "types/monitoring.ts"
   },
   {
-    "from": "models/dashboardStatistics.ts",
+    "from": "models/dashboardStatisticsModel.ts",
     "to": "types/store.ts"
   },
   {
@@ -620,19 +620,19 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/serverProtocolModels.ts",
+    "from": "models/serverProtocolModelFactory.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/serverProtocolModels.ts",
+    "from": "models/serverProtocolModelFactory.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/serverProtocolModels.ts",
+    "from": "models/serverProtocolModelFactory.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/serverProtocolModels.ts",
+    "from": "models/serverProtocolModelFactory.ts",
     "to": "types/server.ts"
   },
   {
