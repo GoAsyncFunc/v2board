@@ -480,32 +480,32 @@
     "to": "types/store.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/filter.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/order.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/store.ts"
   },
   {
     "from": "models/orderModel.ts",
-    "to": "models/orderEffects.ts"
+    "to": "models/orderManagementEffects.ts"
   },
   {
     "from": "models/orderModel.ts",

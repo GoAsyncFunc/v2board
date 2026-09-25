@@ -7,7 +7,7 @@ import {
     filter as filterOrders,
     paid as markOrderPaid,
     update as updateOrder,
-} from './orderEffects';
+} from './orderManagementEffects';
 import type { OrderState } from '../types/order';
 
 const initialState: OrderState = {

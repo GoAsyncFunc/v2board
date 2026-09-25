@@ -4,7 +4,7 @@ import test from 'node:test';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-const source = await fs.readFile(new URL('../src/models/orderEffects.ts', import.meta.url), 'utf8');
+const source = await fs.readFile(new URL('../src/models/orderManagementEffects.ts', import.meta.url), 'utf8');
 const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 
 function run(effect, action, { status = 200, reject = false } = {}) {

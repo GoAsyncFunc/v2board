@@ -22,7 +22,7 @@ async function run(original, scenario) {
     };
     api.a = api.get;
     const file = new URL(
-        original ? './fixtures/models/admin-order-query.cjs' : '../src/models/orderEffects.ts',
+        original ? './fixtures/models/admin-order-query.cjs' : '../src/models/orderManagementEffects.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');
