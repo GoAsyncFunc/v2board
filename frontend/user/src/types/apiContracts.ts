@@ -1,5 +1,8 @@
-export type FormValue =
-    string | number | boolean | null | undefined | FormValue[] | { [key: string]: FormValue };
+export interface FormRecord {
+    [key: string]: FormValue;
+}
+
+export type FormValue = string | number | boolean | null | undefined | FormValue[] | FormRecord;
 export type JsonValue =
     string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 

@@ -43,3 +43,13 @@ test('user source expresses nullable contracts without non-null assertions', asy
   assert.deepEqual(assertions, []);
   assert.deepEqual(unsafeCompatibilityAssertions, []);
 });
+
+test('user request contracts name nested form records explicitly', async () => {
+    const contracts = await fs.readFile(path.join(sourceRoot, 'types', 'apiContracts.ts'), 'utf8');
+    const client = await fs.readFile(path.join(sourceRoot, 'services', 'apiClient.ts'), 'utf8');
+
+    assert.match(contracts, /export interface FormRecord\s*{[\s\S]*\[key: string\]: FormValue;/);
+    assert.match(contracts, /FormValue\[\]\s*\|\s*FormRecord/);
+    assert.match(client, /const nested = value as FormRecord;/);
+    assert.doesNotMatch(client, /Record<string, FormValue>/);
+});

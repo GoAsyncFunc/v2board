@@ -1,6 +1,12 @@
 import { getLocale } from '../locales/i18n';
 import { getToken, clearToken } from '../utils/siteHelpers';
-import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/apiContracts';
+import type {
+    ApiResponse,
+    FormRecord,
+    FormValue,
+    JsonValue,
+    RequestOptions,
+} from '../types/apiContracts';
 
 export interface RequestFailurePresentation {
     titleMessageId: string;
@@ -24,7 +30,7 @@ export function encodeForm(data?: FormValue): string {
         if (value === undefined) return;
         if (typeof value === 'object') {
             if (value === null) return;
-            const nested = value as Record<string, FormValue>;
+            const nested = value as FormRecord;
             for (const child in nested) append(`${key}[${child}]`, nested[child]);
         } else fields.push(`${key}=${encodeURIComponent(value)}`);
     }
