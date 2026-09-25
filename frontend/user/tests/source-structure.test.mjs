@@ -164,8 +164,8 @@ test('user model composition uses named business effects instead of module alias
         new URL('../src/models/orderModel.ts', import.meta.url),
         'utf8',
     );
-    const orderEffects = await fs.readFile(
-        new URL('../src/models/orderEffects.ts', import.meta.url),
+    const orderManagementEffects = await fs.readFile(
+        new URL('../src/models/orderManagementEffects.ts', import.meta.url),
         'utf8',
     );
     for (const removedEffect of ['orderQueryEffects.ts', 'orderPaymentEffects.ts']) {
@@ -196,7 +196,7 @@ test('user model composition uses named business effects instead of module alias
         'checkoutByStripe',
         'cancel',
     ]) {
-        assert.match(orderEffects, new RegExp(`export function\\* ${effect}\\b`));
+        assert.match(orderManagementEffects, new RegExp(`export function\\* ${effect}\\b`));
     }
     for (const effect of [
         'update',

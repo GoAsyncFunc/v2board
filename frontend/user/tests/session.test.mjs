@@ -17,7 +17,7 @@ async function run(target,original,scenario){
  const history={push:route=>trace.push(['navigate',route])};
  const window=scenario.chat?{Tawk_API:{},$crisp:{push:value=>trace.push(['crisp',value])}}:{};
  const module={exports:{}};
- const file=original?path.join(home,'tests/fixtures/models',target+'-session.cjs'):path.join(home,'src/models/sessionEffects.ts');
+ const file=original?path.join(home,'tests/fixtures/models',target+'-session.cjs'):path.join(home,'src/models/userSessionEffects.ts');
  const text=await fs.readFile(file,'utf8');
  const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,api,helpers,history,window,require:id=>{

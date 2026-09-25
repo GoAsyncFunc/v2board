@@ -1,4 +1,4 @@
-import { checkLogin, getUserInfo, logout } from './sessionEffects';
+import { checkLogin, getUserInfo, logout } from './userSessionEffects';
 import {
     getStat as getUsageStatistics,
     getSubscribe as getSubscription,

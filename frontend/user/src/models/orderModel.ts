@@ -7,7 +7,7 @@ import {
     checkout as checkoutOrder,
     checkoutByStripe,
     save as saveOrder,
-} from './orderEffects';
+} from './orderManagementEffects';
 import type { OrderModelState } from '../types/payment';
 import type { StateUpdate } from '../types/queryState';
 

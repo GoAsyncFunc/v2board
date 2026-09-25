@@ -19,7 +19,7 @@ async function run(original,scenario){
  const window=scenario.chat?{$crisp:{push:data=>trace.push(['crisp',data])}}:{};
  const typedModules={};
  const require=id=>{
-  if(id.includes('sessionEffects'))return {};
+  if(id.includes('userSessionEffects') || id.includes('sessionEffects'))return {};
   if(id.includes('userAccountEffects'))return typedModules.userAccountEffects;
   if(id.includes('userSubscriptionEffects'))return typedModules.userSubscriptionEffects;
   if(id.includes('moduleInterop'))return {markEsModule:obj=>Object.defineProperty(obj,'__esModule',{value:true}),interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};

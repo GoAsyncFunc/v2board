@@ -988,36 +988,36 @@
     "to": "types/subscription.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "app/history.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/checkout.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/commerce.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/payment.ts"
   },
   {
-    "from": "models/orderEffects.ts",
+    "from": "models/orderManagementEffects.ts",
     "to": "types/queryState.ts"
   },
   {
     "from": "models/orderModel.ts",
-    "to": "models/orderEffects.ts"
+    "to": "models/orderManagementEffects.ts"
   },
   {
     "from": "models/orderModel.ts",
@@ -1070,34 +1070,6 @@
   {
     "from": "models/serverCatalogModel.ts",
     "to": "types/queryState.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "types/auth.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "types/queryState.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "types/user.ts"
-  },
-  {
-    "from": "models/sessionEffects.ts",
-    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/telegram.ts",
@@ -1189,11 +1161,11 @@
   },
   {
     "from": "models/userModel.ts",
-    "to": "models/sessionEffects.ts"
+    "to": "models/userAccountEffects.ts"
   },
   {
     "from": "models/userModel.ts",
-    "to": "models/userAccountEffects.ts"
+    "to": "models/userSessionEffects.ts"
   },
   {
     "from": "models/userModel.ts",
@@ -1206,6 +1178,34 @@
   {
     "from": "models/userModel.ts",
     "to": "types/user.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "types/auth.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "types/queryState.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "types/user.ts"
+  },
+  {
+    "from": "models/userSessionEffects.ts",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",

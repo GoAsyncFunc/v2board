@@ -11,7 +11,7 @@ const originalCode = await fs.readFile(
 );
 const paymentCode = (
     await transform(
-        await fs.readFile(new URL('../src/models/orderEffects.ts', import.meta.url), 'utf8'),
+        await fs.readFile(new URL('../src/models/orderManagementEffects.ts', import.meta.url), 'utf8'),
         { format: 'cjs', loader: 'ts' },
     )
 ).code;
