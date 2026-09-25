@@ -31,7 +31,7 @@ async function run(target, original, scenario) {
     const module = { exports: {} };
     const file = original
         ? path.join(home, 'tests/fixtures/models', target + '-session.cjs')
-        : path.join(home, 'src/models/userEffects.ts');
+        : path.join(home, 'src/models/userManagementEffects.ts');
     const text = await fs.readFile(file, 'utf8');
     const code = original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code;
     vm.runInNewContext(

@@ -701,7 +701,7 @@
   },
   {
     "from": "models/user.ts",
-    "to": "models/userEffects.ts"
+    "to": "models/userManagementEffects.ts"
   },
   {
     "from": "models/user.ts",
@@ -712,43 +712,43 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "app/navigation.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "services/download.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/filter.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/modelEffects.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/session.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/store.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "types/userContracts.ts"
   },
   {
-    "from": "models/userEffects.ts",
+    "from": "models/userManagementEffects.ts",
     "to": "utils/siteHelpers.ts"
   },
   {

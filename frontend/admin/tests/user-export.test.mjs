@@ -7,7 +7,7 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const code = (
     await transform(
-        await fs.readFile(new URL('../src/models/userEffects.ts', import.meta.url), 'utf8'),
+        await fs.readFile(new URL('../src/models/userManagementEffects.ts', import.meta.url), 'utf8'),
         { format: 'cjs', loader: 'ts' },
     )
 ).code;
