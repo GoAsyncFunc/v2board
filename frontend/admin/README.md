@@ -74,7 +74,7 @@ npm run build
 npm run check:visual
 ```
 
-当前管理端回归测试为 1154 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 770 项测试，两个项目合计 1924 项；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归测试为 1154 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 771 项测试，两个项目合计 1925 项；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 `npm run check:visual` 会以并发方式执行全部 Admin 局部视觉和行为对照脚本，默认并发数为 4。可使用 `VISUAL_CHECK_CONCURRENCY=2` 调低资源占用，也可以只检查一个业务项，例如 `npm run check:visual -- server-name`。单项脚本仍保留在 `scripts/` 中，便于定位失败原因。
 
