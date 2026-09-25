@@ -85,7 +85,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/config.ts"
+    "to": "models/configuration.ts"
   },
   {
     "from": "app/store.tsx",
@@ -324,23 +324,23 @@
     "to": "types/session.ts"
   },
   {
-    "from": "models/config.ts",
+    "from": "models/configuration.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/config.ts",
+    "from": "models/configuration.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/config.ts",
+    "from": "models/configuration.ts",
     "to": "types/config.ts"
   },
   {
-    "from": "models/config.ts",
+    "from": "models/configuration.ts",
     "to": "types/effects.ts"
   },
   {
-    "from": "models/config.ts",
+    "from": "models/configuration.ts",
     "to": "types/store.ts"
   },
   {

@@ -398,8 +398,8 @@ test('admin model composition uses named business effects instead of module alia
     const modelDirectory = new URL('../src/models/', import.meta.url);
     const directModels = [
         { file: 'administratorAuthentication', namespace: 'auth' },
+        { file: 'configuration', namespace: 'config' },
         ...[
-            'config',
             'coupon',
             'giftcard',
             'knowledge',
