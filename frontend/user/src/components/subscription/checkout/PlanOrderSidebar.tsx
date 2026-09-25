@@ -1,7 +1,7 @@
 import React from 'react';
 import { CouponInput } from '../../commerce/checkout/Coupon';
 import OrderSummary from '../../commerce/checkout/OrderSummary';
-import type { CouponData, PaymentConfig } from '../../../types/commerce';
+import type { CouponData, PaymentConfig } from '../../../types/commerceContracts';
 import type { PlanRecord } from '../../../types/userDomainContracts';
 import type { PlanPeriod } from '../../../types/planContracts';
 

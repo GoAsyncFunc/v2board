@@ -10,7 +10,7 @@ import type {
     PlanState,
 } from '../types/userDomainContracts';
 import type { PlanPeriod } from '../types/planContracts';
-import type { StateUpdate } from '../types/queryState';
+import type { StateUpdate } from '../types/queryStateContracts';
 
 const initialState: PlanState = {
     plans: [],

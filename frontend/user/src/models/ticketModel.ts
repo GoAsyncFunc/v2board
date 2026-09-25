@@ -3,8 +3,8 @@ import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { ApiResponse } from '../types/apiContracts';
-import type { TicketRecord } from '../types/commerce';
-import type { StateUpdate } from '../types/queryState';
+import type { TicketRecord } from '../types/commerceContracts';
+import type { StateUpdate } from '../types/queryStateContracts';
 import type {
     TicketConversation,
     TicketId,

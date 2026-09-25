@@ -9,7 +9,7 @@ import {
 } from '../subscription/SubscribeUsage';
 import { formatMessage } from '../../locales/i18n';
 import { calculateUsage, canRenew, formatBytes, isExpired } from '../../utils/siteHelpers';
-import type { SubscriptionPlan, UserSubscription } from '../../types/subscription';
+import type { SubscriptionPlan, UserSubscription } from '../../types/subscriptionContracts';
 
 interface DashboardSubscriptionProps {
     subscribe: Partial<UserSubscription>;

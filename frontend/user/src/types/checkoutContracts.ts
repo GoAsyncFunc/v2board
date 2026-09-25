@@ -1,4 +1,4 @@
-import type { PlanData } from './commerce';
+import type { PlanData } from './commerceContracts';
 
 export interface CheckoutPlan extends PlanData {
     id: number;

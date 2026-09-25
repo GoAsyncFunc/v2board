@@ -1,5 +1,5 @@
-import type { PaymentMethod } from './commerce';
-import type { CheckoutOrder, CheckoutPlan } from './checkout';
+import type { PaymentMethod } from './commerceContracts';
+import type { CheckoutOrder, CheckoutPlan } from './checkoutContracts';
 import type { FormValue } from './apiContracts';
 
 export interface CheckoutPaymentMethod extends PaymentMethod {
@@ -29,7 +29,7 @@ export interface OrderModelState {
     selectMethod?: PaymentMethod['id'];
     qrcodeModalVisible: boolean;
     payUrl?: string | boolean;
-    orders: import('./commerce').OrderRecord[];
+    orders: import('./commerceContracts').OrderRecord[];
     cancelLoading: boolean;
     detailsLoading: boolean;
 }

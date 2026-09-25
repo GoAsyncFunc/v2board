@@ -1,9 +1,9 @@
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { ApiResponse } from './apiContracts';
-import type { CommunicationConfig } from './auth';
-import type { NumericValue } from './commerce';
+import type { CommunicationConfig } from './authenticationContracts';
+import type { NumericValue } from './commerceContracts';
 import type { CatalogPlan, PlanPeriod } from './planContracts';
-import type { StateUpdate } from './queryState';
+import type { StateUpdate } from './queryStateContracts';
 
 export interface UserCommunicationConfig {
     commission_distribution_enable?: boolean | number;

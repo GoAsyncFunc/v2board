@@ -5,7 +5,7 @@ import Table from 'antd/lib/table';
 import { formatMessage } from '../../../locales/i18n';
 import { createInviteCodeDateColumn } from '../InviteDisplayColumns';
 import type { ColumnProps } from 'antd/lib/table';
-import type { InviteCode } from '../../../types/invite';
+import type { InviteCode } from '../../../types/invitationContracts';
 
 interface InviteCodeManagerProps {
     blockClassName: string;

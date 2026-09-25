@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatMessage } from '../../../locales/i18n';
-import type { PaymentConfig } from '../../../types/commerce';
+import type { PaymentConfig } from '../../../types/commerceContracts';
 import type { OrderModelRecord } from '../../../types/paymentContracts';
 import type { UserDispatch } from '../../../types/storeContracts';
 

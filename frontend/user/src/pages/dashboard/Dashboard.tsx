@@ -14,7 +14,7 @@ import {
     hasSubscriptionUsage,
     subscribePercent,
 } from '../../components/subscription/SubscribeUsage';
-import type { UserNotice } from '../../types/subscription';
+import type { UserNotice } from '../../types/subscriptionContracts';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 type DashboardStateProps = Pick<UserRootState, 'user' | 'notice' | 'order' | 'comm' | 'knowledge'>;

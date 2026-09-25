@@ -2,7 +2,7 @@ import React from 'react';
 import { formatMessage } from '../../../locales/i18n';
 import { couponDiscount, hasCouponDiscount } from './Pricing';
 import { formatPrice } from '../../common/MoneyDisplay';
-import type { CouponData, NumericValue } from '../../../types/commerce';
+import type { CouponData, NumericValue } from '../../../types/commerceContracts';
 
 interface CouponInputProps {
     inputRef: React.RefObject<HTMLInputElement>;

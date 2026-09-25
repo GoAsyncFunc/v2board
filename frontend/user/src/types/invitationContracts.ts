@@ -1,4 +1,4 @@
-import type { NumericValue } from './commerce';
+import type { NumericValue } from './commerceContracts';
 
 export interface InviteCode {
     code: string;

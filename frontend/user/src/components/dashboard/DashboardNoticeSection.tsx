@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'antd/lib/carousel';
 import DashboardNoticeCard from './DashboardNoticeCard';
-import type { UserNotice } from '../../types/subscription';
+import type { UserNotice } from '../../types/subscriptionContracts';
 
 interface DashboardNoticeSectionProps {
     notices: UserNotice[];

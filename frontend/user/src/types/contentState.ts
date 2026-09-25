@@ -1,5 +1,5 @@
 import type { JsonValue } from './apiContracts';
-import type { CouponData } from './commerce';
+import type { CouponData } from './commerceContracts';
 
 export interface CouponState {
     coupon: CouponData & { code?: string };

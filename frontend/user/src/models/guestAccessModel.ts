@@ -1,8 +1,8 @@
 import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
-import type { CommunicationConfig } from '../types/auth';
+import type { CommunicationConfig } from '../types/authenticationContracts';
 import type { GuestState, ModelEffects, ModelGenerator } from '../types/userDomainContracts';
-import type { StateUpdate } from '../types/queryState';
+import type { StateUpdate } from '../types/queryStateContracts';
 
 const initialState: GuestState = {
     commConfig: {},

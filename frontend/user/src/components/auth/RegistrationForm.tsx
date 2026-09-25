@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Recaptcha from '../common/Recaptcha';
 import { formatMessage } from '../../locales/i18n';
-import type { CommunicationConfig, RecaptchaToken } from '../../types/auth';
+import type { CommunicationConfig, RecaptchaToken } from '../../types/authenticationContracts';
 
 export interface RegistrationFormProps {
     commConfig: CommunicationConfig;

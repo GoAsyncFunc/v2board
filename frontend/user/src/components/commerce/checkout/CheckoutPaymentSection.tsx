@@ -1,7 +1,7 @@
 import React from 'react';
 import loadable from 'react-loadable';
 import { formatMessage } from '../../../locales/i18n';
-import type { PaymentMethod } from '../../../types/commerce';
+import type { PaymentMethod } from '../../../types/commerceContracts';
 import type { CheckoutPaymentMethod, StripeToken } from '../../../types/paymentContracts';
 import PaymentMethods from './PaymentMethods';
 

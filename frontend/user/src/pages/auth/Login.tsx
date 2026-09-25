@@ -7,7 +7,7 @@ import AuthPageShell from '../../components/auth/AuthPageShell';
 import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
-import type { LoginPageProps } from '../../types/auth';
+import type { LoginPageProps } from '../../types/authenticationContracts';
 import type { UserRootState } from '../../types/storeContracts';
 
 const translate = (id: string): string => formatMessage({ id });

@@ -4,7 +4,7 @@ import { formatDateTimeSeconds } from '../../common/DateTimeDisplay';
 import { formatPrice } from '../../common/MoneyDisplay';
 import Modal from 'antd/lib/modal';
 import LoadingContainer from '../../common/LoadingContainer';
-import type { PaymentConfig } from '../../../types/commerce';
+import type { PaymentConfig } from '../../../types/commerceContracts';
 import type { OrderModelRecord } from '../../../types/paymentContracts';
 import type { UserDispatch } from '../../../types/storeContracts';
 

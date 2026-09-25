@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatMessage } from '../../locales/i18n';
 import { isExpired } from '../../utils/siteHelpers';
-import type { UserSubscription } from '../../types/subscription';
+import type { UserSubscription } from '../../types/subscriptionContracts';
 
 interface DashboardAlertsProps {
     stat: number[];

@@ -7,7 +7,7 @@ import type {
     ModelGenerator,
     UserCommunicationConfig,
 } from '../types/userDomainContracts';
-import type { StateUpdate } from '../types/queryState';
+import type { StateUpdate } from '../types/queryStateContracts';
 
 const initialState: CommunicationState = { config: {} };
 

@@ -1,7 +1,7 @@
 import type { PutEffect } from 'redux-saga/effects';
 import type { ApiResponse } from './apiContracts';
-import type { NodeRecord, TrafficRecord } from './commerce';
-import type { UserNotice } from './subscription';
+import type { NodeRecord, TrafficRecord } from './commerceContracts';
+import type { UserNotice } from './subscriptionContracts';
 
 export interface StateUpdate<State> {
     type: 'setState';

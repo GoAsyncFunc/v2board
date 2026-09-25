@@ -7,7 +7,7 @@ import { formatDateTime } from '../common/DateTimeDisplay';
 import { formatPrice } from '../common/MoneyDisplay';
 import { localeSettings as settings } from '../../config/localeSettings';
 import { formatMessage } from '../../locales/i18n';
-import type { NumericValue, OrderRecord } from '../../types/commerce';
+import type { NumericValue, OrderRecord } from '../../types/commerceContracts';
 import type { ColumnProps } from 'antd/lib/table';
 
 export const orderBadgeStatuses: Array<'error' | 'processing' | 'default' | 'success'> = [

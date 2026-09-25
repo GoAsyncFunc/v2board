@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
 import { formatMessage } from '../../../locales/i18n';
-import type { InviteConfig, InviteState } from '../../../types/invite';
+import type { InviteConfig, InviteState } from '../../../types/invitationContracts';
 
 interface InviteStatisticsProps {
     blockClassName: string;

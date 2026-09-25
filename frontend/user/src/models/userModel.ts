@@ -11,7 +11,7 @@ import {
     transfer as transferCommission,
     update as updateUserSetting,
 } from './userAccountEffects';
-import type { StateUpdate } from '../types/queryState';
+import type { StateUpdate } from '../types/queryStateContracts';
 import type { UserState } from '../types/userContracts';
 
 const initialState: UserState = {

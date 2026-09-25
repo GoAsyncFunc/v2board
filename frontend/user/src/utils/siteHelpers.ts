@@ -1,6 +1,6 @@
 import copyText from 'copy-to-clipboard';
-import type { NumericValue } from '../types/commerce';
-import type { UserSubscription } from '../types/subscription';
+import type { NumericValue } from '../types/commerceContracts';
+import type { UserSubscription } from '../types/subscriptionContracts';
 
 export type CookieValue = string | number | boolean;
 

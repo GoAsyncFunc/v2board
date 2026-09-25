@@ -5,7 +5,7 @@ import { formatMoney } from '../../common/MoneyDisplay';
 import TransferCommissionModal from '../TransferCommissionModal';
 import WithdrawModal from '../WithdrawModal';
 import { formatMessage } from '../../../locales/i18n';
-import type { InviteConfig } from '../../../types/invite';
+import type { InviteConfig } from '../../../types/invitationContracts';
 
 interface InviteCommissionWalletProps {
     blockClassName: string;

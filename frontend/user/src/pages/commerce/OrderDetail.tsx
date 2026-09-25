@@ -11,7 +11,7 @@ import type {
     StripeCheckoutState,
     StripeToken,
 } from '../../types/paymentContracts';
-import type { PaymentMethod } from '../../types/commerce';
+import type { PaymentMethod } from '../../types/commerceContracts';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.

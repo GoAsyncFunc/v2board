@@ -6,7 +6,7 @@ import type {
     TutorialState,
     TutorialWireRecord,
 } from '../types/contentState';
-import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
+import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryStateContracts';
 
 const initialState: TutorialState = {
     tutorials: [],

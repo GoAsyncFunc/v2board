@@ -7,7 +7,7 @@ import OrderPaymentSummary from '../../../components/commerce/checkout/OrderPaym
 import CheckoutPaymentSection from '../../../components/commerce/checkout/CheckoutPaymentSection';
 import OrderStatusResult from '../../../components/commerce/checkout/OrderStatusResult';
 import PaymentQrModal from '../../../components/commerce/checkout/PaymentQrModal';
-import type { PaymentConfig, PaymentMethod } from '../../../types/commerce';
+import type { PaymentConfig, PaymentMethod } from '../../../types/commerceContracts';
 import type {
     CheckoutPaymentMethod,
     OrderModelRecord,

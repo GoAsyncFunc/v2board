@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import copyText from 'copy-to-clipboard';
 import { formatMessage } from '../../locales/i18n';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
-import type { TelegramBot } from '../../types/queryState';
+import type { TelegramBot } from '../../types/queryStateContracts';
 
 interface TelegramStateProps {
     telegram: { botInfo?: TelegramBot | null };

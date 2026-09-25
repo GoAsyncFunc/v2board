@@ -1,4 +1,4 @@
-import type { UserSubscription } from './subscription';
+import type { UserSubscription } from './subscriptionContracts';
 
 export interface UserInfo {
     email: string;

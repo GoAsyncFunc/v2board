@@ -12,8 +12,8 @@ import type {
     RegisterAction,
     SendEmailVerificationAction,
     TokenLoginAction,
-} from '../types/auth';
-import type { StateUpdate } from '../types/queryState';
+} from '../types/authenticationContracts';
+import type { StateUpdate } from '../types/queryStateContracts';
 
 type PassportEffectAction = StateUpdate<PassportState> | { type: 'user/getUserInfo' };
 interface PassportEffects {

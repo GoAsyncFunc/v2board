@@ -1,5 +1,5 @@
 import type { localeSettings } from '../config/localeSettings';
-import type { NumericValue } from './commerce';
+import type { NumericValue } from './commerceContracts';
 
 export type PlanPeriod = keyof typeof localeSettings.periodText;
 export type PlanTab = 0 | 1 | 2;

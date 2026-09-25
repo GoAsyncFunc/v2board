@@ -3,7 +3,7 @@ import Icon from 'antd/lib/icon';
 import { localeSettings as settings } from '../../../config/localeSettings';
 import { formatMessage } from '../../../locales/i18n';
 import { formatPrice } from '../../common/MoneyDisplay';
-import type { PaymentConfig } from '../../../types/commerce';
+import type { PaymentConfig } from '../../../types/commerceContracts';
 import type { OrderModelRecord, StripeCheckoutState } from '../../../types/paymentContracts';
 
 interface OrderPaymentSummaryProps {

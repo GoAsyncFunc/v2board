@@ -2,7 +2,7 @@ import React from 'react';
 import Table from 'antd/lib/table';
 import { formatMessage } from '../../../locales/i18n';
 import { createReadonlyCommissionColumns } from '../InviteDisplayColumns';
-import type { CommissionRecord, InviteState } from '../../../types/invite';
+import type { CommissionRecord, InviteState } from '../../../types/invitationContracts';
 
 interface InviteCommissionHistoryProps {
     blockClassName: string;

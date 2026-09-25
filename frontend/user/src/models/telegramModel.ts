@@ -6,7 +6,7 @@ import type {
     StateUpdate,
     TelegramBot,
     TelegramState,
-} from '../types/queryState';
+} from '../types/queryStateContracts';
 
 const initialState: TelegramState = { botInfo: {} };
 

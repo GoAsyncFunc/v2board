@@ -5,7 +5,7 @@ import { formatMessage } from '../../../locales/i18n';
 import { CouponDiscount } from './Coupon';
 import { totalAmount } from './Pricing';
 import { formatPrice } from '../../common/MoneyDisplay';
-import type { CouponData, PaymentConfig } from '../../../types/commerce';
+import type { CouponData, PaymentConfig } from '../../../types/commerceContracts';
 import type { PlanRecord } from '../../../types/userDomainContracts';
 import type { PlanPeriod } from '../../../types/planContracts';
 

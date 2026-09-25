@@ -1,10 +1,10 @@
-import type { PassportState } from './auth';
+import type { PassportState } from './authenticationContracts';
 import type { CommunicationState, GuestState, PlanState } from './userDomainContracts';
 import type { CouponState, LayoutState, TutorialState } from './contentState';
-import type { InviteState } from './invite';
+import type { InviteState } from './invitationContracts';
 import type { KnowledgeState } from './knowledgeContracts';
 import type { OrderModelState } from './paymentContracts';
-import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryState';
+import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryStateContracts';
 import type { TicketState } from './ticketContracts';
 import type { UserState } from './userContracts';
 import type { RouterState } from './routerContracts';

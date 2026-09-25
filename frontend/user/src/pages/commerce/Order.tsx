@@ -12,7 +12,7 @@ import { localeSettings as settings } from '../../config/localeSettings';
 import { isMobile } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
 import { createOrderColumns, orderBadgeStatuses } from '../../components/commerce/OrderColumns';
-import type { OrderRecord } from '../../types/commerce';
+import type { OrderRecord } from '../../types/commerceContracts';
 import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface OrderStateProps {

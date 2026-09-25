@@ -1,4 +1,4 @@
-import type { TicketRecord } from './commerce';
+import type { TicketRecord } from './commerceContracts';
 
 export interface TicketDraft {
     subject?: string;

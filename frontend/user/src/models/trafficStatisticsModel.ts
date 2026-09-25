@@ -1,7 +1,12 @@
 import { get } from '../services/apiClient';
 import { isSuccessfulResponse } from '../types/apiContracts';
-import type { TrafficRecord } from '../types/commerce';
-import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '../types/queryState';
+import type { TrafficRecord } from '../types/commerceContracts';
+import type {
+    QueryEffects,
+    QueryGenerator,
+    StateUpdate,
+    TrafficState,
+} from '../types/queryStateContracts';
 
 const initialState: TrafficState = { traffics: [], getTrafficLogLoading: false };
 

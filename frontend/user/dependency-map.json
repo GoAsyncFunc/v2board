@@ -193,11 +193,11 @@
   },
   {
     "from": "components/account/InviteDisplayColumns.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/account/InviteDisplayColumns.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "components/account/TelegramBindModal.tsx",
@@ -205,7 +205,7 @@
   },
   {
     "from": "components/account/TelegramBindModal.tsx",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "components/account/TelegramBindModal.tsx",
@@ -217,7 +217,7 @@
   },
   {
     "from": "components/account/TrafficColumns.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/account/TrafficColumns.tsx",
@@ -249,7 +249,7 @@
   },
   {
     "from": "components/account/invite/InviteCodeManager.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "components/account/invite/InviteCommissionHistory.tsx",
@@ -261,7 +261,7 @@
   },
   {
     "from": "components/account/invite/InviteCommissionHistory.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "components/account/invite/InviteCommissionWallet.tsx",
@@ -281,7 +281,7 @@
   },
   {
     "from": "components/account/invite/InviteCommissionWallet.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "components/account/invite/InviteStatistics.tsx",
@@ -289,7 +289,7 @@
   },
   {
     "from": "components/account/invite/InviteStatistics.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "components/account/profile/ProfileGiftcard.tsx",
@@ -357,7 +357,7 @@
   },
   {
     "from": "components/auth/RegistrationForm.tsx",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "components/commerce/OrderColumns.tsx",
@@ -381,7 +381,7 @@
   },
   {
     "from": "components/commerce/OrderColumns.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
@@ -397,7 +397,7 @@
   },
   {
     "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/CheckoutPaymentSection.tsx",
@@ -417,7 +417,7 @@
   },
   {
     "from": "components/commerce/checkout/Coupon.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/OrderInfo.tsx",
@@ -437,7 +437,7 @@
   },
   {
     "from": "components/commerce/checkout/OrderInfo.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/OrderInfo.tsx",
@@ -461,7 +461,7 @@
   },
   {
     "from": "components/commerce/checkout/OrderPaymentSummary.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/OrderPaymentSummary.tsx",
@@ -497,7 +497,7 @@
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
@@ -509,7 +509,7 @@
   },
   {
     "from": "components/commerce/checkout/PaymentMethods.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/PaymentQrModal.tsx",
@@ -529,7 +529,7 @@
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
@@ -545,7 +545,7 @@
   },
   {
     "from": "components/commerce/checkout/ProductInfo.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/commerce/checkout/ProductInfo.tsx",
@@ -557,7 +557,7 @@
   },
   {
     "from": "components/common/DateTimeDisplay.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/common/LanguageSelector.tsx",
@@ -577,11 +577,11 @@
   },
   {
     "from": "components/common/MoneyDisplay.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/common/Recaptcha.tsx",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "components/common/Recaptcha.tsx",
@@ -593,7 +593,7 @@
   },
   {
     "from": "components/dashboard/DashboardAlerts.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/dashboard/DashboardAlerts.tsx",
@@ -609,7 +609,7 @@
   },
   {
     "from": "components/dashboard/DashboardNoticeCard.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/dashboard/DashboardNoticeSection.tsx",
@@ -617,7 +617,7 @@
   },
   {
     "from": "components/dashboard/DashboardNoticeSection.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/dashboard/DashboardShortcuts.tsx",
@@ -629,7 +629,7 @@
   },
   {
     "from": "components/dashboard/DashboardShortcuts.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/dashboard/DashboardShortcuts.tsx",
@@ -653,7 +653,7 @@
   },
   {
     "from": "components/dashboard/DashboardSubscription.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/dashboard/DashboardSubscription.tsx",
@@ -665,7 +665,7 @@
   },
   {
     "from": "components/subscription/NodeColumns.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/subscription/PlanCard.tsx",
@@ -709,7 +709,7 @@
   },
   {
     "from": "components/subscription/SubscribeUsage.ts",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "components/subscription/SubscribeUsage.ts",
@@ -725,7 +725,7 @@
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
@@ -793,7 +793,7 @@
   },
   {
     "from": "components/support/TicketReadonlyColumns.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "config/localeSettings.ts",
@@ -869,7 +869,7 @@
   },
   {
     "from": "models/communicationModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/communicationModel.ts",
@@ -889,7 +889,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/guestAccessModel.ts",
@@ -901,11 +901,11 @@
   },
   {
     "from": "models/guestAccessModel.ts",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/guestAccessModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/guestAccessModel.ts",
@@ -921,11 +921,11 @@
   },
   {
     "from": "models/invitationModel.ts",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "models/invitationModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -941,7 +941,7 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/layoutModel.ts",
@@ -957,11 +957,11 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -977,11 +977,11 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/checkout.ts"
+    "to": "types/checkoutContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -989,7 +989,7 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/orderModel.ts",
@@ -1001,7 +1001,7 @@
   },
   {
     "from": "models/orderModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -1025,7 +1025,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -1041,11 +1041,11 @@
   },
   {
     "from": "models/serverCatalogModel.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "models/serverCatalogModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/telegramModel.ts",
@@ -1057,7 +1057,7 @@
   },
   {
     "from": "models/telegramModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -1073,11 +1073,11 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -1093,11 +1093,11 @@
   },
   {
     "from": "models/trafficStatisticsModel.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "models/trafficStatisticsModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/tutorialModel.ts",
@@ -1113,7 +1113,7 @@
   },
   {
     "from": "models/tutorialModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/userAccountEffects.ts",
@@ -1149,7 +1149,7 @@
   },
   {
     "from": "models/userModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/userModel.ts",
@@ -1169,11 +1169,11 @@
   },
   {
     "from": "models/userPassportModel.ts",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/userPassportModel.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/userPassportModel.ts",
@@ -1193,11 +1193,11 @@
   },
   {
     "from": "models/userSessionEffects.ts",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/userSessionEffects.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "models/userSessionEffects.ts",
@@ -1217,7 +1217,7 @@
   },
   {
     "from": "models/userSubscriptionEffects.ts",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1253,7 +1253,7 @@
   },
   {
     "from": "pages/account/Invite.tsx",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "pages/account/Invite.tsx",
@@ -1325,7 +1325,7 @@
   },
   {
     "from": "pages/account/Traffic.tsx",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "pages/account/Traffic.tsx",
@@ -1361,7 +1361,7 @@
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "pages/auth/ForgetPassword.tsx",
@@ -1393,7 +1393,7 @@
   },
   {
     "from": "pages/auth/Login.tsx",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "pages/auth/Login.tsx",
@@ -1429,7 +1429,7 @@
   },
   {
     "from": "pages/auth/Register.tsx",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "pages/auth/Register.tsx",
@@ -1469,7 +1469,7 @@
   },
   {
     "from": "pages/commerce/Order.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "pages/commerce/Order.tsx",
@@ -1493,7 +1493,7 @@
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "pages/commerce/OrderDetail.tsx",
@@ -1537,7 +1537,7 @@
   },
   {
     "from": "pages/commerce/components/OrderDetailView.tsx",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "pages/commerce/components/OrderDetailView.tsx",
@@ -1585,7 +1585,7 @@
   },
   {
     "from": "pages/dashboard/Dashboard.tsx",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "pages/subscription/Node.tsx",
@@ -1856,12 +1856,12 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "types/auth.ts",
+    "from": "types/authenticationContracts.ts",
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "types/checkout.ts",
-    "to": "types/commerce.ts"
+    "from": "types/checkoutContracts.ts",
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/contentState.ts",
@@ -1869,15 +1869,15 @@
   },
   {
     "from": "types/contentState.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/dva.ts",
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "types/invite.ts",
-    "to": "types/commerce.ts"
+    "from": "types/invitationContracts.ts",
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/paymentContracts.ts",
@@ -1885,11 +1885,11 @@
   },
   {
     "from": "types/paymentContracts.ts",
-    "to": "types/checkout.ts"
+    "to": "types/checkoutContracts.ts"
   },
   {
     "from": "types/paymentContracts.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/planContracts.ts",
@@ -1897,23 +1897,23 @@
   },
   {
     "from": "types/planContracts.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
-    "from": "types/queryState.ts",
+    "from": "types/queryStateContracts.ts",
     "to": "types/apiContracts.ts"
   },
   {
-    "from": "types/queryState.ts",
-    "to": "types/commerce.ts"
+    "from": "types/queryStateContracts.ts",
+    "to": "types/commerceContracts.ts"
   },
   {
-    "from": "types/queryState.ts",
-    "to": "types/subscription.ts"
+    "from": "types/queryStateContracts.ts",
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
@@ -1921,7 +1921,7 @@
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/invite.ts"
+    "to": "types/invitationContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
@@ -1933,7 +1933,7 @@
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
@@ -1953,11 +1953,11 @@
   },
   {
     "from": "types/ticketContracts.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/userContracts.ts",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   },
   {
     "from": "types/userDomainContracts.ts",
@@ -1965,11 +1965,11 @@
   },
   {
     "from": "types/userDomainContracts.ts",
-    "to": "types/auth.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "types/userDomainContracts.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "types/userDomainContracts.ts",
@@ -1977,7 +1977,7 @@
   },
   {
     "from": "types/userDomainContracts.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "types/userEffectContracts.ts",
@@ -1985,7 +1985,7 @@
   },
   {
     "from": "types/userEffectContracts.ts",
-    "to": "types/queryState.ts"
+    "to": "types/queryStateContracts.ts"
   },
   {
     "from": "types/userEffectContracts.ts",
@@ -1997,10 +1997,10 @@
   },
   {
     "from": "utils/siteHelpers.ts",
-    "to": "types/commerce.ts"
+    "to": "types/commerceContracts.ts"
   },
   {
     "from": "utils/siteHelpers.ts",
-    "to": "types/subscription.ts"
+    "to": "types/subscriptionContracts.ts"
   }
 ]
