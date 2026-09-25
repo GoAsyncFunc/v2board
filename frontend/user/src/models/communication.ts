@@ -6,7 +6,7 @@ import type {
     ModelEffects,
     ModelGenerator,
     UserCommunicationConfig,
-} from '../types/modelContracts';
+} from '../types/userDomainContracts';
 import type { StateUpdate } from '../types/queryState';
 
 const initialState: CommunicationState = { config: {} };

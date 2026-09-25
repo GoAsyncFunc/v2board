@@ -3,7 +3,12 @@ import { localeSettings } from '../config/localeSettings';
 import { router } from '../app/navigation';
 import { isSuccessfulResponse } from '../types/api';
 import type { ApiResponse } from '../types/api';
-import type { PlanEffects, PlanGenerator, PlanRecord, PlanState } from '../types/modelContracts';
+import type {
+    PlanEffects,
+    PlanGenerator,
+    PlanRecord,
+    PlanState,
+} from '../types/userDomainContracts';
 import type { PlanPeriod } from '../types/plan';
 import type { StateUpdate } from '../types/queryState';
 

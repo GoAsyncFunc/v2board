@@ -2,7 +2,7 @@ import history from '../app/history';
 import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse } from '../types/api';
 import type { GiftcardRedemptionResponse, UserSetting } from '../types/user';
-import type { UserModelEffect, UserModelEffectTools } from '../types/userModelContracts';
+import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';
 
 interface CompletionAction {
     complete?: () => void;

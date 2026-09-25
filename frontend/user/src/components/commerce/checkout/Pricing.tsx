@@ -4,7 +4,7 @@ import { localeSettings as settings } from '../../../config/localeSettings';
 import { formatMessage } from '../../../locales/i18n';
 import { formatPrice } from '../../common/MoneyDisplay';
 import type { AppliedCoupon, CouponData } from '../../../types/commerce';
-import type { PlanRecord } from '../../../types/modelContracts';
+import type { PlanRecord } from '../../../types/userDomainContracts';
 import type { PlanPeriod } from '../../../types/plan';
 
 interface PeriodSelectorProps {

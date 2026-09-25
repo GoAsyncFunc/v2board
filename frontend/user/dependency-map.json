@@ -321,11 +321,11 @@
   },
   {
     "from": "components/account/profile/ProfileTelegram.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/user.ts"
   },
   {
     "from": "components/account/profile/ProfileTelegram.tsx",
-    "to": "types/user.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/account/profile/ProfileWallet.tsx",
@@ -337,11 +337,11 @@
   },
   {
     "from": "components/account/profile/ProfileWallet.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/user.ts"
   },
   {
     "from": "components/account/profile/ProfileWallet.tsx",
-    "to": "types/user.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/auth/AuthPageShell.tsx",
@@ -501,11 +501,11 @@
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/plan.ts"
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
-    "to": "types/plan.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/commerce/checkout/PaymentMethods.tsx",
@@ -533,11 +533,11 @@
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/plan.ts"
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
-    "to": "types/plan.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/commerce/checkout/ProductInfo.tsx",
@@ -729,11 +729,11 @@
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/plan.ts"
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
-    "to": "types/plan.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
@@ -741,11 +741,11 @@
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
-    "to": "types/modelContracts.ts"
+    "to": "types/plan.ts"
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
-    "to": "types/plan.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
@@ -869,11 +869,11 @@
   },
   {
     "from": "models/communication.ts",
-    "to": "types/modelContracts.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/communication.ts",
-    "to": "types/queryState.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "models/coupon.ts",
@@ -905,11 +905,11 @@
   },
   {
     "from": "models/guest.ts",
-    "to": "types/modelContracts.ts"
+    "to": "types/queryState.ts"
   },
   {
     "from": "models/guest.ts",
-    "to": "types/queryState.ts"
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "models/invite.ts",
@@ -1045,15 +1045,15 @@
   },
   {
     "from": "models/plan.ts",
-    "to": "types/modelContracts.ts"
-  },
-  {
-    "from": "models/plan.ts",
     "to": "types/plan.ts"
   },
   {
     "from": "models/plan.ts",
     "to": "types/queryState.ts"
+  },
+  {
+    "from": "models/plan.ts",
+    "to": "types/userDomainContracts.ts"
   },
   {
     "from": "models/server.ts",
@@ -1205,7 +1205,7 @@
   },
   {
     "from": "models/userAccountEffects.ts",
-    "to": "types/userModelContracts.ts"
+    "to": "types/userEffectContracts.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1221,7 +1221,7 @@
   },
   {
     "from": "models/userSubscriptionEffects.ts",
-    "to": "types/userModelContracts.ts"
+    "to": "types/userEffectContracts.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1880,26 +1880,6 @@
     "to": "types/commerce.ts"
   },
   {
-    "from": "types/modelContracts.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "types/modelContracts.ts",
-    "to": "types/auth.ts"
-  },
-  {
-    "from": "types/modelContracts.ts",
-    "to": "types/commerce.ts"
-  },
-  {
-    "from": "types/modelContracts.ts",
-    "to": "types/plan.ts"
-  },
-  {
-    "from": "types/modelContracts.ts",
-    "to": "types/queryState.ts"
-  },
-  {
     "from": "types/payment.ts",
     "to": "types/api.ts"
   },
@@ -1949,10 +1929,6 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/modelContracts.ts"
-  },
-  {
-    "from": "types/store.ts",
     "to": "types/payment.ts"
   },
   {
@@ -1972,6 +1948,10 @@
     "to": "types/user.ts"
   },
   {
+    "from": "types/store.ts",
+    "to": "types/userDomainContracts.ts"
+  },
+  {
     "from": "types/ticket.ts",
     "to": "types/commerce.ts"
   },
@@ -1980,15 +1960,35 @@
     "to": "types/subscription.ts"
   },
   {
-    "from": "types/userModelContracts.ts",
+    "from": "types/userDomainContracts.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "types/userModelContracts.ts",
+    "from": "types/userDomainContracts.ts",
+    "to": "types/auth.ts"
+  },
+  {
+    "from": "types/userDomainContracts.ts",
+    "to": "types/commerce.ts"
+  },
+  {
+    "from": "types/userDomainContracts.ts",
+    "to": "types/plan.ts"
+  },
+  {
+    "from": "types/userDomainContracts.ts",
     "to": "types/queryState.ts"
   },
   {
-    "from": "types/userModelContracts.ts",
+    "from": "types/userEffectContracts.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "types/userEffectContracts.ts",
+    "to": "types/queryState.ts"
+  },
+  {
+    "from": "types/userEffectContracts.ts",
     "to": "types/user.ts"
   },
   {

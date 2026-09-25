@@ -1,7 +1,7 @@
 import React from 'react';
 import { PeriodSelector } from '../../commerce/checkout/Pricing';
 import { parseJson } from '../../../utils/siteHelpers';
-import type { PlanRecord } from '../../../types/modelContracts';
+import type { PlanRecord } from '../../../types/userDomainContracts';
 import type { PlanFeature, PlanPeriod } from '../../../types/plan';
 
 interface PlanPurchaseDetailsProps {

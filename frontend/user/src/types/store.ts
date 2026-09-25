@@ -1,5 +1,5 @@
 import type { PassportState } from './auth';
-import type { CommunicationState, GuestState, PlanState } from './modelContracts';
+import type { CommunicationState, GuestState, PlanState } from './userDomainContracts';
 import type { CouponState, LayoutState, TutorialState } from './contentState';
 import type { InviteState } from './invite';
 import type { KnowledgeState } from './knowledge';

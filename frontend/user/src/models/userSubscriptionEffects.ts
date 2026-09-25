@@ -3,7 +3,7 @@ import { get } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import { formatBytes } from '../utils/siteHelpers';
 import type { UserSubscription } from '../types/subscription';
-import type { UserModelEffect, UserModelEffectTools } from '../types/userModelContracts';
+import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';
 
 export function* getSubscribe(
     _action: { type?: string },
