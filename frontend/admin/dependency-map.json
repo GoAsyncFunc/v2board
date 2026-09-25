@@ -2821,7 +2821,7 @@
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
-    "to": "pages/user/components/userFormValues.ts"
+    "to": "pages/user/components/UserFormValues.ts"
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
@@ -2985,7 +2985,7 @@
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",
-    "to": "pages/user/components/userFormValues.ts"
+    "to": "pages/user/components/UserFormValues.ts"
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",

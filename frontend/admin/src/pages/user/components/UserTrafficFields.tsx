@@ -2,7 +2,7 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import { FormGroup } from './FormGroup';
 import type { UserRecord } from '../../../types/user';
-import { toInputDefaultValue } from './userFormValues';
+import { toInputDefaultValue } from './UserFormValues';
 
 export interface UserTrafficFieldsProps {
     user: Partial<UserRecord>;
