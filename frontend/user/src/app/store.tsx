@@ -12,7 +12,7 @@ import knowledge from '../models/knowledgeModel';
 import layout from '../models/layoutModel';
 import notice from '../models/noticeModel';
 import order from '../models/orderModel';
-import passport from '../models/authenticationModel';
+import passport from '../models/userPassportModel';
 import plan from '../models/planModel';
 import server from '../models/serverCatalogModel';
 import trafficStatisticsModel from '../models/trafficStatisticsModel';

@@ -105,10 +105,6 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/authenticationModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
     "to": "models/communicationModel.ts"
   },
   {
@@ -166,6 +162,10 @@
   {
     "from": "app/store.tsx",
     "to": "models/userModel.ts"
+  },
+  {
+    "from": "app/store.tsx",
+    "to": "models/userPassportModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -860,30 +860,6 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/authenticationModel.ts",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "models/authenticationModel.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/authenticationModel.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/authenticationModel.ts",
-    "to": "types/auth.ts"
-  },
-  {
-    "from": "models/authenticationModel.ts",
-    "to": "types/queryState.ts"
-  },
-  {
-    "from": "models/authenticationModel.ts",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "models/communicationModel.ts",
     "to": "services/request.ts"
   },
@@ -1178,6 +1154,30 @@
   {
     "from": "models/userModel.ts",
     "to": "types/user.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "types/auth.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "types/queryState.ts"
+  },
+  {
+    "from": "models/userPassportModel.ts",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/userSessionEffects.ts",

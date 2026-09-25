@@ -223,7 +223,7 @@ test('user model composition uses named business effects instead of module alias
         { file: 'layoutModel', namespace: 'layout' },
         { file: 'noticeModel', namespace: 'notice' },
         { file: 'orderModel', namespace: 'order' },
-        { file: 'authenticationModel', namespace: 'passport' },
+        { file: 'userPassportModel', namespace: 'passport' },
         { file: 'planModel', namespace: 'plan' },
         { file: 'serverCatalogModel', namespace: 'server' },
         { file: 'trafficStatisticsModel', namespace: 'stat' },
