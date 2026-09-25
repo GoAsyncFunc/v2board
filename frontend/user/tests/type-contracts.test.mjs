@@ -53,3 +53,14 @@ test('user request contracts name nested form records explicitly', async () => {
     assert.match(client, /const nested = value as FormRecord;/);
     assert.doesNotMatch(client, /Record<string, FormValue>/);
 });
+
+test('user date display helpers use explicit numeric coercion', async () => {
+    const source = await fs.readFile(
+        path.join(sourceRoot, 'components', 'common', 'DateTimeDisplay.ts'),
+        'utf8',
+    );
+
+    assert.doesNotMatch(source, /value as number|expiredAt as number/);
+    assert.match(source, /1000 \* Number\(value\)/);
+    assert.match(source, /Number\(expiredAt\)/);
+});
