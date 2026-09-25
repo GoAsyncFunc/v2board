@@ -1,5 +1,5 @@
 import React from 'react';
-import { DvaContainer, getUserStore } from './store';
+import { DvaContainer, getUserStore } from './applicationStore';
 import type { UserRootState, UserStore } from '../types/storeContracts';
 
 type InitialProps = Partial<UserRootState> & { store?: UserStore };

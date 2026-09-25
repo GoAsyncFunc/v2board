@@ -21,7 +21,7 @@ import ticket from '../models/ticketModel';
 import tutorial from '../models/tutorialModel';
 import user from '../models/userModel';
 import type { UserStore } from '../types/storeContracts';
-import type { DvaOptions, DvaPlugin } from '../types/dva';
+import type { DvaOptions, DvaPlugin } from '../types/dvaRuntimeContracts';
 
 export interface UserDvaApplication extends DvaApplication {}
 

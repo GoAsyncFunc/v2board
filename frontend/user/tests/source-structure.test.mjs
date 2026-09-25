@@ -238,7 +238,7 @@ test('user model composition uses named business effects instead of module alias
         assert.doesNotMatch(source, /export default\s*{\s*name:/);
     }
 
-    const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
+    const store = await fs.readFile(new URL('../src/app/applicationStore.tsx', import.meta.url), 'utf8');
     assert.match(store, /model\.namespace !== registeredNamespace/);
     assert.match(store, /appInstance\?\.model\(model\)/);
     assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
@@ -280,11 +280,11 @@ test('user application runtime is implemented as typed TSX components', async ()
 test('user DVA runtime uses named contracts instead of broad object placeholders', async () => {
     const contractPaths = [
         '../src/types/storeContracts.ts',
-        '../src/types/dva.ts',
+        '../src/types/dvaRuntimeContracts.ts',
         '../src/types/dvaCore.d.ts',
         '../src/runtime/dvaApplication.tsx',
         '../src/runtime/loadingPlugin.ts',
-        '../src/app/store.tsx',
+        '../src/app/applicationStore.tsx',
     ];
     for (const relativePath of contractPaths) {
         const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
@@ -292,7 +292,7 @@ test('user DVA runtime uses named contracts instead of broad object placeholders
     }
 
     const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
-    const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
+    const dvaTypes = await fs.readFile(new URL('../src/types/dvaRuntimeContracts.ts', import.meta.url), 'utf8');
     const loadingRuntime = await fs.readFile(
         new URL('../src/runtime/loadingPlugin.ts', import.meta.url),
         'utf8',
