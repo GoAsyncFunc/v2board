@@ -6,7 +6,7 @@ import { getPreference, isMobile, setPreference } from '../../../utils/siteHelpe
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import { serverModelNamespace } from './editors/ServerEditorRegistry';
 import ServerManageWorkspace from './components/ServerManageWorkspace';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type {
     ManagedServerRecord,
     ServerGroupState,

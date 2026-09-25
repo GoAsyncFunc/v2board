@@ -4,7 +4,7 @@ import Modal from 'antd/lib/modal';
 import { PaymentBasicFields } from './PaymentBasicFields';
 import { PaymentConfigFields } from './PaymentConfigFields';
 import { PaytaroNotice } from './PaytaroNotice';
-import type { AdminDispatch, AdminRootState } from '../../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../../types/storeContracts';
 import type {
     PaymentConfigValue,
     PaymentForm,

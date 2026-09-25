@@ -24,7 +24,7 @@ function run(effect, action, { status = 200, reject = false } = {}) {
                             return 'request';
                         },
                     };
-                if (id.includes('types/api'))
+                if (id.includes('types/apiContracts'))
                     return {
                         isSuccessfulResponse: (response) => response.code === 200,
                     };

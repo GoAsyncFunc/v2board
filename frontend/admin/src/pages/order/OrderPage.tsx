@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import AssignOrderEditor from '../../components/order/AssignOrderEditor';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import type { OrderState } from '../../types/order';
 import OrderFilterDrawer from './components/OrderFilterDrawer';
 import { OrderList } from './components/OrderList';

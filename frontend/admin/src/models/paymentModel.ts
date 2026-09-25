@@ -4,10 +4,10 @@ import {
     type ApiResponse,
     type FormRecord,
     type JsonValue,
-} from '../types/api';
+} from '../types/apiContracts';
 import '../config/adminSettings';
 import type { PaymentForm, PaymentRecord, PaymentState } from '../types/payment';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type PaymentRootState = Pick<AdminRootState, 'payment'>;

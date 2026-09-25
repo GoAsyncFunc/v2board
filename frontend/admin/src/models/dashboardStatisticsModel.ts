@@ -1,7 +1,7 @@
 import { get } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../types/monitoring';
-import type { AdminAction } from '../types/store';
+import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface DashboardStatisticsEffectTools extends PutEffectTools {}

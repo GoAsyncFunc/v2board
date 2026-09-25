@@ -5,7 +5,7 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import QueueOverview from './components/QueueOverview';
 import QueueWorkloadTable from './components/QueueWorkloadTable';
 import type { SystemMonitoringState } from '../../types/monitoring';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 
 interface QueuePageProps {
     dispatch: AdminDispatch;

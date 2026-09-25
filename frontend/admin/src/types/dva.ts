@@ -1,7 +1,7 @@
 import type { History } from 'history';
 import type { Middleware, Reducer, StoreEnhancer } from 'redux';
 import type { Effect } from 'redux-saga/effects';
-import type { AdminAction, AdminDispatch, AdminRootState, AdminStore } from './store';
+import type { AdminAction, AdminDispatch, AdminRootState, AdminStore } from './storeContracts';
 
 export interface DvaRuntimeError extends Error {
     preventDefault(): void;

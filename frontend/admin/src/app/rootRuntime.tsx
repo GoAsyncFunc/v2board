@@ -1,6 +1,6 @@
 import React from 'react';
 import { DvaContainer, getAdminStore } from './store';
-import type { AdminRootState, AdminStore } from '../types/store';
+import type { AdminRootState, AdminStore } from '../types/storeContracts';
 
 type InitialProps = Partial<AdminRootState> & { store?: AdminStore };
 

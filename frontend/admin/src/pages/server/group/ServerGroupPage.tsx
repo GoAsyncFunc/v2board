@@ -8,7 +8,7 @@ import PermissionGroupEditor from '../../../components/common/PermissionGroupEdi
 import ServerGroupList from './components/ServerGroupList';
 import type { ServerGroupRecord } from './components/ServerGroupColumns';
 import type { ServerGroupState } from '../../../types/serverContracts';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 
 interface ServerGroupPageProps {
     dispatch: AdminDispatch;

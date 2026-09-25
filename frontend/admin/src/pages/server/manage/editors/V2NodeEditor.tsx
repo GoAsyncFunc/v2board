@@ -14,7 +14,7 @@ import type {
     ServerRecord,
     ServerSaveState,
 } from '../../../../types/serverContracts';
-import type { AdminRootState } from '../../../../types/store';
+import type { AdminRootState } from '../../../../types/storeContracts';
 
 const TLS_PROTOCOLS = ['anytls', 'hysteria2', 'trojan', 'tuic'];
 

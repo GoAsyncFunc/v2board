@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import message from 'antd/lib/message';
 import { connect } from 'react-redux';
 import KnowledgeForm from './KnowledgeForm';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';
 
 export interface KnowledgeEditorProps {

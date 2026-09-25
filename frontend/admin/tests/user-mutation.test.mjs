@@ -40,11 +40,11 @@ async function run(original, scenario) {
                 if (id.includes('request')) return api;
                 if (id.includes('antdMessage')) return { a: message };
                 if (id === 'antd/lib/message') return message;
-                if (id.includes('types/api')) return api;
+                if (id.includes('types/apiContracts')) return api;
                 if (id.includes('types/modelEffects')) return {};
-                if (id.includes('types/filter')) return {};
-                if (id.includes('types/session')) return {};
-                if (id.includes('types/store')) return {};
+                if (id.includes('types/filterContracts')) return {};
+                if (id.includes('types/authenticationContracts')) return {};
+                if (id.includes('types/storeContracts')) return {};
                 if (id.includes('types/userContracts')) return {};
                 if (id.includes('services/download')) return { downloadCsv() {} };
                 if (id === 'moment') return () => ({ format: () => 'fixture' });

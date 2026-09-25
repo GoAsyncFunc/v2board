@@ -1,5 +1,5 @@
-import type { FilterItem } from './filter';
-import type { UnixTimestamp } from './date';
+import type { FilterItem } from './filterContracts';
+import type { UnixTimestamp } from './dateTimeContracts';
 
 export type UserTimestamp = UnixTimestamp;
 

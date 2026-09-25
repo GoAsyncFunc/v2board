@@ -30,7 +30,7 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                             return 'request';
                         },
                     };
-                if (id.includes('types/api'))
+                if (id.includes('types/apiContracts'))
                     return { isSuccessfulResponse: (value) => value.code === 200 };
                 if (id.includes('77642f52')) return () => ({ format: () => '2026-01-02 03:04:05' });
                 if (id === 'moment') return () => ({ format: () => '2026-01-02 03:04:05' });
@@ -40,9 +40,9 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };
                 if (
                     id.includes('types/modelEffects') ||
-                    id.includes('types/filter') ||
-                    id.includes('types/session') ||
-                    id.includes('types/store') ||
+                    id.includes('types/filterContracts') ||
+                    id.includes('types/authenticationContracts') ||
+                    id.includes('types/storeContracts') ||
                     id.includes('types/userContracts')
                 )
                     return {};

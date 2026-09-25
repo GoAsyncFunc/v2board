@@ -3,7 +3,7 @@ import DatePicker from 'antd/lib/date-picker';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import moment from 'moment';
-import type { FilterField, FilterItem, FilterValue } from '../../types/filter';
+import type { FilterField, FilterItem, FilterValue } from '../../types/filterContracts';
 
 interface FilterValueInputProps {
     filterItem: FilterItem;

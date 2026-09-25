@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { FilterItem } from './filter';
+import type { FilterItem } from './filterContracts';
 
 export interface OrderDetailRecord {
     trade_no: React.ReactNode;

@@ -15,7 +15,7 @@ import DashboardOverview from './DashboardOverview';
 import { createRankChartOption, RankChart } from './DashboardServerRank';
 import { createOrderChartOption } from '../chartOptions';
 import type { DashboardStats, OrderChartRecord, RankChartRecord } from '../../../types/monitoring';
-import type { AdminDispatch } from '../../../types/store';
+import type { AdminDispatch } from '../../../types/storeContracts';
 
 echarts.use([
     LineChart,

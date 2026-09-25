@@ -68,7 +68,7 @@ async function loadModule(relativePath, localModules = {}, responses = []) {
                     },
                 };
             }
-            if (id.includes('types/api'))
+            if (id.includes('types/apiContracts'))
                 return { isSuccessfulResponse: (response) => response.code === 200 };
             if (id.includes('adminSettings')) {
                 return {

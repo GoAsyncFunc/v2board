@@ -7,7 +7,7 @@ import Table from 'antd/lib/table';
 import Tag from 'antd/lib/tag';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotion';
 import type { PlanSummary } from '../../../types/configurationValues';
 import { copyText } from '../../../utils/clipboard';

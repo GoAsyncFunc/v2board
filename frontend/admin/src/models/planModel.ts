@@ -1,5 +1,5 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import { settings } from '../config/adminSettings';
 import type {
     PlanFieldValue,
@@ -8,7 +8,7 @@ import type {
     PlanRecord,
     PlanState,
 } from '../types/plan';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type PlanRootState = Pick<AdminRootState, 'plan'>;

@@ -16,7 +16,7 @@ import type {
     ServerRecord,
     ServerSaveState,
 } from '../../../../types/serverContracts';
-import type { AdminRootState } from '../../../../types/store';
+import type { AdminRootState } from '../../../../types/storeContracts';
 
 function prepareServer(record?: ServerRecord): ServerRecord {
     const server = record ? { ...record } : { tls: 0, rate: 1 };

@@ -1,7 +1,7 @@
 import type { Effect, PutEffect, SelectEffect } from 'redux-saga/effects';
 import type { Action as ReduxAction } from 'redux';
-import type { ApiResponse } from './api';
-import type { AdminAction } from './store';
+import type { ApiResponse } from './apiContracts';
+import type { AdminAction } from './storeContracts';
 
 // Recovered models yield Redux-Saga instructions or typed request promises.
 export type RequestEffectResult = Pick<ApiResponse, 'code'>;

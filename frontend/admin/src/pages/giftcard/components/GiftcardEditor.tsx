@@ -6,7 +6,7 @@ import Modal from 'antd/lib/modal';
 import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import moment from 'moment';
 import type { PlanSummary } from '../../../types/configurationValues';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotion';
 import { GiftcardBasicFields } from './GiftcardBasicFields';
 import { GiftcardGenerationField } from './GiftcardGenerationField';

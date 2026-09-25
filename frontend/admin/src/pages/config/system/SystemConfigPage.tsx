@@ -4,7 +4,7 @@ import message from 'antd/lib/message';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import SystemConfigTabs from './components/SystemConfigTabs';
 import { showMailTestResult } from './components/MailTestResult';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type {
     AdminConfigState,
     ConfigGroupKey,

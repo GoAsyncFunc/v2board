@@ -5,7 +5,7 @@ import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../../types/ticket';
 import { createReadonlyTicketColumns } from './TicketColumns';
 

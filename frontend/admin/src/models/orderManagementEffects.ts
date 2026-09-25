@@ -1,9 +1,9 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/api';
-import type { FilterItem, FilterValue } from '../types/filter';
+import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/apiContracts';
+import type { FilterItem, FilterValue } from '../types/filterContracts';
 import type { AssignOrderParams, OrderPagination, OrderRecord, OrderState } from '../types/order';
 import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/storeContracts';
 
 type OrderStoreState = Pick<AdminRootState, 'order'>;
 type OrderQueryAction = AdminAction | { filter: FilterItem[] };

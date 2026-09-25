@@ -1,5 +1,5 @@
-import type { LayoutState } from '../types/session';
-import type { AdminRootState } from '../types/store';
+import type { LayoutState } from '../types/authenticationContracts';
+import type { AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 interface ShowNavigationAction {

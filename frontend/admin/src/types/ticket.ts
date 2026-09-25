@@ -1,4 +1,4 @@
-import type { UnixTimestamp } from './date';
+import type { UnixTimestamp } from './dateTimeContracts';
 
 export type TicketId = string | number;
 export type TicketTimestamp = UnixTimestamp;

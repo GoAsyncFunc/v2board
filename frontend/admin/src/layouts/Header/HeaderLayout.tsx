@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
 import { clearToken, getPreference, setPreference } from '../../utils/siteHelpers';
 import history from '../../app/history';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import HeaderAccountMenu from './components/HeaderAccountMenu';
 import HeaderSearchOverlay, { type HeaderSearchConfig } from './components/HeaderSearchOverlay';
 

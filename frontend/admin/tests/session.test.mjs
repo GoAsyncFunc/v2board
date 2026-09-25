@@ -45,15 +45,15 @@ async function run(target, original, scenario) {
             window,
             require: (id) => {
                 if (id.includes('request')) return api;
-                if (id.includes('types/api')) return api;
+                if (id.includes('types/apiContracts')) return api;
                 if (id.includes('routerHistory') || id.includes('app/navigation')) return history;
                 if (id.includes('siteHelpers')) return helpers;
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
                 if (id.includes('services/download')) return { downloadCsv() {} };
                 if (
                     id.includes('types/modelEffects') ||
-                    id.includes('types/filter') ||
-                    id.includes('types/store') ||
+                    id.includes('types/filterContracts') ||
+                    id.includes('types/storeContracts') ||
                     id.includes('types/userContracts')
                 )
                     return {};

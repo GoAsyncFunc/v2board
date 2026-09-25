@@ -5,7 +5,7 @@ import type {
     FormRecord,
     FormValue,
     JsonValue,
-} from '../types/api';
+} from '../types/apiContracts';
 import { clearToken, getToken } from '../utils/siteHelpers';
 
 interface ApiPayload<Data = JsonValue> {

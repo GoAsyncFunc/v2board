@@ -4,7 +4,7 @@ import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import type { AdminDispatch, AdminRootState } from '../../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../../types/storeContracts';
 import type {
     ThemeConfigParams,
     ThemeConfigValue,

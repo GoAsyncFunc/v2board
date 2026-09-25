@@ -21,7 +21,7 @@
   },
   {
     "from": "app/Router.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -73,7 +73,7 @@
   },
   {
     "from": "app/rootRuntime.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "app/store.tsx",
@@ -177,7 +177,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "components/common/FilterCondition.tsx",
@@ -185,7 +185,7 @@
   },
   {
     "from": "components/common/FilterCondition.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "components/common/FilterDrawer.tsx",
@@ -193,11 +193,11 @@
   },
   {
     "from": "components/common/FilterDrawer.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "components/common/FilterValueInput.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "components/common/MoneyDisplay.ts",
@@ -205,7 +205,7 @@
   },
   {
     "from": "components/common/PermissionGroupEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "components/order/AssignOrderEditor.tsx",
@@ -213,7 +213,7 @@
   },
   {
     "from": "components/order/AssignOrderEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "components/user/TrafficPanel.tsx",
@@ -225,7 +225,7 @@
   },
   {
     "from": "components/user/TrafficPanel.tsx",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "components/user/TrafficPanel.tsx",
@@ -249,7 +249,7 @@
   },
   {
     "from": "layouts/Header/HeaderLayout.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "layouts/Header/HeaderLayout.tsx",
@@ -269,11 +269,11 @@
   },
   {
     "from": "layouts/MainLayout/MainLayout.tsx",
-    "to": "types/session.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "layouts/MainLayout/MainLayout.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "layouts/Sidebar/SidebarLayout.tsx",
@@ -293,7 +293,7 @@
   },
   {
     "from": "layouts/Sidebar/SidebarLayout.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "layouts/Sidebar/components/SidebarNavigation.tsx",
@@ -313,15 +313,15 @@
   },
   {
     "from": "models/adminAuthenticationModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "models/adminAuthenticationModel.ts",
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/adminAuthenticationModel.ts",
     "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/adminAuthenticationModel.ts",
-    "to": "types/session.ts"
   },
   {
     "from": "models/adminPassportModel.ts",
@@ -333,15 +333,15 @@
   },
   {
     "from": "models/adminPassportModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "models/adminPassportModel.ts",
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/adminPassportModel.ts",
     "to": "types/modelEffects.ts"
-  },
-  {
-    "from": "models/adminPassportModel.ts",
-    "to": "types/session.ts"
   },
   {
     "from": "models/adminPassportModel.ts",
@@ -353,7 +353,7 @@
   },
   {
     "from": "models/configurationModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/configurationModel.ts",
@@ -365,7 +365,7 @@
   },
   {
     "from": "models/configurationModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/couponModel.ts",
@@ -373,7 +373,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/couponModel.ts",
@@ -385,7 +385,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
@@ -393,7 +393,7 @@
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
@@ -405,7 +405,7 @@
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/giftCardModel.ts",
@@ -413,7 +413,7 @@
   },
   {
     "from": "models/giftCardModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/giftCardModel.ts",
@@ -425,7 +425,7 @@
   },
   {
     "from": "models/giftCardModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -433,7 +433,7 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -445,7 +445,11 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "models/layoutModel.ts",
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "models/layoutModel.ts",
@@ -453,11 +457,7 @@
   },
   {
     "from": "models/layoutModel.ts",
-    "to": "types/session.ts"
-  },
-  {
-    "from": "models/layoutModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/noticeModel.ts",
@@ -465,7 +465,7 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/noticeModel.ts",
@@ -477,7 +477,7 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -485,11 +485,11 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -501,7 +501,7 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/orderModel.ts",
@@ -521,7 +521,7 @@
   },
   {
     "from": "models/paymentModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/paymentModel.ts",
@@ -533,7 +533,7 @@
   },
   {
     "from": "models/paymentModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -545,7 +545,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -557,7 +557,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/queueMonitoringModel.ts",
@@ -565,7 +565,7 @@
   },
   {
     "from": "models/queueMonitoringModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/queueMonitoringModel.ts",
@@ -577,7 +577,7 @@
   },
   {
     "from": "models/queueMonitoringModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/serverGroupModel.ts",
@@ -585,7 +585,7 @@
   },
   {
     "from": "models/serverGroupModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/serverGroupModel.ts",
@@ -597,7 +597,7 @@
   },
   {
     "from": "models/serverGroupModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/serverManagementModel.ts",
@@ -605,7 +605,7 @@
   },
   {
     "from": "models/serverManagementModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/serverManagementModel.ts",
@@ -617,7 +617,7 @@
   },
   {
     "from": "models/serverManagementModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
@@ -625,7 +625,7 @@
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/serverProtocolModelFactory.ts",
@@ -641,7 +641,7 @@
   },
   {
     "from": "models/serverRouteModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/serverRouteModel.ts",
@@ -653,7 +653,7 @@
   },
   {
     "from": "models/serverRouteModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/themeModel.ts",
@@ -665,7 +665,7 @@
   },
   {
     "from": "models/themeModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/themeModel.ts",
@@ -673,7 +673,7 @@
   },
   {
     "from": "models/themeModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/themeModel.ts",
@@ -685,7 +685,7 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -693,7 +693,7 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/ticketModel.ts",
@@ -713,11 +713,15 @@
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "types/filter.ts"
+    "to": "types/authenticationContracts.ts"
+  },
+  {
+    "from": "models/userManagementEffects.ts",
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
@@ -725,11 +729,7 @@
   },
   {
     "from": "models/userManagementEffects.ts",
-    "to": "types/session.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
@@ -773,7 +773,7 @@
   },
   {
     "from": "pages/config/payment/PaymentConfigPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentBasicFields.tsx",
@@ -801,7 +801,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
@@ -817,7 +817,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentNotifyColumn.tsx",
@@ -841,7 +841,7 @@
   },
   {
     "from": "pages/config/system/SystemConfigPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/system/components/AppConfigTab.tsx",
@@ -1053,11 +1053,11 @@
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/theme/ThemeConfigPage.tsx",
@@ -1065,7 +1065,7 @@
   },
   {
     "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/config/theme/components/ThemeConfigEditor.tsx",
@@ -1093,7 +1093,7 @@
   },
   {
     "from": "pages/coupon/CouponPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponBasicFields.tsx",
@@ -1137,7 +1137,7 @@
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponGenerationField.tsx",
@@ -1153,7 +1153,7 @@
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
@@ -1221,7 +1221,7 @@
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/dashboard/chartOptions.ts",
@@ -1253,7 +1253,7 @@
   },
   {
     "from": "pages/dashboard/components/DashboardCharts.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardNavigation.tsx",
@@ -1297,7 +1297,7 @@
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardBasicFields.tsx",
@@ -1341,7 +1341,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardGenerationField.tsx",
@@ -1361,7 +1361,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
@@ -1405,7 +1405,7 @@
   },
   {
     "from": "pages/knowledge/KnowledgePage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeColumns.ts",
@@ -1425,7 +1425,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeForm.tsx",
@@ -1457,7 +1457,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/login/LoginPage.tsx",
@@ -1465,11 +1465,11 @@
   },
   {
     "from": "pages/login/LoginPage.tsx",
-    "to": "types/session.ts"
+    "to": "types/authenticationContracts.ts"
   },
   {
     "from": "pages/login/LoginPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/notice/NoticePage.tsx",
@@ -1493,7 +1493,7 @@
   },
   {
     "from": "pages/notice/NoticePage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeColumns.ts",
@@ -1521,7 +1521,7 @@
   },
   {
     "from": "pages/notice/components/NoticeEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeList.tsx",
@@ -1533,7 +1533,7 @@
   },
   {
     "from": "pages/notice/components/NoticeList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeMetadataFields.tsx",
@@ -1569,7 +1569,7 @@
   },
   {
     "from": "pages/order/OrderPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/order/components/OrderColumns.tsx",
@@ -1597,7 +1597,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
@@ -1605,7 +1605,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/order/components/OrderFilterDrawer.tsx",
@@ -1613,7 +1613,7 @@
   },
   {
     "from": "pages/order/components/OrderFilterDrawer.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/order/components/OrderList.tsx",
@@ -1625,7 +1625,7 @@
   },
   {
     "from": "pages/order/components/OrderList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/order/components/OrderListColumns.tsx",
@@ -1645,7 +1645,7 @@
   },
   {
     "from": "pages/order/components/OrderListColumns.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/plan/PlanPage.tsx",
@@ -1669,7 +1669,7 @@
   },
   {
     "from": "pages/plan/PlanPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanAccessFields.tsx",
@@ -1713,7 +1713,7 @@
   },
   {
     "from": "pages/plan/components/PlanEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
@@ -1737,7 +1737,7 @@
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanListColumns.tsx",
@@ -1765,7 +1765,7 @@
   },
   {
     "from": "pages/plan/components/PlanListColumns.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanResourceColumns.tsx",
@@ -1801,7 +1801,7 @@
   },
   {
     "from": "pages/queue/QueuePage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/queue/components/QueueColumns.ts",
@@ -1845,7 +1845,7 @@
   },
   {
     "from": "pages/server/group/ServerGroupPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/group/components/ServerGroupColumns.tsx",
@@ -1881,7 +1881,7 @@
   },
   {
     "from": "pages/server/manage/ServerManagePage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/ServerManagePage.tsx",
@@ -2017,7 +2017,7 @@
   },
   {
     "from": "pages/server/manage/editors/AnyTlsEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Hysteria/GeneralFields.tsx",
@@ -2057,7 +2057,7 @@
   },
   {
     "from": "pages/server/manage/editors/HysteriaEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Security/EncryptionSettings.tsx",
@@ -2169,7 +2169,7 @@
   },
   {
     "from": "pages/server/manage/editors/ShadowsocksEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Trojan/GeneralFields.tsx",
@@ -2213,7 +2213,7 @@
   },
   {
     "from": "pages/server/manage/editors/TrojanEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Tuic/GeneralFields.tsx",
@@ -2253,7 +2253,7 @@
   },
   {
     "from": "pages/server/manage/editors/TuicEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/V2Node/ChildSettingsPanel.tsx",
@@ -2417,7 +2417,7 @@
   },
   {
     "from": "pages/server/manage/editors/V2NodeEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vless/ChildSettingsPanel.tsx",
@@ -2481,7 +2481,7 @@
   },
   {
     "from": "pages/server/manage/editors/VlessEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/Vmess/ChildSettingsPanel.tsx",
@@ -2581,7 +2581,7 @@
   },
   {
     "from": "pages/server/manage/editors/VmessEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/manage/editors/serverEditorTypes.ts",
@@ -2609,7 +2609,7 @@
   },
   {
     "from": "pages/server/route/ServerRoutePage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/route/components/RouteActionColumn.ts",
@@ -2641,7 +2641,7 @@
   },
   {
     "from": "pages/server/route/components/RouteEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/server/route/components/RouteMatchField.tsx",
@@ -2665,7 +2665,7 @@
   },
   {
     "from": "pages/ticket/TicketDetailPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/ticket/TicketDetailPage.tsx",
@@ -2689,7 +2689,7 @@
   },
   {
     "from": "pages/ticket/TicketPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/ticket/TicketPage.tsx",
@@ -2729,7 +2729,7 @@
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",
@@ -2789,11 +2789,11 @@
   },
   {
     "from": "pages/user/UserPage.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/user/UserPage.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/user/UserPage.tsx",
@@ -2805,7 +2805,7 @@
   },
   {
     "from": "pages/user/components/SendMailEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/user/components/SendMailEditor.tsx",
@@ -2841,7 +2841,7 @@
   },
   {
     "from": "pages/user/components/UserEditor.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/user/components/UserEditor.tsx",
@@ -2853,7 +2853,7 @@
   },
   {
     "from": "pages/user/components/UserFilterDrawer.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/user/components/UserFilterDrawer.tsx",
@@ -2889,7 +2889,7 @@
   },
   {
     "from": "pages/user/components/UserGenerator.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/user/components/UserGenerator.tsx",
@@ -2909,11 +2909,11 @@
   },
   {
     "from": "pages/user/components/UserList.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/user/components/UserList.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "pages/user/components/UserList.tsx",
@@ -2933,7 +2933,7 @@
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/user/components/UserListActions.tsx",
@@ -2973,7 +2973,7 @@
   },
   {
     "from": "pages/user/components/UserToolbar.tsx",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "pages/user/components/UserToolbar.tsx",
@@ -3081,7 +3081,7 @@
   },
   {
     "from": "runtime/dvaApplication.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "runtime/loadingPlugin.ts",
@@ -3089,7 +3089,7 @@
   },
   {
     "from": "runtime/loadingPlugin.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "runtime/routeInitialProps.tsx",
@@ -3117,7 +3117,7 @@
   },
   {
     "from": "runtime/routeRuntimeTypes.ts",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "runtime/routerBindings.tsx",
@@ -3125,7 +3125,7 @@
   },
   {
     "from": "runtime/routerBindings.tsx",
-    "to": "types/store.ts"
+    "to": "types/storeContracts.ts"
   },
   {
     "from": "services/request.ts",
@@ -3133,119 +3133,119 @@
   },
   {
     "from": "services/request.ts",
-    "to": "types/api.ts"
+    "to": "types/apiContracts.ts"
   },
   {
     "from": "services/request.ts",
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "types/dva.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "types/knowledge.ts",
-    "to": "types/date.ts"
-  },
-  {
-    "from": "types/modelEffects.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "types/modelEffects.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "types/notice.ts",
-    "to": "types/date.ts"
-  },
-  {
-    "from": "types/order.ts",
-    "to": "types/filter.ts"
-  },
-  {
-    "from": "types/promotion.ts",
-    "to": "types/date.ts"
-  },
-  {
-    "from": "types/serverContracts.ts",
-    "to": "types/store.ts"
-  },
-  {
-    "from": "types/session.ts",
+    "from": "types/authenticationContracts.ts",
     "to": "types/userContracts.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/dva.ts",
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "types/knowledge.ts",
+    "to": "types/dateTimeContracts.ts"
+  },
+  {
+    "from": "types/modelEffects.ts",
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "types/modelEffects.ts",
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "types/notice.ts",
+    "to": "types/dateTimeContracts.ts"
+  },
+  {
+    "from": "types/order.ts",
+    "to": "types/filterContracts.ts"
+  },
+  {
+    "from": "types/promotion.ts",
+    "to": "types/dateTimeContracts.ts"
+  },
+  {
+    "from": "types/serverContracts.ts",
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "types/storeContracts.ts",
+    "to": "types/authenticationContracts.ts"
+  },
+  {
+    "from": "types/storeContracts.ts",
     "to": "types/configurationValues.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/knowledge.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/monitoring.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/notice.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/order.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/payment.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/plan.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/promotion.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/router.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/serverContracts.ts"
   },
   {
-    "from": "types/store.ts",
-    "to": "types/session.ts"
-  },
-  {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/theme.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/ticket.ts"
   },
   {
-    "from": "types/store.ts",
+    "from": "types/storeContracts.ts",
     "to": "types/userContracts.ts"
   },
   {
     "from": "types/ticket.ts",
-    "to": "types/date.ts"
+    "to": "types/dateTimeContracts.ts"
   },
   {
     "from": "types/userContracts.ts",
-    "to": "types/date.ts"
+    "to": "types/dateTimeContracts.ts"
   },
   {
     "from": "types/userContracts.ts",
-    "to": "types/filter.ts"
+    "to": "types/filterContracts.ts"
   },
   {
     "from": "utils/dateTime.ts",
-    "to": "types/date.ts"
+    "to": "types/dateTimeContracts.ts"
   },
   {
     "from": "utils/siteHelpers.ts",

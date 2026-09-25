@@ -1,8 +1,8 @@
 import { post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import history from '../app/navigation';
 import { setToken } from '../utils/siteHelpers';
-import type { AdminLoginData, PassportState } from '../types/session';
+import type { AdminLoginData, PassportState } from '../types/authenticationContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface PassportLoginAction {

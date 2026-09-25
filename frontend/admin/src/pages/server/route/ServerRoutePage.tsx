@@ -10,7 +10,7 @@ import ConnectedRouteEditor, {
     RouteEditor,
     type ServerRouteRecord,
 } from './components/RouteEditor';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 
 interface ServerRoutePageProps {
     dispatch: AdminDispatch;

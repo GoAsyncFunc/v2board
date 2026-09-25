@@ -195,7 +195,7 @@ async function loadThemeModule(relativePath) {
                         return { code: 200 };
                     },
                 };
-            if (id.includes('types/api'))
+            if (id.includes('types/apiContracts'))
                 return { isSuccessfulResponse: (response) => response.code === 200 };
             throw new Error(id);
         },

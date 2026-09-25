@@ -1,7 +1,7 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../types/knowledge';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type KnowledgeRootState = Pick<AdminRootState, 'knowledge'>;

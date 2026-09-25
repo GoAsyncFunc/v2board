@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
 import notification from 'antd/lib/notification';
-import type { FilterField, FilterItem, FilterValue } from '../../types/filter';
+import type { FilterField, FilterItem, FilterValue } from '../../types/filterContracts';
 import FilterCondition from './FilterCondition';
 
 const DrawerWithFooter = Drawer as React.ComponentType<

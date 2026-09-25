@@ -13,7 +13,7 @@ import {
     routerMiddleware,
 } from 'react-router-redux';
 import type { RouterState } from '../types/router';
-import type { AdminRootState, AdminStore } from '../types/store';
+import type { AdminRootState, AdminStore } from '../types/storeContracts';
 
 export type { RouterState } from '../types/router';
 

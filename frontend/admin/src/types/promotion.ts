@@ -1,4 +1,4 @@
-import type { UnixTimestamp } from './date';
+import type { UnixTimestamp } from './dateTimeContracts';
 
 export interface CouponRecord {
     [field: string]: string | number | boolean | string[] | null | undefined;

@@ -1,13 +1,13 @@
 import dayjs from 'moment';
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type {
     GiftcardRecord,
     GiftcardState,
     PromotionPagination,
     PromotionSort,
 } from '../types/promotion';
-import type { AdminAction, AdminRootState } from '../types/store';
+import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 
 type GiftcardRootState = Pick<AdminRootState, 'giftcard'>;

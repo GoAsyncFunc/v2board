@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { AdminDispatch } from './store';
+import type { AdminDispatch } from './storeContracts';
 
 export type ServerId = string | number;
 export type Scalar = string | number | null;

@@ -5,7 +5,7 @@ import { routerBindings } from '../runtime/dvaApplication';
 import * as plugins from '../runtime/pluginRuntime';
 import adminRoutes from '../routes/adminRoutes';
 import history from './history';
-import type { AdminStore } from '../types/store';
+import type { AdminStore } from '../types/storeContracts';
 import type { DynamicRouteProps } from '../runtime/routeRenderer';
 
 const { ConnectedRouter } = routerBindings;

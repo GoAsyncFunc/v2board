@@ -6,7 +6,7 @@ import type {
     DvaPlugin,
     DvaSagaEffects,
 } from '../types/dva';
-import type { AdminAction } from '../types/store';
+import type { AdminAction } from '../types/storeContracts';
 
 const SHOW_LOADING = '@@DVA_LOADING/SHOW';
 const HIDE_LOADING = '@@DVA_LOADING/HIDE';

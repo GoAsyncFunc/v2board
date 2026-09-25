@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import TicketDetailChat from './components/TicketDetailChat';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import type { TicketState } from '../../types/ticket';
 
 interface TicketDetailState {

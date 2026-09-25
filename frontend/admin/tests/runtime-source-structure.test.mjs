@@ -38,7 +38,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/services/download.ts',
         '../src/routes/adminRoutes.ts',
         '../src/routes/routeConfig.ts',
-        '../src/types/api.ts',
+        '../src/types/apiContracts.ts',
         '../src/types/dva.ts',
         '../src/types/dvaCore.d.ts',
         '../src/utils/clipboard.ts',
@@ -495,7 +495,7 @@ test('admin application runtime is implemented as typed TSX components', async (
 
 test('admin DVA runtime uses named contracts instead of broad object placeholders', async () => {
     const contractPaths = [
-        '../src/types/store.ts',
+        '../src/types/storeContracts.ts',
         '../src/types/dva.ts',
         '../src/types/dvaCore.d.ts',
         '../src/runtime/dvaApplication.tsx',
@@ -507,7 +507,7 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
         assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
     }
 
-    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
     const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
     const effectTypes = await fs.readFile(
         new URL('../src/types/modelEffects.ts', import.meta.url),
@@ -557,7 +557,7 @@ test('admin plugin runtime separates callable hooks from route and configuration
 test('admin business contracts do not depend on rendering components', async () => {
     const typesDirectory = new URL('../src/types/', import.meta.url);
     const typeNames = (await fs.readdir(typesDirectory)).filter((name) => name.endsWith('.ts'));
-    assert.ok(typeNames.includes('filter.ts'));
+    assert.ok(typeNames.includes('filterContracts.ts'));
     for (const typeName of typeNames) {
         const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
         assert.doesNotMatch(
@@ -584,7 +584,7 @@ test('admin business contracts do not depend on rendering components', async () 
     }
 
     const contractSources = {
-        'filter.ts': ['FilterItem', 'FilterField'],
+        'filterContracts.ts': ['FilterItem', 'FilterField'],
         'knowledge.ts': ['KnowledgeRecord'],
         'monitoring.ts': ['QueueWorkload', 'DisplayScalar'],
         'notice.ts': ['NoticeRecord'],
@@ -727,7 +727,7 @@ test('ticket list keeps filters and search controls in a dedicated toolbar', asy
 });
 
 test('admin models depend on API contracts separately from request transport', async () => {
-    const apiSource = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
+    const apiSource = await fs.readFile(new URL('../src/types/apiContracts.ts', import.meta.url), 'utf8');
     const requestSource = await fs.readFile(
         new URL('../src/services/request.ts', import.meta.url),
         'utf8',
@@ -751,7 +751,7 @@ test('admin models depend on API contracts separately from request transport', a
 });
 
 test('admin root state names every registered business model', async () => {
-    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
     const rootRuntime = await fs.readFile(
         new URL('../src/app/rootRuntime.tsx', import.meta.url),
         'utf8',
@@ -1389,7 +1389,7 @@ test('Vless editor composes focused general and relationship field modules', asy
 });
 
 test('admin router selectors use the canonical root state', async () => {
-    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
     const routerTypes = await fs.readFile(
         new URL('../src/types/router.ts', import.meta.url),
         'utf8',

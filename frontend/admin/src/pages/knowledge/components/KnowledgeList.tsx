@@ -7,7 +7,7 @@ import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createReadonlyKnowledgeColumns } from './KnowledgeColumns';
 import SortableTable, { TableDragHandle } from '../../../components/common/SortableTable';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
 

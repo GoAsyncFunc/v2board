@@ -13,7 +13,11 @@ import type {
     ServerProtocolState,
     ServerRouteState,
 } from './serverContracts';
-import type { AdministratorAuthenticationState, LayoutState, PassportState } from './session';
+import type {
+    AdministratorAuthenticationState,
+    LayoutState,
+    PassportState,
+} from './authenticationContracts';
 import type { ThemeState } from './theme';
 import type { TicketState } from './ticket';
 import type { UserModuleState } from './userContracts';

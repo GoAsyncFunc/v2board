@@ -6,8 +6,8 @@ import ConnectedSidebar from '../Sidebar/SidebarLayout';
 import ConnectedHeader from '../Header/HeaderLayout';
 import type { HeaderSearchConfig } from '../Header/HeaderLayout';
 import history from '../../app/history';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { LayoutState } from '../../types/session';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
+import type { LayoutState } from '../../types/authenticationContracts';
 
 interface MainLayoutOwnProps {
     children?: React.ReactNode;

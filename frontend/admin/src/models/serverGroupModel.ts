@@ -1,7 +1,7 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
 import type { ServerGroupOption, ServerGroupState, ServerId } from '../types/serverContracts';
-import type { AdminAction } from '../types/store';
+import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface ServerGroupEffectTools extends PutEffectTools {}

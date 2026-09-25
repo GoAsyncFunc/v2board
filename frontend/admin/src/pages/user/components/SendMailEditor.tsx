@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Input from 'antd/lib/input';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { UserModuleState } from '../../../types/userContracts';
 
 interface MailForm {

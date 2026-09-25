@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
-import type { PassportState } from '../../types/session';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
+import type { PassportState } from '../../types/authenticationContracts';
 import AdminLoginScreen from './components/AdminLoginScreen';
 
 interface LoginQuery {

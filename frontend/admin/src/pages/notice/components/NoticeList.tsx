@@ -5,7 +5,7 @@ import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import Modal from 'antd/lib/modal';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { AdminDispatch, AdminRootState } from '../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { NoticeRecord } from '../../../types/notice';
 import { createReadonlyNoticeColumns } from './NoticeColumns';
 

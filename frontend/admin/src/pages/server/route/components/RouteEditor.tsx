@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
-import type { AdminDispatch, AdminRootState } from '../../../../types/store';
+import type { AdminDispatch, AdminRootState } from '../../../../types/storeContracts';
 import { RouteActionField } from './RouteActionField';
 import { RouteBasicFields } from './RouteBasicFields';
 import { RouteMatchField, getRouteMatchPlaceholder } from './RouteMatchField';

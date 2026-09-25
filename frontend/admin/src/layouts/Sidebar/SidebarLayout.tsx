@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createNavigation } from '../../config/navigation';
 import type { NavigationItem } from '../../config/navigation';
 import history from '../../app/history';
-import type { AdminDispatch } from '../../types/store';
+import type { AdminDispatch } from '../../types/storeContracts';
 import '../../config/siteSettings';
 import SidebarNavigation from './components/SidebarNavigation';
 

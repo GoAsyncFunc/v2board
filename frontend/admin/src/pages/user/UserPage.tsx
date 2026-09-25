@@ -10,8 +10,8 @@ import MainLayout from '../../layouts/MainLayout/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
 import { UserList } from './components/UserList';
 import UserToolbar from './components/UserToolbar';
-import type { FilterField, FilterValue } from '../../types/filter';
-import type { AdminDispatch, AdminRootState } from '../../types/store';
+import type { FilterField, FilterValue } from '../../types/filterContracts';
+import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import type {
     UserGroupOption,
     UserModuleState,

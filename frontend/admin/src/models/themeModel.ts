@@ -1,8 +1,8 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import '../config/adminSettings';
 import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/theme';
-import type { AdminAction } from '../types/store';
+import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 
 interface ThemeEffectTools extends PutEffectTools {}
