@@ -6,13 +6,13 @@ import { transform } from 'esbuild';
 
 const cases = [
   { name: 'server', effect: 'fetch', endpoint: '/user/server/fetch', field: 'servers', loading: 'fetchLoading', data: [{ name: 'Node', rate: 1 }] },
-  { name: 'stat', effect: 'getTrafficLog', endpoint: '/user/stat/getTrafficLog', field: 'traffics', loading: 'getTrafficLogLoading', data: [{ u: '1024', d: '2048', server_rate: 1 }] },
+  { name: 'stat', file: 'trafficStatistics', effect: 'getTrafficLog', endpoint: '/user/stat/getTrafficLog', field: 'traffics', loading: 'getTrafficLogLoading', data: [{ u: '1024', d: '2048', server_rate: 1 }] },
   { name: 'notice', effect: 'fetch', endpoint: '/user/notice/fetch', field: 'notices', data: [{ title: 'Announcement', tags: ['弹窗'] }] },
   { name: 'telegram', effect: 'getBotInfo', endpoint: '/user/telegram/getBotInfo', field: 'botInfo', data: { username: 'test_bot' } },
 ];
 
 async function load(entry, response, fail = false) {
-  const source = await fs.readFile(new URL(`../src/models/${entry.name}.ts`, import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL(`../src/models/${entry.file || entry.name}.ts`, import.meta.url), 'utf8');
   const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
   const events = [];
   const module = { exports: {} };

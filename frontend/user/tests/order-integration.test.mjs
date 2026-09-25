@@ -10,7 +10,7 @@ const bundle = (
         absWorkingDir: home,
         stdin: {
             resolveDir: home,
-            contents: `import {OrderDetailPage} from './src/pages/commerce/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/comm';import {setRequestFailurePresenter} from './src/services/request';globalThis.integration={OrderDetailPage,order,comm,setRequestFailurePresenter};`,
+            contents: `import {OrderDetailPage} from './src/pages/commerce/OrderDetail.tsx';import order from './src/models/order';import comm from './src/models/communication';import {setRequestFailurePresenter} from './src/services/request';globalThis.integration={OrderDetailPage,order,comm,setRequestFailurePresenter};`,
         },
         bundle: true,
         write: false,

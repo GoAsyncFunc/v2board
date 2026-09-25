@@ -105,7 +105,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/comm.ts"
+    "to": "models/communication.ts"
   },
   {
     "from": "app/store.tsx",
@@ -149,15 +149,15 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/stat.ts"
-  },
-  {
-    "from": "app/store.tsx",
     "to": "models/telegram.ts"
   },
   {
     "from": "app/store.tsx",
     "to": "models/ticket.ts"
+  },
+  {
+    "from": "app/store.tsx",
+    "to": "models/trafficStatistics.ts"
   },
   {
     "from": "app/store.tsx",
@@ -860,19 +860,19 @@
     "to": "app/bootstrap.tsx"
   },
   {
-    "from": "models/comm.ts",
+    "from": "models/communication.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/comm.ts",
+    "from": "models/communication.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/comm.ts",
+    "from": "models/communication.ts",
     "to": "types/commonModels.ts"
   },
   {
-    "from": "models/comm.ts",
+    "from": "models/communication.ts",
     "to": "types/queryModels.ts"
   },
   {
@@ -1100,22 +1100,6 @@
     "to": "utils/siteHelpers.ts"
   },
   {
-    "from": "models/stat.ts",
-    "to": "services/request.ts"
-  },
-  {
-    "from": "models/stat.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "models/stat.ts",
-    "to": "types/commerce.ts"
-  },
-  {
-    "from": "models/stat.ts",
-    "to": "types/queryModels.ts"
-  },
-  {
     "from": "models/telegram.ts",
     "to": "services/request.ts"
   },
@@ -1150,6 +1134,22 @@
   {
     "from": "models/ticket.ts",
     "to": "types/ticket.ts"
+  },
+  {
+    "from": "models/trafficStatistics.ts",
+    "to": "services/request.ts"
+  },
+  {
+    "from": "models/trafficStatistics.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "models/trafficStatistics.ts",
+    "to": "types/commerce.ts"
+  },
+  {
+    "from": "models/trafficStatistics.ts",
+    "to": "types/queryModels.ts"
   },
   {
     "from": "models/tutorial.ts",

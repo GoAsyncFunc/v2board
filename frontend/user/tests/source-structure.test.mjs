@@ -214,26 +214,26 @@ test('user model composition uses named business effects instead of module alias
     assert.doesNotMatch(userModel, /\b(?:get|post)\(|window\.|history\./);
 
     const modelDirectory = new URL('../src/models/', import.meta.url);
-    const modelNamespaces = [
-        'comm',
-        'coupon',
-        'guest',
-        'invite',
-        'knowledge',
-        'layout',
-        'notice',
-        'order',
-        'passport',
-        'plan',
-        'server',
-        'stat',
-        'telegram',
-        'ticket',
-        'tutorial',
-        'user',
+    const modelFiles = [
+        { file: 'communication', namespace: 'comm' },
+        { file: 'coupon', namespace: 'coupon' },
+        { file: 'guest', namespace: 'guest' },
+        { file: 'invite', namespace: 'invite' },
+        { file: 'knowledge', namespace: 'knowledge' },
+        { file: 'layout', namespace: 'layout' },
+        { file: 'notice', namespace: 'notice' },
+        { file: 'order', namespace: 'order' },
+        { file: 'passport', namespace: 'passport' },
+        { file: 'plan', namespace: 'plan' },
+        { file: 'server', namespace: 'server' },
+        { file: 'trafficStatistics', namespace: 'stat' },
+        { file: 'telegram', namespace: 'telegram' },
+        { file: 'ticket', namespace: 'ticket' },
+        { file: 'tutorial', namespace: 'tutorial' },
+        { file: 'user', namespace: 'user' },
     ];
-    for (const namespace of modelNamespaces) {
-        const source = await fs.readFile(new URL(`${namespace}.ts`, modelDirectory), 'utf8');
+    for (const { file, namespace } of modelFiles) {
+        const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');
         assert.match(source, new RegExp(`export default\\s*{\\s*namespace: ['"]${namespace}['"]`));
         assert.doesNotMatch(source, /export default\s*{\s*name:/);
     }
