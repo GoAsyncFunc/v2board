@@ -6,5 +6,5 @@ export function formatMoney(value: NumericValue): string {
 }
 
 export function formatPrice(value: NumericValue): string {
-    return ((value as number) / 100).toFixed(2);
+    return (Number(value) / 100).toFixed(2);
 }
