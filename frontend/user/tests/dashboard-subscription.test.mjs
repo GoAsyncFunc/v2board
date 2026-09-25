@@ -172,7 +172,7 @@ for (const mobile of [true, false])
         assert.equal(importer.state.showSubscribe, true);
         const box = importer.renderSubscribeBox();
         nodes(box, (node) =>
-            node.props.className?.includes('subsrcibe-for-link'),
+                node.props.className?.includes('subscribe-for-link'),
         )[0].props.onClick();
         assert.deepEqual(runtime.copied, ['test-subscription']);
         assert.deepEqual(runtime.messages, ['复制成功']);

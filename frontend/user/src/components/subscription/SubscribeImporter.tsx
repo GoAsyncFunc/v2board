@@ -94,7 +94,7 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
         return (
             <div className={styles.oneClickSubscribe}>
                 <div
-                    className={`${styles.item} subsrcibe-for-link`}
+                    className={`${styles.item} subscribe-for-link`}
                     onClick={() => this.copySubscribeUrl()}
                 >
                     <div>
