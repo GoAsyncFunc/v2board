@@ -1,8 +1,8 @@
 import React from 'react';
 import { formatMessage } from '../../../locales/i18n';
 import type { PaymentConfig } from '../../../types/commerce';
-import type { OrderModelRecord } from '../../../types/payment';
-import type { UserDispatch } from '../../../types/store';
+import type { OrderModelRecord } from '../../../types/paymentContracts';
+import type { UserDispatch } from '../../../types/storeContracts';
 
 interface ProductInfoProps {
     order: OrderModelRecord;

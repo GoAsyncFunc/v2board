@@ -10,7 +10,7 @@ import type {
     PlanPeriod,
     PlanTab,
     PlanUnitPrice,
-} from '../../types/plan';
+} from '../../types/planContracts';
 const message = (id: string): string => formatMessage({ id });
 
 export function getUnitPriceTag(plan: CatalogPlan): PlanUnitPrice {

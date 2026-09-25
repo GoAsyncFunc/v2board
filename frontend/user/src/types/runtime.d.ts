@@ -3,7 +3,7 @@ export {};
 import type { UserHistory } from '../app/history';
 import type { UserRoute } from '../routes/userRoutes';
 import type { UserDvaApplication } from '../app/store';
-import type { UserRootState } from './store';
+import type { UserRootState } from './storeContracts';
 
 declare global {
     type SupportChatValue = string | number | SupportChatValue[];

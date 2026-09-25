@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import TelegramBindModal from '../TelegramBindModal';
 import { formatMessage } from '../../../locales/i18n';
 import type { UserCommunicationConfig } from '../../../types/userDomainContracts';
-import type { UserInfo } from '../../../types/user';
+import type { UserInfo } from '../../../types/userContracts';
 
 interface ProfileTelegramProps {
     config: UserCommunicationConfig;

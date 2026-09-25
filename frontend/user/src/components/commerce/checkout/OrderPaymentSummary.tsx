@@ -4,7 +4,7 @@ import { localeSettings as settings } from '../../../config/localeSettings';
 import { formatMessage } from '../../../locales/i18n';
 import { formatPrice } from '../../common/MoneyDisplay';
 import type { PaymentConfig } from '../../../types/commerce';
-import type { OrderModelRecord, StripeCheckoutState } from '../../../types/payment';
+import type { OrderModelRecord, StripeCheckoutState } from '../../../types/paymentContracts';
 
 interface OrderPaymentSummaryProps {
     order: OrderModelRecord;

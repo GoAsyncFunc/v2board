@@ -4,7 +4,7 @@ import Modal from 'antd/lib/modal';
 import Icon from 'antd/lib/icon';
 import copyText from 'copy-to-clipboard';
 import { formatMessage } from '../../locales/i18n';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 import type { TelegramBot } from '../../types/queryState';
 
 interface TelegramStateProps {

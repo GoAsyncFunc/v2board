@@ -1,4 +1,4 @@
-import type { GiftcardRedemptionResponse } from '../types/user';
+import type { GiftcardRedemptionResponse } from '../types/userContracts';
 
 export function describeGiftcardRedemption({ type, value }: GiftcardRedemptionResponse): string {
     switch (type) {

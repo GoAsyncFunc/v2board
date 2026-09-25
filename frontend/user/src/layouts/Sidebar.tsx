@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createNavigation } from '../config/navigation';
 import type { NavigationItem } from '../config/navigation';
 import history from '../app/history';
-import type { UserDispatch } from '../types/store';
+import type { UserDispatch } from '../types/storeContracts';
 
 interface SidebarOwnProps {
     location: { pathname: string };

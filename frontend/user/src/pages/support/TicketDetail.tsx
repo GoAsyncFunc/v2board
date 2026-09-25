@@ -4,8 +4,8 @@ import message from 'antd/lib/message';
 import { formatMessage } from '../../locales/i18n';
 import { ticketDetailStyles as styles } from '../../styles/ticketDetailStyles';
 import { formatDateTime } from '../../components/common/DateTimeDisplay';
-import type { TicketConversation, TicketMessage, TicketState } from '../../types/ticket';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { TicketConversation, TicketMessage, TicketState } from '../../types/ticketContracts';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface TicketDetailBodyProps {
     ticket?: TicketConversation;

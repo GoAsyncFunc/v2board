@@ -4,7 +4,7 @@ import Modal from 'antd/lib/modal';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import { formatMessage } from '../../locales/i18n';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface WithdrawStateProps {
     user: { userInfo: { commission_balance?: number } };

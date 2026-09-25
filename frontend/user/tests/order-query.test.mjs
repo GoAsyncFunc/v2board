@@ -28,7 +28,7 @@ async function run(original, scenario) {
             exports: module.exports,
             api,
             require(id) {
-                if (id.includes('types/api'))
+                if (id.includes('types/apiContracts'))
                     return { isSuccessfulResponse: (response) => response.code === 200 };
                 if (id.includes('request')) return api;
                 if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push() {} };

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { formatMessage } from '../../locales/i18n';
 import { createTrafficColumns } from '../../components/account/TrafficColumns';
 import type { TrafficState } from '../../types/queryState';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface TrafficStateProps {
     stat: TrafficState;

@@ -1,6 +1,6 @@
 import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
-import type { KnowledgeId, KnowledgeState } from '../types/knowledge';
+import { isSuccessfulResponse } from '../types/apiContracts';
+import type { KnowledgeId, KnowledgeState } from '../types/knowledgeContracts';
 import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
 
 const initialState: KnowledgeState = {

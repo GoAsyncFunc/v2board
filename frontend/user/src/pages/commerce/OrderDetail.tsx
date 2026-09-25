@@ -6,9 +6,13 @@ import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import { formatMessage } from '../../locales/i18n';
 import OrderDetailView from './components/OrderDetailView';
-import type { CheckoutPaymentMethod, StripeCheckoutState, StripeToken } from '../../types/payment';
+import type {
+    CheckoutPaymentMethod,
+    StripeCheckoutState,
+    StripeToken,
+} from '../../types/paymentContracts';
 import type { PaymentMethod } from '../../types/commerce';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
 

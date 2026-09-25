@@ -2,7 +2,7 @@ import React from 'react';
 import loadable from 'react-loadable';
 import { formatMessage } from '../../../locales/i18n';
 import type { PaymentMethod } from '../../../types/commerce';
-import type { CheckoutPaymentMethod, StripeToken } from '../../../types/payment';
+import type { CheckoutPaymentMethod, StripeToken } from '../../../types/paymentContracts';
 import PaymentMethods from './PaymentMethods';
 
 const StripePaymentForm = loadable({

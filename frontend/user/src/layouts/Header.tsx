@@ -5,7 +5,7 @@ import { getCookie, setCookie } from '../utils/siteHelpers';
 import { formatMessage } from '../locales/i18n';
 import LanguageSelector from '../components/common/LanguageSelector';
 import HeaderSearchOverlay, { type HeaderSearchConfig } from './components/HeaderSearchOverlay';
-import type { UserDispatch, UserRootState } from '../types/store';
+import type { UserDispatch, UserRootState } from '../types/storeContracts';
 
 export type { HeaderSearchConfig } from './components/HeaderSearchOverlay';
 

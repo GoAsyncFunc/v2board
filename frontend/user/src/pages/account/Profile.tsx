@@ -12,11 +12,11 @@ import ProfileTelegram, {
 import ProfileWallet from '../../components/account/profile/ProfileWallet';
 import MainLayout from '../../layouts/MainLayout';
 import { get } from '../../services/request';
-import { isSuccessfulResponse } from '../../types/api';
+import { isSuccessfulResponse } from '../../types/apiContracts';
 import { formatMessage } from '../../locales/i18n';
 import { describeGiftcardRedemption } from '../../utils/giftcard';
-import type { GiftcardRedemptionResponse, UserSetting } from '../../types/user';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { GiftcardRedemptionResponse, UserSetting } from '../../types/userContracts';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
 

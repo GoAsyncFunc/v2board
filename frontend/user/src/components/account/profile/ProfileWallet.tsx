@@ -4,7 +4,7 @@ import Switch from 'antd/lib/switch';
 import { formatMoney } from '../../common/MoneyDisplay';
 import { formatMessage } from '../../../locales/i18n';
 import type { UserCommunicationConfig } from '../../../types/userDomainContracts';
-import type { UserInfo, UserSetting, UserState } from '../../../types/user';
+import type { UserInfo, UserSetting, UserState } from '../../../types/userContracts';
 
 interface ProfileWalletProps {
     config: UserCommunicationConfig;

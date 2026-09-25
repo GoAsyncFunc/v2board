@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function loadApiTypes() {
-  const source = await fs.readFile(new URL('../src/types/api.ts', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/types/apiContracts.ts', import.meta.url), 'utf8');
   const code = (await transform(source, { format: 'cjs', loader: 'ts' })).code;
   const module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports });

@@ -12,10 +12,10 @@ import {
     routerActions,
     routerMiddleware,
 } from 'react-router-redux';
-import type { RouterState } from '../types/router';
-import type { UserRootState, UserStore } from '../types/store';
+import type { RouterState } from '../types/routerContracts';
+import type { UserRootState, UserStore } from '../types/storeContracts';
 
-export type { RouterState } from '../types/router';
+export type { RouterState } from '../types/routerContracts';
 
 export { routerMiddleware };
 export {

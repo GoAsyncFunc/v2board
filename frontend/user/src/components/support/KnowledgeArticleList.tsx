@@ -2,7 +2,7 @@ import React from 'react';
 import { formatDate } from '../common/DateTimeDisplay';
 import { formatMessage } from '../../locales/i18n';
 import KnowledgeDetailDrawer from './KnowledgeDetailDrawer';
-import type { KnowledgeId, KnowledgeState } from '../../types/knowledge';
+import type { KnowledgeId, KnowledgeState } from '../../types/knowledgeContracts';
 
 interface KnowledgeArticleListProps {
     articlesByCategory: KnowledgeState['knowledges'];

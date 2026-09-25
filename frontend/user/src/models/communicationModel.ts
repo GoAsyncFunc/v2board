@@ -1,6 +1,6 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
-import type { ApiResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
+import type { ApiResponse } from '../types/apiContracts';
 import type {
     CommunicationState,
     ModelEffects,

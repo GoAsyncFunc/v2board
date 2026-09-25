@@ -17,7 +17,7 @@ async function load(name, response) {
   const { code } = await transform(source, { loader: 'ts', format: 'cjs' });
   const events = [], module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
-    if (id.includes('types/api')) return { isSuccessfulResponse: value => value.code === 200 };
+    if (id.includes('types/apiContracts')) return { isSuccessfulResponse: value => value.code === 200 };
     if (id.includes('services/request')) {
       const request = method => async (endpoint, params) => { events.push([method, endpoint, structuredClone(params)]); return response; };
       return { get: request('GET'), post: request('POST') };

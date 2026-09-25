@@ -1,7 +1,7 @@
 import history from '../app/history';
 import { get, post } from '../services/request';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
-import type { GiftcardRedemptionResponse, UserSetting } from '../types/user';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import type { GiftcardRedemptionResponse, UserSetting } from '../types/userContracts';
 import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';
 
 interface CompletionAction {

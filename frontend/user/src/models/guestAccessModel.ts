@@ -1,5 +1,5 @@
 import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import type { CommunicationConfig } from '../types/auth';
 import type { GuestState, ModelEffects, ModelGenerator } from '../types/userDomainContracts';
 import type { StateUpdate } from '../types/queryState';

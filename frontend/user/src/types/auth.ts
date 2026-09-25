@@ -1,4 +1,4 @@
-import type { UserDispatch } from './store';
+import type { UserDispatch } from './storeContracts';
 
 export type RecaptchaToken = string | null | undefined;
 

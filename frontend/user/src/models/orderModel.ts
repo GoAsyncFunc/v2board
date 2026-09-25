@@ -8,7 +8,7 @@ import {
     checkoutByStripe,
     save as saveOrder,
 } from './orderManagementEffects';
-import type { OrderModelState } from '../types/payment';
+import type { OrderModelState } from '../types/paymentContracts';
 import type { StateUpdate } from '../types/queryState';
 
 const initialState: OrderModelState = {

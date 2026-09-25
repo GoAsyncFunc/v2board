@@ -9,7 +9,7 @@ import InviteStatistics from '../../components/account/invite/InviteStatistics';
 import MainLayout from '../../layouts/MainLayout';
 import { formatMessage } from '../../locales/i18n';
 import type { InviteConfig, InviteState } from '../../types/invite';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface InviteStateProps {
     invite: InviteState;

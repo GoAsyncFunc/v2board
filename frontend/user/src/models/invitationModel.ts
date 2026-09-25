@@ -1,7 +1,7 @@
 import { get, post } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
-import type { ApiResponse } from '../types/api';
+import type { ApiResponse } from '../types/apiContracts';
 import type { CommissionRecord, InviteState } from '../types/invite';
 import type { StateUpdate } from '../types/queryState';
 

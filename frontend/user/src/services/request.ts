@@ -1,6 +1,6 @@
 import { getLocale } from '../locales/i18n';
 import { getToken, clearToken } from '../utils/siteHelpers';
-import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/api';
+import type { ApiResponse, FormValue, JsonValue, RequestOptions } from '../types/apiContracts';
 
 export interface RequestFailurePresentation {
     titleMessageId: string;

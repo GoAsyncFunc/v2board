@@ -2,12 +2,12 @@ import type { PassportState } from './auth';
 import type { CommunicationState, GuestState, PlanState } from './userDomainContracts';
 import type { CouponState, LayoutState, TutorialState } from './contentState';
 import type { InviteState } from './invite';
-import type { KnowledgeState } from './knowledge';
-import type { OrderModelState } from './payment';
+import type { KnowledgeState } from './knowledgeContracts';
+import type { OrderModelState } from './paymentContracts';
 import type { NoticeState, ServerState, TelegramState, TrafficState } from './queryState';
-import type { TicketState } from './ticket';
-import type { UserState } from './user';
-import type { RouterState } from './router';
+import type { TicketState } from './ticketContracts';
+import type { UserState } from './userContracts';
+import type { RouterState } from './routerContracts';
 
 export interface UserAction {
     type: string;

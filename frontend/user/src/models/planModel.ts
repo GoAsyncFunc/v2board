@@ -1,15 +1,15 @@
 import { get } from '../services/request';
 import { localeSettings } from '../config/localeSettings';
 import { router } from '../app/navigation';
-import { isSuccessfulResponse } from '../types/api';
-import type { ApiResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
+import type { ApiResponse } from '../types/apiContracts';
 import type {
     PlanEffects,
     PlanGenerator,
     PlanRecord,
     PlanState,
 } from '../types/userDomainContracts';
-import type { PlanPeriod } from '../types/plan';
+import type { PlanPeriod } from '../types/planContracts';
 import type { StateUpdate } from '../types/queryState';
 
 const initialState: PlanState = {

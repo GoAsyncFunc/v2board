@@ -13,7 +13,7 @@ import { isMobile } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
 import { createOrderColumns, orderBadgeStatuses } from '../../components/commerce/OrderColumns';
 import type { OrderRecord } from '../../types/commerce';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface OrderStateProps {
     order: { orders: OrderRecord[]; fetchLoading: boolean; cancelLoading: boolean };

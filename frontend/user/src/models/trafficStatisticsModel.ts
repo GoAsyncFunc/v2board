@@ -1,5 +1,5 @@
 import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import type { TrafficRecord } from '../types/commerce';
 import type { QueryEffects, QueryGenerator, StateUpdate, TrafficState } from '../types/queryState';
 

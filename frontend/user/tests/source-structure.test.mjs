@@ -279,7 +279,7 @@ test('user application runtime is implemented as typed TSX components', async ()
 
 test('user DVA runtime uses named contracts instead of broad object placeholders', async () => {
     const contractPaths = [
-        '../src/types/store.ts',
+        '../src/types/storeContracts.ts',
         '../src/types/dva.ts',
         '../src/types/dvaCore.d.ts',
         '../src/runtime/dvaApplication.tsx',
@@ -291,7 +291,7 @@ test('user DVA runtime uses named contracts instead of broad object placeholders
         assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
     }
 
-    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
     const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
     const loadingRuntime = await fs.readFile(
         new URL('../src/runtime/loadingPlugin.ts', import.meta.url),
@@ -327,7 +327,7 @@ test('user plugin runtime separates callable hooks from configuration values', a
 });
 
 test('user root state names every registered business model', async () => {
-    const storeTypes = await fs.readFile(new URL('../src/types/store.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
     const rootRuntime = await fs.readFile(
         new URL('../src/app/rootRuntime.tsx', import.meta.url),
         'utf8',
@@ -445,7 +445,7 @@ test('user Redux selectors share the canonical root state contract', async () =>
 
     for (const fileUrl of sourceFiles) {
         const source = await fs.readFile(fileUrl, 'utf8');
-        if (!fileUrl.pathname.endsWith('/types/store.ts')) {
+        if (!fileUrl.pathname.endsWith('/types/storeContracts.ts')) {
             assert.doesNotMatch(source, /(?:interface|type)\s+\w*RootState\b/, fileUrl.pathname);
         }
         if (!source.includes('connect(') || fileUrl.pathname.endsWith('/layouts/Sidebar.tsx'))
@@ -456,7 +456,7 @@ test('user Redux selectors share the canonical root state contract', async () =>
     }
 
     const routerTypes = await fs.readFile(
-        new URL('../src/types/router.ts', import.meta.url),
+        new URL('../src/types/routerContracts.ts', import.meta.url),
         'utf8',
     );
     const routerBindings = await fs.readFile(

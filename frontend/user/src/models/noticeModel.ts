@@ -1,5 +1,5 @@
 import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import type { UserNotice } from '../types/subscription';
 import type { NoticeState, QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
 

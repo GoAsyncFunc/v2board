@@ -11,8 +11,8 @@ import { couponDiscount, totalAmount } from '../../components/commerce/checkout/
 import { CouponDiscount } from '../../components/commerce/checkout/Coupon';
 import PlanPurchaseDetails from '../../components/subscription/checkout/PlanPurchaseDetails';
 import PlanOrderSidebar from '../../components/subscription/checkout/PlanOrderSidebar';
-import type { PlanPeriod } from '../../types/plan';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { PlanPeriod } from '../../types/planContracts';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 const message = (id: string): string => formatMessage({ id });
 

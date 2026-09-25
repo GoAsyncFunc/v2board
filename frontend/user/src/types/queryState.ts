@@ -1,5 +1,5 @@
 import type { PutEffect } from 'redux-saga/effects';
-import type { ApiResponse } from './api';
+import type { ApiResponse } from './apiContracts';
 import type { NodeRecord, TrafficRecord } from './commerce';
 import type { UserNotice } from './subscription';
 

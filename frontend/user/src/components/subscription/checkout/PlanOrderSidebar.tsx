@@ -3,7 +3,7 @@ import { CouponInput } from '../../commerce/checkout/Coupon';
 import OrderSummary from '../../commerce/checkout/OrderSummary';
 import type { CouponData, PaymentConfig } from '../../../types/commerce';
 import type { PlanRecord } from '../../../types/userDomainContracts';
-import type { PlanPeriod } from '../../../types/plan';
+import type { PlanPeriod } from '../../../types/planContracts';
 
 interface PlanOrderSidebarProps {
     config: PaymentConfig;

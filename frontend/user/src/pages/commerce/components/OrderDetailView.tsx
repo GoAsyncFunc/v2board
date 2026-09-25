@@ -13,8 +13,8 @@ import type {
     OrderModelRecord,
     StripeCheckoutState,
     StripeToken,
-} from '../../../types/payment';
-import type { UserDispatch } from '../../../types/store';
+} from '../../../types/paymentContracts';
+import type { UserDispatch } from '../../../types/storeContracts';
 
 interface OrderDetailViewProps {
     dispatch: UserDispatch;

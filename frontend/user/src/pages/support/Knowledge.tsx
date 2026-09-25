@@ -4,8 +4,8 @@ import MainLayout from '../../layouts/MainLayout';
 import KnowledgeArticleList from '../../components/support/KnowledgeArticleList';
 import KnowledgeSearchBar from '../../components/support/KnowledgeSearchBar';
 import { formatMessage, getLocale } from '../../locales/i18n';
-import type { KnowledgeState } from '../../types/knowledge';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { KnowledgeState } from '../../types/knowledgeContracts';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 interface KnowledgePageProps {
     knowledge: KnowledgeState;

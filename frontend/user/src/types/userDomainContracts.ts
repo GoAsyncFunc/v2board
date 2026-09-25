@@ -1,8 +1,8 @@
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
-import type { ApiResponse } from './api';
+import type { ApiResponse } from './apiContracts';
 import type { CommunicationConfig } from './auth';
 import type { NumericValue } from './commerce';
-import type { CatalogPlan, PlanPeriod } from './plan';
+import type { CatalogPlan, PlanPeriod } from './planContracts';
 import type { StateUpdate } from './queryState';
 
 export interface UserCommunicationConfig {

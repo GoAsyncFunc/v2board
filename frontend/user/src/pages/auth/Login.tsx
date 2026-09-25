@@ -8,7 +8,7 @@ import { formatMessage, getLocale } from '../../locales/i18n';
 import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
 import type { LoginPageProps } from '../../types/auth';
-import type { UserRootState } from '../../types/store';
+import type { UserRootState } from '../../types/storeContracts';
 
 const translate = (id: string): string => formatMessage({ id });
 

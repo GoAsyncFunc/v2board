@@ -8,7 +8,7 @@ import { LanguageSelector } from '../../components/common/LanguageSelector';
 import { localeSettings } from '../../config/localeSettings';
 import { notify } from '../../app/notifications';
 import type { RecaptchaToken, RegistrationPageProps } from '../../types/auth';
-import type { UserRootState } from '../../types/store';
+import type { UserRootState } from '../../types/storeContracts';
 
 interface RegistrationPageState {
     sendEmailVerifyTimeout: number;

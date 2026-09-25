@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import * as routerBindings from './routerBindings';
 import { routerMiddleware } from './routerBindings';
 import type { Middleware } from 'redux';
-import type { UserStore } from '../types/store';
+import type { UserStore } from '../types/storeContracts';
 import type { DvaCoreApplication, DvaOptions } from '../types/dva';
 
 export interface DvaRouterProps {

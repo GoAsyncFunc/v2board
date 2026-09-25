@@ -10,7 +10,7 @@ const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 async function run(effect, action, response, reject = false) {
   const events = [], module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {
-    if (id.includes('types/api')) return { isSuccessfulResponse: value => value.code === 200 };
+    if (id.includes('types/apiContracts')) return { isSuccessfulResponse: value => value.code === 200 };
     if (id.includes('services/request')) {
       const request = method => async (url, params) => {
         events.push([method, url, structuredClone(params)]);

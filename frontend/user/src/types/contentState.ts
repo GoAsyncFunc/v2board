@@ -1,4 +1,4 @@
-import type { JsonValue } from './api';
+import type { JsonValue } from './apiContracts';
 import type { CouponData } from './commerce';
 
 export interface CouponState {

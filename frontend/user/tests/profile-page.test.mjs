@@ -40,7 +40,7 @@ async function load(responseCode = 200) {
     }
     if (id.includes('MainLayout')) return 'Layout';
     if (id.includes('/request')) return { get: async path => { requests.push(path); return { code: responseCode }; } };
-    if (id.includes('types/api')) return { isSuccessfulResponse: response => response.code === 200 };
+    if (id.includes('types/apiContracts')) return { isSuccessfulResponse: response => response.code === 200 };
     if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
     if (id.includes('MoneyDisplay')) return { formatMoney: amount => (amount / 100).toFixed(2) };
     if (id.includes('utils/giftcard')) return { describeGiftcardRedemption: ({ type, value }) => type === 1 ? `账户余额 ${(value / 100).toFixed(2)}` : '未知类型' };

@@ -12,7 +12,7 @@ import {
     update as updateUserSetting,
 } from './userAccountEffects';
 import type { StateUpdate } from '../types/queryState';
-import type { UserState } from '../types/user';
+import type { UserState } from '../types/userContracts';
 
 const initialState: UserState = {
     subscribe: {},

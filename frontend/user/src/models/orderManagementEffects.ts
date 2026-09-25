@@ -1,6 +1,6 @@
 import { get, post } from '../services/request';
 import history from '../app/history';
-import { isSuccessfulResponse, type ApiResponse } from '../types/api';
+import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
 import type { OrderRecord } from '../types/commerce';
 import type { CheckoutOrder } from '../types/checkout';
@@ -10,7 +10,7 @@ import type {
     OrderFilter,
     OrderModelState,
     OrderSaveParams,
-} from '../types/payment';
+} from '../types/paymentContracts';
 import type { StateUpdate } from '../types/queryState';
 
 type OrderAction =

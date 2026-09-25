@@ -6,7 +6,7 @@ import history from '../../app/history';
 import { calculateUsage } from '../../utils/siteHelpers';
 import { formatMessage } from '../../locales/i18n';
 import { createNodeColumns } from '../../components/subscription/NodeColumns';
-import type { UserDispatch, UserRootState } from '../../types/store';
+import type { UserDispatch, UserRootState } from '../../types/storeContracts';
 
 import '../../services/request';
 const message = (id: string): string => formatMessage({ id });

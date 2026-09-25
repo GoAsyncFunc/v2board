@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { get } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import { formatBytes } from '../utils/siteHelpers';
 import type { UserSubscription } from '../types/subscription';
 import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';

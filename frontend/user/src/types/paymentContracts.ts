@@ -1,6 +1,6 @@
 import type { PaymentMethod } from './commerce';
 import type { CheckoutOrder, CheckoutPlan } from './checkout';
-import type { FormValue } from './api';
+import type { FormValue } from './apiContracts';
 
 export interface CheckoutPaymentMethod extends PaymentMethod {
     payment: string;

@@ -20,7 +20,7 @@ import telegram from '../models/telegramModel';
 import ticket from '../models/ticketModel';
 import tutorial from '../models/tutorialModel';
 import user from '../models/userModel';
-import type { UserStore } from '../types/store';
+import type { UserStore } from '../types/storeContracts';
 import type { DvaOptions, DvaPlugin } from '../types/dva';
 
 export interface UserDvaApplication extends DvaApplication {}

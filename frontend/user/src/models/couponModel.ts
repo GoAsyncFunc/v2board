@@ -1,5 +1,5 @@
 import { post } from '../services/request';
-import { isSuccessfulResponse } from '../types/api';
+import { isSuccessfulResponse } from '../types/apiContracts';
 import type { CouponState } from '../types/contentState';
 import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryState';
 
