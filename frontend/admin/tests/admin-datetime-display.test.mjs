@@ -10,7 +10,7 @@ const moment = value => ({ format: pattern => `${value}:${pattern}` });
 
 async function load(original) {
   const module = { exports: {} };
-  const file = new URL(original ? './fixtures/pages/admin-datetime-display.cjs' : '../src/utils/dateTime.ts', import.meta.url);
+  const file = new URL(original ? './fixtures/pages/admin-datetime-display.cjs' : '../src/utils/dateTimeFormatter.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
   vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, {
     module, exports: module.exports, require(id) {

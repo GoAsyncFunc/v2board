@@ -41,7 +41,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/types/apiContracts.ts',
         '../src/types/dvaRuntimeContracts.ts',
         '../src/types/dvaCore.d.ts',
-        '../src/utils/clipboard.ts',
+        '../src/utils/clipboardService.ts',
     ];
     for (const relativePath of typedRuntimePaths) {
         const stat = await fs.stat(new URL(relativePath, import.meta.url));

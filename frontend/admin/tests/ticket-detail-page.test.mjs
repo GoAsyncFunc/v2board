@@ -65,7 +65,7 @@ async function loadPage() {
       if (id.includes('TrafficPanel')) return 'TrafficPanel';
       if (id.includes('TicketMessageList')) return { __esModule: true, default: 'TicketMessageList' };
       if (id.includes('TicketDetailChat')) return { __esModule: true, default: 'TicketDetailChat' };
-      if (id.includes('utils/dateTime')) return { formatDateTime: value => `date:${value}` };
+      if (id.includes('utils/dateTimeFormatter')) return { formatDateTime: value => `date:${value}` };
       if (id.includes('iconStyles')) return {};
       throw new Error(id);
     },
@@ -116,7 +116,7 @@ async function loadMessageList() {
     require(id) {
       if (id === 'react') return React;
       if (id.includes('styles/ticketDetailStyles')) return { ticketDetailClassNames: { content: 'content' } };
-      if (id.includes('utils/dateTime')) return { formatDateTime: value => `date:${value}` };
+      if (id.includes('utils/dateTimeFormatter')) return { formatDateTime: value => `date:${value}` };
       throw new Error(id);
     },
   });

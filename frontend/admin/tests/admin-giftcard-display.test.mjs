@@ -12,7 +12,7 @@ async function load(original,plans){
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  const dateTime=original?null:await loadDateTimeFormatter(moment);
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};if(id==='moment'||id.includes('77642f52'))return moment;
-  if(id.includes('utils/dateTime'))return dateTime;
+  if(id.includes('utils/dateTimeFormatter'))return dateTime;
         throw Error(id);}});
  return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createReadonlyGiftcardColumns(plans));
 }

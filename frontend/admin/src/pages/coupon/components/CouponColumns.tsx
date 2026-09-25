@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { CouponRecord } from '../../../types/promotionContracts';
-import { formatDateTime } from '../../../utils/dateTime';
+import { formatDateTime } from '../../../utils/dateTimeFormatter';
 
 // Read and format the start before accessing the end, as in the original renderer.
 // Missing timestamps and null records deliberately keep their existing behavior.

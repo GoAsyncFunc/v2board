@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDateTime } from '../../../utils/dateTime';
+import { formatDateTime } from '../../../utils/dateTimeFormatter';
 import type { TicketMessage } from '../../../types/ticketContracts';
 import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailStyles';
 

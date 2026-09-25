@@ -1,5 +1,5 @@
 import message from 'antd/lib/message';
-import { copyOptionalText } from './clipboard';
+import { copyOptionalText } from './clipboardService';
 
 export type PreferenceValue = string | number | boolean | null | undefined;
 

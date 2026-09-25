@@ -12,7 +12,7 @@ async function load(original) {
   const dateTime = original ? null : await loadDateTimeFormatter(moment);
   const file = new URL(original ? './fixtures/pages/admin-notice-display.cjs' : '../src/pages/notice/components/NoticeColumns.ts', import.meta.url);
   const text = await fs.readFile(file, 'utf8');
-  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require(id) { if (id.includes('utils/dateTime')) return dateTime; if (id === 'moment' || id.includes('77642f52')) return moment;
+  vm.runInNewContext(original ? text : (await transform(text, { format: 'cjs', loader: 'ts' })).code, { module, exports: module.exports, require(id) { if (id.includes('utils/dateTimeFormatter')) return dateTime; if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id); } });
   return original ? module.exports(() => moment) : Object.values(module.exports.createReadonlyNoticeColumns());
 }

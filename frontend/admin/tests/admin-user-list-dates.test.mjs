@@ -38,7 +38,7 @@ async function load(original) {
                 if (id === 'react') return React;
                 if (id === 'antd/lib/tag') return 'Tag';
                 if (id === 'antd/lib/tooltip') return 'Tooltip';
-                if (id.includes('utils/dateTime')) return dateTime;
+                if (id.includes('utils/dateTimeFormatter')) return dateTime;
                 if (id.includes('UserDisplayColumns')) {
                     return { createReadonlyUserEmailColumn: () => ({ key: 'email' }) };
                 }

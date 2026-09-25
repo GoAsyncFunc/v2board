@@ -1105,7 +1105,7 @@
   },
   {
     "from": "pages/coupon/components/CouponColumns.tsx",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
@@ -1157,7 +1157,7 @@
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
-    "to": "utils/clipboard.ts"
+    "to": "utils/clipboardService.ts"
   },
   {
     "from": "pages/coupon/components/CouponRestrictionsFields.tsx",
@@ -1309,7 +1309,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardColumns.tsx",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
@@ -1365,7 +1365,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
-    "to": "utils/clipboard.ts"
+    "to": "utils/clipboardService.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardPlanField.tsx",
@@ -1413,7 +1413,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeColumns.ts",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
@@ -1501,7 +1501,7 @@
   },
   {
     "from": "pages/notice/components/NoticeColumns.ts",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/notice/components/NoticeContentFields.tsx",
@@ -1921,7 +1921,7 @@
   },
   {
     "from": "pages/server/manage/components/ServerManageColumns.tsx",
-    "to": "utils/clipboard.ts"
+    "to": "utils/clipboardService.ts"
   },
   {
     "from": "pages/server/manage/components/ServerManageMobileList.tsx",
@@ -2701,7 +2701,7 @@
   },
   {
     "from": "pages/ticket/components/TicketColumns.ts",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/ticket/components/TicketDetailChat.tsx",
@@ -2745,7 +2745,7 @@
   },
   {
     "from": "pages/ticket/components/TicketMessageList.tsx",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/ticket/components/TicketToolbar.tsx",
@@ -2833,7 +2833,7 @@
   },
   {
     "from": "pages/user/components/UserDisplayColumns.tsx",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/user/components/UserEditor.tsx",
@@ -2953,7 +2953,7 @@
   },
   {
     "from": "pages/user/components/UserListColumns.tsx",
-    "to": "utils/dateTime.ts"
+    "to": "utils/dateTimeFormatter.ts"
   },
   {
     "from": "pages/user/components/UserMoneyFields.tsx",
@@ -3244,11 +3244,11 @@
     "to": "types/filterContracts.ts"
   },
   {
-    "from": "utils/dateTime.ts",
+    "from": "utils/dateTimeFormatter.ts",
     "to": "types/dateTimeContracts.ts"
   },
   {
     "from": "utils/siteHelpers.ts",
-    "to": "utils/clipboard.ts"
+    "to": "utils/clipboardService.ts"
   }
 ]

@@ -4,7 +4,7 @@ import { transform } from 'esbuild';
 
 export async function loadDateTimeFormatter(moment) {
     const source = await fs.readFile(
-        new URL('../../src/utils/dateTime.ts', import.meta.url),
+        new URL('../../src/utils/dateTimeFormatter.ts', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'ts' });

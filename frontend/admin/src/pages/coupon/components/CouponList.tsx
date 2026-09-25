@@ -10,7 +10,7 @@ import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { CouponRecord, CouponState } from '../../../types/promotionContracts';
-import { copyText } from '../../../utils/clipboard';
+import { copyText } from '../../../utils/clipboardService';
 import { createReadonlyCouponColumns } from './CouponColumns';
 
 interface CouponListProps {

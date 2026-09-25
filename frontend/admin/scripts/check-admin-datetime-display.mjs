@@ -11,7 +11,7 @@ const source = `
 import React from 'react';
 import ReactDOM from 'react-dom';
 import original from './tests/fixtures/pages/admin-datetime-display.cjs';
-import { formatDateTime } from './src/utils/dateTime.ts';
+import { formatDateTime } from './src/utils/dateTimeFormatter.ts';
 import moment from 'moment';
 
 const query = new URL(location.href).searchParams;

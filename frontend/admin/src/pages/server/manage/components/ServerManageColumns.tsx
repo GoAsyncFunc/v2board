@@ -6,7 +6,7 @@ import Tooltip from 'antd/lib/tooltip';
 import message from 'antd/lib/message';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { TableDragHandle } from '../../../../components/common/SortableTable';
-import { copyText } from '../../../../utils/clipboard';
+import { copyText } from '../../../../utils/clipboardService';
 import type {
     ManagedServerRecord,
     ServerGroupOption,

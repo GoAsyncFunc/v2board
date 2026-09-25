@@ -49,7 +49,7 @@ async function loadPage() {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id.includes('utils/clipboard')) return { copyText: () => true };
+            if (id.includes('utils/clipboardService')) return { copyText: () => true };
             if (id === 'react-router-dom') return { Prompt: 'Prompt' };
             if (id === 'antd/lib/list')
                 return Object.assign('List', {

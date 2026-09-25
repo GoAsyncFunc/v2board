@@ -10,7 +10,7 @@ import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotionContracts';
 import type { PlanSummary } from '../../../types/configurationValues';
-import { copyText } from '../../../utils/clipboard';
+import { copyText } from '../../../utils/clipboardService';
 import { createReadonlyGiftcardColumns } from './GiftcardColumns';
 
 interface GiftcardListProps {

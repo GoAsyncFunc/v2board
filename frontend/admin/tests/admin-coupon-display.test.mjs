@@ -18,7 +18,7 @@ async function load(original) {
     if (id === 'react') return React;
     if (id === 'antd/lib/tag') return Tag;
     if (id.includes('antdTag')) return { a: 'Tag' };
-    if (id.includes('utils/dateTime')) return dateTime;
+    if (id.includes('utils/dateTimeFormatter')) return dateTime;
     if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
   } });

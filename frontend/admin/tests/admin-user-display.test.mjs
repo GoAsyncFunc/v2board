@@ -29,7 +29,7 @@ async function load(original) {
       if (id === 'antd/lib/badge') return Badge;
       if (id.includes('antdTooltip')) return { a: Tooltip };
       if (id.includes('antdBadge')) return { a: Badge };
-      if (id.includes('utils/dateTime')) return dateTime;
+      if (id.includes('utils/dateTimeFormatter')) return dateTime;
       if (id === 'moment' || id.includes('77642f52')) return moment;
         throw Error(id);
     },

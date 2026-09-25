@@ -25,7 +25,7 @@ async function loadSiteHelpers({ userAgent = 'desktop', initialStorage = {} } = 
     window,
     localStorage,
     require(id) {
-      if (id === './clipboard') return { copyOptionalText: value => { copies.push(value); return true; } };
+      if (id === './clipboardService') return { copyOptionalText: value => { copies.push(value); return true; } };
       if (id === 'antd/lib/message') return { success: value => messages.push(value) };
       throw new Error(id);
     },
@@ -34,7 +34,7 @@ async function loadSiteHelpers({ userAgent = 'desktop', initialStorage = {} } = 
 }
 
 async function loadClipboardAdapter() {
-  const source = await fs.readFile(new URL('../src/utils/clipboard.ts', import.meta.url), 'utf8');
+  const source = await fs.readFile(new URL('../src/utils/clipboardService.ts', import.meta.url), 'utf8');
   const code = (await transform(source, { format: 'cjs', loader: 'ts' })).code;
   const copies = [];
   const module = { exports: {} };

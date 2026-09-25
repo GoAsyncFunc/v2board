@@ -75,7 +75,7 @@ async function loadModule(relativePath, localModules = {}) {
             if (id === 'antd/lib/switch') return 'Switch';
             if (id === 'antd/lib/table') return 'Table';
             if (id === 'antd/lib/tag') return 'Tag';
-            if (id.includes('utils/clipboard')) return { copyText: () => true };
+            if (id.includes('utils/clipboardService')) return { copyText: () => true };
             if (id === 'moment') return (value) => ({ value, format: () => String(value) });
             if (id.includes('adminSettings'))
                 return { settings: { periodText: { month_price: '月付' } } };

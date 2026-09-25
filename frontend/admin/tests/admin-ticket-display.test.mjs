@@ -10,7 +10,7 @@ async function load(original){
  const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-ticket-display.cjs':'../src/pages/ticket/components/TicketColumns.ts',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  const dateTime=original?null:await loadDateTimeFormatter(moment);
- vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id.includes('utils/dateTime'))return dateTime;if(id==='moment'||id.includes('77642f52'))return moment;
+ vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'ts'})).code,{module,exports:module.exports,require(id){if(id.includes('utils/dateTimeFormatter'))return dateTime;if(id==='moment'||id.includes('77642f52'))return moment;
         throw Error(id);}});
  return original?module.exports(['低','中','高'],()=>moment):Object.values(module.exports.createReadonlyTicketColumns(['低','中','高']));
 }

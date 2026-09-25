@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { TicketLevel, TicketRecord, TicketTimestamp } from '../../../types/ticketContracts';
-import { formatDateTime } from '../../../utils/dateTime';
+import { formatDateTime } from '../../../utils/dateTimeFormatter';
 
 export function renderTicketLevel(
     levels: readonly React.ReactNode[],
