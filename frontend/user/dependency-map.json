@@ -121,7 +121,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/invite.ts"
+    "to": "models/invitationModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -149,7 +149,7 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/telegram.ts"
+    "to": "models/telegramModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -157,11 +157,11 @@
   },
   {
     "from": "app/store.tsx",
-    "to": "models/trafficStatistics.ts"
+    "to": "models/trafficStatisticsModel.ts"
   },
   {
     "from": "app/store.tsx",
-    "to": "models/tutorial.ts"
+    "to": "models/tutorialModel.ts"
   },
   {
     "from": "app/store.tsx",
@@ -936,19 +936,19 @@
     "to": "types/userDomainContracts.ts"
   },
   {
-    "from": "models/invite.ts",
+    "from": "models/invitationModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/invite.ts",
+    "from": "models/invitationModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/invite.ts",
+    "from": "models/invitationModel.ts",
     "to": "types/invite.ts"
   },
   {
-    "from": "models/invite.ts",
+    "from": "models/invitationModel.ts",
     "to": "types/queryState.ts"
   },
   {
@@ -1072,15 +1072,15 @@
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/telegram.ts",
+    "from": "models/telegramModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/telegram.ts",
+    "from": "models/telegramModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/telegram.ts",
+    "from": "models/telegramModel.ts",
     "to": "types/queryState.ts"
   },
   {
@@ -1108,35 +1108,35 @@
     "to": "types/ticket.ts"
   },
   {
-    "from": "models/trafficStatistics.ts",
+    "from": "models/trafficStatisticsModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/trafficStatistics.ts",
+    "from": "models/trafficStatisticsModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/trafficStatistics.ts",
+    "from": "models/trafficStatisticsModel.ts",
     "to": "types/commerce.ts"
   },
   {
-    "from": "models/trafficStatistics.ts",
+    "from": "models/trafficStatisticsModel.ts",
     "to": "types/queryState.ts"
   },
   {
-    "from": "models/tutorial.ts",
+    "from": "models/tutorialModel.ts",
     "to": "services/request.ts"
   },
   {
-    "from": "models/tutorial.ts",
+    "from": "models/tutorialModel.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "models/tutorial.ts",
+    "from": "models/tutorialModel.ts",
     "to": "types/contentState.ts"
   },
   {
-    "from": "models/tutorial.ts",
+    "from": "models/tutorialModel.ts",
     "to": "types/queryState.ts"
   },
   {

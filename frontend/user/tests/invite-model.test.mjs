@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import { transform } from 'esbuild';
 
-const source = await fs.readFile(new URL('../src/models/invite.ts', import.meta.url), 'utf8');
+const source = await fs.readFile(new URL('../src/models/invitationModel.ts', import.meta.url), 'utf8');
 const { code } = await transform(source, { format: 'cjs', loader: 'ts' });
 
 async function run(effect, action, response, reject = false) {

@@ -8,6 +8,7 @@ async function load(name, response) {
   const modelFileNames = {
     coupon: 'couponModel',
     knowledge: 'knowledgeModel',
+    tutorial: 'tutorialModel',
   };
   const source = await fs.readFile(
     new URL(`../src/models/${modelFileNames[name] || name}.ts`, import.meta.url),

@@ -218,7 +218,7 @@ test('user model composition uses named business effects instead of module alias
         { file: 'communicationModel', namespace: 'comm' },
         { file: 'couponModel', namespace: 'coupon' },
         { file: 'guestAccessModel', namespace: 'guest' },
-        { file: 'invite', namespace: 'invite' },
+        { file: 'invitationModel', namespace: 'invite' },
         { file: 'knowledgeModel', namespace: 'knowledge' },
         { file: 'layoutModel', namespace: 'layout' },
         { file: 'noticeModel', namespace: 'notice' },
@@ -226,10 +226,10 @@ test('user model composition uses named business effects instead of module alias
         { file: 'authenticationModel', namespace: 'passport' },
         { file: 'planModel', namespace: 'plan' },
         { file: 'serverCatalogModel', namespace: 'server' },
-        { file: 'trafficStatistics', namespace: 'stat' },
-        { file: 'telegram', namespace: 'telegram' },
+        { file: 'trafficStatisticsModel', namespace: 'stat' },
+        { file: 'telegramModel', namespace: 'telegram' },
         { file: 'ticketModel', namespace: 'ticket' },
-        { file: 'tutorial', namespace: 'tutorial' },
+        { file: 'tutorialModel', namespace: 'tutorial' },
         { file: 'userModel', namespace: 'user' },
     ];
     for (const { file, namespace } of modelFiles) {
