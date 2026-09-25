@@ -7,7 +7,7 @@ import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import PaymentList from './components/PaymentList';
 import ConnectedPaymentEditor, { PaymentEditor } from './components/PaymentEditor';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { PaymentState } from '../../../types/payment';
+import type { PaymentState } from '../../../types/paymentContracts';
 
 interface PaymentPageProps {
     dispatch: AdminDispatch;

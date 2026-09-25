@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { NoticeRecord, NoticeState } from '../../types/notice';
+import type { NoticeRecord, NoticeState } from '../../types/noticeContracts';
 import NoticeEditor from './components/NoticeEditor';
 import { NoticeList } from './components/NoticeList';
 

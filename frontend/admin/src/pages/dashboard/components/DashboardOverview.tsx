@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatIncome, formatLiveCount } from '../../../components/common/MoneyDisplay';
-import type { DashboardStats } from '../../../types/monitoring';
+import type { DashboardStats } from '../../../types/monitoringContracts';
 
 export default function DashboardOverview({
     stat,

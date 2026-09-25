@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { NoticeRecord } from '../../../types/notice';
+import type { NoticeRecord } from '../../../types/noticeContracts';
 
 export interface NoticeContentFieldsProps {
     notice: NoticeRecord;

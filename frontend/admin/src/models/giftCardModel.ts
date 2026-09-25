@@ -6,7 +6,7 @@ import type {
     GiftcardState,
     PromotionPagination,
     PromotionSort,
-} from '../types/promotion';
+} from '../types/promotionContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 

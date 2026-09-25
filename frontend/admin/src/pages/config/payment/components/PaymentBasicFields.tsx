@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { PaymentRecord } from '../../../../types/payment';
+import type { PaymentRecord } from '../../../../types/paymentContracts';
 
 export interface PaymentBasicFieldsProps {
     submit: PaymentRecord;

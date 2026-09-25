@@ -1,6 +1,6 @@
 import React from 'react';
 import type { EChartsCoreOption } from 'echarts/core';
-import type { RankChartRecord } from '../../../types/monitoring';
+import type { RankChartRecord } from '../../../types/monitoringContracts';
 
 interface RankChartOption extends EChartsCoreOption {
     tooltip: { trigger: string; formatter: (values: Array<{ value: string | number }>) => string };

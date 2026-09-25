@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Table from 'antd/lib/table';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { OrderRecord, OrderState } from '../../../types/order';
+import type { OrderRecord, OrderState } from '../../../types/orderContracts';
 import {
     createOrderListColumns,
     renderCommissionStatus,

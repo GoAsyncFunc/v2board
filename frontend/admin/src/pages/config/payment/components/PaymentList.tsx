@@ -7,7 +7,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import SortableTable, { TableDragHandle } from '../../../../components/common/SortableTable';
 import { createPaymentNotifyColumn } from './PaymentNotifyColumn';
 import type { AdminDispatch } from '../../../../types/storeContracts';
-import type { PaymentRecord, PaymentState } from '../../../../types/payment';
+import type { PaymentRecord, PaymentState } from '../../../../types/paymentContracts';
 
 export interface PaymentListProps {
     dispatch: AdminDispatch;

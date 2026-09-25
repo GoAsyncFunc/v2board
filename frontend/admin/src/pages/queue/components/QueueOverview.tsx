@@ -1,5 +1,5 @@
 import React from 'react';
-import type { QueueStats } from '../../../types/monitoring';
+import type { QueueStats } from '../../../types/monitoringContracts';
 
 interface QueueOverviewProps {
     queueStats?: QueueStats | null;

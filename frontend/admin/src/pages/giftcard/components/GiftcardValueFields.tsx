@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { GiftcardRecord } from '../../../types/promotion';
+import type { GiftcardRecord } from '../../../types/promotionContracts';
 
 export interface GiftcardValueFieldsProps {
     giftcard: GiftcardRecord;

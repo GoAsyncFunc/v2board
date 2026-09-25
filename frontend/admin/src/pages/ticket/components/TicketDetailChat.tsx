@@ -6,7 +6,7 @@ import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailSt
 import TicketMessageList from './TicketMessageList';
 import UserEditor from '../../user/components/UserEditor';
 import TrafficPanel from '../../../components/user/TrafficPanel';
-import type { TicketId, TicketRecord } from '../../../types/ticket';
+import type { TicketId, TicketRecord } from '../../../types/ticketContracts';
 
 export interface TicketDetailChatProps {
     ticket?: TicketRecord;

@@ -4,7 +4,7 @@ import history from '../../app/navigation';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import { get } from '../../services/request';
 import { siteSettings } from '../../config/siteSettings';
-import type { DashboardStats } from '../../types/monitoring';
+import type { DashboardStats } from '../../types/monitoringContracts';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import DashboardAlerts from './components/DashboardAlerts';
 import DashboardNavigation from './components/DashboardNavigation';

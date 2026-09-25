@@ -1,5 +1,5 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { NoticeRecord, NoticeTimestamp } from '../../../types/notice';
+import type { NoticeRecord, NoticeTimestamp } from '../../../types/noticeContracts';
 import { formatDateTime } from '../../../utils/dateTime';
 
 export function formatNoticeCreatedAt(value: NoticeTimestamp): string {

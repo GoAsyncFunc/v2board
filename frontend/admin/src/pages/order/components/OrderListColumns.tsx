@@ -7,7 +7,7 @@ import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { settings } from '../../../config/adminSettings';
 import type { AdminDispatch } from '../../../types/storeContracts';
-import type { OrderRecord } from '../../../types/order';
+import type { OrderRecord } from '../../../types/orderContracts';
 import { ConnectedOrderDetailModal } from './OrderDetailModal';
 import { createReadonlyOrderColumns } from './OrderColumns';
 

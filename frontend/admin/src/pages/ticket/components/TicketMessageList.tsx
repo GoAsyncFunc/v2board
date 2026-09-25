@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatDateTime } from '../../../utils/dateTime';
-import type { TicketMessage } from '../../../types/ticket';
+import type { TicketMessage } from '../../../types/ticketContracts';
 import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailStyles';
 
 interface TicketMessageListProps {

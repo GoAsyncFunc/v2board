@@ -7,7 +7,7 @@ import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import moment from 'moment';
 import type { PlanSummary } from '../../../types/configurationValues';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { CouponRecord, CouponState } from '../../../types/promotion';
+import type { CouponRecord, CouponState } from '../../../types/promotionContracts';
 import { CouponBasicFields } from './CouponBasicFields';
 import { CouponGenerationField } from './CouponGenerationField';
 import { CouponRestrictionsFields } from './CouponRestrictionsFields';

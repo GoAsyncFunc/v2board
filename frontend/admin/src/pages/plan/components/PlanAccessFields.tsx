@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'antd/lib/select';
 import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
 import NullableSelectOption from '../../../components/common/NullableSelectOption';
-import type { PlanRecord } from '../../../types/plan';
+import type { PlanRecord } from '../../../types/planContracts';
 
 interface ServerGroup {
     id: number | string;

@@ -1,5 +1,5 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { KnowledgeRecord, KnowledgeTimestamp } from '../../../types/knowledge';
+import type { KnowledgeRecord, KnowledgeTimestamp } from '../../../types/knowledgeContracts';
 import { formatDateTime } from '../../../utils/dateTime';
 
 export function formatKnowledgeUpdatedAt(value: KnowledgeTimestamp): string {

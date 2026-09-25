@@ -5,7 +5,7 @@ import MarkdownIt from 'markdown-it';
 import Loadable from 'react-loadable';
 import type MarkdownEditorComponent from 'react-markdown-editor-lite';
 import { settings } from '../../../config/adminSettings';
-import type { KnowledgeRecord } from '../../../types/knowledge';
+import type { KnowledgeRecord } from '../../../types/knowledgeContracts';
 
 type MarkdownEditorProps = React.ComponentProps<typeof MarkdownEditorComponent>;
 

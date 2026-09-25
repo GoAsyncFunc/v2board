@@ -1,7 +1,12 @@
 import { get, post } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse, type FormValue } from '../types/apiContracts';
 import type { FilterItem, FilterValue } from '../types/filterContracts';
-import type { AssignOrderParams, OrderPagination, OrderRecord, OrderState } from '../types/order';
+import type {
+    AssignOrderParams,
+    OrderPagination,
+    OrderRecord,
+    OrderState,
+} from '../types/orderContracts';
 import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffects';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 

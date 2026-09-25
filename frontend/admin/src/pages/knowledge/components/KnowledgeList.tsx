@@ -8,7 +8,7 @@ import type { ColumnProps } from 'antd/lib/table/interface';
 import { createReadonlyKnowledgeColumns } from './KnowledgeColumns';
 import SortableTable, { TableDragHandle } from '../../../components/common/SortableTable';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledge';
+import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledgeContracts';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
 
 const readonlyColumns = createReadonlyKnowledgeColumns();

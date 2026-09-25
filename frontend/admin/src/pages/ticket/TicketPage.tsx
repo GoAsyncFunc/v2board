@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../types/ticket';
+import type {
+    TicketFilterState,
+    TicketId,
+    TicketRecord,
+    TicketState,
+} from '../../types/ticketContracts';
 import { TicketList } from './components/TicketList';
 import TicketToolbar from './components/TicketToolbar';
 

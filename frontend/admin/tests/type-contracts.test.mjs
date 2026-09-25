@@ -106,7 +106,7 @@ test('server security settings use protocol-specific fields instead of a generic
 test('admin business boundary types avoid broad object placeholders', async () => {
     const relativePaths = [
         'types/userContracts.ts',
-        'types/monitoring.ts',
+        'types/monitoringContracts.ts',
         'pages/server/manage/ServerManagePage.tsx',
         'components/common/ContextMenuTable.tsx',
         'pages/server/route/components/RouteActionColumn.ts',
@@ -118,12 +118,9 @@ test('admin business boundary types avoid broad object placeholders', async () =
         assert.doesNotMatch(source, /:\s*object\b|extends\s+object\b|=\s*object\b/, relativePath);
     }
 
-    const userTypes = await fs.readFile(
-        path.join(sourceRoot, 'types', 'userContracts.ts'),
-        'utf8',
-    );
+    const userTypes = await fs.readFile(path.join(sourceRoot, 'types', 'userContracts.ts'), 'utf8');
     const monitoringTypes = await fs.readFile(
-        path.join(sourceRoot, 'types', 'monitoring.ts'),
+        path.join(sourceRoot, 'types', 'monitoringContracts.ts'),
         'utf8',
     );
     const managePage = await fs.readFile(

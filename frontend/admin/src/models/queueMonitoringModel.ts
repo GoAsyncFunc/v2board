@@ -1,6 +1,10 @@
 import { get } from '../services/request';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import type { QueueStats, QueueWorkload, SystemMonitoringState } from '../types/monitoring';
+import type {
+    QueueStats,
+    QueueWorkload,
+    SystemMonitoringState,
+} from '../types/monitoringContracts';
 import type { AdminAction } from '../types/storeContracts';
 import type { ModelEffect, PutEffectTools } from '../types/modelEffects';
 

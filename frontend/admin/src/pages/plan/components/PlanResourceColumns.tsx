@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
-import type { PlanRecord } from '../../../types/plan';
+import type { PlanRecord } from '../../../types/planContracts';
 
 // Keep raw children: concatenating/interpolating would change null, objects and arrays.
 export function renderPlanCount(count: PlanRecord['count']) {

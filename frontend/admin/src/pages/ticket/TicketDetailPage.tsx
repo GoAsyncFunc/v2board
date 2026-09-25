@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import TicketDetailChat from './components/TicketDetailChat';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { TicketState } from '../../types/ticket';
+import type { TicketState } from '../../types/ticketContracts';
 
 interface TicketDetailState {
     message?: string;

@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { KnowledgeState } from '../../types/knowledge';
+import type { KnowledgeState } from '../../types/knowledgeContracts';
 import ConnectedKnowledgeEditor from './components/KnowledgeEditor';
 import { KnowledgeList } from './components/KnowledgeList';
 

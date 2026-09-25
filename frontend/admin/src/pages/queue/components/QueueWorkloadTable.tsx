@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'antd/lib/table';
 import { createReadonlyQueueColumns } from './QueueColumns';
-import type { QueueWorkload } from '../../../types/monitoring';
+import type { QueueWorkload } from '../../../types/monitoringContracts';
 
 interface QueueWorkloadTableProps {
     workload?: QueueWorkload[] | null;

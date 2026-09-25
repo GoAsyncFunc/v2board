@@ -7,7 +7,7 @@ import type {
     PlanPriceField,
     PlanRecord,
     PlanState,
-} from '../types/plan';
+} from '../types/planContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 

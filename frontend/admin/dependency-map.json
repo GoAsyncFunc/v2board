@@ -201,7 +201,7 @@
   },
   {
     "from": "components/common/MoneyDisplay.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "components/common/PermissionGroupEditor.tsx",
@@ -381,7 +381,7 @@
   },
   {
     "from": "models/couponModel.ts",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "models/couponModel.ts",
@@ -401,7 +401,7 @@
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "models/dashboardStatisticsModel.ts",
@@ -421,7 +421,7 @@
   },
   {
     "from": "models/giftCardModel.ts",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "models/giftCardModel.ts",
@@ -437,7 +437,7 @@
   },
   {
     "from": "models/knowledgeModel.ts",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "models/knowledgeModel.ts",
@@ -473,7 +473,7 @@
   },
   {
     "from": "models/noticeModel.ts",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "models/noticeModel.ts",
@@ -497,7 +497,7 @@
   },
   {
     "from": "models/orderManagementEffects.ts",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "models/orderManagementEffects.ts",
@@ -509,7 +509,7 @@
   },
   {
     "from": "models/orderModel.ts",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "models/paymentModel.ts",
@@ -529,7 +529,7 @@
   },
   {
     "from": "models/paymentModel.ts",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "models/paymentModel.ts",
@@ -553,7 +553,7 @@
   },
   {
     "from": "models/planModel.ts",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "models/planModel.ts",
@@ -573,7 +573,7 @@
   },
   {
     "from": "models/queueMonitoringModel.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "models/queueMonitoringModel.ts",
@@ -697,7 +697,7 @@
   },
   {
     "from": "models/ticketModel.ts",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "models/userManagementEffects.ts",
@@ -769,7 +769,7 @@
   },
   {
     "from": "pages/config/payment/PaymentConfigPage.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/payment/PaymentConfigPage.tsx",
@@ -777,11 +777,11 @@
   },
   {
     "from": "pages/config/payment/components/PaymentBasicFields.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentConfigFields.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentEditor.tsx",
@@ -797,7 +797,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentEditor.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentEditor.tsx",
@@ -813,7 +813,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/payment/components/PaymentList.tsx",
@@ -821,7 +821,7 @@
   },
   {
     "from": "pages/config/payment/components/PaymentNotifyColumn.tsx",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "pages/config/system/SystemConfigPage.tsx",
@@ -1089,7 +1089,7 @@
   },
   {
     "from": "pages/coupon/CouponPage.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/CouponPage.tsx",
@@ -1097,11 +1097,11 @@
   },
   {
     "from": "pages/coupon/components/CouponBasicFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponColumns.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponColumns.tsx",
@@ -1133,7 +1133,7 @@
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponEditor.tsx",
@@ -1141,7 +1141,7 @@
   },
   {
     "from": "pages/coupon/components/CouponGenerationField.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
@@ -1149,7 +1149,7 @@
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponList.tsx",
@@ -1169,15 +1169,15 @@
   },
   {
     "from": "pages/coupon/components/CouponRestrictionsFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponUsageFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/coupon/components/CouponValueFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/dashboard/AdminHomeRedirect.tsx",
@@ -1217,7 +1217,7 @@
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/dashboard/DashboardPage.tsx",
@@ -1225,7 +1225,7 @@
   },
   {
     "from": "pages/dashboard/chartOptions.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardAlerts.tsx",
@@ -1233,7 +1233,7 @@
   },
   {
     "from": "pages/dashboard/components/DashboardAlerts.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardCharts.tsx",
@@ -1249,7 +1249,7 @@
   },
   {
     "from": "pages/dashboard/components/DashboardCharts.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardCharts.tsx",
@@ -1265,11 +1265,11 @@
   },
   {
     "from": "pages/dashboard/components/DashboardOverview.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardServerRank.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
@@ -1293,7 +1293,7 @@
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/GiftcardPage.tsx",
@@ -1301,11 +1301,11 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardBasicFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardColumns.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardColumns.tsx",
@@ -1337,7 +1337,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardEditor.tsx",
@@ -1345,7 +1345,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardGenerationField.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
@@ -1357,7 +1357,7 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardList.tsx",
@@ -1373,15 +1373,15 @@
   },
   {
     "from": "pages/giftcard/components/GiftcardPlanField.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardUsageFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/giftcard/components/GiftcardValueFields.tsx",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "pages/knowledge/KnowledgePage.tsx",
@@ -1401,7 +1401,7 @@
   },
   {
     "from": "pages/knowledge/KnowledgePage.tsx",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "pages/knowledge/KnowledgePage.tsx",
@@ -1409,7 +1409,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeColumns.ts",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeColumns.ts",
@@ -1421,7 +1421,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeEditor.tsx",
@@ -1437,7 +1437,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeForm.tsx",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
@@ -1453,7 +1453,7 @@
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "pages/knowledge/components/KnowledgeList.tsx",
@@ -1489,7 +1489,7 @@
   },
   {
     "from": "pages/notice/NoticePage.tsx",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/notice/NoticePage.tsx",
@@ -1497,7 +1497,7 @@
   },
   {
     "from": "pages/notice/components/NoticeColumns.ts",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeColumns.ts",
@@ -1505,7 +1505,7 @@
   },
   {
     "from": "pages/notice/components/NoticeContentFields.tsx",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeEditor.tsx",
@@ -1517,7 +1517,7 @@
   },
   {
     "from": "pages/notice/components/NoticeEditor.tsx",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeEditor.tsx",
@@ -1529,7 +1529,7 @@
   },
   {
     "from": "pages/notice/components/NoticeList.tsx",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/notice/components/NoticeList.tsx",
@@ -1537,7 +1537,7 @@
   },
   {
     "from": "pages/notice/components/NoticeMetadataFields.tsx",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "pages/order/OrderPage.tsx",
@@ -1565,7 +1565,7 @@
   },
   {
     "from": "pages/order/OrderPage.tsx",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "pages/order/OrderPage.tsx",
@@ -1581,7 +1581,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailBody.tsx",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
@@ -1601,7 +1601,7 @@
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "pages/order/components/OrderDetailModal.tsx",
@@ -1621,7 +1621,7 @@
   },
   {
     "from": "pages/order/components/OrderList.tsx",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "pages/order/components/OrderList.tsx",
@@ -1641,7 +1641,7 @@
   },
   {
     "from": "pages/order/components/OrderListColumns.tsx",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "pages/order/components/OrderListColumns.tsx",
@@ -1665,7 +1665,7 @@
   },
   {
     "from": "pages/plan/PlanPage.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/PlanPage.tsx",
@@ -1681,11 +1681,11 @@
   },
   {
     "from": "pages/plan/components/PlanAccessFields.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanBasicFields.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanEditor.tsx",
@@ -1709,7 +1709,7 @@
   },
   {
     "from": "pages/plan/components/PlanEditor.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanEditor.tsx",
@@ -1733,7 +1733,7 @@
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanList.tsx",
@@ -1761,7 +1761,7 @@
   },
   {
     "from": "pages/plan/components/PlanListColumns.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanListColumns.tsx",
@@ -1769,15 +1769,15 @@
   },
   {
     "from": "pages/plan/components/PlanResourceColumns.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanResourceFields.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PriceFields.tsx",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/queue/QueuePage.tsx",
@@ -1797,7 +1797,7 @@
   },
   {
     "from": "pages/queue/QueuePage.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/queue/QueuePage.tsx",
@@ -1805,11 +1805,11 @@
   },
   {
     "from": "pages/queue/components/QueueColumns.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/queue/components/QueueOverview.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/queue/components/QueueWorkloadTable.tsx",
@@ -1817,7 +1817,7 @@
   },
   {
     "from": "pages/queue/components/QueueWorkloadTable.tsx",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "pages/server/group/ServerGroupPage.tsx",
@@ -2669,7 +2669,7 @@
   },
   {
     "from": "pages/ticket/TicketDetailPage.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/TicketPage.tsx",
@@ -2693,11 +2693,11 @@
   },
   {
     "from": "pages/ticket/TicketPage.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketColumns.ts",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketColumns.ts",
@@ -2721,7 +2721,7 @@
   },
   {
     "from": "pages/ticket/components/TicketDetailChat.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",
@@ -2733,7 +2733,7 @@
   },
   {
     "from": "pages/ticket/components/TicketList.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketMessageList.tsx",
@@ -2741,7 +2741,7 @@
   },
   {
     "from": "pages/ticket/components/TicketMessageList.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/ticket/components/TicketMessageList.tsx",
@@ -2749,7 +2749,7 @@
   },
   {
     "from": "pages/ticket/components/TicketToolbar.tsx",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "pages/user/UserPage.tsx",
@@ -3121,7 +3121,7 @@
   },
   {
     "from": "runtime/routerBindings.tsx",
-    "to": "types/router.ts"
+    "to": "types/routerContracts.ts"
   },
   {
     "from": "runtime/routerBindings.tsx",
@@ -3148,7 +3148,7 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "types/knowledge.ts",
+    "from": "types/knowledgeContracts.ts",
     "to": "types/dateTimeContracts.ts"
   },
   {
@@ -3160,15 +3160,15 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "types/notice.ts",
+    "from": "types/noticeContracts.ts",
     "to": "types/dateTimeContracts.ts"
   },
   {
-    "from": "types/order.ts",
+    "from": "types/orderContracts.ts",
     "to": "types/filterContracts.ts"
   },
   {
-    "from": "types/promotion.ts",
+    "from": "types/promotionContracts.ts",
     "to": "types/dateTimeContracts.ts"
   },
   {
@@ -3185,35 +3185,35 @@
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/knowledge.ts"
+    "to": "types/knowledgeContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/monitoring.ts"
+    "to": "types/monitoringContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/notice.ts"
+    "to": "types/noticeContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/order.ts"
+    "to": "types/orderContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/payment.ts"
+    "to": "types/paymentContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/plan.ts"
+    "to": "types/planContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/promotion.ts"
+    "to": "types/promotionContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/router.ts"
+    "to": "types/routerContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
@@ -3225,14 +3225,14 @@
   },
   {
     "from": "types/storeContracts.ts",
-    "to": "types/ticket.ts"
+    "to": "types/ticketContracts.ts"
   },
   {
     "from": "types/storeContracts.ts",
     "to": "types/userContracts.ts"
   },
   {
-    "from": "types/ticket.ts",
+    "from": "types/ticketContracts.ts",
     "to": "types/dateTimeContracts.ts"
   },
   {

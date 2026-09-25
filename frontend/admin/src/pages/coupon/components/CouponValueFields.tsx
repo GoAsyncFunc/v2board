@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { CouponRecord } from '../../../types/promotion';
+import type { CouponRecord } from '../../../types/promotionContracts';
 
 export interface CouponValueFieldsProps {
     coupon: CouponRecord;

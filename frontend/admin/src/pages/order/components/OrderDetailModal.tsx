@@ -6,7 +6,11 @@ import { get, post } from '../../../services/request';
 import { isSuccessfulResponse } from '../../../types/apiContracts';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import OrderDetailBody from './OrderDetailBody';
-import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser } from '../../../types/order';
+import type {
+    OrderDetailPlan,
+    OrderDetailRecord,
+    OrderDetailUser,
+} from '../../../types/orderContracts';
 
 interface OrderDetailModalProps {
     children: React.ReactNode;

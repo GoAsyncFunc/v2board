@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { GiftcardRecord } from '../../../types/promotion';
+import type { GiftcardRecord } from '../../../types/promotionContracts';
 
 export interface GiftcardGenerationFieldProps {
     giftcard: GiftcardRecord;

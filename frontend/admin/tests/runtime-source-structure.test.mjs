@@ -376,7 +376,10 @@ test('Tuic editor fields live in focused protocol modules', async () => {
 });
 
 test('admin model composition uses named business effects instead of module aliases', async () => {
-    const userModel = await fs.readFile(new URL('../src/models/userModel.ts', import.meta.url), 'utf8');
+    const userModel = await fs.readFile(
+        new URL('../src/models/userModel.ts', import.meta.url),
+        'utf8',
+    );
     const orderModel = await fs.readFile(
         new URL('../src/models/orderModel.ts', import.meta.url),
         'utf8',
@@ -507,7 +510,10 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
         assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
     }
 
-    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(
+        new URL('../src/types/storeContracts.ts', import.meta.url),
+        'utf8',
+    );
     const dvaTypes = await fs.readFile(new URL('../src/types/dva.ts', import.meta.url), 'utf8');
     const effectTypes = await fs.readFile(
         new URL('../src/types/modelEffects.ts', import.meta.url),
@@ -585,13 +591,13 @@ test('admin business contracts do not depend on rendering components', async () 
 
     const contractSources = {
         'filterContracts.ts': ['FilterItem', 'FilterField'],
-        'knowledge.ts': ['KnowledgeRecord'],
-        'monitoring.ts': ['QueueWorkload', 'DisplayScalar'],
-        'notice.ts': ['NoticeRecord'],
-        'order.ts': ['OrderDetailRecord'],
-        'payment.ts': ['PaymentRecord'],
-        'promotion.ts': ['CouponRecord', 'GiftcardRecord'],
-        'ticket.ts': ['TicketRecord', 'TicketMessage'],
+        'knowledgeContracts.ts': ['KnowledgeRecord'],
+        'monitoringContracts.ts': ['QueueWorkload', 'DisplayScalar'],
+        'noticeContracts.ts': ['NoticeRecord'],
+        'orderContracts.ts': ['OrderDetailRecord'],
+        'paymentContracts.ts': ['PaymentRecord'],
+        'promotionContracts.ts': ['CouponRecord', 'GiftcardRecord'],
+        'ticketContracts.ts': ['TicketRecord', 'TicketMessage'],
     };
     for (const [typeName, contracts] of Object.entries(contractSources)) {
         const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
@@ -727,7 +733,10 @@ test('ticket list keeps filters and search controls in a dedicated toolbar', asy
 });
 
 test('admin models depend on API contracts separately from request transport', async () => {
-    const apiSource = await fs.readFile(new URL('../src/types/apiContracts.ts', import.meta.url), 'utf8');
+    const apiSource = await fs.readFile(
+        new URL('../src/types/apiContracts.ts', import.meta.url),
+        'utf8',
+    );
     const requestSource = await fs.readFile(
         new URL('../src/services/request.ts', import.meta.url),
         'utf8',
@@ -751,7 +760,10 @@ test('admin models depend on API contracts separately from request transport', a
 });
 
 test('admin root state names every registered business model', async () => {
-    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(
+        new URL('../src/types/storeContracts.ts', import.meta.url),
+        'utf8',
+    );
     const rootRuntime = await fs.readFile(
         new URL('../src/app/rootRuntime.tsx', import.meta.url),
         'utf8',
@@ -1038,7 +1050,9 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeList.tsx'));
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeColumns.ts'));
     assert.ok((await fs.readdir(noticeComponentsDirectory)).includes('NoticeEditor.tsx'));
-    assert.ok((await fs.readdir(new URL('ticket/', pagesDirectory))).includes('TicketDetailPage.tsx'));
+    assert.ok(
+        (await fs.readdir(new URL('ticket/', pagesDirectory))).includes('TicketDetailPage.tsx'),
+    );
     const ticketDirectory = new URL('ticket/', pagesDirectory);
     assert.ok((await fs.readdir(ticketDirectory)).includes('components'));
     const ticketComponentsDirectory = new URL('components/', ticketDirectory);
@@ -1389,9 +1403,12 @@ test('Vless editor composes focused general and relationship field modules', asy
 });
 
 test('admin router selectors use the canonical root state', async () => {
-    const storeTypes = await fs.readFile(new URL('../src/types/storeContracts.ts', import.meta.url), 'utf8');
+    const storeTypes = await fs.readFile(
+        new URL('../src/types/storeContracts.ts', import.meta.url),
+        'utf8',
+    );
     const routerTypes = await fs.readFile(
-        new URL('../src/types/router.ts', import.meta.url),
+        new URL('../src/types/routerContracts.ts', import.meta.url),
         'utf8',
     );
     const routerBindings = await fs.readFile(

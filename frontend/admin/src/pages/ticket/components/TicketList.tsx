@@ -6,7 +6,12 @@ import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { TicketFilterState, TicketId, TicketRecord, TicketState } from '../../../types/ticket';
+import type {
+    TicketFilterState,
+    TicketId,
+    TicketRecord,
+    TicketState,
+} from '../../../types/ticketContracts';
 import { createReadonlyTicketColumns } from './TicketColumns';
 
 export interface TicketListProps {

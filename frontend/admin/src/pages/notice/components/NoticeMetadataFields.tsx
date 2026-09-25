@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { NoticeRecord } from '../../../types/notice';
+import type { NoticeRecord } from '../../../types/noticeContracts';
 
 export interface NoticeMetadataFieldsProps {
     notice: NoticeRecord;

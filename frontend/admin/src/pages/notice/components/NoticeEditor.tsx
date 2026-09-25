@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import type { AdminDispatch } from '../../../types/storeContracts';
-import type { NoticeRecord, NoticeState } from '../../../types/notice';
+import type { NoticeRecord, NoticeState } from '../../../types/noticeContracts';
 import { NoticeContentFields } from './NoticeContentFields';
 import { NoticeMetadataFields } from './NoticeMetadataFields';
 

@@ -1,5 +1,5 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { PaymentRecord } from '../../../src/types/payment';
+import type { PaymentRecord } from '../../../src/types/paymentContracts';
 
 export function createReadonlyPaymentColumns(): Record<
     'name' | 'payment',

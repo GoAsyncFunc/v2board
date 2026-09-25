@@ -6,7 +6,7 @@ import type {
     TicketPagination,
     TicketRecord,
     TicketState,
-} from '../types/ticket';
+} from '../types/ticketContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffects';
 

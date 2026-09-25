@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { PaymentRecord } from '../../../../types/payment';
+import type { PaymentRecord } from '../../../../types/paymentContracts';
 
 export function createPaymentNotifyColumn(): ColumnProps<PaymentRecord> {
     return {

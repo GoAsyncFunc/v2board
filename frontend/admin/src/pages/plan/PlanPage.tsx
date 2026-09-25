@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { PlanState } from '../../types/plan';
+import type { PlanState } from '../../types/planContracts';
 import PlanEditor from './components/PlanEditor';
 import { PlanList } from './components/PlanList';
 

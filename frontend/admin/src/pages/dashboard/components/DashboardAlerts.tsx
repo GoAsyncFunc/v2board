@@ -1,6 +1,6 @@
 import React from 'react';
 import history from '../../../app/navigation';
-import type { DashboardStats } from '../../../types/monitoring';
+import type { DashboardStats } from '../../../types/monitoringContracts';
 
 interface DashboardAlertsProps {
     onOpenCommissions: () => void;

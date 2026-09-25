@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { GiftcardPlan, GiftcardRecord } from '../../../types/promotion';
+import type { GiftcardPlan, GiftcardRecord } from '../../../types/promotionContracts';
 import { formatDateTime } from '../../../utils/dateTime';
 
 export function giftcardTypeText(type: GiftcardRecord['type']): string {

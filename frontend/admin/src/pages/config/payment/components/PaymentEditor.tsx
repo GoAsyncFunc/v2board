@@ -10,7 +10,7 @@ import type {
     PaymentForm,
     PaymentRecord,
     PaymentState,
-} from '../../../../types/payment';
+} from '../../../../types/paymentContracts';
 
 interface PaymentEditorProps {
     children: React.ReactElement;

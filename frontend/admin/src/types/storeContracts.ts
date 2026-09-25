@@ -1,12 +1,12 @@
 import type { AdminConfigState } from './configurationValues';
-import type { KnowledgeState } from './knowledge';
-import type { DashboardStats, SystemMonitoringState } from './monitoring';
-import type { NoticeState } from './notice';
-import type { OrderState } from './order';
-import type { PaymentState } from './payment';
-import type { PlanState } from './plan';
-import type { CouponState, GiftcardState } from './promotion';
-import type { RouterState } from './router';
+import type { KnowledgeState } from './knowledgeContracts';
+import type { DashboardStats, SystemMonitoringState } from './monitoringContracts';
+import type { NoticeState } from './noticeContracts';
+import type { OrderState } from './orderContracts';
+import type { PaymentState } from './paymentContracts';
+import type { PlanState } from './planContracts';
+import type { CouponState, GiftcardState } from './promotionContracts';
+import type { RouterState } from './routerContracts';
 import type {
     ServerGroupState,
     ServerManageState,
@@ -19,7 +19,7 @@ import type {
     PassportState,
 } from './authenticationContracts';
 import type { ThemeState } from './theme';
-import type { TicketState } from './ticket';
+import type { TicketState } from './ticketContracts';
 import type { UserModuleState } from './userContracts';
 
 export interface AdminAction {
