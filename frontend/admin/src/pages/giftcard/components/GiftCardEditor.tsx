@@ -7,14 +7,14 @@ import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import moment from 'moment';
 import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { GiftcardRecord, GiftcardState } from '../../../types/promotionContracts';
-import { GiftcardBasicFields } from './GiftcardBasicFields';
-import { GiftcardGenerationField } from './GiftcardGenerationField';
-import { GiftcardPlanField } from './GiftcardPlanField';
-import { GiftcardUsageFields } from './GiftcardUsageFields';
-import { GiftcardValueFields } from './GiftcardValueFields';
+import type { GiftCardRecord, GiftCardState } from '../../../types/promotionContracts';
+import { GiftCardBasicFields } from './GiftCardBasicFields';
+import { GiftCardGenerationField } from './GiftCardGenerationField';
+import { GiftCardPlanField } from './GiftCardPlanField';
+import { GiftCardUsageFields } from './GiftCardUsageFields';
+import { GiftCardValueFields } from './GiftCardValueFields';
 
-const defaultGiftcard: GiftcardRecord = { type: 1 };
+const defaultGiftCard: GiftCardRecord = { type: 1 };
 
 export function createValidityRange(
     startedAt?: number | string | null,
@@ -28,38 +28,38 @@ export function createValidityRange(
     return [];
 }
 
-export function getGiftcardValueSuffix(type: GiftcardRecord['type']): string {
+export function getGiftCardValueSuffix(type: GiftCardRecord['type']): string {
     return (
         ({ 1: '¥', 2: '天', 3: 'GB', 4: '', 5: '天' } as Record<number, string>)[type || 1] || ''
     );
 }
 
-interface GiftcardEditorProps {
+interface GiftCardEditorProps {
     dispatch: AdminDispatch;
-    giftcard: GiftcardState;
+    giftcard: GiftCardState;
     plan: { plans: PlanSummary[] };
-    record?: GiftcardRecord;
+    record?: GiftCardRecord;
     visible: boolean;
     onClose: () => void;
 }
 
-interface GiftcardEditorState {
-    submit: GiftcardRecord;
+interface GiftCardEditorState {
+    submit: GiftCardRecord;
 }
 
-export class GiftcardEditor extends React.Component<GiftcardEditorProps, GiftcardEditorState> {
-    state: GiftcardEditorState = { submit: { ...defaultGiftcard, ...this.props.record } };
+export class GiftCardEditor extends React.Component<GiftCardEditorProps, GiftCardEditorState> {
+    state: GiftCardEditorState = { submit: { ...defaultGiftCard, ...this.props.record } };
 
-    componentDidUpdate(previousProps: GiftcardEditorProps): void {
+    componentDidUpdate(previousProps: GiftCardEditorProps): void {
         if (
             previousProps.record !== this.props.record ||
             (!previousProps.visible && this.props.visible)
         ) {
-            this.setState({ submit: { ...defaultGiftcard, ...this.props.record } });
+            this.setState({ submit: { ...defaultGiftCard, ...this.props.record } });
         }
     }
 
-    updateSubmit(patch: Partial<GiftcardRecord>): void {
+    updateSubmit(patch: Partial<GiftCardRecord>): void {
         this.setState(({ submit }) => ({ submit: { ...submit, ...patch } }));
     }
 
@@ -75,7 +75,7 @@ export class GiftcardEditor extends React.Component<GiftcardEditorProps, Giftcar
         const { submit } = this.state;
         const { giftcard, plan } = this.props;
         const validityRange = createValidityRange(submit.started_at, submit.ended_at);
-        const valueSuffix = getGiftcardValueSuffix(submit.type);
+        const valueSuffix = getGiftCardValueSuffix(submit.type);
         return (
             <Modal
                 title={submit.id ? '编辑礼品卡' : '新建礼品卡'}
@@ -86,16 +86,16 @@ export class GiftcardEditor extends React.Component<GiftcardEditorProps, Giftcar
                 cancelText="取消"
             >
                 <div>
-                    <GiftcardBasicFields
+                    <GiftCardBasicFields
                         giftcard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
-                    <GiftcardValueFields
+                    <GiftCardValueFields
                         giftcard={submit}
                         valueSuffix={valueSuffix}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
-                    <GiftcardPlanField
+                    <GiftCardPlanField
                         giftcard={submit}
                         plans={plan.plans}
                         onChange={(patch) => this.updateSubmit(patch)}
@@ -116,11 +116,11 @@ export class GiftcardEditor extends React.Component<GiftcardEditorProps, Giftcar
                             }
                         />
                     </div>
-                    <GiftcardUsageFields
+                    <GiftCardUsageFields
                         giftcard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
-                    <GiftcardGenerationField
+                    <GiftCardGenerationField
                         giftcard={submit}
                         onChange={(patch) => this.updateSubmit(patch)}
                     />
@@ -133,4 +133,4 @@ export class GiftcardEditor extends React.Component<GiftcardEditorProps, Giftcar
 export default connect((state: AdminRootState) => ({
     giftcard: state.giftcard,
     plan: state.plan,
-}))(GiftcardEditor);
+}))(GiftCardEditor);

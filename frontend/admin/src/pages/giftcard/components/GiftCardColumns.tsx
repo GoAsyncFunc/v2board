@@ -1,10 +1,10 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { GiftcardPlan, GiftcardRecord } from '../../../types/promotionContracts';
+import type { GiftCardPlan, GiftCardRecord } from '../../../types/promotionContracts';
 import { formatDateTime } from '../../../utils/dateTimeFormatter';
 
-export function giftcardTypeText(type: GiftcardRecord['type']): string {
+export function giftCardTypeText(type: GiftCardRecord['type']): string {
     switch (type) {
         case 1:
             return '金额';
@@ -20,9 +20,9 @@ export function giftcardTypeText(type: GiftcardRecord['type']): string {
             return '';
     }
 }
-export function giftcardValueText(
-    value: GiftcardRecord['value'],
-    card: GiftcardRecord,
+export function giftCardValueText(
+    value: GiftCardRecord['value'],
+    card: GiftCardRecord,
 ): string | number | undefined {
     switch (card.type) {
         case 1:
@@ -38,55 +38,55 @@ export function giftcardValueText(
             return value;
     }
 }
-export function findGiftcardPlanName(
-    plans: GiftcardPlan[] | null | undefined,
-    id: GiftcardRecord['plan_id'],
+export function findGiftCardPlanName(
+    plans: GiftCardPlan[] | null | undefined,
+    id: GiftCardRecord['plan_id'],
 ): string | null | undefined {
-    if (!plans) throw new TypeError('Giftcard plans were not provided');
+    if (!plans) throw new TypeError('GiftCard plans were not provided');
     const plan = plans.find((candidate) => candidate.id === id);
     return plan ? plan.name : '-';
 }
 
-export function renderGiftcardLimit(limit: GiftcardRecord['limit_use']) {
+export function renderGiftCardLimit(limit: GiftCardRecord['limit_use']) {
     return <Tag>{limit !== null ? limit : '无限'}</Tag>;
 }
 
-export function formatGiftcardValidity(card: GiftcardRecord): string {
+export function formatGiftCardValidity(card: GiftCardRecord): string {
     const startsAt = formatDateTime(card.started_at);
     const endsAt = formatDateTime(card.ended_at);
     return `${startsAt} ~ ${endsAt}`;
 }
 
-export function createGiftcardColumns(
-    plans: GiftcardPlan[] | null | undefined,
+export function createGiftCardColumns(
+    plans: GiftCardPlan[] | null | undefined,
 ): Record<
     'id' | 'name' | 'type' | 'value' | 'plan_id' | 'limit_use' | 'started_at',
-    ColumnProps<GiftcardRecord>
+    ColumnProps<GiftCardRecord>
 > {
     return {
         id: { title: '#', dataIndex: 'id', key: 'id' },
         name: { title: '名称', dataIndex: 'name', key: 'name' },
-        type: { title: '类型', dataIndex: 'type', key: 'type', render: giftcardTypeText },
-        value: { title: '数值', dataIndex: 'value', key: 'value', render: giftcardValueText },
+        type: { title: '类型', dataIndex: 'type', key: 'type', render: giftCardTypeText },
+        value: { title: '数值', dataIndex: 'value', key: 'value', render: giftCardValueText },
         plan_id: {
             title: '套餐',
             dataIndex: 'plan_id',
             key: 'plan_id',
-            render: (id: GiftcardRecord['plan_id']) => findGiftcardPlanName(plans, id),
+            render: (id: GiftCardRecord['plan_id']) => findGiftCardPlanName(plans, id),
         },
         limit_use: {
             title: '剩余次数',
             dataIndex: 'limit_use',
             key: 'limit_use',
-            render: renderGiftcardLimit,
+            render: renderGiftCardLimit,
         },
         started_at: {
             title: '有效期',
             dataIndex: 'started_at',
             key: 'started_at',
             align: 'left',
-            render: (_value: GiftcardRecord['started_at'], card: GiftcardRecord) =>
-                formatGiftcardValidity(card),
+            render: (_value: GiftCardRecord['started_at'], card: GiftCardRecord) =>
+                formatGiftCardValidity(card),
         },
     };
 }

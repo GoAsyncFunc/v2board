@@ -6,35 +6,35 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import type { PlanSummary } from '../../types/systemConfigurationContracts';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { GiftcardRecord, GiftcardState } from '../../types/promotionContracts';
-import GiftcardEditor from './components/GiftcardEditor';
-import { GiftcardList } from './components/GiftcardList';
+import type { GiftCardRecord, GiftCardState } from '../../types/promotionContracts';
+import GiftCardEditor from './components/GiftCardEditor';
+import { GiftCardList } from './components/GiftCardList';
 
-interface GiftcardPageProps {
+interface GiftCardPageProps {
     dispatch: AdminDispatch;
-    giftcard: GiftcardState;
+    giftcard: GiftCardState;
     plan: { plans: PlanSummary[] };
 }
 
-interface GiftcardPageState {
+interface GiftCardPageState {
     editorVisible: boolean;
-    editingGiftcard?: GiftcardRecord;
+    editingGiftCard?: GiftCardRecord;
 }
 
-export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPageState> {
-    state: GiftcardPageState = { editorVisible: false, editingGiftcard: undefined };
+export class GiftCardPage extends React.Component<GiftCardPageProps, GiftCardPageState> {
+    state: GiftCardPageState = { editorVisible: false, editingGiftCard: undefined };
 
     componentDidMount(): void {
         this.props.dispatch({ type: 'giftcard/fetch' });
         this.props.dispatch({ type: 'plan/fetch' });
     }
 
-    openEditor = (record?: GiftcardRecord): void => {
-        this.setState({ editorVisible: true, editingGiftcard: record });
+    openEditor = (record?: GiftCardRecord): void => {
+        this.setState({ editorVisible: true, editingGiftCard: record });
     };
 
     closeEditor = (): void => {
-        this.setState({ editorVisible: false, editingGiftcard: undefined });
+        this.setState({ editorVisible: false, editingGiftCard: undefined });
     };
 
     render(): React.ReactNode {
@@ -49,7 +49,7 @@ export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPag
                                     <Icon type="plus" /> 添加礼品卡
                                 </Button>
                             </div>
-                            <GiftcardList
+                            <GiftCardList
                                 dispatch={this.props.dispatch}
                                 giftcard={giftcard}
                                 plan={this.props.plan}
@@ -58,8 +58,8 @@ export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPag
                         </div>
                     </div>
                 </LoadingContainer>
-                <GiftcardEditor
-                    record={this.state.editingGiftcard}
+                <GiftCardEditor
+                    record={this.state.editingGiftCard}
                     visible={this.state.editorVisible}
                     onClose={this.closeEditor}
                 />
@@ -68,10 +68,10 @@ export class GiftcardPage extends React.Component<GiftcardPageProps, GiftcardPag
     }
 }
 
-export { GiftcardEditor } from './components/GiftcardEditor';
-export { GiftcardList } from './components/GiftcardList';
+export { GiftCardEditor } from './components/GiftCardEditor';
+export { GiftCardList } from './components/GiftCardList';
 
 export default connect((state: AdminRootState) => ({
     giftcard: state.giftcard,
     plan: state.plan,
-}))(GiftcardPage);
+}))(GiftCardPage);

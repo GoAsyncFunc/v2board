@@ -25,7 +25,7 @@ const readonlyColumn = (key) => ({ title: key, dataIndex: key, key });
 const readonlyCouponColumns = Object.fromEntries(
     ['id', 'name', 'type', 'limit_use', 'started_at'].map((key) => [key, readonlyColumn(key)]),
 );
-const readonlyGiftcardColumns = Object.fromEntries(
+const readonlyGiftCardColumns = Object.fromEntries(
     ['id', 'name', 'type', 'value', 'plan_id', 'limit_use', 'started_at'].map((key) => [
         key,
         readonlyColumn(key),
@@ -42,7 +42,7 @@ async function loadModule(relativePath, localModules = {}) {
         require(id) {
             if (id === 'react') return React;
             if (id === 'react-redux') return { connect: () => (Component) => Component };
-            if (id === './components/CouponEditor' || id === './components/GiftcardEditor')
+            if (id === './components/CouponEditor' || id === './components/GiftCardEditor')
                 return localModules.modal;
             if (id === './CouponBasicFields') return { CouponBasicFields: 'CouponBasicFields' };
             if (id === './CouponValueFields') return { CouponValueFields: 'CouponValueFields' };
@@ -51,18 +51,18 @@ async function loadModule(relativePath, localModules = {}) {
                 return { CouponRestrictionsFields: 'CouponRestrictionsFields' };
             if (id === './CouponGenerationField')
                 return { CouponGenerationField: 'CouponGenerationField' };
-            if (id === './GiftcardBasicFields')
-                return { GiftcardBasicFields: 'GiftcardBasicFields' };
-            if (id === './GiftcardValueFields')
-                return { GiftcardValueFields: 'GiftcardValueFields' };
-            if (id === './GiftcardPlanField') return { GiftcardPlanField: 'GiftcardPlanField' };
-            if (id === './GiftcardUsageFields')
-                return { GiftcardUsageFields: 'GiftcardUsageFields' };
-            if (id === './GiftcardGenerationField')
-                return { GiftcardGenerationField: 'GiftcardGenerationField' };
-            if (id === './components/CouponList' || id === './components/GiftcardList')
+            if (id === './GiftCardBasicFields')
+                return { GiftCardBasicFields: 'GiftCardBasicFields' };
+            if (id === './GiftCardValueFields')
+                return { GiftCardValueFields: 'GiftCardValueFields' };
+            if (id === './GiftCardPlanField') return { GiftCardPlanField: 'GiftCardPlanField' };
+            if (id === './GiftCardUsageFields')
+                return { GiftCardUsageFields: 'GiftCardUsageFields' };
+            if (id === './GiftCardGenerationField')
+                return { GiftCardGenerationField: 'GiftCardGenerationField' };
+            if (id === './components/CouponList' || id === './components/GiftCardList')
                 return localModules.list;
-            if (id === './CouponColumns' || id === './GiftcardColumns')
+            if (id === './CouponColumns' || id === './GiftCardColumns')
                 return localModules.columns;
             if (id === 'antd/lib/button') return 'Button';
             if (id === 'antd/lib/date-picker') return DatePicker;
@@ -91,7 +91,7 @@ async function loadPage(pageName) {
     const pagePath =
         pageName === 'Coupon'
             ? '../src/pages/coupon/CouponPage.tsx'
-            : '../src/pages/giftcard/GiftcardPage.tsx';
+            : '../src/pages/giftcard/GiftCardPage.tsx';
     return loadModule(pagePath, {
         modal: {
             __esModule: true,
@@ -110,12 +110,12 @@ async function loadList(pageName) {
     const relativePath =
         pageName === 'Coupon'
             ? '../src/pages/coupon/components/CouponList.tsx'
-            : '../src/pages/giftcard/components/GiftcardList.tsx';
+            : '../src/pages/giftcard/components/GiftCardList.tsx';
     return loadModule(relativePath, {
         columns: {
             __esModule: true,
             createCouponColumns: () => readonlyCouponColumns,
-            createGiftcardColumns: () => readonlyGiftcardColumns,
+            createGiftCardColumns: () => readonlyGiftCardColumns,
         },
     });
 }
@@ -124,7 +124,7 @@ async function loadEditor(pageName) {
     const relativePath =
         pageName === 'Coupon'
             ? '../src/pages/coupon/components/CouponEditor.tsx'
-            : '../src/pages/giftcard/components/GiftcardEditor.tsx';
+            : '../src/pages/giftcard/components/GiftCardEditor.tsx';
     return loadModule(relativePath);
 }
 
@@ -220,11 +220,11 @@ test('Coupon editor preserves field updates, generate payload, and close callbac
     assert.equal(closed, 1);
 });
 
-test('Giftcard page composes the typed list and editor modules', async () => {
-    const { GiftcardPage } = await loadPage('Giftcard');
+test('GiftCard page composes the typed list and editor modules', async () => {
+    const { GiftCardPage } = await loadPage('GiftCard');
     const actions = [];
     const giftcards = [{ id: 22, name: 'Annual card' }];
-    const page = new GiftcardPage({
+    const page = new GiftCardPage({
         dispatch: (action) => actions.push(action),
         giftcard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [{ id: 6, name: 'Pro' }] },
@@ -233,24 +233,24 @@ test('Giftcard page composes the typed list and editor modules', async () => {
     page.componentDidMount();
     assert.deepEqual(normalize(actions), [{ type: 'giftcard/fetch' }, { type: 'plan/fetch' }]);
     const tree = page.render();
-    const list = nodes(tree, (node) => node.type === 'GiftcardList')[0];
-    const editor = nodes(tree, (node) => node.type === 'GiftcardEditor')[0];
+    const list = nodes(tree, (node) => node.type === 'GiftCardList')[0];
+    const editor = nodes(tree, (node) => node.type === 'GiftCardEditor')[0];
     assert.equal(list.props.giftcard, page.props.giftcard);
     assert.equal(editor.props.visible, false);
 
     list.props.onEdit(giftcards[0]);
     assert.equal(page.state.editorVisible, true);
-    assert.equal(page.state.editingGiftcard, giftcards[0]);
+    assert.equal(page.state.editingGiftCard, giftcards[0]);
     page.closeEditor();
     assert.equal(page.state.editorVisible, false);
 });
 
-test('Giftcard list preserves edit, delete, sort, and copy behavior', async () => {
-    const { GiftcardList } = await loadList('Giftcard');
+test('GiftCard list preserves edit, delete, sort, and copy behavior', async () => {
+    const { GiftCardList } = await loadList('GiftCard');
     const actions = [];
     const edited = [];
     const giftcards = [{ id: 22, name: 'Annual card', code: 'CARD22' }];
-    const list = new GiftcardList({
+    const list = new GiftCardList({
         dispatch: (action) => actions.push(action),
         giftcard: { giftcards, fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [] },
@@ -277,11 +277,11 @@ test('Giftcard list preserves edit, delete, sort, and copy behavior', async () =
     assert.equal(table.props.dataSource, giftcards);
 });
 
-test('Giftcard editor preserves type updates, generate payload, and close callback', async () => {
-    const { GiftcardEditor } = await loadEditor('Giftcard');
+test('GiftCard editor preserves type updates, generate payload, and close callback', async () => {
+    const { GiftCardEditor } = await loadEditor('GiftCard');
     const actions = [];
     let closed = 0;
-    const editor = new GiftcardEditor({
+    const editor = new GiftCardEditor({
         dispatch: (action) => actions.push(action),
         giftcard: { giftcards: [], fetchLoading: false, saveLoading: false, pagination: {} },
         plan: { plans: [] },

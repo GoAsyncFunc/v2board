@@ -1,19 +1,19 @@
 import React from 'react';
 import Select from 'antd/lib/select';
 import type { PlanSummary } from '../../../types/systemConfigurationContracts';
-import type { GiftcardRecord } from '../../../types/promotionContracts';
+import type { GiftCardRecord } from '../../../types/promotionContracts';
 
-export interface GiftcardPlanFieldProps {
-    giftcard: GiftcardRecord;
+export interface GiftCardPlanFieldProps {
+    giftcard: GiftCardRecord;
     plans: PlanSummary[];
-    onChange: (patch: Partial<GiftcardRecord>) => void;
+    onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
-export function GiftcardPlanField({
+export function GiftCardPlanField({
     giftcard,
     plans,
     onChange,
-}: GiftcardPlanFieldProps): React.ReactElement | null {
+}: GiftCardPlanFieldProps): React.ReactElement | null {
     if (giftcard.type !== 5) return null;
     return (
         <div className="form-group">

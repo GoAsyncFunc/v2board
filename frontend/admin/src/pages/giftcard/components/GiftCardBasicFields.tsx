@@ -1,16 +1,16 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { GiftcardRecord } from '../../../types/promotionContracts';
+import type { GiftCardRecord } from '../../../types/promotionContracts';
 
-export interface GiftcardBasicFieldsProps {
-    giftcard: GiftcardRecord;
-    onChange: (patch: Partial<GiftcardRecord>) => void;
+export interface GiftCardBasicFieldsProps {
+    giftcard: GiftCardRecord;
+    onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
-export function GiftcardBasicFields({
+export function GiftCardBasicFields({
     giftcard,
     onChange,
-}: GiftcardBasicFieldsProps): React.ReactElement {
+}: GiftCardBasicFieldsProps): React.ReactElement {
     return (
         <>
             <div className="form-group">

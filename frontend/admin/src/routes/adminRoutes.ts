@@ -12,7 +12,7 @@ import TicketDetail from '../pages/ticket/TicketDetailPage';
 import Dashboard from '../pages/dashboard/DashboardPage';
 import Queue from '../pages/queue/QueuePage';
 import Coupon from '../pages/coupon/CouponPage';
-import Giftcard from '../pages/giftcard/GiftcardPage';
+import GiftCard from '../pages/giftcard/GiftCardPage';
 import ServerGroup from '../pages/server/group/ServerGroupPage';
 import ServerManage from '../pages/server/manage/ServerManagePage';
 import ServerRoute from '../pages/server/route/ServerRoutePage';
@@ -24,7 +24,7 @@ const adminRoutes: AdminRouteConfig[] = [
     { path: '/config/system', exact: true, component: ConfigSystem },
     { path: '/config/theme', exact: true, component: ConfigTheme },
     { path: '/coupon', exact: true, component: Coupon },
-    { path: '/giftcard', exact: true, component: Giftcard },
+    { path: '/giftcard', exact: true, component: GiftCard },
     { path: '/dashboard', exact: true, component: Dashboard },
     { path: '/', exact: true, component: AdminHomeRedirect },
     { path: '/knowledge', exact: true, component: Knowledge },

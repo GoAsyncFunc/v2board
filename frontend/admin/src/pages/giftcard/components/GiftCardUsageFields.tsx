@@ -1,16 +1,16 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { GiftcardRecord } from '../../../types/promotionContracts';
+import type { GiftCardRecord } from '../../../types/promotionContracts';
 
-export interface GiftcardUsageFieldsProps {
-    giftcard: GiftcardRecord;
-    onChange: (patch: Partial<GiftcardRecord>) => void;
+export interface GiftCardUsageFieldsProps {
+    giftcard: GiftCardRecord;
+    onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
-export function GiftcardUsageFields({
+export function GiftCardUsageFields({
     giftcard,
     onChange,
-}: GiftcardUsageFieldsProps): React.ReactElement {
+}: GiftCardUsageFieldsProps): React.ReactElement {
     return (
         <div className="form-group">
             <label htmlFor="giftcard-limit">最大使用次数</label>

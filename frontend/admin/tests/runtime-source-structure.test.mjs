@@ -601,7 +601,7 @@ test('admin business contracts do not depend on rendering components', async () 
         'noticeContracts.ts': ['NoticeRecord'],
         'orderContracts.ts': ['OrderDetailRecord'],
         'paymentContracts.ts': ['PaymentRecord'],
-        'promotionContracts.ts': ['CouponRecord', 'GiftcardRecord'],
+        'promotionContracts.ts': ['CouponRecord', 'GiftCardRecord'],
         'ticketContracts.ts': ['TicketRecord', 'TicketMessage'],
     };
     for (const [typeName, contracts] of Object.entries(contractSources)) {
@@ -964,12 +964,12 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponColumns.tsx'));
     assert.ok((await fs.readdir(couponComponentsDirectory)).includes('CouponEditor.tsx'));
     const giftcardDirectory = new URL('giftcard/', pagesDirectory);
-    assert.ok((await fs.readdir(giftcardDirectory)).includes('GiftcardPage.tsx'));
+    assert.ok((await fs.readdir(giftcardDirectory)).includes('GiftCardPage.tsx'));
     assert.ok((await fs.readdir(giftcardDirectory)).includes('components'));
     const giftcardComponentsDirectory = new URL('components/', giftcardDirectory);
-    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardList.tsx'));
-    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardColumns.tsx'));
-    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftcardEditor.tsx'));
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftCardList.tsx'));
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftCardColumns.tsx'));
+    assert.ok((await fs.readdir(giftcardComponentsDirectory)).includes('GiftCardEditor.tsx'));
     const dashboardDirectory = new URL('dashboard/', pagesDirectory);
     assert.ok((await fs.readdir(dashboardDirectory)).includes('DashboardPage.tsx'));
     assert.ok((await fs.readdir(dashboardDirectory)).includes('components'));
@@ -1073,7 +1073,7 @@ test('admin pages select from the canonical root state', async () => {
     );
     await assert.rejects(
         fs.access(
-            new URL('../src/components/promotion/GiftcardDisplayColumns.tsx', import.meta.url),
+            new URL('../src/components/promotion/GiftCardDisplayColumns.tsx', import.meta.url),
         ),
     );
     await assert.rejects(

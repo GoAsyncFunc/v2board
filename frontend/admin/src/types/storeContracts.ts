@@ -5,7 +5,7 @@ import type { NoticeState } from './noticeContracts';
 import type { OrderState } from './orderContracts';
 import type { PaymentState } from './paymentContracts';
 import type { PlanState } from './planContracts';
-import type { CouponState, GiftcardState } from './promotionContracts';
+import type { CouponState, GiftCardState } from './promotionContracts';
 import type { RouterState } from './routerContracts';
 import type {
     ServerGroupState,
@@ -31,7 +31,7 @@ export interface AdminRootState {
     auth: AdministratorAuthenticationState;
     config: AdminConfigState;
     coupon: CouponState;
-    giftcard: GiftcardState;
+    giftcard: GiftCardState;
     knowledge: KnowledgeState;
     layout: LayoutState;
     notice: NoticeState;

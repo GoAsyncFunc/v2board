@@ -17,12 +17,12 @@ export interface CouponRecord {
     ended_at?: UnixTimestamp;
 }
 
-export interface GiftcardPlan {
+export interface GiftCardPlan {
     id: number | string;
     name?: string | null;
 }
 
-export interface GiftcardRecord {
+export interface GiftCardRecord {
     [field: string]: string | number | string[] | null | undefined;
     id?: string | number;
     name?: string;
@@ -60,6 +60,6 @@ export interface CouponState extends PromotionState {
     coupons: CouponRecord[];
 }
 
-export interface GiftcardState extends PromotionState {
-    giftcards: GiftcardRecord[];
+export interface GiftCardState extends PromotionState {
+    giftcards: GiftCardRecord[];
 }

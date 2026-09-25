@@ -8,24 +8,24 @@ import Tag from 'antd/lib/tag';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { GiftcardRecord, GiftcardState } from '../../../types/promotionContracts';
+import type { GiftCardRecord, GiftCardState } from '../../../types/promotionContracts';
 import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import { copyText } from '../../../utils/clipboardService';
-import { createGiftcardColumns } from './GiftcardColumns';
+import { createGiftCardColumns } from './GiftCardColumns';
 
-interface GiftcardListProps {
+interface GiftCardListProps {
     dispatch: AdminDispatch;
-    giftcard: GiftcardState;
+    giftcard: GiftCardState;
     plan: { plans: PlanSummary[] };
-    onEdit: (record: GiftcardRecord) => void;
+    onEdit: (record: GiftCardRecord) => void;
 }
 
-export class GiftcardList extends React.Component<GiftcardListProps> {
-    drop(card: GiftcardRecord): void {
+export class GiftCardList extends React.Component<GiftCardListProps> {
+    drop(card: GiftCardRecord): void {
         this.props.dispatch({ type: 'giftcard/drop', id: card.id });
     }
 
-    tableOnChange(pagination: PaginationConfig, sorter: SorterResult<GiftcardRecord>): void {
+    tableOnChange(pagination: PaginationConfig, sorter: SorterResult<GiftCardRecord>): void {
         this.props.dispatch({
             type: 'giftcard/changeTable',
             pagination,
@@ -38,8 +38,8 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
 
     render(): React.ReactNode {
         const { giftcard, plan } = this.props;
-        const readonlyColumns = createGiftcardColumns(plan.plans);
-        const columns: ColumnProps<GiftcardRecord>[] = [
+        const readonlyColumns = createGiftCardColumns(plan.plans);
+        const columns: ColumnProps<GiftCardRecord>[] = [
             readonlyColumns.id,
             readonlyColumns.name,
             readonlyColumns.type,
@@ -95,7 +95,7 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
         ];
 
         return (
-            <Table<GiftcardRecord>
+            <Table<GiftCardRecord>
                 tableLayout="auto"
                 dataSource={giftcard.giftcards}
                 columns={columns}
@@ -115,4 +115,4 @@ export class GiftcardList extends React.Component<GiftcardListProps> {
 export default connect((state: AdminRootState) => ({
     giftcard: state.giftcard,
     plan: state.plan,
-}))(GiftcardList);
+}))(GiftCardList);

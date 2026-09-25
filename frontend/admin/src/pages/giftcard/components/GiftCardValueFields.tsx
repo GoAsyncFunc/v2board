@@ -1,19 +1,19 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { GiftcardRecord } from '../../../types/promotionContracts';
+import type { GiftCardRecord } from '../../../types/promotionContracts';
 
-export interface GiftcardValueFieldsProps {
-    giftcard: GiftcardRecord;
+export interface GiftCardValueFieldsProps {
+    giftcard: GiftCardRecord;
     valueSuffix: string;
-    onChange: (patch: Partial<GiftcardRecord>) => void;
+    onChange: (patch: Partial<GiftCardRecord>) => void;
 }
 
-export function GiftcardValueFields({
+export function GiftCardValueFields({
     giftcard,
     valueSuffix,
     onChange,
-}: GiftcardValueFieldsProps): React.ReactElement {
+}: GiftCardValueFieldsProps): React.ReactElement {
     return (
         <div className="form-group">
             <label htmlFor="giftcard-value">礼品卡类型</label>

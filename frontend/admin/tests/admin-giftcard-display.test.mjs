@@ -8,13 +8,13 @@ import { loadDateTimeFormatter } from './helpers/load-date-time.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const React={createElement:(type,props,...children)=>({type,props,children})};
 async function load(original,plans){
- const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-giftcard-display.cjs':'../src/pages/giftcard/components/GiftcardColumns.tsx',import.meta.url);
+ const module={exports:{}};const file=new URL(original?'./fixtures/pages/admin-giftcard-display.cjs':'../src/pages/giftcard/components/GiftCardColumns.tsx',import.meta.url);
  const text=await fs.readFile(file,'utf8');const moment=value=>({format:pattern=>`${value}:${pattern}`});
  const dateTime=original?null:await loadDateTimeFormatter(moment);
  vm.runInNewContext(original?text:(await transform(text,{format:'cjs',loader:'tsx'})).code,{module,exports:module.exports,require(id){if(id==='react')return React;if(id==='antd/lib/tag')return 'Tag';if(id.includes('antdTag'))return {a:'Tag'};if(id==='moment'||id.includes('77642f52'))return moment;
   if(id.includes('utils/dateTimeFormatter'))return dateTime;
         throw Error(id);}});
- return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createGiftcardColumns(plans));
+ return original?module.exports({a:React},{a:'Tag'},()=>moment,plans):Object.values(module.exports.createGiftCardColumns(plans));
 }
 function normalize(value){if(Array.isArray(value))return Array.from(value,normalize);if(typeof value==='function')return '[render]';if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,normalize(v)]));return value;}
 const lookupCases = [

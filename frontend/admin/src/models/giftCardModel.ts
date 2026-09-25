@@ -2,33 +2,33 @@ import dayjs from 'moment';
 import { get, post } from '../services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
 import type {
-    GiftcardRecord,
-    GiftcardState,
+    GiftCardRecord,
+    GiftCardState,
     PromotionPagination,
     PromotionSort,
 } from '../types/promotionContracts';
 import type { AdminAction, AdminRootState } from '../types/storeContracts';
 import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
 
-type GiftcardRootState = Pick<AdminRootState, 'giftcard'>;
-interface GiftcardTools extends ModelEffectTools<GiftcardRootState> {}
-interface GiftcardGenerateAction {
-    params: GiftcardRecord;
+type GiftCardRootState = Pick<AdminRootState, 'giftcard'>;
+interface GiftCardTools extends ModelEffectTools<GiftCardRootState> {}
+interface GiftCardGenerateAction {
+    params: GiftCardRecord;
     callback?: () => void;
 }
-interface GiftcardIdAction {
+interface GiftCardIdAction {
     id?: string | number;
 }
-interface GiftcardTableAction {
+interface GiftCardTableAction {
     pagination: Partial<PromotionPagination>;
     sort: PromotionSort;
 }
-type GiftcardResponse = ApiResponse<GiftcardRecord[]>;
-type GiftcardGenerateResponse = ApiResponse & { buffer?: BlobPart };
-type GiftcardYield = GiftcardState | ApiResponse;
-type GiftcardEffect = ModelEffect<GiftcardYield>;
+type GiftCardResponse = ApiResponse<GiftCardRecord[]>;
+type GiftCardGenerateResponse = ApiResponse & { buffer?: BlobPart };
+type GiftCardYield = GiftCardState | ApiResponse;
+type GiftCardEffect = ModelEffect<GiftCardYield>;
 
-const initialState: GiftcardState = {
+const initialState: GiftCardState = {
     giftcards: [],
     fetchLoading: false,
     saveLoading: false,
@@ -36,7 +36,7 @@ const initialState: GiftcardState = {
     sort: {},
 };
 
-function downloadGiftcardCsv(buffer: BlobPart): void {
+function downloadGiftCardCsv(buffer: BlobPart): void {
     const blob = new Blob([buffer], { type: 'text/plain,charset=UTF-8' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -51,18 +51,18 @@ export default {
     namespace: 'giftcard',
     state: { ...initialState },
     reducers: {
-        setState(state: GiftcardState, { payload }: { payload: Partial<GiftcardState> }) {
+        setState(state: GiftCardState, { payload }: { payload: Partial<GiftCardState> }) {
             return { ...state, ...payload };
         },
     },
     effects: {
-        *fetch(_: AdminAction, { put, select }: GiftcardTools): GiftcardEffect {
-            const giftcardState = (yield select((state) => state.giftcard)) as GiftcardState;
+        *fetch(_: AdminAction, { put, select }: GiftCardTools): GiftCardEffect {
+            const giftcardState = (yield select((state) => state.giftcard)) as GiftCardState;
             yield put({ type: 'setState', payload: { fetchLoading: true } });
-            const response = (yield get<GiftcardRecord[]>(
+            const response = (yield get<GiftCardRecord[]>(
                 `/${window.settings.secure_path}/giftcard/fetch`,
                 { ...giftcardState.pagination, ...giftcardState.sort },
-            )) as GiftcardResponse;
+            )) as GiftCardResponse;
             yield put({ type: 'setState', payload: { fetchLoading: false } });
             if (!isSuccessfulResponse(response)) return;
             response.data.forEach((giftcard) => {
@@ -77,32 +77,32 @@ export default {
             });
         },
         *generate(
-            { params, callback }: GiftcardGenerateAction,
-            { put }: GiftcardTools,
-        ): GiftcardEffect {
+            { params, callback }: GiftCardGenerateAction,
+            { put }: GiftCardTools,
+        ): GiftCardEffect {
             yield put({ type: 'setState', payload: { saveLoading: true } });
             if (params.type === 1) params.value = (params.value as number) * 100;
             const response = (yield post(
                 `/${window.settings.secure_path}/giftcard/generate`,
                 params,
-            )) as GiftcardGenerateResponse;
+            )) as GiftCardGenerateResponse;
             yield put({ type: 'setState', payload: { saveLoading: false } });
             if (!isSuccessfulResponse(response)) return;
-            if (params.generate_count) downloadGiftcardCsv(response.buffer as BlobPart);
+            if (params.generate_count) downloadGiftCardCsv(response.buffer as BlobPart);
             yield put({ type: 'fetch' });
             if (typeof callback === 'function') callback();
         },
-        *drop({ id }: GiftcardIdAction, { put }: GiftcardTools): GiftcardEffect {
+        *drop({ id }: GiftCardIdAction, { put }: GiftCardTools): GiftCardEffect {
             const response = (yield post(`/${window.settings.secure_path}/giftcard/drop`, {
                 id,
             })) as ApiResponse;
             if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
         },
         *changeTable(
-            { pagination, sort }: GiftcardTableAction,
-            { put, select }: GiftcardTools,
-        ): GiftcardEffect {
-            const giftcardState = (yield select((state) => state.giftcard)) as GiftcardState;
+            { pagination, sort }: GiftCardTableAction,
+            { put, select }: GiftCardTools,
+        ): GiftCardEffect {
+            const giftcardState = (yield select((state) => state.giftcard)) as GiftCardState;
             yield put({
                 type: 'setState',
                 payload: { pagination: { ...giftcardState.pagination, ...pagination }, sort },
