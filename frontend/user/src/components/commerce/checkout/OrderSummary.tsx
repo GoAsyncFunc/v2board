@@ -6,7 +6,7 @@ import { CouponDiscount } from './Coupon';
 import { totalAmount } from './Pricing';
 import { formatPrice } from '../../common/MoneyDisplay';
 import type { CouponData, PaymentConfig } from '../../../types/commerce';
-import type { PlanRecord } from '../../../types/commonModels';
+import type { PlanRecord } from '../../../types/modelContracts';
 import type { PlanPeriod } from '../../../types/plan';
 
 interface OrderSummaryProps {

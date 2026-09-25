@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import TelegramBindModal from '../TelegramBindModal';
 import { formatMessage } from '../../../locales/i18n';
-import type { UserCommunicationConfig } from '../../../types/commonModels';
+import type { UserCommunicationConfig } from '../../../types/modelContracts';
 import type { UserInfo } from '../../../types/user';
 
 interface ProfileTelegramProps {

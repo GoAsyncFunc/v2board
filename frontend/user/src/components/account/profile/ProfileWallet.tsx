@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
 import { formatMoney } from '../../common/MoneyDisplay';
 import { formatMessage } from '../../../locales/i18n';
-import type { UserCommunicationConfig } from '../../../types/commonModels';
+import type { UserCommunicationConfig } from '../../../types/modelContracts';
 import type { UserInfo, UserSetting, UserState } from '../../../types/user';
 
 interface ProfileWalletProps {

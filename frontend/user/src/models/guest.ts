@@ -1,7 +1,7 @@
 import { get } from '../services/request';
 import { isSuccessfulResponse } from '../types/api';
 import type { CommunicationConfig } from '../types/auth';
-import type { GuestState, ModelEffects, ModelGenerator } from '../types/commonModels';
+import type { GuestState, ModelEffects, ModelGenerator } from '../types/modelContracts';
 import type { StateUpdate } from '../types/queryModels';
 
 const initialState: GuestState = {

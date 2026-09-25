@@ -321,7 +321,7 @@
   },
   {
     "from": "components/account/profile/ProfileTelegram.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/account/profile/ProfileTelegram.tsx",
@@ -337,7 +337,7 @@
   },
   {
     "from": "components/account/profile/ProfileWallet.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/account/profile/ProfileWallet.tsx",
@@ -501,7 +501,7 @@
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/commerce/checkout/OrderSummary.tsx",
@@ -533,7 +533,7 @@
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/commerce/checkout/Pricing.tsx",
@@ -729,7 +729,7 @@
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/subscription/checkout/PlanOrderSidebar.tsx",
@@ -741,7 +741,7 @@
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "components/subscription/checkout/PlanPurchaseDetails.tsx",
@@ -869,7 +869,7 @@
   },
   {
     "from": "models/communication.ts",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "models/communication.ts",
@@ -905,7 +905,7 @@
   },
   {
     "from": "models/guest.ts",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "models/guest.ts",
@@ -1045,7 +1045,7 @@
   },
   {
     "from": "models/plan.ts",
-    "to": "types/commonModels.ts"
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "models/plan.ts",
@@ -1205,7 +1205,7 @@
   },
   {
     "from": "models/userAccountEffects.ts",
-    "to": "types/userModel.ts"
+    "to": "types/userModelContracts.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1221,7 +1221,7 @@
   },
   {
     "from": "models/userSubscriptionEffects.ts",
-    "to": "types/userModel.ts"
+    "to": "types/userModelContracts.ts"
   },
   {
     "from": "models/userSubscriptionEffects.ts",
@@ -1864,26 +1864,6 @@
     "to": "types/commerce.ts"
   },
   {
-    "from": "types/commonModels.ts",
-    "to": "types/api.ts"
-  },
-  {
-    "from": "types/commonModels.ts",
-    "to": "types/auth.ts"
-  },
-  {
-    "from": "types/commonModels.ts",
-    "to": "types/commerce.ts"
-  },
-  {
-    "from": "types/commonModels.ts",
-    "to": "types/plan.ts"
-  },
-  {
-    "from": "types/commonModels.ts",
-    "to": "types/queryModels.ts"
-  },
-  {
     "from": "types/contentModels.ts",
     "to": "types/api.ts"
   },
@@ -1898,6 +1878,26 @@
   {
     "from": "types/invite.ts",
     "to": "types/commerce.ts"
+  },
+  {
+    "from": "types/modelContracts.ts",
+    "to": "types/api.ts"
+  },
+  {
+    "from": "types/modelContracts.ts",
+    "to": "types/auth.ts"
+  },
+  {
+    "from": "types/modelContracts.ts",
+    "to": "types/commerce.ts"
+  },
+  {
+    "from": "types/modelContracts.ts",
+    "to": "types/plan.ts"
+  },
+  {
+    "from": "types/modelContracts.ts",
+    "to": "types/queryModels.ts"
   },
   {
     "from": "types/payment.ts",
@@ -1937,10 +1937,6 @@
   },
   {
     "from": "types/store.ts",
-    "to": "types/commonModels.ts"
-  },
-  {
-    "from": "types/store.ts",
     "to": "types/contentModels.ts"
   },
   {
@@ -1950,6 +1946,10 @@
   {
     "from": "types/store.ts",
     "to": "types/knowledge.ts"
+  },
+  {
+    "from": "types/store.ts",
+    "to": "types/modelContracts.ts"
   },
   {
     "from": "types/store.ts",
@@ -1980,15 +1980,15 @@
     "to": "types/subscription.ts"
   },
   {
-    "from": "types/userModel.ts",
+    "from": "types/userModelContracts.ts",
     "to": "types/api.ts"
   },
   {
-    "from": "types/userModel.ts",
+    "from": "types/userModelContracts.ts",
     "to": "types/queryModels.ts"
   },
   {
-    "from": "types/userModel.ts",
+    "from": "types/userModelContracts.ts",
     "to": "types/user.ts"
   },
   {
