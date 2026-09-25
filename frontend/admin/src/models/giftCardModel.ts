@@ -24,7 +24,7 @@ interface GiftCardTableAction {
     sort: PromotionSort;
 }
 type GiftCardResponse = ApiResponse<GiftCardRecord[]>;
-type GiftCardGenerateResponse = ApiResponse & { buffer?: BlobPart };
+type GiftCardGenerateResponse = ApiResponse & { buffer: BlobPart };
 type GiftCardYield = GiftCardState | ApiResponse;
 type GiftCardEffect = ModelEffect<GiftCardYield>;
 
@@ -66,7 +66,7 @@ export default {
             yield put({ type: 'setState', payload: { fetchLoading: false } });
             if (!isSuccessfulResponse(response)) return;
             response.data.forEach((giftcard) => {
-                if (giftcard.type === 1) giftcard.value = (giftcard.value as number) / 100;
+                if (giftcard.type === 1) giftcard.value = Number(giftcard.value) / 100;
             });
             yield put({
                 type: 'setState',
@@ -81,14 +81,14 @@ export default {
             { put }: GiftCardTools,
         ): GiftCardEffect {
             yield put({ type: 'setState', payload: { saveLoading: true } });
-            if (params.type === 1) params.value = (params.value as number) * 100;
+            if (params.type === 1) params.value = Number(params.value) * 100;
             const response = (yield post(
                 `/${window.settings.secure_path}/giftcard/generate`,
                 params,
             )) as GiftCardGenerateResponse;
             yield put({ type: 'setState', payload: { saveLoading: false } });
             if (!isSuccessfulResponse(response)) return;
-            if (params.generate_count) downloadGiftCardCsv(response.buffer as BlobPart);
+            if (params.generate_count) downloadGiftCardCsv(response.buffer);
             yield put({ type: 'fetch' });
             if (typeof callback === 'function') callback();
         },

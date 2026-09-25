@@ -24,7 +24,7 @@ interface CouponTableAction {
     sort: PromotionSort;
 }
 type CouponResponse = ApiResponse<CouponRecord[]>;
-type CouponGenerateResponse = ApiResponse & { buffer?: BlobPart };
+type CouponGenerateResponse = ApiResponse & { buffer: BlobPart };
 type CouponYield = CouponState | ApiResponse;
 type CouponEffect = ModelEffect<CouponYield>;
 
@@ -66,7 +66,7 @@ export default {
             yield put({ type: 'setState', payload: { fetchLoading: false } });
             if (!isSuccessfulResponse(response)) return;
             response.data.forEach((coupon) => {
-                if (coupon.type === 1) coupon.value = (coupon.value as number) / 100;
+                if (coupon.type === 1) coupon.value = Number(coupon.value) / 100;
             });
             yield put({
                 type: 'setState',
@@ -78,14 +78,14 @@ export default {
         },
         *generate({ params, callback }: CouponGenerateAction, { put }: CouponTools): CouponEffect {
             yield put({ type: 'setState', payload: { saveLoading: true } });
-            if (params.type === 1) params.value = (params.value as number) * 100;
+            if (params.type === 1) params.value = Number(params.value) * 100;
             const response = (yield post(
                 `/${window.settings.secure_path}/coupon/generate`,
                 params,
             )) as CouponGenerateResponse;
             yield put({ type: 'setState', payload: { saveLoading: false } });
             if (!isSuccessfulResponse(response)) return;
-            if (params.generate_count) downloadCouponCsv(response.buffer as BlobPart);
+            if (params.generate_count) downloadCouponCsv(response.buffer);
             yield put({ type: 'fetch' });
             if (typeof callback === 'function') callback();
         },

@@ -141,3 +141,15 @@ test('admin plan model narrows configured price fields and numeric values explic
     assert.doesNotMatch(source, /Object\.keys\(settings\.periodText\) as PlanPriceField\[\]/);
     assert.doesNotMatch(source, /plan\[period\] as number/);
 });
+
+test('admin promotion models use explicit numeric and optional CSV buffer contracts', async () => {
+    for (const model of ['couponModel.ts', 'giftCardModel.ts']) {
+        const source = await fs.readFile(path.join(sourceRoot, 'models', model), 'utf8');
+
+        assert.match(source, /Number\(params\.value\) \* 100/);
+        assert.match(source, /Number\((?:coupon|giftcard)\.value\) \/ 100/);
+        assert.match(source, /buffer: BlobPart\s*}/);
+        assert.match(source, /download(?:Coupon|GiftCard)Csv\(response\.buffer\)/);
+        assert.doesNotMatch(source, /value as number|buffer as BlobPart/);
+    }
+});
