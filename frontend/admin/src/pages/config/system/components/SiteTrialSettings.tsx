@@ -4,7 +4,7 @@ import type {
     ConfigChangeHandler,
     SiteConfig,
     PlanSummary,
-} from '../../../../types/configurationValues';
+} from '../../../../types/systemConfigurationContracts';
 
 interface SiteTrialSettingsProps {
     site: SiteConfig;

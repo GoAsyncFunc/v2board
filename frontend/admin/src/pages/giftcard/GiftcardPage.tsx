@@ -4,7 +4,7 @@ import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
-import type { PlanSummary } from '../../types/configurationValues';
+import type { PlanSummary } from '../../types/systemConfigurationContracts';
 import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
 import type { GiftcardRecord, GiftcardState } from '../../types/promotionContracts';
 import GiftcardEditor from './components/GiftcardEditor';

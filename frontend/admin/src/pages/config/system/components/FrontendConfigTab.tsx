@@ -1,7 +1,10 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, FrontendConfig } from '../../../../types/configurationValues';
+import type {
+    ConfigChangeHandler,
+    FrontendConfig,
+} from '../../../../types/systemConfigurationContracts';
 
 interface FrontendConfigTabProps {
     frontend: FrontendConfig;

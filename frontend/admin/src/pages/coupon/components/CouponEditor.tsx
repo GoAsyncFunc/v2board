@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import type { RangePickerValue } from 'antd/lib/date-picker/interface';
 import moment from 'moment';
-import type { PlanSummary } from '../../../types/configurationValues';
+import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { CouponRecord, CouponState } from '../../../types/promotionContracts';
 import { CouponBasicFields } from './CouponBasicFields';

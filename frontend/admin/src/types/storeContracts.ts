@@ -1,4 +1,4 @@
-import type { AdminConfigState } from './configurationValues';
+import type { AdminConfigState } from './systemConfigurationContracts';
 import type { KnowledgeState } from './knowledgeContracts';
 import type { DashboardStats, SystemMonitoringState } from './monitoringContracts';
 import type { NoticeState } from './noticeContracts';

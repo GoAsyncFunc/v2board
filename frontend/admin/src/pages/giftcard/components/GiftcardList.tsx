@@ -9,7 +9,7 @@ import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps, SorterResult } from 'antd/lib/table/interface';
 import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
 import type { GiftcardRecord, GiftcardState } from '../../../types/promotionContracts';
-import type { PlanSummary } from '../../../types/configurationValues';
+import type { PlanSummary } from '../../../types/systemConfigurationContracts';
 import { copyText } from '../../../utils/clipboardService';
 import { createReadonlyGiftcardColumns } from './GiftcardColumns';
 

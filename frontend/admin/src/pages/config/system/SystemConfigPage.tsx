@@ -9,7 +9,7 @@ import type {
     AdminConfigState,
     ConfigGroupKey,
     ConfigValue,
-} from '../../../types/configurationValues';
+} from '../../../types/systemConfigurationContracts';
 
 interface SystemConfigPageProps {
     dispatch: AdminDispatch;
