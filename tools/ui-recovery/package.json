@@ -1,0 +1,17 @@
+{
+  "name": "v2board-ui-recovery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node recover.mjs extract",
+    "build": "node recover.mjs build",
+    "verify": "node recover.mjs verify",
+    "build:site": "node site.mjs build",
+    "preview:user": "node site.mjs serve user",
+    "preview:admin": "node site.mjs serve admin"
+  },
+  "dependencies": {
+    "acorn": "8.15.0"
+  }
+}
