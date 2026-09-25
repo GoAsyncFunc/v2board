@@ -22,7 +22,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/app/bootstrap.tsx',
         '../src/app/history.ts',
         '../src/app/historyFactory.ts',
-        '../src/app/store.tsx',
+        '../src/app/applicationStore.tsx',
         '../src/app/dvaConfig.ts',
         '../src/app/navigationService.ts',
         '../src/app/requestPresentation.ts',
@@ -52,7 +52,7 @@ test('admin application runtime uses typed source modules outside vendor', async
         '../src/main.js',
         '../src/app/bootstrap.js',
         '../src/app/history.js',
-        '../src/app/store.js',
+        '../src/app/applicationStore.js',
         '../src/runtime/loadingPlugin.js',
         '../src/runtime/pluginRuntime.js',
         '../src/runtime/routerBindings.js',
@@ -453,7 +453,7 @@ test('admin model composition uses named business effects instead of module alia
     assert.match(protocolSource, /return\s*{\s*namespace,/);
     assert.doesNotMatch(protocolSource, /\bname:\s*string/);
 
-    const store = await fs.readFile(new URL('../src/app/store.tsx', import.meta.url), 'utf8');
+    const store = await fs.readFile(new URL('../src/app/applicationStore.tsx', import.meta.url), 'utf8');
     assert.match(store, /model\.namespace !== registeredNamespace/);
     assert.match(store, /appInstance\?\.model\(model\)/);
     assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
@@ -503,7 +503,7 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
         '../src/types/dvaCore.d.ts',
         '../src/runtime/dvaApplication.tsx',
         '../src/runtime/loadingPlugin.ts',
-        '../src/app/store.tsx',
+        '../src/app/applicationStore.tsx',
     ];
     for (const relativePath of contractPaths) {
         const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');

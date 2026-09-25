@@ -1,7 +1,7 @@
 export {};
 
 import type { AdminHistory } from '../app/history';
-import type { AdminDvaApplication } from '../app/store';
+import type { AdminDvaApplication } from '../app/applicationStore';
 import type { AdminRouteConfig } from '../routes/routeConfig';
 import type { AdminRootState } from './storeContracts';
 

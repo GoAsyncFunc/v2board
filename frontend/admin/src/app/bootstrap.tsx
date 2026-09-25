@@ -5,7 +5,7 @@ import appDvaConfig from './dvaConfig';
 import { initialProps, modifyInitialProps, rootContainer } from './rootRuntime';
 import { configureRequestPresentation } from './requestPresentation';
 import Router from './Router';
-import { createApp } from './store';
+import { createApp } from './applicationStore';
 
 configureRequestPresentation();
 

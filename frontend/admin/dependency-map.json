@@ -24,8 +24,116 @@
     "to": "types/storeContracts.ts"
   },
   {
+    "from": "app/applicationStore.tsx",
+    "to": "app/history.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/adminAuthenticationModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/adminPassportModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/configurationModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/couponModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/dashboardStatisticsModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/giftCardModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/knowledgeModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/layoutModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/noticeModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/orderModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/paymentModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/planModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/queueMonitoringModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/serverGroupModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/serverManagementModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/serverProtocolModelFactory.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/serverRouteModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/themeModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/ticketModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "models/userModel.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "runtime/dvaApplication.tsx"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "runtime/loadingPlugin.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "runtime/pluginRuntime.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "types/dvaRuntimeContracts.ts"
+  },
+  {
+    "from": "app/applicationStore.tsx",
+    "to": "types/storeContracts.ts"
+  },
+  {
     "from": "app/bootstrap.tsx",
     "to": "app/Router.tsx"
+  },
+  {
+    "from": "app/bootstrap.tsx",
+    "to": "app/applicationStore.tsx"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -38,10 +146,6 @@
   {
     "from": "app/bootstrap.tsx",
     "to": "app/rootRuntime.tsx"
-  },
-  {
-    "from": "app/bootstrap.tsx",
-    "to": "app/store.tsx"
   },
   {
     "from": "app/bootstrap.tsx",
@@ -69,114 +173,10 @@
   },
   {
     "from": "app/rootRuntime.tsx",
-    "to": "app/store.tsx"
+    "to": "app/applicationStore.tsx"
   },
   {
     "from": "app/rootRuntime.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/adminAuthenticationModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/adminPassportModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/configurationModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/couponModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/dashboardStatisticsModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/giftCardModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/knowledgeModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/layoutModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/noticeModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/orderModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/paymentModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/planModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/queueMonitoringModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverGroupModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverManagementModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverProtocolModelFactory.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/serverRouteModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/themeModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/ticketModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "models/userModel.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "runtime/dvaApplication.tsx"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "runtime/loadingPlugin.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "app/store.tsx",
-    "to": "types/dvaRuntimeContracts.ts"
-  },
-  {
-    "from": "app/store.tsx",
     "to": "types/storeContracts.ts"
   },
   {
