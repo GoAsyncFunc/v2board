@@ -65,6 +65,8 @@ services:
       V2BOARD_ADMIN_EMAIL: admin@example.com
       V2BOARD_ADMIN_PASSWORD: admin123456
       V2BOARD_SECURE_PATH: admin
+      V2BOARD_ADMIN_SOURCE_BUILD: "true"
+      V2BOARD_USER_SOURCE_BUILD: "true"
     volumes:
       - .:/var/www/html
       - composer-cache:/tmp/composer-cache

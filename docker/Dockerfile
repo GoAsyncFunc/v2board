@@ -29,8 +29,8 @@ RUN printf '%s\n' \
     '    AllowOverride None' \
     '    Require all granted' \
     '</Directory>' \
-    > /etc/apache2/conf-available/v2board-admin-build.conf \
-    && a2enconf v2board-admin-build
+    > /etc/apache2/conf-available/v2board-frontend-build.conf \
+    && a2enconf v2board-frontend-build
 
 WORKDIR /var/www/html
 COPY docker/entrypoint.sh /usr/local/bin/v2board-entrypoint
