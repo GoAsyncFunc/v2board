@@ -5,7 +5,14 @@ import vm from 'node:vm';
 import { transform } from 'esbuild';
 
 async function load(name, response) {
-  const source = await fs.readFile(new URL(`../src/models/${name}.ts`, import.meta.url), 'utf8');
+  const modelFileNames = {
+    coupon: 'couponModel',
+    knowledge: 'knowledgeModel',
+  };
+  const source = await fs.readFile(
+    new URL(`../src/models/${modelFileNames[name] || name}.ts`, import.meta.url),
+    'utf8',
+  );
   const { code } = await transform(source, { loader: 'ts', format: 'cjs' });
   const events = [], module = { exports: {} };
   vm.runInNewContext(code, { module, exports: module.exports, require(id) {

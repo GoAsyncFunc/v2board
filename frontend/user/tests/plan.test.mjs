@@ -10,7 +10,7 @@ async function run(original,scenario){
  const get=(...args)=>{trace.push(['get',...args]);return 'request';};
  const localeSettings={periodText:{month_price:'Month',year_price:'Year',onetime_price:'Once'}};
  const settings={a:localeSettings,localeSettings};
- const file=new URL(original?'./fixtures/models/user-plan.cjs':'../src/models/plan.ts',import.meta.url);
+ const file=new URL(original?'./fixtures/models/user-plan.cjs':'../src/models/planModel.ts',import.meta.url);
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  vm.runInNewContext(code,{module,exports:module.exports,require(id){
   if(id.includes('types/api'))return {isSuccessfulResponse:value=>value.code===200};

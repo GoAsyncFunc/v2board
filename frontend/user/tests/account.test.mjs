@@ -39,7 +39,7 @@ async function run(original,scenario){
   vm.runInNewContext(code,{module:effectModule,exports:effectModule.exports,require,window},{timeout:3000});
   typedModules[name]=effectModule.exports;
  }
- const file=original?path.join(home,'tests/fixtures/models/user-account.cjs'):path.join(home,'src/models/user.ts');
+ const file=original?path.join(home,'tests/fixtures/models/user-account.cjs'):path.join(home,'src/models/userModel.ts');
  const text=await fs.readFile(file,'utf8');const code=original?text:(await transform(text,{format:'cjs',loader:'ts'})).code;
  const module={exports:{}};vm.runInNewContext(code,{module,exports:module.exports,require,window},{timeout:3000});
  const model=module.exports.default;

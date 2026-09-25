@@ -159,9 +159,9 @@ test('user pages are grouped by business domain without migration scripts', asyn
 });
 
 test('user model composition uses named business effects instead of module aliases', async () => {
-    const userModel = await fs.readFile(new URL('../src/models/user.ts', import.meta.url), 'utf8');
+    const userModel = await fs.readFile(new URL('../src/models/userModel.ts', import.meta.url), 'utf8');
     const orderModel = await fs.readFile(
-        new URL('../src/models/order.ts', import.meta.url),
+        new URL('../src/models/orderModel.ts', import.meta.url),
         'utf8',
     );
     const orderEffects = await fs.readFile(
@@ -216,21 +216,21 @@ test('user model composition uses named business effects instead of module alias
     const modelDirectory = new URL('../src/models/', import.meta.url);
     const modelFiles = [
         { file: 'communicationModel', namespace: 'comm' },
-        { file: 'coupon', namespace: 'coupon' },
+        { file: 'couponModel', namespace: 'coupon' },
         { file: 'guestAccessModel', namespace: 'guest' },
         { file: 'invite', namespace: 'invite' },
-        { file: 'knowledge', namespace: 'knowledge' },
+        { file: 'knowledgeModel', namespace: 'knowledge' },
         { file: 'layoutModel', namespace: 'layout' },
-        { file: 'notice', namespace: 'notice' },
-        { file: 'order', namespace: 'order' },
+        { file: 'noticeModel', namespace: 'notice' },
+        { file: 'orderModel', namespace: 'order' },
         { file: 'authenticationModel', namespace: 'passport' },
-        { file: 'plan', namespace: 'plan' },
+        { file: 'planModel', namespace: 'plan' },
         { file: 'serverCatalogModel', namespace: 'server' },
         { file: 'trafficStatistics', namespace: 'stat' },
         { file: 'telegram', namespace: 'telegram' },
-        { file: 'ticket', namespace: 'ticket' },
+        { file: 'ticketModel', namespace: 'ticket' },
         { file: 'tutorial', namespace: 'tutorial' },
-        { file: 'user', namespace: 'user' },
+        { file: 'userModel', namespace: 'user' },
     ];
     for (const { file, namespace } of modelFiles) {
         const source = await fs.readFile(new URL(`${file}.ts`, modelDirectory), 'utf8');

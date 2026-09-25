@@ -14,6 +14,7 @@ const cases = [
 async function load(entry, response, fail = false) {
   const modelFileNames = {
     server: 'serverCatalogModel',
+    notice: 'noticeModel',
   };
   const source = await fs.readFile(
     new URL(`../src/models/${entry.file || modelFileNames[entry.name] || entry.name}.ts`, import.meta.url),

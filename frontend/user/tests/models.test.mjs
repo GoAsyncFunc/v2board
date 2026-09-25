@@ -10,7 +10,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const home=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const copy=value=>structuredClone(value);
 async function load(target,name,original,trace,response){
- const modelFileNames={comm:'communicationModel',guest:'guestAccessModel',layout:'layoutModel',passport:'authenticationModel',server:'serverCatalogModel'};
+ const modelFileNames={comm:'communicationModel',coupon:'couponModel',guest:'guestAccessModel',knowledge:'knowledgeModel',layout:'layoutModel',notice:'noticeModel',order:'orderModel',passport:'authenticationModel',plan:'planModel',server:'serverCatalogModel',ticket:'ticketModel',user:'userModel'};
  const extension=['comm','guest','layout','passport'].includes(name)?'ts':'js';
  const file=original?path.join(home,'tests/fixtures/models',`${target}-${name}.cjs`):path.join(home,'src/models',(modelFileNames[name]||name)+'.'+extension);
  const text=await fs.readFile(file,'utf8');
