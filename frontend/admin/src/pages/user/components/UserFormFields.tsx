@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import type { UserPlanOption, UserRecord } from '../../../types/userContracts';
-import { FormGroup } from './FormGroup';
+import { UserFormFieldGroup } from './UserFormFieldGroup';
 import { UserAccountSettingsFields } from './UserAccountSettingsFields';
 import { UserMoneyFields } from './UserMoneyFields';
 import { UserTrafficFields } from './UserTrafficFields';
@@ -15,27 +15,27 @@ export interface UserFormFieldsProps {
 export function UserFormFields({ user, plans, onChange }: UserFormFieldsProps): React.ReactElement {
     return (
         <div>
-            <FormGroup label="邮箱">
+            <UserFormFieldGroup label="邮箱">
                 <Input
                     placeholder="请输入邮箱"
                     defaultValue={user.email}
                     onChange={(event) => onChange('email', event.target.value)}
                 />
-            </FormGroup>
-            <FormGroup label="邀请人邮箱">
+            </UserFormFieldGroup>
+            <UserFormFieldGroup label="邀请人邮箱">
                 <Input
                     placeholder="请输入邀请人邮箱"
                     defaultValue={user.invite_user_email}
                     onChange={(event) => onChange('invite_user_email', event.target.value)}
                 />
-            </FormGroup>
-            <FormGroup label="密码">
+            </UserFormFieldGroup>
+            <UserFormFieldGroup label="密码">
                 <Input
                     defaultValue={user.password}
                     placeholder="如需修改密码请输入"
                     onChange={(event) => onChange('password', event.target.value)}
                 />
-            </FormGroup>
+            </UserFormFieldGroup>
             <UserMoneyFields user={user} onChange={onChange} />
             <UserTrafficFields user={user} onChange={onChange} />
             <UserAccountSettingsFields user={user} plans={plans} onChange={onChange} />

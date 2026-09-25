@@ -1011,7 +1011,7 @@ test('admin pages select from the canonical root state', async () => {
     assert.ok((await fs.readdir(userDirectory)).includes('components'));
     const userComponentsDirectory = new URL('components/', userDirectory);
     for (const component of [
-        'FormGroup.tsx',
+        'UserFormFieldGroup.tsx',
         'SendMailEditor.tsx',
         'UserDisplayColumns.tsx',
         'UserEditor.tsx',

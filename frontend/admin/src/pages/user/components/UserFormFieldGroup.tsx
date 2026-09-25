@@ -1,11 +1,14 @@
 import React from 'react';
 
-export interface FormGroupProps {
+export interface UserFormFieldGroupProps {
     label: React.ReactNode;
     children: React.ReactNode;
 }
 
-export function FormGroup({ label, children }: FormGroupProps): React.ReactElement {
+export function UserFormFieldGroup({
+    label,
+    children,
+}: UserFormFieldGroupProps): React.ReactElement {
     return (
         <div className="form-group">
             <label>{label}</label>

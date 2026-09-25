@@ -2817,7 +2817,7 @@
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
-    "to": "pages/user/components/FormGroup.tsx"
+    "to": "pages/user/components/UserFormFieldGroup.tsx"
   },
   {
     "from": "pages/user/components/UserAccountSettingsFields.tsx",
@@ -2861,11 +2861,11 @@
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
-    "to": "pages/user/components/FormGroup.tsx"
+    "to": "pages/user/components/UserAccountSettingsFields.tsx"
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
-    "to": "pages/user/components/UserAccountSettingsFields.tsx"
+    "to": "pages/user/components/UserFormFieldGroup.tsx"
   },
   {
     "from": "pages/user/components/UserFormFields.tsx",
@@ -2981,7 +2981,7 @@
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",
-    "to": "pages/user/components/FormGroup.tsx"
+    "to": "pages/user/components/UserFormFieldGroup.tsx"
   },
   {
     "from": "pages/user/components/UserTrafficFields.tsx",

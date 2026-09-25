@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import { FormGroup } from './FormGroup';
+import { UserFormFieldGroup } from './UserFormFieldGroup';
 import type { UserRecord } from '../../../types/userContracts';
 import { toInputDefaultValue } from './UserFormValues';
 
@@ -34,7 +34,7 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
                     />
                 </div>
             </div>
-            <FormGroup label="流量">
+            <UserFormFieldGroup label="流量">
                 <Input
                     type="number"
                     addonAfter="GB"
@@ -42,14 +42,14 @@ export function UserTrafficFields({ user, onChange }: UserTrafficFieldsProps): R
                     placeholder="请输入流量"
                     onChange={(event) => onChange('transfer_enable', event.target.value)}
                 />
-            </FormGroup>
-            <FormGroup label="设备数限制">
+            </UserFormFieldGroup>
+            <UserFormFieldGroup label="设备数限制">
                 <Input
                     placeholder="留空则不限制"
                     defaultValue={toInputDefaultValue(user.device_limit)}
                     onChange={(event) => onChange('device_limit', event.target.value)}
                 />
-            </FormGroup>
+            </UserFormFieldGroup>
         </>
     );
 }
