@@ -22,7 +22,7 @@ export function displayDeviceLimit(limit: PlanRecord['device_limit']): React.Rea
     return limit !== null ? limit : '-';
 }
 
-export function createReadonlyPlanResourceColumns() {
+export function createPlanResourceColumns() {
     return {
         name: { title: '名称', dataIndex: 'name', key: 'name' },
         count: { title: '统计', dataIndex: 'count', key: 'count', render: renderPlanCount },

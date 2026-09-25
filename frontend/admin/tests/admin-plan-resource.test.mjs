@@ -16,7 +16,7 @@ async function load(original) {
     if (id.includes('Icon')) return { a: 'Icon', Icon: 'Icon' };
         throw Error(id);
   } });
-  return original ? module.exports({ a: React }, { a: 'Icon' }) : Object.values(module.exports.createReadonlyPlanResourceColumns());
+  return original ? module.exports({ a: React }, { a: 'Icon' }) : Object.values(module.exports.createPlanResourceColumns());
 }
 function normalize(value) {
   if (Array.isArray(value)) return Array.from(value, normalize);

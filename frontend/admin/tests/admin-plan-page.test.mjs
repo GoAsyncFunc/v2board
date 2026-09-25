@@ -119,7 +119,7 @@ async function loadList() {
                 ),
         },
         resourceColumns: {
-            createReadonlyPlanResourceColumns: () =>
+            createPlanResourceColumns: () =>
                 Object.fromEntries(
                     ['name', 'count', 'transfer_enable', 'device_limit'].map((key) => [
                         key,

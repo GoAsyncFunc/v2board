@@ -11,9 +11,9 @@ import type { PlanFieldValue, PlanRecord } from '../../../types/planContracts';
 import PlanEditor from './PlanEditor';
 import { createPlanGroupColumn, type PlanGroup } from './PlanGroupColumn';
 import { createReadonlyPlanPriceColumns } from './PlanPriceColumns';
-import { createReadonlyPlanResourceColumns } from './PlanResourceColumns';
+import { createPlanResourceColumns } from './PlanResourceColumns';
 
-const resourceColumns = createReadonlyPlanResourceColumns();
+const resourceColumns = createPlanResourceColumns();
 const priceColumns = createReadonlyPlanPriceColumns();
 
 export interface PlanListActions {
