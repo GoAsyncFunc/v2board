@@ -50,6 +50,37 @@ type MailTestResponse = ApiResponse & { log?: MailTestLog };
 type ConfigYield = ApiResponse | AdminConfigState;
 type ConfigEffect = ModelEffect<ConfigYield>;
 
+function normalizeListValue(value: string | string[] | undefined): string[] | undefined {
+    return typeof value === 'string' ? value.split(',') : value;
+}
+
+export function normalizeConfigData(data: ConfigFetchData): Partial<AdminConfigState> {
+    const { invite, site, deposit, ...otherConfig } = data;
+    const normalized: Partial<AdminConfigState> = otherConfig;
+    if (invite) {
+        const { commission_withdraw_method, ...otherInviteConfig } = invite;
+        normalized.invite = {
+            ...otherInviteConfig,
+            commission_withdraw_method: normalizeListValue(commission_withdraw_method),
+        };
+    }
+    if (site) {
+        const { email_whitelist_suffix, ...otherSiteConfig } = site;
+        normalized.site = {
+            ...otherSiteConfig,
+            email_whitelist_suffix: normalizeListValue(email_whitelist_suffix),
+        };
+    }
+    if (deposit) {
+        const { deposit_bounus, ...otherDepositConfig } = deposit;
+        normalized.deposit = {
+            ...otherDepositConfig,
+            deposit_bounus: normalizeListValue(deposit_bounus),
+        };
+    }
+    return normalized;
+}
+
 const initialState = {
     ticket: {},
     deposit: {},
@@ -86,15 +117,7 @@ export default {
             )) as ApiResponse<ConfigFetchData>;
             yield put({ type: 'setState', payload: { fetchLoading: false } });
             if (!isSuccessfulResponse(response)) return;
-            const data = response.data;
-            if (typeof data.invite?.commission_withdraw_method === 'string')
-                data.invite.commission_withdraw_method =
-                    data.invite.commission_withdraw_method.split(',');
-            if (typeof data.site?.email_whitelist_suffix === 'string')
-                data.site.email_whitelist_suffix = data.site.email_whitelist_suffix.split(',');
-            if (typeof data.deposit?.deposit_bounus === 'string')
-                data.deposit.deposit_bounus = data.deposit.deposit_bounus.split(',');
-            yield put({ type: 'setState', payload: { ...data } as Partial<AdminConfigState> });
+            yield put({ type: 'setState', payload: normalizeConfigData(response.data) });
         },
         *save(
             { parentKey, complete }: SaveConfigAction,

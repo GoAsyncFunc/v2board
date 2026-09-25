@@ -155,9 +155,27 @@ test('admin promotion models use explicit numeric and optional CSV buffer contra
 });
 
 test('admin user exports declare the successful CSV buffer contract', async () => {
-    const source = await fs.readFile(path.join(sourceRoot, 'models', 'userManagementEffects.ts'), 'utf8');
+    const source = await fs.readFile(
+        path.join(sourceRoot, 'models', 'userManagementEffects.ts'),
+        'utf8',
+    );
 
     assert.match(source, /type ExportResponse = ApiResponse & \{ buffer: BlobPart\s*}/);
     assert.match(source, /downloadCsv\(\s*response\.buffer,/);
     assert.doesNotMatch(source, /response\.buffer as BlobPart/);
+});
+
+test('admin configuration normalization has an explicit typed boundary', async () => {
+    const source = await fs.readFile(
+        path.join(sourceRoot, 'models', 'configurationModel.ts'),
+        'utf8',
+    );
+
+    assert.match(source, /function normalizeListValue\(/);
+    assert.match(
+        source,
+        /export function normalizeConfigData\(data: ConfigFetchData\): Partial<AdminConfigState>/,
+    );
+    assert.match(source, /payload: normalizeConfigData\(response\.data\)/);
+    assert.doesNotMatch(source, /data as Partial<AdminConfigState>/);
 });
