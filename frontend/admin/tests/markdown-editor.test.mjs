@@ -30,7 +30,8 @@ test('Markdown editor uses the pinned official package', () => {
     assert.equal(packageJson.dependencies['react-markdown-editor-lite'], '1.3.4');
     assert.deepEqual(packageJson.browserslist, markdownEditorBrowserTargets);
     assert.match(componentSource, /import MarkdownEditor from 'react-markdown-editor-lite';/);
-    assert.match(componentSource, /export default MarkdownEditor;/);
+    assert.match(componentSource, /function KnowledgeMarkdownEditor\(/);
+    assert.match(componentSource, /return <MarkdownEditor \{\.\.\.props\} \/>;/);
 });
 
 test('legacy Admin component stylesheet retains its Markdown editor styles', () => {
