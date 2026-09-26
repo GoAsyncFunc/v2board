@@ -1,6 +1,6 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { AppConfig, ConfigChangeHandler } from '@/types/systemConfigurationContracts';
+import type { AppConfig, ConfigGroupChangeHandler } from '@/types/systemConfigurationContracts';
 
 interface AppPlatformSettingProps {
     name: string;
@@ -41,7 +41,7 @@ function AppPlatformSetting({
 
 interface AppConfigTabProps {
     app: AppConfig;
-    onChange: ConfigChangeHandler<AppConfig>;
+    onChange: ConfigGroupChangeHandler;
 }
 
 export default function AppConfigTab({ app, onChange }: AppConfigTabProps) {
@@ -65,6 +65,7 @@ export default function AppConfigTab({ app, onChange }: AppConfigTabProps) {
                     downloadPlaceholder="https://xxxx.com/xxx.exe"
                     onChange={(field, value) =>
                         onChange(
+                            'app',
                             field === 'version' ? 'windows_version' : 'windows_download_url',
                             value,
                         )
@@ -78,6 +79,7 @@ export default function AppConfigTab({ app, onChange }: AppConfigTabProps) {
                     downloadPlaceholder="https://xxxx.com/xxx.dmg"
                     onChange={(field, value) =>
                         onChange(
+                            'app',
                             field === 'version' ? 'macos_version' : 'macos_download_url',
                             value,
                         )
@@ -91,6 +93,7 @@ export default function AppConfigTab({ app, onChange }: AppConfigTabProps) {
                     downloadPlaceholder="https://xxxx.com/xxx.apk"
                     onChange={(field, value) =>
                         onChange(
+                            'app',
                             field === 'version' ? 'android_version' : 'android_download_url',
                             value,
                         )

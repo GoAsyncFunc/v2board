@@ -13,6 +13,7 @@ interface InviteCommissionDistributionProps {
         value?: Exclude<ConfigValue, null>;
         onChange: (value: ConfigValue) => void;
         isChildren?: boolean;
+        placeholder?: string;
     }>;
 }
 
@@ -28,18 +29,21 @@ export default function InviteCommissionDistribution({
             <TextSetting
                 isChildren
                 title="一级邀请人比例"
+                placeholder="请输入比例如：50"
                 value={invite.commission_distribution_l1}
                 onChange={(value) => onChange('commission_distribution_l1', value)}
             />
             <TextSetting
                 isChildren
                 title="二级邀请人比例"
+                placeholder="请输入比例如：30"
                 value={invite.commission_distribution_l2}
                 onChange={(value) => onChange('commission_distribution_l2', value)}
             />
             <TextSetting
                 isChildren
                 title="三级邀请人比例"
+                placeholder="请输入比例如：20"
                 value={invite.commission_distribution_l3}
                 onChange={(value) => onChange('commission_distribution_l3', value)}
             />

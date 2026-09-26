@@ -373,7 +373,7 @@ test('Site config tab maps each control to its semantic setting key', async () =
     const tree = SiteConfigTab({
         site,
         plans: [{ id: 1, name: 'Trial' }],
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const controls = [];
     const collect = (node) => {
@@ -398,9 +398,9 @@ test('Site config tab maps each control to its semantic setting key', async () =
         .find((control) => control.props.defaultValue === 24)
         .props.onChange({ target: { value: '48' } });
     assert.deepEqual(changes, [
-        ['app_name', 'New'],
-        ['logo', 'logo'],
-        ['try_out_hour', '48'],
+        ['site', 'app_name', 'New'],
+        ['site', 'logo', 'logo'],
+        ['site', 'try_out_hour', '48'],
     ]);
 });
 
@@ -438,7 +438,10 @@ test('Safe config tab exposes conditional security controls and semantic updates
         password_limit_count: 5,
         password_limit_expire: 10,
     };
-    const tree = SafeConfigTab({ safe, onChange: (field, value) => changes.push([field, value]) });
+    const tree = SafeConfigTab({
+        safe,
+        onChange: (group, field, value) => changes.push([group, field, value]),
+    });
     const serialized = JSON.stringify(tree);
     assert.match(serialized, /白名单后缀/);
     assert.match(serialized, /密钥/);
@@ -461,8 +464,8 @@ test('Safe config tab exposes conditional security controls and semantic updates
     const whitelist = controls.find((control) => Array.isArray(control.props.defaultValue));
     whitelist.props.onChange({ target: { value: 'example.com,example.org' } });
     assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
-        ['secure_path', 'control'],
-        ['email_whitelist_suffix', ['example.com', 'example.org']],
+        ['safe', 'secure_path', 'control'],
+        ['safe', 'email_whitelist_suffix', ['example.com', 'example.org']],
     ]);
 });
 
@@ -497,7 +500,7 @@ test('Subscribe config tab maps reset, event and link mode controls', async () =
     };
     const tree = SubscribeConfigTab({
         subscribe,
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const controls = [];
     const collect = (node) => {
@@ -522,9 +525,10 @@ test('Subscribe config tab maps reset, event and link mode controls', async () =
         .find((control) => control.props.defaultValue === 30)
         .props.onChange({ target: { value: '60' } });
     assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
-        ['reset_traffic_method', '4'],
-        ['show_subscribe_method', '1'],
-        ['show_subscribe_expire', '60'],
+        ['subscribe', 'reset_traffic_method', '4'],
+        ['subscribe', 'show_subscribe_method', '1'],
+        // The artifact saves the expire field under the safe group.
+        ['safe', 'show_subscribe_expire', '60'],
     ]);
 });
 
@@ -547,7 +551,7 @@ test('Deposit config tab splits reward rules and saves them under deposit', asyn
     const changes = [];
     const tree = DepositConfigTab({
         deposit: { deposit_bounus: ['50:18', '100:38'] },
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const row = tree.children[0].type({
         ...tree.children[0].props,
@@ -556,7 +560,7 @@ test('Deposit config tab splits reward rules and saves them under deposit', asyn
     const textarea = row.children[1].children[0][0];
     textarea.props.onChange({ target: { value: '50:18,200:88' } });
     assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
-        ['deposit_bounus', ['50:18', '200:88']],
+        ['deposit', 'deposit_bounus', ['50:18', '200:88']],
     ]);
 });
 
@@ -565,7 +569,7 @@ test('Ticket config tab preserves all ticket access options', async () => {
     const changes = [];
     const tree = TicketConfigTab({
         ticket: { ticket_status: 1 },
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const row = tree.children[0].type({
         ...tree.children[0].props,
@@ -575,7 +579,7 @@ test('Ticket config tab preserves all ticket access options', async () => {
     assert.equal(select.props.value, 1);
     assert.equal(select.children.length, 3);
     select.props.onChange({ target: { value: '2' } });
-    assert.deepEqual(changes, [['ticket_status', '2']]);
+    assert.deepEqual(changes, [['ticket', 'ticket_status', '2']]);
 });
 
 test('Invite config tab preserves invitation, withdrawal and distribution controls', async () => {
@@ -598,7 +602,7 @@ test('Invite config tab preserves invitation, withdrawal and distribution contro
     };
     const tree = InviteConfigTab({
         invite,
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const rendered = JSON.stringify(tree);
     assert.match(rendered, /一级邀请人比例/);
@@ -623,8 +627,8 @@ test('Invite config tab preserves invitation, withdrawal and distribution contro
         .find((control) => Array.isArray(control.props.defaultValue))
         .props.onChange({ target: { value: '支付宝,贝宝' } });
     assert.deepEqual(JSON.parse(JSON.stringify(changes)), [
-        ['invite_commission', 20],
-        ['commission_withdraw_method', ['支付宝', '贝宝']],
+        ['invite', 'invite_commission', 20],
+        ['invite', 'commission_withdraw_method', ['支付宝', '贝宝']],
     ]);
 });
 
@@ -655,7 +659,7 @@ test('Frontend config tab maps theme switches, color and background settings', a
             frontend_theme_color: 'default',
             frontend_background_url: '/background.png',
         },
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const controls = [];
     const collect = (node) => {
@@ -680,10 +684,11 @@ test('Frontend config tab maps theme switches, color and background settings', a
         .find((control) => control.props.defaultValue === '/background.png')
         .props.onChange({ target: { value: '/new.png' } });
     assert.deepEqual(changes, [
-        ['frontend_theme_sidebar', 'light'],
-        ['frontend_theme_header', 'dark'],
-        ['frontend_theme_color', 'black'],
-        ['frontend_background_url', '/new.png'],
+        // The artifact saves the theme switches under the site group.
+        ['site', 'frontend_theme_sidebar', 'light'],
+        ['site', 'frontend_theme_header', 'dark'],
+        ['frontend', 'frontend_theme_color', 'black'],
+        ['frontend', 'frontend_background_url', '/new.png'],
     ]);
 });
 
@@ -699,7 +704,7 @@ test('App config tab maps platform versions and download URLs to app fields', as
             android_version: '1.0.0',
             android_download_url: '/app.apk',
         },
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const controls = [];
     const collect = (node) => {
@@ -722,8 +727,8 @@ test('App config tab maps platform versions and download URLs to app fields', as
         .find((control) => control.props.defaultValue === '/win.exe')
         .props.onChange({ target: { value: '/new.exe' } });
     assert.deepEqual(changes, [
-        ['windows_version', '2.0.0'],
-        ['windows_download_url', '/new.exe'],
+        ['app', 'windows_version', '2.0.0'],
+        ['app', 'windows_download_url', '/new.exe'],
     ]);
 });
 
@@ -738,7 +743,7 @@ test('Telegram config tab conditionally exposes webhook setup and maps bot setti
             telegram_discuss_link: 'https://t.me/group',
         },
         webhookLoading: false,
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
         onSetWebhook: () => {
             webhookCalls += 1;
         },
@@ -765,7 +770,7 @@ test('Telegram config tab conditionally exposes webhook setup and maps bot setti
         )
         .props.onChange({ target: { value: 'https://t.me/new' } });
     assert.equal(webhookCalls, 1);
-    assert.deepEqual(changes, [['telegram_discuss_link', 'https://t.me/new']]);
+    assert.deepEqual(changes, [['telegram', 'telegram_discuss_link', 'https://t.me/new']]);
 });
 
 test('Email config tab maps SMTP fields, templates and test-mail action', async () => {
@@ -784,7 +789,7 @@ test('Email config tab maps SMTP fields, templates and test-mail action', async 
         },
         templates: ['default', 'custom'],
         testSendMailLoading: false,
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
         onTestSendMail: () => {
             testMailCalls += 1;
         },
@@ -808,7 +813,7 @@ test('Email config tab maps SMTP fields, templates and test-mail action', async 
         .props.onChange({ target: { value: 'smtp.new.test' } });
     controls.find((control) => control.props.onClick).props.onClick();
     assert.equal(testMailCalls, 1);
-    assert.deepEqual(changes, [['email_host', 'smtp.new.test']]);
+    assert.deepEqual(changes, [['email', 'email_host', 'smtp.new.test']]);
 });
 
 test('Server config tab maps node endpoints, numeric intervals and device mode', async () => {
@@ -824,7 +829,7 @@ test('Server config tab maps node endpoints, numeric intervals and device mode',
             server_device_online_min_traffic: 50,
             device_limit_mode: 0,
         },
-        onChange: (field, value) => changes.push([field, value]),
+        onChange: (group, field, value) => changes.push([group, field, value]),
     });
     const controls = [];
     const collect = (node) => {
@@ -846,7 +851,7 @@ test('Server config tab maps node endpoints, numeric intervals and device mode',
         .find((control) => control.props.defaultValue === 60)
         .props.onChange({ target: { value: '120' } });
     assert.deepEqual(changes, [
-        ['server_api_url', '/node-api'],
-        ['server_pull_interval', '120'],
+        ['server', 'server_api_url', '/node-api'],
+        ['server', 'server_pull_interval', '120'],
     ]);
 });

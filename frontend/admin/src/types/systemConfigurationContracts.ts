@@ -157,6 +157,16 @@ export type ConfigGroupKey = Exclude<
     | 'testSendMailLoading'
 >;
 
+// Mirrors the artifact's page-level set(group, field, value) call. A few
+// fields in the original bundle save under a different group than the tab
+// they are rendered in (e.g. show_subscribe_expire under "safe",
+// frontend_theme_* under "site"), so tabs carry the group themselves.
+export type ConfigGroupChangeHandler = (
+    group: ConfigGroupKey,
+    field: string,
+    value: ConfigValue,
+) => void;
+
 export interface MailServerSnapshot {
     host?: string;
     port?: string | number;

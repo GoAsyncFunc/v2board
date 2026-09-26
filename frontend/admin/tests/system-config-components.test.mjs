@@ -303,9 +303,10 @@ test('system config tabs wire every group through the shared change callback', a
         },
     });
     const changes = [];
+    const onChange = (group, field, value) => changes.push([group, field, value]);
     const tree = module.exports.default({
         config,
-        onChange: (group, field, value) => changes.push([group, field, value]),
+        onChange,
         onChangeTab: (tab) => changes.push(['tab', tab]),
         onSetWebhook: () => changes.push(['webhook']),
         onTestSendMail: () => changes.push(['mail']),
@@ -333,11 +334,13 @@ test('system config tabs wire every group through the shared change callback', a
     findNodes(tree, Tabs)[0].props.onChange('telegram');
     assert.deepEqual(plain(changes), [['tab', 'telegram']]);
 
-    // Each tab receives its config group and a group-bound change callback.
+    // Every tab receives the shared group-aware change callback directly; each
+    // tab decides the group itself, mirroring the artifact's set(group, field).
     for (const [index, key] of tabKeys.entries()) {
         const tabProps = panes[index].children[0].props;
         assert.deepEqual(tabProps[key], { key });
-        tabProps.onChange('field', 'v');
-        assert.deepEqual(plain(changes).at(-1), [key, 'field', 'v']);
+        assert.equal(tabProps.onChange, onChange);
     }
+    onChange('site', 'field', 'v');
+    assert.deepEqual(plain(changes).at(-1), ['site', 'field', 'v']);
 });

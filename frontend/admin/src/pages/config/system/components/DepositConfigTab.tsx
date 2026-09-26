@@ -1,10 +1,10 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, DepositConfig } from '@/types/systemConfigurationContracts';
+import type { ConfigGroupChangeHandler, DepositConfig } from '@/types/systemConfigurationContracts';
 
 interface DepositConfigTabProps {
     deposit: DepositConfig;
-    onChange: ConfigChangeHandler<DepositConfig>;
+    onChange: ConfigGroupChangeHandler;
 }
 
 export default function DepositConfigTab({ deposit, onChange }: DepositConfigTabProps) {
@@ -16,7 +16,9 @@ export default function DepositConfigTab({ deposit, onChange }: DepositConfigTab
                     className="form-control"
                     placeholder={'请输入 充值金额:奖励金额,逗号分割\n如 50:18,100:38, 200:88'}
                     defaultValue={deposit.deposit_bounus}
-                    onChange={(event) => onChange('deposit_bounus', event.target.value.split(','))}
+                    onChange={(event) =>
+                        onChange('deposit', 'deposit_bounus', event.target.value.split(','))
+                    }
                 />
             </ConfigRow>
         </div>

@@ -3,7 +3,7 @@ import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
 import SiteTrialSettings from './SiteTrialSettings';
 import type {
-    ConfigChangeHandler,
+    ConfigGroupChangeHandler,
     ConfigValue,
     PlanSummary,
     SiteConfig,
@@ -53,7 +53,7 @@ function TextSetting({
 interface SiteConfigTabProps {
     site: SiteConfig;
     plans: PlanSummary[];
-    onChange: ConfigChangeHandler<SiteConfig>;
+    onChange: ConfigGroupChangeHandler;
 }
 
 export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabProps) {
@@ -64,21 +64,21 @@ export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabPr
                 description="用于显示需要站点名称的地方。"
                 placeholder="请输入站点名称"
                 value={site.app_name}
-                onChange={(event) => onChange('app_name', event.target.value)}
+                onChange={(event) => onChange('site', 'app_name', event.target.value)}
             />
             <TextSetting
                 title="站点描述"
                 description="用于显示需要站点描述的地方。"
                 placeholder="请输入站点描述"
                 value={site.app_description}
-                onChange={(event) => onChange('app_description', event.target.value)}
+                onChange={(event) => onChange('site', 'app_description', event.target.value)}
             />
             <TextSetting
                 title="站点网址"
                 description="当前网站最新网址，将会在邮件等需要用于网址处体现。"
                 placeholder="请输入站点URL，末尾不要/"
                 value={site.app_url}
-                onChange={(event) => onChange('app_url', event.target.value)}
+                onChange={(event) => onChange('site', 'app_url', event.target.value)}
             />
             <ConfigRow
                 title="强制HTTPS"
@@ -86,7 +86,7 @@ export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabPr
             >
                 <Switch
                     checked={Boolean(parseInt(String(site.force_https), 10))}
-                    onChange={(enabled) => onChange('force_https', enabled ? 1 : 0)}
+                    onChange={(enabled) => onChange('site', 'force_https', enabled ? 1 : 0)}
                 />
             </ConfigRow>
             <TextSetting
@@ -94,14 +94,14 @@ export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabPr
                 description="用于显示需要LOGO的地方。"
                 placeholder="请输入LOGO URL，末尾不要/"
                 value={site.logo}
-                onChange={(event) => onChange('logo', event.target.value)}
+                onChange={(event) => onChange('site', 'logo', event.target.value)}
             />
             <TextSetting
                 title="订阅URL"
                 description="用于订阅所使用，留空则为站点URL。如需多个订阅URL随机获取请使用逗号进行分割。"
                 placeholder="请输入订阅URL，末尾不要/。逗号分割支持多域名"
                 value={site.subscribe_url}
-                onChange={(event) => onChange('subscribe_url', event.target.value)}
+                onChange={(event) => onChange('site', 'subscribe_url', event.target.value)}
                 multiline
             />
             <TextSetting
@@ -109,35 +109,39 @@ export default function SiteConfigTab({ site, plans, onChange }: SiteConfigTabPr
                 description="用于订阅所使用，留空则为/api/v1/client/subscribe。如需更换不同的订阅路径请设置。"
                 placeholder="/api/v1/client/subscribe"
                 value={site.subscribe_path}
-                onChange={(event) => onChange('subscribe_path', event.target.value)}
+                onChange={(event) => onChange('site', 'subscribe_path', event.target.value)}
             />
             <TextSetting
                 title="用户条款(TOS)URL"
                 description="用于跳转到用户条款(TOS)"
                 placeholder="请输入用户条款URL，末尾不要/"
                 value={site.tos_url}
-                onChange={(event) => onChange('tos_url', event.target.value)}
+                onChange={(event) => onChange('site', 'tos_url', event.target.value)}
             />
             <ConfigRow title="停止新用户注册" description="开启后任何人都将无法进行注册。">
                 <Switch
                     checked={Boolean(parseInt(String(site.stop_register), 10))}
-                    onChange={(enabled) => onChange('stop_register', enabled ? 1 : 0)}
+                    onChange={(enabled) => onChange('site', 'stop_register', enabled ? 1 : 0)}
                 />
             </ConfigRow>
-            <SiteTrialSettings site={site} plans={plans} onChange={onChange} />
+            <SiteTrialSettings
+                site={site}
+                plans={plans}
+                onChange={(field, value) => onChange('site', field, value)}
+            />
             <TextSetting
                 title="货币单位"
                 description="仅用于展示使用，更改后系统中所有的货币单位都将发生变更。"
                 placeholder="CNY"
                 value={site.currency}
-                onChange={(event) => onChange('currency', event.target.value)}
+                onChange={(event) => onChange('site', 'currency', event.target.value)}
             />
             <TextSetting
                 title="货币符号"
                 description="仅用于展示使用，更改后系统中所有的货币单位都将发生变更。"
                 placeholder="¥"
                 value={site.currency_symbol}
-                onChange={(event) => onChange('currency_symbol', event.target.value)}
+                onChange={(event) => onChange('site', 'currency_symbol', event.target.value)}
             />
         </div>
     );

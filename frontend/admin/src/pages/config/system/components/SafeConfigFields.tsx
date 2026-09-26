@@ -11,6 +11,7 @@ export interface TextSettingProps {
     onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     multiline?: boolean;
     rows?: number;
+    isChildren?: boolean;
 }
 
 export function TextSetting({
@@ -21,6 +22,7 @@ export function TextSetting({
     onChange,
     multiline = false,
     rows = 4,
+    isChildren = false,
 }: TextSettingProps): React.ReactElement {
     const field = multiline ? (
         <textarea
@@ -40,7 +42,7 @@ export function TextSetting({
         />
     );
     return (
-        <ConfigRow title={title} description={description}>
+        <ConfigRow isChildren={isChildren} title={title} description={description}>
             {field}
         </ConfigRow>
     );

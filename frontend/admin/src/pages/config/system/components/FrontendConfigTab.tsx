@@ -1,11 +1,11 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, FrontendConfig } from '@/types/systemConfigurationContracts';
+import type { ConfigGroupChangeHandler, FrontendConfig } from '@/types/systemConfigurationContracts';
 
 interface FrontendConfigTabProps {
     frontend: FrontendConfig;
-    onChange: ConfigChangeHandler<FrontendConfig>;
+    onChange: ConfigGroupChangeHandler;
 }
 
 export default function FrontendConfigTab({ frontend, onChange }: FrontendConfigTabProps) {
@@ -26,13 +26,14 @@ export default function FrontendConfigTab({ frontend, onChange }: FrontendConfig
                 </div>
             </div>
             <div>
+                {/* The original artifact saves the theme switches under the site group. */}
                 <ConfigRow title="边栏风格">
                     <Switch
                         checkedChildren="亮"
                         unCheckedChildren="暗"
                         checked={frontend.frontend_theme_sidebar === 'light'}
                         onChange={(enabled) =>
-                            onChange('frontend_theme_sidebar', enabled ? 'light' : 'dark')
+                            onChange('site', 'frontend_theme_sidebar', enabled ? 'light' : 'dark')
                         }
                     />
                 </ConfigRow>
@@ -42,7 +43,7 @@ export default function FrontendConfigTab({ frontend, onChange }: FrontendConfig
                         unCheckedChildren="暗"
                         checked={frontend.frontend_theme_header === 'light'}
                         onChange={(enabled) =>
-                            onChange('frontend_theme_header', enabled ? 'light' : 'dark')
+                            onChange('site', 'frontend_theme_header', enabled ? 'light' : 'dark')
                         }
                     />
                 </ConfigRow>
@@ -50,7 +51,9 @@ export default function FrontendConfigTab({ frontend, onChange }: FrontendConfig
                     <select
                         className="form-control"
                         defaultValue={frontend.frontend_theme_color}
-                        onChange={(event) => onChange('frontend_theme_color', event.target.value)}
+                        onChange={(event) =>
+                            onChange('frontend', 'frontend_theme_color', event.target.value)
+                        }
                     >
                         <option value="default">默认</option>
                         <option value="black">黑色</option>
@@ -65,7 +68,7 @@ export default function FrontendConfigTab({ frontend, onChange }: FrontendConfig
                         placeholder="https://xxxxx.com/wallpaper.png"
                         defaultValue={frontend.frontend_background_url}
                         onChange={(event) =>
-                            onChange('frontend_background_url', event.target.value)
+                            onChange('frontend', 'frontend_background_url', event.target.value)
                         }
                     />
                 </ConfigRow>

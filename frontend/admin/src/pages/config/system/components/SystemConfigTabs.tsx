@@ -13,14 +13,13 @@ import TelegramConfigTab from './TelegramConfigTab';
 import AppConfigTab from './AppConfigTab';
 import type {
     AdminConfigState,
-    ConfigGroupKey,
-    ConfigValue,
+    ConfigGroupChangeHandler,
     PlanSummary,
 } from '@/types/systemConfigurationContracts';
 
 interface SystemConfigTabsProps {
     config: AdminConfigState;
-    onChange: (group: ConfigGroupKey, field: string, value: ConfigValue) => void;
+    onChange: ConfigGroupChangeHandler;
     onChangeTab: (tab: string) => void;
     onSetWebhook: () => void;
     onTestSendMail: () => void;
@@ -38,60 +37,35 @@ export default function SystemConfigTabs({
     return (
         <Tabs onChange={onChangeTab} defaultActiveKey={config.tabs} size="large">
             <Tabs.TabPane tab="站点" key="site">
-                <SiteConfigTab
-                    site={config.site}
-                    plans={plans}
-                    onChange={(field, value) => onChange('site', field, value)}
-                />
+                <SiteConfigTab site={config.site} plans={plans} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="安全" key="safe">
-                <SafeConfigTab
-                    safe={config.safe}
-                    onChange={(field, value) => onChange('safe', field, value)}
-                />
+                <SafeConfigTab safe={config.safe} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="订阅" key="subscribe">
-                <SubscribeConfigTab
-                    subscribe={config.subscribe}
-                    onChange={(field, value) => onChange('subscribe', field, value)}
-                />
+                <SubscribeConfigTab subscribe={config.subscribe} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="充值" key="deposit">
-                <DepositConfigTab
-                    deposit={config.deposit}
-                    onChange={(field, value) => onChange('deposit', field, value)}
-                />
+                <DepositConfigTab deposit={config.deposit} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="工单" key="ticket">
-                <TicketConfigTab
-                    ticket={config.ticket}
-                    onChange={(field, value) => onChange('ticket', field, value)}
-                />
+                <TicketConfigTab ticket={config.ticket} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="邀请&佣金" key="invite">
-                <InviteConfigTab
-                    invite={config.invite}
-                    onChange={(field, value) => onChange('invite', field, value)}
-                />
+                <InviteConfigTab invite={config.invite} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="个性化" key="frontend">
-                <FrontendConfigTab
-                    frontend={config.frontend}
-                    onChange={(field, value) => onChange('frontend', field, value)}
-                />
+                <FrontendConfigTab frontend={config.frontend} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="节点" key="server">
-                <ServerConfigTab
-                    server={config.server}
-                    onChange={(field, value) => onChange('server', field, value)}
-                />
+                <ServerConfigTab server={config.server} onChange={onChange} />
             </Tabs.TabPane>
             <Tabs.TabPane tab="邮件" key="email">
                 <EmailConfigTab
                     email={config.email}
                     templates={config.emailTemplate}
                     testSendMailLoading={config.testSendMailLoading}
-                    onChange={(field, value) => onChange('email', field, value)}
+                    onChange={onChange}
                     onTestSendMail={onTestSendMail}
                 />
             </Tabs.TabPane>
@@ -99,15 +73,12 @@ export default function SystemConfigTabs({
                 <TelegramConfigTab
                     telegram={config.telegram}
                     webhookLoading={config.setTelegramWebhookLoading}
-                    onChange={(field, value) => onChange('telegram', field, value)}
+                    onChange={onChange}
                     onSetWebhook={onSetWebhook}
                 />
             </Tabs.TabPane>
             <Tabs.TabPane tab="APP" key="app">
-                <AppConfigTab
-                    app={config.app}
-                    onChange={(field, value) => onChange('app', field, value)}
-                />
+                <AppConfigTab app={config.app} onChange={onChange} />
             </Tabs.TabPane>
         </Tabs>
     );

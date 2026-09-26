@@ -2,7 +2,7 @@ import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
 import SubscribeLinkValidity from './SubscribeLinkValidity';
-import type { ConfigChangeHandler, SubscribeConfig } from '@/types/systemConfigurationContracts';
+import type { ConfigGroupChangeHandler, SubscribeConfig } from '@/types/systemConfigurationContracts';
 
 interface ToggleSettingProps {
     title: string;
@@ -55,7 +55,7 @@ function SelectSetting({ title, description, value, options, onChange }: SelectS
 
 interface SubscribeConfigTabProps {
     subscribe: SubscribeConfig;
-    onChange: ConfigChangeHandler<SubscribeConfig>;
+    onChange: ConfigGroupChangeHandler;
 }
 
 export default function SubscribeConfigTab({ subscribe, onChange }: SubscribeConfigTabProps) {
@@ -81,62 +81,66 @@ export default function SubscribeConfigTab({ subscribe, onChange }: SubscribeCon
                 title="允许用户更改订阅"
                 description="开启后用户将会可以对订阅计划进行变更。"
                 value={subscribe.plan_change_enable}
-                onChange={(value) => onChange('plan_change_enable', value)}
+                onChange={(value) => onChange('subscribe', 'plan_change_enable', value)}
             />
             <SelectSetting
                 title="月流量重置方式"
                 description="全局流量重置方式，默认每月1号。可以在订阅管理为订阅单独设置。"
                 value={subscribe.reset_traffic_method}
                 options={resetOptions}
-                onChange={(value) => onChange('reset_traffic_method', value)}
+                onChange={(value) => onChange('subscribe', 'reset_traffic_method', value)}
             />
             <ToggleSetting
                 title="开启折抵方案"
                 description="开启后用户更换订阅将会由系统对原有订阅进行折抵，方案参考文档。"
                 value={subscribe.surplus_enable}
-                onChange={(value) => onChange('surplus_enable', value)}
+                onChange={(value) => onChange('subscribe', 'surplus_enable', value)}
             />
             <ToggleSetting
                 title="允许提前开启流量周期"
                 description="开启后用户流量用尽时可以选择扣除订阅时长为代价重置流量，按月重置时扣除本周期剩余订阅时长，每月1号重置时扣除整月时间30天。"
                 value={subscribe.allow_new_period}
-                onChange={(value) => onChange('allow_new_period', value)}
+                onChange={(value) => onChange('subscribe', 'allow_new_period', value)}
             />
             <SelectSetting
                 title="当订阅新购时触发事件"
                 description="新购订阅完成时将触发该任务。"
                 value={subscribe.new_order_event_id}
                 options={eventOptions}
-                onChange={(value) => onChange('new_order_event_id', value)}
+                onChange={(value) => onChange('subscribe', 'new_order_event_id', value)}
             />
             <SelectSetting
                 title="当订阅续费时触发事件"
                 description="续费订阅完成时将触发该任务。"
                 value={subscribe.renew_order_event_id}
                 options={eventOptions}
-                onChange={(value) => onChange('renew_order_event_id', value)}
+                onChange={(value) => onChange('subscribe', 'renew_order_event_id', value)}
             />
             <SelectSetting
                 title="当订阅变更时触发事件"
                 description="变更订阅完成时将触发该任务。"
                 value={subscribe.change_order_event_id}
                 options={eventOptions}
-                onChange={(value) => onChange('change_order_event_id', value)}
+                onChange={(value) => onChange('subscribe', 'change_order_event_id', value)}
             />
             <ToggleSetting
                 title="在订阅中展示订阅信息"
                 description="开启后将会在用户订阅节点时输出订阅信息。"
                 value={subscribe.show_info_to_server_enable}
-                onChange={(value) => onChange('show_info_to_server_enable', value)}
+                onChange={(value) => onChange('subscribe', 'show_info_to_server_enable', value)}
             />
             <SelectSetting
                 title="订阅链接生效模式"
                 description="用户获取订阅链接后的有效期。"
                 value={subscribe.show_subscribe_method}
                 options={linkModeOptions}
-                onChange={(value) => onChange('show_subscribe_method', value)}
+                onChange={(value) => onChange('subscribe', 'show_subscribe_method', value)}
             />
-            <SubscribeLinkValidity subscribe={subscribe} onChange={onChange} />
+            {/* The original artifact saves the expire field under the safe group. */}
+            <SubscribeLinkValidity
+                subscribe={subscribe}
+                onChange={(field, value) => onChange('safe', field, value)}
+            />
         </div>
     );
 }

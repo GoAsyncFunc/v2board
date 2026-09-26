@@ -2,12 +2,12 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
-import type { ConfigChangeHandler, TelegramConfig } from '@/types/systemConfigurationContracts';
+import type { ConfigGroupChangeHandler, TelegramConfig } from '@/types/systemConfigurationContracts';
 
 interface TelegramConfigTabProps {
     telegram: TelegramConfig;
     webhookLoading: boolean;
-    onChange: ConfigChangeHandler<TelegramConfig>;
+    onChange: ConfigGroupChangeHandler;
     onSetWebhook: () => void;
 }
 
@@ -25,7 +25,9 @@ export default function TelegramConfigTab({
                     className="form-control"
                     placeholder="0000000000:xxxxxxxxx_xxxxxxxxxxxxxxx"
                     defaultValue={telegram.telegram_bot_token}
-                    onChange={(event) => onChange('telegram_bot_token', event.target.value)}
+                    onChange={(event) =>
+                        onChange('telegram', 'telegram_bot_token', event.target.value)
+                    }
                 />
             </ConfigRow>
             {telegram.telegram_bot_token && (
@@ -49,7 +51,9 @@ export default function TelegramConfigTab({
             >
                 <Switch
                     checked={Boolean(parseInt(String(telegram.telegram_bot_enable), 10))}
-                    onChange={(enabled) => onChange('telegram_bot_enable', enabled ? 1 : 0)}
+                    onChange={(enabled) =>
+                        onChange('telegram', 'telegram_bot_enable', enabled ? 1 : 0)
+                    }
                 />
             </ConfigRow>
             <ConfigRow
@@ -61,7 +65,9 @@ export default function TelegramConfigTab({
                     className="form-control"
                     placeholder="https://t.me/xxxxxx"
                     defaultValue={telegram.telegram_discuss_link}
-                    onChange={(event) => onChange('telegram_discuss_link', event.target.value)}
+                    onChange={(event) =>
+                        onChange('telegram', 'telegram_discuss_link', event.target.value)
+                    }
                 />
             </ConfigRow>
         </div>

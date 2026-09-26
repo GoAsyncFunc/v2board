@@ -22,6 +22,7 @@ export default function SafeConfigLimits({
             {safe.register_limit_by_ip_enable && (
                 <>
                     <TextSetting
+                        isChildren
                         title="次数"
                         description="达到注册次数后开启惩罚。"
                         placeholder="请输入"
@@ -29,6 +30,7 @@ export default function SafeConfigLimits({
                         onChange={(event) => onChange('register_limit_count', event.target.value)}
                     />
                     <TextSetting
+                        isChildren
                         title="惩罚时间(分钟)"
                         description="需要等待惩罚时间过后才可以再次注册。"
                         placeholder="请输入"
@@ -46,6 +48,7 @@ export default function SafeConfigLimits({
             {safe.password_limit_enable && (
                 <>
                     <TextSetting
+                        isChildren
                         title="次数"
                         description="达到失败次数后开启惩罚。"
                         placeholder="请输入"
@@ -53,6 +56,7 @@ export default function SafeConfigLimits({
                         onChange={(event) => onChange('password_limit_count', event.target.value)}
                     />
                     <TextSetting
+                        isChildren
                         title="惩罚时间(分钟)"
                         description="需要等待惩罚时间过后才可以再次登陆。"
                         placeholder="请输入"
