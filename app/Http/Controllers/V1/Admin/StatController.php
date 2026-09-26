@@ -112,39 +112,49 @@ class StatController extends Controller
 
     public function getOrder(Request $request)
     {
-        $statistics = Stat::where('record_type', 'd')
-            ->limit(31)
-            ->orderBy('record_at', 'DESC')
-            ->get()
-            ->toArray();
+        // Real-time aggregation over the live order/user/commission tables so
+        // the curve always includes the current day and reflects retroactive
+        // changes (cancellations, deletions) that the v2_stat daily rollup
+        // never revisits. Day buckets follow the app timezone (Shanghai):
+        // startAt is its UTC timestamp and days are exact 86400s offsets.
+        $days = 31;
+        $startAt = strtotime(date('Y-m-d', strtotime('-' . ($days - 1) . ' days')));
+        $endAt = strtotime(date('Y-m-d', strtotime('+1 day')));
+
+        $paidRows = Order::where('paid_at', '>=', $startAt)
+            ->where('paid_at', '<', $endAt)
+            ->whereNotIn('status', [0, 2])
+            ->selectRaw('FLOOR((paid_at - ?) / 86400) AS day_offset, COUNT(*) AS cnt, SUM(total_amount) AS total', [$startAt])
+            ->groupBy('day_offset')
+            ->get();
+        $registerRows = User::where('created_at', '>=', $startAt)
+            ->where('created_at', '<', $endAt)
+            ->selectRaw('FLOOR((created_at - ?) / 86400) AS day_offset, COUNT(*) AS cnt', [$startAt])
+            ->groupBy('day_offset')
+            ->get();
+        $commissionRows = CommissionLog::where('created_at', '>=', $startAt)
+            ->where('created_at', '<', $endAt)
+            ->selectRaw('FLOOR((created_at - ?) / 86400) AS day_offset, COUNT(*) AS cnt, SUM(get_amount) AS total', [$startAt])
+            ->groupBy('day_offset')
+            ->get();
+
+        $paidByDay = $paidRows->keyBy('day_offset');
+        $registerByDay = $registerRows->keyBy('day_offset');
+        $commissionByDay = $commissionRows->keyBy('day_offset');
+
         $result = [];
-        foreach ($statistics as $statistic) {
-            $date = date('m-d', $statistic['record_at']);
-            $result[] = [
-                'type' => '注册人数',
-                'date' => $date,
-                'value' => $statistic['register_count']
-            ];
-            $result[] = [
-                'type' => '收款金额',
-                'date' => $date,
-                'value' => $statistic['paid_total'] / 100
-            ];
-            $result[] = [
-                'type' => '收款笔数',
-                'date' => $date,
-                'value' => $statistic['paid_count']
-            ];
-            $result[] = [
-                'type' => '佣金金额(已发放)',
-                'date' => $date,
-                'value' => $statistic['commission_total'] / 100
-            ];
-            $result[] = [
-                'type' => '佣金笔数(已发放)',
-                'date' => $date,
-                'value' => $statistic['commission_count']
-            ];
+        for ($offset = 0; $offset < $days; $offset++) {
+            $date = date('m-d', $startAt + $offset * 86400);
+            $paidCount = (int) ($paidByDay[$offset]->cnt ?? 0);
+            $paidTotal = (int) ($paidByDay[$offset]->total ?? 0);
+            $registerCount = (int) ($registerByDay[$offset]->cnt ?? 0);
+            $commissionCount = (int) ($commissionByDay[$offset]->cnt ?? 0);
+            $commissionTotal = (int) ($commissionByDay[$offset]->total ?? 0);
+            $result[] = ['type' => '注册人数', 'date' => $date, 'value' => $registerCount];
+            $result[] = ['type' => '收款金额', 'date' => $date, 'value' => $paidTotal / 100];
+            $result[] = ['type' => '收款笔数', 'date' => $date, 'value' => $paidCount];
+            $result[] = ['type' => '佣金金额(已发放)', 'date' => $date, 'value' => $commissionTotal / 100];
+            $result[] = ['type' => '佣金笔数(已发放)', 'date' => $date, 'value' => $commissionCount];
         }
         $result = array_reverse($result);
         return [
