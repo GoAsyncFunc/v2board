@@ -30,7 +30,7 @@ export default function PlanPriceFields({
     return (
         <>
             <Divider orientation="center">
-                售价设置{' '}
+                {'售价设置 '}
                 <Tooltip placement="top" title="将金额留空则不会进行出售">
                     <Icon type="info-circle" />
                 </Tooltip>
@@ -39,7 +39,9 @@ export default function PlanPriceFields({
                 {PLAN_PRICE_FIELDS.map(([field, label]) => (
                     <Col md={4} key={field}>
                         <div className="form-group">
-                            <label>{label}</label>
+                            <label {...({ for: 'example-text-input-alt' } as { for: string })}>
+                                {label}
+                            </label>
                             <Input
                                 value={record[field] !== null ? record[field] : undefined}
                                 onChange={(event) => onPriceChange(field, event.target.value)}
@@ -57,7 +59,9 @@ export default function PlanPriceFields({
                 ).map(([field, label]) => (
                     <Col md={12} key={field}>
                         <div className="form-group">
-                            <label>{label}</label>
+                            <label {...({ for: 'example-text-input-alt' } as { for: string })}>
+                                {label}
+                            </label>
                             <Input
                                 addonAfter={currencySymbol}
                                 value={record[field] !== null ? record[field] : undefined}

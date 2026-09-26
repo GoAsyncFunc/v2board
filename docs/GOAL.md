@@ -12,7 +12,8 @@
 |---|---|---|
 | L0 能跑 | 构建成功、页面能打开 | 无证据 |
 | L1 有测试 | 有断言覆盖该模块 | 能防止**以后**改坏；**不能**证明当初恢复对了 |
-| L2 差分对照 | 同一断言分别对「从 bundle 提取的原始编译模块」与「恢复源码」执行，`deepEqual` 比对输出 | **能证明与产物一致** |
+| L2a 原样提取 | 基线是从 bundle 提取的**未改写**原始模块（`fixtures/pages/*.cjs`，标注 `extracted unchanged`） | **能证明与产物一致**（最高置信） |
+| L2b 原码重组 | 基线是原始模块内容，但 require 路径经改写、格式经重排（`fixtures/models/*.cjs`、`fixtures/layouts/admin.jsx`） | **能证明逻辑一致**；存在人工转写引入误差的残余风险 |
 
 L2 的实现形式：
 
@@ -76,15 +77,15 @@ assert.deepEqual(results[1], results[0]);
 
 | 判据 | admin 现状 | 目标 |
 |---|---|---|
-| 差分对照覆盖（L2，代码模块） | **36 / 257 = 14.0%** | 关键业务模块全覆盖 |
-| 有任意测试的代码模块（L1 以上） | 182 / 257 = 70.8% | 100% |
-| 完全无测试的代码模块 | **75 个** | **0 个** |
+| 差分对照覆盖（L2，代码模块） | **40 / 257 = 15.6%**（L2a 23 个 + L2b 17 个） | 关键业务模块全覆盖 |
+| 有任意测试的代码模块（L1 以上） | 183 / 257 = 71.2% | 100% |
+| 完全无测试的代码模块 | **74 个** | **0 个** |
 
-无测试模块分布：`src/pages` 52、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
+无测试模块分布：`src/pages` 51、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
 
-**注意**：70.8% 的 L1 覆盖率**不等于** 70.8% 的保真度——真正能证明与产物一致的只有 14.0%。这是当前最大的未知。
+**注意**：71.2% 的 L1 覆盖率**不等于** 71.2% 的保真度——真正能证明与产物一致的只有 15.6%。这是当前最大的未知。
 
-已具备 L2 的 36 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`。
+L2 覆盖的 40 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局。
 
 ## 范围边界
 
