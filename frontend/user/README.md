@@ -75,7 +75,7 @@ npm run check:visual
 node --test --test-reporter=spec tests/*.test.mjs | grep -E '^ℹ (tests|pass|fail|skipped)'
 ```
 
-User 与 Admin 的测试完全独立，必须分别执行；Admin 项目当前独立维护 1163 项，两个项目合计 1940 项。
+User 与 Admin 的测试完全独立，必须分别执行；Admin 项目当前独立维护 1165 项，两个项目合计 1942 项。
 
 ## 目录结构
 
