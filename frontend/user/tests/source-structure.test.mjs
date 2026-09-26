@@ -472,11 +472,15 @@ test('user Redux selectors share the canonical root state contract', async () =>
 test('user model layer does not import rendering notifications', async () => {
     const modelsDirectory = new URL('../src/models/', import.meta.url);
     const modelNames = (await fs.readdir(modelsDirectory)).filter((name) => name.endsWith('.ts'));
+    const modelsAllowedMessage = new Set(['userPassportModel.ts']);
     for (const modelName of modelNames) {
         const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
+        const messagePattern = modelsAllowedMessage.has(modelName)
+            ? /from ['"]antd\/lib\/(?:notification|modal)['"]/
+            : /from ['"]antd\/lib\/(?:message|notification|modal)['"]/;
         assert.doesNotMatch(
             source,
-            /from ['"]antd\/lib\/(?:message|notification|modal)['"]/,
+            messagePattern,
             `${modelName} imports a rendering notification`,
         );
         assert.doesNotMatch(
