@@ -31,7 +31,7 @@ async function load(target,name,original,trace,response){
   if(id.includes('apiClient'))return {a:get,b:post,get,post};
   if((id.includes('routerHistory') || id.includes('app/history')))return history;
   if(id.includes('siteHelpers'))return helpers;
-  if(id.includes('antdMessage'))return {success:()=>trace.push(['notify','success','发送成功']),error:()=>trace.push(['notify','error','发送失败']),loading:()=>trace.push(['notify','loading','发送中']),destroy:()=>trace.push(['notify','destroy'])};
+  if(id.includes('antd/lib/message') || id.includes('antdMessage')) { const msg = { success: () => trace.push(['notify','success','发送成功']), error: () => trace.push(['notify','error','发送失败']), loading: () => trace.push(['notify','loading','发送中']), destroy: () => trace.push(['notify','destroy']) }; msg.__esModule = true; msg.default = msg; return msg; }
   throw Error('Unexpected dependency '+id);
  };
  const module={exports:{}};
