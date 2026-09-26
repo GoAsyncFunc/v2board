@@ -1,3 +1,4 @@
+import message from 'antd/lib/message';
 import { get, post } from '@/services/apiClient';
 import history from '@/app/history';
 import { setToken } from '@/utils/siteHelpers';
@@ -94,6 +95,9 @@ export default {
             const response = yield post<boolean>('/passport/comm/sendEmailVerify', data);
             yield put({ type: 'setState', payload: { sendEmailVerifyLoading: false } });
             if (!isSuccessfulResponse(response) || !response.data) return;
+            // The bundle shows a success notification inside the model
+            // (module 77443634).
+            message.success('发送成功');
             if (typeof succeed === 'function') succeed();
             if (typeof callback === 'function') callback();
         },
