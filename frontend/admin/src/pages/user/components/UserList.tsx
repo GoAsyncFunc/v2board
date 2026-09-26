@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Icon from 'antd/lib/icon';
-import type { ColumnProps, PaginationConfig, SorterResult } from 'antd/lib/table/interface';
+import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import ContextMenuTable from '@/components/common/ContextMenuTable';
 import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import type { FilterValue } from '@/types/filterContracts';

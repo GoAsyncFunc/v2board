@@ -90,7 +90,6 @@ export default class SubscribeImporter extends React.Component<SubscribeImporter
     }
 
     renderSubscribeBox() {
-        const subscribeUrl = this.props.subscribeUrl ?? '';
         return (
             <div className={styles.oneClickSubscribe}>
                 <div

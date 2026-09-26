@@ -166,7 +166,6 @@ export default {
             if (!isSuccessfulResponse(response)) return;
             const log = response.log || {};
             complete?.(log);
-            console.log(response);
         },
     },
 };

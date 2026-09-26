@@ -81,6 +81,7 @@ export default function PlanCard({ plan, currencySymbol }: PlanCardProps) {
                             typeof content === 'object' ? (
                                 <div className="mb-3">
                                     {content.map((feature) => (
+                                        // eslint-disable-next-line react/jsx-key -- element list mirrors the bundle, which passed no keys
                                         <div
                                             style={{
                                                 textAlign: 'left',

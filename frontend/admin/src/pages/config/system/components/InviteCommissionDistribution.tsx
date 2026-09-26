@@ -1,5 +1,4 @@
 import React from 'react';
-import ConfigRow from './ConfigRow';
 import type {
     ConfigChangeHandler,
     InviteConfig,

@@ -9,7 +9,6 @@ import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import DashboardAlerts from './components/DashboardAlerts';
 import DashboardNavigation from './components/DashboardNavigation';
 import DashboardCharts from './components/DashboardCharts';
-import { createRankChartOption } from './components/DashboardServerRank';
 
 export { createRankChartOption } from './components/DashboardServerRank';
 

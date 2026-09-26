@@ -31,10 +31,6 @@ function inputValue(value: SecurityInputValue): string | number | undefined {
     return value ?? undefined;
 }
 
-function numericSetting(value: SecurityInputValue): number {
-    return parseInt(String(value ?? ''), 10) || 0;
-}
-
 export class TlsSettings extends React.Component<TlsSettingsProps, TlsSettingsState> {
     constructor(props: TlsSettingsProps) {
         super(props);

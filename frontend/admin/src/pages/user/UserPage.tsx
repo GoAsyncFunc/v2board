@@ -6,7 +6,7 @@ import LoadingContainer from '@/components/common/LoadingContainer';
 import history from '@/app/navigationService';
 import { setPreference } from '@/utils/siteHelpers';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
-import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
+import { createUserFilterFields } from './components/UserFilterDrawer';
 import { UserList } from './components/UserList';
 import UserToolbar from './components/UserToolbar';
 import type { FilterField, FilterValue } from '@/types/filterContracts';

@@ -1,0 +1,53 @@
+# Continuous integration for the two restored frontend projects.
+# Browser verification requires the V2Board backend container and therefore
+# runs locally (scripts/deploy-local.sh + check:deployed), not in CI.
+name: frontend-ci
+
+on:
+    push:
+        paths: ['frontend/**', '.github/workflows/frontend-ci.yml']
+    pull_request:
+        paths: ['frontend/**', '.github/workflows/frontend-ci.yml']
+
+jobs:
+    admin:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: frontend/admin
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+                  cache-dependency-path: frontend/admin/package-lock.json
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run check:types
+            - run: npm run check:format
+            - run: npm run check:dependencies
+            - run: npm run check:imports
+            - run: npm test
+            - run: npm run build
+
+    user:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: frontend/user
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+                  cache-dependency-path: frontend/user/package-lock.json
+            - run: npm ci
+            - run: npm run lint
+            - run: npm run check:types
+            - run: npm run check:format
+            - run: npm run check:dependencies
+            - run: npm run check:imports
+            - run: npm test
+            - run: npm run build

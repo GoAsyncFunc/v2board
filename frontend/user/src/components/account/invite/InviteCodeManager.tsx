@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import Table from 'antd/lib/table';
 import { formatMessage } from '@/locales/i18n';

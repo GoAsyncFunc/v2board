@@ -6,7 +6,6 @@ import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { TableDragHandle } from '@/components/common/SortableTable';
-import type { AdminDispatch } from '@/types/storeContracts';
 import type { PlanFieldValue, PlanRecord } from '@/types/planContracts';
 import PlanEditor from './PlanEditor';
 import { createPlanGroupColumn, type PlanGroup } from './PlanGroupColumn';

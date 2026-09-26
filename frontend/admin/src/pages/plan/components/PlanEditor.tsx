@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'antd/lib/button';
 import Divider from 'antd/lib/divider';
 import Drawer from 'antd/lib/drawer';
 import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';

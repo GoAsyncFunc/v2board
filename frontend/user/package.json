@@ -7,6 +7,7 @@
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
     "check:imports": "node scripts/check-import-paths.mjs",
+    "lint": "eslint src scripts",
     "check:format": "prettier --check \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",
     "check:types": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",
@@ -44,6 +45,7 @@
     "@babel/parser": "7.28.4",
     "@babel/traverse": "7.28.4",
     "@babel/types": "7.28.4",
+    "@eslint/js": "^9.39.5",
     "@playwright/test": "1.55.0",
     "@types/history": "4.7.11",
     "@types/markdown-it": "10.0.3",
@@ -56,8 +58,13 @@
     "@types/react-router-dom": "5.3.3",
     "@types/react-router-redux": "5.0.27",
     "esbuild": "0.25.9",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "pngjs": "7.0.0",
     "prettier": "3.9.8",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "typescript-eslint": "^8.70.1"
   }
 }

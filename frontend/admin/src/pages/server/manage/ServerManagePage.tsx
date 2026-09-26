@@ -90,7 +90,7 @@ export class ServerManagePage extends React.Component<
     }
 
     render(): React.ReactNode {
-        const { servers, fetchLoading, sortMode } = this.props.serverManage;
+        const { fetchLoading, sortMode } = this.props.serverManage;
         const groups = this.props.serverGroup.groups;
         const filteredServers = this.filteredServers();
         const mobile = isMobile();

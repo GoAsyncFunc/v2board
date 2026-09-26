@@ -36,6 +36,7 @@ export function orderResultProps(status?: number): ResultProps | undefined {
                     id: '订单已支付并开通。',
                 }),
                 extra: [
+                    // eslint-disable-next-line react/jsx-key -- element list mirrors the bundle, which passed no keys
                     <button
                         type={'button'}
                         onClick={() => router.push('/knowledge')}

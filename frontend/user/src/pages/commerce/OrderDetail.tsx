@@ -1,6 +1,4 @@
-import OrderStatusResult, {
-    orderResultProps,
-} from '@/components/commerce/checkout/OrderStatusResult';
+import { orderResultProps } from '@/components/commerce/checkout/OrderStatusResult';
 import React from 'react';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
