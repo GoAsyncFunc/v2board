@@ -50,6 +50,7 @@ async function loadModule(relativePath, localModules = {}) {
                 return localModules.modal;
             }
             if (id === './PriceFields') return 'PlanPriceFields';
+            if (id === './PlanLimitFields') return { PlanLimitFields: 'PlanLimitFields' };
             if (id === './PlanAccessFields') return { PlanAccessFields: 'PlanAccessFields' };
             if (id === './PlanBasicFields') return { PlanBasicFields: 'PlanBasicFields' };
             if (id === './PlanEditorActions') return { PlanEditorActions: 'PlanEditorActions' };

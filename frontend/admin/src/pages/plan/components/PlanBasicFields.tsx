@@ -8,10 +8,12 @@ export interface PlanBasicFieldsProps {
 }
 
 export function PlanBasicFields({ record, onChange }: PlanBasicFieldsProps): React.ReactElement {
+    // The original markup predates React's htmlFor mapping and emits the raw `for` attribute.
+    const legacyLabelProps = { for: 'example-text-input-alt' } as { for: string };
     return (
         <>
             <div className="form-group">
-                <label>套餐名称</label>
+                <label {...legacyLabelProps}>套餐名称</label>
                 <Input
                     placeholder="请输入套餐名称"
                     value={record.name ?? undefined}
@@ -19,7 +21,7 @@ export function PlanBasicFields({ record, onChange }: PlanBasicFieldsProps): Rea
                 />
             </div>
             <div className="form-group">
-                <label>套餐描述</label>
+                <label {...legacyLabelProps}>套餐描述</label>
                 <Input.TextArea
                     rows={4}
                     value={record.content ?? undefined}

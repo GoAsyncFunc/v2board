@@ -23,10 +23,10 @@ export function PlanAccessFields({
     return (
         <>
             <div className="form-group">
-                <label>
-                    权限组{' '}
+                <label {...({ for: 'example-text-input-alt' } as { for: string })}>
+                    {'权限组 '}
                     <PermissionGroupEditor>
-                        <a href="javascript:void(0);">添加权限组</a>
+                        <a href="javascript:(0);">添加权限组</a>
                     </PermissionGroupEditor>
                 </label>
                 <Select
@@ -43,7 +43,7 @@ export function PlanAccessFields({
                 </Select>
             </div>
             <div className="form-group">
-                <label>流量重置方式</label>
+                <label htmlFor="example-text-input-alt">流量重置方式</label>
                 <Select
                     placeholder="请选择权限组"
                     style={{ width: '100%' }}

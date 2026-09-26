@@ -1701,6 +1701,10 @@
   },
   {
     "from": "pages/plan/components/PlanEditor.tsx",
+    "to": "pages/plan/components/PlanLimitFields.tsx"
+  },
+  {
+    "from": "pages/plan/components/PlanEditor.tsx",
     "to": "pages/plan/components/PlanResourceFields.tsx"
   },
   {
@@ -1714,6 +1718,10 @@
   {
     "from": "pages/plan/components/PlanEditor.tsx",
     "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "pages/plan/components/PlanLimitFields.tsx",
+    "to": "types/planContracts.ts"
   },
   {
     "from": "pages/plan/components/PlanList.tsx",

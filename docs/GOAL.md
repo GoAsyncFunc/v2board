@@ -77,15 +77,17 @@ assert.deepEqual(results[1], results[0]);
 
 | 判据 | admin 现状 | 目标 |
 |---|---|---|
-| 差分对照覆盖（L2，代码模块） | **40 / 257 = 15.6%**（L2a 23 个 + L2b 17 个） | 关键业务模块全覆盖 |
-| 有任意测试的代码模块（L1 以上） | 183 / 257 = 71.2% | 100% |
-| 完全无测试的代码模块 | **74 个** | **0 个** |
+| 差分对照覆盖（L2，代码模块） | **45 / 258 = 17.4%**（L2a 23 个 + L2b 22 个） | 关键业务模块全覆盖 |
+| 有任意测试的代码模块（L1 以上） | 188 / 258 = 72.9% | 100% |
+| 完全无测试的代码模块 | **70 个** | **0 个** |
 
-无测试模块分布：`src/pages` 51、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
+无测试模块分布：`src/pages` 47、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
 
-**注意**：71.2% 的 L1 覆盖率**不等于** 71.2% 的保真度——真正能证明与产物一致的只有 15.6%。这是当前最大的未知。
+**注意**：72.9% 的 L1 覆盖率**不等于** 72.9% 的保真度——真正能证明与产物一致的只有 17.4%。这是当前最大的未知。
 
-L2 覆盖的 40 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局。
+L2 覆盖的 45 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局、plan 编辑器的全部字段分支（`PlanBasicFields`、`PlanResourceFields`、`PlanAccessFields`、`PlanLimitFields`、`PlanEditorActions`）。
+
+差分对照不是摆设：对齐 plan 编辑器时，它揪出了三处恢复偏差并已修正——最大容纳用户量/限速两个字段在原产物中位于权限组选择**之后**且在包裹 div **之外**；「添加权限组」链接的 href 原产物是 `javascript:(0);`；字段标签使用旧式 `for` 属性（React 的 htmlFor 映射之前的写法），且「流量重置方式」标签在原产物中混用了 `htmlFor`。
 
 ## 范围边界
 

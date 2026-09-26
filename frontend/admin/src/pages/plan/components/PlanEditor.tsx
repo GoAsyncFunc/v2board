@@ -8,6 +8,7 @@ import type { PlanFieldValue, PlanRecord, PlanState } from '@/types/planContract
 import { PlanAccessFields } from './PlanAccessFields';
 import { PlanBasicFields } from './PlanBasicFields';
 import { PlanEditorActions } from './PlanEditorActions';
+import { PlanLimitFields } from './PlanLimitFields';
 import PlanPriceFields from './PriceFields';
 import { PlanResourceFields } from './PlanResourceFields';
 
@@ -115,6 +116,10 @@ export class PlanEditor extends React.Component<PlanEditorProps, PlanEditorState
                             onChange={(field, value) => this.updateRecord(field, value)}
                         />
                     </div>
+                    <PlanLimitFields
+                        record={record}
+                        onChange={(field, value) => this.updateRecord(field, value)}
+                    />
                     <PlanEditorActions
                         saveLoading={saveLoading}
                         onForceUpdateChange={(value) => this.updateRecord('force_update', value)}
