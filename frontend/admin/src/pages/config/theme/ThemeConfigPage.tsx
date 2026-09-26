@@ -5,7 +5,7 @@ import { post } from '@/services/apiClient';
 import { isSuccessfulResponse } from '@/types/apiContracts';
 import ConnectedThemeConfigEditor, { ThemeConfigEditor } from './components/ThemeConfigEditor';
 import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
-import type { ThemeState } from '@/types/themeContracts';
+import type { ThemeDefinition, ThemeState } from '@/types/themeContracts';
 
 interface ThemePageProps {
     dispatch: AdminDispatch;
@@ -42,8 +42,8 @@ export class ThemePage extends React.Component<ThemePageProps> {
                         </div>
                     </div>
                 </div>
-                {Object.keys(themes).map((themeKey) => {
-                    const theme = themes[themeKey];
+                {Object.keys(themes as Record<string, ThemeDefinition>).map((themeKey) => {
+                    const theme = (themes as Record<string, ThemeDefinition>)[themeKey];
                     return (
                         <div
                             key={themeKey}

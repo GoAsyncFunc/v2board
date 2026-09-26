@@ -46,13 +46,21 @@ async function loadPage() {
                     props: {
                         dataSource: groups,
                         columns: [
-                            {}, {}, {}, {},
-                            { render: (_value, record) => ({
-                                children: [
-                                    { type: 'PermissionGroupEditor' },
-                                    { type: 'a', props: { onClick: () => onDelete(record.id) } },
-                                ],
-                            }) },
+                            {},
+                            {},
+                            {},
+                            {},
+                            {
+                                render: (_value, record) => ({
+                                    children: [
+                                        { type: 'PermissionGroupEditor' },
+                                        {
+                                            type: 'a',
+                                            props: { onClick: () => onDelete(record.id) },
+                                        },
+                                    ],
+                                }),
+                            },
                         ],
                     },
                 });

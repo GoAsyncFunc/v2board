@@ -308,7 +308,9 @@ test('System config owns completion presentation', async () => {
     page.set('site', 'app_name', 'Updated');
     [...timers.values()][0].callback();
     const saveAction = actions.find((action) => action.type === 'config/save');
-    saveAction.complete();
+    // The bundle shows the save toast inside the model, so the page dispatches
+    // a bare action with no completion callback.
+    assert.equal(saveAction.complete, undefined);
 
     const pageTree = page.render();
     const tabsProps = nodes(pageTree, (node) => node.type === SystemConfigTabs)[0].props;
@@ -316,18 +318,17 @@ test('System config owns completion presentation', async () => {
     const emailTab = nodes(tree, (node) => node.type === EmailConfigTab)[0];
     emailTab.props.onTestSendMail();
     const mailAction = actions.find((action) => action.type === 'config/testSendMail');
-    assert.equal(typeof mailAction.complete, 'function');
-    const log = { error: 'connection failed', email: 'admin@example.com' };
-    mailAction.complete(log);
+    assert.equal(mailAction.complete, undefined);
 
     const telegramTab = nodes(tree, (node) => node.type === TelegramConfigTab)[0];
     telegramTab.props.onSetWebhook();
     const webhookAction = actions.find((action) => action.type === 'config/setTelegramWebhook');
-    assert.equal(typeof webhookAction.complete, 'function');
-    webhookAction.complete();
+    assert.equal(webhookAction.complete, undefined);
 
-    assert.deepEqual(mailTestLogs, [log]);
-    assert.deepEqual(messages, ['保存成功', 'webhook 设置成功']);
+    // The mail-test log is not routed back to the page; the model renders the
+    // notification itself (see model-bundle-differential for the trace).
+    assert.deepEqual(mailTestLogs, []);
+    assert.deepEqual(messages, []);
 });
 
 test('Config row keeps its two-column layout, descriptions and nested-row styling', async () => {

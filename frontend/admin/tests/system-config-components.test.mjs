@@ -15,12 +15,25 @@ const React = {
 const ConfigRow = function ConfigRow() {};
 const Switch = function Switch() {};
 const Tabs = Object.assign(function Tabs() {}, { TabPane: function TabPane() {} });
+const Modal = Object.assign(function Modal() {}, {
+    error: () => {},
+    success: () => {},
+});
 
 const SHIM = {
     './ConfigRow': ConfigRow,
     'antd/lib/switch': Switch,
     'antd/lib/tabs': Tabs,
+    'antd/lib/modal': Modal,
 };
+
+const modals = [];
+Object.defineProperty(Modal, 'error', {
+    value: (options) => modals.push({ variant: 'error', options }),
+});
+Object.defineProperty(Modal, 'success', {
+    value: (options) => modals.push({ variant: 'success', options }),
+});
 
 async function load(relativePath) {
     const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
@@ -85,23 +98,20 @@ test('mail test result renders the log rows and picks the notification variant',
     );
 
     void failed;
-    // showMailTestResult routes through the shimmed notification channel and
-    // picks error/success from the log.
+    // The bundle shows the mail-test result in an antd Modal (module 366c4b4b);
+    // the variant picks error/success from the log.
     showMailTestResult({ error: 'boom' });
     showMailTestResult({ error: undefined, email: 'ok@x.com' });
     assert.deepEqual(
-        runtime.notifications.map((call) => call.variant),
-        ['error', 'success'],
+        modals.map((call) => [call.variant, call.options.title]),
+        [
+            ['error', '发送失败'],
+            ['success', '发送成功'],
+        ],
     );
-    assert.deepEqual(
-        runtime.notifications.map((call) => call.options.title),
-        ['发送失败', '发送成功'],
-    );
-    // The notification content is the rendered component element with the log.
-    assert.equal(runtime.notifications[1].options.content.type, MailTestResult);
-    assert.deepEqual(plain(runtime.notifications[1].options.content.props.log), {
-        email: 'ok@x.com',
-    });
+    const content = modals[1].options.content;
+    assert.equal(content.type, MailTestResult);
+    assert.deepEqual(plain(content.props.log), { email: 'ok@x.com' });
 });
 
 test('invite commission distribution renders three levels only when enabled', async () => {

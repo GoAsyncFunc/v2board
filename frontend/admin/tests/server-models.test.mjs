@@ -19,13 +19,14 @@ const protocolModelExports = {
 };
 
 async function loadModel(modelName) {
-    const modelFileName = modelName === 'serverManage'
-        ? 'serverManagementModel'
-        : modelName === 'serverGroup'
-          ? 'serverGroupModel'
-          : modelName === 'serverRoute'
-            ? 'serverRouteModel'
-            : modelName;
+    const modelFileName =
+        modelName === 'serverManage'
+            ? 'serverManagementModel'
+            : modelName === 'serverGroup'
+              ? 'serverGroupModel'
+              : modelName === 'serverRoute'
+                ? 'serverRouteModel'
+                : modelName;
     const result = await build({
         absWorkingDir: appRoot,
         entryPoints: [

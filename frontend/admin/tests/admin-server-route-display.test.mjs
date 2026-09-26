@@ -18,9 +18,7 @@ async function load(original) {
         original ? source : (await transform(source, { format: 'cjs', loader: 'ts' })).code,
         { module, exports: module.exports },
     );
-    return original
-        ? module.exports()
-        : Object.values(module.exports.createServerRouteColumns());
+    return original ? module.exports() : Object.values(module.exports.createServerRouteColumns());
 }
 for (const [index, match] of [
     '',

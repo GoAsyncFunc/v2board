@@ -1,12 +1,12 @@
 let legacyModule = module,
     legacyExports = exports;
-const { markEsModule, interopDefault } = require("../app/moduleInterop.js");
-const React = require("../vendor/modules/reactRuntime.js");
+const { markEsModule, interopDefault } = require('../app/moduleInterop.js');
+const React = require('../vendor/modules/reactRuntime.js');
 markEsModule(legacyExports);
-var r = require("../vendor/modules/70307045.js"),
+var r = require('../vendor/modules/70307045.js'),
     i = interopDefault(r),
-    o = require("../services/apiClient.js"),
-    a = require("../vendor/modules/adminSettingsRuntime.js");
+    o = require('../services/apiClient.js'),
+    a = require('../vendor/modules/adminSettingsRuntime.js');
 function s() {
     s = function () {
         return e;
@@ -19,10 +19,10 @@ function s() {
             function (e, t, n) {
                 e[t] = n.value;
             },
-        i = "function" == typeof Symbol ? Symbol : {},
-        o = i.iterator || "@@iterator",
-        a = i.asyncIterator || "@@asyncIterator",
-        l = i.toStringTag || "@@toStringTag";
+        i = 'function' == typeof Symbol ? Symbol : {},
+        o = i.iterator || '@@iterator',
+        a = i.asyncIterator || '@@asyncIterator',
+        l = i.toStringTag || '@@toStringTag';
     function c(e, t, n) {
         return (
             Object.defineProperty(e, t, {
@@ -35,7 +35,7 @@ function s() {
         );
     }
     try {
-        c({}, "");
+        c({}, '');
     } catch (e) {
         c = function (e, t, n) {
             return (e[t] = n);
@@ -46,7 +46,7 @@ function s() {
             a = Object.create(o.prototype),
             s = new C(i || []);
         return (
-            r(a, "_invoke", {
+            r(a, '_invoke', {
                 value: _(e, n, s),
             }),
             a
@@ -55,12 +55,12 @@ function s() {
     function h(e, t, n) {
         try {
             return {
-                type: "normal",
+                type: 'normal',
                 arg: e.call(t, n),
             };
         } catch (e) {
             return {
-                type: "throw",
+                type: 'throw',
                 arg: e,
             };
         }
@@ -79,7 +79,7 @@ function s() {
     y && y !== t && n.call(y, o) && (g = y);
     var b = (m.prototype = d.prototype = Object.create(g));
     function w(e) {
-        ["next", "throw", "return"].forEach(function (t) {
+        ['next', 'throw', 'return'].forEach(function (t) {
             c(e, t, function (e) {
                 return this._invoke(t, e);
             });
@@ -88,16 +88,16 @@ function s() {
     function x(e, t) {
         function i(r, o, a, s) {
             var l = h(e[r], e, o);
-            if ("throw" !== l.type) {
+            if ('throw' !== l.type) {
                 var c = l.arg,
                     u = c.value;
-                return u && "object" == typeof u && n.call(u, "__await")
+                return u && 'object' == typeof u && n.call(u, '__await')
                     ? t.resolve(u.__await).then(
                           function (e) {
-                              i("next", e, a, s);
+                              i('next', e, a, s);
                           },
                           function (e) {
-                              i("throw", e, a, s);
+                              i('throw', e, a, s);
                           },
                       )
                     : t.resolve(u).then(
@@ -105,14 +105,14 @@ function s() {
                               ((c.value = e), a(c));
                           },
                           function (e) {
-                              return i("throw", e, a, s);
+                              return i('throw', e, a, s);
                           },
                       );
             }
             s(l.arg);
         }
         var o;
-        r(this, "_invoke", {
+        r(this, '_invoke', {
             value: function (e, n) {
                 function r() {
                     return new t(function (t, r) {
@@ -124,15 +124,14 @@ function s() {
         });
     }
     function _(e, t, n) {
-        var r = "suspendedStart";
+        var r = 'suspendedStart';
         return function (i, o) {
-            if ("executing" === r)
-                throw new Error("Generator is already running");
-            if ("completed" === r) {
-                if ("throw" === i) throw o;
+            if ('executing' === r) throw new Error('Generator is already running');
+            if ('completed' === r) {
+                if ('throw' === i) throw o;
                 return T();
             }
-            for (n.method = i, n.arg = o; ; ) {
+            for (n.method = i, n.arg = o; ;) {
                 var a = n.delegate;
                 if (a) {
                     var s = E(a, n);
@@ -141,27 +140,21 @@ function s() {
                         return s;
                     }
                 }
-                if ("next" === n.method) n.sent = n._sent = n.arg;
-                else if ("throw" === n.method) {
-                    if ("suspendedStart" === r)
-                        throw ((r = "completed"), n.arg);
+                if ('next' === n.method) n.sent = n._sent = n.arg;
+                else if ('throw' === n.method) {
+                    if ('suspendedStart' === r) throw ((r = 'completed'), n.arg);
                     n.dispatchException(n.arg);
-                } else "return" === n.method && n.abrupt("return", n.arg);
-                r = "executing";
+                } else 'return' === n.method && n.abrupt('return', n.arg);
+                r = 'executing';
                 var l = h(e, t, n);
-                if ("normal" === l.type) {
-                    if (
-                        ((r = n.done ? "completed" : "suspendedYield"),
-                        l.arg === f)
-                    )
-                        continue;
+                if ('normal' === l.type) {
+                    if (((r = n.done ? 'completed' : 'suspendedYield'), l.arg === f)) continue;
                     return {
                         value: l.arg,
                         done: n.done,
                     };
                 }
-                "throw" === l.type &&
-                    ((r = "completed"), (n.method = "throw"), (n.arg = l.arg));
+                'throw' === l.type && ((r = 'completed'), (n.method = 'throw'), (n.arg = l.arg));
             }
         };
     }
@@ -171,41 +164,30 @@ function s() {
         if (void 0 === r)
             return (
                 (t.delegate = null),
-                ("throw" === n &&
+                ('throw' === n &&
                     e.iterator.return &&
-                    ((t.method = "return"),
-                    (t.arg = void 0),
-                    E(e, t),
-                    "throw" === t.method)) ||
-                    ("return" !== n &&
-                        ((t.method = "throw"),
+                    ((t.method = 'return'), (t.arg = void 0), E(e, t), 'throw' === t.method)) ||
+                    ('return' !== n &&
+                        ((t.method = 'throw'),
                         (t.arg = new TypeError(
-                            "The iterator does not provide a '" +
-                                n +
-                                "' method",
+                            "The iterator does not provide a '" + n + "' method",
                         )))),
                 f
             );
         var i = h(r, e.iterator, t.arg);
-        if ("throw" === i.type)
-            return (
-                (t.method = "throw"),
-                (t.arg = i.arg),
-                (t.delegate = null),
-                f
-            );
+        if ('throw' === i.type)
+            return ((t.method = 'throw'), (t.arg = i.arg), (t.delegate = null), f);
         var o = i.arg;
         return o
             ? o.done
                 ? ((t[e.resultName] = o.value),
                   (t.next = e.nextLoc),
-                  "return" !== t.method &&
-                      ((t.method = "next"), (t.arg = void 0)),
+                  'return' !== t.method && ((t.method = 'next'), (t.arg = void 0)),
                   (t.delegate = null),
                   f)
                 : o
-            : ((t.method = "throw"),
-              (t.arg = new TypeError("iterator result is not an object")),
+            : ((t.method = 'throw'),
+              (t.arg = new TypeError('iterator result is not an object')),
               (t.delegate = null),
               f);
     }
@@ -219,12 +201,12 @@ function s() {
     }
     function k(e) {
         var t = e.completion || {};
-        ((t.type = "normal"), delete t.arg, (e.completion = t));
+        ((t.type = 'normal'), delete t.arg, (e.completion = t));
     }
     function C(e) {
         ((this.tryEntries = [
             {
-                tryLoc: "root",
+                tryLoc: 'root',
             },
         ]),
             e.forEach(S, this),
@@ -234,13 +216,12 @@ function s() {
         if (e) {
             var t = e[o];
             if (t) return t.call(e);
-            if ("function" == typeof e.next) return e;
+            if ('function' == typeof e.next) return e;
             if (!isNaN(e.length)) {
                 var r = -1,
                     i = function t() {
-                        for (; ++r < e.length; )
-                            if (n.call(e, r))
-                                return ((t.value = e[r]), (t.done = !1), t);
+                        for (; ++r < e.length;)
+                            if (n.call(e, r)) return ((t.value = e[r]), (t.done = !1), t);
                         return ((t.value = void 0), (t.done = !0), t);
                     };
                 return (i.next = i);
@@ -258,27 +239,24 @@ function s() {
     }
     return (
         (p.prototype = m),
-        r(b, "constructor", {
+        r(b, 'constructor', {
             value: m,
             configurable: !0,
         }),
-        r(m, "constructor", {
+        r(m, 'constructor', {
             value: p,
             configurable: !0,
         }),
-        (p.displayName = c(m, l, "GeneratorFunction")),
+        (p.displayName = c(m, l, 'GeneratorFunction')),
         (e.isGeneratorFunction = function (e) {
-            var t = "function" == typeof e && e.constructor;
-            return (
-                !!t &&
-                (t === p || "GeneratorFunction" === (t.displayName || t.name))
-            );
+            var t = 'function' == typeof e && e.constructor;
+            return !!t && (t === p || 'GeneratorFunction' === (t.displayName || t.name));
         }),
         (e.mark = function (e) {
             return (
                 Object.setPrototypeOf
                     ? Object.setPrototypeOf(e, m)
-                    : ((e.__proto__ = m), c(e, l, "GeneratorFunction")),
+                    : ((e.__proto__ = m), c(e, l, 'GeneratorFunction')),
                 (e.prototype = Object.create(b)),
                 e
             );
@@ -303,12 +281,12 @@ function s() {
                   });
         }),
         w(b),
-        c(b, l, "Generator"),
+        c(b, l, 'Generator'),
         c(b, o, function () {
             return this;
         }),
-        c(b, "toString", function () {
-            return "[object Generator]";
+        c(b, 'toString', function () {
+            return '[object Generator]';
         }),
         (e.keys = function (e) {
             var t = Object(e),
@@ -317,7 +295,7 @@ function s() {
             return (
                 n.reverse(),
                 function e() {
-                    for (; n.length; ) {
+                    for (; n.length;) {
                         var r = n.pop();
                         if (r in t) return ((e.value = r), (e.done = !1), e);
                     }
@@ -335,13 +313,13 @@ function s() {
                     (this.sent = this._sent = void 0),
                     (this.done = !1),
                     (this.delegate = null),
-                    (this.method = "next"),
+                    (this.method = 'next'),
                     (this.arg = void 0),
                     this.tryEntries.forEach(k),
                     !e)
                 )
                     for (var t in this)
-                        "t" === t.charAt(0) &&
+                        't' === t.charAt(0) &&
                             n.call(this, t) &&
                             !isNaN(+t.slice(1)) &&
                             (this[t] = void 0);
@@ -349,7 +327,7 @@ function s() {
             stop: function () {
                 this.done = !0;
                 var e = this.tryEntries[0].completion;
-                if ("throw" === e.type) throw e.arg;
+                if ('throw' === e.type) throw e.arg;
                 return this.rval;
             },
             dispatchException: function (e) {
@@ -357,35 +335,28 @@ function s() {
                 var t = this;
                 function r(n, r) {
                     return (
-                        (a.type = "throw"),
+                        (a.type = 'throw'),
                         (a.arg = e),
                         (t.next = n),
-                        r && ((t.method = "next"), (t.arg = void 0)),
+                        r && ((t.method = 'next'), (t.arg = void 0)),
                         !!r
                     );
                 }
                 for (var i = this.tryEntries.length - 1; i >= 0; --i) {
                     var o = this.tryEntries[i],
                         a = o.completion;
-                    if ("root" === o.tryLoc) return r("end");
+                    if ('root' === o.tryLoc) return r('end');
                     if (o.tryLoc <= this.prev) {
-                        var s = n.call(o, "catchLoc"),
-                            l = n.call(o, "finallyLoc");
+                        var s = n.call(o, 'catchLoc'),
+                            l = n.call(o, 'finallyLoc');
                         if (s && l) {
-                            if (this.prev < o.catchLoc)
-                                return r(o.catchLoc, !0);
-                            if (this.prev < o.finallyLoc)
-                                return r(o.finallyLoc);
+                            if (this.prev < o.catchLoc) return r(o.catchLoc, !0);
+                            if (this.prev < o.finallyLoc) return r(o.finallyLoc);
                         } else if (s) {
-                            if (this.prev < o.catchLoc)
-                                return r(o.catchLoc, !0);
+                            if (this.prev < o.catchLoc) return r(o.catchLoc, !0);
                         } else {
-                            if (!l)
-                                throw new Error(
-                                    "try statement without catch or finally",
-                                );
-                            if (this.prev < o.finallyLoc)
-                                return r(o.finallyLoc);
+                            if (!l) throw new Error('try statement without catch or finally');
+                            if (this.prev < o.finallyLoc) return r(o.finallyLoc);
                         }
                     }
                 }
@@ -395,7 +366,7 @@ function s() {
                     var i = this.tryEntries[r];
                     if (
                         i.tryLoc <= this.prev &&
-                        n.call(i, "finallyLoc") &&
+                        n.call(i, 'finallyLoc') &&
                         this.prev < i.finallyLoc
                     ) {
                         var o = i;
@@ -403,7 +374,7 @@ function s() {
                     }
                 }
                 o &&
-                    ("break" === e || "continue" === e) &&
+                    ('break' === e || 'continue' === e) &&
                     o.tryLoc <= t &&
                     t <= o.finallyLoc &&
                     (o = null);
@@ -411,23 +382,19 @@ function s() {
                 return (
                     (a.type = e),
                     (a.arg = t),
-                    o
-                        ? ((this.method = "next"),
-                          (this.next = o.finallyLoc),
-                          f)
-                        : this.complete(a)
+                    o ? ((this.method = 'next'), (this.next = o.finallyLoc), f) : this.complete(a)
                 );
             },
             complete: function (e, t) {
-                if ("throw" === e.type) throw e.arg;
+                if ('throw' === e.type) throw e.arg;
                 return (
-                    "break" === e.type || "continue" === e.type
+                    'break' === e.type || 'continue' === e.type
                         ? (this.next = e.arg)
-                        : "return" === e.type
+                        : 'return' === e.type
                           ? ((this.rval = this.arg = e.arg),
-                            (this.method = "return"),
-                            (this.next = "end"))
-                          : "normal" === e.type && t && (this.next = t),
+                            (this.method = 'return'),
+                            (this.next = 'end'))
+                          : 'normal' === e.type && t && (this.next = t),
                     f
                 );
             },
@@ -435,11 +402,7 @@ function s() {
                 for (var t = this.tryEntries.length - 1; t >= 0; --t) {
                     var n = this.tryEntries[t];
                     if (n.finallyLoc === e)
-                        return (
-                            this.complete(n.completion, n.afterLoc),
-                            k(n),
-                            f
-                        );
+                        return (this.complete(n.completion, n.afterLoc), k(n), f);
                 }
             },
             catch: function (e) {
@@ -447,14 +410,14 @@ function s() {
                     var n = this.tryEntries[t];
                     if (n.tryLoc === e) {
                         var r = n.completion;
-                        if ("throw" === r.type) {
+                        if ('throw' === r.type) {
                             var i = r.arg;
                             k(n);
                         }
                         return i;
                     }
                 }
-                throw new Error("illegal catch attempt");
+                throw new Error('illegal catch attempt');
             },
             delegateYield: function (e, t, n) {
                 return (
@@ -463,7 +426,7 @@ function s() {
                         resultName: t,
                         nextLoc: n,
                     }),
-                    "next" === this.method && (this.arg = void 0),
+                    'next' === this.method && (this.arg = void 0),
                     f
                 );
             },
@@ -475,8 +438,8 @@ var l = {
     plans: [],
     fetchLoading: !1,
 };
-legacyExports["default"] = {
-    name: "plan",
+legacyExports['default'] = {
+    name: 'plan',
     state: i()({}, l),
     reducers: {
         setState(e, t) {
@@ -496,7 +459,7 @@ legacyExports["default"] = {
                                 return (
                                     (e.next = 2),
                                     n({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             fetchLoading: !0,
                                         },
@@ -505,10 +468,8 @@ legacyExports["default"] = {
                             case 2:
                                 return (
                                     (e.next = 4),
-                                    Object(o["a"])(
-                                        "/" +
-                                            window.settings.secure_path +
-                                            "/plan/fetch",
+                                    Object(o['a'])(
+                                        '/' + window.settings.secure_path + '/plan/fetch',
                                     )
                                 );
                             case 4:
@@ -516,7 +477,7 @@ legacyExports["default"] = {
                                     (t = e.sent),
                                     (e.next = 7),
                                     n({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             fetchLoading: !1,
                                         },
@@ -527,30 +488,25 @@ legacyExports["default"] = {
                                     e.next = 9;
                                     break;
                                 }
-                                return e.abrupt("return");
+                                return e.abrupt('return');
                             case 9:
                                 return (
                                     t.data.forEach((e) => {
-                                        Object.keys(a["a"].periodText).forEach(
-                                            (t) => {
-                                                null !== e[t] &&
-                                                    (e[t] =
-                                                        null !== e[t]
-                                                            ? e[t] / 100
-                                                            : null);
-                                            },
-                                        );
+                                        Object.keys(a['a'].periodText).forEach((t) => {
+                                            null !== e[t] &&
+                                                (e[t] = null !== e[t] ? e[t] / 100 : null);
+                                        });
                                     }),
                                     (e.next = 12),
                                     n({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             plans: t.data,
                                         },
                                     })
                                 );
                             case 12:
-                            case "end":
+                            case 'end':
                                 return e.stop();
                         }
                 }, e);
@@ -569,7 +525,7 @@ legacyExports["default"] = {
                                 return (
                                     (e.next = 2),
                                     i({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             saveLoading: !0,
                                         },
@@ -577,20 +533,13 @@ legacyExports["default"] = {
                                 );
                             case 2:
                                 return (
-                                    Object.keys(a["a"].periodText).forEach(
-                                        (e) => {
-                                            null !== n[e] &&
-                                                (n[e] =
-                                                    null !== n[e]
-                                                        ? Math.round(100 * n[e])
-                                                        : null);
-                                        },
-                                    ),
+                                    Object.keys(a['a'].periodText).forEach((e) => {
+                                        null !== n[e] &&
+                                            (n[e] = null !== n[e] ? Math.round(100 * n[e]) : null);
+                                    }),
                                     (e.next = 5),
-                                    Object(o["b"])(
-                                        "/" +
-                                            window.settings.secure_path +
-                                            "/plan/save",
+                                    Object(o['b'])(
+                                        '/' + window.settings.secure_path + '/plan/save',
                                         n,
                                     )
                                 );
@@ -599,7 +548,7 @@ legacyExports["default"] = {
                                     (t = e.sent),
                                     (e.next = 8),
                                     i({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             saveLoading: !1,
                                         },
@@ -610,18 +559,18 @@ legacyExports["default"] = {
                                     e.next = 10;
                                     break;
                                 }
-                                return e.abrupt("return");
+                                return e.abrupt('return');
                             case 10:
                                 return (
                                     (e.next = 12),
                                     i({
-                                        type: "fetch",
+                                        type: 'fetch',
                                     })
                                 );
                             case 12:
-                                "function" === typeof r && r();
+                                'function' === typeof r && r();
                             case 13:
-                            case "end":
+                            case 'end':
                                 return e.stop();
                         }
                 }, e);
@@ -638,10 +587,8 @@ legacyExports["default"] = {
                             case 0:
                                 return (
                                     (e.next = 2),
-                                    Object(o["b"])(
-                                        "/" +
-                                            window.settings.secure_path +
-                                            "/plan/drop",
+                                    Object(o['b'])(
+                                        '/' + window.settings.secure_path + '/plan/drop',
                                         {
                                             id: n,
                                         },
@@ -652,16 +599,16 @@ legacyExports["default"] = {
                                     e.next = 5;
                                     break;
                                 }
-                                return e.abrupt("return");
+                                return e.abrupt('return');
                             case 5:
                                 return (
                                     (e.next = 7),
                                     r({
-                                        type: "fetch",
+                                        type: 'fetch',
                                     })
                                 );
                             case 7:
-                            case "end":
+                            case 'end':
                                 return e.stop();
                         }
                 }, e);
@@ -680,10 +627,8 @@ legacyExports["default"] = {
                             case 0:
                                 return (
                                     (e.next = 2),
-                                    Object(o["b"])(
-                                        "/" +
-                                            window.settings.secure_path +
-                                            "/plan/update",
+                                    Object(o['b'])(
+                                        '/' + window.settings.secure_path + '/plan/update',
                                         {
                                             id: n,
                                             [r]: i,
@@ -695,16 +640,16 @@ legacyExports["default"] = {
                                     e.next = 5;
                                     break;
                                 }
-                                return e.abrupt("return");
+                                return e.abrupt('return');
                             case 5:
                                 return (
                                     (e.next = 7),
                                     a({
-                                        type: "fetch",
+                                        type: 'fetch',
                                     })
                                 );
                             case 7:
-                            case "end":
+                            case 'end':
                                 return e.stop();
                         }
                 }, e);
@@ -724,7 +669,7 @@ legacyExports["default"] = {
                                 return (
                                     (e.next = 2),
                                     a({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             fetchLoading: !0,
                                         },
@@ -737,13 +682,11 @@ legacyExports["default"] = {
                                     (t = e.sent),
                                     (l = t.plans),
                                     n < r
-                                        ? (l.splice(r + 1, 0, l[n]),
-                                          l.splice(n, 1))
-                                        : (l.splice(r, 0, l[n]),
-                                          l.splice(n + 1, 1)),
+                                        ? (l.splice(r + 1, 0, l[n]), l.splice(n, 1))
+                                        : (l.splice(r, 0, l[n]), l.splice(n + 1, 1)),
                                     (e.next = 9),
                                     a({
-                                        type: "setState",
+                                        type: 'setState',
                                         payload: {
                                             plans: l,
                                         },
@@ -752,10 +695,8 @@ legacyExports["default"] = {
                             case 9:
                                 return (
                                     (e.next = 11),
-                                    Object(o["b"])(
-                                        "/" +
-                                            window.settings.secure_path +
-                                            "/plan/sort",
+                                    Object(o['b'])(
+                                        '/' + window.settings.secure_path + '/plan/sort',
                                         {
                                             plan_ids: l.map((e) => e.id),
                                         },
@@ -766,16 +707,16 @@ legacyExports["default"] = {
                                     e.next = 14;
                                     break;
                                 }
-                                return e.abrupt("return");
+                                return e.abrupt('return');
                             case 14:
                                 return (
                                     (e.next = 16),
                                     a({
-                                        type: "fetch",
+                                        type: 'fetch',
                                     })
                                 );
                             case 16:
-                            case "end":
+                            case 'end':
                                 return e.stop();
                         }
                 }, e);

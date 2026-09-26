@@ -22,7 +22,9 @@ async function run(original, scenario) {
     };
     api.a = api.get;
     const file = new URL(
-        original ? './fixtures/models/admin-order-query.cjs' : '../src/models/orderManagementEffects.ts',
+        original
+            ? './fixtures/models/admin-order-query.cjs'
+            : '../src/models/orderManagementEffects.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');
@@ -34,7 +36,7 @@ async function run(original, scenario) {
             api,
             window: { settings: { secure_path: 'fixture-admin' } },
             require(id) {
-        if (id.includes('apiClient')) return api;
+                if (id.includes('apiClient')) return api;
                 if (id.includes('types/apiContracts')) return api;
                 throw Error(id);
             },

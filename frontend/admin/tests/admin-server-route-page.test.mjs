@@ -26,10 +26,7 @@ function createReact() {
 }
 
 async function loadModule(relativePath) {
-    const source = await fs.readFile(
-        new URL(relativePath, import.meta.url),
-        'utf8',
-    );
+    const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
     const { code } = await transform(source, { format: 'cjs', loader: 'tsx' });
     const module = { exports: {} };
     const React = createReact();
@@ -56,8 +53,8 @@ async function loadModule(relativePath) {
                         action === 'protocol'
                             ? 'http\ntls\nquic\nbittorrent'
                             : action === 'route_ip' || action === 'block_ip'
-                            ? 'geoip:cn'
-                            : `placeholder:${action || 'default'}`,
+                              ? 'geoip:cn'
+                              : `placeholder:${action || 'default'}`,
                 };
             }
             if (id.includes('ServerRouteColumns') || id === './ServerRouteColumns')
@@ -69,13 +66,24 @@ async function loadModule(relativePath) {
                     type: 'antd/lib/table',
                     props: {
                         dataSource: routes,
-                        columns: [{}, {}, {}, {}, {
-                            render: (_value, record) => ({
-                                children: [renderEditor(record, record.id), {
-                                    type: 'a', children: ['删除'], props: { onClick: () => onDelete(record.id) },
-                                }],
-                            }),
-                        }],
+                        columns: [
+                            {},
+                            {},
+                            {},
+                            {},
+                            {
+                                render: (_value, record) => ({
+                                    children: [
+                                        renderEditor(record, record.id),
+                                        {
+                                            type: 'a',
+                                            children: ['删除'],
+                                            props: { onClick: () => onDelete(record.id) },
+                                        },
+                                    ],
+                                }),
+                            },
+                        ],
                     },
                 });
                 ServerRouteList.__testRender = true;

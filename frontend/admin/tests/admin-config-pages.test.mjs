@@ -152,7 +152,8 @@ async function loadPaymentModule(relativePath) {
     return { ...module.exports, confirmations };
 }
 
-const loadPaymentPage = () => loadPaymentModule('../src/pages/config/payment/PaymentConfigPage.tsx');
+const loadPaymentPage = () =>
+    loadPaymentModule('../src/pages/config/payment/PaymentConfigPage.tsx');
 const loadPaymentEditor = () =>
     loadPaymentModule('../src/pages/config/payment/components/PaymentEditor.tsx');
 

@@ -126,18 +126,21 @@ async function loadPage() {
 }
 
 async function loadList() {
-    const orderListColumns = await loadModule('../src/pages/order/components/OrderListColumns.tsx', {
-        detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
-        columns: {
-            createOrderColumns: () => ({
-                type: { key: 'type' },
-                period: { key: 'period' },
-                total_amount: { key: 'total_amount' },
-                commission_balance: { key: 'commission_balance' },
-                created_at: { key: 'created_at' },
-            }),
+    const orderListColumns = await loadModule(
+        '../src/pages/order/components/OrderListColumns.tsx',
+        {
+            detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
+            columns: {
+                createOrderColumns: () => ({
+                    type: { key: 'type' },
+                    period: { key: 'period' },
+                    total_amount: { key: 'total_amount' },
+                    commission_balance: { key: 'commission_balance' },
+                    created_at: { key: 'created_at' },
+                }),
+            },
         },
-    });
+    );
     return loadModule('../src/pages/order/components/OrderList.tsx', {
         detail: { __esModule: true, ConnectedOrderDetailModal: 'ConnectedOrderDetailModal' },
         orderListColumns,
@@ -256,7 +259,10 @@ test('Order list preserves status, commission and pagination actions', async () 
     statusDropdown.props.overlay.children[0].props.onClick();
     statusDropdown.props.overlay.children[1].props.onClick();
     const commissionTree = list.renderCommissionStatus(0, { ...orders[0], status: 1 });
-    const commissionDropdown = findNode(commissionTree, (node) => node.type === 'antd/lib/dropdown');
+    const commissionDropdown = findNode(
+        commissionTree,
+        (node) => node.type === 'antd/lib/dropdown',
+    );
     commissionDropdown.props.overlay.children[0][1].props.onClick({ key: '1' });
     const table = findNode(list.render(), (node) => node.type === 'antd/lib/table');
     table.props.onChange({ current: 2, pageSize: 20 });

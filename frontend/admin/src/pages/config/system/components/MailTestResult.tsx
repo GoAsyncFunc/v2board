@@ -1,5 +1,5 @@
 import React from 'react';
-import notification from 'antd/lib/message';
+import Modal from 'antd/lib/modal';
 import type { MailTestLog } from '@/types/systemConfigurationContracts';
 
 interface MailTestResultProps {
@@ -39,16 +39,10 @@ export default function MailTestResult({ log }: MailTestResultProps): React.Reac
     );
 }
 
-interface MailNotificationApi {
-    error(options: { title: string; content: React.ReactNode }): void;
-    success(options: { title: string; content: React.ReactNode }): void;
-}
-
-const message = notification as MailNotificationApi;
-
+// The bundle shows the mail-test result in a Modal (webpack module 366c4b4b).
 export function showMailTestResult(log: MailTestLog): void {
     const error = log.error;
-    message[error ? 'error' : 'success']({
+    Modal[error ? 'error' : 'success']({
         title: error ? '发送失败' : '发送成功',
         content: <MailTestResult log={log} />,
     });

@@ -16,7 +16,8 @@ export interface ThemeDefinition {
 }
 
 export interface ThemeState {
-    themes: Record<string, ThemeDefinition>;
+    // The bundle initialises the theme list as an array (module 4f386f71).
+    themes: ThemeDefinition[] | Record<string, ThemeDefinition>;
     active?: string;
     getThemesLoading?: boolean;
     getThemeConfigLoading?: boolean;
@@ -24,6 +25,7 @@ export interface ThemeState {
 }
 
 export interface ThemeListResponse {
-    themes: Record<string, ThemeDefinition>;
+    // The bundle initialises the theme list as an array (module 4f386f71).
+    themes: ThemeDefinition[] | Record<string, ThemeDefinition>;
     active?: string;
 }

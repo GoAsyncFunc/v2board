@@ -458,9 +458,11 @@ test('Dashboard alert actions route tickets and delegate commission filtering', 
         onOpenTickets: () => historyEvents.push('/ticket'),
         onOpenCommissions: () => actions.push('open-commissions'),
     });
-    const links = alerts.children.flatMap((alert) => alert?.children || []).flatMap((paragraph) =>
-        (paragraph?.children || []).filter((child) => child?.props?.onClick),
-    );
+    const links = alerts.children
+        .flatMap((alert) => alert?.children || [])
+        .flatMap((paragraph) =>
+            (paragraph?.children || []).filter((child) => child?.props?.onClick),
+        );
     assert.equal(links.length, 2);
     links[0].props.onClick();
     links[1].props.onClick();

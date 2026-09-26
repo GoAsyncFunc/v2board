@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import message from 'antd/lib/message';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import SystemConfigTabs from './components/SystemConfigTabs';
-import { showMailTestResult } from './components/MailTestResult';
 import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import type {
     AdminConfigState,
@@ -43,11 +41,7 @@ export class SystemConfigPage extends React.Component<
         if (this.inputDelayTimer) clearTimeout(this.inputDelayTimer);
         this.inputDelayTimer = setTimeout(() => {
             this.inputDelayTimer = null;
-            this.props.dispatch({
-                type: 'config/save',
-                parentKey,
-                complete: () => message.success('保存成功'),
-            });
+            this.props.dispatch({ type: 'config/save', parentKey });
         }, 1500);
     }
 
@@ -66,13 +60,11 @@ export class SystemConfigPage extends React.Component<
                         onTestSendMail={() =>
                             this.props.dispatch({
                                 type: 'config/testSendMail',
-                                complete: showMailTestResult,
                             })
                         }
                         onSetWebhook={() =>
                             this.props.dispatch({
                                 type: 'config/setTelegramWebhook',
-                                complete: () => message.success('webhook 设置成功'),
                             })
                         }
                     />

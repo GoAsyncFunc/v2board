@@ -1,3 +1,4 @@
+import message from 'antd/lib/message';
 import { get, post } from '@/services/apiClient';
 import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type {
@@ -81,18 +82,17 @@ export default {
             })) as ApiResponse;
             if (isSuccessfulResponse(response)) yield put({ type: 'fetch' });
         },
-        *reply(
-            { id, msg, start, finish, callback }: TicketReplyAction,
-            { put }: TicketTools,
-        ): TicketEffect {
-            start?.();
+        *reply({ id, msg, callback }: TicketReplyAction, { put }: TicketTools): TicketEffect {
+            // The bundle shows the send toast inside the model and destroys it
+            // after the response regardless of outcome (module 652b396e).
+            message.loading('发送中');
             yield put({ type: 'setState', payload: { replyLoading: true } });
             const response = (yield post(`/${window.settings.secure_path}/ticket/reply`, {
                 id,
                 message: msg,
             })) as ApiResponse;
             yield put({ type: 'setState', payload: { replyLoading: false } });
-            finish?.();
+            message.destroy();
             if (!isSuccessfulResponse(response)) return;
             yield put({ type: 'fetchById', id });
             if (typeof callback === 'function') callback();

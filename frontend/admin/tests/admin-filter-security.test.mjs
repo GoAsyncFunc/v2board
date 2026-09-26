@@ -90,16 +90,13 @@ test('FilterDrawer preserves validation and field reset behavior', async () => {
 
 test('FilterValueInput renders text, select, and date controls with semantic updates', async () => {
     const updates = [];
-    const component = await load(
-        '../src/components/common/FilterValueInput.tsx',
-        (id) => {
-            if (id === 'antd/lib/date-picker') return 'DatePicker';
-            if (id === 'antd/lib/input') return 'Input';
-            if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
-            if (id === 'moment') return (value, format) => ({ value, format });
-            throw new Error(id);
-        },
-    );
+    const component = await load('../src/components/common/FilterValueInput.tsx', (id) => {
+        if (id === 'antd/lib/date-picker') return 'DatePicker';
+        if (id === 'antd/lib/input') return 'Input';
+        if (id === 'antd/lib/select') return Object.assign('Select', { Option: 'Option' });
+        if (id === 'moment') return (value, format) => ({ value, format });
+        throw new Error(id);
+    });
     const onChange = (...update) => updates.push(update);
     const filterItem = { key: 'status', condition: '=', value: '' };
     const baseProps = { filterItem, index: 2, onChange };

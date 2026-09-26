@@ -19,7 +19,16 @@ module.exports = function createOriginalServerColumns(React, deps) {
     var update = function (server, key, value) {
         deps.updates.push([server.id, key, value]);
     };
-    var TYPE_LABELS = ['V2node', 'Shadowsocks', 'Vmess', 'Trojan', 'Hysteria', 'Tuic', 'Vless', 'AnyTLS'];
+    var TYPE_LABELS = [
+        'V2node',
+        'Shadowsocks',
+        'Vmess',
+        'Trojan',
+        'Hysteria',
+        'Tuic',
+        'Vless',
+        'AnyTLS',
+    ];
     var STATUS_BADGES = { 0: 'error', 1: 'warning', 2: 'processing' };
     return [
         {
@@ -138,8 +147,7 @@ module.exports = function createOriginalServerColumns(React, deps) {
             dataIndex: 'rate',
             key: 'rate',
             align: 'center',
-            render: (rate) =>
-                React.createElement(Tag, { style: { minWidth: 60 } }, rate + ' x'),
+            render: (rate) => React.createElement(Tag, { style: { minWidth: 60 } }, rate + ' x'),
         },
         {
             title: '权限组',

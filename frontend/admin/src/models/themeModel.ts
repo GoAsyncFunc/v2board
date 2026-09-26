@@ -15,7 +15,7 @@ interface SaveThemeAction extends ThemeNameAction {
 }
 type ThemeEffect<Data> = ModelEffect<ApiResponse<Data>>;
 
-const initialState: ThemeState = { themes: {}, active: undefined };
+const initialState: ThemeState = { themes: [], active: undefined };
 
 export default {
     namespace: 'theme',

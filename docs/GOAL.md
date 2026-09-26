@@ -81,7 +81,7 @@ assert.deepEqual(results[1], results[0]);
 | 有任意测试的代码模块（L1 以上） | **257 / 257 = 100%** | 100% |
 | 完全无测试的代码模块 | **0 个** | **0 个** |
 
-**2026-09-26 进展**：无测试模块已清零。本轮按页面分组为 47 个此前无测试的模块补齐了行为测试（coupon 5、giftcard 5、config/system 6、payment 4、dashboard 3、knowledge 2、notice 2、queue 2、ticket 1、user 6、server manage/route 12、components 1），并以「补测前后构建 SHA256 完全一致（a4f12990…）」证明全部补测为行为中性。ESLint（typescript-eslint + react + prettier，0 告警）与 GitHub Actions CI（两工程独立流水线：lint/typecheck/format/依赖图/import 门禁/test/build）已建立，react-intl 死依赖已移除。
+**2026-09-26 进展**：全部 18 个 dva 模型（coupon/knowledge/notice/theme/ticket/payment/stat/system/queue/serverGroup/serverManage/serverRoute/giftcard 及 5 个 server 协议模型）的每个 effect 均已与原始 bundle 模块（通过最小 webpack 运行时直载、未经改写）建立逐 trace 差分对照；加上 ServerManageColumns、ServerEditorRegistry、order/user 页面组件树、plan 编辑器全部字段分支。无测试模块已清零。本轮按页面分组为 47 个此前无测试的模块补齐了行为测试（coupon 5、giftcard 5、config/system 6、payment 4、dashboard 3、knowledge 2、notice 2、queue 2、ticket 1、user 6、server manage/route 12、components 1），并以「补测前后构建 SHA256 完全一致（a4f12990…）」证明全部补测为行为中性。ESLint（typescript-eslint + react + prettier，0 告警）与 GitHub Actions CI（两工程独立流水线：lint/typecheck/format/依赖图/import 门禁/test/build）已建立，react-intl 死依赖已移除。
 
 **注意**：L1 已达标，但真正能证明与产物一致的 L2 差分只有 19.1%。这是当前最大的未知。
 

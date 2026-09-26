@@ -86,11 +86,7 @@ module.exports = {
                     React.createElement(
                         ui.PermissionGroupEditor,
                         null,
-                        React.createElement(
-                            'a',
-                            { href: 'javascript:(0);' },
-                            '添加权限组',
-                        ),
+                        React.createElement('a', { href: 'javascript:(0);' }, '添加权限组'),
                     ),
                 ),
                 React.createElement(
@@ -115,11 +111,7 @@ module.exports = {
             React.createElement(
                 'div',
                 { className: 'form-group' },
-                React.createElement(
-                    'label',
-                    { htmlFor: 'example-text-input-alt' },
-                    '流量重置方式',
-                ),
+                React.createElement('label', { htmlFor: 'example-text-input-alt' }, '流量重置方式'),
                 React.createElement(
                     ui.Select,
                     {
@@ -149,11 +141,7 @@ module.exports = {
             React.createElement(
                 'div',
                 { className: 'form-group' },
-                React.createElement(
-                    'label',
-                    { for: 'example-text-input-alt' },
-                    '最大容纳用户量',
-                ),
+                React.createElement('label', { for: 'example-text-input-alt' }, '最大容纳用户量'),
                 React.createElement(ui.Input, {
                     placeholder: '留空则不限制',
                     value: record.capacity_limit,

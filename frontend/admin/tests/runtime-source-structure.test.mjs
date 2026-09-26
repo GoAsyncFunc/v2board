@@ -586,7 +586,14 @@ test('admin business contracts do not depend on rendering components', async () 
     // The bundle's user model imports antd message directly (module 686c5178:
     // dumpCSV/resetSecret/delUser own their feedback messages), so message is
     // permitted; modal/notification remain forbidden.
-    const modelsAllowedMessage = new Set(['userManagementEffects.ts', 'userModel.ts']);
+    // All of these bundle models import antd message directly (modules
+    // 686c5178, 366c4b4b and 652b396e respectively).
+    const modelsAllowedMessage = new Set([
+        'userManagementEffects.ts',
+        'userModel.ts',
+        'configurationModel.ts',
+        'ticketModel.ts',
+    ]);
     for (const modelName of modelNames) {
         const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
         assert.doesNotMatch(
