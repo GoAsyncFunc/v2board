@@ -5,7 +5,7 @@ import {
     fetch as fetchUsers,
     filter as filterUsers,
     getUserInfoById,
-} from './userManagementEffects';
+} from '@/models-support/userManagementEffects';
 import {
     allDel as deleteFilteredUsers,
     ban as banFilteredUsers,
@@ -15,8 +15,8 @@ import {
     update as updateUser,
     dumpCSV as exportUsersCsv,
     generate as generateUsers,
-} from './userManagementEffects';
-import { checkLogin, getUserInfo } from './userManagementEffects';
+} from '@/models-support/userManagementEffects';
+import { checkLogin, getUserInfo } from '@/models-support/userManagementEffects';
 import type { UserModuleState } from '@/types/userContracts';
 
 const initialState: UserModuleState = {

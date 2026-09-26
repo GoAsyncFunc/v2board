@@ -294,7 +294,15 @@ const SHARED_STATE = {
 };
 
 export async function loadRecoveredModel(modelFile, context, exportName) {
-    const source = await fs.readFile(path.join(home, 'src/models', modelFile), 'utf8');
+    // Non-model helper modules (shared effects / protocol model factories)
+    // live in src/models-support so umi's dva glob only sees real models.
+    let source;
+    try {
+        source = await fs.readFile(path.join(home, 'src/models', modelFile), 'utf8');
+    } catch (error) {
+        if (error.code !== 'ENOENT') throw error;
+        source = await fs.readFile(path.join(home, 'src/models-support', modelFile), 'utf8');
+    }
     const { code } = await esbuildTransform(source, {
         format: 'cjs',
         loader: 'ts',

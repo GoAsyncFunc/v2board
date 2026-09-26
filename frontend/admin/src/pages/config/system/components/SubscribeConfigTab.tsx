@@ -2,7 +2,10 @@ import React from 'react';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
 import SubscribeLinkValidity from './SubscribeLinkValidity';
-import type { ConfigGroupChangeHandler, SubscribeConfig } from '@/types/systemConfigurationContracts';
+import type {
+    ConfigGroupChangeHandler,
+    SubscribeConfig,
+} from '@/types/systemConfigurationContracts';
 
 interface ToggleSettingProps {
     title: string;

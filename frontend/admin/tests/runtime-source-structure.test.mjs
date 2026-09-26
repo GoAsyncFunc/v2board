@@ -6,6 +6,7 @@ async function collectSourceFiles(directory) {
     const entries = await fs.readdir(directory, { withFileTypes: true });
     const files = [];
     for (const entry of entries) {
+        if (entry.name === '.umi' || entry.name === '.umi-production') continue;
         const entryPath = new URL(`${entry.name}${entry.isDirectory() ? '/' : ''}`, directory);
         if (entry.isDirectory()) {
             files.push(...(await collectSourceFiles(entryPath)));
@@ -18,29 +19,14 @@ async function collectSourceFiles(directory) {
 
 test('admin application runtime uses typed source modules outside vendor', async () => {
     const typedRuntimePaths = [
-        '../src/main.ts',
-        '../src/app/bootstrap.tsx',
+        '../src/app.ts',
+        '../config/config.ts',
         '../src/app/history.ts',
-        '../src/app/historyFactory.ts',
-        '../src/app/applicationStore.tsx',
-        '../src/app/dvaConfig.ts',
         '../src/app/navigationService.ts',
         '../src/app/requestPresentation.ts',
-        '../src/app/rootRuntime.tsx',
-        '../src/runtime/dvaApplication.tsx',
-        '../src/runtime/loadingPlugin.ts',
-        '../src/runtime/pluginRuntime.ts',
-        '../src/runtime/routerBindings.tsx',
-        '../src/runtime/routeRenderer.tsx',
-        '../src/runtime/routeInitialProps.tsx',
-        '../src/runtime/routeRuntimeTypes.ts',
         '../src/services/apiClient.ts',
         '../src/services/csvDownloadService.ts',
-        '../src/routes/adminRoutes.ts',
-        '../src/routes/routeConfig.ts',
         '../src/types/apiContracts.ts',
-        '../src/types/dvaRuntimeContracts.ts',
-        '../src/types/dvaCore.d.ts',
         '../src/utils/clipboardService.ts',
     ];
     for (const relativePath of typedRuntimePaths) {
@@ -49,14 +35,27 @@ test('admin application runtime uses typed source modules outside vendor', async
     }
 
     const removedPaths = [
+        // The hand-rolled umi-mimicry runtime was deleted; umi 3 owns the
+        // plugin runtime, dva integration, router bindings and rendering.
+        '../src/main.ts',
+        '../src/app/bootstrap.tsx',
+        '../src/app/historyFactory.ts',
+        '../src/app/applicationStore.tsx',
+        '../src/app/dvaConfig.ts',
+        '../src/app/Router.tsx',
+        '../src/app/rootRuntime.tsx',
+        '../src/runtime',
+        '../src/routes',
+        '../scripts/build.mjs',
+        '../scripts/dev.mjs',
+        // dva runtime contracts became orphaned once umi owned the runtime
+        '../src/types/dvaCore.d.ts',
+        '../src/types/dvaRuntimeContracts.ts',
+        // legacy compiled leftovers
         '../src/main.js',
         '../src/app/bootstrap.js',
         '../src/app/history.js',
         '../src/app/applicationStore.js',
-        '../src/runtime/loadingPlugin.js',
-        '../src/runtime/pluginRuntime.js',
-        '../src/runtime/routerBindings.js',
-        '../src/runtime/routeRenderer.js',
         '../src/services/apiClient.js',
         '../src/services/apiClient.d.ts',
         '../src/services/csvDownloadService.js',
@@ -78,19 +77,35 @@ test('admin application runtime uses typed source modules outside vendor', async
     }
 });
 
-test('admin route definitions live in the dedicated routes directory', async () => {
-    const routeSource = await fs.readFile(
-        new URL('../src/routes/adminRoutes.ts', import.meta.url),
+test('admin route definitions live in the umi config with the recovered route set', async () => {
+    const configSource = await fs.readFile(
+        new URL('../config/config.ts', import.meta.url),
         'utf8',
     );
-    const routeTypeSource = await fs.readFile(
-        new URL('../src/routes/routeConfig.ts', import.meta.url),
-        'utf8',
-    );
-    assert.match(routeSource, /const adminRoutes: AdminRouteConfig\[\]/);
-    assert.match(routeSource, /path: '\/dashboard'/);
-    assert.match(routeSource, /path: '\/ticket\/:ticket_id'/);
-    assert.match(routeTypeSource, /export interface AdminRouteConfig/);
+    const routePaths = [
+        '/config/payment',
+        '/config/system',
+        '/config/theme',
+        '/coupon',
+        '/giftcard',
+        '/dashboard',
+        '/',
+        '/knowledge',
+        '/login',
+        '/notice',
+        '/order',
+        '/plan',
+        '/queue',
+        '/server/group',
+        '/server/manage',
+        '/server/route',
+        '/ticket/:ticket_id',
+        '/ticket',
+        '/user',
+    ];
+    for (const routePath of routePaths) {
+        assert.match(configSource, new RegExp(`path: '${routePath.replace(/\//g, '\\/')}'`));
+    }
     await assert.rejects(fs.access(new URL('../src/app/routes.ts', import.meta.url)));
 });
 
@@ -134,7 +149,9 @@ test('admin production source has no compiler-generated module or style identifi
     const sourceFiles = await collectSourceFiles(sourceDirectory);
     const sourceText = [];
     for (const file of sourceFiles) {
-        assert.match(file.pathname, /\.(?:ts|tsx|d\.ts|css)$/);
+        // src/.umi is umi's generated temp directory, not authored source.
+        assert.doesNotMatch(file.pathname, /\/\.umi(\/|$)/, file.pathname);
+        assert.match(file.pathname, /\.(?:ts|tsx|d\.ts|css|ejs)$/);
         const fileName = file.pathname.split('/').pop() || '';
         assert.doesNotMatch(fileName, /^[0-9a-f]{6,}\.[^.]+$/i, file.pathname);
         assert.doesNotMatch(fileName, /___[A-Za-z0-9_-]{4,}/, file.pathname);
@@ -387,7 +404,7 @@ test('admin model composition uses named business effects instead of module alia
         'utf8',
     );
     const orderManagementEffects = await fs.readFile(
-        new URL('../src/models/orderManagementEffects.ts', import.meta.url),
+        new URL('../src/models-support/orderManagementEffects.ts', import.meta.url),
         'utf8',
     );
 
@@ -441,7 +458,7 @@ test('admin model composition uses named business effects instead of module alia
         ['serverVmess', 'vmess'],
     ];
     const protocolSource = await fs.readFile(
-        new URL('serverProtocolModels.ts', modelDirectory),
+        new URL('../src/models-support/serverProtocolModels.ts', import.meta.url),
         'utf8',
     );
     for (const [namespace, protocol] of protocolModels) {
@@ -455,13 +472,27 @@ test('admin model composition uses named business effects instead of module alia
     assert.match(protocolSource, /return\s*{\s*namespace,/);
     assert.doesNotMatch(protocolSource, /\bname:\s*string/);
 
-    const store = await fs.readFile(
-        new URL('../src/app/applicationStore.tsx', import.meta.url),
-        'utf8',
-    );
-    assert.match(store, /model\.namespace !== registeredNamespace/);
-    assert.match(store, /appInstance\?\.model\(model\)/);
-    assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
+    // umi's dva plugin registers every src/models file by its default export;
+    // each protocol model therefore has a wrapper file here.
+    for (const [namespace] of protocolModels) {
+        const wrapper = await fs.readFile(new URL(`${namespace}Model.ts`, modelDirectory), 'utf8');
+        assert.match(
+            wrapper,
+            new RegExp(`import \\{ ${namespace} \\} from '@/models-support/serverProtocolModels';`),
+        );
+        assert.match(wrapper, /export default /);
+    }
+    // Non-model helper files live outside src/models so umi's glob cannot
+    // mistake them for models.
+    for (const helper of [
+        'serverProtocolModels.ts',
+        'userManagementEffects.ts',
+        'orderManagementEffects.ts',
+    ]) {
+        const stat = await fs.stat(new URL(`../src/models-support/${helper}`, import.meta.url));
+        assert.equal(stat.isFile(), true);
+        await assert.rejects(fs.access(new URL(`../src/models/${helper}`, import.meta.url)));
+    }
 });
 
 test('admin scripts exclude one-time reverse-engineering extractors', async () => {
@@ -472,44 +503,34 @@ test('admin scripts exclude one-time reverse-engineering extractors', async () =
     );
 });
 
-test('admin application runtime is implemented as typed TSX components', async () => {
-    const runtimeSource = await fs.readFile(
-        new URL('../src/runtime/dvaApplication.tsx', import.meta.url),
+test('admin application runtime is owned by umi 3 with frozen business dependencies', async () => {
+    const configSource = await fs.readFile(
+        new URL('../config/config.ts', import.meta.url),
         'utf8',
     );
+    const runtimeConfig = await fs.readFile(new URL('../src/app.ts', import.meta.url), 'utf8');
     const tsconfig = JSON.parse(
         await fs.readFile(new URL('../tsconfig.json', import.meta.url), 'utf8'),
     );
     const packageJson = JSON.parse(
         await fs.readFile(new URL('../package.json', import.meta.url), 'utf8'),
     );
-    assert.match(runtimeSource, /function createApplicationProvider/);
-    assert.match(runtimeSource, /<ApplicationProvider \/>/);
-    assert.doesNotMatch(runtimeSource, /React\.createElement/);
+    // umi owns the plugin runtime, dva integration and rendering.
+    assert.match(configSource, /dva:\s*\{\}/);
+    assert.match(configSource, /antd:\s*false/);
+    assert.match(configSource, /history:\s*\{\s*type:\s*'hash'\s*\}/);
+    assert.match(configSource, /dynamicImport:\s*false/);
+    assert.match(runtimeConfig, /export const dva = \{/);
+    assert.match(runtimeConfig, /configureRequestPresentation\(\)/);
     assert.equal(tsconfig.compilerOptions.allowJs, false);
-    assert.deepEqual(
-        Object.fromEntries(
-            ['@types/markdown-it', '@types/react-loadable', '@types/react-router-dom'].map(
-                (name) => [name, packageJson.devDependencies[name]],
-            ),
-        ),
-        {
-            '@types/markdown-it': '10.0.3',
-            '@types/react-loadable': '5.5.11',
-            '@types/react-router-dom': '5.3.3',
-        },
-    );
+    assert.match(tsconfig.compilerOptions.paths['@@/*']?.[0] ?? '', /\.umi/);
+    assert.match(packageJson.devDependencies.umi, /\^3\./);
+    assert.match(packageJson.scripts.build, /umi build/);
+    assert.doesNotMatch(packageJson.scripts.build, /esbuild/);
 });
 
-test('admin DVA runtime uses named contracts instead of broad object placeholders', async () => {
-    const contractPaths = [
-        '../src/types/storeContracts.ts',
-        '../src/types/dvaRuntimeContracts.ts',
-        '../src/types/dvaCore.d.ts',
-        '../src/runtime/dvaApplication.tsx',
-        '../src/runtime/loadingPlugin.ts',
-        '../src/app/applicationStore.tsx',
-    ];
+test('admin model contracts keep explicit typed boundaries', async () => {
+    const contractPaths = ['../src/types/storeContracts.ts', '../src/types/apiContracts.ts'];
     for (const relativePath of contractPaths) {
         const source = await fs.readFile(new URL(relativePath, import.meta.url), 'utf8');
         assert.doesNotMatch(source, /:\s*object\b|\bobject\[\]/, relativePath);
@@ -519,53 +540,13 @@ test('admin DVA runtime uses named contracts instead of broad object placeholder
         new URL('../src/types/storeContracts.ts', import.meta.url),
         'utf8',
     );
-    const dvaTypes = await fs.readFile(
-        new URL('../src/types/dvaRuntimeContracts.ts', import.meta.url),
-        'utf8',
-    );
     const effectTypes = await fs.readFile(
         new URL('../src/types/modelEffectContracts.ts', import.meta.url),
         'utf8',
     );
-    const loadingRuntime = await fs.readFile(
-        new URL('../src/runtime/loadingPlugin.ts', import.meta.url),
-        'utf8',
-    );
     assert.match(storeTypes, /Action extends AdminAction/);
-    assert.match(dvaTypes, /export interface DvaPlugin/);
-    assert.match(dvaTypes, /export type DvaEffectEnhancer/);
-    assert.doesNotMatch(dvaTypes, /DvaHook|DvaReducer/);
-    assert.match(dvaTypes, /setupMiddlewares\(middlewares: Middleware\[\]\)/);
     assert.match(effectTypes, /Effect \| Promise<RequestEffectResult>/);
     assert.doesNotMatch(effectTypes, /EffectInstruction = object/);
-    assert.doesNotMatch(loadingRuntime, /effectContext|Iterator<unknown>/);
-});
-
-test('admin plugin runtime separates callable hooks from route and configuration values', async () => {
-    const pluginRuntime = await fs.readFile(
-        new URL('../src/runtime/pluginRuntime.ts', import.meta.url),
-        'utf8',
-    );
-    const routeRuntime = await fs.readFile(
-        new URL('../src/runtime/routeRenderer.tsx', import.meta.url),
-        'utf8',
-    );
-    const routeTypes = await fs.readFile(
-        new URL('../src/runtime/routeRuntimeTypes.ts', import.meta.url),
-        'utf8',
-    );
-    const bootstrap = await fs.readFile(
-        new URL('../src/app/bootstrap.tsx', import.meta.url),
-        'utf8',
-    );
-    assert.match(pluginRuntime, /export type PluginCallback/);
-    assert.match(pluginRuntime, /export interface PluginConfiguration/);
-    assert.doesNotMatch(pluginRuntime, /PluginValue\s*=\s*object/);
-    assert.match(routeTypes, /Partial<AdminRootState>/);
-    assert.match(routeRuntime, /from ['"]\.\/routeRuntimeTypes['"]/);
-    assert.doesNotMatch(routeRuntime, /Record<string, PluginValue>/);
-    assert.match(bootstrap, /apply<React\.ReactElement>/);
-    assert.match(bootstrap, /compose<\(\) => Promise<void> \| void>/);
 });
 
 test('admin business contracts do not depend on rendering components', async () => {
@@ -786,10 +767,6 @@ test('admin root state names every registered business model', async () => {
         new URL('../src/types/storeContracts.ts', import.meta.url),
         'utf8',
     );
-    const rootRuntime = await fs.readFile(
-        new URL('../src/app/rootRuntime.tsx', import.meta.url),
-        'utf8',
-    );
     assert.match(storeTypes, /export interface AdminRootState/);
     for (const model of [
         'auth',
@@ -822,7 +799,6 @@ test('admin root state names every registered business model', async () => {
     ])
         assert.match(storeTypes, new RegExp(`\\b${model}:`));
     assert.doesNotMatch(storeTypes, /AdminRootState = Record<string, object>/);
-    assert.match(rootRuntime, /Partial<AdminRootState>/);
 });
 
 test('admin pages select from the canonical root state', async () => {
@@ -1431,12 +1407,6 @@ test('admin router selectors use the canonical root state', async () => {
         new URL('../src/types/routerContracts.ts', import.meta.url),
         'utf8',
     );
-    const routerBindings = await fs.readFile(
-        new URL('../src/runtime/routerBindings.tsx', import.meta.url),
-        'utf8',
-    );
     assert.match(storeTypes, /router\?: RouterState/);
     assert.match(routerTypes, /export interface RouterState/);
-    assert.doesNotMatch(routerBindings, /interface\s+RouterRootState\b/);
-    assert.match(routerBindings, /state: AdminRootState/);
 });

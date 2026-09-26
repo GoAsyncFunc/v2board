@@ -7,7 +7,7 @@ import {
     filter as filterOrders,
     paid as markOrderPaid,
     update as updateOrder,
-} from './orderManagementEffects';
+} from '@/models-support/orderManagementEffects';
 import type { OrderState } from '@/types/orderContracts';
 
 const initialState: OrderState = {

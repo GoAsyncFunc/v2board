@@ -50,7 +50,7 @@
 <div id="root"></div>
 @if (config('v2board.admin_source_build', false))
     <script src="/admin-build/settings.js?v={{$version}}"></script>
-    <script src="/admin-build/app.js?v={{$version}}"></script>
+    <script src="/admin-build/umi.js?v={{$version}}"></script>
 @else
     <script src="/assets/admin/vendors.async.js?v={{$version}}"></script>
     <script src="/assets/admin/components.async.js?v={{$version}}"></script>

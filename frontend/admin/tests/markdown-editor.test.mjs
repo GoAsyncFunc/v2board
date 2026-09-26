@@ -54,7 +54,10 @@ test('source build separates the official Markdown editor stylesheet with legacy
     );
     const parsedComponentStyles = postcss.parse(componentStyles);
     const parsedEditorStyles = postcss.parse(prefixedEditorStyles);
-    const indexHtml = await fs.readFile(new URL('../index.html', import.meta.url), 'utf8');
+    const indexHtml = await fs.readFile(
+        new URL('../src/pages/document.ejs', import.meta.url),
+        'utf8',
+    );
 
     assert.ok(removedRules > 0);
     assert.equal(removedFontFaces, 1);

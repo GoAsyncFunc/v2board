@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createUiVersion } from '../scripts/build.mjs';
+import { createUiVersion } from '../scripts/version.mjs';
 
 test('Admin source build version includes its UTC build timestamp', () => {
     assert.equal(

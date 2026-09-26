@@ -49,7 +49,7 @@ test('versioned Admin release rewrites every source-build asset reference', asyn
         'assets/admin/framework/rtl.css',
         'assets/admin/umi.css',
         'settings.js',
-        'app.js',
+        'umi.js',
     ]) {
         assert.ok(rewritten.includes(`/assets/restored-20260923-120000/admin/${resource}`));
     }

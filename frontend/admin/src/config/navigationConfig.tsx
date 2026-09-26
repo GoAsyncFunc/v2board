@@ -15,7 +15,7 @@ export interface NavigationLink {
 export type NavigationDefinition = NavigationHeading | NavigationLink;
 export type NavigationItem = NavigationDefinition & { icon?: React.ReactNode };
 
-// Item order controls sidebar order. Routes are registered separately in adminRoutes.ts.
+// Item order controls sidebar order. Routes are registered in config/config.ts.
 export const navigationItems: NavigationDefinition[] = [
     {
         title: '仪表盘',

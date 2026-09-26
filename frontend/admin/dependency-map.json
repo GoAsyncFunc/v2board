@@ -1,167 +1,11 @@
 [
   {
-    "from": "app/Router.tsx",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "routes/adminRoutes.ts"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "runtime/dvaApplication.tsx"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "runtime/routeRenderer.tsx"
-  },
-  {
-    "from": "app/Router.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "app/history.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/adminAuthenticationModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/adminPassportModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/configurationModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/couponModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/dashboardStatisticsModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/giftCardModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/knowledgeModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/layoutModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/noticeModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/orderModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/paymentModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/planModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/queueMonitoringModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/serverGroupModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/serverManagementModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/serverProtocolModels.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/serverRouteModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/themeModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/ticketModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "models/userModel.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "runtime/dvaApplication.tsx"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "runtime/loadingPlugin.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "types/dvaRuntimeContracts.ts"
-  },
-  {
-    "from": "app/applicationStore.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "app/bootstrap.tsx",
-    "to": "app/Router.tsx"
-  },
-  {
-    "from": "app/bootstrap.tsx",
-    "to": "app/applicationStore.tsx"
-  },
-  {
-    "from": "app/bootstrap.tsx",
-    "to": "app/dvaConfig.ts"
-  },
-  {
-    "from": "app/bootstrap.tsx",
+    "from": "app.ts",
     "to": "app/requestPresentation.ts"
   },
   {
-    "from": "app/bootstrap.tsx",
-    "to": "app/rootRuntime.tsx"
-  },
-  {
-    "from": "app/bootstrap.tsx",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "app/dvaConfig.ts",
+    "from": "app.ts",
     "to": "utils/siteHelpers.ts"
-  },
-  {
-    "from": "app/history.ts",
-    "to": "app/historyFactory.ts"
-  },
-  {
-    "from": "app/historyFactory.ts",
-    "to": "app/history.ts"
   },
   {
     "from": "app/navigationService.ts",
@@ -170,14 +14,6 @@
   {
     "from": "app/requestPresentation.ts",
     "to": "services/apiClient.ts"
-  },
-  {
-    "from": "app/rootRuntime.tsx",
-    "to": "app/applicationStore.tsx"
-  },
-  {
-    "from": "app/rootRuntime.tsx",
-    "to": "types/storeContracts.ts"
   },
   {
     "from": "components/common/FilterCondition.tsx",
@@ -300,8 +136,84 @@
     "to": "config/navigationConfig.tsx"
   },
   {
-    "from": "main.ts",
-    "to": "app/bootstrap.tsx"
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "services/apiClient.ts"
+  },
+  {
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "types/filterContracts.ts"
+  },
+  {
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "types/modelEffectContracts.ts"
+  },
+  {
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "types/orderContracts.ts"
+  },
+  {
+    "from": "models-support/orderManagementEffects.ts",
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "models-support/serverProtocolModels.ts",
+    "to": "services/apiClient.ts"
+  },
+  {
+    "from": "models-support/serverProtocolModels.ts",
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "models-support/serverProtocolModels.ts",
+    "to": "types/modelEffectContracts.ts"
+  },
+  {
+    "from": "models-support/serverProtocolModels.ts",
+    "to": "types/serverContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "app/navigationService.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "services/apiClient.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "services/csvDownloadService.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/apiContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/authenticationContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/filterContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/modelEffectContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "types/userContracts.ts"
+  },
+  {
+    "from": "models-support/userManagementEffects.ts",
+    "to": "utils/siteHelpers.ts"
   },
   {
     "from": "models/adminAuthenticationModel.ts",
@@ -484,32 +396,8 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "models/orderManagementEffects.ts",
-    "to": "services/apiClient.ts"
-  },
-  {
-    "from": "models/orderManagementEffects.ts",
-    "to": "types/apiContracts.ts"
-  },
-  {
-    "from": "models/orderManagementEffects.ts",
-    "to": "types/filterContracts.ts"
-  },
-  {
-    "from": "models/orderManagementEffects.ts",
-    "to": "types/modelEffectContracts.ts"
-  },
-  {
-    "from": "models/orderManagementEffects.ts",
-    "to": "types/orderContracts.ts"
-  },
-  {
-    "from": "models/orderManagementEffects.ts",
-    "to": "types/storeContracts.ts"
-  },
-  {
     "from": "models/orderModel.ts",
-    "to": "models/orderManagementEffects.ts"
+    "to": "models-support/orderManagementEffects.ts"
   },
   {
     "from": "models/orderModel.ts",
@@ -584,6 +472,10 @@
     "to": "types/storeContracts.ts"
   },
   {
+    "from": "models/serverAnyTLSModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
     "from": "models/serverGroupModel.ts",
     "to": "services/apiClient.ts"
   },
@@ -604,6 +496,10 @@
     "to": "types/storeContracts.ts"
   },
   {
+    "from": "models/serverHysteriaModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
     "from": "models/serverManagementModel.ts",
     "to": "services/apiClient.ts"
   },
@@ -624,22 +520,6 @@
     "to": "types/storeContracts.ts"
   },
   {
-    "from": "models/serverProtocolModels.ts",
-    "to": "services/apiClient.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/apiContracts.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/modelEffectContracts.ts"
-  },
-  {
-    "from": "models/serverProtocolModels.ts",
-    "to": "types/serverContracts.ts"
-  },
-  {
     "from": "models/serverRouteModel.ts",
     "to": "services/apiClient.ts"
   },
@@ -658,6 +538,30 @@
   {
     "from": "models/serverRouteModel.ts",
     "to": "types/storeContracts.ts"
+  },
+  {
+    "from": "models/serverShadowsocksModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
+    "from": "models/serverTrojanModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
+    "from": "models/serverTuicModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
+    "from": "models/serverV2nodeModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
+    "from": "models/serverVlessModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
+  },
+  {
+    "from": "models/serverVmessModel.ts",
+    "to": "models-support/serverProtocolModels.ts"
   },
   {
     "from": "models/themeModel.ts",
@@ -704,48 +608,8 @@
     "to": "types/ticketContracts.ts"
   },
   {
-    "from": "models/userManagementEffects.ts",
-    "to": "app/navigationService.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "services/apiClient.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "services/csvDownloadService.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/apiContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/authenticationContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/filterContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/modelEffectContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "types/userContracts.ts"
-  },
-  {
-    "from": "models/userManagementEffects.ts",
-    "to": "utils/siteHelpers.ts"
-  },
-  {
     "from": "models/userModel.ts",
-    "to": "models/userManagementEffects.ts"
+    "to": "models-support/userManagementEffects.ts"
   },
   {
     "from": "models/userModel.ts",
@@ -3020,142 +2884,6 @@
     "to": "types/userContracts.ts"
   },
   {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/config/payment/PaymentConfigPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/config/system/SystemConfigPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/config/theme/ThemeConfigPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/coupon/CouponPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/dashboard/AdminHomeRedirect.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/dashboard/DashboardPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/giftcard/GiftCardPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/knowledge/KnowledgePage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/login/LoginPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/notice/NoticePage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/order/OrderPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/plan/PlanPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/queue/QueuePage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/server/group/ServerGroupPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/server/manage/ServerManagePage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/server/route/ServerRoutePage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/ticket/TicketDetailPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/ticket/TicketPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "pages/user/UserPage.tsx"
-  },
-  {
-    "from": "routes/adminRoutes.ts",
-    "to": "routes/routeConfig.ts"
-  },
-  {
-    "from": "runtime/dvaApplication.tsx",
-    "to": "runtime/routerBindings.tsx"
-  },
-  {
-    "from": "runtime/dvaApplication.tsx",
-    "to": "types/dvaRuntimeContracts.ts"
-  },
-  {
-    "from": "runtime/dvaApplication.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "runtime/loadingPlugin.ts",
-    "to": "types/dvaRuntimeContracts.ts"
-  },
-  {
-    "from": "runtime/loadingPlugin.ts",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "runtime/routeInitialProps.tsx",
-    "to": "routes/routeConfig.ts"
-  },
-  {
-    "from": "runtime/routeInitialProps.tsx",
-    "to": "runtime/routeRuntimeTypes.ts"
-  },
-  {
-    "from": "runtime/routeRenderer.tsx",
-    "to": "routes/routeConfig.ts"
-  },
-  {
-    "from": "runtime/routeRenderer.tsx",
-    "to": "runtime/pluginRuntime.ts"
-  },
-  {
-    "from": "runtime/routeRenderer.tsx",
-    "to": "runtime/routeInitialProps.tsx"
-  },
-  {
-    "from": "runtime/routeRenderer.tsx",
-    "to": "runtime/routeRuntimeTypes.ts"
-  },
-  {
-    "from": "runtime/routeRuntimeTypes.ts",
-    "to": "types/storeContracts.ts"
-  },
-  {
-    "from": "runtime/routerBindings.tsx",
-    "to": "types/routerContracts.ts"
-  },
-  {
-    "from": "runtime/routerBindings.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
     "from": "services/apiClient.ts",
     "to": "config/siteSettings.ts"
   },
@@ -3170,10 +2898,6 @@
   {
     "from": "types/authenticationContracts.ts",
     "to": "types/userContracts.ts"
-  },
-  {
-    "from": "types/dvaRuntimeContracts.ts",
-    "to": "types/storeContracts.ts"
   },
   {
     "from": "types/knowledgeContracts.ts",

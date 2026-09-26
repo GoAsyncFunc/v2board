@@ -35,7 +35,7 @@ async function loadUserModel(pageSizePreference) {
             if (id === '../utils/siteHelpers' || id === '@/utils/siteHelpers') {
                 return { getPreference: () => pageSizePreference };
             }
-            if (id.startsWith('./')) return effects;
+            if (id.startsWith('./') || id.includes('userManagementEffects')) return effects;
             throw new Error(`Unexpected dependency: ${id}`);
         },
     });
@@ -62,7 +62,7 @@ test('user model reads page-size preferences as numbers', async (t) => {
 // request, resetSecret/delUser show success after the code-200 guard.
 async function loadEffects() {
     const source = await fs.readFile(
-        new URL('../src/models/userManagementEffects.ts', import.meta.url),
+        new URL('../src/models-support/userManagementEffects.ts', import.meta.url),
         'utf8',
     );
     const { code } = await transform(source, { format: 'cjs', loader: 'ts' });

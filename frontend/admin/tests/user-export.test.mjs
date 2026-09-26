@@ -8,7 +8,7 @@ const transform = (input, options) => esbuildTransform(expandVendorUiImports(inp
 const code = (
     await transform(
         await fs.readFile(
-            new URL('../src/models/userManagementEffects.ts', import.meta.url),
+            new URL('../src/models-support/userManagementEffects.ts', import.meta.url),
             'utf8',
         ),
         { format: 'cjs', loader: 'ts' },

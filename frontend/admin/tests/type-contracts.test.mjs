@@ -10,6 +10,8 @@ const sourceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.
 async function sourceFiles(directory) {
     const files = [];
     for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+        // skip umi's generated temp directory
+        if (entry.isDirectory() && entry.name.startsWith('.umi')) continue;
         const absolutePath = path.join(directory, entry.name);
         if (entry.isDirectory()) files.push(...(await sourceFiles(absolutePath)));
         else if (/\.tsx?$/.test(entry.name)) files.push(absolutePath);
@@ -156,7 +158,7 @@ test('admin promotion models use explicit numeric and optional CSV buffer contra
 
 test('admin user exports declare the successful CSV buffer contract', async () => {
     const source = await fs.readFile(
-        path.join(sourceRoot, 'models', 'userManagementEffects.ts'),
+        path.join(sourceRoot, 'models-support', 'userManagementEffects.ts'),
         'utf8',
     );
 
@@ -210,16 +212,16 @@ test('admin display and plan fields use declared value contracts', async () => {
     );
 });
 
-test('admin and user loading plugins normalize dynamic action keys explicitly', async () => {
-    for (const project of ['admin', 'user']) {
-        const source = await fs.readFile(
-            path.resolve(sourceRoot, '..', '..', project, 'src', 'runtime', 'loadingPlugin.ts'),
-            'utf8',
-        );
-        assert.match(source, /const modelNamespace = String\(payload\.namespace\)/);
-        assert.match(source, /const actionType = String\(payload\.actionType\)/);
-        assert.doesNotMatch(source, /payload\.(?:namespace|actionType) as string/);
-    }
+test('user loading plugin normalizes dynamic action keys explicitly', async () => {
+    // The admin project no longer ships a hand-rolled loading plugin: umi 3's
+    // dva integration owns dva-loading. The user project still has its own.
+    const source = await fs.readFile(
+        path.resolve(sourceRoot, '..', '..', 'user', 'src', 'runtime', 'loadingPlugin.ts'),
+        'utf8',
+    );
+    assert.match(source, /const modelNamespace = String\(payload\.namespace\)/);
+    assert.match(source, /const actionType = String\(payload\.actionType\)/);
+    assert.doesNotMatch(source, /payload\.(?:namespace|actionType) as string/);
 });
 
 test('admin filter controls use explicit field lookup and option values', async () => {

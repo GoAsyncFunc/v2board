@@ -2,7 +2,10 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
 import ConfigRow from './ConfigRow';
-import type { ConfigGroupChangeHandler, TelegramConfig } from '@/types/systemConfigurationContracts';
+import type {
+    ConfigGroupChangeHandler,
+    TelegramConfig,
+} from '@/types/systemConfigurationContracts';
 
 interface TelegramConfigTabProps {
     telegram: TelegramConfig;

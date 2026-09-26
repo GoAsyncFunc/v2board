@@ -93,7 +93,9 @@ export default function EmailConfigTab({
                     <select
                         className="form-control"
                         value={email.email_template}
-                        onChange={(event) => onChange('email', 'email_template', event.target.value)}
+                        onChange={(event) =>
+                            onChange('email', 'email_template', event.target.value)
+                        }
                     >
                         {templates.map((template) => (
                             <option key={template} value={template}>

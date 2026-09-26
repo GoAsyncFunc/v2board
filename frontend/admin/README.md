@@ -1,10 +1,10 @@
 # V2Board Admin
 
-V2Board 管理端 React 源码工程。本目录可独立安装、开发、测试、构建和部署，不读取 `frontend/user` 的源码、依赖或工具。
+V2Board 管理端 React 源码工程，基于 **umi 3**（`umi ^3.3.11` + `@umijs/preset-react`）运行时。本目录可独立安装、开发、测试、构建和部署，不读取 `frontend/user` 的源码、依赖或工具。
 
 ## 环境要求
 
-- Node.js 18 或更高版本
+- Node.js 18 或更高版本；由于 umi 3 使用 webpack 4，Node 17+ 需要在构建/开发命令中启用 `NODE_OPTIONS=--openssl-legacy-provider`（package.json 的 `dev`/`build` 脚本已内置；本机 Node 26 已验证可用）
 - npm 9 或更高版本
 - 本地开发联调时可访问的 V2Board 后端
 - 部署时可通过 SSH 登录测试服务器
@@ -26,7 +26,7 @@ npm ci
 API_PROXY=http://127.0.0.1:7003 npm run dev
 ```
 
-默认地址为 `http://127.0.0.1:3201`。开发服务器只监听本机，并将 `/api/` 请求代理到 `API_PROXY`。
+umi dev 默认地址为 `http://127.0.0.1:3201`（`PORT` 内置于脚本），并将 `/api/` 请求代理到 `API_PROXY`（也可在 `config/config.ts` 的 `proxy` 中配置）。`predev` 会先把 `src/styles/` 的静态样式复制到 `public/assets/admin/`（该目录已 gitignore）。
 
 ## 构建
 
@@ -34,11 +34,11 @@ API_PROXY=http://127.0.0.1:7003 npm run dev
 npm run build
 ```
 
-输出位于 `dist/`：
+执行 `umi build`（hash:false，产物文件名固定）并运行 `scripts/postbuild.mjs`。输出位于 `dist/`：
 
-- `app.js`：浏览器入口
-- `app.js.map`：source map
-- `source-build.json`：本次构建输入清单
+- `umi.js`：浏览器入口（umi 打包）
+- `index.html`：由 `src/pages/document.ejs` 生成的入口页
+- `source-build.json`：本次构建输入清单与 uiVersion
 - 从锁定版本 `antd` 依赖发布的 `assets/admin/antd.css`
 - 从源码 vendor 样式发布的 Bootstrap 兼容基础层、Font Awesome、Simple Line Icons、动画库、SimpleBar 核心样式和日期/编辑器/表格等插件适配样式
 - 从 `src/styles/` 发布的全局和主题样式
@@ -52,7 +52,7 @@ npm run build
 - `assets/admin/framework/scrollbars.css`：Admin 框架滚动条外观覆盖
 - `assets/admin/framework/rtl.css`：从右到左布局和导航方向适配
 
-构建器会拒绝读取本项目目录之外的输入。源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，第三方 Ant Design 样式发布到 `assets/admin/antd.css`。通用第三方库和插件适配样式按职责发布到 `assets/admin/vendor/`，Markdown 编辑器样式由其固定 npm 依赖单独提供。旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变，不会被新源码构建引用。
+静态样式由 `scripts/copy-static-assets.mjs`（predev/prebuild 自动执行）发布到 `public/assets/admin/`：源码样式发布到 `assets/admin/umi.css` 和 `assets/admin/theme/`，第三方 Ant Design 样式发布到 `assets/admin/antd.css`，通用第三方库和插件适配样式按职责发布到 `assets/admin/vendor/`，Markdown 编辑器样式由其固定 npm 依赖单独生成并补齐浏览器前缀。umi 构建会把 `public/` 原样复制进 `dist/`。旧版回退所用 `public/assets/admin/components.chunk.css` 保持不变，不会被新源码构建引用。
 
 ## 格式化
 
@@ -73,7 +73,7 @@ import type { PlanState } from '@/types/planContracts';
 import PlanEditor from './components/PlanEditor';
 ```
 
-`@/` 指向 `src/`，由三处配置共同保证：`tsconfig.json` 的 `paths`（类型检查）、`scripts/build.mjs` 的 esbuild `alias`（打包）、`scripts/generate-dependency-map.mjs` 的 `compilerOptions.paths`（依赖图解析）。修改别名时三处必须同步。
+`@/` 指向 `src/`，由配置共同保证：`config/config.ts` 的 `alias`（umi 打包）、`tsconfig.json` 的 `paths` 与 `@@/*`（类型检查）、`scripts/generate-dependency-map.mjs` 的 `compilerOptions.paths`（依赖图解析）。修改别名时必须同步。
 
 约定由 `npm run check:imports` 强制，发现 `../` 时以非零码退出，可用 `node scripts/check-import-paths.mjs --fix` 自动改写。之所以需要这条规则：源码是从编译产物恢复的，原始 bundle 由 Webpack 打包，模块引用在打包阶段已被替换成数字模块 ID，恢复时只能按文件位置重建引用，因而遗留了大量 `../../..` 形式的上级相对引用。这类写法无法从 import 语句判断模块归属，移动文件还会连带修改所有引用方。
 
@@ -88,7 +88,7 @@ npm run build
 npm run check:visual
 ```
 
-当前管理端回归测试为 1165 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 777 项测试，两个项目合计 1942 项；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
+当前管理端回归测试为 1366 项，包含从历史编译实现提取的行为对照和源码结构检查。测试、fixture 和检查工具均在本目录内。User 项目当前独立维护 777 项测试；两边必须分别执行，不能把其中一边的测试并入另一边。`scripts/check-admin-*.mjs` 用于局部视觉或行为对照；部分脚本需要本机 Chrome。
 
 测试数量以实际执行为准，可用以下命令复现（循环生成的用例会被计入）：
 
@@ -101,17 +101,18 @@ node --test --test-reporter=spec tests/*.test.mjs | grep -E '^ℹ (tests|pass|fa
 ## 目录结构
 
 ```text
+config/          umi 3 配置（config.ts：路由、history、dva、alias、proxy）
 public/          独立静态资源和 settings.js
 public/assets/   第三方组件样式及按字体家族整理的字体资源
 scripts/         构建、开发、对照检查、部署和线上验证工具
-src/app/         启动和状态容器
+src/app.ts       umi 运行时配置（dva onError、主题样式、暗色模式、moment 语言）
+src/app/         history/navigationService 兼容 shim 与请求表现层接线
 src/components/  跨页面复用的管理端组件
 src/config/      导航等界面配置
 src/layouts/     管理端布局
-src/models/      管理端状态模型
-src/pages/       按业务域组织的管理端页面
-src/routes/      管理端路由表和路由类型
-src/runtime/     DVA、插件和路由运行时
+src/models/      管理端状态模型（umi dva 插件按默认导出自动注册）
+src/models-support/ 模型共享 effects 与协议模型工厂（非 dva 模型文件）
+src/pages/       按业务域组织的管理端页面（含 document.ejs 入口模板）
 src/services/    API 请求与下载服务
 src/styles/      Admin 自有全局样式、第三方 vendor 样式、主题样式和样式常量
 src/types/       API、状态和业务实体类型
@@ -131,8 +132,9 @@ dist/            本地构建产物，不提交 Git
 | 布局 | `src/layouts/` |
 | 页面 | `src/pages/` |
 | 服务 / API | `src/services/apiClient.ts`、`src/services/csvDownloadService.ts` |
-| 模型 / 状态 | `src/models/` 与 `src/app/applicationStore.tsx` |
-| 路由 | `src/routes/` |
+| 模型 / 状态 | `src/models/`（umi dva 自动注册）与 `src/models-support/`（共享 effects） |
+| 路由 | `config/config.ts` 的 `routes` |
+| 运行时 | `src/app.ts`（dva 配置）、umi 内建（插件、loading、connected-router） |
 | 配置 | `src/config/`（导航、站点与后台设置） |
 | 工具 | `src/utils/` |
 | 类型 | `src/types/` |
@@ -158,7 +160,7 @@ dist/            本地构建产物，不提交 Git
 npm run deploy:local
 ```
 
-脚本按以下顺序执行：备份当前 `dist/`（构建会先清空该目录，因此备份必须先于构建）→ 构建 → 快照到 `.releases/<时间戳>/` → 写入 `deployment.json` → 生成可执行的回滚脚本 → 检查 `/admin` 页面和 `/admin-build/app.js` → 按 `KEEP_RELEASES` 清理旧版本。它不会修改任何 Blade 模板，也不会改动 `scripts/deploy-test.sh`。
+脚本按以下顺序执行：备份当前 `dist/`（构建会先清空该目录，因此备份必须先于构建）→ 构建 → 快照到 `.releases/<时间戳>/` → 写入 `deployment.json` → 生成可执行的回滚脚本 → 检查 `/admin` 页面和 `/admin-build/umi.js` → 按 `KEEP_RELEASES` 清理旧版本。它不会修改任何 Blade 模板，也不会改动 `scripts/deploy-test.sh`。
 
 可选变量：
 

@@ -16,7 +16,7 @@ application=admin
 site_url=${DEPLOY_SITE_URL:-http://127.0.0.1:7003}
 build_prefix=${DEPLOY_BUILD_PREFIX:-/admin-build}
 health_path=${DEPLOY_HEALTH_PATH:-/admin}
-entry_path=$build_prefix/app.js
+entry_path=$build_prefix/umi.js
 releases_root=$app_root/.releases
 keep=${KEEP_RELEASES:-5}
 stamp=$(date -u +%Y%m%d-%H%M%S)-$$
@@ -65,7 +65,7 @@ if [ -d "$releases_root" ]; then
 fi
 
 mkdir -p "$backup"
-if [ -f "$app_root/dist/app.js" ]; then
+if [ -f "$app_root/dist/umi.js" ]; then
     tar -czf "$backup/previous-dist.tar.gz" -C "$app_root" dist
 fi
 
@@ -75,7 +75,7 @@ npm run build
 mkdir -p "$release"
 cp -R "$app_root/dist/." "$release/"
 
-app_sha256=$(sha256_of "$release/app.js")
+app_sha256=$(sha256_of "$release/umi.js")
 ui_version=$(node -e 'process.stdout.write(JSON.parse(require("fs").readFileSync(process.argv[1], "utf8")).uiVersion)' "$release/source-build.json")
 deployed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 

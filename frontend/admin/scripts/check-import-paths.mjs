@@ -55,6 +55,8 @@ async function collectSourceFiles(directory) {
     const entries = await fs.readdir(directory, { withFileTypes: true });
     const files = [];
     for (const entry of entries) {
+        // umi's generated temp directory is not authored source
+        if (entry.isDirectory() && entry.name.startsWith('.umi')) continue;
         const entryPath = path.join(directory, entry.name);
         if (entry.isDirectory()) files.push(...(await collectSourceFiles(entryPath)));
         else if (/\.tsx?$/.test(entry.name)) files.push(entryPath);

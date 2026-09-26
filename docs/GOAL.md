@@ -103,7 +103,7 @@ L2 覆盖的 49 个模块集中在风险最高处：金额与日期格式化（`
 
 - **不升级 React 16 / antd 3 / dva-core / redux-saga**。版本冻结是为与产物行为对齐；升级会改变行为，属独立立项。
 - **不照抄 `v2board-admin1` / `v2board-user` 的结构**。版本不同，照抄会引入产物中不存在的 i18n 与 403/404 页面。
-- **不把现有工程改造成 UmiJS 形态**。那是重写而非恢复，会推翻已验证的 1942 项测试与字节对齐的构建，且 UmiJS 3 已停止维护，长期可维护性下降。
+- ~~**不把现有工程改造成 UmiJS 形态**~~ **（2026-09-26 经用户决策撤销）**：admin 已迁移到 umi 3 运行时（umi ^3.3.11 + @umijs/preset-react，hash 路由、dva 插件自动注册 `src/models`），删除手写的 umi 模拟运行时（`src/runtime/`、`src/app/bootstrap|applicationStore|dvaConfig|Router|rootRuntime|historyFactory`）。迁移是**运行时替换而非重写**：`src/pages|components|layouts|services|utils|config` 全部原样保留，React 16 / antd 3 / dva-core / redux-saga 版本冻结不变，1366 项测试（含全部模型与页面差分证据）改路径后全绿，umi 构建 + 本地部署 + 22 项视觉基准检查通过。业务代码与产物的差分证据依然成立。
 
 ## 过程
 

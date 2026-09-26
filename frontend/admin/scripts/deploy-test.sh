@@ -58,7 +58,7 @@ mkdir -p "$backup" "$release"
 tar -czf "$backup/template.tar.gz" -C "$site" "$template"
 tar -xzf "$artifact" -C "$stage"
 cp -R "$stage/dist/." "$release/"
-app_sha256=$(sha256sum "$release/app.js" | cut -d' ' -f1)
+app_sha256=$(sha256sum "$release/umi.js" | cut -d' ' -f1)
 ui_version=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["uiVersion"])' "$release/source-build.json")
 deployed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 cat > "$release/deployment.json" <<EOF
@@ -127,7 +127,7 @@ for resource in \
   assets/admin/framework/rtl.css \
   assets/admin/umi.css \
   settings.js \
-  app.js; do
+  umi.js; do
   asset_url=$site_url/assets/restored-$stamp/admin/$resource
   if ! grep -Fq "/assets/restored-$stamp/admin/$resource" <<<"$page"; then
     rollback_release "admin HTML does not reference $resource"

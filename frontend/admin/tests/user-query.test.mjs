@@ -26,7 +26,7 @@ async function run(original, scenario) {
     api.a = api.get;
     const file = original
         ? path.join(home, 'tests/fixtures/models/admin-user-query.cjs')
-        : path.join(home, 'src/models/userManagementEffects.ts');
+        : path.join(home, 'src/models-support/userManagementEffects.ts');
     const source = await fs.readFile(file, 'utf8');
     const code = original
         ? source

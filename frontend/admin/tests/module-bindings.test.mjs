@@ -55,6 +55,8 @@ const GLOBALS = new Set([
 
 async function sourceFiles(dir, out = []) {
     for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+        // skip umi's generated temp directory
+        if (entry.isDirectory() && entry.name.startsWith('.umi')) continue;
         const full = path.join(dir, entry.name);
         if (entry.isDirectory()) {
             if (entry.name === 'vendor' || entry.name === 'node_modules') continue;

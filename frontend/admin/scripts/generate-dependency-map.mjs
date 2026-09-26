@@ -1,49 +1,27 @@
+// Computes the reachable source graph of the admin umi project.
+//
+// umi 3 owns the build, so instead of bundling with esbuild we walk the graph
+// ourselves: the entry set is src/app.ts (runtime config), every route
+// component referenced by config/config.ts and every src/models file (umi's
+// dva plugin registers each of them). Every business source file must be
+// reachable from that entry set.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { build } from 'esbuild';
 import * as ts from 'typescript';
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
-const result = await build({
-    absWorkingDir: appRoot,
-    entryPoints: ['src/main.ts'],
-    bundle: true,
-    write: false,
-    metafile: true,
-    loader: { '.js': 'jsx' },
-    format: 'iife',
-    platform: 'browser',
-    target: 'es2018',
-    jsxFactory: 'React.createElement',
-    jsxFragment: 'React.Fragment',
-    define: { 'process.env.NODE_ENV': '"production"' },
-    logLevel: 'silent',
-});
-
-const escapedInputs = Object.keys(result.metafile.inputs).filter(
-    (input) => path.isAbsolute(input) || input.startsWith('../'),
-);
-if (escapedInputs.length)
-    throw new Error(
-        `Dependency map used files outside admin: ${escapedInputs.slice(0, 5).join(', ')}`,
-    );
 
 const compilerOptions = {
     allowJs: false,
     baseUrl: appRoot,
-    paths: { '@/*': ['src/*'] },
-    jsx: ts.JsxEmit.ReactJSX,
+    paths: { '@/*': ['src/*'], '@@/*': ['src/.umi/*'] },
+    jsx: ts.JsxEmit.React,
     module: ts.ModuleKind.ESNext,
     moduleResolution: ts.ModuleResolutionKind.NodeJs,
     target: ts.ScriptTarget.ES2018,
 };
-const edges = new Map();
-const reachableInputs = new Set(
-    Object.keys(result.metafile.inputs).filter((input) => input.startsWith('src/')),
-);
-const pendingInputs = [...reachableInputs];
 
 function resolveSourceImport(fromPath, specifier) {
     const resolved = ts.resolveModuleName(
@@ -62,6 +40,36 @@ function resolveSourceImport(fromPath, specifier) {
     return relativePath;
 }
 
+async function routeEntrySources() {
+    const configSource = await fs.readFile(path.join(appRoot, 'config/config.ts'), 'utf8');
+    const entries = [];
+    for (const match of configSource.matchAll(/component:\s*'@\/([^']+)'/g)) {
+        const resolved = resolveSourceImport('config/config.ts', `@/${match[1]}`);
+        if (!resolved) throw new Error(`Route component could not be resolved: ${match[1]}`);
+        entries.push(resolved);
+    }
+    if (entries.length < 19) {
+        throw new Error(`Expected 19 route components, found ${entries.length}`);
+    }
+    return entries;
+}
+
+async function modelEntrySources() {
+    const modelDirectory = path.join(appRoot, 'src/models');
+    const entries = (await fs.readdir(modelDirectory))
+        .filter((name) => /\.tsx?$/.test(name))
+        .map((name) => `src/models/${name}`);
+    if (!entries.length) throw new Error('No models found for the entry set');
+    return entries;
+}
+
+const reachableInputs = new Set(['src/app.ts']);
+for (const entry of [...(await routeEntrySources()), ...(await modelEntrySources())]) {
+    reachableInputs.add(entry);
+}
+const pendingInputs = [...reachableInputs];
+
+const edges = new Map();
 while (pendingInputs.length) {
     const inputPath = pendingInputs.pop();
     const source = await fs.readFile(path.join(appRoot, inputPath), 'utf8');
@@ -76,12 +84,14 @@ while (pendingInputs.length) {
         }
     }
 }
+
 const sourceFiles = ts.sys
     .readDirectory(path.join(appRoot, 'src'), ['.ts', '.tsx', '.d.ts'])
     .map((filePath) => path.relative(appRoot, filePath).split(path.sep).join('/'));
 const unreachableBusinessSources = sourceFiles.filter(
     (sourcePath) =>
         sourcePath.startsWith('src/') &&
+        !sourcePath.includes('/.umi') &&
         !sourcePath.endsWith('.d.ts') &&
         !reachableInputs.has(sourcePath),
 );

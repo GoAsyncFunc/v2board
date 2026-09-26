@@ -24,7 +24,7 @@ async function run(original, scenario) {
     const file = new URL(
         original
             ? './fixtures/models/admin-order-query.cjs'
-            : '../src/models/orderManagementEffects.ts',
+            : '../src/models-support/orderManagementEffects.ts',
         import.meta.url,
     );
     const text = await fs.readFile(file, 'utf8');

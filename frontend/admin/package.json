@@ -7,14 +7,17 @@
     "ie 10"
   ],
   "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "build": "node scripts/build.mjs",
+    "predev": "node scripts/copy-static-assets.mjs",
+    "dev": "PORT=3201 NODE_OPTIONS=--openssl-legacy-provider umi dev",
+    "prebuild": "node scripts/copy-static-assets.mjs",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider umi build && node scripts/postbuild.mjs",
+    "postinstall": "umi g tmp",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
     "check:imports": "node scripts/check-import-paths.mjs",
-    "lint": "eslint src scripts",
-    "check:format": "prettier --check \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
+    "lint": "eslint src scripts config",
+    "check:format": "prettier --check \"src/**/*.{ts,tsx,css}\" \"config/**/*.ts\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
     "check:types": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"config/**/*.ts\" \"public/assets/admin/**/*.css\" \"scripts/**/*.mjs\"",
     "test": "node --test tests/*.test.mjs",
     "check:visual": "node scripts/check-visual.mjs",
     "check:deployed": "node scripts/check-deployed.mjs",
@@ -58,6 +61,7 @@
     "@types/react-redux": "7.1.34",
     "@types/react-router-dom": "5.3.3",
     "@types/react-router-redux": "5.0.27",
+    "@umijs/preset-react": "^1.8.32",
     "autoprefixer": "10.6.1",
     "esbuild": "0.25.9",
     "eslint": "^9.39.5",
@@ -68,6 +72,7 @@
     "postcss": "8.5.28",
     "prettier": "3.9.8",
     "typescript": "5.9.2",
-    "typescript-eslint": "^8.70.1"
+    "typescript-eslint": "^8.70.1",
+    "umi": "^3.5.43"
   }
 }

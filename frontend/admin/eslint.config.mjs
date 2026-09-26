@@ -8,7 +8,13 @@ import prettier from 'eslint-config-prettier';
 
 export default tseslint.config(
     {
-        ignores: ['dist/**', 'public/**', 'node_modules/**'],
+        ignores: [
+            'dist/**',
+            'public/**',
+            'node_modules/**',
+            'src/.umi/**',
+            'src/.umi-production/**',
+        ],
     },
     js.configs.recommended,
     ...tseslint.configs.recommended,
