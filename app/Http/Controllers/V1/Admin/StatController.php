@@ -156,7 +156,6 @@ class StatController extends Controller
             $result[] = ['type' => '佣金金额(已发放)', 'date' => $date, 'value' => $commissionTotal / 100];
             $result[] = ['type' => '佣金笔数(已发放)', 'date' => $date, 'value' => $commissionCount];
         }
-        $result = array_reverse($result);
         return [
             'data' => $result
         ];
