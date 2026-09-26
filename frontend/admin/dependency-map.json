@@ -877,10 +877,6 @@
   },
   {
     "from": "pages/config/system/components/InviteCommissionDistribution.tsx",
-    "to": "pages/config/system/components/ConfigRow.tsx"
-  },
-  {
-    "from": "pages/config/system/components/InviteCommissionDistribution.tsx",
     "to": "types/systemConfigurationContracts.ts"
   },
   {
@@ -1226,10 +1222,6 @@
   {
     "from": "pages/dashboard/chartOptions.ts",
     "to": "types/monitoringContracts.ts"
-  },
-  {
-    "from": "pages/dashboard/components/DashboardAlerts.tsx",
-    "to": "app/navigationService.ts"
   },
   {
     "from": "pages/dashboard/components/DashboardAlerts.tsx",
@@ -1772,10 +1764,6 @@
     "to": "types/planContracts.ts"
   },
   {
-    "from": "pages/plan/components/PlanListColumns.tsx",
-    "to": "types/storeContracts.ts"
-  },
-  {
     "from": "pages/plan/components/PlanResourceColumns.tsx",
     "to": "types/planContracts.ts"
   },
@@ -1838,10 +1826,6 @@
   {
     "from": "pages/server/group/ServerGroupPage.tsx",
     "to": "layouts/MainLayout/MainLayout.tsx"
-  },
-  {
-    "from": "pages/server/group/ServerGroupPage.tsx",
-    "to": "pages/server/group/components/ServerGroupColumns.tsx"
   },
   {
     "from": "pages/server/group/ServerGroupPage.tsx",

@@ -78,12 +78,12 @@ assert.deepEqual(results[1], results[0]);
 | 判据 | admin 现状 | 目标 |
 |---|---|---|
 | 差分对照覆盖（L2，代码模块） | **49 / 257 = 19.1%**（L2a 24 个 + L2b 25 个） | 关键业务模块全覆盖 |
-| 有任意测试的代码模块（L1 以上） | 210 / 257 = 81.7% | 100% |
-| 完全无测试的代码模块 | **47 个**（`src/pages` 45、`src/components` 2） | **0 个** |
+| 有任意测试的代码模块（L1 以上） | **257 / 257 = 100%** | 100% |
+| 完全无测试的代码模块 | **0 个** | **0 个** |
 
-**勘误（2026-09-26）**：本节早先声称「75 个无测试模块（含 17 个 model）」——那是初期静态盘点脚本的误报：它没有处理测试代码中模板字符串拼接的模块路径（如 `src/models/${name}Model.ts`），实际上全部 21 个 model 都有测试，且大量页面经页面级测试间接覆盖。以直接加载为准重新盘点后，无测试模块为上表 47 个，全部是页面子组件与 2 个公共组件（`FilterCondition`、`NullableSelectOption`）。
+**2026-09-26 进展**：无测试模块已清零。本轮按页面分组为 47 个此前无测试的模块补齐了行为测试（coupon 5、giftcard 5、config/system 6、payment 4、dashboard 3、knowledge 2、notice 2、queue 2、ticket 1、user 6、server manage/route 12、components 1），并以「补测前后构建 SHA256 完全一致（a4f12990…）」证明全部补测为行为中性。ESLint（typescript-eslint + react + prettier，0 告警）与 GitHub Actions CI（两工程独立流水线：lint/typecheck/format/依赖图/import 门禁/test/build）已建立，react-intl 死依赖已移除。
 
-**注意**：81.7% 的 L1 覆盖率**不等于** 81.7% 的保真度——真正能证明与产物一致的只有 19.1%。这是当前最大的未知。
+**注意**：L1 已达标，但真正能证明与产物一致的 L2 差分只有 19.1%。这是当前最大的未知。
 
 L2 覆盖的 49 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn`、`OrderListColumns` 等）、有副作用的模型（全部 21 个 model 均有 L1 测试，其中 `orderManagementEffects`、`planModel`、`userModel`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel` 达到 L2）、order 页（`OrderFilterDrawer`、`OrderDetailModal`、`OrderListColumns`、`OrderPage` 生命周期）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局、plan 编辑器的全部字段分支（`PlanBasicFields`、`PlanResourceFields`、`PlanAccessFields`、`PlanLimitFields`、`PlanEditorActions`）。
 
