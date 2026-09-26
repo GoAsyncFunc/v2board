@@ -97,9 +97,10 @@ const SERVER_EDITOR_BY_TYPE = new Map(
     SERVER_EDITOR_DEFINITIONS.map((definition) => [definition.type, definition]),
 );
 
-export const SERVER_TYPE_FILTERS = SERVER_EDITOR_DEFINITIONS.map(({ type, filterLabel }) => ({
+// The bundle maps both text and value to the filter label; onFilter lowercases.
+export const SERVER_TYPE_FILTERS = SERVER_EDITOR_DEFINITIONS.map(({ filterLabel }) => ({
     text: filterLabel,
-    value: type,
+    value: filterLabel,
 }));
 
 export function serverModelNamespace(

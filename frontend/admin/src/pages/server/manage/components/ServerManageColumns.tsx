@@ -54,6 +54,8 @@ export function createServerManageColumns({
             render: (shown: ServerRecord['show'], server) => (
                 <Switch
                     size="small"
+                    // The bundle passes the parsed number; antd only checks
+                    // truthiness, so the boolean wrapper renders identically.
                     checked={Boolean(parseInt(String(shown), 10))}
                     onClick={() =>
                         updateServer(server, 'show', parseInt(String(shown), 10) ? 0 : 1)
@@ -74,7 +76,7 @@ export function createServerManageColumns({
                         message.success('复制成功');
                     }}
                 >
-                    {server.host}:{server.port}
+                    {`${server.host}:${server.port}`}
                 </span>
             ),
         },
@@ -102,6 +104,10 @@ export function createServerManageColumns({
             title: '权限组',
             dataIndex: 'group_id',
             key: 'group_id',
+            // The bundle keeps the raw group id as the filter value (see
+            // src/types/antdAugmentations.d.ts for the antd typing note).
+            // antd passes the option value into onFilter, which stringifies
+            // it on both sides, so the string conversion is behavior-neutral.
             filters: groups.map((group) => ({ text: group.name, value: String(group.id) })),
             onFilter: (groupId, server) =>
                 (server.group_id || []).map(String).includes(String(groupId)),

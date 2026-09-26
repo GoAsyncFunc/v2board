@@ -77,14 +77,14 @@ function findNodes(tree, type) {
 test('server editor registry maps all eight protocol editors', async () => {
     const registry = await load('../src/pages/server/manage/editors/ServerEditorRegistry.tsx');
     assert.deepEqual(plain(registry.SERVER_TYPE_FILTERS), [
-        { text: 'V2node', value: 'v2node' },
-        { text: 'Shadowsocks', value: 'shadowsocks' },
-        { text: 'Vmess', value: 'vmess' },
-        { text: 'Trojan', value: 'trojan' },
-        { text: 'Hysteria', value: 'hysteria' },
-        { text: 'Tuic', value: 'tuic' },
-        { text: 'Vless', value: 'vless' },
-        { text: 'AnyTLS', value: 'anytls' },
+        { text: 'V2node', value: 'V2node' },
+        { text: 'Shadowsocks', value: 'Shadowsocks' },
+        { text: 'Vmess', value: 'Vmess' },
+        { text: 'Trojan', value: 'Trojan' },
+        { text: 'Hysteria', value: 'Hysteria' },
+        { text: 'Tuic', value: 'Tuic' },
+        { text: 'Vless', value: 'Vless' },
+        { text: 'AnyTLS', value: 'AnyTLS' },
     ]);
 });
 
