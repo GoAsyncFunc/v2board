@@ -51,8 +51,12 @@ export class OrderDetailModal extends React.Component<
         visible: false,
     };
 
+    toggleVisible(): void {
+        this.setState(({ visible }) => ({ visible: !visible }));
+    }
+
     async getOrderInfo(): Promise<void> {
-        this.setState({ visible: true });
+        this.toggleVisible();
         const orderResponse = await post<OrderDetailRecord>(
             `/${window.settings.secure_path}/order/detail`,
             { id: this.props.orderId },
@@ -63,16 +67,17 @@ export class OrderDetailModal extends React.Component<
             { id: orderResponse.data.user_id },
         );
         if (!isSuccessfulResponse(userResponse)) return;
-        let inviteUser = { email: '' };
+        // The original never resets invite_user, so a previously loaded invite
+        // user stays visible for orders without one.
         if (orderResponse.data.invite_user_id) {
             const inviteResponse = await get<OrderDetailUser>(
                 `/${window.settings.secure_path}/user/getUserInfoById`,
                 { id: orderResponse.data.invite_user_id },
             );
             if (!isSuccessfulResponse(inviteResponse)) return;
-            inviteUser = inviteResponse.data;
+            this.setState({ inviteUser: inviteResponse.data });
         }
-        this.setState({ order: orderResponse.data, user: userResponse.data, inviteUser });
+        this.setState({ order: orderResponse.data, user: userResponse.data });
     }
 
     jumpUserFilter(key: string, condition: string, value: string): void {
@@ -87,7 +92,7 @@ export class OrderDetailModal extends React.Component<
                 <Modal
                     visible={this.state.visible}
                     title="订单信息"
-                    onCancel={() => this.setState({ visible: false })}
+                    onCancel={() => this.toggleVisible()}
                     footer={false}
                 >
                     <OrderDetailBody
