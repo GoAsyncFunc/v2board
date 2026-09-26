@@ -77,15 +77,15 @@ assert.deepEqual(results[1], results[0]);
 
 | 判据 | admin 现状 | 目标 |
 |---|---|---|
-| 差分对照覆盖（L2，代码模块） | **48 / 258 = 18.6%**（L2a 24 个 + L2b 24 个） | 关键业务模块全覆盖 |
-| 有任意测试的代码模块（L1 以上） | 190 / 258 = 73.6% | 100% |
-| 完全无测试的代码模块 | **68 个** | **0 个** |
+| 差分对照覆盖（L2，代码模块） | **49 / 258 = 19.0%**（L2a 24 个 + L2b 25 个） | 关键业务模块全覆盖 |
+| 有任意测试的代码模块（L1 以上） | 189 / 258 = 73.3% | 100% |
+| 完全无测试的代码模块 | **69 个** | **0 个** |
 
-无测试模块分布：`src/pages` 45、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
+无测试模块分布：`src/pages` 44、`src/models` 17、`src/layouts` 3、`src/components` 2、`src/config` 1。
 
-**注意**：73.6% 的 L1 覆盖率**不等于** 73.6% 的保真度——真正能证明与产物一致的只有 18.6%。这是当前最大的未知。
+**注意**：73.3% 的 L1 覆盖率**不等于** 73.3% 的保真度——真正能证明与产物一致的只有 19.0%。这是当前最大的未知。
 
-L2 覆盖的 48 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel`）、order 页（`OrderFilterDrawer`、`OrderDetailModal`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局、plan 编辑器的全部字段分支（`PlanBasicFields`、`PlanResourceFields`、`PlanAccessFields`、`PlanLimitFields`、`PlanEditorActions`）。
+L2 覆盖的 49 个模块集中在风险最高处：金额与日期格式化（`MoneyDisplay.ts`、`dateTimeFormatter.ts`、`PriceFields.tsx`）、全部展示列（`CouponColumns`、`OrderColumns`、`GiftCardColumns`、`UserDisplayColumns`、`ServerRateColumn`、`OrderListColumns` 等）、有副作用的模型（`orderManagementEffects`、`planModel`、`userManagementEffects`、`adminAuthenticationModel`、`adminPassportModel`、`layoutModel`）、order 页（`OrderFilterDrawer`、`OrderDetailModal`、`OrderPage`）、以及 `DashboardPage`、`KnowledgePage`、`TicketList`、`JsonEditor`、`MainLayout`/`SidebarLayout`/`HeaderLayout` 三个布局、plan 编辑器的全部字段分支（`PlanBasicFields`、`PlanResourceFields`、`PlanAccessFields`、`PlanLimitFields`、`PlanEditorActions`）。
 
 差分对照不是摆设：对齐 plan 编辑器时，它揪出了三处恢复偏差并已修正——最大容纳用户量/限速两个字段在原产物中位于权限组选择**之后**且在包裹 div **之外**；「添加权限组」链接的 href 原产物是 `javascript:(0);`；字段标签使用旧式 `for` 属性（React 的 htmlFor 映射之前的写法），且「流量重置方式」标签在原产物中混用了 `htmlFor`。对齐 order 详情弹窗时又修正了两处：原产物的弹窗可见性是 **toggle**（`onShow`），而非置 true；订单无邀请人时原产物**不会重置**上一次的邀请人数据。
 

@@ -37,17 +37,19 @@ export function renderOrderStatus(
         </Menu>
     );
     return (
-        <Dropdown disabled={status !== 0} trigger={['click']} overlay={menu}>
-            <div>
-                <Badge status={ORDER_BADGE_STATUS[status]} />
-                <span>{settings.orderStatusText[status]} </span>
-                {status === 0 && (
-                    <a href="javascript:void(0);">
-                        标记为 <Icon type="caret-down" />
-                    </a>
-                )}
-            </div>
-        </Dropdown>
+        <div>
+            <Dropdown disabled={status !== 0} trigger={['click']} overlay={menu}>
+                <div>
+                    <Badge status={ORDER_BADGE_STATUS[status]} />
+                    <span>{settings.orderStatusText[status]} </span>
+                    {status === 0 && (
+                        <a href="javascript:void(0);">
+                            标记为 <Icon type="caret-down" />
+                        </a>
+                    )}
+                </div>
+            </Dropdown>
+        </div>
     );
 }
 
@@ -89,15 +91,17 @@ export function renderCommissionStatus(
         </Menu>
     );
     return (
-        <Dropdown trigger={['click']} overlay={menu}>
-            <div>
-                <Badge status={COMMISSION_BADGE_STATUS[status]} />
-                <span>{settings.commissionStatusText[status]} </span>
-                <a href="javascript:void(0);">
-                    标记为 <Icon type="caret-down" />
-                </a>
-            </div>
-        </Dropdown>
+        <div>
+            <Dropdown trigger={['click']} overlay={menu}>
+                <div>
+                    <Badge status={COMMISSION_BADGE_STATUS[status]} />
+                    <span>{settings.commissionStatusText[status]} </span>
+                    <a href="javascript:void(0);">
+                        标记为 <Icon type="caret-down" />
+                    </a>
+                </div>
+            </Dropdown>
+        </div>
     );
 }
 
@@ -135,7 +139,7 @@ export function createOrderListColumns(dispatch: AdminDispatch): ColumnProps<Ord
         {
             title: (
                 <span>
-                    佣金状态{' '}
+                    {'佣金状态 '}
                     <Tooltip placement="top" title="标记为[有效]后将会由系统处理后发放到用户并完成">
                         <Icon type="question-circle" />
                     </Tooltip>

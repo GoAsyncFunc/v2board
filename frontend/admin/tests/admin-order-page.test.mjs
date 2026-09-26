@@ -250,11 +250,14 @@ test('Order list preserves status, commission and pagination actions', async () 
         },
     });
     list.update('TRADE', 'commission_status', '1');
+    // The bundle wraps both status renderers in an outer div before the dropdown.
     const statusTree = list.renderOrderStatus(0, orders[0]);
-    statusTree.props.overlay.children[0].props.onClick();
-    statusTree.props.overlay.children[1].props.onClick();
+    const statusDropdown = findNode(statusTree, (node) => node.type === 'antd/lib/dropdown');
+    statusDropdown.props.overlay.children[0].props.onClick();
+    statusDropdown.props.overlay.children[1].props.onClick();
     const commissionTree = list.renderCommissionStatus(0, { ...orders[0], status: 1 });
-    commissionTree.props.overlay.children[0][1].props.onClick({ key: '1' });
+    const commissionDropdown = findNode(commissionTree, (node) => node.type === 'antd/lib/dropdown');
+    commissionDropdown.props.overlay.children[0][1].props.onClick({ key: '1' });
     const table = findNode(list.render(), (node) => node.type === 'antd/lib/table');
     table.props.onChange({ current: 2, pageSize: 20 });
     assert.deepEqual(normalize(actions), [
