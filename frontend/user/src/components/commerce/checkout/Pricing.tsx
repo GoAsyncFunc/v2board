@@ -1,11 +1,11 @@
 import React from 'react';
 import Radio from 'antd/lib/radio';
-import { localeSettings as settings } from '../../../config/localeSettings';
-import { formatMessage } from '../../../locales/i18n';
-import { formatPrice } from '../../common/MoneyDisplay';
-import type { AppliedCoupon, CouponData } from '../../../types/commerceContracts';
-import type { PlanRecord } from '../../../types/userDomainContracts';
-import type { PlanPeriod } from '../../../types/planContracts';
+import { localeSettings as settings } from '@/config/localeSettings';
+import { formatMessage } from '@/locales/i18n';
+import { formatPrice } from '@/components/common/MoneyDisplay';
+import type { AppliedCoupon, CouponData } from '@/types/commerceContracts';
+import type { PlanRecord } from '@/types/userDomainContracts';
+import type { PlanPeriod } from '@/types/planContracts';
 
 interface PeriodSelectorProps {
     currencySymbol?: string;

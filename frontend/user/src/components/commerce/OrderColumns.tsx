@@ -2,12 +2,12 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Badge from 'antd/lib/badge';
 import Tag from 'antd/lib/tag';
-import history from '../../app/history';
-import { formatDateTime } from '../common/DateTimeDisplay';
-import { formatPrice } from '../common/MoneyDisplay';
-import { localeSettings as settings } from '../../config/localeSettings';
-import { formatMessage } from '../../locales/i18n';
-import type { NumericValue, OrderRecord } from '../../types/commerceContracts';
+import history from '@/app/history';
+import { formatDateTime } from '@/components/common/DateTimeDisplay';
+import { formatPrice } from '@/components/common/MoneyDisplay';
+import { localeSettings as settings } from '@/config/localeSettings';
+import { formatMessage } from '@/locales/i18n';
+import type { NumericValue, OrderRecord } from '@/types/commerceContracts';
 import type { ColumnProps } from 'antd/lib/table';
 
 export const orderBadgeStatuses: Array<'error' | 'processing' | 'default' | 'success'> = [

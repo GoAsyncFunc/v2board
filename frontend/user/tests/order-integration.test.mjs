@@ -142,7 +142,7 @@ function setup(mode) {
                     getToken: () => 'fixture-token',
                     clearToken: () => events.push(['clear-token']),
                 };
-            if ((id.includes('routerHistory') || id.includes('../app/history')))
+            if ((id.includes('routerHistory') || id.includes('app/history')))
                 return { push: (value) => events.push(['navigate', value]) };
             if (id.endsWith('/vendor/utilities.js')) return { loadable: () => null };
             if (id.includes('reactLoadableRuntime')) return () => null;

@@ -1,4 +1,4 @@
-import type { NumericValue } from '../../types/commerceContracts';
+import type { NumericValue } from '@/types/commerceContracts';
 
 // Readonly money display shared by user pages; no events or requests.
 export function formatMoney(value: NumericValue): string {

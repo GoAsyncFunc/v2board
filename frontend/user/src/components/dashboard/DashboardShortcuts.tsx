@@ -1,8 +1,8 @@
 import React from 'react';
-import SubscribeImporter from '../subscription/SubscribeImporter';
-import { formatMessage } from '../../locales/i18n';
-import { canRenew } from '../../utils/siteHelpers';
-import type { UserSubscription } from '../../types/subscriptionContracts';
+import SubscribeImporter from '@/components/subscription/SubscribeImporter';
+import { formatMessage } from '@/locales/i18n';
+import { canRenew } from '@/utils/siteHelpers';
+import type { UserSubscription } from '@/types/subscriptionContracts';
 
 interface DashboardShortcutsProps {
     subscribe: Partial<UserSubscription>;

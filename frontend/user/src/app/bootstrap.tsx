@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as plugins from '../runtime/pluginRuntime';
+import * as plugins from '@/runtime/pluginRuntime';
 import appDvaConfig from './dvaConfig';
 import { initialProps, modifyInitialProps, rootContainer } from './rootRuntime';
 import { configureRequestPresentation } from './requestPresentation';

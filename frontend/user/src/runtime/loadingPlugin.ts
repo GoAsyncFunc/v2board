@@ -5,8 +5,8 @@ import type {
     DvaEffectIterator,
     DvaPlugin,
     DvaSagaEffects,
-} from '../types/dvaRuntimeContracts';
-import type { UserAction } from '../types/storeContracts';
+} from '@/types/dvaRuntimeContracts';
+import type { UserAction } from '@/types/storeContracts';
 
 const SHOW_LOADING = '@@DVA_LOADING/SHOW';
 const HIDE_LOADING = '@@DVA_LOADING/HIDE';

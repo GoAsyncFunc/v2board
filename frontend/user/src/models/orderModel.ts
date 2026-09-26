@@ -8,8 +8,8 @@ import {
     checkoutByStripe,
     save as saveOrder,
 } from './orderManagementEffects';
-import type { OrderModelState } from '../types/paymentContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+import type { OrderModelState } from '@/types/paymentContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 const initialState: OrderModelState = {
     fetchLoading: true,

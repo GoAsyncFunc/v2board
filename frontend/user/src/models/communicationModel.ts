@@ -1,13 +1,13 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
-import type { ApiResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import type { ApiResponse } from '@/types/apiContracts';
 import type {
     CommunicationState,
     ModelEffects,
     ModelGenerator,
     UserCommunicationConfig,
-} from '../types/userDomainContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+} from '@/types/userDomainContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 const initialState: CommunicationState = { config: {} };
 

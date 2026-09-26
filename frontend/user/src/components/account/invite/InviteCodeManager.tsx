@@ -2,10 +2,10 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import Table from 'antd/lib/table';
-import { formatMessage } from '../../../locales/i18n';
-import { createInviteCodeDateColumn } from '../InviteDisplayColumns';
+import { formatMessage } from '@/locales/i18n';
+import { createInviteCodeDateColumn } from '@/components/account/InviteDisplayColumns';
 import type { ColumnProps } from 'antd/lib/table';
-import type { InviteCode } from '../../../types/invitationContracts';
+import type { InviteCode } from '@/types/invitationContracts';
 
 interface InviteCodeManagerProps {
     blockClassName: string;

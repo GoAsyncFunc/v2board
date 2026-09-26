@@ -1,5 +1,5 @@
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
-import type { LayoutState } from '../types/contentState';
+import type { LayoutState } from '@/types/contentState';
 
 interface LayoutSave {
     type: 'save';

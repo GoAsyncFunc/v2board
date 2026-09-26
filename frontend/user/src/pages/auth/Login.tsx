@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
-import history from '../../app/history';
-import AuthPageShell from '../../components/auth/AuthPageShell';
-import { formatMessage, getLocale } from '../../locales/i18n';
-import { LanguageSelector } from '../../components/common/LanguageSelector';
-import { localeSettings } from '../../config/localeSettings';
-import type { LoginPageProps } from '../../types/authenticationContracts';
-import type { UserRootState } from '../../types/storeContracts';
+import history from '@/app/history';
+import AuthPageShell from '@/components/auth/AuthPageShell';
+import { formatMessage, getLocale } from '@/locales/i18n';
+import { LanguageSelector } from '@/components/common/LanguageSelector';
+import { localeSettings } from '@/config/localeSettings';
+import type { LoginPageProps } from '@/types/authenticationContracts';
+import type { UserRootState } from '@/types/storeContracts';
 
 const translate = (id: string): string => formatMessage({ id });
 

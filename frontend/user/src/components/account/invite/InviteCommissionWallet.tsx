@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import { formatMoney } from '../../common/MoneyDisplay';
-import TransferCommissionModal from '../TransferCommissionModal';
-import WithdrawModal from '../WithdrawModal';
-import { formatMessage } from '../../../locales/i18n';
-import type { InviteConfig } from '../../../types/invitationContracts';
+import { formatMoney } from '@/components/common/MoneyDisplay';
+import TransferCommissionModal from '@/components/account/TransferCommissionModal';
+import WithdrawModal from '@/components/account/WithdrawModal';
+import { formatMessage } from '@/locales/i18n';
+import type { InviteConfig } from '@/types/invitationContracts';
 
 interface InviteCommissionWalletProps {
     blockClassName: string;

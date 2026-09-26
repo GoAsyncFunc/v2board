@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import { formatMessage } from '../../locales/i18n';
+import { formatMessage } from '@/locales/i18n';
 
 interface KnowledgeSearchBarProps {
     onSearch: (keyword: string) => void;

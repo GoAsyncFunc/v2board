@@ -1,6 +1,6 @@
 import message from 'antd/lib/message';
 import desktopNotification from 'antd/lib/notification';
-import { isMobile } from '../utils/siteHelpers';
+import { isMobile } from '@/utils/siteHelpers';
 
 export type NotificationType = 'success' | 'error' | 'info' | 'warning';
 

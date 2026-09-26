@@ -2,9 +2,9 @@ import React from 'react';
 import type { Action, Location, UnregisterCallback } from 'history';
 import ConfigProvider from 'antd/lib/config-provider';
 import type { Locale as AntdLocale } from 'antd/lib/locale-provider';
-import routeRenderer from '../runtime/routeRenderer';
-import { mergeConfig } from '../runtime/pluginRuntime';
-import { routerBindings } from '../runtime/dvaApplication';
+import routeRenderer from '@/runtime/routeRenderer';
+import { mergeConfig } from '@/runtime/pluginRuntime';
+import { routerBindings } from '@/runtime/dvaApplication';
 import {
     enAntd,
     enData,
@@ -25,7 +25,7 @@ import {
     zhAntd,
     zhData,
     zhMessages,
-} from '../locales/catalog';
+} from '@/locales/catalog';
 import {
     setIntlApi,
     setLocaleController,
@@ -33,13 +33,13 @@ import {
     injectIntl,
     IntlProvider,
     LangContext,
-} from '../locales/i18n';
-import type { IntlApi, LanguageContextValue } from '../locales/i18n';
-import * as plugins from '../runtime/pluginRuntime';
+} from '@/locales/i18n';
+import type { IntlApi, LanguageContextValue } from '@/locales/i18n';
+import * as plugins from '@/runtime/pluginRuntime';
 import history from './history';
-import userRoutes from '../routes/userRoutes';
-import type { UserStore } from '../types/storeContracts';
-import type { RouteRendererProps } from '../runtime/routeRenderer';
+import userRoutes from '@/routes/userRoutes';
+import type { UserStore } from '@/types/storeContracts';
+import type { RouteRendererProps } from '@/runtime/routeRenderer';
 
 const { ConnectedRouter } = routerBindings;
 type LocaleData = Parameters<typeof addLocaleData>[0];

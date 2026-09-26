@@ -1,8 +1,8 @@
 import React from 'react';
 import type { RouteComponentProps } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
-import type { UserRoute } from '../routes/userRoutes';
-import type { UserRootState, UserStore } from '../types/storeContracts';
+import type { UserRoute } from '@/routes/userRoutes';
+import type { UserRootState, UserStore } from '@/types/storeContracts';
 import { apply } from './pluginRuntime';
 
 export type RouteRendererProps = Partial<UserRootState> & { store?: UserStore };

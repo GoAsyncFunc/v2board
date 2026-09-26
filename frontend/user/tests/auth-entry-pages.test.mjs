@@ -55,7 +55,7 @@ test('Login restores token login, session check, keyboard submit and navigation'
                 return { __esModule: true, default: 'Divider', Divider: 'Divider' };
             if (id.includes('Icon') || id === 'antd/lib/icon')
                 return { __esModule: true, default: 'Icon', Icon: 'Icon' };
-            if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: (route) => routes.push(route) };
+            if ((id.includes('routerHistory') || id.includes('app/history'))) return { push: (route) => routes.push(route) };
             if (id.includes('/components/auth/AuthPageShell')) return 'AuthPageShell';
             if (id.includes('i18n'))
                 return {
@@ -124,7 +124,7 @@ test('Home page redirects without configured content and decodes configured HTML
         Buffer,
         require(id) {
             if (id === 'react') return React;
-            if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: (route) => routes.push(route) };
+            if ((id.includes('routerHistory') || id.includes('app/history'))) return { push: (route) => routes.push(route) };
             throw new Error(id);
         },
     });

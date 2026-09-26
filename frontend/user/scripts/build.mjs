@@ -40,6 +40,7 @@ export async function buildApp() {
         jsxFactory: 'React.createElement',
         jsxFragment: 'React.Fragment',
         define: { 'process.env.NODE_ENV': '"production"' },
+        alias: { '@': path.join(appRoot, 'src') },
         logLevel: 'warning',
     });
 

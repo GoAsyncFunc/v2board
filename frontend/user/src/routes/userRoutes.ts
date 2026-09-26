@@ -1,19 +1,19 @@
-import Invite from '../pages/account/Invite';
-import Profile from '../pages/account/Profile';
-import Traffic from '../pages/account/Traffic';
-import ForgetPassword from '../pages/auth/ForgetPassword';
-import HomePage from '../pages/auth/HomePage';
-import Login from '../pages/auth/Login';
-import Register from '../pages/auth/Register';
-import Order from '../pages/commerce/Order';
-import OrderDetail from '../pages/commerce/OrderDetail';
-import Dashboard from '../pages/dashboard/Dashboard';
-import Node from '../pages/subscription/Node';
-import Plan from '../pages/subscription/Plan';
-import PlanDetail from '../pages/subscription/PlanDetail';
-import Knowledge from '../pages/support/Knowledge';
-import Ticket from '../pages/support/Ticket';
-import TicketDetail from '../pages/support/TicketDetail';
+import Invite from '@/pages/account/Invite';
+import Profile from '@/pages/account/Profile';
+import Traffic from '@/pages/account/Traffic';
+import ForgetPassword from '@/pages/auth/ForgetPassword';
+import HomePage from '@/pages/auth/HomePage';
+import Login from '@/pages/auth/Login';
+import Register from '@/pages/auth/Register';
+import Order from '@/pages/commerce/Order';
+import OrderDetail from '@/pages/commerce/OrderDetail';
+import Dashboard from '@/pages/dashboard/Dashboard';
+import Node from '@/pages/subscription/Node';
+import Plan from '@/pages/subscription/Plan';
+import PlanDetail from '@/pages/subscription/PlanDetail';
+import Knowledge from '@/pages/support/Knowledge';
+import Ticket from '@/pages/support/Ticket';
+import TicketDetail from '@/pages/support/TicketDetail';
 
 type UserRouteComponent =
     | typeof Dashboard

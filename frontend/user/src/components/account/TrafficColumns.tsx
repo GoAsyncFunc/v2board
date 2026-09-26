@@ -3,9 +3,9 @@ import moment from 'moment';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
 import Icon from 'antd/lib/icon';
-import { formatBytes } from '../../utils/siteHelpers';
-import { formatMessage } from '../../locales/i18n';
-import type { NumericValue, TrafficRecord } from '../../types/commerceContracts';
+import { formatBytes } from '@/utils/siteHelpers';
+import { formatMessage } from '@/locales/i18n';
+import type { NumericValue, TrafficRecord } from '@/types/commerceContracts';
 import type { ColumnProps } from 'antd/lib/table';
 
 const message = (id: string): string => formatMessage({ id });

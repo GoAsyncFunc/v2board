@@ -64,7 +64,7 @@ async function load(file, platform = {}) {
             if (id === 'qrcode.react') return { __esModule: true, default: 'QRCode' };
             if (id.includes('SubscribeImporter')) return 'Importer';
             if (id.includes('MainLayout')) return 'Layout';
-            if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: (route) => routes.push(route) };
+            if ((id.includes('routerHistory') || id.includes('app/history'))) return { push: (route) => routes.push(route) };
             if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
             if (id.includes('subscribeStyles'))
                 return { subscribeStyles: { item: 'item', oneClickSubscribe: 'subscribe' } };

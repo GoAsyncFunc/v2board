@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatMessage } from '../locales/i18n';
+import { formatMessage } from '@/locales/i18n';
 
 export interface NavigationHeading {
     title: string;

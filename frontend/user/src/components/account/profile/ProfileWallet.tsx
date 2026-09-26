@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from 'antd/lib/button';
 import Switch from 'antd/lib/switch';
-import { formatMoney } from '../../common/MoneyDisplay';
-import { formatMessage } from '../../../locales/i18n';
-import type { UserCommunicationConfig } from '../../../types/userDomainContracts';
-import type { UserInfo, UserSetting, UserState } from '../../../types/userContracts';
+import { formatMoney } from '@/components/common/MoneyDisplay';
+import { formatMessage } from '@/locales/i18n';
+import type { UserCommunicationConfig } from '@/types/userDomainContracts';
+import type { UserInfo, UserSetting, UserState } from '@/types/userContracts';
 
 interface ProfileWalletProps {
     config: UserCommunicationConfig;

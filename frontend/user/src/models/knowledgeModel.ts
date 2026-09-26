@@ -1,7 +1,7 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
-import type { KnowledgeId, KnowledgeState } from '../types/knowledgeContracts';
-import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryStateContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import type { KnowledgeId, KnowledgeState } from '@/types/knowledgeContracts';
+import type { QueryEffects, QueryGenerator, StateUpdate } from '@/types/queryStateContracts';
 
 const initialState: KnowledgeState = {
     knowledges: {},

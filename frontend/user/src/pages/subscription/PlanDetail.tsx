@@ -1,18 +1,18 @@
 import React from 'react';
 import Result from 'antd/lib/result';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
-import { formatMessage } from '../../locales/i18n';
-import { isExpired } from '../../utils/siteHelpers';
-import { router } from '../../app/navigationService';
-import { couponDiscount, totalAmount } from '../../components/commerce/checkout/Pricing';
-import { CouponDiscount } from '../../components/commerce/checkout/Coupon';
-import PlanPurchaseDetails from '../../components/subscription/checkout/PlanPurchaseDetails';
-import PlanOrderSidebar from '../../components/subscription/checkout/PlanOrderSidebar';
-import type { PlanPeriod } from '../../types/planContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import { formatMessage } from '@/locales/i18n';
+import { isExpired } from '@/utils/siteHelpers';
+import { router } from '@/app/navigationService';
+import { couponDiscount, totalAmount } from '@/components/commerce/checkout/Pricing';
+import { CouponDiscount } from '@/components/commerce/checkout/Coupon';
+import PlanPurchaseDetails from '@/components/subscription/checkout/PlanPurchaseDetails';
+import PlanOrderSidebar from '@/components/subscription/checkout/PlanOrderSidebar';
+import type { PlanPeriod } from '@/types/planContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 const message = (id: string): string => formatMessage({ id });
 

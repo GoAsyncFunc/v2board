@@ -1,12 +1,12 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
-import type { NodeRecord } from '../types/commerceContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import type { NodeRecord } from '@/types/commerceContracts';
 import type {
     QueryEffects,
     QueryGenerator,
     ServerState,
     StateUpdate,
-} from '../types/queryStateContracts';
+} from '@/types/queryStateContracts';
 
 const initialState: ServerState = { servers: [], fetchLoading: false };
 

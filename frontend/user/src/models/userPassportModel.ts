@@ -1,9 +1,9 @@
-import { get, post } from '../services/apiClient';
-import history from '../app/history';
-import { setToken } from '../utils/siteHelpers';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import history from '@/app/history';
+import { setToken } from '@/utils/siteHelpers';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
-import type { ApiResponse } from '../types/apiContracts';
+import type { ApiResponse } from '@/types/apiContracts';
 import type {
     AuthTokenData,
     ForgetPasswordAction,
@@ -12,8 +12,8 @@ import type {
     RegisterAction,
     SendEmailVerificationAction,
     TokenLoginAction,
-} from '../types/authenticationContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+} from '@/types/authenticationContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 type PassportEffectAction = StateUpdate<PassportState> | { type: 'user/getUserInfo' };
 interface PassportEffects {

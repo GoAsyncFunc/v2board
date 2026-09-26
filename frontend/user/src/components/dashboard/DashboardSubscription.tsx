@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import LoadingContainer from '../common/LoadingContainer';
-import { formatDate, formatDaysRemaining } from '../common/DateTimeDisplay';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import { formatDate, formatDaysRemaining } from '@/components/common/DateTimeDisplay';
 import {
     formatDeviceLimit,
     hasSubscriptionUsage,
     progressBarColor,
-} from '../subscription/SubscribeUsage';
-import { formatMessage } from '../../locales/i18n';
-import { calculateUsage, canRenew, formatBytes, isExpired } from '../../utils/siteHelpers';
-import type { SubscriptionPlan, UserSubscription } from '../../types/subscriptionContracts';
+} from '@/components/subscription/SubscribeUsage';
+import { formatMessage } from '@/locales/i18n';
+import { calculateUsage, canRenew, formatBytes, isExpired } from '@/utils/siteHelpers';
+import type { SubscriptionPlan, UserSubscription } from '@/types/subscriptionContracts';
 
 interface DashboardSubscriptionProps {
     subscribe: Partial<UserSubscription>;

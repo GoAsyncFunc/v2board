@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { disable as disableDarkMode, enable as enableDarkMode } from 'darkreader';
-import { getCookie, setCookie } from '../utils/siteHelpers';
-import { formatMessage } from '../locales/i18n';
-import LanguageSelector from '../components/common/LanguageSelector';
+import { getCookie, setCookie } from '@/utils/siteHelpers';
+import { formatMessage } from '@/locales/i18n';
+import LanguageSelector from '@/components/common/LanguageSelector';
 import HeaderSearchOverlay, { type HeaderSearchConfig } from './components/HeaderSearchOverlay';
-import type { UserDispatch, UserRootState } from '../types/storeContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 export type { HeaderSearchConfig } from './components/HeaderSearchOverlay';
 

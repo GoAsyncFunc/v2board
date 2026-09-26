@@ -3,19 +3,16 @@ import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import DashboardAlerts from '../../components/dashboard/DashboardAlerts';
-import DashboardNoticeSection from '../../components/dashboard/DashboardNoticeSection';
-import DashboardShortcuts from '../../components/dashboard/DashboardShortcuts';
-import DashboardSubscription from '../../components/dashboard/DashboardSubscription';
-import MainLayout from '../../layouts/MainLayout';
-import history from '../../app/history';
-import { formatMessage } from '../../locales/i18n';
-import {
-    hasSubscriptionUsage,
-    subscribePercent,
-} from '../../components/subscription/SubscribeUsage';
-import type { UserNotice } from '../../types/subscriptionContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import DashboardAlerts from '@/components/dashboard/DashboardAlerts';
+import DashboardNoticeSection from '@/components/dashboard/DashboardNoticeSection';
+import DashboardShortcuts from '@/components/dashboard/DashboardShortcuts';
+import DashboardSubscription from '@/components/dashboard/DashboardSubscription';
+import MainLayout from '@/layouts/MainLayout';
+import history from '@/app/history';
+import { formatMessage } from '@/locales/i18n';
+import { hasSubscriptionUsage, subscribePercent } from '@/components/subscription/SubscribeUsage';
+import type { UserNotice } from '@/types/subscriptionContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 type DashboardStateProps = Pick<UserRootState, 'user' | 'notice' | 'order' | 'comm' | 'knowledge'>;
 interface DashboardState {

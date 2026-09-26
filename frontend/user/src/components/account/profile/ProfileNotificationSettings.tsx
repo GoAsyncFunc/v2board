@@ -1,7 +1,7 @@
 import React from 'react';
 import Switch from 'antd/lib/switch';
-import { formatMessage } from '../../../locales/i18n';
-import type { UserInfo, UserSetting, UserState } from '../../../types/userContracts';
+import { formatMessage } from '@/locales/i18n';
+import type { UserInfo, UserSetting, UserState } from '@/types/userContracts';
 
 interface ProfileNotificationSettingsProps {
     userInfo: Partial<UserInfo>;

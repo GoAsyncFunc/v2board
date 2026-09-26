@@ -6,9 +6,9 @@ import Icon from 'antd/lib/icon';
 import ConnectedSidebar from './Sidebar';
 import ConnectedHeader from './Header';
 import type { HeaderSearchConfig } from './Header';
-import history from '../app/history';
-import type { LayoutState } from '../types/contentState';
-import type { UserDispatch, UserRootState } from '../types/storeContracts';
+import history from '@/app/history';
+import type { LayoutState } from '@/types/contentState';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 interface MainLayoutOwnProps {
     children?: React.ReactNode;

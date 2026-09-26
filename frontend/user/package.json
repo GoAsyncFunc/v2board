@@ -6,6 +6,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check:dependencies": "node scripts/generate-dependency-map.mjs --check",
+    "check:imports": "node scripts/check-import-paths.mjs",
     "check:format": "prettier --check \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",
     "check:types": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\"",

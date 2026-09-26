@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainLayout from '../../layouts/MainLayout';
-import KnowledgeArticleList from '../../components/support/KnowledgeArticleList';
-import KnowledgeSearchBar from '../../components/support/KnowledgeSearchBar';
-import { formatMessage, getLocale } from '../../locales/i18n';
-import type { KnowledgeState } from '../../types/knowledgeContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import MainLayout from '@/layouts/MainLayout';
+import KnowledgeArticleList from '@/components/support/KnowledgeArticleList';
+import KnowledgeSearchBar from '@/components/support/KnowledgeSearchBar';
+import { formatMessage, getLocale } from '@/locales/i18n';
+import type { KnowledgeState } from '@/types/knowledgeContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 interface KnowledgePageProps {
     knowledge: KnowledgeState;

@@ -12,10 +12,10 @@ import {
     isMac,
     isMobile,
     isWindows,
-} from '../../utils/siteHelpers';
-import { formatMessage } from '../../locales/i18n';
-import history from '../../app/history';
-import { subscribeImporterStyles as styles } from '../../styles/subscribeImporterStyles';
+} from '@/utils/siteHelpers';
+import { formatMessage } from '@/locales/i18n';
+import history from '@/app/history';
+import { subscribeImporterStyles as styles } from '@/styles/subscribeImporterStyles';
 
 interface SubscribeImporterProps {
     children: React.ReactElement;

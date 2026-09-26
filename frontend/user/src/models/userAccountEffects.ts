@@ -1,8 +1,8 @@
-import history from '../app/history';
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import type { GiftCardRedemptionResponse, UserSetting } from '../types/userContracts';
-import type { UserModelEffect, UserModelEffectTools } from '../types/userEffectContracts';
+import history from '@/app/history';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
+import type { GiftCardRedemptionResponse, UserSetting } from '@/types/userContracts';
+import type { UserModelEffect, UserModelEffectTools } from '@/types/userEffectContracts';
 
 interface CompletionAction {
     complete?: () => void;

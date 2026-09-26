@@ -1,8 +1,8 @@
 import React from 'react';
-import { PeriodSelector } from '../../commerce/checkout/Pricing';
-import { parseJson } from '../../../utils/siteHelpers';
-import type { PlanRecord } from '../../../types/userDomainContracts';
-import type { PlanFeature, PlanPeriod } from '../../../types/planContracts';
+import { PeriodSelector } from '@/components/commerce/checkout/Pricing';
+import { parseJson } from '@/utils/siteHelpers';
+import type { PlanRecord } from '@/types/userDomainContracts';
+import type { PlanFeature, PlanPeriod } from '@/types/planContracts';
 
 interface PlanPurchaseDetailsProps {
     currencySymbol?: string;

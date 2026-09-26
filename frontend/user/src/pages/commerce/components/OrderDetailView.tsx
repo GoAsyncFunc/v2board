@@ -1,20 +1,20 @@
 import React from 'react';
-import MainLayout from '../../../layouts/MainLayout';
-import { formatMessage } from '../../../locales/i18n';
-import OrderInfo from '../../../components/commerce/checkout/OrderInfo';
-import ProductInfo from '../../../components/commerce/checkout/ProductInfo';
-import OrderPaymentSummary from '../../../components/commerce/checkout/OrderPaymentSummary';
-import CheckoutPaymentSection from '../../../components/commerce/checkout/CheckoutPaymentSection';
-import OrderStatusResult from '../../../components/commerce/checkout/OrderStatusResult';
-import PaymentQrModal from '../../../components/commerce/checkout/PaymentQrModal';
-import type { PaymentConfig, PaymentMethod } from '../../../types/commerceContracts';
+import MainLayout from '@/layouts/MainLayout';
+import { formatMessage } from '@/locales/i18n';
+import OrderInfo from '@/components/commerce/checkout/OrderInfo';
+import ProductInfo from '@/components/commerce/checkout/ProductInfo';
+import OrderPaymentSummary from '@/components/commerce/checkout/OrderPaymentSummary';
+import CheckoutPaymentSection from '@/components/commerce/checkout/CheckoutPaymentSection';
+import OrderStatusResult from '@/components/commerce/checkout/OrderStatusResult';
+import PaymentQrModal from '@/components/commerce/checkout/PaymentQrModal';
+import type { PaymentConfig, PaymentMethod } from '@/types/commerceContracts';
 import type {
     CheckoutPaymentMethod,
     OrderModelRecord,
     StripeCheckoutState,
     StripeToken,
-} from '../../../types/paymentContracts';
-import type { UserDispatch } from '../../../types/storeContracts';
+} from '@/types/paymentContracts';
+import type { UserDispatch } from '@/types/storeContracts';
 
 interface OrderDetailViewProps {
     dispatch: UserDispatch;

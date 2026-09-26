@@ -1,17 +1,17 @@
-import { get, post } from '../services/apiClient';
-import history from '../app/history';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import history from '@/app/history';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
-import type { OrderRecord } from '../types/commerceContracts';
-import type { CheckoutOrder } from '../types/checkoutContracts';
+import type { OrderRecord } from '@/types/commerceContracts';
+import type { CheckoutOrder } from '@/types/checkoutContracts';
 import type {
     CheckoutPaymentMethod,
     OrderCheckoutResponse,
     OrderFilter,
     OrderModelState,
     OrderSaveParams,
-} from '../types/paymentContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+} from '@/types/paymentContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 type OrderAction =
     StateUpdate<OrderModelState> | { type: 'fetch' } | { type: 'details'; tradeNo: string };

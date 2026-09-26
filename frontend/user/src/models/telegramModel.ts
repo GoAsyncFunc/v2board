@@ -1,12 +1,12 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type {
     QueryEffects,
     QueryGenerator,
     StateUpdate,
     TelegramBot,
     TelegramState,
-} from '../types/queryStateContracts';
+} from '@/types/queryStateContracts';
 
 const initialState: TelegramState = { botInfo: {} };
 

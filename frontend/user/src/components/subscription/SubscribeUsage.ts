@@ -1,5 +1,5 @@
-import { calculateUsage } from '../../utils/subscription';
-import type { UserSubscription } from '../../types/subscriptionContracts';
+import { calculateUsage } from '@/utils/subscription';
+import type { UserSubscription } from '@/types/subscriptionContracts';
 
 // Readonly subscribe usage display shared by user pages; no events or requests.
 export type SubscriptionUsage = Pick<UserSubscription, 'u' | 'd' | 'transfer_enable'>;

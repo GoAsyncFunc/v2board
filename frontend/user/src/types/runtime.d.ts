@@ -1,8 +1,8 @@
 export {};
 
-import type { UserHistory } from '../app/history';
-import type { UserRoute } from '../routes/userRoutes';
-import type { UserDvaApplication } from '../app/applicationStore';
+import type { UserHistory } from '@/app/history';
+import type { UserRoute } from '@/routes/userRoutes';
+import type { UserDvaApplication } from '@/app/applicationStore';
 import type { UserRootState } from './storeContracts';
 
 declare global {
@@ -30,7 +30,7 @@ declare global {
         g_history: UserHistory;
         g_initialData: Partial<UserRootState>;
         g_isBrowser: boolean;
-        g_plugins: typeof import('../runtime/pluginRuntime');
+        g_plugins: typeof import('@/runtime/pluginRuntime');
         g_useSSR: boolean;
         g_lang?: string;
         g_langSeparator?: string;

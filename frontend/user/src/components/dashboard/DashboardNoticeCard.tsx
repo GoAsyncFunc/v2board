@@ -1,7 +1,7 @@
 import React from 'react';
-import { formatDateDash } from '../common/DateTimeDisplay';
-import { formatMessage } from '../../locales/i18n';
-import type { UserNotice } from '../../types/subscriptionContracts';
+import { formatDateDash } from '@/components/common/DateTimeDisplay';
+import { formatMessage } from '@/locales/i18n';
+import type { UserNotice } from '@/types/subscriptionContracts';
 
 interface DashboardNoticeCardProps {
     notice: UserNotice;

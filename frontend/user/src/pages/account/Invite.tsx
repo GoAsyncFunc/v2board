@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
 import copy from 'copy-to-clipboard';
-import InviteCodeManager from '../../components/account/invite/InviteCodeManager';
-import InviteCommissionHistory from '../../components/account/invite/InviteCommissionHistory';
-import InviteCommissionWallet from '../../components/account/invite/InviteCommissionWallet';
-import InviteStatistics from '../../components/account/invite/InviteStatistics';
-import MainLayout from '../../layouts/MainLayout';
-import { formatMessage } from '../../locales/i18n';
-import type { InviteConfig, InviteState } from '../../types/invitationContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import InviteCodeManager from '@/components/account/invite/InviteCodeManager';
+import InviteCommissionHistory from '@/components/account/invite/InviteCommissionHistory';
+import InviteCommissionWallet from '@/components/account/invite/InviteCommissionWallet';
+import InviteStatistics from '@/components/account/invite/InviteStatistics';
+import MainLayout from '@/layouts/MainLayout';
+import { formatMessage } from '@/locales/i18n';
+import type { InviteConfig, InviteState } from '@/types/invitationContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 interface InviteStateProps {
     invite: InviteState;

@@ -1,12 +1,12 @@
-import { get } from '../services/apiClient';
-import history from '../app/history';
-import { getToken, clearToken } from '../utils/siteHelpers';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import { get } from '@/services/apiClient';
+import history from '@/app/history';
+import { getToken, clearToken } from '@/utils/siteHelpers';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
-import type { ApiResponse } from '../types/apiContracts';
-import type { LoginSessionData } from '../types/authenticationContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
-import type { SessionUserState, UserInfo } from '../types/userContracts';
+import type { ApiResponse } from '@/types/apiContracts';
+import type { LoginSessionData } from '@/types/authenticationContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
+import type { SessionUserState, UserInfo } from '@/types/userContracts';
 
 type SessionAction = StateUpdate<SessionUserState> | { type: 'user/getUserInfo' };
 interface SessionEffects {

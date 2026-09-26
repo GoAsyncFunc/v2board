@@ -1,5 +1,5 @@
 import moment from 'moment';
-import type { NumericValue } from '../../types/commerceContracts';
+import type { NumericValue } from '@/types/commerceContracts';
 
 // Readonly date/time display shared by user pages; no events or requests.
 export function formatDateTime(value: NumericValue): string {

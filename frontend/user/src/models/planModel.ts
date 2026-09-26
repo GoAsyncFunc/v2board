@@ -1,16 +1,16 @@
-import { get } from '../services/apiClient';
-import { localeSettings } from '../config/localeSettings';
-import { router } from '../app/navigationService';
-import { isSuccessfulResponse } from '../types/apiContracts';
-import type { ApiResponse } from '../types/apiContracts';
+import { get } from '@/services/apiClient';
+import { localeSettings } from '@/config/localeSettings';
+import { router } from '@/app/navigationService';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import type { ApiResponse } from '@/types/apiContracts';
 import type {
     PlanEffects,
     PlanGenerator,
     PlanRecord,
     PlanState,
-} from '../types/userDomainContracts';
-import type { PlanPeriod } from '../types/planContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+} from '@/types/userDomainContracts';
+import type { PlanPeriod } from '@/types/planContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 const initialState: PlanState = {
     plans: [],

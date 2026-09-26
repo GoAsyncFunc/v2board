@@ -5,11 +5,11 @@ import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Table from 'antd/lib/table';
 import Icon from 'antd/lib/icon';
-import MainLayout from '../../layouts/MainLayout';
-import { formatMessage } from '../../locales/i18n';
-import { createTicketColumns } from '../../components/support/TicketColumns';
-import type { TicketDraft, TicketState } from '../../types/ticketContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import MainLayout from '@/layouts/MainLayout';
+import { formatMessage } from '@/locales/i18n';
+import { createTicketColumns } from '@/components/support/TicketColumns';
+import type { TicketDraft, TicketState } from '@/types/ticketContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 interface TicketStateProps {
     ticket: TicketState;

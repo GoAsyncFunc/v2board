@@ -1,9 +1,9 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type { PutEffect } from 'redux-saga/effects';
-import type { ApiResponse } from '../types/apiContracts';
-import type { CommissionRecord, InviteState } from '../types/invitationContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+import type { ApiResponse } from '@/types/apiContracts';
+import type { CommissionRecord, InviteState } from '@/types/invitationContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 
 type InviteAction = StateUpdate<InviteState> | { type: 'fetch' };
 interface InviteEffects {

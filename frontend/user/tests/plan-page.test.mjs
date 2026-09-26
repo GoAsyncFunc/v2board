@@ -19,7 +19,7 @@ async function load(original) {
       if (id.includes('MoneyDisplay')) return { formatPrice: value => (value / 100).toFixed(2) };
       if (id.includes('MainLayout')) return { __esModule: true, default: 'Layout', a: 'Layout' };
       if (id === 'react-redux' || id.includes('reactRedux')) return { c: () => cls => cls, connect: () => cls => cls };
-      if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: route => trace.push(['navigate', route]) };
+      if ((id.includes('routerHistory') || id.includes('app/history'))) return { push: route => trace.push(['navigate', route]) };
       if (id.includes('localeSettings')) { const localeSettings = { periodText: { month_price: () => 'Month', year_price: () => 'Year', onetime_price: () => 'Once', reset_price: () => 'Reset' } }; return { a: localeSettings, localeSettings }; }
       if (id.includes('i18n')) return { formatMessage: ({ id }) => id };
       if (id.includes('siteHelpers')) { const parseJson = text => text === 'features' ? [{ support: true, feature: 'Supported' }, { support: false, feature: 'Unavailable' }] : text; return { c: parseJson, parseJson }; }

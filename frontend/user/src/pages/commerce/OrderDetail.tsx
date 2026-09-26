@@ -1,18 +1,18 @@
 import OrderStatusResult, {
     orderResultProps,
-} from '../../components/commerce/checkout/OrderStatusResult';
+} from '@/components/commerce/checkout/OrderStatusResult';
 import React from 'react';
 import { connect } from 'react-redux';
 import message from 'antd/lib/message';
-import { formatMessage } from '../../locales/i18n';
+import { formatMessage } from '@/locales/i18n';
 import OrderDetailView from './components/OrderDetailView';
 import type {
     CheckoutPaymentMethod,
     StripeCheckoutState,
     StripeToken,
-} from '../../types/paymentContracts';
-import type { PaymentMethod } from '../../types/commerceContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+} from '@/types/paymentContracts';
+import type { PaymentMethod } from '@/types/commerceContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 let orderPollingTimer: ReturnType<typeof setTimeout> | undefined; // Shared timer behavior is preserved by lifecycle regression tests.
 

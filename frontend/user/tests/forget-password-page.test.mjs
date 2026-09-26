@@ -41,7 +41,7 @@ async function loadPage() {
                 return { connect: () => (Page) => Page };
             if (id.includes('Icon.js') || id === 'antd/lib/icon')
                 return { __esModule: true, default: 'Icon', Icon: 'Icon' };
-            if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push: (route) => routes.push(route) };
+            if ((id.includes('routerHistory') || id.includes('app/history'))) return { push: (route) => routes.push(route) };
             if (id.includes('/components/auth/AuthPageShell')) return 'AuthPageShell';
             if (id.includes('Recaptcha')) return 'Recaptcha';
             if (id.includes('i18n'))

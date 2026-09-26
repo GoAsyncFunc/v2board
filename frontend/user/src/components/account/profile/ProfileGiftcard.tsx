@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import { formatMessage } from '../../../locales/i18n';
+import { formatMessage } from '@/locales/i18n';
 
 interface ProfileGiftCardProps {
     giftcardRef: React.RefObject<HTMLInputElement>;

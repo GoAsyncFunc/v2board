@@ -1,17 +1,17 @@
-import history from '../app/history';
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import history from '@/app/history';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type { PutEffect, SelectEffect } from 'redux-saga/effects';
-import type { ApiResponse } from '../types/apiContracts';
-import type { TicketRecord } from '../types/commerceContracts';
-import type { StateUpdate } from '../types/queryStateContracts';
+import type { ApiResponse } from '@/types/apiContracts';
+import type { TicketRecord } from '@/types/commerceContracts';
+import type { StateUpdate } from '@/types/queryStateContracts';
 import type {
     TicketConversation,
     TicketId,
     TicketReplyAction,
     TicketState,
     TicketWithdrawAction,
-} from '../types/ticketContracts';
+} from '@/types/ticketContracts';
 
 type TicketAction = StateUpdate<TicketState> | { type: 'fetch' };
 interface TicketEffects {

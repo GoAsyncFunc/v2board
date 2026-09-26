@@ -1,16 +1,16 @@
 import React from 'react';
-import history from '../../app/history';
-import { localeSettings as settings } from '../../config/localeSettings';
-import { parseJson } from '../../utils/siteHelpers';
-import { formatMessage } from '../../locales/i18n';
-import { formatPrice } from '../common/MoneyDisplay';
+import history from '@/app/history';
+import { localeSettings as settings } from '@/config/localeSettings';
+import { parseJson } from '@/utils/siteHelpers';
+import { formatMessage } from '@/locales/i18n';
+import { formatPrice } from '@/components/common/MoneyDisplay';
 import type {
     CatalogPlan,
     PlanFeature,
     PlanPeriod,
     PlanTab,
     PlanUnitPrice,
-} from '../../types/planContracts';
+} from '@/types/planContracts';
 const message = (id: string): string => formatMessage({ id });
 
 export function getUnitPriceTag(plan: CatalogPlan): PlanUnitPrice {

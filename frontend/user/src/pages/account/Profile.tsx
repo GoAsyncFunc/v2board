@@ -2,21 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import ProfileGiftCard from '../../components/account/profile/ProfileGiftCard';
-import ProfileNotificationSettings from '../../components/account/profile/ProfileNotificationSettings';
-import ProfilePasswordForm from '../../components/account/profile/ProfilePasswordForm';
-import ProfileSecurityReset from '../../components/account/profile/ProfileSecurityReset';
+import ProfileGiftCard from '@/components/account/profile/ProfileGiftCard';
+import ProfileNotificationSettings from '@/components/account/profile/ProfileNotificationSettings';
+import ProfilePasswordForm from '@/components/account/profile/ProfilePasswordForm';
+import ProfileSecurityReset from '@/components/account/profile/ProfileSecurityReset';
 import ProfileTelegram, {
     ProfileTelegramCommunity,
-} from '../../components/account/profile/ProfileTelegram';
-import ProfileWallet from '../../components/account/profile/ProfileWallet';
-import MainLayout from '../../layouts/MainLayout';
-import { get } from '../../services/apiClient';
-import { isSuccessfulResponse } from '../../types/apiContracts';
-import { formatMessage } from '../../locales/i18n';
-import { describeGiftCardRedemption } from '../../utils/giftCard';
-import type { GiftCardRedemptionResponse, UserSetting } from '../../types/userContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+} from '@/components/account/profile/ProfileTelegram';
+import ProfileWallet from '@/components/account/profile/ProfileWallet';
+import MainLayout from '@/layouts/MainLayout';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import { formatMessage } from '@/locales/i18n';
+import { describeGiftCardRedemption } from '@/utils/giftCard';
+import type { GiftCardRedemptionResponse, UserSetting } from '@/types/userContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 type ProfileStateProps = Pick<UserRootState, 'user' | 'comm'>;
 

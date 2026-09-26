@@ -41,7 +41,7 @@ async function loadPage() {
             if (id.includes('/components/auth/RegistrationForm')) return 'RegistrationForm';
             if (id.includes('Icon.js') || id === 'antd/lib/icon')
                 return { __esModule: true, default: 'Icon', Icon: 'Icon' };
-            if ((id.includes('routerHistory') || id.includes('../app/history'))) return { push() {} };
+            if ((id.includes('routerHistory') || id.includes('app/history'))) return { push() {} };
             if (id.includes('Recaptcha')) return 'Recaptcha';
             if (id.includes('i18n'))
                 return { formatMessage: ({ id }) => id, getLocale: () => 'zh-CN' };

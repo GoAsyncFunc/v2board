@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'antd/lib/button';
-import { formatMessage } from '../../../locales/i18n';
+import { formatMessage } from '@/locales/i18n';
 
 export default function ProfileSecurityReset({ onReset }: { onReset: () => void }) {
     return (

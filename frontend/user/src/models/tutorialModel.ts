@@ -1,12 +1,12 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse } from '../types/apiContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import type {
     TutorialListResponse,
     TutorialRecord,
     TutorialState,
     TutorialWireRecord,
-} from '../types/contentState';
-import type { QueryEffects, QueryGenerator, StateUpdate } from '../types/queryStateContracts';
+} from '@/types/contentState';
+import type { QueryEffects, QueryGenerator, StateUpdate } from '@/types/queryStateContracts';
 
 const initialState: TutorialState = {
     tutorials: [],

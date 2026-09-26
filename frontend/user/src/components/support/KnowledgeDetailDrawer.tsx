@@ -4,10 +4,10 @@ import Drawer from 'antd/lib/drawer';
 import Icon from 'antd/lib/icon';
 import message from 'antd/lib/message';
 import MarkdownIt from 'markdown-it';
-import { formatMessage, getLocale } from '../../locales/i18n';
-import { copyToClipboard } from '../../utils/siteHelpers';
-import type { KnowledgeId, KnowledgeState } from '../../types/knowledgeContracts';
-import type { UserDispatch, UserRootState } from '../../types/storeContracts';
+import { formatMessage, getLocale } from '@/locales/i18n';
+import { copyToClipboard } from '@/utils/siteHelpers';
+import type { KnowledgeId, KnowledgeState } from '@/types/knowledgeContracts';
+import type { UserDispatch, UserRootState } from '@/types/storeContracts';
 
 const markdownRenderer = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
