@@ -7,7 +7,10 @@ import { expandVendorUiImports } from './helpers/vendor-ui-mock.mjs';
 const transform = (input, options) => esbuildTransform(expandVendorUiImports(input), options);
 const code = (
     await transform(
-        await fs.readFile(new URL('../src/models/userManagementEffects.ts', import.meta.url), 'utf8'),
+        await fs.readFile(
+            new URL('../src/models/userManagementEffects.ts', import.meta.url),
+            'utf8',
+        ),
         { format: 'cjs', loader: 'ts' },
     )
 ).code;
@@ -38,6 +41,12 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
                     return { downloadCsv: (...args) => trace.push(['download', ...args]) };
                 if (id.includes('app/navigationService')) return { push() {} };
                 if (id.includes('utils/siteHelpers')) return { getToken: () => null };
+                if (id === 'antd/lib/message')
+                    return {
+                        loading: (text) => trace.push(['loading', text]),
+                        success: (text) => trace.push(['success', text]),
+                        destroy: () => trace.push(['destroy']),
+                    };
                 if (
                     id.includes('types/modelEffectContracts') ||
                     id.includes('types/filterContracts') ||
@@ -52,10 +61,6 @@ function run(effect, { count, code: status = 200, reject = false, callback = fal
         { timeout: 2000 },
     );
     const action = { params, callback: callback ? () => trace.push(['callback']) : undefined };
-    if (effect === 'dumpCSV') {
-        action.start = () => trace.push(['loading', '导出中']);
-        action.finish = () => trace.push(['destroy']);
-    }
     const iterator = module.exports[effect](action, {
         put: (action) => {
             trace.push(['put', structuredClone(action)]);

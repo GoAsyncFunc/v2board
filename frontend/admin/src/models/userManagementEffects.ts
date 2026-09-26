@@ -1,4 +1,5 @@
 import moment from 'moment';
+import message from 'antd/lib/message';
 import { get, post } from '@/services/apiClient';
 import { downloadCsv } from '@/services/csvDownloadService';
 import {
@@ -48,10 +49,6 @@ interface SendMailAction extends CallbackAction {
 interface GenerateAction {
     params: FormRecord;
     callback?: () => void;
-}
-interface DumpCsvAction {
-    start?: () => void;
-    finish?: () => void;
 }
 interface CheckLoginAction {
     redirect?: string;
@@ -185,23 +182,17 @@ export function* allDel(_: AdminAction, tools: UserTools): UserEffect {
     yield* runBatchAction('allDel', tools);
 }
 
-export function* resetSecret(
-    { id, complete }: UserIdAction & CallbackAction,
-    { put }: UserTools,
-): UserEffect {
+export function* resetSecret({ id }: UserIdAction, { put }: UserTools): UserEffect {
     const response = (yield post(userEndpoint('resetSecret'), { id })) as ApiResponse;
     if (!isSuccessfulResponse(response)) return;
-    complete?.();
+    message.success('重置成功');
     yield put({ type: 'fetch' });
 }
 
-export function* delUser(
-    { id, complete }: UserIdAction & CallbackAction,
-    { put }: UserTools,
-): UserEffect {
+export function* delUser({ id }: UserIdAction, { put }: UserTools): UserEffect {
     const response = (yield post(userEndpoint('delUser'), { id })) as ApiResponse;
     if (!isSuccessfulResponse(response)) return;
-    complete?.();
+    message.success('删除成功');
     yield put({ type: 'fetch' });
 }
 
@@ -216,11 +207,11 @@ export function* generate({ params, callback }: GenerateAction, { put }: UserToo
     if (typeof callback === 'function') callback();
 }
 
-export function* dumpCSV({ start, finish }: DumpCsvAction, { select }: UserTools): UserEffect {
+export function* dumpCSV(_action: AdminAction, { select }: UserTools): UserEffect {
     const { filter } = (yield select((state) => state.user)) as UserModuleState;
-    start?.();
+    message.loading('导出中');
     const response = (yield post(userEndpoint('dumpCSV'), { filter })) as ExportResponse;
-    finish?.();
+    message.destroy();
     if (!isSuccessfulResponse(response)) return;
     downloadCsv(response.buffer, moment().format('YYYY-MM-DD HH:mm:ss') + '.csv');
 }

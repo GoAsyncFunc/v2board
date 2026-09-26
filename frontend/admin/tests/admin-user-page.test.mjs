@@ -115,15 +115,14 @@ test('User page preserves lifecycle, sorting, filters, navigation and confirmati
     page.userFilter('id', '=', 7, true);
     page.orderFilter('user_id', '=', 7);
     page.dumpCsv();
-    actions.at(-1).start();
-    actions.at(-1).finish();
     page.resetSecret({ id: 7, email: 'user@example.com' });
     runtime.confirmations[0].onOk();
-    actions.at(-1).complete();
     page.deleteUser({ id: 7, email: 'user@example.com' });
     runtime.confirmations[1].onOk();
-    actions.at(-1).complete();
     page.componentWillUnmount();
+    // The bundle keeps the loading/success messages inside the model effects,
+    // so the page dispatches bare actions; the message contract of
+    // dumpCSV/resetSecret/delUser belongs to the model tests.
     assert.equal(page.filterFields().length, 13);
     assert.deepEqual(runtime.preferences, [{ key: 'user_manage_page_size', value: 50 }]);
     assert.deepEqual(runtime.routes, ['/order']);
@@ -143,12 +142,6 @@ test('User page preserves lifecycle, sorting, filters, navigation and confirmati
         { type: 'user/delUser', id: 7 },
         { type: 'user/empty' },
         { type: 'user/setState', payload: { filter: [] } },
-    ]);
-    assert.deepEqual(runtime.messages, [
-        ['loading', '导出中'],
-        ['destroy'],
-        ['success', '重置成功'],
-        ['success', '删除成功'],
     ]);
 });
 

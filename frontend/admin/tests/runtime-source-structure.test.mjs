@@ -455,7 +455,10 @@ test('admin model composition uses named business effects instead of module alia
     assert.match(protocolSource, /return\s*{\s*namespace,/);
     assert.doesNotMatch(protocolSource, /\bname:\s*string/);
 
-    const store = await fs.readFile(new URL('../src/app/applicationStore.tsx', import.meta.url), 'utf8');
+    const store = await fs.readFile(
+        new URL('../src/app/applicationStore.tsx', import.meta.url),
+        'utf8',
+    );
     assert.match(store, /model\.namespace !== registeredNamespace/);
     assert.match(store, /appInstance\?\.model\(model\)/);
     assert.doesNotMatch(store, /model\(\{ namespace, \.\.\.model \}\)/);
@@ -580,6 +583,10 @@ test('admin business contracts do not depend on rendering components', async () 
 
     const modelsDirectory = new URL('../src/models/', import.meta.url);
     const modelNames = (await fs.readdir(modelsDirectory)).filter((name) => name.endsWith('.ts'));
+    // The bundle's user model imports antd message directly (module 686c5178:
+    // dumpCSV/resetSecret/delUser own their feedback messages), so message is
+    // permitted; modal/notification remain forbidden.
+    const modelsAllowedMessage = new Set(['userManagementEffects.ts', 'userModel.ts']);
     for (const modelName of modelNames) {
         const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
         assert.doesNotMatch(
@@ -587,9 +594,12 @@ test('admin business contracts do not depend on rendering components', async () 
             /from ['"](?:\.\.\/|@\/)components\//,
             `${modelName} depends on a component`,
         );
+        const messagePattern = modelsAllowedMessage.has(modelName)
+            ? /from ['"]antd\/lib\/(?:notification|modal)['"]/
+            : /from ['"]antd\/lib\/(?:message|notification|modal)['"]/;
         assert.doesNotMatch(
             source,
-            /from ['"]antd\/lib\/(?:message|notification|modal)['"]/,
+            messagePattern,
             `${modelName} imports a rendering notification`,
         );
     }

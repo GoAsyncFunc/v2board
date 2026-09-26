@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
-import message from 'antd/lib/message';
 import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
 import LoadingContainer from '@/components/common/LoadingContainer';
 import history from '@/app/navigationService';
@@ -80,11 +79,7 @@ export class UserPage extends React.Component<UserPageProps> {
     }
 
     dumpCsv(): void {
-        this.props.dispatch({
-            type: 'user/dumpCSV',
-            start: () => message.loading('导出中'),
-            finish: () => message.destroy(),
-        });
+        this.props.dispatch({ type: 'user/dumpCSV' });
     }
 
     resetSecret(user?: UserRecord): void {
@@ -92,12 +87,7 @@ export class UserPage extends React.Component<UserPageProps> {
         Modal.confirm({
             title: '重置安全信息',
             content: `确定要重置${user.email}的安全信息吗？`,
-            onOk: () =>
-                this.props.dispatch({
-                    type: 'user/resetSecret',
-                    id: user.id,
-                    complete: () => message.success('重置成功'),
-                }),
+            onOk: () => this.props.dispatch({ type: 'user/resetSecret', id: user.id }),
             okText: '确定',
             cancelText: '取消',
         });
@@ -108,12 +98,7 @@ export class UserPage extends React.Component<UserPageProps> {
         Modal.confirm({
             title: '删除用户',
             content: `确定要删除${user.email}的用户信息吗？`,
-            onOk: () =>
-                this.props.dispatch({
-                    type: 'user/delUser',
-                    id: user.id,
-                    complete: () => message.success('删除成功'),
-                }),
+            onOk: () => this.props.dispatch({ type: 'user/delUser', id: user.id }),
             okText: '确定',
             cancelText: '取消',
         });

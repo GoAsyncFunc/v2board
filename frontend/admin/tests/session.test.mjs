@@ -46,9 +46,11 @@ async function run(target, original, scenario) {
             require: (id) => {
                 if (id.includes('apiClient')) return api;
                 if (id.includes('types/apiContracts')) return api;
-                if (id.includes('routerHistory') || id.includes('app/navigationService')) return history;
+                if (id.includes('routerHistory') || id.includes('app/navigationService'))
+                    return history;
                 if (id.includes('siteHelpers')) return helpers;
                 if (id === 'moment') return () => ({ format: () => 'fixture' });
+                if (id === 'antd/lib/message') return { loading() {}, success() {}, destroy() {} };
                 if (id.includes('services/csvDownloadService')) return { downloadCsv() {} };
                 if (
                     id.includes('types/modelEffectContracts') ||
