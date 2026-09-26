@@ -1,4 +1,4 @@
-import type { ServerRecord } from '../../../../types/serverContracts';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export type ServerJsonEditorValue =
     ServerRecord['network_settings'] | ServerRecord['padding_scheme'];

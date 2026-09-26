@@ -1,7 +1,7 @@
 import React from 'react';
-import FilterDrawer from '../../../components/common/FilterDrawer';
-import type { FilterField, FilterItem } from '../../../types/filterContracts';
-import type { UserPlanOption } from '../../../types/userContracts';
+import FilterDrawer from '@/components/common/FilterDrawer';
+import type { FilterField, FilterItem } from '@/types/filterContracts';
+import type { UserPlanOption } from '@/types/userContracts';
 
 export interface UserFilterDrawerProps {
     children: React.ReactElement;

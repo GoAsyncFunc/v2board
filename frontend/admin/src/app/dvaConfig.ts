@@ -1,6 +1,6 @@
 import { enable } from 'darkreader';
 import moment from 'moment';
-import { getPreference } from '../utils/siteHelpers';
+import { getPreference } from '@/utils/siteHelpers';
 
 const { host, theme } = window.settings;
 const stylesheet = document.createElement('link');

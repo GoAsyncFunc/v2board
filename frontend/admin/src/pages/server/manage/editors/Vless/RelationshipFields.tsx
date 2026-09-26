@@ -2,12 +2,8 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import type {
-    ManagedServerRecord,
-    ServerRecord,
-    ServerRouteOption,
-} from '../../../../../types/serverContracts';
-import type { UpdateVlessServer } from '../serverEditorTypes';
+import type { ManagedServerRecord, ServerRecord, ServerRouteOption } from '@/types/serverContracts';
+import type { UpdateVlessServer } from '@/pages/server/manage/editors/serverEditorTypes';
 
 interface VlessRelationshipFieldsProps {
     server: ServerRecord;

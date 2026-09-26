@@ -6,8 +6,8 @@ import Select from 'antd/lib/select';
 import Switch from 'antd/lib/switch';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import NullableSelectOption from '../../../components/common/NullableSelectOption';
-import type { UserPlanOption, UserRecord } from '../../../types/userContracts';
+import NullableSelectOption from '@/components/common/NullableSelectOption';
+import type { UserPlanOption, UserRecord } from '@/types/userContracts';
 import { UserFormFieldGroup } from './UserFormFieldGroup';
 import { toInputDefaultValue } from './UserFormValues';
 

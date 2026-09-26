@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { UserRecord } from '../../../types/userContracts';
+import type { UserRecord } from '@/types/userContracts';
 
 export interface UserMoneyFieldsProps {
     user: Partial<UserRecord>;

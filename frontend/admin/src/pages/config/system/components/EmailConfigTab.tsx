@@ -1,10 +1,7 @@
 import React from 'react';
 import Button from 'antd/lib/button';
 import ConfigRow from './ConfigRow';
-import type {
-    ConfigChangeHandler,
-    EmailConfig,
-} from '../../../../types/systemConfigurationContracts';
+import type { ConfigChangeHandler, EmailConfig } from '@/types/systemConfigurationContracts';
 
 interface TextSettingProps {
     title: string;

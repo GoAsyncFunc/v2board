@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
-import type { PlanSummary } from '../../../types/systemConfigurationContracts';
-import type { GiftCardRecord } from '../../../types/promotionContracts';
+import type { PlanSummary } from '@/types/systemConfigurationContracts';
+import type { GiftCardRecord } from '@/types/promotionContracts';
 
 export interface GiftCardPlanFieldProps {
     giftCard: GiftCardRecord;

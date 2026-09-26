@@ -29,7 +29,7 @@ async function loadUserModel(pageSizePreference) {
         module,
         exports: module.exports,
         require(id) {
-            if (id === '../utils/siteHelpers') {
+            if (id === '../utils/siteHelpers' || id === '@/utils/siteHelpers') {
                 return { getPreference: () => pageSizePreference };
             }
             if (id.startsWith('./')) return effects;

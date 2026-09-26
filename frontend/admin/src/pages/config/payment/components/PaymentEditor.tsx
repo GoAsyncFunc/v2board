@@ -4,13 +4,13 @@ import Modal from 'antd/lib/modal';
 import { PaymentBasicFields } from './PaymentBasicFields';
 import { PaymentConfigFields } from './PaymentConfigFields';
 import { PaytaroNotice } from './PaytaroNotice';
-import type { AdminDispatch, AdminRootState } from '../../../../types/storeContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import type {
     PaymentConfigValue,
     PaymentForm,
     PaymentRecord,
     PaymentState,
-} from '../../../../types/paymentContracts';
+} from '@/types/paymentContracts';
 
 interface PaymentEditorProps {
     children: React.ReactElement;

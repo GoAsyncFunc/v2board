@@ -1,4 +1,4 @@
-import type { ServerRecord } from '../../../../types/serverContracts';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export type UpdateV2Node = <Field extends keyof ServerRecord>(
     field: Field,

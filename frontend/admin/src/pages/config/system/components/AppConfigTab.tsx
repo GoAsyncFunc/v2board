@@ -1,9 +1,6 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type {
-    AppConfig,
-    ConfigChangeHandler,
-} from '../../../../types/systemConfigurationContracts';
+import type { AppConfig, ConfigChangeHandler } from '@/types/systemConfigurationContracts';
 
 interface AppPlatformSettingProps {
     name: string;

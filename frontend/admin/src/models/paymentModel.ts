@@ -1,14 +1,14 @@
-import { get, post } from '../services/apiClient';
+import { get, post } from '@/services/apiClient';
 import {
     isSuccessfulResponse,
     type ApiResponse,
     type FormRecord,
     type JsonValue,
-} from '../types/apiContracts';
-import '../config/adminSettings';
-import type { PaymentForm, PaymentRecord, PaymentState } from '../types/paymentContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
+} from '@/types/apiContracts';
+import '@/config/adminSettings';
+import type { PaymentForm, PaymentRecord, PaymentState } from '@/types/paymentContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools } from '@/types/modelEffectContracts';
 
 type PaymentRootState = Pick<AdminRootState, 'payment'>;
 interface PaymentTools extends ModelEffectTools<PaymentRootState> {}

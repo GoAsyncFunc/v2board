@@ -8,7 +8,7 @@ import {
     paid as markOrderPaid,
     update as updateOrder,
 } from './orderManagementEffects';
-import type { OrderState } from '../types/orderContracts';
+import type { OrderState } from '@/types/orderContracts';
 
 const initialState: OrderState = {
     orders: [],

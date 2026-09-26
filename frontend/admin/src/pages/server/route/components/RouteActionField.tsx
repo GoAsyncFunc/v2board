@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import { settings } from '../../../../config/adminSettings';
+import { settings } from '@/config/adminSettings';
 import type { RouteAction, ServerRouteRecord } from './RouteEditor';
 
 export const ROUTE_ACTIONS: RouteAction[] = [

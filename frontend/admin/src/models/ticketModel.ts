@@ -1,14 +1,14 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type {
     TicketFilterState,
     TicketId,
     TicketPagination,
     TicketRecord,
     TicketState,
-} from '../types/ticketContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
+} from '@/types/ticketContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools } from '@/types/modelEffectContracts';
 
 type TicketRootState = Pick<AdminRootState, 'ticket' | 'user'>;
 interface TicketTools extends ModelEffectTools<TicketRootState> {}

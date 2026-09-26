@@ -2,7 +2,7 @@ import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import moment from 'moment';
-import { settings } from '../../../config/adminSettings';
+import { settings } from '@/config/adminSettings';
 
 export interface OrderDisplayRecord {
     status: number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from 'antd/lib/select';
-import type { ServerRecord, ServerRouteOption } from '../../../../../types/serverContracts';
+import type { ServerRecord, ServerRouteOption } from '@/types/serverContracts';
 
 export interface HysteriaRelationshipFieldsProps {
     server: ServerRecord;

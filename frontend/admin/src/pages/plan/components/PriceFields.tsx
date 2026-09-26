@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
-import type { PlanPriceField, PlanRecord } from '../../../types/planContracts';
+import type { PlanPriceField, PlanRecord } from '@/types/planContracts';
 
 export const PLAN_PRICE_FIELDS: Array<[PlanPriceField, string]> = [
     ['month_price', '月付'],

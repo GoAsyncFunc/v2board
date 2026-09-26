@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
-import JsonEditor from '../JsonEditor';
-import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
-import type { ServerRecord } from '../../../../../types/serverContracts';
+import JsonEditor from '@/pages/server/manage/editors/JsonEditor';
+import { formatServerJsonEditorValue } from '@/pages/server/manage/editors/serverJsonEditorValues';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export const NETWORK_PRESETS: Record<string, string> = {
     tcp: '',

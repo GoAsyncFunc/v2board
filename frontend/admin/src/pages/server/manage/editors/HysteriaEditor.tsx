@@ -5,12 +5,8 @@ import ServerEditorDrawer from './ServerEditorDrawer';
 import { HysteriaObfuscationSettings } from './Hysteria/ObfuscationSettings';
 import { HysteriaGeneralFields } from './Hysteria/GeneralFields';
 import { HysteriaRelationshipFields } from './Hysteria/RelationshipFields';
-import type {
-    ServerEditorProps,
-    ServerRecord,
-    ServerSaveState,
-} from '../../../../types/serverContracts';
-import type { AdminRootState } from '../../../../types/storeContracts';
+import type { ServerEditorProps, ServerRecord, ServerSaveState } from '@/types/serverContracts';
+import type { AdminRootState } from '@/types/storeContracts';
 
 interface HysteriaEditorProps extends ServerEditorProps {
     serverHysteria: ServerSaveState;

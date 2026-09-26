@@ -1,4 +1,4 @@
-import { getPreference } from '../utils/siteHelpers';
+import { getPreference } from '@/utils/siteHelpers';
 import {
     addFilter as addUserFilter,
     changeTable as changeUserTable,
@@ -17,7 +17,7 @@ import {
     generate as generateUsers,
 } from './userManagementEffects';
 import { checkLogin, getUserInfo } from './userManagementEffects';
-import type { UserModuleState } from '../types/userContracts';
+import type { UserModuleState } from '@/types/userContracts';
 
 const initialState: UserModuleState = {
     userInfo: {},

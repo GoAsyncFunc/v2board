@@ -1,5 +1,5 @@
 import type { EChartsCoreOption } from 'echarts/core';
-import type { OrderChartRecord } from '../../types/monitoringContracts';
+import type { OrderChartRecord } from '@/types/monitoringContracts';
 
 export interface OrderChartSeries {
     name: string;

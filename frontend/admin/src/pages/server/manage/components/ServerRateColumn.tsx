@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'antd/lib/icon';
 import Tag from 'antd/lib/tag';
 import Tooltip from 'antd/lib/tooltip';
-import type { Scalar } from '../../../../types/serverContracts';
+import type { Scalar } from '@/types/serverContracts';
 
 // Preserve addition's default-hint coercion. String(value), interpolation or
 // numeric formatting can invoke a different conversion or suppress exceptions.

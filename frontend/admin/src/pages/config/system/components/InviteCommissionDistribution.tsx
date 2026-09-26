@@ -4,7 +4,7 @@ import type {
     ConfigChangeHandler,
     InviteConfig,
     ConfigValue,
-} from '../../../../types/systemConfigurationContracts';
+} from '@/types/systemConfigurationContracts';
 
 interface InviteCommissionDistributionProps {
     invite: InviteConfig;

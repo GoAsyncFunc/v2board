@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { Scalar, ServerRecord } from '../../../../../types/serverContracts';
+import type { Scalar, ServerRecord } from '@/types/serverContracts';
 
 export interface TuicTransportSettingsProps {
     server: Pick<

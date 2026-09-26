@@ -2,8 +2,8 @@ import React from 'react';
 import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
-import { renderServerEditor } from '../editors/ServerEditorRegistry';
-import type { ServerRecord } from '../../../../types/serverContracts';
+import { renderServerEditor } from '@/pages/server/manage/editors/ServerEditorRegistry';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export interface ServerManageActions {
     onCopy: (server: ServerRecord) => void;

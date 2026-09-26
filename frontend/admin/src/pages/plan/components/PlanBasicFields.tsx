@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { PlanRecord } from '../../../types/planContracts';
+import type { PlanRecord } from '@/types/planContracts';
 
 export interface PlanBasicFieldsProps {
     record: PlanRecord;

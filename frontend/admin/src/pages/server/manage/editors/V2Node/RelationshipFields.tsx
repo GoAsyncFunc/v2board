@@ -2,12 +2,8 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import type {
-    ManagedServerRecord,
-    ServerRecord,
-    ServerRouteOption,
-} from '../../../../../types/serverContracts';
-import type { UpdateV2Node } from '../serverEditorTypes';
+import type { ManagedServerRecord, ServerRecord, ServerRouteOption } from '@/types/serverContracts';
+import type { UpdateV2Node } from '@/pages/server/manage/editors/serverEditorTypes';
 
 interface V2NodeRelationshipFieldsProps {
     server: ServerRecord;

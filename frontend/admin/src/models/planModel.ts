@@ -1,15 +1,15 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import { settings } from '../config/adminSettings';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
+import { settings } from '@/config/adminSettings';
 import type {
     PlanFieldValue,
     PlanListRecord,
     PlanPriceField,
     PlanRecord,
     PlanState,
-} from '../types/planContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
+} from '@/types/planContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools } from '@/types/modelEffectContracts';
 
 type PlanRootState = Pick<AdminRootState, 'plan'>;
 interface PlanTools extends ModelEffectTools<PlanRootState> {}

@@ -1,11 +1,11 @@
 import React from 'react';
 import Icon from 'antd/lib/icon';
-import JsonEditor from '../JsonEditor';
+import JsonEditor from '@/pages/server/manage/editors/JsonEditor';
 import { DnsSettings } from './DnsSettings';
 import { RuleSettings } from './RuleSettings';
 import { TlsSettings } from './TlsSettings';
-import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
-import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
+import type { ChildDrawerState, ServerRecord } from '@/types/serverContracts';
+import { formatServerJsonEditorValue } from '@/pages/server/manage/editors/serverJsonEditorValues';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

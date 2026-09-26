@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonEditor from '../JsonEditor';
+import JsonEditor from '@/pages/server/manage/editors/JsonEditor';
 
 export const DEFAULT_PADDING_SCHEME = JSON.stringify(
     [

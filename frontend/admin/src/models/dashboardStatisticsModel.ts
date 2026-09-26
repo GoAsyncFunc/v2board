@@ -1,12 +1,12 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type {
     DashboardStats,
     OrderChartRecord,
     RankChartRecord,
-} from '../types/monitoringContracts';
-import type { AdminAction } from '../types/storeContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
+} from '@/types/monitoringContracts';
+import type { AdminAction } from '@/types/storeContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
 
 interface DashboardStatisticsEffectTools extends PutEffectTools {}
 

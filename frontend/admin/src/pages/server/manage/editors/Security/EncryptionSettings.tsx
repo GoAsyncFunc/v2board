@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { EncryptionSecuritySettings } from '../../../../../types/serverContracts';
+import type { EncryptionSecuritySettings } from '@/types/serverContracts';
 
 export interface EncryptionSettingsProps {
     settings?: EncryptionSecuritySettings | null;

@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import PermissionGroupEditor from '../../../../components/common/PermissionGroupEditor';
+import PermissionGroupEditor from '@/components/common/PermissionGroupEditor';
 import { createServerGroupColumns, type ServerGroupRecord } from './ServerGroupColumns';
 
 interface ServerGroupListProps {

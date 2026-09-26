@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import { UserFormFieldGroup } from './UserFormFieldGroup';
-import type { UserRecord } from '../../../types/userContracts';
+import type { UserRecord } from '@/types/userContracts';
 import { toInputDefaultValue } from './UserFormValues';
 
 export interface UserTrafficFieldsProps {

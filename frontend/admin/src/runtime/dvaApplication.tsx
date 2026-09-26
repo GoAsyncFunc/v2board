@@ -5,8 +5,8 @@ import { createHashHistory } from 'history';
 import type { History } from 'history';
 import { Provider } from 'react-redux';
 import type { Middleware } from 'redux';
-import type { AdminStore } from '../types/storeContracts';
-import type { DvaCoreApplication, DvaOptions } from '../types/dvaRuntimeContracts';
+import type { AdminStore } from '@/types/storeContracts';
+import type { DvaCoreApplication, DvaOptions } from '@/types/dvaRuntimeContracts';
 import * as routerBindings from './routerBindings';
 import { routerMiddleware } from './routerBindings';
 

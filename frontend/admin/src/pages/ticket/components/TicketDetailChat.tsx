@@ -2,11 +2,11 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Tooltip from 'antd/lib/tooltip';
-import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailStyles';
+import { ticketDetailClassNames as styles } from '@/styles/ticketDetailStyles';
 import TicketMessageList from './TicketMessageList';
-import UserEditor from '../../user/components/UserEditor';
-import TrafficPanel from '../../../components/user/TrafficPanel';
-import type { TicketId, TicketRecord } from '../../../types/ticketContracts';
+import UserEditor from '@/pages/user/components/UserEditor';
+import TrafficPanel from '@/components/user/TrafficPanel';
+import type { TicketId, TicketRecord } from '@/types/ticketContracts';
 
 export interface TicketDetailChatProps {
     ticket?: TicketRecord;

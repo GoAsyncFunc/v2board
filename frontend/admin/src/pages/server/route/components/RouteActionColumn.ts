@@ -1,5 +1,5 @@
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { PropertyLabelMap } from '../../../../types/propertyLookupContracts';
+import type { PropertyLabelMap } from '@/types/propertyLookupContracts';
 
 // Display only: this column does not execute routing actions.
 export type RouteActionText = PropertyLabelMap;

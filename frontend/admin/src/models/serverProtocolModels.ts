@@ -1,12 +1,12 @@
-import { post } from '../services/apiClient';
+import { post } from '@/services/apiClient';
 import {
     isSuccessfulResponse,
     type ApiResponse,
     type FormRecord,
     type FormValue,
-} from '../types/apiContracts';
-import type { ServerId, ServerProtocolState } from '../types/serverContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
+} from '@/types/apiContracts';
+import type { ServerId, ServerProtocolState } from '@/types/serverContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
 
 interface ServerProtocolModelOptions {
     namespace: string;

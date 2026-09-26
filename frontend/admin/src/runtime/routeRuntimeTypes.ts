@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { RouteComponentProps } from 'react-router-dom';
-import type { AdminRootState, AdminStore } from '../types/storeContracts';
+import type { AdminRootState, AdminStore } from '@/types/storeContracts';
 
 export type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;
 

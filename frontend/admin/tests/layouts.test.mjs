@@ -30,7 +30,7 @@ async function load(target,original){
    if(id==='react'||id.includes('reactRuntime'))return React;
    if(id==='react-redux'||id.includes('reactRedux'))return {c:connect,connect};
    if(id.includes('moduleInterop'))return {interopDefault:obj=>{const f=()=>obj&&obj.__esModule?obj.default:obj;Object.defineProperty(f,'a',{get:f});return f;}};
-   if(id==='../app/history.js'||id==='../app/history'||id==='../../app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
+   if(id==='../app/history.js'||id==='../app/history'||id==='../../app/history'||id==='@/app/history')return {__esModule:true,default:{location:{pathname:'/dashboard'},push:route=>trace.push(['navigate',route])}};
    if(id.includes('routerHistory')||id.includes('app/navigationService'))return {push:route=>trace.push(['navigate',route])};
    if(id.includes('i18n'))return {formatMessage:({id})=>id};
    if(id.includes('LanguageSelector'))return {a:'LanguageSelector'};
@@ -43,9 +43,9 @@ async function load(target,original){
    if(id.includes('/Icon'))return {a:'Icon',Icon:'Icon'};
    if(id==='antd/lib/config-provider'||id.includes('antdConfigProvider'))return {__esModule:true,default:'ConfigProvider',a:'ConfigProvider'};
    if(id==='antd/lib/locale-provider/zh_CN'||id.includes('antdZhCnLocale'))return {__esModule:true,default:'zh-CN',a:'zh-CN'};
-   if(id==='../Sidebar'||id==='../Sidebar/SidebarLayout')return evaluate(path.join(home,'src/layouts/Sidebar/SidebarLayout.tsx'));
-   if(id==='../Header'||id==='../Header/HeaderLayout')return evaluate(path.join(home,'src/layouts/Header/HeaderLayout.tsx'));
-   if(id==='../../config/navigationConfig')return evaluate(path.join(home,'src/config/navigationConfig.tsx'));
+   if(id==='../Sidebar'||id==='../Sidebar/SidebarLayout'||id==='@/layouts/Sidebar/SidebarLayout')return evaluate(path.join(home,'src/layouts/Sidebar/SidebarLayout.tsx'));
+   if(id==='../Header'||id==='../Header/HeaderLayout'||id==='@/layouts/Header/HeaderLayout')return evaluate(path.join(home,'src/layouts/Header/HeaderLayout.tsx'));
+   if(id==='../../config/navigationConfig'||id==='@/config/navigationConfig')return evaluate(path.join(home,'src/config/navigationConfig.tsx'));
    if(id.includes('HeaderAccountMenu'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderAccountMenu.tsx'));
    if(id.includes('HeaderSearchOverlay'))return evaluate(path.join(home,'src/layouts/Header/components/HeaderSearchOverlay.tsx'));
    if(id.includes('SidebarNavigation'))return evaluate(path.join(home,'src/layouts/Sidebar/components/SidebarNavigation.tsx'));

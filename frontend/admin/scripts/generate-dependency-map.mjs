@@ -33,6 +33,7 @@ if (escapedInputs.length)
 const compilerOptions = {
     allowJs: false,
     baseUrl: appRoot,
+    paths: { '@/*': ['src/*'] },
     jsx: ts.JsxEmit.ReactJSX,
     module: ts.ModuleKind.ESNext,
     moduleResolution: ts.ModuleResolutionKind.NodeJs,

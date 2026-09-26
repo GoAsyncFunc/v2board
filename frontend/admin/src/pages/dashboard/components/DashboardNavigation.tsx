@@ -1,5 +1,5 @@
 import React from 'react';
-import history from '../../../app/navigationService';
+import history from '@/app/navigationService';
 
 interface QuickLinkProps {
     icon: string;

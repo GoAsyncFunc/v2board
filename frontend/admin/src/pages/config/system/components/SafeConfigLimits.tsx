@@ -1,8 +1,5 @@
 import React from 'react';
-import type {
-    ConfigChangeHandler,
-    SafeConfig,
-} from '../../../../types/systemConfigurationContracts';
+import type { ConfigChangeHandler, SafeConfig } from '@/types/systemConfigurationContracts';
 import { TextSetting, ToggleSetting } from './SafeConfigFields';
 
 interface SafeConfigLimitsProps {

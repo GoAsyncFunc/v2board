@@ -2,7 +2,7 @@ import React from 'react';
 import Input from 'antd/lib/input';
 import Radio from 'antd/lib/radio';
 import type { RadioChangeEvent } from 'antd/lib/radio/interface';
-import type { TicketFilterState } from '../../../types/ticketContracts';
+import type { TicketFilterState } from '@/types/ticketContracts';
 
 interface TicketToolbarProps {
     filter: TicketFilterState;

@@ -1,9 +1,6 @@
 import React from 'react';
 import ConfigRow from './ConfigRow';
-import type {
-    ConfigChangeHandler,
-    DepositConfig,
-} from '../../../../types/systemConfigurationContracts';
+import type { ConfigChangeHandler, DepositConfig } from '@/types/systemConfigurationContracts';
 
 interface DepositConfigTabProps {
     deposit: DepositConfig;

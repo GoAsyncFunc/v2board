@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
-import type { DnsSettingsValue } from '../../../../../types/serverContracts';
+import type { DnsSettingsValue } from '@/types/serverContracts';
 
 export interface DnsSettingsProps {
     settings?: DnsSettingsValue;

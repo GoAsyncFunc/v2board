@@ -1,9 +1,9 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import PermissionGroupEditor from '../../../../../components/common/PermissionGroupEditor';
-import type { ServerGroupOption, ServerRecord } from '../../../../../types/serverContracts';
-import type { UpdateV2Node } from '../serverEditorTypes';
+import PermissionGroupEditor from '@/components/common/PermissionGroupEditor';
+import type { ServerGroupOption, ServerRecord } from '@/types/serverContracts';
+import type { UpdateV2Node } from '@/pages/server/manage/editors/serverEditorTypes';
 
 interface V2NodeGeneralFieldsProps {
     server: ServerRecord;

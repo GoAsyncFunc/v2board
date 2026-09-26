@@ -1,6 +1,6 @@
 import React from 'react';
-import { formatIncome, formatLiveCount } from '../../../components/common/MoneyDisplay';
-import type { DashboardIncomeKey, DashboardStats } from '../../../types/monitoringContracts';
+import { formatIncome, formatLiveCount } from '@/components/common/MoneyDisplay';
+import type { DashboardIncomeKey, DashboardStats } from '@/types/monitoringContracts';
 
 const dashboardIncomeFields: Array<[DashboardIncomeKey, string]> = [
     ['month_income', '本月收入'],

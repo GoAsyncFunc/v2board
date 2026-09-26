@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Switch from 'antd/lib/switch';
-import type { VmessTlsSettings } from '../../../../../types/serverContracts';
+import type { VmessTlsSettings } from '@/types/serverContracts';
 
 export interface VmessTlsSettingsProps {
     settings?: VmessTlsSettings;

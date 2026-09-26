@@ -1,10 +1,10 @@
 import React from 'react';
-import JsonEditor from '../JsonEditor';
-import { TlsSettings } from '../Security/TlsSettings';
-import { EncryptionSettings } from '../Security/EncryptionSettings';
-import type { ChildDrawerState, ServerRecord } from '../../../../../types/serverContracts';
-import type { UpdateV2Node } from '../serverEditorTypes';
-import { formatServerJsonEditorValue } from '../serverJsonEditorValues';
+import JsonEditor from '@/pages/server/manage/editors/JsonEditor';
+import { TlsSettings } from '@/pages/server/manage/editors/Security/TlsSettings';
+import { EncryptionSettings } from '@/pages/server/manage/editors/Security/EncryptionSettings';
+import type { ChildDrawerState, ServerRecord } from '@/types/serverContracts';
+import type { UpdateV2Node } from '@/pages/server/manage/editors/serverEditorTypes';
+import { formatServerJsonEditorValue } from '@/pages/server/manage/editors/serverJsonEditorValues';
 
 const NETWORK_PRESETS: Record<string, string> = {
     tcp: JSON.stringify(

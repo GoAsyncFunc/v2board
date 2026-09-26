@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import UserGenerationForm, { type UserGenerationFormValues } from './UserGenerationForm';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { UserModuleState } from '../../../types/userContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { UserModuleState } from '@/types/userContracts';
 
 interface UserGeneratorOwnProps {
     children: React.ReactElement<{ onClick?: React.MouseEventHandler }>;

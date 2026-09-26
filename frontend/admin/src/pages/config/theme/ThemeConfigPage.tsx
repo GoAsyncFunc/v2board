@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import { post } from '../../../services/apiClient';
-import { isSuccessfulResponse } from '../../../types/apiContracts';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
+import { post } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
 import ConnectedThemeConfigEditor, { ThemeConfigEditor } from './components/ThemeConfigEditor';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { ThemeState } from '../../../types/themeContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { ThemeState } from '@/types/themeContracts';
 
 interface ThemePageProps {
     dispatch: AdminDispatch;

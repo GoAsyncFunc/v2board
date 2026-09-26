@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteProps, SwitchProps } from 'react-router-dom';
 import { apply } from './pluginRuntime';
-import type { AdminRouteConfig } from '../routes/routeConfig';
+import type { AdminRouteConfig } from '@/routes/routeConfig';
 import type {
     DynamicRouteProps,
     RouteComponentStatics,

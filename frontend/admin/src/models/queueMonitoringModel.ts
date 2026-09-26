@@ -1,12 +1,8 @@
-import { get } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import type {
-    QueueStats,
-    QueueWorkload,
-    SystemMonitoringState,
-} from '../types/monitoringContracts';
-import type { AdminAction } from '../types/storeContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
+import type { QueueStats, QueueWorkload, SystemMonitoringState } from '@/types/monitoringContracts';
+import type { AdminAction } from '@/types/storeContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
 
 interface SystemEffectTools extends PutEffectTools {}
 

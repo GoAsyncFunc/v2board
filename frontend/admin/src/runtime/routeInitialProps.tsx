@@ -1,6 +1,6 @@
 import React from 'react';
 import type { RouteComponentProps } from 'react-router-dom';
-import type { AdminRouteComponent } from '../routes/routeConfig';
+import type { AdminRouteComponent } from '@/routes/routeConfig';
 import type { DynamicRouteProps, RouteComponentStatics } from './routeRuntimeTypes';
 
 type RouteMatchProps = RouteComponentProps<Record<string, string | undefined>>;

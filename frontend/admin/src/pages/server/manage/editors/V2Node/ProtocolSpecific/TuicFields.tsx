@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'antd/lib/select';
-import type { ServerRecord } from '../../../../../../types/serverContracts';
-import type { UpdateV2Node } from '../../serverEditorTypes';
+import type { ServerRecord } from '@/types/serverContracts';
+import type { UpdateV2Node } from '@/pages/server/manage/editors/serverEditorTypes';
 
 function YesNoSelect({
     field,

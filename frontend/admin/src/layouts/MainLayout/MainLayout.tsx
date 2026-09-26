@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ConfigProvider from 'antd/lib/config-provider';
 import chineseLocale from 'antd/lib/locale-provider/zh_CN';
-import ConnectedSidebar from '../Sidebar/SidebarLayout';
-import ConnectedHeader from '../Header/HeaderLayout';
-import type { HeaderSearchConfig } from '../Header/HeaderLayout';
-import history from '../../app/history';
-import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { LayoutState } from '../../types/authenticationContracts';
+import ConnectedSidebar from '@/layouts/Sidebar/SidebarLayout';
+import ConnectedHeader from '@/layouts/Header/HeaderLayout';
+import type { HeaderSearchConfig } from '@/layouts/Header/HeaderLayout';
+import history from '@/app/history';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { LayoutState } from '@/types/authenticationContracts';
 
 interface MainLayoutOwnProps {
     children?: React.ReactNode;

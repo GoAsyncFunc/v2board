@@ -5,12 +5,8 @@ import Icon from 'antd/lib/icon';
 import Row from 'antd/lib/row';
 import Tooltip from 'antd/lib/tooltip';
 import moment from 'moment';
-import { settings } from '../../../config/adminSettings';
-import type {
-    OrderDetailPlan,
-    OrderDetailRecord,
-    OrderDetailUser,
-} from '../../../types/orderContracts';
+import { settings } from '@/config/adminSettings';
+import type { OrderDetailPlan, OrderDetailRecord, OrderDetailUser } from '@/types/orderContracts';
 
 export interface OrderDetailBodyProps {
     order: OrderDetailRecord;

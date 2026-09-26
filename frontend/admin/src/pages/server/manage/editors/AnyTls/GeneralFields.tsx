@@ -3,8 +3,8 @@ import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Tooltip from 'antd/lib/tooltip';
-import PermissionGroupEditor from '../../../../../components/common/PermissionGroupEditor';
-import type { ServerGroupOption, ServerRecord } from '../../../../../types/serverContracts';
+import PermissionGroupEditor from '@/components/common/PermissionGroupEditor';
+import type { ServerGroupOption, ServerRecord } from '@/types/serverContracts';
 
 export interface AnyTlsGeneralFieldsProps {
     server: ServerRecord;

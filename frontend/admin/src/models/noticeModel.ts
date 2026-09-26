@@ -1,8 +1,8 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
-import type { AdminAction } from '../types/storeContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
-import type { NoticeRecord, NoticeState } from '../types/noticeContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '@/types/apiContracts';
+import type { AdminAction } from '@/types/storeContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
+import type { NoticeRecord, NoticeState } from '@/types/noticeContracts';
 
 interface NoticeEffectTools extends PutEffectTools {}
 

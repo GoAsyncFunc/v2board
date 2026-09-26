@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { RuleSettingsValue } from '../../../../../types/serverContracts';
+import type { RuleSettingsValue } from '@/types/serverContracts';
 
 export interface RuleSettingsProps {
     settings?: RuleSettingsValue;

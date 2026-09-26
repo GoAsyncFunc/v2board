@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { ServerRecord } from '../../../../../types/serverContracts';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export const SHADOWSOCKS_CIPHERS = [
     'aes-128-gcm',

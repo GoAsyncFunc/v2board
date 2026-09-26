@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import MainLayout from '../../layouts/MainLayout/MainLayout';
-import type { PlanSummary } from '../../types/systemConfigurationContracts';
-import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { GiftCardRecord, GiftCardState } from '../../types/promotionContracts';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
+import type { PlanSummary } from '@/types/systemConfigurationContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { GiftCardRecord, GiftCardState } from '@/types/promotionContracts';
 import GiftCardEditor from './components/GiftCardEditor';
 import { GiftCardList } from './components/GiftCardList';
 

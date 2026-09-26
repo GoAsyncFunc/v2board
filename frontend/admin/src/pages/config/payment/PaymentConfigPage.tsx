@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import LoadingContainer from '../../../components/common/LoadingContainer';
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
 import PaymentList from './components/PaymentList';
 import ConnectedPaymentEditor, { PaymentEditor } from './components/PaymentEditor';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { PaymentState } from '../../../types/paymentContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { PaymentState } from '@/types/paymentContracts';
 
 interface PaymentPageProps {
     dispatch: AdminDispatch;

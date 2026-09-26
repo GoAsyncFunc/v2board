@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import LoadingContainer from '../../../components/common/LoadingContainer';
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import { settings } from '../../../config/adminSettings';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
+import { settings } from '@/config/adminSettings';
 import ServerRouteList from './components/ServerRouteList';
 import ConnectedRouteEditor, {
     RouteEditor,
     type ServerRouteRecord,
 } from './components/RouteEditor';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 
 interface ServerRoutePageProps {
     dispatch: AdminDispatch;

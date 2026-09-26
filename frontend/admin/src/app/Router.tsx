@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Action, Location, UnregisterCallback } from 'history';
-import routeRenderer from '../runtime/routeRenderer';
-import { routerBindings } from '../runtime/dvaApplication';
-import * as plugins from '../runtime/pluginRuntime';
-import adminRoutes from '../routes/adminRoutes';
+import routeRenderer from '@/runtime/routeRenderer';
+import { routerBindings } from '@/runtime/dvaApplication';
+import * as plugins from '@/runtime/pluginRuntime';
+import adminRoutes from '@/routes/adminRoutes';
 import history from './history';
-import type { AdminStore } from '../types/storeContracts';
-import type { DynamicRouteProps } from '../runtime/routeRenderer';
+import type { AdminStore } from '@/types/storeContracts';
+import type { DynamicRouteProps } from '@/runtime/routeRenderer';
 
 const { ConnectedRouter } = routerBindings;
 

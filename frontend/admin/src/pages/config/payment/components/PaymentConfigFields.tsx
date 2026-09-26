@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { PaymentConfigValue, PaymentForm } from '../../../../types/paymentContracts';
+import type { PaymentConfigValue, PaymentForm } from '@/types/paymentContracts';
 
 function toInputValue(value: PaymentConfigValue): string | number | undefined {
     if (value === null || value === undefined) return undefined;

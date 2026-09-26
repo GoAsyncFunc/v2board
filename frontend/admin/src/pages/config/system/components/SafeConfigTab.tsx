@@ -1,10 +1,7 @@
 import React from 'react';
 import { TextSetting, ToggleSetting } from './SafeConfigFields';
 import SafeConfigLimits from './SafeConfigLimits';
-import type {
-    ConfigChangeHandler,
-    SafeConfig,
-} from '../../../../types/systemConfigurationContracts';
+import type { ConfigChangeHandler, SafeConfig } from '@/types/systemConfigurationContracts';
 
 interface SafeConfigTabProps {
     safe: SafeConfig;

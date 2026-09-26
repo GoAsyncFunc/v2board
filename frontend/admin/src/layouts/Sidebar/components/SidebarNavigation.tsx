@@ -1,5 +1,5 @@
 import React from 'react';
-import type { NavigationItem } from '../../../config/navigationConfig';
+import type { NavigationItem } from '@/config/navigationConfig';
 
 interface SidebarNavigationProps {
     items: NavigationItem[];

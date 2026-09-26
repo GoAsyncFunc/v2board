@@ -5,7 +5,7 @@ import Icon from 'antd/lib/icon';
 import List from 'antd/lib/list';
 import Switch from 'antd/lib/switch';
 import Tag from 'antd/lib/tag';
-import type { ManagedServerRecord, ServerRecord } from '../../../../types/serverContracts';
+import type { ManagedServerRecord, ServerRecord } from '@/types/serverContracts';
 import { SERVER_STATUS_BADGES } from './ServerManageColumns';
 import { renderServerTypeTag } from './ServerTypeTag';
 

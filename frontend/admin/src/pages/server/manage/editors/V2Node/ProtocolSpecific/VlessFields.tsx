@@ -1,7 +1,10 @@
 import React from 'react';
 import Select from 'antd/lib/select';
-import type { ServerRecord } from '../../../../../../types/serverContracts';
-import type { OpenV2NodeSettings, UpdateV2Node } from '../../serverEditorTypes';
+import type { ServerRecord } from '@/types/serverContracts';
+import type {
+    OpenV2NodeSettings,
+    UpdateV2Node,
+} from '@/pages/server/manage/editors/serverEditorTypes';
 
 export function VlessFields({
     server,

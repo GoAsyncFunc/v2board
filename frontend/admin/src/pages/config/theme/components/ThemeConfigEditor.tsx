@@ -4,13 +4,13 @@ import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Select from 'antd/lib/select';
-import type { AdminDispatch, AdminRootState } from '../../../../types/storeContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import type {
     ThemeConfigParams,
     ThemeConfigValue,
     ThemeField,
     ThemeState,
-} from '../../../../types/themeContracts';
+} from '@/types/themeContracts';
 
 function toInputValue(value: ThemeConfigValue): string | number | undefined {
     if (value === null || value === undefined) return undefined;

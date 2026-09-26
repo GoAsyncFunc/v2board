@@ -1,8 +1,8 @@
 export {};
 
-import type { AdminHistory } from '../app/history';
-import type { AdminDvaApplication } from '../app/applicationStore';
-import type { AdminRouteConfig } from '../routes/routeConfig';
+import type { AdminHistory } from '@/app/history';
+import type { AdminDvaApplication } from '@/app/applicationStore';
+import type { AdminRouteConfig } from '@/routes/routeConfig';
 import type { AdminRootState } from './storeContracts';
 
 declare global {
@@ -24,7 +24,7 @@ declare global {
         g_history: AdminHistory;
         g_initialData: Partial<AdminRootState>;
         g_isBrowser: boolean;
-        g_plugins: typeof import('../runtime/pluginRuntime');
+        g_plugins: typeof import('@/runtime/pluginRuntime');
         g_useSSR: boolean;
     }
 }

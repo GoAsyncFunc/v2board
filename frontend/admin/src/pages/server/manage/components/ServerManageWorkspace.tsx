@@ -1,12 +1,8 @@
 import React from 'react';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import SortableTable from '../../../../components/common/SortableTable';
-import ContextMenuTable from '../../../../components/common/ContextMenuTable';
-import type {
-    ManagedServerRecord,
-    ServerGroupOption,
-    ServerRecord,
-} from '../../../../types/serverContracts';
+import SortableTable from '@/components/common/SortableTable';
+import ContextMenuTable from '@/components/common/ContextMenuTable';
+import type { ManagedServerRecord, ServerGroupOption, ServerRecord } from '@/types/serverContracts';
 import { createServerManageColumns, createServerSortColumns } from './ServerManageColumns';
 import ServerManageMobileList from './ServerManageMobileList';
 import {

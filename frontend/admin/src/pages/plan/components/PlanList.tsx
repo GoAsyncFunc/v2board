@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ContextMenuTable from '../../../components/common/ContextMenuTable';
-import SortableTable from '../../../components/common/SortableTable';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { PlanFieldValue, PlanRecord, PlanState } from '../../../types/planContracts';
+import ContextMenuTable from '@/components/common/ContextMenuTable';
+import SortableTable from '@/components/common/SortableTable';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { PlanFieldValue, PlanRecord, PlanState } from '@/types/planContracts';
 import type { PlanGroup } from './PlanGroupColumn';
 import {
     createPlanActionMenu,

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createNavigation } from '../../config/navigationConfig';
-import type { NavigationItem } from '../../config/navigationConfig';
-import history from '../../app/history';
-import type { AdminDispatch } from '../../types/storeContracts';
-import '../../config/siteSettings';
+import { createNavigation } from '@/config/navigationConfig';
+import type { NavigationItem } from '@/config/navigationConfig';
+import history from '@/app/history';
+import type { AdminDispatch } from '@/types/storeContracts';
+import '@/config/siteSettings';
 import SidebarNavigation from './components/SidebarNavigation';
 
 interface SidebarOwnProps {

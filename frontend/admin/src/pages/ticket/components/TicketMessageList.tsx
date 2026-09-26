@@ -1,7 +1,7 @@
 import React from 'react';
-import { formatDateTime } from '../../../utils/dateTimeFormatter';
-import type { TicketMessage } from '../../../types/ticketContracts';
-import { ticketDetailClassNames as styles } from '../../../styles/ticketDetailStyles';
+import { formatDateTime } from '@/utils/dateTimeFormatter';
+import type { TicketMessage } from '@/types/ticketContracts';
+import { ticketDetailClassNames as styles } from '@/styles/ticketDetailStyles';
 
 interface TicketMessageListProps {
     messages: TicketMessage[];

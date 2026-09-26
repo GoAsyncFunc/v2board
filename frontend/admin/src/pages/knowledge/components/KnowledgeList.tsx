@@ -6,9 +6,9 @@ import Switch from 'antd/lib/switch';
 import Table from 'antd/lib/table';
 import type { ColumnProps } from 'antd/lib/table/interface';
 import { createKnowledgeColumns } from './KnowledgeColumns';
-import SortableTable, { TableDragHandle } from '../../../components/common/SortableTable';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { KnowledgeRecord, KnowledgeState } from '../../../types/knowledgeContracts';
+import SortableTable, { TableDragHandle } from '@/components/common/SortableTable';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { KnowledgeRecord, KnowledgeState } from '@/types/knowledgeContracts';
 import ConnectedKnowledgeEditor from './KnowledgeEditor';
 
 const tableColumns = createKnowledgeColumns();

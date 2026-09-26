@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'antd/lib/input';
-import type { CouponRecord } from '../../../types/promotionContracts';
+import type { CouponRecord } from '@/types/promotionContracts';
 
 export interface CouponBasicFieldsProps {
     coupon: CouponRecord;

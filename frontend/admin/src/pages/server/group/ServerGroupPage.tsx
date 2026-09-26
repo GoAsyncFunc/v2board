@@ -1,14 +1,14 @@
 import React from 'react';
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import LoadingContainer from '../../../components/common/LoadingContainer';
-import PermissionGroupEditor from '../../../components/common/PermissionGroupEditor';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import PermissionGroupEditor from '@/components/common/PermissionGroupEditor';
 import ServerGroupList from './components/ServerGroupList';
 import type { ServerGroupRecord } from './components/ServerGroupColumns';
-import type { ServerGroupState } from '../../../types/serverContracts';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
+import type { ServerGroupState } from '@/types/serverContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 
 interface ServerGroupPageProps {
     dispatch: AdminDispatch;

@@ -61,7 +61,21 @@ npm run format
 npm run check:format
 ```
 
-格式化范围包含本项目的 `src/**/*.ts`、`src/**/*.tsx`、`src/**/*.css`、`public/assets/admin/**/*.css` 和 `scripts/**/*.mjs`，规则由 `.prettierrc.json` 与根目录 `.editorconfig` 共同决定。脚本也纳入检查，避免浏览器验收工具继续保留编译产物式的单行短变量结构。
+格式化范围包含本项目的 `src/**/*.ts`、`src/**/*.tsx`、`src/**/*.css`、`public/assets/admin/**/*.css` 和 `scripts/**/*.mjs`。规则完全由本项目内的 `.prettierrc.json`（`printWidth: 100`、`tabWidth: 4`）和本项目自己的 `.editorconfig` 决定，不依赖仓库上级目录的配置。脚本也纳入检查，避免浏览器验收工具继续保留编译产物式的单行短变量结构。
+
+## 导入路径约定
+
+同目录引用使用 `./`，任何跨目录引用一律使用 `@/` 别名，不使用 `../`：
+
+```ts
+import LoadingContainer from '@/components/common/LoadingContainer';
+import type { PlanState } from '@/types/planContracts';
+import PlanEditor from './components/PlanEditor';
+```
+
+`@/` 指向 `src/`，由三处配置共同保证：`tsconfig.json` 的 `paths`（类型检查）、`scripts/build.mjs` 的 esbuild `alias`（打包）、`scripts/generate-dependency-map.mjs` 的 `compilerOptions.paths`（依赖图解析）。修改别名时三处必须同步。
+
+约定由 `npm run check:imports` 强制，发现 `../` 时以非零码退出，可用 `node scripts/check-import-paths.mjs --fix` 自动改写。之所以需要这条规则：源码是从编译产物恢复的，原始 bundle 由 Webpack 打包，模块引用在打包阶段已被替换成数字模块 ID，恢复时只能按文件位置重建引用，因而遗留了大量 `../../..` 形式的上级相对引用。这类写法无法从 import 语句判断模块归属，移动文件还会连带修改所有引用方。
 
 ## 测试
 

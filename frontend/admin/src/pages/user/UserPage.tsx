@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
 import type { PaginationConfig, SorterResult } from 'antd/lib/table/interface';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import history from '../../app/navigationService';
-import { setPreference } from '../../utils/siteHelpers';
-import MainLayout from '../../layouts/MainLayout/MainLayout';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import history from '@/app/navigationService';
+import { setPreference } from '@/utils/siteHelpers';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
 import UserFilterDrawer, { createUserFilterFields } from './components/UserFilterDrawer';
 import { UserList } from './components/UserList';
 import UserToolbar from './components/UserToolbar';
-import type { FilterField, FilterValue } from '../../types/filterContracts';
-import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
+import type { FilterField, FilterValue } from '@/types/filterContracts';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
 import type {
     UserGroupOption,
     UserModuleState,
     UserPlanOption,
     UserRecord,
-} from '../../types/userContracts';
+} from '@/types/userContracts';
 
 interface UserPageProps {
     dispatch: AdminDispatch;

@@ -1,5 +1,5 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type {
     AdminConfigState,
     ConfigGroupKey,
@@ -7,9 +7,9 @@ import type {
     InviteConfig,
     MailTestLog,
     SiteConfig,
-} from '../types/systemConfigurationContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
+} from '@/types/systemConfigurationContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools } from '@/types/modelEffectContracts';
 
 type ConfigRootState = Pick<AdminRootState, 'config'>;
 interface ConfigTools extends ModelEffectTools<ConfigRootState> {}

@@ -15,8 +15,8 @@ import type {
     ServerEditorProps,
     ServerRecord,
     ServerSaveState,
-} from '../../../../types/serverContracts';
-import type { AdminRootState } from '../../../../types/storeContracts';
+} from '@/types/serverContracts';
+import type { AdminRootState } from '@/types/storeContracts';
 
 interface VlessEditorProps extends ServerEditorProps {
     serverVless: ServerSaveState;

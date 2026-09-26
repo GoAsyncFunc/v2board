@@ -1,19 +1,19 @@
 import moment from 'moment';
-import { get, post } from '../services/apiClient';
-import { downloadCsv } from '../services/csvDownloadService';
+import { get, post } from '@/services/apiClient';
+import { downloadCsv } from '@/services/csvDownloadService';
 import {
     isSuccessfulResponse,
     type ApiResponse,
     type FormRecord,
     type FormValue,
-} from '../types/apiContracts';
-import type { FilterItem } from '../types/filterContracts';
-import type { AdminLoginData, AdminUserInfo } from '../types/authenticationContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools, PutEffectTools } from '../types/modelEffectContracts';
-import type { UserModuleState, UserPagination, UserRecord, UserSort } from '../types/userContracts';
-import history from '../app/navigationService';
-import { getToken } from '../utils/siteHelpers';
+} from '@/types/apiContracts';
+import type { FilterItem } from '@/types/filterContracts';
+import type { AdminLoginData, AdminUserInfo } from '@/types/authenticationContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools, PutEffectTools } from '@/types/modelEffectContracts';
+import type { UserModuleState, UserPagination, UserRecord, UserSort } from '@/types/userContracts';
+import history from '@/app/navigationService';
+import { getToken } from '@/utils/siteHelpers';
 
 type UserRootState = Pick<AdminRootState, 'user'>;
 interface UserTools extends ModelEffectTools<UserRootState> {}

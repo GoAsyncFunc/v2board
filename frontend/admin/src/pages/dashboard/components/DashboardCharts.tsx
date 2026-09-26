@@ -13,13 +13,13 @@ import { LabelLayout } from 'echarts/features';
 import { SVGRenderer } from 'echarts/renderers';
 import DashboardOverview from './DashboardOverview';
 import { createRankChartOption, RankChart } from './DashboardServerRank';
-import { createOrderChartOption } from '../chartOptions';
+import { createOrderChartOption } from '@/pages/dashboard/chartOptions';
 import type {
     DashboardStats,
     OrderChartRecord,
     RankChartRecord,
-} from '../../../types/monitoringContracts';
-import type { AdminDispatch } from '../../../types/storeContracts';
+} from '@/types/monitoringContracts';
+import type { AdminDispatch } from '@/types/storeContracts';
 
 echarts.use([
     LineChart,

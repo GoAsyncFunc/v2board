@@ -1,23 +1,23 @@
 import React from 'react';
-import { createDva } from '../runtime/dvaApplication';
-import type { DvaApplication } from '../runtime/dvaApplication';
-import loadingPlugin from '../runtime/loadingPlugin';
-import { mergeConfig } from '../runtime/pluginRuntime';
+import { createDva } from '@/runtime/dvaApplication';
+import type { DvaApplication } from '@/runtime/dvaApplication';
+import loadingPlugin from '@/runtime/loadingPlugin';
+import { mergeConfig } from '@/runtime/pluginRuntime';
 import history from './history';
-import adminAuthenticationModel from '../models/adminAuthenticationModel';
-import configurationModel from '../models/configurationModel';
-import coupon from '../models/couponModel';
-import giftcard from '../models/giftCardModel';
-import knowledge from '../models/knowledgeModel';
-import layout from '../models/layoutModel';
-import notice from '../models/noticeModel';
-import order from '../models/orderModel';
-import passport from '../models/adminPassportModel';
-import payment from '../models/paymentModel';
-import plan from '../models/planModel';
-import serverGroup from '../models/serverGroupModel';
-import serverManage from '../models/serverManagementModel';
-import serverRoute from '../models/serverRouteModel';
+import adminAuthenticationModel from '@/models/adminAuthenticationModel';
+import configurationModel from '@/models/configurationModel';
+import coupon from '@/models/couponModel';
+import giftcard from '@/models/giftCardModel';
+import knowledge from '@/models/knowledgeModel';
+import layout from '@/models/layoutModel';
+import notice from '@/models/noticeModel';
+import order from '@/models/orderModel';
+import passport from '@/models/adminPassportModel';
+import payment from '@/models/paymentModel';
+import plan from '@/models/planModel';
+import serverGroup from '@/models/serverGroupModel';
+import serverManage from '@/models/serverManagementModel';
+import serverRoute from '@/models/serverRouteModel';
 import {
     serverAnyTLS,
     serverHysteria,
@@ -27,14 +27,14 @@ import {
     serverV2node,
     serverVless,
     serverVmess,
-} from '../models/serverProtocolModels';
-import dashboardStatistics from '../models/dashboardStatisticsModel';
-import system from '../models/queueMonitoringModel';
-import theme from '../models/themeModel';
-import ticket from '../models/ticketModel';
-import user from '../models/userModel';
-import type { AdminStore } from '../types/storeContracts';
-import type { DvaOptions, DvaPlugin } from '../types/dvaRuntimeContracts';
+} from '@/models/serverProtocolModels';
+import dashboardStatistics from '@/models/dashboardStatisticsModel';
+import system from '@/models/queueMonitoringModel';
+import theme from '@/models/themeModel';
+import ticket from '@/models/ticketModel';
+import user from '@/models/userModel';
+import type { AdminStore } from '@/types/storeContracts';
+import type { DvaOptions, DvaPlugin } from '@/types/dvaRuntimeContracts';
 
 export interface AdminDvaApplication extends DvaApplication {}
 

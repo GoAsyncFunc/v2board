@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import AssignOrderEditor from '../../components/order/AssignOrderEditor';
-import LoadingContainer from '../../components/common/LoadingContainer';
-import MainLayout from '../../layouts/MainLayout/MainLayout';
-import type { AdminDispatch, AdminRootState } from '../../types/storeContracts';
-import type { OrderState } from '../../types/orderContracts';
+import AssignOrderEditor from '@/components/order/AssignOrderEditor';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { OrderState } from '@/types/orderContracts';
 import OrderFilterDrawer from './components/OrderFilterDrawer';
 import { OrderList } from './components/OrderList';
 

@@ -1,14 +1,14 @@
 import dayjs from 'moment';
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
 import type {
     GiftCardRecord,
     GiftCardState,
     PromotionPagination,
     PromotionSort,
-} from '../types/promotionContracts';
-import type { AdminAction, AdminRootState } from '../types/storeContracts';
-import type { ModelEffect, ModelEffectTools } from '../types/modelEffectContracts';
+} from '@/types/promotionContracts';
+import type { AdminAction, AdminRootState } from '@/types/storeContracts';
+import type { ModelEffect, ModelEffectTools } from '@/types/modelEffectContracts';
 
 type GiftCardRootState = Pick<AdminRootState, 'giftcard'>;
 interface GiftCardTools extends ModelEffectTools<GiftCardRootState> {}

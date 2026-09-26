@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from 'antd/lib/divider';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
-import type { FilterField, FilterItem, FilterValue } from '../../types/filterContracts';
+import type { FilterField, FilterItem, FilterValue } from '@/types/filterContracts';
 import FilterValueInput from './FilterValueInput';
 
 interface FilterConditionProps {

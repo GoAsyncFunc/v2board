@@ -3,7 +3,7 @@ import moment from 'moment';
 import DatePicker from 'antd/lib/date-picker';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import NullableSelectOption from '../../../components/common/NullableSelectOption';
+import NullableSelectOption from '@/components/common/NullableSelectOption';
 
 export interface UserGenerationFormValues {
     email_prefix?: string;

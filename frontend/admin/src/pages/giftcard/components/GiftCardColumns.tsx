@@ -1,8 +1,8 @@
 import React from 'react';
 import Tag from 'antd/lib/tag';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import type { GiftCardPlan, GiftCardRecord } from '../../../types/promotionContracts';
-import { formatDateTime } from '../../../utils/dateTimeFormatter';
+import type { GiftCardPlan, GiftCardRecord } from '@/types/promotionContracts';
+import { formatDateTime } from '@/utils/dateTimeFormatter';
 
 export function giftCardTypeText(type: GiftCardRecord['type']): string {
     switch (type) {

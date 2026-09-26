@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'antd/lib/icon';
 import type { ColumnProps, PaginationConfig, SorterResult } from 'antd/lib/table/interface';
-import ContextMenuTable from '../../../components/common/ContextMenuTable';
-import type { AdminDispatch, AdminRootState } from '../../../types/storeContracts';
-import type { FilterValue } from '../../../types/filterContracts';
-import type { UserGroupOption, UserModuleState, UserRecord } from '../../../types/userContracts';
+import ContextMenuTable from '@/components/common/ContextMenuTable';
+import type { AdminDispatch, AdminRootState } from '@/types/storeContracts';
+import type { FilterValue } from '@/types/filterContracts';
+import type { UserGroupOption, UserModuleState, UserRecord } from '@/types/userContracts';
 import { UserActionDropdown, UserContextMenu, type UserListActions } from './UserListActions';
 import { createUserListColumns } from './UserListColumns';
 

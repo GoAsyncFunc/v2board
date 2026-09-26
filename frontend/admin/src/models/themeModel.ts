@@ -1,9 +1,9 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse } from '../types/apiContracts';
-import '../config/adminSettings';
-import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '../types/themeContracts';
-import type { AdminAction } from '../types/storeContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse } from '@/types/apiContracts';
+import '@/config/adminSettings';
+import type { ThemeConfigParams, ThemeListResponse, ThemeState } from '@/types/themeContracts';
+import type { AdminAction } from '@/types/storeContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
 
 interface ThemeEffectTools extends PutEffectTools {}
 interface ThemeNameAction {

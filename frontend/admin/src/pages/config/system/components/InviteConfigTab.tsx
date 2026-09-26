@@ -6,7 +6,7 @@ import type {
     ConfigChangeHandler,
     ConfigValue,
     InviteConfig,
-} from '../../../../types/systemConfigurationContracts';
+} from '@/types/systemConfigurationContracts';
 
 interface TextSettingProps {
     title: string;

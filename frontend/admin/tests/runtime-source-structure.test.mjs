@@ -186,8 +186,8 @@ test('server security editors are organized as named source modules', async () =
         ),
         'utf8',
     );
-    assert.match(vlessChildSource, /from ['"]\.\.\/Security\/TlsSettings['"]/);
-    assert.match(vlessChildSource, /from ['"]\.\.\/Security\/EncryptionSettings['"]/);
+    assert.match(vlessChildSource, /from ['"][^'"]*\/Security\/TlsSettings['"]/);
+    assert.match(vlessChildSource, /from ['"][^'"]*\/Security\/EncryptionSettings['"]/);
     assert.match(tlsSource, /export class TlsSettings/);
     assert.match(tlsSource, /<TlsAdvancedSettings/);
     assert.match(tlsAdvancedSource, /export function TlsAdvancedSettings/);
@@ -573,7 +573,7 @@ test('admin business contracts do not depend on rendering components', async () 
         const source = await fs.readFile(new URL(typeName, typesDirectory), 'utf8');
         assert.doesNotMatch(
             source,
-            /from ['"]\.\.\/(components|pages|layouts)\//,
+            /from ['"](?:\.\.\/|@\/)(components|pages|layouts)\//,
             `${typeName} depends on the rendering layer`,
         );
     }
@@ -584,7 +584,7 @@ test('admin business contracts do not depend on rendering components', async () 
         const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
         assert.doesNotMatch(
             source,
-            /from ['"]\.\.\/components\//,
+            /from ['"](?:\.\.\/|@\/)components\//,
             `${modelName} depends on a component`,
         );
         assert.doesNotMatch(
@@ -625,7 +625,7 @@ test('admin request transport does not depend on the rendering library', async (
         'utf8',
     );
     assert.doesNotMatch(requestSource, /from ['"]antd\//);
-    assert.doesNotMatch(headerSource, /import ['"]\.\.\/services\/request['"]/);
+    assert.doesNotMatch(headerSource, /import ['"](?:\.\.\/|@\/)services\/request['"]/);
     assert.match(presentationSource, /setRequestFailurePresenter/);
     assert.match(presentationSource, /from ['"]antd\/lib\/notification['"]/);
 });
@@ -758,7 +758,7 @@ test('admin models depend on API contracts separately from request transport', a
         const source = await fs.readFile(new URL(modelName, modelsDirectory), 'utf8');
         assert.doesNotMatch(
             source,
-            /import\s*\{[^}]*\b(?:ApiResponse|FormRecord|FormValue|JsonValue|isSuccessfulResponse)\b[^}]*\}\s*from ['"]\.\.\/services\/request['"]/s,
+            /import\s*\{[^}]*\b(?:ApiResponse|FormRecord|FormValue|JsonValue|isSuccessfulResponse)\b[^}]*\}\s*from ['"](?:\.\.\/|@\/)services\/request['"]/s,
             `${modelName} imports API contracts from request transport`,
         );
     }
@@ -1165,7 +1165,7 @@ test('admin components use business domains and connected editors use the canoni
     }
     assert.doesNotMatch(
         serverManagePage,
-        /from ['"]\.\.\/\.\.\/\.\.\/components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/,
+        /from ['"][^'"]*components\/server\/(?:V2Node|Vmess|Vless|Trojan|Tuic|Hysteria|Shadowsocks|AnyTls)Editor['"]/,
     );
 
     for (const domain of expectedDomains) {
@@ -1371,7 +1371,7 @@ test('Trojan network settings use the server model value contract', async () => 
     );
     assert.match(networkSource, /value\?: ServerRecord\['network_settings'\]/);
     assert.match(networkSource, /formatServerJsonEditorValue\(value\)/);
-    assert.match(networkSource, /from ['"]\.\.\/serverJsonEditorValues['"]/);
+    assert.match(networkSource, /from ['"][^'"]*serverJsonEditorValues['"]/);
     assert.doesNotMatch(networkSource, /value\?: unknown|formatNetworkSettings\(/);
 });
 

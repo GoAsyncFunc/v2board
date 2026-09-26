@@ -1,11 +1,11 @@
-import { get, post } from '../services/apiClient';
-import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '../types/apiContracts';
-import history from '../app/navigationService';
+import { get, post } from '@/services/apiClient';
+import { isSuccessfulResponse, type ApiResponse, type FormRecord } from '@/types/apiContracts';
+import history from '@/app/navigationService';
 import type {
     AdminLoginData,
     AdministratorAuthenticationState,
-} from '../types/authenticationContracts';
-import type { ModelEffect, PutEffectTools } from '../types/modelEffectContracts';
+} from '@/types/authenticationContracts';
+import type { ModelEffect, PutEffectTools } from '@/types/modelEffectContracts';
 
 interface AdministratorAuthenticationLoginAction {
     action: FormRecord;

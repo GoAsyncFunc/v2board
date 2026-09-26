@@ -4,10 +4,10 @@ import Modal from 'antd/lib/modal';
 import Table from 'antd/lib/table';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { ColumnProps } from 'antd/lib/table/interface';
-import LoadingContainer from '../common/LoadingContainer';
-import { get } from '../../services/apiClient';
-import { isSuccessfulResponse } from '../../types/apiContracts';
-import { formatBytes } from '../../utils/siteHelpers';
+import LoadingContainer from '@/components/common/LoadingContainer';
+import { get } from '@/services/apiClient';
+import { isSuccessfulResponse } from '@/types/apiContracts';
+import { formatBytes } from '@/utils/siteHelpers';
 
 export interface TrafficRecord {
     record_at: number;

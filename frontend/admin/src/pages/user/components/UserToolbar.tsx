@@ -7,8 +7,8 @@ import Tooltip from 'antd/lib/tooltip';
 import UserFilterDrawer from './UserFilterDrawer';
 import SendMailEditor from './SendMailEditor';
 import UserGenerator from './UserGenerator';
-import type { FilterItem } from '../../../types/filterContracts';
-import type { UserPlanOption } from '../../../types/userContracts';
+import type { FilterItem } from '@/types/filterContracts';
+import type { UserPlanOption } from '@/types/userContracts';
 
 interface UserToolbarProps {
     filter: FilterItem[];

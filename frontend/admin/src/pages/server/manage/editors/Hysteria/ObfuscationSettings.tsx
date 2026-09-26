@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
-import type { ServerRecord } from '../../../../../types/serverContracts';
+import type { ServerRecord } from '@/types/serverContracts';
 
 export interface HysteriaObfuscationSettingsProps {
     server: Pick<ServerRecord, 'version' | 'obfs' | 'obfs_password'>;

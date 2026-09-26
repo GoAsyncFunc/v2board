@@ -1,12 +1,12 @@
-import { siteSettings } from '../config/siteSettings';
+import { siteSettings } from '@/config/siteSettings';
 import type {
     AdminRequestOptions,
     ApiResponse,
     FormRecord,
     FormValue,
     JsonValue,
-} from '../types/apiContracts';
-import { clearToken, getToken } from '../utils/siteHelpers';
+} from '@/types/apiContracts';
+import { clearToken, getToken } from '@/utils/siteHelpers';
 
 interface ApiPayload<Data = JsonValue> {
     data?: Data;
