@@ -67,6 +67,10 @@ class ConfigSave extends FormRequest
         'frontend_theme_header' => 'nullable|in:dark,light',
         'frontend_theme_color' => 'nullable|in:default,darkblue,black,green',
         'frontend_background_url' => 'nullable|url',
+        'user_theme_mode' => 'nullable|in:light,dark,system',
+        'user_theme_preset' => 'nullable|in:default,azure,emerald,rose,graphite',
+        'user_theme_sidebar' => 'nullable|in:standard,compact,rail',
+        'user_theme_density' => 'nullable|in:comfortable,compact',
         // email
         'email_template' => '',
         'email_host' => '',

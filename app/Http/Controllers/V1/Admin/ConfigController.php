@@ -118,10 +118,10 @@ class ConfigController extends Controller
                 'show_subscribe_expire' => (int)config('v2board.show_subscribe_expire', 5),
             ],
             'frontend' => [
-                'frontend_theme' => config('v2board.frontend_theme', 'v2board'),
-                'frontend_theme_sidebar' => config('v2board.frontend_theme_sidebar', 'light'),
-                'frontend_theme_header' => config('v2board.frontend_theme_header', 'dark'),
-                'frontend_theme_color' => config('v2board.frontend_theme_color', 'default'),
+                'user_theme_mode' => config('v2board.user_theme_mode', 'system'),
+                'user_theme_preset' => config('v2board.user_theme_preset', 'default'),
+                'user_theme_sidebar' => config('v2board.user_theme_sidebar', 'standard'),
+                'user_theme_density' => config('v2board.user_theme_density', 'comfortable'),
                 'frontend_background_url' => config('v2board.frontend_background_url'),
             ],
             'server' => [
