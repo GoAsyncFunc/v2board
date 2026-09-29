@@ -10,6 +10,8 @@ class CommController extends Controller
 {
     public function config()
     {
+        $activeTheme = config('v2board.frontend_theme', 'default');
+        $themeConfig = config("theme.{$activeTheme}", []);
         return response([
             'data' => [
                 'title' => config('v2board.app_name', 'V2Board'),
@@ -24,12 +26,13 @@ class CommController extends Controller
                 'app_description' => config('v2board.app_description'),
                 'app_url' => config('v2board.app_url'),
                 'logo' => config('v2board.logo'),
-                'background_url' => config('v2board.frontend_background_url'),
+                'background_url' => $themeConfig['background_url'] ?? config('v2board.frontend_background_url'),
+                'custom_html' => $themeConfig['custom_html'] ?? '',
                 'user_theme' => [
-                    'mode' => config('v2board.user_theme_mode', 'system'),
-                    'preset' => config('v2board.user_theme_preset', 'default'),
-                    'sidebar' => config('v2board.user_theme_sidebar', 'standard'),
-                    'density' => config('v2board.user_theme_density', 'comfortable'),
+                    'mode' => $themeConfig['user_theme_mode'] ?? config('v2board.user_theme_mode', 'system'),
+                    'preset' => $themeConfig['user_theme_preset'] ?? config('v2board.user_theme_preset', 'default'),
+                    'sidebar' => $themeConfig['user_theme_sidebar'] ?? config('v2board.user_theme_sidebar', 'standard'),
+                    'density' => $themeConfig['user_theme_density'] ?? config('v2board.user_theme_density', 'comfortable'),
                 ],
             ]
         ]);

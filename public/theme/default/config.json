@@ -21,6 +21,51 @@
         "field_name": "background_url",
         "field_type": "input"
     }, {
+        "label": "默认明暗模式",
+        "placeholder": "请选择默认明暗模式",
+        "field_name": "user_theme_mode",
+        "field_type": "select",
+        "select_options": {
+            "system": "跟随系统",
+            "light": "浅色",
+            "dark": "深色"
+        },
+        "default_value": "system"
+    }, {
+        "label": "新版主题预设",
+        "placeholder": "请选择主题预设",
+        "field_name": "user_theme_preset",
+        "field_type": "select",
+        "select_options": {
+            "default": "默认蓝",
+            "azure": "天青",
+            "emerald": "翡翠绿",
+            "rose": "玫瑰红",
+            "graphite": "石墨灰"
+        },
+        "default_value": "default"
+    }, {
+        "label": "新版侧边栏样式",
+        "placeholder": "请选择侧边栏样式",
+        "field_name": "user_theme_sidebar",
+        "field_type": "select",
+        "select_options": {
+            "standard": "标准",
+            "compact": "紧凑",
+            "rail": "图标栏"
+        },
+        "default_value": "standard"
+    }, {
+        "label": "新版页面密度",
+        "placeholder": "请选择页面密度",
+        "field_name": "user_theme_density",
+        "field_type": "select",
+        "select_options": {
+            "comfortable": "舒适",
+            "compact": "紧凑"
+        },
+        "default_value": "comfortable"
+    }, {
         "label": "边栏风格",
         "placeholder": "请选择边栏风格",
         "field_name": "theme_sidebar",
