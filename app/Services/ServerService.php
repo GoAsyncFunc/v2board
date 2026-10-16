@@ -477,4 +477,32 @@ class ServerService
                 return false;
         }
     }
+
+    /**
+     * 获取指定协议节点表的最小可用空闲 ID（填补删除释放的 ID 空洞）
+     *
+     * @param string $modelClass Eloquent 模型类名
+     * @return int 最小可用正整数 ID
+     */
+    public static function getNextAvailableId(string $modelClass): int
+    {
+        $existingIds = $modelClass::query()
+            ->lockForUpdate()
+            ->orderBy('id', 'ASC')
+            ->pluck('id')
+            ->map(fn($id) => (int)$id)
+            ->toArray();
+
+        if (empty($existingIds)) {
+            return 1;
+        }
+
+        $idSet = array_flip($existingIds);
+        $candidate = 1;
+        while (isset($idSet[$candidate])) {
+            $candidate++;
+        }
+
+        return $candidate;
+    }
 }

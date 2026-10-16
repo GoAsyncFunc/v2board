@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\ServerTrojanSave;
 use App\Http\Requests\Admin\ServerTrojanUpdate;
 use App\Models\ServerTrojan;
 use App\Services\ServerService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class TrojanController extends Controller
@@ -14,6 +15,18 @@ class TrojanController extends Controller
     public function save(ServerTrojanSave $request)
     {
         $params = $request->validated();
+        if (!empty($params['parent_id'])) {
+            $parent = ServerTrojan::find($params['parent_id']);
+            if (!$parent) {
+                abort(500, '指定的父节点不存在或非同协议节点');
+            }
+            if (!empty($parent->parent_id)) {
+                abort(500, '父节点不能是子节点，不支持多级继承');
+            }
+            if ($request->input('id') && (int)$parent->id === (int)$request->input('id')) {
+                abort(500, '节点不能将自身设为父节点');
+            }
+        }
         if ($request->input('id')) {
             $server = ServerTrojan::find($request->input('id'));
             if (!$server) {
@@ -29,7 +42,19 @@ class TrojanController extends Controller
             ]);
         }
 
-        if (!ServerTrojan::create($params)) {
+        DB::beginTransaction();
+        try {
+            $params['id'] = ServerService::getNextAvailableId(ServerTrojan::class);
+            $instance = new ServerTrojan();
+            foreach ($params as $k => $v) {
+                $instance->{$k} = $v;
+            }
+            if (!$instance->save()) {
+                throw new \Exception('创建失败');
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
             abort(500, '创建失败');
         }
 
@@ -76,11 +101,26 @@ class TrojanController extends Controller
     public function copy(Request $request)
     {
         $server = ServerTrojan::find($request->input('id'));
-        $server->show = 0;
         if (!$server) {
             abort(500, '服务器不存在');
         }
-        if (!ServerTrojan::create($server->toArray())) {
+        $server->show = 0;
+        $name = trim((string) $request->input('name'));
+        $server->name = $name ?: ($server->name . ' - 副本');
+        DB::beginTransaction();
+        try {
+            $attributes = $server->toArray();
+            $attributes['id'] = ServerService::getNextAvailableId(ServerTrojan::class);
+            $instance = new ServerTrojan();
+            foreach ($attributes as $k => $v) {
+                $instance->{$k} = $v;
+            }
+            if (!$instance->save()) {
+                throw new \Exception('复制失败');
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
             abort(500, '复制失败');
         }
 

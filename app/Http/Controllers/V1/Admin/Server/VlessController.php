@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\V1\Admin\Server;
 
+use App\Services\ServerService;
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Controllers\Controller;
 use App\Models\ServerVless;
 use Illuminate\Http\Request;
@@ -113,7 +116,19 @@ class VlessController extends Controller
             ]);
         }
 
-        if (!ServerVless::create($params)) {
+        DB::beginTransaction();
+        try {
+            $params['id'] = ServerService::getNextAvailableId(ServerVless::class);
+            $instance = new ServerVless();
+            foreach ($params as $k => $v) {
+                $instance->{$k} = $v;
+            }
+            if (!$instance->save()) {
+                throw new \Exception('创建失败');
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
             abort(500, '创建失败');
         }
 
@@ -160,11 +175,26 @@ class VlessController extends Controller
     public function copy(Request $request)
     {
         $server = ServerVless::find($request->input('id'));
-        $server->show = 0;
         if (!$server) {
             abort(500, '服务器不存在');
         }
-        if (!ServerVless::create($server->toArray())) {
+        $server->show = 0;
+        $name = trim((string) $request->input('name'));
+        $server->name = $name ?: ($server->name . ' - 副本');
+        DB::beginTransaction();
+        try {
+            $attributes = $server->toArray();
+            $attributes['id'] = ServerService::getNextAvailableId(ServerVless::class);
+            $instance = new ServerVless();
+            foreach ($attributes as $k => $v) {
+                $instance->{$k} = $v;
+            }
+            if (!$instance->save()) {
+                throw new \Exception('复制失败');
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
             abort(500, '复制失败');
         }
 
