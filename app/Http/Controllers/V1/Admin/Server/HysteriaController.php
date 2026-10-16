@@ -107,7 +107,20 @@ class HysteriaController extends Controller
             'show',
         ]);
 
-        $server = ServerHysteria::find($request->input('id'));
+        
+        if (!empty($params['parent_id'])) {
+            $parent = ServerHysteria::find($params['parent_id']);
+            if (!$parent) {
+                abort(500, '指定的父节点不存在或非同协议节点');
+            }
+            if (!empty($parent->parent_id)) {
+                abort(500, '子节点不能再作为父节点，不支持多级继承');
+            }
+            if ($request->input('id') && (int)$parent->id === (int)$request->input('id')) {
+                abort(500, '节点不能将自身设为父节点');
+            }
+        }
+$server = ServerHysteria::find($request->input('id'));
 
         if (!$server) {
             abort(500, '该服务器不存在');

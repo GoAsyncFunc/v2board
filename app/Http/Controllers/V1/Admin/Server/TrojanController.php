@@ -21,7 +21,7 @@ class TrojanController extends Controller
                 abort(500, '指定的父节点不存在或非同协议节点');
             }
             if (!empty($parent->parent_id)) {
-                abort(500, '父节点不能是子节点，不支持多级继承');
+                abort(500, '子节点不能再作为父节点，不支持多级继承');
             }
             if ($request->input('id') && (int)$parent->id === (int)$request->input('id')) {
                 abort(500, '节点不能将自身设为父节点');
